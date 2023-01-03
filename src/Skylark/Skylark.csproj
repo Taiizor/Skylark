@@ -57,7 +57,6 @@ Changes are detailed at https://github.com/Taiizor/Skylark/releases
 
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-        <PackageReference Include="WebMarkupMin.Core" Version="2.13.0" />
         <PackageReference Include="WebMarkupMin.NUglify" Version="2.13.5" />
     </ItemGroup>
 
