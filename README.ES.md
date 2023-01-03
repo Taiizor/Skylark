@@ -1,6 +1,6 @@
 ![Logo](.images/Logo.png)
 
-![Dot-Net-Standard-Version](https://img.shields.io/badge/.NET%20Standard-%3E%3D1.1-blue)
+![Dot-Net-Standard-Version](https://img.shields.io/badge/.NET%20Standard-%3E%3D2.0-blue)
 ![C-Sharp-Version](https://img.shields.io/badge/C%23-Preview-blue.svg)
 ![IDE-Version](https://img.shields.io/badge/IDE-VS2022-blue.svg)
 [![NuGet-Version](https://img.shields.io/nuget/v/Skylark.svg)](https://www.nuget.org/packages/Skylark)
@@ -10,7 +10,7 @@
 [![Discord-Server](https://img.shields.io/discord/932386235538878534?label=Discord)](https://discord.gg/nxG977byXb)
 
 # Bienvenido a Skylark
-...
+Taiizor.Starterkit es una colección de herramientas y recursos que pueden ayudar a desarrollar proyectos de .NET. Está diseñado para ser ligero, fácil de usar y no demasiado complicado o intensivo en recursos. Puede ser útil para desarrolladores que son nuevos en .NET o que quieren configurar rápidamente un nuevo proyecto sin tener que pasar mucho tiempo configurando todo desde cero.
 
 ## Colaboradores
 

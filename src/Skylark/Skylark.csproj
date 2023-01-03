@@ -1,31 +1,31 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard1.1;netstandard1.2;netstandard1.3;netstandard1.4;netstandard1.5;netstandard1.6;netstandard2.0;netstandard2.1</TargetFrameworks>
-        <RootNamespace>Skylark</RootNamespace>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
         <DefaultLanguage>en-GB</DefaultLanguage>
         <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>Skylark</RootNamespace>
         <Nullable>disable</Nullable>
     </PropertyGroup>
 
     <PropertyGroup>
         <ApplicationIcon>Resources\Skylark.ico</ApplicationIcon>
-        <Version>1.0.0.2</Version>
+        <Version>1.0.0.3</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>Skylark</Title>
         <PackageId>Skylark</PackageId>
         <Authors>Taiizor</Authors>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
-        <Summary>...</Summary>
-        <Description>...</Description>
+        <Summary>A lightweight .NET library with multipurpose tools.</Summary>
+        <Description>Skylark is a collection of tools and resources that can help with developing .NET projects. It is designed to be lightweight, easy to use, and not too complicated or resource-intensive. It can be useful for developers who are new to .NET or who want to quickly set up a new project without having to spend a lot of time configuring everything from scratch.</Description>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageLicenseExpression></PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <PackageReleaseNotes>Code improvements have been made.
 Changes are detailed at https://github.com/Taiizor/Skylark/releases
         </PackageReleaseNotes>
-        <PackageTags>ReaL Taiizor Soferity Vegalya Skylark C# CSharp VBC VB VisualBasic DotNET .NET NET Lightweight Library</PackageTags>
+        <PackageTags>ReaL Taiizor Soferity Vegalya Skylark C# CSharp VBC VB VisualBasic DotNET .NET NET Multi Purpose Multipurpose Cross App Web Tool Tools Convert Converter Minify Beauty Lightweight Library</PackageTags>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <!--<DocumentationFile>..\$(Title)\bin$(OutputPath)\$(Configuration)\$(TargetFramework)\$(Title).xml</DocumentationFile>-->
         <PackageProjectUrl>https://github.com/Taiizor/Skylark</PackageProjectUrl>
@@ -53,6 +53,12 @@ Changes are detailed at https://github.com/Taiizor/Skylark/releases
             <Version>1.1.1</Version>
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+        <PackageReference Include="WebMarkupMin.Core" Version="2.13.0" />
+        <PackageReference Include="WebMarkupMin.NUglify" Version="2.13.5" />
     </ItemGroup>
 
     <ItemGroup>

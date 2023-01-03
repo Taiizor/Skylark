@@ -1,6 +1,6 @@
 ![Logo](.images/Logo.png)
 
-![Dot-Net-Standard-Version](https://img.shields.io/badge/.NET%20Standard-%3E%3D1.1-blue)
+![Dot-Net-Standard-Version](https://img.shields.io/badge/.NET%20Standard-%3E%3D2.0-blue)
 ![C-Sharp-Version](https://img.shields.io/badge/C%23-Preview-blue.svg)
 ![IDE-Version](https://img.shields.io/badge/IDE-VS2022-blue.svg)
 [![NuGet-Version](https://img.shields.io/nuget/v/Skylark.svg)](https://www.nuget.org/packages/Skylark)
@@ -9,8 +9,8 @@
 
 [![Discord-Server](https://img.shields.io/discord/932386235538878534?label=Discord)](https://discord.gg/nxG977byXb)
 
-# Skylark'e Hoşgeldiniz
-...
+# Skylark'a Hoşgeldiniz
+Skylark, .NET projelerini geliştirmeye yardımcı olacak araçlar ve kaynaklar topluluğudur. Kullanımı kolay ve çok karmaşık veya kaynak yoğun olmayan hafif bir yapıya sahip olması amaçlanmıştır. .NET'e yeni olan veya yeni bir projeyi hızlı bir şekilde kurmak isteyen geliştiriciler için faydalı olabilir, çünkü bunun için çok zaman ayırmak zorunda kalmayacaklardır.
 
 ## Katkıda Bulunanlar
 
