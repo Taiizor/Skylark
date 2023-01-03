@@ -1,0 +1,48 @@
+name: .NET Desktop
+
+on:
+  push:
+    branches: [ develop ]
+
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  Build:
+
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        configuration: [
+            Release
+        ]
+        solution: [
+            src/Skylark.sln
+        ]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    # Install the .NET Core workload
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.x
+
+    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    # Execute all unit tests in the solution
+    - name: Execute Unit Tests
+      run: dotnet test ${{ matrix.solution }} -c ${{ matrix.configuration }} /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
+
+    # Restore the application to populate the obj folder with RuntimeIdentifiers
+    - name: Restore the Skylark
+      run: msbuild ${{ matrix.solution }} /t:Restore /p:Configuration=$env:Configuration
+      env:
+        Configuration: ${{ matrix.configuration }}
