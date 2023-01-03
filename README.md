@@ -71,3 +71,7 @@ Step 1：Add a reference to Skylark or search for Skylark on the NuGet;
 ```Install-Package Skylark```
 
 Step 2：Enjoy encoding
+
+## Documentation
+
+Documentation is located on the [wiki](https://github.com/Taiizor/Skylark/wiki) of this Repo.

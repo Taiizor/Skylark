@@ -71,3 +71,7 @@ Adım 1：Referans olarak Skylark'i ekleyin veya NuGet üzerinden Skylark'i arat
 ```Install-Package Skylark```
 
 Adım 2：Kodlamanın tadını çıkarın
+
+## Dökümantasyon
+
+Dokümantasyon, bu Deponun [wiki](https://github.com/Taiizor/Skylark/wiki)'sinde bulunur.
