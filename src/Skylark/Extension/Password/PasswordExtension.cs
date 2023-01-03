@@ -8,6 +8,9 @@ using MPM = Skylark.Manage.PasswordManage;
 
 namespace Skylark.Extension
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class PasswordExtension
     {
         /// <summary>

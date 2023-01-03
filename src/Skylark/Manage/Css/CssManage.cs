@@ -1,5 +1,8 @@
 ﻿namespace Skylark.Manage
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class CssManage
     {
         /// <summary>

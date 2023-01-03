@@ -6,6 +6,9 @@ using SPSS = Skylark.Struct.PingSendStruct;
 
 namespace Skylark.Extension
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class PingExtension
     {
         /// <summary>

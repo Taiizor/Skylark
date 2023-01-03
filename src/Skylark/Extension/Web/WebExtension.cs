@@ -8,6 +8,9 @@ using SWRS = Skylark.Struct.WebRatioStruct;
 
 namespace Skylark.Extension
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class WebExtension
     {
         /// <summary>

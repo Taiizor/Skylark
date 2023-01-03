@@ -6,6 +6,9 @@ using MCM = Skylark.Manage.CssManage;
 
 namespace Skylark.Extension
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CssExtension
     {
         /// <summary>

@@ -2,6 +2,9 @@
 
 namespace Skylark.Manage
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class TaxManage
     {
         /// <summary>

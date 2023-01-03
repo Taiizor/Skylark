@@ -4,6 +4,9 @@ using MUM = Skylark.Manage.UrlManage;
 
 namespace Skylark.Extension
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class UrlExtension
     {
         /// <summary>

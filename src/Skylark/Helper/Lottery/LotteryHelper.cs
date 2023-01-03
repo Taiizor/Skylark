@@ -4,6 +4,9 @@ using MLM = Skylark.Manage.LotteryManage;
 
 namespace Skylark.Helper
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class LotteryHelper
     {
         /// <summary>

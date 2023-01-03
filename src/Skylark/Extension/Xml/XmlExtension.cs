@@ -7,6 +7,9 @@ using MXM = Skylark.Manage.XmlManage;
 
 namespace Skylark.Extension
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class XmlExtension
     {
         /// <summary>

@@ -6,6 +6,9 @@ using SWCS = Skylark.Struct.WordCombineStruct;
 
 namespace Skylark.Helper
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class WordHelper
     {
         /// <summary>

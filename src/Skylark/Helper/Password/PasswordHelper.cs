@@ -4,6 +4,9 @@ using MPM = Skylark.Manage.PasswordManage;
 
 namespace Skylark.Helper
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class PasswordHelper
     {
         /// <summary>

@@ -6,6 +6,9 @@ using MJM = Skylark.Manage.JsManage;
 
 namespace Skylark.Extension
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class JsExtension
     {
         /// <summary>

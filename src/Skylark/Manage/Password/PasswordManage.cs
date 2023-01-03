@@ -3,6 +3,9 @@ using ESPT = Skylark.Enum.SpecialPasswordType;
 
 namespace Skylark.Manage
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class PasswordManage
     {
         /// <summary>

@@ -1,5 +1,8 @@
 ﻿namespace Skylark.Helper
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class Detect
     {
         /// <summary>

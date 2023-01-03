@@ -6,6 +6,9 @@ using MXM = Skylark.Manage.XhtmlManage;
 
 namespace Skylark.Extension
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class XhtmlExtension
     {
         /// <summary>

@@ -5,6 +5,9 @@ using MJM = Skylark.Manage.JsonManage;
 
 namespace Skylark.Extension
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class JsonExtension
     {
         /// <summary>

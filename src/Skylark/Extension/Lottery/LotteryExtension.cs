@@ -5,6 +5,9 @@ using SLDS = Skylark.Struct.LotteryDrawStruct;
 
 namespace Skylark.Extension
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class LotteryExtension
     {
         /// <summary>

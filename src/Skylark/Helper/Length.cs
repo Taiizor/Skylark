@@ -2,6 +2,9 @@
 
 namespace Skylark.Helper
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class Length
     {
         /// <summary>

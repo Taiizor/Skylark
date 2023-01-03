@@ -2,6 +2,9 @@
 
 namespace Skylark.Helper
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Currency
     {
         /// <summary>

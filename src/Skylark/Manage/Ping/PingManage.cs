@@ -4,6 +4,9 @@ using SPSS = Skylark.Struct.PingSendStruct;
 
 namespace Skylark.Manage
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class PingManage
     {
         /// <summary>

@@ -3,6 +3,9 @@ using System.Xml;
 
 namespace Skylark.ThirdParty.Xml
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class Beauty
     {
         /// <summary>

@@ -7,6 +7,9 @@ using STCS = Skylark.Struct.TaxCalcStruct;
 
 namespace Skylark.Extension
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class TaxExtension
     {
         /// <summary>

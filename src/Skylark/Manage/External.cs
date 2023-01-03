@@ -3,6 +3,9 @@ using MPM = Skylark.Manage.PingManage;
 
 namespace Skylark.Manage
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class External
     {
         /// <summary>

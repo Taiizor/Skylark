@@ -3,6 +3,9 @@ using HD = Skylark.Helper.Detect;
 
 namespace Skylark.Helper
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class WebHelper
     {
         /// <summary>

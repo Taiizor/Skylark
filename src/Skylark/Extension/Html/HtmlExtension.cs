@@ -7,6 +7,9 @@ using MHM = Skylark.Manage.HtmlManage;
 
 namespace Skylark.Extension
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class HtmlExtension
     {
         /// <summary>

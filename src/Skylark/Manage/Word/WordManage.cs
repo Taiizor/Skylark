@@ -3,6 +3,9 @@ using SWDS = Skylark.Struct.WordDataStruct;
 
 namespace Skylark.Manage
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class WordManage
     {
         /// <summary>

@@ -5,6 +5,9 @@ using SWDS = Skylark.Struct.WordDataStruct;
 
 namespace Skylark.Extension
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class WordExtension
     {
         /// <summary>

@@ -8,6 +8,9 @@ using MWM = Skylark.Manage.WebManage;
 
 namespace Skylark.Helper
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class Converter
     {
         /// <summary>
