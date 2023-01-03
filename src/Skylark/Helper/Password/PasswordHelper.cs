@@ -6,6 +6,11 @@ namespace Skylark.Helper
 {
     internal class PasswordHelper
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mode"></param>
+        /// <returns></returns>
         public static string GetSpecial(ESPT Mode)
         {
             return Mode switch
@@ -17,6 +22,11 @@ namespace Skylark.Helper
             };
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mode"></param>
+        /// <returns></returns>
         public static string GetAlphabetic(EAPT Mode)
         {
             return Mode switch

@@ -9,6 +9,14 @@ namespace Skylark.Extension
 {
     public class TaxExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Percent"></param>
+        /// <param name="Type"></param>
+        /// <param name="Separator"></param>
+        /// <returns></returns>
         public static STCS Calc(string Value = MTM.Value, string Percent = MTM.Percent, ETT Type = MTM.TaxType, bool Separator = MTM.Separator)
         {
             try

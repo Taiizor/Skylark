@@ -5,14 +5,23 @@ namespace Skylark.Manage
 {
     internal class WordManage
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public const string List = "Taiizor Skylark";
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly SWDS ResultCount = new()
         {
             Word = 0,
             Char = 0
         };
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly SWCS ResultCombine = new()
         {
             Result = string.Empty,

@@ -2,22 +2,55 @@
 {
     internal class PortManage
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public const int Count = 10;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public const int Port = 443;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int MinPort = 0;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int MaxPort = 65535;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public const int Timeout = 500;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int MinTimeout = 100;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int MaxTimeout = 3000;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public const string Unknown = "Unknown";
 
+        /// <summary>
+        /// 
+        /// </summary>
         public const string Address = "www.google.com";
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly int[] Ports = new[] { 21, 22, 53, 80, 110, 143, 587, 3306 };
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly Dictionary<int, string> List = new()
         {
             { 21, "FTP" },

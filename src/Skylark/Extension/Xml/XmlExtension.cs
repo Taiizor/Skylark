@@ -9,6 +9,13 @@ namespace Skylark.Extension
 {
     public class XmlExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Xml"></param>
+        /// <param name="Format"></param>
+        /// <param name="Root"></param>
+        /// <returns></returns>
         public static string ToJson(string Xml = MXM.Xml, bool Format = MXM.Format, bool Root = MXM.Root)
         {
             try
@@ -33,6 +40,11 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Xml"></param>
+        /// <returns></returns>
         public static string ToBeauty(string Xml = MXM.Xml)
         {
             try
@@ -47,6 +59,11 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Xml"></param>
+        /// <returns></returns>
         public static string ToMinify(string Xml = MXM.Xml)
         {
             try

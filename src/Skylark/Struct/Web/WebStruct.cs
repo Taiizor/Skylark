@@ -3,6 +3,9 @@ using System.Runtime.InteropServices;
 
 namespace Skylark.Struct
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct WebRatioStruct
     {
@@ -12,6 +15,9 @@ namespace Skylark.Struct
         public string Rate;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct WebHeaderStruct
     {

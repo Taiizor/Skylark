@@ -10,6 +10,11 @@ namespace Skylark.Extension
 {
     public class WebExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Url"></param>
+        /// <returns></returns>
         public static string Source(string Url = MWM.Url)
         {
             try
@@ -26,6 +31,12 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Url"></param>
+        /// <param name="Separator"></param>
+        /// <returns></returns>
         public static SWRS Ratio(string Url = MWM.Url, bool Separator = MWM.Separator)
         {
             try
@@ -67,6 +78,11 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Url"></param>
+        /// <returns></returns>
         public static SWHS Header(string Url = MWM.Url)
         {
             try
@@ -142,6 +158,11 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Url"></param>
+        /// <returns></returns>
         public static CompressWebType Compress(string Url = MWM.Url)
         {
             try
@@ -168,6 +189,13 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Url1"></param>
+        /// <param name="Url2"></param>
+        /// <param name="Separator"></param>
+        /// <returns></returns>
         public static string Similar(string Url1 = MWM.Url, string Url2 = MWM.Url, bool Separator = MWM.Separator)
         {
             try

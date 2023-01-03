@@ -7,6 +7,14 @@ namespace Skylark.Extension
 {
     public class JsonExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Json"></param>
+        /// <param name="Root"></param>
+        /// <param name="Special"></param>
+        /// <param name="Array"></param>
+        /// <returns></returns>
         public static string ToXml(string Json = MJM.Json, string Root = MJM.Root, bool Special = MJM.Special, bool Array = MJM.Array)
         {
             try
@@ -22,6 +30,14 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Json"></param>
+        /// <param name="Token"></param>
+        /// <param name="Value"></param>
+        /// <param name="Separator"></param>
+        /// <returns></returns>
         public static string ToRead(string Json = MJM.Json, string Token = MJM.Token, string Value = MJM.Value, string Separator = MJM.Seperator)
         {
             try
@@ -55,6 +71,11 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Json"></param>
+        /// <returns></returns>
         public static string ToBeauty(string Json = MJM.Json)
         {
             try
@@ -69,6 +90,11 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Json"></param>
+        /// <returns></returns>
         public static string ToMinify(string Json = MJM.Json)
         {
             try

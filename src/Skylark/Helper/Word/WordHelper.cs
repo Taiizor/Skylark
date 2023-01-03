@@ -8,6 +8,11 @@ namespace Skylark.Helper
 {
     internal class WordHelper
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="List"></param>
+        /// <returns></returns>
         public static string[] GetSplit(string List)
         {
             if (List.Length > MI.TextLength)
@@ -18,6 +23,11 @@ namespace Skylark.Helper
             return List.Split(MI.SplitSpace, ME.SplitOption);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="List"></param>
+        /// <returns></returns>
         public static string[] GetSplits(string List)
         {
             if (List.Length > MI.TextLength)
@@ -28,6 +38,11 @@ namespace Skylark.Helper
             return List.Split(MI.SplitSpaceNewLine, ME.SplitOption);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="List"></param>
+        /// <returns></returns>
         public static SWCS GetCombine(string[] List)
         {
             int Count = 0;
@@ -48,6 +63,12 @@ namespace Skylark.Helper
             };
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="Sequence"></param>
+        /// <returns></returns>
         private static IEnumerable<IEnumerable<T>> GetPermute<T>(IEnumerable<T> Sequence)
         {
             if (Sequence == null)

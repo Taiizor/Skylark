@@ -10,11 +10,29 @@ namespace Skylark.Extension
 {
     public class PasswordExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Length"></param>
+        /// <param name="Alphabetic"></param>
+        /// <param name="Special"></param>
+        /// <param name="Prefix"></param>
+        /// <param name="Suffix"></param>
+        /// <returns></returns>
         public static string Generate(int Length = MPM.Length, string Alphabetic = MPM.DefaultType, string Special = MPM.DefaultType, string Prefix = MPM.Prefix, string Suffix = MPM.Suffix)
         {
             return Generate(Length, HC.Convert(Alphabetic, MPM.AlphabeticType), HC.Convert(Special, MPM.SpecialType), Prefix, Suffix);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Length"></param>
+        /// <param name="Alphabetic"></param>
+        /// <param name="Special"></param>
+        /// <param name="Prefix"></param>
+        /// <param name="Suffix"></param>
+        /// <returns></returns>
         public static string Generate(int Length = MPM.Length, EAPT Alphabetic = MPM.AlphabeticType, ESPT Special = MPM.SpecialType, string Prefix = MPM.Prefix, string Suffix = MPM.Suffix)
         {
             try

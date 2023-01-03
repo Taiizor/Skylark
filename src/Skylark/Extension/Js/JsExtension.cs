@@ -8,6 +8,11 @@ namespace Skylark.Extension
 {
     public class JsExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Js"></param>
+        /// <returns></returns>
         public static string ToMinify(string Js = MJM.Js)
         {
             try
@@ -33,6 +38,11 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Js"></param>
+        /// <returns></returns>
         public static string ToBeauty(string Js = MJM.Js)
         {
             try

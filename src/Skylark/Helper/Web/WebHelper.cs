@@ -5,6 +5,11 @@ namespace Skylark.Helper
 {
     internal class WebHelper
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <returns></returns>
         public static string[] GetTags(string Value)
         {
             string Pattern = @"\s*[^>]+\s*=\s*""([^""]*)""";
@@ -13,11 +18,22 @@ namespace Skylark.Helper
             return Matches.Cast<Match>().Select(Tag => Tag.Value).ToArray();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <returns></returns>
         public static string GetConvert(string Value)
         {
             return Value.Replace(',', HD.Symbol()).Replace('.', HD.Symbol());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Separator"></param>
+        /// <returns></returns>
         public static string GetPlaces(string Value, bool Separator)
         {
             if (Separator)
@@ -30,6 +46,12 @@ namespace Skylark.Helper
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Separator"></param>
+        /// <returns></returns>
         public static string GetPlaces(decimal Value, bool Separator)
         {
             if (Separator)

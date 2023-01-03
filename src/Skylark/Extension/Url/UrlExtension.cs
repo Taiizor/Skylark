@@ -6,6 +6,11 @@ namespace Skylark.Extension
 {
     public class UrlExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Url"></param>
+        /// <returns></returns>
         public static string Encode(string Url = MUM.Url)
         {
             try
@@ -20,6 +25,11 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Url"></param>
+        /// <returns></returns>
         public static string Decode(string Url = MUM.Url)
         {
             try

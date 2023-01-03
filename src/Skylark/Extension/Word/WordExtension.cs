@@ -7,6 +7,11 @@ namespace Skylark.Extension
 {
     public class WordExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="List"></param>
+        /// <returns></returns>
         public static SWDS Data(string List = MWM.List)
         {
             try
@@ -30,6 +35,11 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="List"></param>
+        /// <returns></returns>
         public static SWCS Combine(string List = MWM.List)
         {
             try

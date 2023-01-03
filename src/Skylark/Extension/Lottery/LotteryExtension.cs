@@ -7,6 +7,14 @@ namespace Skylark.Extension
 {
     public class LotteryExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="List"></param>
+        /// <param name="WinnerCount"></param>
+        /// <param name="ReserveCount"></param>
+        /// <param name="Repeated"></param>
+        /// <returns></returns>
         public static SLDS Draw(string List = MLM.List, int WinnerCount = MLM.WinnerCount, int ReserveCount = MLM.ReserveCount, bool Repeated = MLM.Repeat)
         {
             try
@@ -59,6 +67,12 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="List"></param>
+        /// <param name="Repeated"></param>
+        /// <returns></returns>
         public static string Suffle(string List = MLM.List, bool Repeated = MLM.Repeat)
         {
             try

@@ -2,6 +2,9 @@
 
 namespace Skylark.Struct
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct WordDataStruct
     {
@@ -9,6 +12,9 @@ namespace Skylark.Struct
         public int Char;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct WordCombineStruct
     {

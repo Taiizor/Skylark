@@ -8,6 +8,11 @@ namespace Skylark.Extension
 {
     public class XhtmlExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Xhtml"></param>
+        /// <returns></returns>
         public static string ToMinify(string Xhtml = MXM.Xhtml)
         {
             try
@@ -33,6 +38,11 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Xhtml"></param>
+        /// <returns></returns>
         public static string ToBeauty(string Xhtml = MXM.Xhtml)
         {
             try

@@ -10,6 +10,12 @@ namespace Skylark.Helper
 {
     internal class Converter
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
         public static ETT Convert(string Type, ETT Back = MTM.TaxType)
         {
             foreach (ETT Types in (ETT[])System.Enum.GetValues(typeof(ETT)))
@@ -23,6 +29,12 @@ namespace Skylark.Helper
             return Back;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
         public static ESPT Convert(string Type, ESPT Back = MPM.SpecialType)
         {
             foreach (ESPT Types in (ESPT[])System.Enum.GetValues(typeof(ESPT)))
@@ -36,6 +48,12 @@ namespace Skylark.Helper
             return Back;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
         public static ECWT Convert(string Type, ECWT Back = MWM.CompressType)
         {
             foreach (ECWT Types in (ECWT[])System.Enum.GetValues(typeof(ECWT)))
@@ -49,6 +67,12 @@ namespace Skylark.Helper
             return Back;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
         public static EAPT Convert(string Type, EAPT Back = MPM.AlphabeticType)
         {
             foreach (EAPT Types in (EAPT[])System.Enum.GetValues(typeof(EAPT)))
@@ -62,11 +86,23 @@ namespace Skylark.Helper
             return Back;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
         private static bool Check(object Text, object Type)
         {
             return Check($"{Text}", $"{Type}");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
         private static bool Check(string Text, string Type)
         {
             if (Text == Type || Text.ToUpper() == Type || Text.ToUpperInvariant() == Type || Text == Type.ToLower() || Text == Type.ToLowerInvariant())

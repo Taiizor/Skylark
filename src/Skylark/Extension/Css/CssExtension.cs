@@ -8,6 +8,11 @@ namespace Skylark.Extension
 {
     public class CssExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Css"></param>
+        /// <returns></returns>
         public static string ToMinify(string Css = MCM.Css)
         {
             try
@@ -33,6 +38,11 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Css"></param>
+        /// <returns></returns>
         public static string ToBeauty(string Css = MCM.Css)
         {
             try

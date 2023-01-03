@@ -6,6 +6,12 @@ namespace Skylark.Helper
 {
     internal class LotteryHelper
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="List"></param>
+        /// <param name="Repeated"></param>
+        /// <returns></returns>
         public static string[] GetSplit(string List, bool Repeated)
         {
             if (List.Length > MI.TextLength)

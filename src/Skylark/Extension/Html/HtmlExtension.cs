@@ -9,6 +9,11 @@ namespace Skylark.Extension
 {
     public class HtmlExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Html"></param>
+        /// <returns></returns>
         public static string Encode(string Html = MHM.Html)
         {
             try
@@ -38,6 +43,11 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Html"></param>
+        /// <returns></returns>
         public static string Decode(string Html = MHM.Html)
         {
             try
@@ -70,6 +80,11 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Html"></param>
+        /// <returns></returns>
         public static string ToMinify(string Html = MHM.Html)
         {
             try
@@ -95,6 +110,11 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Html"></param>
+        /// <returns></returns>
         public static string ToBeauty(string Html = MHM.Html)
         {
             try

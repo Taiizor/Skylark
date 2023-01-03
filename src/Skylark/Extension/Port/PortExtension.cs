@@ -7,6 +7,11 @@ namespace Skylark.Extension
 {
     public class PortExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Port"></param>
+        /// <returns></returns>
         public static string Info(int Port = MPM.Port)
         {
             try
@@ -28,6 +33,11 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Ports"></param>
+        /// <returns></returns>
         public static Dictionary<int, string> Info(int[] Ports = null)
         {
             try
@@ -59,6 +69,13 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Address"></param>
+        /// <param name="Port"></param>
+        /// <param name="Timeout"></param>
+        /// <returns></returns>
         public static PortType Scan(string Address = MPM.Address, int Port = MPM.Port, int Timeout = MPM.Timeout)
         {
             try
@@ -90,6 +107,13 @@ namespace Skylark.Extension
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Address"></param>
+        /// <param name="Ports"></param>
+        /// <param name="Timeout"></param>
+        /// <returns></returns>
         public static Dictionary<int, PortType> Scan(string Address = MPM.Address, int[] Ports = null, int Timeout = MPM.Timeout)
         {
             try

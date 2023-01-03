@@ -8,6 +8,14 @@ namespace Skylark.Extension
 {
     public class PingExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Address"></param>
+        /// <param name="Timeout"></param>
+        /// <param name="Ttl"></param>
+        /// <param name="Fragment"></param>
+        /// <returns></returns>
         public static SPSS Send(string Address = MPM.Address, int Timeout = MPM.Timeout, int Ttl = MPM.Ttl, bool Fragment = MPM.Fragment)
         {
             try

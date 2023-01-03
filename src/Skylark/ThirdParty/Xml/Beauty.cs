@@ -5,6 +5,11 @@ namespace Skylark.ThirdParty.Xml
 {
     internal class Beauty
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Xml"></param>
+        /// <returns></returns>
         public static string Beautifier(string Xml)
         {
             MemoryStream Stream = new();

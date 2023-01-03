@@ -1,5 +1,8 @@
 ﻿namespace Skylark.Enum
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum SpecialPasswordType
     {
         None,
@@ -8,6 +11,9 @@
         Symbol
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public enum AlphabeticPasswordType
     {
         Big,
