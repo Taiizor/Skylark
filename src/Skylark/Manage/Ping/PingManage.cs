@@ -18,7 +18,7 @@ namespace Skylark.Manage
 
         public const string Address = "www.google.com";
 
-        public const string Data = "SoferityPortal_Ping_Package_Data";
+        public const string Data = "TaiizorSkylark_Ping_Package_Data";
 
         public static readonly byte[] Buffer = Encoding.ASCII.GetBytes(Data);
 
