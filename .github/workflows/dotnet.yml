@@ -24,6 +24,7 @@ jobs:
             demo/Skylark.Console.Demo/ConsoleDemoXml,
             demo/Skylark.Console.Demo/ConsoleDemoJson,
             demo/Skylark.Console.Demo/ConsoleDemoHtml,
+            demo/Skylark.Console.Demo/ConsoleDemoPing,
             demo/Skylark.Console.Demo/ConsoleDemoXhtml,
             demo/Skylark.Console.Demo/ConsoleDemoLottery,
             demo/Skylark.Console.Demo/ConsoleDemoPassword
