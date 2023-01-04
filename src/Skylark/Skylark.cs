@@ -11,7 +11,7 @@ using E = System.Exception;
 //     Website: www.Vegalya.com
 //     Created: 03.Jan.2023
 //     Changed: 04.Jan.2023
-//     Version: 1.0.0.6
+//     Version: 1.0.0.7
 //
 // |---------DO-NOT-REMOVE---------|
 
