@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Text;
 using WebMarkupMin.Core;
+using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
 using MHM = Skylark.Manage.HtmlManage;
 
@@ -40,9 +41,9 @@ namespace Skylark.Extension
 
                 return Builder.ToString();
             }
-            catch
+            catch (E Ex)
             {
-                return MHM.Result;
+                throw new E(Ex.Message, Ex);
             }
         }
 
@@ -77,9 +78,9 @@ namespace Skylark.Extension
 
                 return Decrypted;
             }
-            catch
+            catch (E Ex)
             {
-                return MHM.Result;
+                throw new E(Ex.Message, Ex);
             }
         }
 
@@ -104,12 +105,12 @@ namespace Skylark.Extension
                 }
                 else
                 {
-                    return MHM.Result;
+                    throw new E(Minified.Errors.FirstOrDefault().Message);
                 }
             }
-            catch
+            catch (E Ex)
             {
-                return MHM.Result;
+                throw new E(Ex.Message, Ex);
             }
         }
 
@@ -132,12 +133,12 @@ namespace Skylark.Extension
                 }
                 else
                 {
-                    return MHM.Result;
+                    throw new E(Beautified.Errors.FirstOrDefault().Message);
                 }
             }
-            catch
+            catch (E Ex)
             {
-                return MHM.Result;
+                throw new E(Ex.Message, Ex);
             }
         }
     }

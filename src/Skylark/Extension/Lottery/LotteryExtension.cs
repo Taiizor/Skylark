@@ -1,4 +1,5 @@
-﻿using HLH = Skylark.Helper.LotteryHelper;
+﻿using E = Skylark.Exception;
+using HLH = Skylark.Helper.LotteryHelper;
 using ME = Skylark.Manage.External;
 using MLM = Skylark.Manage.LotteryManage;
 using SLDS = Skylark.Struct.LotteryDrawStruct;
@@ -28,7 +29,14 @@ namespace Skylark.Extension
 
                 if (!Array.Any() || Array.Length < Total)
                 {
-                    return MLM.Result;
+                    if (Array.Length < Total)
+                    {
+                        throw new E(MLM.ListSmall);
+                    }
+                    else
+                    {
+                        throw new E(MLM.ListEmpty);
+                    }
                 }
 
                 int Count = 0;
@@ -60,13 +68,9 @@ namespace Skylark.Extension
                     Reserve = Res
                 };
             }
-            catch
+            catch (E Ex)
             {
-                return new()
-                {
-                    Winners = new(),
-                    Reserve = new()
-                };
+                throw new E(Ex.Message, Ex);
             }
         }
 
@@ -89,9 +93,9 @@ namespace Skylark.Extension
 
                 return string.Join(Environment.NewLine, Array.OrderBy(_ => ME.Randomise.Next()));
             }
-            catch
+            catch (E Ex)
             {
-                return MLM.Error;
+                throw new E(Ex.Message, Ex);
             }
         }
     }

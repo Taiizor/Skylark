@@ -39,10 +39,5 @@
         /// 
         /// </summary>
         public const string Json = "{\r\n\t\"Json\": \"Xml\"\r\n}";
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public const string Result = "<?xml version='1.0' standalone='no'?><Root><Taiizor>Skylark</Taiizor></Root>";
     }
 }

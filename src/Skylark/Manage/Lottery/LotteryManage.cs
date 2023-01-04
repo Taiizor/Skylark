@@ -1,6 +1,4 @@
-﻿using SLDS = Skylark.Struct.LotteryDrawStruct;
-
-namespace Skylark.Manage
+﻿namespace Skylark.Manage
 {
     /// <summary>
     /// 
@@ -25,20 +23,21 @@ namespace Skylark.Manage
         /// <summary>
         /// 
         /// </summary>
-        public static readonly SLDS Result = new()
-        {
-            Winners = new() { "Taiizor" },
-            Reserve = new() { "Skylark" }
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
         public const string List = "Taiizor\nSkylark";
 
         /// <summary>
         /// 
         /// </summary>
         public const string Error = "Taiizor Skylark";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string ListEmpty = "The list element count is empty.";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string ListSmall = "The number of winners + reserves is less than the number of list elements.";
     }
 }
