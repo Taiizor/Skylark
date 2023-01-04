@@ -24,7 +24,8 @@ jobs:
             demo/Skylark.Console.Demo/ConsoleDemoXml/ConsoleDemoXml.sln,
             demo/Skylark.Console.Demo/ConsoleDemoJson/ConsoleDemoJson.sln,
             demo/Skylark.Console.Demo/ConsoleDemoHtml/ConsoleDemoHtml.sln,
-            demo/Skylark.Console.Demo/ConsoleDemoXhtml/ConsoleDemoXhtml.sln
+            demo/Skylark.Console.Demo/ConsoleDemoXhtml/ConsoleDemoXhtml.sln,
+            demo/Skylark.Console.Demo/ConsoleDemoLottery/ConsoleDemoLottery.sln
         ]
 
     steps:
