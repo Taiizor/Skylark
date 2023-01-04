@@ -56,7 +56,7 @@ namespace Skylark.Helper
             foreach (IEnumerable<string> Permutation in Permutations)
             {
                 Count++;
-                Builder.Append(string.Join(" ", Permutation));
+                Builder.AppendLine(string.Join(" ", Permutation));
             }
 
             return new()
