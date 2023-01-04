@@ -31,5 +31,10 @@ namespace Skylark.Manage
         /// 
         /// </summary>
         public const ETT TaxType = ETT.Amount;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string DefaultType = "Amount";
     }
 }

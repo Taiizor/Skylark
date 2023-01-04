@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using E = Skylark.Exception;
 using ETT = Skylark.Enum.TaxType;
+using HC = Skylark.Helper.Converter;
 using HL = Skylark.Helper.Length;
 using HTH = Skylark.Helper.TaxHelper;
 using MTM = Skylark.Manage.TaxManage;
@@ -13,6 +14,19 @@ namespace Skylark.Extension
     /// </summary>
     public class TaxExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Percent"></param>
+        /// <param name="Type"></param>
+        /// <param name="Separator"></param>
+        /// <returns></returns>
+        public static STCS Calc(string Value = MTM.Value, string Percent = MTM.Percent, string Type = MTM.DefaultType, bool Separator = MTM.Separator)
+        {
+            return Calc(Value, Percent, HC.Convert(Type, MTM.TaxType), Separator);
+        }
+
         /// <summary>
         /// 
         /// </summary>
