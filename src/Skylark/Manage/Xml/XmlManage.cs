@@ -18,6 +18,6 @@
         /// <summary>
         /// 
         /// </summary>
-        public const string Xml = "<?xml version='1.0' standalone='no'?><Root><Taiizor>Skylark</Taiizor></Root>";
+        public const string Xml = "<?xml version='1.0' standalone='no'?>\n<Root>\n\n<Taiizor>Skylark</Taiizor></Root>";
     }
 }
