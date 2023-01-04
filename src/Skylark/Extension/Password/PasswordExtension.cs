@@ -51,10 +51,10 @@ namespace Skylark.Extension
                     throw new E(MPM.Error);
                 }
 
-                string Password = new(Enumerable.Repeat(Chars, HL.Number(Length, MPM.MinLength, MPM.MaxLength))
+                string Secret = new(Enumerable.Repeat(Chars, HL.Number(Length, MPM.MinLength, MPM.MaxLength))
                     .Select(Char => Char[ME.Randomise.Next(Char.Length)]).ToArray());
 
-                return Prefix + Password + Suffix;
+                return Prefix + Secret + Suffix;
             }
             catch (E Ex)
             {
