@@ -19,6 +19,7 @@ jobs:
         ]
         solution: [
             src/Skylark.sln
+            demo/Skylark.Console.Demo/ConsoleDemoJs/ConsoleDemoJs.sln,
             demo/Skylark.Console.Demo/ConsoleDemoCss/ConsoleDemoCss.sln,
             demo/Skylark.Console.Demo/ConsoleDemoHtml/ConsoleDemoHtml.sln
         ]
