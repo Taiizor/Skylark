@@ -38,6 +38,6 @@
         /// <summary>
         /// 
         /// </summary>
-        public const string Json = "{\r\n\t\"Json\": \"Xml\"\r\n}";
+        public const string Json = "{\r\n\t\"Taiizor\": \"Skylark\"\r\n}";
     }
 }

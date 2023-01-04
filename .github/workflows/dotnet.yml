@@ -22,6 +22,7 @@ jobs:
             demo/Skylark.Console.Demo/ConsoleDemoJs,
             demo/Skylark.Console.Demo/ConsoleDemoCss,
             demo/Skylark.Console.Demo/ConsoleDemoXml,
+            demo/Skylark.Console.Demo/ConsoleDemoJson,
             demo/Skylark.Console.Demo/ConsoleDemoHtml,
             demo/Skylark.Console.Demo/ConsoleDemoXhtml
         ]
