@@ -48,9 +48,9 @@ namespace Skylark.Extension
             {
                 Ports ??= MPM.Ports;
 
-                if (Ports.Length > 10)
+                if (Ports.Length > MPM.Count)
                 {
-                    Ports = MPM.Ports;
+                    throw new E(MPM.Error);
                 }
 
                 Dictionary<int, string> Result = new();
@@ -124,9 +124,9 @@ namespace Skylark.Extension
             {
                 Ports ??= MPM.Ports;
 
-                if (Ports.Length > 10)
+                if (Ports.Length > MPM.Count)
                 {
-                    Ports = MPM.Ports;
+                    throw new E(MPM.Error);
                 }
 
                 Dictionary<int, PortType> Result = new();

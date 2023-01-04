@@ -8,7 +8,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public const int Count = 10;
+        public const int Count = 16;
 
         /// <summary>
         /// 
@@ -45,6 +45,11 @@
         /// 
         /// </summary>
         public const string Address = "www.google.com";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly string Error = $"There can be up to {Count} ports.";
 
         /// <summary>
         /// 
