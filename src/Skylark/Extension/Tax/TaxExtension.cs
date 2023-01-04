@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using E = Skylark.Exception;
 using ETT = Skylark.Enum.TaxType;
 using HL = Skylark.Helper.Length;
 using HTH = Skylark.Helper.TaxHelper;
@@ -60,14 +61,9 @@ namespace Skylark.Extension
                     TotalPrice = $"{HTH.GetPlaces(Math.Round(decimal.Parse(TotalPrice), 2), Separator)}",
                 };
             }
-            catch
+            catch (E Ex)
             {
-                return new()
-                {
-                    Price = HTH.GetConvert(MTM.Value),
-                    VatPrice = HTH.GetConvert(MTM.Percent),
-                    TotalPrice = HTH.GetConvert(MTM.Total)
-                };
+                throw new E(Ex.Message, Ex);
             }
         }
     }

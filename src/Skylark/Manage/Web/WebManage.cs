@@ -51,10 +51,5 @@ namespace Skylark.Manage
         /// 
         /// </summary>
         public const string Url = "https://www.google.com";
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public const string Result = "<html><head><title>Taiizor Skylark</title></head></html>";
     }
 }

@@ -22,6 +22,9 @@ namespace Skylark.Manage
         /// </summary>
         public const EAPT AlphabeticType = EAPT.Mixed;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public const int Length = 8;
         /// <summary>
         /// 
@@ -44,11 +47,6 @@ namespace Skylark.Manage
         /// <summary>
         /// 
         /// </summary>
-        public const string Error = "Taiizor Skylark";
-
-        /// <summary>
-        /// 
-        /// </summary>
         public const string Big = "ABCDEFGHIJKLMNOPRSTUVYZQWX";
         /// <summary>
         /// 
@@ -63,5 +61,10 @@ namespace Skylark.Manage
         /// 
         /// </summary>
         public const string Symbol = "!`'\"^+%&/=?-_@€£ß*-+#\\<|>;:.,~½£$({[]})Æé~";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string Error = "Unable to create password with selected parameters.";
     }
 }

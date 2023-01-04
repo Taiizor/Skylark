@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
 using MUM = Skylark.Manage.UrlManage;
 
@@ -22,9 +23,9 @@ namespace Skylark.Extension
 
                 return HttpUtility.UrlEncode(Url);
             }
-            catch
+            catch (E Ex)
             {
-                return MUM.Result;
+                throw new E(Ex.Message, Ex);
             }
         }
 
@@ -41,9 +42,9 @@ namespace Skylark.Extension
 
                 return HttpUtility.UrlDecode(Url);
             }
-            catch
+            catch (E Ex)
             {
-                return MUM.Url;
+                throw new E(Ex.Message, Ex);
             }
         }
     }

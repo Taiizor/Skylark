@@ -1,4 +1,5 @@
-﻿using EAPT = Skylark.Enum.AlphabeticPasswordType;
+﻿using E = Skylark.Exception;
+using EAPT = Skylark.Enum.AlphabeticPasswordType;
 using ESPT = Skylark.Enum.SpecialPasswordType;
 using HC = Skylark.Helper.Converter;
 using HL = Skylark.Helper.Length;
@@ -47,7 +48,7 @@ namespace Skylark.Extension
 
                 if (Chars.Length <= 0)
                 {
-                    return MPM.Error;
+                    throw new E(MPM.Error);
                 }
 
                 string Password = new(Enumerable.Repeat(Chars, HL.Number(Length, MPM.MinLength, MPM.MaxLength))
@@ -55,9 +56,9 @@ namespace Skylark.Extension
 
                 return Prefix + Password + Suffix;
             }
-            catch
+            catch (E Ex)
             {
-                return MPM.Error;
+                throw new E(Ex.Message, Ex);
             }
         }
     }

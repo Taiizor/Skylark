@@ -1,5 +1,6 @@
 ﻿using Skylark.Enum;
 using System.Text.RegularExpressions;
+using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
 using HWH = Skylark.Helper.WebHelper;
 using MWM = Skylark.Manage.WebManage;
@@ -28,9 +29,9 @@ namespace Skylark.Extension
 
                 return Client.GetStringAsync(Url).Result;
             }
-            catch
+            catch (E Ex)
             {
-                return MWM.Result;
+                throw new E(Ex.Message, Ex);
             }
         }
 
@@ -69,15 +70,9 @@ namespace Skylark.Extension
                     Code = HWH.GetPlaces(Code, Separator)
                 };
             }
-            catch
+            catch (E Ex)
             {
-                return new()
-                {
-                    Rate = HWH.GetConvert(MWM.Rate),
-                    Total = MWM.Total,
-                    Text = MWM.Text,
-                    Code = MWM.Code
-                };
+                throw new E(Ex.Message, Ex);
             }
         }
 
@@ -155,9 +150,9 @@ namespace Skylark.Extension
 
                 return Result;
             }
-            catch
+            catch (E Ex)
             {
-                return new SWHS();
+                throw new E(Ex.Message, Ex);
             }
         }
 
@@ -221,10 +216,9 @@ namespace Skylark.Extension
 
                 return HWH.GetPlaces(Math.Round(decimal.Parse($"{Percent}"), 2), Separator);
             }
-            catch
+            catch (E Ex)
             {
-                double Percent = 0;
-                return HWH.GetPlaces(Math.Round(decimal.Parse($"{Percent}"), 2), Separator);
+                throw new E(Ex.Message, Ex);
             }
         }
     }

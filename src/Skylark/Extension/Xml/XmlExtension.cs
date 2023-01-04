@@ -2,6 +2,7 @@
 using System.Xml;
 using WebMarkupMin.Core;
 using BTPXB = Skylark.ThirdParty.Xml.Beauty;
+using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
 using MXM = Skylark.Manage.XmlManage;
 
@@ -37,9 +38,9 @@ namespace Skylark.Extension
 
                 return JsonConvert.SerializeXmlNode(Document, Formatting, Root);
             }
-            catch
+            catch (E Ex)
             {
-                return MXM.Result;
+                throw new E(Ex.Message, Ex);
             }
         }
 
@@ -56,9 +57,9 @@ namespace Skylark.Extension
 
                 return BTPXB.Beautifier(Xml);
             }
-            catch
+            catch (E Ex)
             {
-                return MXM.Result;
+                throw new E(Ex.Message, Ex);
             }
         }
 
@@ -83,12 +84,12 @@ namespace Skylark.Extension
                 }
                 else
                 {
-                    return MXM.Result;
+                    throw new E(Minified.Errors.FirstOrDefault().Message);
                 }
             }
-            catch
+            catch (E Ex)
             {
-                return MXM.Result;
+                throw new E(Ex.Message, Ex);
             }
         }
     }

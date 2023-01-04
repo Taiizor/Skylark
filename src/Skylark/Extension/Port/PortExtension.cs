@@ -1,5 +1,6 @@
 ﻿using Skylark.Enum;
 using System.Net.Sockets;
+using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
 using MPM = Skylark.Manage.PortManage;
 
@@ -30,9 +31,9 @@ namespace Skylark.Extension
 
                 return Result;
             }
-            catch
+            catch (E Ex)
             {
-                return MPM.Unknown;
+                throw new E(Ex.Message, Ex);
             }
         }
 
@@ -66,9 +67,9 @@ namespace Skylark.Extension
 
                 return Result;
             }
-            catch
+            catch (E Ex)
             {
-                return new();
+                throw new E(Ex.Message, Ex);
             }
         }
 
@@ -142,9 +143,9 @@ namespace Skylark.Extension
 
                 return Result;
             }
-            catch
+            catch (E Ex)
             {
-                return new();
+                throw new E(Ex.Message, Ex);
             }
         }
     }

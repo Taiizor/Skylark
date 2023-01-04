@@ -1,4 +1,5 @@
 ﻿using System.Net.NetworkInformation;
+using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
 using ME = Skylark.Manage.External;
 using MPM = Skylark.Manage.PingManage;
@@ -48,11 +49,9 @@ namespace Skylark.Extension
 
                 return Result;
             }
-            catch
+            catch (E Ex)
             {
-                SPSS Result = MPM.Result;
-                Result.Address = Address;
-                return Result;
+                throw new E(Ex.Message, Ex);
             }
         }
     }

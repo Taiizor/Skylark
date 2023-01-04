@@ -1,4 +1,5 @@
-﻿using HWH = Skylark.Helper.WordHelper;
+﻿using E = Skylark.Exception;
+using HWH = Skylark.Helper.WordHelper;
 using MWM = Skylark.Manage.WordManage;
 using SWCS = Skylark.Struct.WordCombineStruct;
 using SWDS = Skylark.Struct.WordDataStruct;
@@ -23,7 +24,7 @@ namespace Skylark.Extension
 
                 if (!Array.Any())
                 {
-                    return MWM.ResultCount;
+                    throw new E(MWM.ListEmpty);
                 }
 
                 return new()
@@ -32,9 +33,9 @@ namespace Skylark.Extension
                     Char = Array.Sum(Char => Char.Length) + Array.Length - 1
                 };
             }
-            catch
+            catch (E Ex)
             {
-                return MWM.ResultCount;
+                throw new E(Ex.Message, Ex);
             }
         }
 
@@ -51,14 +52,14 @@ namespace Skylark.Extension
 
                 if (!Array.Any())
                 {
-                    return MWM.ResultCombine;
+                    throw new E(MWM.ListEmpty);
                 }
 
                 return HWH.GetCombine(Array);
             }
-            catch
+            catch (E Ex)
             {
-                return MWM.ResultCombine;
+                throw new E(Ex.Message, Ex);
             }
         }
     }
