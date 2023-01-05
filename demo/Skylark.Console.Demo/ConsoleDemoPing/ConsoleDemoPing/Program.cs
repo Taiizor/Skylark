@@ -44,6 +44,8 @@ namespace ConsoleDemoPing
             Console.WriteLine($"Address: {Send4.Address}");
             Console.WriteLine($"Fragment: {Send4.Fragment}");
             Console.WriteLine($"RoundTrip: {Send4.RoundTrip}");
+
+            Console.ReadKey();
         }
     }
 }

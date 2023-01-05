@@ -29,6 +29,8 @@ namespace ConsoleDemoPassword
 
             string Password5 = PasswordExtension.Generate(4, AlphabeticPasswordType.Big, SpecialPasswordType.None, "Prefix", "Suffix");
             Console.WriteLine(Password5);
+
+            Console.ReadKey();
         }
     }
 }

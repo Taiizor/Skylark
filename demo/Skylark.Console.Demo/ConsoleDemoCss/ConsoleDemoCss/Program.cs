@@ -15,6 +15,8 @@ namespace ConsoleDemoCss
 
             string Beauty = CssExtension.ToBeauty(Minify);
             Console.WriteLine(Beauty);
+
+            Console.ReadKey();
         }
     }
 }

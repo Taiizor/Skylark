@@ -50,6 +50,8 @@ namespace ConsoleDemoWeb
             Console.WriteLine($"Version: {Header.Version}");
             Console.WriteLine($"Modified: {Header.Modified}");
             Console.WriteLine($"Security: {Header.Security}");
+
+            Console.ReadKey();
         }
     }
 }

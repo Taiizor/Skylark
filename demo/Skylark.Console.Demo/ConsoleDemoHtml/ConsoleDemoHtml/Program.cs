@@ -23,6 +23,8 @@ namespace ConsoleDemoHtml
 
             string Beauty = HtmlExtension.ToBeauty(Minify);
             Console.WriteLine(Beauty);
+
+            Console.ReadKey();
         }
     }
 }

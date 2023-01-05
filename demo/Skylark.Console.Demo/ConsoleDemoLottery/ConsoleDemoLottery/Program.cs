@@ -28,6 +28,8 @@ namespace ConsoleDemoLottery
 
             string Suffle2 = LotteryExtension.Suffle(List, true);
             Console.WriteLine(Suffle2);
+
+            Console.ReadKey();
         }
     }
 }

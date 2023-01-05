@@ -25,6 +25,8 @@ namespace ConsoleDemoJson
 
             string Beauty = JsonExtension.ToBeauty(Minify);
             Console.WriteLine(Beauty);
+
+            Console.ReadKey();
         }
     }
 }

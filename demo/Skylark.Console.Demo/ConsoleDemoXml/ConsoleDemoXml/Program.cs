@@ -20,6 +20,8 @@ namespace ConsoleDemoXml
 
             string Beauty = XmlExtension.ToBeauty(Minify);
             Console.WriteLine(Beauty);
+
+            Console.ReadKey();
         }
     }
 }

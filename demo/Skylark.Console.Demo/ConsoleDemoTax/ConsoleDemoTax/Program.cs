@@ -27,6 +27,8 @@ namespace ConsoleDemoTax
             Console.WriteLine($"Price: {Calc3.Price} {Currency.SymbolName}");
             Console.WriteLine($"Vat Price: {Calc3.VatPrice} {Currency.SymbolName}");
             Console.WriteLine($"Total Price: {Calc3.TotalPrice} {Currency.SymbolName}");
+
+            Console.ReadKey();
         }
     }
 }

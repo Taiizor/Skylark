@@ -13,6 +13,8 @@ namespace ConsoleDemoUrl
 
             string Decode = UrlExtension.Decode(Encode);
             Console.WriteLine(Decode);
+
+            Console.ReadKey();
         }
     }
 }

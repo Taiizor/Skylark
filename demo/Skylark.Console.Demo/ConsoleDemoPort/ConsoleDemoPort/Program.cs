@@ -30,6 +30,8 @@ namespace ConsoleDemoPort
             {
                 Console.WriteLine($"{Pair.Key}: {Pair.Value}");
             }
+
+            Console.ReadKey();
         }
     }
 }

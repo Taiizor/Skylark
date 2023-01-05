@@ -15,6 +15,8 @@ namespace ConsoleDemoXhtml
 
             string Beauty = XhtmlExtension.ToBeauty(Minify);
             Console.WriteLine(Beauty);
+
+            Console.ReadKey();
         }
     }
 }
