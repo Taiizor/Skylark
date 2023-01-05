@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skylark", "Skylark\Skylark.csproj", "{F45231E2-4943-4C52-86B4-DBCB784C9E92}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Çözüm Öğeleri", "Çözüm Öğeleri", "{3943FC00-5155-481C-ABD2-2F1E094589A0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3943FC00-5155-481C-ABD2-2F1E094589A0}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		global.json = global.json
