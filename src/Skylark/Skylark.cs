@@ -10,8 +10,8 @@ using E = System.Exception;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 03.Jan.2023
-//     Changed: 05.Jan.2023
-//     Version: 1.0.0.9
+//     Changed: 06.Jan.2023
+//     Version: 1.0.1.0
 //
 // |---------DO-NOT-REMOVE---------|
 
