@@ -8,6 +8,16 @@
         /// <summary>
         /// 
         /// </summary>
+        public const char Space = ' ';
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const char Separator = '-';
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const string List = "Taiizor Skylark";
 
         /// <summary>

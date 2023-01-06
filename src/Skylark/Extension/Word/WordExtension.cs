@@ -43,8 +43,11 @@ namespace Skylark.Extension
         /// 
         /// </summary>
         /// <param name="List"></param>
+        /// <param name="Space"></param>
+        /// <param name="Separator"></param>
         /// <returns></returns>
-        public static SWCS Combine(string List = MWM.List)
+        /// <exception cref="E"></exception>
+        public static SWCS Combine(string List = MWM.List, char Space = MWM.Space, char Separator = MWM.Separator)
         {
             try
             {
@@ -55,7 +58,7 @@ namespace Skylark.Extension
                     throw new E(MWM.ListEmpty);
                 }
 
-                return HWH.GetCombine(Array);
+                return HWH.GetCombine(Array, Space, Separator);
             }
             catch (E Ex)
             {

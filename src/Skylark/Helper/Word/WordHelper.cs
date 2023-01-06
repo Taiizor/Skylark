@@ -45,8 +45,10 @@ namespace Skylark.Helper
         /// 
         /// </summary>
         /// <param name="List"></param>
+        /// <param name="Space"></param>
+        /// <param name="Separator"></param>
         /// <returns></returns>
-        public static SWCS GetCombine(string[] List)
+        public static SWCS GetCombine(string[] List, char Space, char Separator)
         {
             int Count = 0;
             StringBuilder Builder = new();
@@ -56,7 +58,7 @@ namespace Skylark.Helper
             foreach (IEnumerable<string> Permutation in Permutations)
             {
                 Count++;
-                Builder.AppendLine(string.Join(" ", Permutation));
+                Builder.Append($"{Separator}{string.Join($"{Space}", Permutation)}");
             }
 
             return new()
@@ -81,21 +83,22 @@ namespace Skylark.Helper
 
             List<T> List = Sequence.ToList();
 
-            if (!List.Any())
-            {
-                yield return Enumerable.Empty<T>();
-            }
-            else
+            if (List.Any())
             {
                 for (int Count = 0; Count < List.Count; Count++)
                 {
                     T Item = List[Count];
                     IEnumerable<T> RemainingItems = List.Take(Count).Concat(List.Skip(Count + 1));
+
                     foreach (IEnumerable<T> PermutationOfRemainder in GetPermute(RemainingItems))
                     {
                         yield return new[] { Item }.Concat(PermutationOfRemainder);
                     }
                 }
+            }
+            else
+            {
+                yield return Enumerable.Empty<T>();
             }
         }
     }
