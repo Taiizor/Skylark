@@ -62,7 +62,56 @@ This project follows the [all contributors](https://github.com/all-contributors/
   </tr>
 </table>
 
-### Getting started
+## Platform support
+
+Skylark works on .NET Framework, .NET Standard, .NET Core, and .NET.
+
+<table>
+   <thead>
+      <tr>
+         <th>.NET implementation</th>
+         <th>Version support</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td>.NET and .NET Core</td>
+         <td>2.0, 2.1, 2.2, 3.0, 3.1, 5.0, 6.0, 7.0</td>
+      </tr>
+      <tr>
+         <td>.NET Framework</td>
+         <td>4.6.1, 4.6.2, 4.7, 4.7.1, 4.7.2, 4.8, 4.8.1</td>
+      </tr>
+      <tr>
+         <td>Mono</td>
+         <td>5.4, 6.4</td>
+      </tr>
+      <tr>
+         <td>Xamarin.iOS</td>
+         <td>10.14, 12.16</td>
+      </tr>
+      <tr>
+         <td>Xamarin.Mac</td>
+         <td>3.8, 5.16</td>
+      </tr>
+      <tr>
+         <td>Xamarin.Android</td>
+         <td>8.0, 10.0</td>
+      </tr>
+      <tr>
+         <td>Universal Windows Platform</td>
+         <td>10.0.16299, TBD</td>
+      </tr>
+      <tr>
+         <td>Unity</td>
+         <td>2018.1</td>
+      </tr>
+   </tbody>
+</table>
+
+Binaries for all platforms are built from a single Visual Studio Project. You will need the latset [Visual Studio](https://visualstudio.microsoft.com/downloads) to build or contribute to Skylark.
+
+## Getting started
 
 Skylark is distributed via Microsofts package manager [NuGet](https://www.nuget.org). We refer to [this page](https://docs.microsoft.com/en-us/nuget) for detailed descriptions on how to get started/use NuGet. Here is a link to the [Skylark NuGet package](https://www.nuget.org/packages/Skylark).
 
