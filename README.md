@@ -5,7 +5,8 @@
 ![IDE-Version](https://img.shields.io/badge/IDE-VS2022-blue.svg)
 [![NuGet-Version](https://img.shields.io/nuget/v/Skylark.svg)](https://www.nuget.org/packages/Skylark)
 [![FuGet-Version](https://www.fuget.org/packages/Skylark/badge.svg)](https://www.fuget.org/packages/Skylark)
-[![NuGet](https://img.shields.io/nuget/dt/Skylark)](https://www.nuget.org/api/v2/package/Skylark)
+[![NuGet-Download](https://img.shields.io/nuget/dt/Skylark?label=Download)](https://www.nuget.org/api/v2/package/Skylark)
+[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-Skylark-orange.svg)](http://stackoverflow.com/questions/tagged/skylark)
 
 # Welcome to Skylark
 Skylark is a collection of tools and resources that can help with developing .NET projects. It is designed to be lightweight, easy to use, and not too complicated or resource-intensive. It can be useful for developers who are new to .NET or who want to quickly set up a new project without having to spend a lot of time configuring everything from scratch.
