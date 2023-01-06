@@ -7,8 +7,6 @@
 [![FuGet-Version](https://www.fuget.org/packages/Skylark/badge.svg)](https://www.fuget.org/packages/Skylark)
 [![NuGet](https://img.shields.io/nuget/dt/Skylark)](https://www.nuget.org/api/v2/package/Skylark)
 
-[![Discord-Server](https://img.shields.io/discord/932386235538878534?label=Discord)](https://discord.gg/nxG977byXb)
-
 # Welcome to Skylark
 Skylark is a collection of tools and resources that can help with developing .NET projects. It is designed to be lightweight, easy to use, and not too complicated or resource-intensive. It can be useful for developers who are new to .NET or who want to quickly set up a new project without having to spend a lot of time configuring everything from scratch.
 
@@ -67,6 +65,13 @@ This project follows the [all contributors](https://github.com/all-contributors/
 ## Documentation and FAQ
 
 To learn more about Skylark, check out the [documentation](https://github.com/Taiizor/Skylark/wiki) - you'll find information there on the most common scenarios. If Skylark isn't working the way you expect, you may find the [troubleshooting guide](https://github.com/Taiizor/Skylark/wiki/Debugging-and-Diagnostics) useful.
+
+Skylark has an active and helpful community who are happy to help point you in the right direction or work through any issues you might encounter. You can get in touch via:
+
+ * [Stack Overflow](http://stackoverflow.com/questions/tagged/skylark) &mdash; this is the best place to start if you have a question
+ * [Discord](https://discord.gg/nxG977byXb)
+
+We welcome bug reports and suggestions through our [issue tracker](https://github.com/Taiizor/Skylark/issues) here on GitHub.
 
 ## Contributing
 
