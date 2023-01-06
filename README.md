@@ -64,14 +64,14 @@ This project follows the [all contributors](https://github.com/all-contributors/
   </tr>
 </table>
 
-## Usage
+## Documentation and FAQ
 
-Step 1：Add a reference to Skylark or search for Skylark on the NuGet;
+To learn more about Skylark, check out the [documentation](https://github.com/Taiizor/Skylark/wiki) - you'll find information there on the most common scenarios. If Skylark isn't working the way you expect, you may find the [troubleshooting guide](https://github.com/Taiizor/Skylark/wiki/Debugging-and-Diagnostics) useful.
 
-```Install-Package Skylark```
+## Contributing
 
-Step 2：Enjoy encoding
+Would you like to help make Skylark even better? We keep a list of issues that are approachable for newcomers under the [solved](https://github.com/Taiizor/Skylark/issues?q=is%3Aissue+label%3Asolved) label (accessible only when logged into GitHub). Before starting work on a pull request, we suggest commenting on, or raising, an issue on the issue tracker so that we can help and coordinate efforts.
 
-## Documentation
+When contributing please keep in mind our [Code of Conduct](CODE_OF_CONDUCT.md).
 
-Documentation is located on the [wiki](https://github.com/Taiizor/Skylark/wiki) of this Repo.
+_Skylark is copyright &copy; 2022-2023 Skylark Contributors - Provided under the [MIT License](https://github.com/Taiizor/Skylark/blob/develop/LICENSE)._
