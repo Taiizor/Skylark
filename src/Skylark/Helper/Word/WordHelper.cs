@@ -63,7 +63,7 @@ namespace Skylark.Helper
 
             return new()
             {
-                Result = Builder.ToString(),
+                Result = Builder.ToString().Substring(1),
                 Count = Count
             };
         }

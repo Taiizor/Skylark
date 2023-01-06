@@ -18,7 +18,7 @@ namespace ConsoleDemoWord
 
             WordCombineStruct Combine = WordExtension.Combine(Word);
             Console.WriteLine($"Combine Count: {Combine.Count}");
-            Console.WriteLine($"Combine Result:\n{Combine.Result}");
+            Console.WriteLine($"Combine Result: {Combine.Result}");
 
             Console.ReadKey();
         }
