@@ -115,7 +115,7 @@ Binaries for all platforms are built from a single Visual Studio Project. You wi
 
 Skylark is distributed via Microsofts package manager [NuGet](https://www.nuget.org). We refer to [this page](https://docs.microsoft.com/en-us/nuget) for detailed descriptions on how to get started/use NuGet. Here is a link to the [Skylark NuGet package](https://www.nuget.org/packages/Skylark).
 
-By package Manager (PM): 
+By Package Manager (PM): 
 ```sh 
 Install-Package Skylark
 ```
@@ -125,7 +125,7 @@ By .NET CLI:
 dotnet add package Skylark
 ```
 
-Find more, including a runnable example application, under the [Getting Started topic](https://github.com/Taiizor/Skylark/wiki/Getting-Started) in the [documentation](https://github.com/Taiizor/Skylark/wiki/).
+Find more, including a runnable example application, under the [Getting Started](https://github.com/Taiizor/Skylark/wiki/Getting-Started) topic in the [documentation](https://github.com/Taiizor/Skylark/wiki/).
 
 ## Documentation and FAQ
 
@@ -133,8 +133,8 @@ To learn more about Skylark, check out the [documentation](https://github.com/Ta
 
 Skylark has an active and helpful community who are happy to help point you in the right direction or work through any issues you might encounter. You can get in touch via:
 
- * [Stack Overflow](http://stackoverflow.com/questions/tagged/skylark) &mdash; this is the best place to start if you have a question
- * [Discord](https://discord.gg/nxG977byXb)
+ * [Stack Overflow](http://stackoverflow.com/questions/tagged/skylark)
+ * [Discord](https://discord.gg/nxG977byXb) &mdash; this is the best place to start if you have a question
 
 We welcome bug reports and suggestions through our [issue tracker](https://github.com/Taiizor/Skylark/issues) here on GitHub.
 
