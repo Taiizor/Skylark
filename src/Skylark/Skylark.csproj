@@ -25,7 +25,7 @@
         <PackageReleaseNotes>Code improvements have been made.
 Changes are detailed at https://github.com/Taiizor/Skylark/releases
         </PackageReleaseNotes>
-        <PackageTags>ReaL Taiizor Soferity Vegalya Skylark C# CSharp VBC VB VisualBasic DotNET .NET NET Multi Purpose Multipurpose Cross App Web Tool Tools Convert Converter Minify Beauty Lightweight Library</PackageTags>
+        <PackageTags>ReaL Taiizor Soferity Vegalya Skylark C# CSharp VBC VB VisualBasic DotNET .NET NET Multi Purpose Multipurpose Cross App Web Box Tool Tools Convert Converter Minify Beauty Lightweight Library</PackageTags>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <!--<DocumentationFile>..\$(Title)\bin$(OutputPath)\$(Configuration)\$(TargetFramework)\$(Title).xml</DocumentationFile>-->
         <PackageProjectUrl>https://github.com/Taiizor/Skylark</PackageProjectUrl>
