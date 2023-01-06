@@ -16,6 +16,11 @@ namespace Skylark.Manage
         /// <summary>
         /// 
         /// </summary>
+        public const string Password = "1q2w3e4r5t";
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const ESPT SpecialType = ESPT.Mixed;
         /// <summary>
         /// 
@@ -66,5 +71,17 @@ namespace Skylark.Manage
         /// 
         /// </summary>
         public const string Error = "Unable to create password with selected parameters.";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly Dictionary<string, object> MeterOptions = new()
+        {
+            { "MinLength", 12 },
+            { "RegexDigit", @"^.*[0-9].*$" },
+            { "RegexUppercase", @"^.*[A-Z].*$" },
+            { "RegexLowercase", @"^.*[a-z].*$" },
+            { "RegexSymbol", @"^.*[!`'\""^+%&/=?\-_@€£ß*\-+#\\<|>;:.,~½£$\({\[\]}\)Æé~].*$" }
+        };
     }
 }

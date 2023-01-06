@@ -1,5 +1,6 @@
 ﻿using E = Skylark.Exception;
 using EAPT = Skylark.Enum.AlphabeticPasswordType;
+using EMPT = Skylark.Enum.MeterPasswordType;
 using ESPT = Skylark.Enum.SpecialPasswordType;
 using HC = Skylark.Helper.Converter;
 using HL = Skylark.Helper.Length;
@@ -14,6 +15,18 @@ namespace Skylark.Extension
     /// </summary>
     public class PasswordExtension
     {
+        public static EMPT Meter(string Password = MPM.Password)
+        {
+            try
+            {
+                return HPH.GetMeter(HL.Parameter(Password, MPM.Password));
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>

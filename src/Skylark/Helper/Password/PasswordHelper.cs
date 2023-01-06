@@ -1,4 +1,6 @@
-﻿using EAPT = Skylark.Enum.AlphabeticPasswordType;
+﻿using System.Text.RegularExpressions;
+using EAPT = Skylark.Enum.AlphabeticPasswordType;
+using EMPT = Skylark.Enum.MeterPasswordType;
 using ESPT = Skylark.Enum.SpecialPasswordType;
 using MPM = Skylark.Manage.PasswordManage;
 
@@ -9,6 +11,43 @@ namespace Skylark.Helper
     /// </summary>
     internal class PasswordHelper
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Password"></param>
+        /// <returns></returns>
+        public static EMPT GetMeter(string Password)
+        {
+            EMPT Point = 0;
+
+            if (Password.Length >= (int)MPM.MeterOptions["MinLength"])
+            {
+                Point += 20;
+            }
+
+            if (Regex.IsMatch(Password, MPM.MeterOptions["RegexDigit"] as string))
+            {
+                Point += 20;
+            }
+
+            if (Regex.IsMatch(Password, MPM.MeterOptions["RegexSymbol"] as string))
+            {
+                Point += 20;
+            }
+
+            if (Regex.IsMatch(Password, MPM.MeterOptions["RegexLowercase"] as string))
+            {
+                Point += 20;
+            }
+
+            if (Regex.IsMatch(Password, MPM.MeterOptions["RegexUppercase"] as string))
+            {
+                Point += 20;
+            }
+
+            return Point;
+        }
+
         /// <summary>
         /// 
         /// </summary>
