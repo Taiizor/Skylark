@@ -65,7 +65,7 @@ This project follows the [all contributors](https://github.com/all-contributors/
 
 ## Platform support
 
-Skylark works on .NET Framework, .NET Standard, .NET Core, and .NET.
+Skylark works on .NET Framework, .NET Standard, .NET Core and .NET.
 
 <table>
    <thead>
