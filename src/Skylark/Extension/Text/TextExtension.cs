@@ -1,4 +1,5 @@
-﻿using E = Skylark.Exception;
+﻿using System.Text;
+using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
 using MTM = Skylark.Manage.TextManage;
 
@@ -41,21 +42,16 @@ namespace Skylark.Extension
             {
                 List = HL.Number(List, MTM.MinList, MTM.MaxList);
 
-                string Result = string.Empty;
+                StringBuilder Builder = new();
 
                 for (int Count = 0; Count < List; Count++)
                 {
-                    if (!string.IsNullOrEmpty(Result))
-                    {
-                        Result += $"{Environment.NewLine}";
-                    }
-
                     string Temp = Generate(Word, Word * Count);
 
-                    Result += $"{Symbol} {string.Concat(Temp[0].ToString().ToUpperInvariant(), Temp.Substring(1))}";
+                    Builder.AppendLine($"{Symbol} {string.Concat(Temp[0].ToString().ToUpperInvariant(), Temp.Substring(1))}");
                 }
 
-                return Result;
+                return Builder.ToString();
             }
             catch (E Ex)
             {
@@ -76,21 +72,21 @@ namespace Skylark.Extension
             {
                 Paragraph = HL.Number(Paragraph, MTM.MinParagraph, MTM.MaxParagraph);
 
-                string Result = string.Empty;
+                StringBuilder Builder = new();
 
                 for (int Count = 0; Count < Paragraph; Count++)
                 {
-                    if (!string.IsNullOrEmpty(Result))
+                    if (Builder.Length > 0)
                     {
-                        Result += $"{Environment.NewLine}{Environment.NewLine}";
+                        Builder.AppendLine();
                     }
 
                     string Temp = Generate(Word, Word * Count);
 
-                    Result += string.Concat(Temp[0].ToString().ToUpperInvariant(), Temp.Substring(1));
+                    Builder.AppendLine(string.Concat(Temp[0].ToString().ToUpperInvariant(), Temp.Substring(1)));
                 }
 
-                return Result;
+                return Builder.ToString();
             }
             catch (E Ex)
             {
