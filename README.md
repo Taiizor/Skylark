@@ -62,6 +62,22 @@ This project follows the [all contributors](https://github.com/all-contributors/
   </tr>
 </table>
 
+### Getting started
+
+Skylark is distributed via Microsofts package manager [NuGet](https://www.nuget.org). We refer to [this page](https://docs.microsoft.com/en-us/nuget) for detailed descriptions on how to get started/use NuGet. Here is a link to the [Skylark NuGet package](https://www.nuget.org/packages/Skylark).
+
+By package Manager (PM): 
+```sh 
+Install-Package Skylark
+```
+
+By .NET CLI: 
+```sh 
+dotnet add package Skylark
+```
+
+Find more, including a runnable example application, under the [Getting Started topic](https://github.com/Taiizor/Skylark/wiki/Getting-Started) in the [documentation](https://github.com/Taiizor/Skylark/wiki/).
+
 ## Documentation and FAQ
 
 To learn more about Skylark, check out the [documentation](https://github.com/Taiizor/Skylark/wiki) - you'll find information there on the most common scenarios. If Skylark isn't working the way you expect, you may find the [troubleshooting guide](https://github.com/Taiizor/Skylark/wiki/Debugging-and-Diagnostics) useful.
