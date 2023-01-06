@@ -115,6 +115,7 @@ Binaries for all platforms are built from a single Visual Studio Project. You wi
 ## Getting started
 
 Skylark is distributed via Microsofts package manager [NuGet](https://www.nuget.org). We refer to [this page](https://docs.microsoft.com/en-us/nuget) for detailed descriptions on how to get started/use NuGet. Here is a link to the [Skylark NuGet package](https://www.nuget.org/packages/Skylark).
+You can grab a copy of the library on NuGet by running:
 
 By Package Manager (PM): 
 ```sh 
