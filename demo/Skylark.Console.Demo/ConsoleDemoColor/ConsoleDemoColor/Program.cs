@@ -15,7 +15,7 @@ namespace ConsoleDemoColor
 
             Console.WriteLine(ColorExtension.ToHex(Color, false, false));
             Console.WriteLine(ColorExtension.ToHex(Color, true, true));
-            
+
             Console.WriteLine(ColorExtension.ToHexInteger(Color, false, false));
             Console.WriteLine(ColorExtension.ToHexInteger(Color, true, true));
 
@@ -42,6 +42,12 @@ namespace ConsoleDemoColor
 
             Console.WriteLine(ColorExtension.HexToRGB("#DC143C"));
             Console.WriteLine(ColorExtension.HexToARGB("#FFDC143C"));
+
+            Console.WriteLine();
+
+            Console.WriteLine(ColorExtension.HexToColor("#DC143C").ToString());
+            Console.WriteLine(ColorExtension.HexToColor("#00DC143C").ToString());
+            Console.WriteLine(ColorExtension.HexToColor("#FFDC143C").ToString());
 
             Console.ReadKey();
         }

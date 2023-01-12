@@ -47,11 +47,11 @@ namespace Skylark.Extension
 
                 if (Upper)
                 {
-                    Result = $"0xFF{Result}";
+                    Result = $"0x{Color.A:X2}{Result}";
                 }
                 else
                 {
-                    Result = $"0xff{Result}";
+                    Result = $"0x{Color.A:x2}{Result}";
                 }
 
                 if (Sharp)
@@ -59,7 +59,7 @@ namespace Skylark.Extension
                     Result = $"#{Result}";
                 }
 
-                return $"hex({Result})";
+                return $"hexi({Result})";
             }
             catch (E Ex)
             {
@@ -433,6 +433,44 @@ namespace Skylark.Extension
                 Color Color = Color.FromArgb(Value);
 
                 return $"argb({Color.A}, {Color.R}, {Color.G}, {Color.B})";
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Hex"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static Color HexToColor(string Hex = MCM.Hex)
+        {
+            try
+            {
+                Hex = HL.Text(Hex, MCM.Hex, 6, 9);
+
+                if (Hex.StartsWith("#"))
+                {
+                    Hex = Hex.Substring(1);
+                }
+                
+                if (Hex.Length == 6)
+                {
+                    int Value = Convert.ToInt32(Hex, 16);
+                    int Red = (Value >> 16) & 0xFF;
+                    int Green = (Value >> 8) & 0xFF;
+                    int Blue = Value & 0xFF;
+
+                    return Color.FromArgb(Red, Green, Blue);
+                }
+                else
+                {
+                    int Value = int.Parse(Hex, NumberStyles.HexNumber);
+                    return Color.FromArgb(Value);
+                }
             }
             catch (E Ex)
             {
