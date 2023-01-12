@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Globalization;
 using E = Skylark.Exception;
 using HCH = Skylark.Helper.ColorHelper;
 using HL = Skylark.Helper.Length;
@@ -23,7 +24,7 @@ namespace Skylark.Extension
         {
             try
             {
-                return RGBToHex(Color.R, Color.G, Color.B, Upper, Sharp);
+                return $"hex({HCH.ConvertToHex(Color.R, Color.G, Color.B, Upper, Sharp)})";
             }
             catch (E Ex)
             {
@@ -42,7 +43,7 @@ namespace Skylark.Extension
         {
             try
             {
-                string Result = RGBToHex(Color.R, Color.G, Color.B, Upper, false);
+                string Result = HCH.ConvertToHex(Color.R, Color.G, Color.B, Upper, false);
 
                 if (Upper)
                 {
@@ -55,10 +56,10 @@ namespace Skylark.Extension
 
                 if (Sharp)
                 {
-                    Result = $"hex(#{Result})";
+                    Result = $"#{Result}";
                 }
 
-                return Result;
+                return $"hex({Result})";
             }
             catch (E Ex)
             {
@@ -373,29 +374,7 @@ namespace Skylark.Extension
         {
             try
             {
-                R = HL.Number(R, MCM.ValueMin, MCM.ValueMax);
-                G = HL.Number(G, MCM.ValueMin, MCM.ValueMax);
-                B = HL.Number(B, MCM.ValueMin, MCM.ValueMax);
-
-                Color Color = Color.FromArgb(Convert.ToInt32(R), Convert.ToInt32(G), Convert.ToInt32(B));
-
-                string Result = string.Empty;
-
-                if (Upper)
-                {
-                    Result = $"{Color.R:X2}{Color.G:X2}{Color.B:X2}";
-                }
-                else
-                {
-                    Result = $"{Color.R:x2}{Color.G:x2}{Color.B:x2}";
-                }
-
-                if (Sharp)
-                {
-                    Result = $"hex(#{Result})";
-                }
-
-                return Result;
+                return $"hex({HCH.ConvertToHex(R, G, B, Upper, Sharp)})";
             }
             catch (E Ex)
             {
@@ -409,11 +388,10 @@ namespace Skylark.Extension
         /// <param name="Hex"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string HexToRGB(string Hex)
+        public static string HexToRGB(string Hex = MCM.Hex)
         {
             try
             {
-
                 Hex = HL.Text(Hex, MCM.Hex, 6, 7);
 
                 if (Hex.StartsWith("#"))
@@ -421,12 +399,40 @@ namespace Skylark.Extension
                     Hex = Hex.Substring(1);
                 }
 
-                int intValue = Convert.ToInt32(Hex, 16);
-                int red = (intValue >> 16) & 0xFF;
-                int green = (intValue >> 8) & 0xFF;
-                int blue = intValue & 0xFF;
+                int Value = Convert.ToInt32(Hex, 16);
+                int Red = (Value >> 16) & 0xFF;
+                int Green = (Value >> 8) & 0xFF;
+                int Blue = Value & 0xFF;
 
-                return $"rgb({red}, {green}, {blue})";
+                return $"rgb({Red}, {Green}, {Blue})";
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Hex"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static string HexToARGB(string Hex = MCM.HexAlpha)
+        {
+            try
+            {
+                Hex = HL.Text(Hex, MCM.HexAlpha, 8, 9);
+
+                if (Hex.StartsWith("#"))
+                {
+                    Hex = Hex.Substring(1);
+                }
+
+                int Value = int.Parse(Hex, NumberStyles.HexNumber);
+                Color Color = Color.FromArgb(Value);
+
+                return $"argb({Color.A}, {Color.R}, {Color.G}, {Color.B})";
             }
             catch (E Ex)
             {

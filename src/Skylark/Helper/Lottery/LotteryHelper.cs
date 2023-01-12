@@ -18,9 +18,9 @@ namespace Skylark.Helper
         public static string[] GetSplit(string List, bool Repeated)
         {
             List = List.Length > MI.TextLength ? MLM.List : List;
-            
+
             string[] Result = List.Split(MI.SplitNewLine, ME.SplitOption);
-            
+
             return Repeated ? Result : Result.Distinct().ToArray();
         }
     }

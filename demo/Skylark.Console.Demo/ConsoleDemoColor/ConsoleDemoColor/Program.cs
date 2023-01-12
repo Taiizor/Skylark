@@ -22,25 +22,15 @@ namespace ConsoleDemoColor
             Console.WriteLine();
 
             Console.WriteLine(ColorExtension.ToRGB(Color));
-
             Console.WriteLine(ColorExtension.ToHSB(Color));
-
             Console.WriteLine(ColorExtension.ToHSI(Color));
-
             Console.WriteLine(ColorExtension.ToHSL(Color));
-
             Console.WriteLine(ColorExtension.ToHSV(Color));
-
             Console.WriteLine(ColorExtension.ToHWB(Color));
-
             Console.WriteLine(ColorExtension.ToARGB(Color));
-
             Console.WriteLine(ColorExtension.ToCMYK(Color));
-
             Console.WriteLine(ColorExtension.ToCIELAB(Color));
-
             Console.WriteLine(ColorExtension.ToCIEXYZ(Color));
-
             Console.WriteLine(ColorExtension.ToNatural(Color));
 
             Console.WriteLine();
@@ -51,6 +41,7 @@ namespace ConsoleDemoColor
             Console.WriteLine();
 
             Console.WriteLine(ColorExtension.HexToRGB("#DC143C"));
+            Console.WriteLine(ColorExtension.HexToARGB("#FFDC143C"));
 
             Console.ReadKey();
         }
