@@ -55,6 +55,24 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
+        public static string ToARGB(Color Color)
+        {
+            try
+            {
+                return $"argb({Color.A}, {Color.R}, {Color.G}, {Color.B})";
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
         public static string ToHSB(Color Color)
         {
             try
@@ -151,7 +169,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ColorToHWB(Color Color)
+        public static string ToHWB(Color Color)
         {
             try
             {
@@ -175,7 +193,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ColorToCMYK(Color Color)
+        public static string ToCMYK(Color Color)
         {
             try
             {
@@ -200,7 +218,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ColorToCIELAB(Color Color)
+        public static string ToCIELAB(Color Color)
         {
             try
             {
@@ -224,7 +242,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ColorToCIEXYZ(Color Color)
+        public static string ToCIEXYZ(Color Color)
         {
             try
             {
@@ -234,7 +252,7 @@ namespace Skylark.Extension
                 Y = Math.Round(Y * 100, 4);
                 Z = Math.Round(Z * 100, 4);
 
-                return $"XYZ({X}, {Y}, {Z})";
+                return $"CIEXYZ({X}, {Y}, {Z})";
             }
             catch (E Ex)
             {
@@ -248,7 +266,48 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ColorToNatural(Color Color)
+        public static string ToFloat(Color Color)
+        {
+            try
+            {
+                (double Red, double Green, double Blue) = HCH.ConvertToDouble(Color);
+
+                const int Precision = 2;
+                const string FloatFormat = "0.##";
+
+                return $"({Math.Round(Red, Precision).ToString(FloatFormat)}f, {Math.Round(Green, Precision).ToString(FloatFormat)}f, {Math.Round(Blue, Precision).ToString(FloatFormat)}f, 1f)";
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static string ToDecimal(Color Color)
+        {
+            try
+            {
+                return $"{(Color.R * 65536) + (Color.G * 256) + Color.B}";
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static string ToNatural(Color Color)
         {
             try
             {
@@ -257,7 +316,7 @@ namespace Skylark.Extension
                 Whiteness = Math.Round(Whiteness * 100);
                 Blackness = Math.Round(Blackness * 100);
 
-                return $"{Hue}, {Whiteness}%, {Blackness}%";
+                return $"ncol({Hue}, {Whiteness}%, {Blackness}%)";
             }
             catch (E Ex)
             {
@@ -294,6 +353,41 @@ namespace Skylark.Extension
                 else
                 {
                     Result = $"{Color.R:x2}{Color.G:x2}{Color.B:x2}";
+                }
+
+                if (Sharp)
+                {
+                    Result = $"#{Result}";
+                }
+
+                return Result;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Sharp"></param>
+        /// <returns></returns>
+        public static string ToHexInteger(Color Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        {
+            try
+            {
+                string Result = ToHex(Color.R, Color.G, Color.B, Upper, false);
+
+                if (Upper)
+                {
+                    Result = $"0xFF{Result}";
+                }
+                else
+                {
+                    Result = $"0xff{Result}";
                 }
 
                 if (Sharp)

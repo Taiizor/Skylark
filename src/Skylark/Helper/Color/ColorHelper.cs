@@ -12,6 +12,16 @@ namespace Skylark.Helper
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
+        public static (double Red, double Green, double Blue) ConvertToDouble(Color Color)
+        {
+            return (Color.R / 255d, Color.G / 255d, Color.B / 255d);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <returns></returns>
         public static (double Hue, double Saturation, double Brightness) ConvertToHSB(Color Color)
         {
             return ConvertToHSV(Color);
