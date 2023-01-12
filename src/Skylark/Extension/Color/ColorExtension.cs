@@ -43,16 +43,7 @@ namespace Skylark.Extension
         {
             try
             {
-                string Result = HCH.ConvertToHex(Color.R, Color.G, Color.B, Upper, false);
-
-                if (Upper)
-                {
-                    Result = $"0x{Color.A:X2}{Result}";
-                }
-                else
-                {
-                    Result = $"0x{Color.A:x2}{Result}";
-                }
+                string Result = $"0x{HCH.ConvertToHex(Color.A, Color.R, Color.G, Color.B, Upper, false)}";
 
                 if (Sharp)
                 {
@@ -385,6 +376,70 @@ namespace Skylark.Extension
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="A"></param>
+        /// <param name="R"></param>
+        /// <param name="G"></param>
+        /// <param name="B"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Sharp"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static string ARGBToHex(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        {
+            try
+            {
+                return $"hex({HCH.ConvertToHex(A, R, G, B, Upper, Sharp)})";
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="R"></param>
+        /// <param name="G"></param>
+        /// <param name="B"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static Color RGBToColor(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
+        {
+            try
+            {
+                return HCH.ConvertToColor(R, G, B);
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="A"></param>
+        /// <param name="R"></param>
+        /// <param name="G"></param>
+        /// <param name="B"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static Color ARGBToColor(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
+        {
+            try
+            {
+                return HCH.ConvertToColor(A, R, G, B);
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Hex"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
@@ -400,6 +455,7 @@ namespace Skylark.Extension
                 }
 
                 int Value = Convert.ToInt32(Hex, 16);
+
                 int Red = (Value >> 16) & 0xFF;
                 int Green = (Value >> 8) & 0xFF;
                 int Blue = Value & 0xFF;
@@ -430,6 +486,7 @@ namespace Skylark.Extension
                 }
 
                 int Value = int.Parse(Hex, NumberStyles.HexNumber);
+
                 Color Color = Color.FromArgb(Value);
 
                 return $"argb({Color.A}, {Color.R}, {Color.G}, {Color.B})";
@@ -456,10 +513,11 @@ namespace Skylark.Extension
                 {
                     Hex = Hex.Substring(1);
                 }
-                
+
                 if (Hex.Length == 6)
                 {
                     int Value = Convert.ToInt32(Hex, 16);
+
                     int Red = (Value >> 16) & 0xFF;
                     int Green = (Value >> 8) & 0xFF;
                     int Blue = Value & 0xFF;
@@ -469,6 +527,7 @@ namespace Skylark.Extension
                 else
                 {
                     int Value = int.Parse(Hex, NumberStyles.HexNumber);
+
                     return Color.FromArgb(Value);
                 }
             }

@@ -15,16 +15,46 @@ namespace Skylark.Helper
         /// <param name="R"></param>
         /// <param name="G"></param>
         /// <param name="B"></param>
-        /// <param name="Upper"></param>
-        /// <param name="Sharp"></param>
         /// <returns></returns>
-        public static string ConvertToHex(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        public static Color ConvertToColor(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
         {
             R = HL.Number(R, MCM.ValueMin, MCM.ValueMax);
             G = HL.Number(G, MCM.ValueMin, MCM.ValueMax);
             B = HL.Number(B, MCM.ValueMin, MCM.ValueMax);
 
-            Color Color = Color.FromArgb(Convert.ToInt32(R), Convert.ToInt32(G), Convert.ToInt32(B));
+            return Color.FromArgb(R, G, B);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="A"></param>
+        /// <param name="R"></param>
+        /// <param name="G"></param>
+        /// <param name="B"></param>
+        /// <returns></returns>
+        public static Color ConvertToColor(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
+        {
+            A = HL.Number(A, MCM.ValueMin, MCM.ValueMax);
+            R = HL.Number(R, MCM.ValueMin, MCM.ValueMax);
+            G = HL.Number(G, MCM.ValueMin, MCM.ValueMax);
+            B = HL.Number(B, MCM.ValueMin, MCM.ValueMax);
+
+            return Color.FromArgb(A, R, G, B);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="R"></param>
+        /// <param name="G"></param>
+        /// <param name="B"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Sharp"></param>
+        /// <returns></returns>
+        public static string ConvertToHex(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        {
+            Color Color = ConvertToColor(R, G, B);
 
             string Result;
 
@@ -35,6 +65,39 @@ namespace Skylark.Helper
             else
             {
                 Result = $"{Color.R:x2}{Color.G:x2}{Color.B:x2}";
+            }
+
+            if (Sharp)
+            {
+                Result = $"#{Result}";
+            }
+
+            return Result;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="A"></param>
+        /// <param name="R"></param>
+        /// <param name="G"></param>
+        /// <param name="B"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Sharp"></param>
+        /// <returns></returns>
+        public static string ConvertToHex(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        {
+            Color Color = ConvertToColor(A, R, G, B);
+
+            string Result;
+
+            if (Upper)
+            {
+                Result = $"{Color.A:X2}{Color.R:X2}{Color.G:X2}{Color.B:X2}";
+            }
+            else
+            {
+                Result = $"{Color.A:x2}{Color.R:x2}{Color.G:x2}{Color.B:x2}";
             }
 
             if (Sharp)
