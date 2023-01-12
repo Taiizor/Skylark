@@ -23,7 +23,42 @@ namespace Skylark.Extension
         {
             try
             {
-                return ToHex(Color.R, Color.G, Color.B, Upper, Sharp);
+                return RGBToHex(Color.R, Color.G, Color.B, Upper, Sharp);
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Sharp"></param>
+        /// <returns></returns>
+        public static string ToHexInteger(Color Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        {
+            try
+            {
+                string Result = RGBToHex(Color.R, Color.G, Color.B, Upper, false);
+
+                if (Upper)
+                {
+                    Result = $"0xFF{Result}";
+                }
+                else
+                {
+                    Result = $"0xff{Result}";
+                }
+
+                if (Sharp)
+                {
+                    Result = $"hex(#{Result})";
+                }
+
+                return Result;
             }
             catch (E Ex)
             {
@@ -275,7 +310,7 @@ namespace Skylark.Extension
                 const int Precision = 2;
                 const string FloatFormat = "0.##";
 
-                return $"({Math.Round(Red, Precision).ToString(FloatFormat)}f, {Math.Round(Green, Precision).ToString(FloatFormat)}f, {Math.Round(Blue, Precision).ToString(FloatFormat)}f, 1f)";
+                return $"float({Math.Round(Red, Precision).ToString(FloatFormat)}f, {Math.Round(Green, Precision).ToString(FloatFormat)}f, {Math.Round(Blue, Precision).ToString(FloatFormat)}f, 1f)";
             }
             catch (E Ex)
             {
@@ -293,7 +328,7 @@ namespace Skylark.Extension
         {
             try
             {
-                return $"{(Color.R * 65536) + (Color.G * 256) + Color.B}";
+                return $"decimal({(Color.R * 65536) + (Color.G * 256) + Color.B})";
             }
             catch (E Ex)
             {
@@ -334,7 +369,7 @@ namespace Skylark.Extension
         /// <param name="Sharp"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToHex(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        public static string RGBToHex(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
         {
             try
             {
@@ -357,7 +392,7 @@ namespace Skylark.Extension
 
                 if (Sharp)
                 {
-                    Result = $"#{Result}";
+                    Result = $"hex(#{Result})";
                 }
 
                 return Result;
@@ -371,31 +406,27 @@ namespace Skylark.Extension
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Color"></param>
-        /// <param name="Upper"></param>
-        /// <param name="Sharp"></param>
+        /// <param name="Hex"></param>
         /// <returns></returns>
-        public static string ToHexInteger(Color Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        /// <exception cref="E"></exception>
+        public static string HexToRGB(string Hex)
         {
             try
             {
-                string Result = ToHex(Color.R, Color.G, Color.B, Upper, false);
 
-                if (Upper)
+                Hex = HL.Text(Hex, MCM.Hex, 6, 7);
+
+                if (Hex.StartsWith("#"))
                 {
-                    Result = $"0xFF{Result}";
-                }
-                else
-                {
-                    Result = $"0xff{Result}";
+                    Hex = Hex.Substring(1);
                 }
 
-                if (Sharp)
-                {
-                    Result = $"#{Result}";
-                }
+                int intValue = Convert.ToInt32(Hex, 16);
+                int red = (intValue >> 16) & 0xFF;
+                int green = (intValue >> 8) & 0xFF;
+                int blue = intValue & 0xFF;
 
-                return Result;
+                return $"rgb({red}, {green}, {blue})";
             }
             catch (E Ex)
             {

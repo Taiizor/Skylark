@@ -8,6 +8,11 @@
         /// <summary>
         /// 
         /// </summary>
+        public const string Hex = "#DC143C";
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const int Value = 111;
         /// <summary>
         /// 

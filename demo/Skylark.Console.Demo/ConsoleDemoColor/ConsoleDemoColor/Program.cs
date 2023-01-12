@@ -48,6 +48,10 @@ namespace ConsoleDemoColor
             Console.WriteLine(ColorExtension.ToFloat(Color));
             Console.WriteLine(ColorExtension.ToDecimal(Color));
 
+            Console.WriteLine();
+
+            Console.WriteLine(ColorExtension.HexToRGB("#DC143C"));
+
             Console.ReadKey();
         }
     }
