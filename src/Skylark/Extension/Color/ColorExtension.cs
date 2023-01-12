@@ -151,6 +151,30 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
+        public static string ColorToHWB(Color Color)
+        {
+            try
+            {
+                (double Hue, double Whiteness, double Blackness) = HCH.ConvertToHWB(Color);
+
+                Hue = Math.Round(Hue);
+                Whiteness = Math.Round(Whiteness * 100);
+                Blackness = Math.Round(Blackness * 100);
+
+                return $"hwb({Hue}, {Whiteness}%, {Blackness}%)";
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
         public static string ColorToCMYK(Color Color)
         {
             try
@@ -163,6 +187,77 @@ namespace Skylark.Extension
                 BlackKey = Math.Round(BlackKey * 100);
 
                 return $"cmyk({Cyan}%, {Magenta}%, {Yellow}%, {BlackKey}%)";
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static string ColorToCIELAB(Color Color)
+        {
+            try
+            {
+                (double Lightness, double ChromaticityA, double ChromaticityB) = HCH.ConvertToCIELAB(Color);
+
+                Lightness = Math.Round(Lightness, 2);
+                ChromaticityA = Math.Round(ChromaticityA, 2);
+                ChromaticityB = Math.Round(ChromaticityB, 2);
+
+                return $"CIELab({Lightness}, {ChromaticityA}, {ChromaticityB})";
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static string ColorToCIEXYZ(Color Color)
+        {
+            try
+            {
+                (double X, double Y, double Z) = HCH.ConvertToCIEXYZ(Color);
+
+                X = Math.Round(X * 100, 4);
+                Y = Math.Round(Y * 100, 4);
+                Z = Math.Round(Z * 100, 4);
+
+                return $"XYZ({X}, {Y}, {Z})";
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static string ColorToNatural(Color Color)
+        {
+            try
+            {
+                (string Hue, double Whiteness, double Blackness) = HCH.ConvertToNatural(Color);
+
+                Whiteness = Math.Round(Whiteness * 100);
+                Blackness = Math.Round(Blackness * 100);
+
+                return $"{Hue}, {Whiteness}%, {Blackness}%";
             }
             catch (E Ex)
             {

@@ -119,5 +119,120 @@ namespace Skylark.Helper
 
             return (Cyan, Magenta, Yellow, BlackKey);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <returns></returns>
+        public static (double Lightness, double ChromaticityA, double ChromaticityB) ConvertToCIELAB(Color Color)
+        {
+            (double X, double Y, double Z) = ConvertToCIEXYZ(Color);
+            (double Lightness, double ChromaticityA, double ChromaticityB) LAB = GetCIELABColorFromCIEXYZ(X, Y, Z);
+
+            return LAB;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <returns></returns>
+        public static (double X, double Y, double Z) ConvertToCIEXYZ(Color Color)
+        {
+            double R = Color.R / 255d;
+            double G = Color.G / 255d;
+            double B = Color.B / 255d;
+
+            double RLinear = (R > 0.04045) ? Math.Pow((R + 0.055) / 1.055, 2.4) : (R / 12.92);
+            double GLinear = (G > 0.04045) ? Math.Pow((G + 0.055) / 1.055, 2.4) : (G / 12.92);
+            double BLinear = (B > 0.04045) ? Math.Pow((B + 0.055) / 1.055, 2.4) : (B / 12.92);
+
+            return (
+                (RLinear * 0.41239079926595948) + (GLinear * 0.35758433938387796) + (BLinear * 0.18048078840183429),
+                (RLinear * 0.21263900587151036) + (GLinear * 0.71516867876775593) + (BLinear * 0.07219231536073372),
+                (RLinear * 0.01933081871559185) + (GLinear * 0.11919477979462599) + (BLinear * 0.95053215224966058)
+            );
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <returns></returns>
+        public static (string Hue, double Whiteness, double Blackness) ConvertToNatural(Color Color)
+        {
+            double Min = Math.Min(Math.Min(Color.R, Color.G), Color.B) / 255d;
+            double Max = Math.Max(Math.Max(Color.R, Color.G), Color.B) / 255d;
+
+            return (GetNaturalColorFromHue(Color.GetHue()), Min, 1 - Max);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Hue"></param>
+        /// <returns></returns>
+        private static string GetNaturalColorFromHue(double Hue)
+        {
+            if (Hue < 60d)
+            {
+                return $"R{Math.Round(Hue / 0.6d, 0)}";
+            }
+
+            if (Hue < 120d)
+            {
+                return $"Y{Math.Round((Hue - 60d) / 0.6d, 0)}";
+            }
+
+            if (Hue < 180d)
+            {
+                return $"G{Math.Round((Hue - 120d) / 0.6d, 0)}";
+            }
+
+            if (Hue < 240d)
+            {
+                return $"C{Math.Round((Hue - 180d) / 0.6d, 0)}";
+            }
+
+            if (Hue < 300d)
+            {
+                return $"B{Math.Round((Hue - 240d) / 0.6d, 0)}";
+            }
+
+            return $"M{Math.Round((Hue - 300d) / 0.6d, 0)}";
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="X"></param>
+        /// <param name="Y"></param>
+        /// <param name="Z"></param>
+        /// <returns></returns>
+        private static (double Lightness, double ChromaticityA, double ChromaticityB) GetCIELABColorFromCIEXYZ(double X, double Y, double Z)
+        {
+            double X_N = 0.9504559270516717;
+            double Y_N = 1.0;
+            double Z_N = 1.0890577507598784;
+
+            X /= X_N;
+            Y /= Y_N;
+            Z /= Z_N;
+
+            double Delta = 6d / 29;
+            double M = 1d / 3 * Math.Pow(Delta, -2);
+            double T = Math.Pow(Delta, 3);
+
+            double FX = (X > T) ? Math.Pow(X, 1.0 / 3.0) : (X * M) + (16.0 / 116.0);
+            double FY = (Y > T) ? Math.Pow(Y, 1.0 / 3.0) : (Y * M) + (16.0 / 116.0);
+            double FZ = (Z > T) ? Math.Pow(Z, 1.0 / 3.0) : (Z * M) + (16.0 / 116.0);
+
+            double L = (116 * FY) - 16;
+            double A = 500 * (FX - FY);
+            double B = 200 * (FY - FZ);
+
+            return (L, A, B);
+        }
     }
 }
