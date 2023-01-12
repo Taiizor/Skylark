@@ -55,6 +55,54 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
+        public static string ToHSB(Color Color)
+        {
+            try
+            {
+                (double Hue, double Saturation, double Brightness) = HCH.ConvertToHSB(Color);
+
+                Hue = Math.Round(Hue);
+                Saturation = Math.Round(Saturation * 100);
+                Brightness = Math.Round(Brightness * 100);
+
+                return $"hsb({Hue}, {Saturation}%, {Brightness}%)";
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static string ToHSI(Color Color)
+        {
+            try
+            {
+                (double Hue, double Saturation, double Intensity) = HCH.ConvertToHSI(Color);
+
+                Hue = Math.Round(Hue);
+                Saturation = Math.Round(Saturation * 100);
+                Intensity = Math.Round(Intensity * 100);
+
+                return $"hsi({Hue}, {Saturation}%, {Intensity}%)";
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
         public static string ToHSL(Color Color)
         {
             try
@@ -100,6 +148,31 @@ namespace Skylark.Extension
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Color"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static string ColorToCMYK(Color Color)
+        {
+            try
+            {
+                (double Cyan, double Magenta, double Yellow, double BlackKey) = HCH.ConvertToCMYK(Color);
+
+                Cyan = Math.Round(Cyan * 100);
+                Magenta = Math.Round(Magenta * 100);
+                Yellow = Math.Round(Yellow * 100);
+                BlackKey = Math.Round(BlackKey * 100);
+
+                return $"cmyk({Cyan}%, {Magenta}%, {Yellow}%, {BlackKey}%)";
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="R"></param>
         /// <param name="G"></param>
         /// <param name="B"></param>
@@ -107,13 +180,13 @@ namespace Skylark.Extension
         /// <param name="Sharp"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToHex(int R = MCM.Integer, int G = MCM.Integer, int B = MCM.Integer, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        public static string ToHex(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
         {
             try
             {
-                R = HL.Number(R, MCM.IntegerMin, MCM.IntegerMax);
-                G = HL.Number(G, MCM.IntegerMin, MCM.IntegerMax);
-                B = HL.Number(B, MCM.IntegerMin, MCM.IntegerMax);
+                R = HL.Number(R, MCM.ValueMin, MCM.ValueMax);
+                G = HL.Number(G, MCM.ValueMin, MCM.ValueMax);
+                B = HL.Number(B, MCM.ValueMin, MCM.ValueMax);
 
                 Color Color = Color.FromArgb(Convert.ToInt32(R), Convert.ToInt32(G), Convert.ToInt32(B));
 
