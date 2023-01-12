@@ -3,8 +3,8 @@ using System.Globalization;
 using System.Text;
 using WebMarkupMin.Core;
 using E = Skylark.Exception;
-using HL = Skylark.Helper.Length;
 using HF = Skylark.Helper.Format;
+using HL = Skylark.Helper.Length;
 using MHM = Skylark.Manage.HtmlManage;
 
 namespace Skylark.Extension
