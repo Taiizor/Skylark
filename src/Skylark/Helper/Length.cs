@@ -13,15 +13,15 @@ namespace Skylark.Helper
         /// <param name="Value"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static string Text(string Value, string Back)
-        {
-            if (Value.Length > MI.TextLength)
-            {
-                Value = Back;
-            }
+        public static string Text(string Value, string Back) => Value.Length > MI.TextLength ? Back : Value;
 
-            return Value;
-        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static string Parameter(string Value, string Back) => Value.Length > MI.ParameterLength ? Back : Value;
 
         /// <summary>
         /// 
@@ -30,35 +30,6 @@ namespace Skylark.Helper
         /// <param name="MinValue"></param>
         /// <param name="MaxValue"></param>
         /// <returns></returns>
-        public static int Number(int Value, int MinValue, int MaxValue)
-        {
-            if (Value < MinValue)
-            {
-                return MinValue;
-            }
-
-            if (Value > MaxValue)
-            {
-                return MaxValue;
-            }
-
-            return Value;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Value"></param>
-        /// <param name="Back"></param>
-        /// <returns></returns>
-        public static string Parameter(string Value, string Back)
-        {
-            if (Value.Length > MI.ParameterLength)
-            {
-                Value = Back;
-            }
-
-            return Value;
-        }
+        public static int Number(int Value, int MinValue, int MaxValue) => Math.Min(MaxValue, Math.Max(Value, MinValue));
     }
 }
