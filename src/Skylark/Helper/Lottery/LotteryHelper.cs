@@ -17,19 +17,11 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static string[] GetSplit(string List, bool Repeated)
         {
-            if (List.Length > MI.TextLength)
-            {
-                List = MLM.List;
-            }
-
+            List = List.Length > MI.TextLength ? MLM.List : List;
+            
             string[] Result = List.Split(MI.SplitNewLine, ME.SplitOption);
-
-            if (!Repeated && Result.Any())
-            {
-                return Result.Distinct().ToArray();
-            }
-
-            return Result;
+            
+            return Repeated ? Result : Result.Distinct().ToArray();
         }
     }
 }
