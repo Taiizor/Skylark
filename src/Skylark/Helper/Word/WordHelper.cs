@@ -18,12 +18,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static string[] GetSplit(string List)
         {
-            if (List.Length > MI.TextLength)
-            {
-                List = MWM.List;
-            }
-
-            return List.Split(MI.SplitSpace, ME.SplitOption);
+            return (List.Length > MI.TextLength ? MWM.List : List).Split(MI.SplitSpace, ME.SplitOption);
         }
 
         /// <summary>
@@ -33,12 +28,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static string[] GetSplits(string List)
         {
-            if (List.Length > MI.TextLength)
-            {
-                List = MWM.List;
-            }
-
-            return List.Split(MI.SplitSpaceNewLine, ME.SplitOption);
+            return (List.Length > MI.TextLength ? MWM.List : List).Split(MI.SplitSpaceNewLine, ME.SplitOption);
         }
 
         /// <summary>
