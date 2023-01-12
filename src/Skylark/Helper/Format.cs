@@ -1,4 +1,6 @@
-﻿namespace Skylark.Helper
+﻿using E = Skylark.Exception;
+
+namespace Skylark.Helper
 {
     /// <summary>
     /// 
@@ -17,9 +19,9 @@
             {
                 return string.Format(Format, Args);
             }
-            catch
+            catch (E Ex)
             {
-                return Format;
+                throw new E(Ex.Message, Ex);
             }
         }
     }
