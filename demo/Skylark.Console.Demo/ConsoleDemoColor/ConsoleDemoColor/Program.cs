@@ -40,6 +40,16 @@ namespace ConsoleDemoColor
 
             Console.WriteLine();
 
+            Console.WriteLine(ColorExtension.RGBToHex(220, 20, 60, false, false));
+            Console.WriteLine(ColorExtension.ARGBToHex(255, 220, 20, 60, true, true));
+
+            Console.WriteLine();
+
+            Console.WriteLine(ColorExtension.RGBToColor(220, 20, 60));
+            Console.WriteLine(ColorExtension.ARGBToColor(255, 220, 20, 60));
+
+            Console.WriteLine();
+
             Console.WriteLine(ColorExtension.HexToRGB("#DC143C"));
             Console.WriteLine(ColorExtension.HexToARGB("#FFDC143C"));
 
