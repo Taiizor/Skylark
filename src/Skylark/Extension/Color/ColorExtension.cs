@@ -1,8 +1,7 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using E = Skylark.Exception;
-using HL = Skylark.Helper.Length;
 using HCH = Skylark.Helper.ColorHelper;
+using HL = Skylark.Helper.Length;
 using MCM = Skylark.Manage.ColorManage;
 
 namespace Skylark.Extension
@@ -31,19 +30,66 @@ namespace Skylark.Extension
                 throw new E(Ex.Message, Ex);
             }
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="Color"></param>
-        /// <param name="Upper"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToHexInteger(Color Color, bool Upper = MCM.Upper)
+        public static string ToRGB(Color Color)
         {
             try
             {
-                return ToHexInteger(Color.R, Color.G, Color.B, Upper);
+                return $"rgb({Color.R}, {Color.G}, {Color.B})";
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static string ToHSL(Color Color)
+        {
+            try
+            {
+                (double Hue, double Saturation, double Lightness) = HCH.ConvertToHSL(Color);
+
+                Hue = Math.Round(Hue);
+                Saturation = Math.Round(Saturation * 100);
+                Lightness = Math.Round(Lightness * 100);
+
+                return $"hsl({Hue}, {Saturation}%, {Lightness}%)";
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Color"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static string ToHSV(Color Color)
+        {
+            try
+            {
+                (double Hue, double Saturation, double Value) = HCH.ConvertToHSV(Color);
+
+                Hue = Math.Round(Hue);
+                Saturation = Math.Round(Saturation * 100);
+                Value = Math.Round(Value * 100);
+
+                return $"hsv({Hue}, {Saturation}%, {Value}%)";
             }
             catch (E Ex)
             {
@@ -61,58 +107,30 @@ namespace Skylark.Extension
         /// <param name="Sharp"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToHex(int R, int G, int B, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        public static string ToHex(int R = MCM.Integer, int G = MCM.Integer, int B = MCM.Integer, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
         {
             try
             {
-                R = HL.Number(R, MCM.Min, MCM.Max);
-                G = HL.Number(G, MCM.Min, MCM.Max);
-                B = HL.Number(B, MCM.Min, MCM.Max);
+                R = HL.Number(R, MCM.IntegerMin, MCM.IntegerMax);
+                G = HL.Number(G, MCM.IntegerMin, MCM.IntegerMax);
+                B = HL.Number(B, MCM.IntegerMin, MCM.IntegerMax);
 
                 Color Color = Color.FromArgb(Convert.ToInt32(R), Convert.ToInt32(G), Convert.ToInt32(B));
 
-                string Result = $"{Color.R:X2}{Color.G:X2}{Color.B:X2}";
-                
-                if (Upper)
-                {
-                    Result = Result.ToUpperInvariant();
-                }
-                
-                if (Sharp)
-                {
-                    Result = $"#{Result}";
-                }
-
-                return Result;
-            }
-            catch (E Ex)
-            {
-                throw new E(Ex.Message, Ex);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="R"></param>
-        /// <param name="G"></param>
-        /// <param name="B"></param>
-        /// <param name="Upper"></param>
-        /// <returns></returns>
-        /// <exception cref="E"></exception>
-        public static string ToHexInteger(int R, int G, int B, bool Upper = MCM.Upper)
-        {
-            try
-            {
-                string Result = ToHex(R, G, B);
+                string Result = string.Empty;
 
                 if (Upper)
                 {
-                    Result = $"0xFF{Result}";
+                    Result = $"{Color.R:X2}{Color.G:X2}{Color.B:X2}";
                 }
                 else
                 {
-                    Result = $"0xff{Result}";
+                    Result = $"{Color.R:x2}{Color.G:x2}{Color.B:x2}";
+                }
+
+                if (Sharp)
+                {
+                    Result = $"#{Result}";
                 }
 
                 return Result;
