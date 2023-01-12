@@ -4,6 +4,7 @@ using System.Text;
 using WebMarkupMin.Core;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
+using HF = Skylark.Helper.Format;
 using MHM = Skylark.Manage.HtmlManage;
 
 namespace Skylark.Extension
@@ -32,7 +33,7 @@ namespace Skylark.Extension
 
                 foreach (char Char in Html)
                 {
-                    Encrypted += "%" + string.Format("{0:X2}", Convert.ToInt32(Char));
+                    Encrypted += "%" + HF.Formatter("{0:X2}", Convert.ToInt32(Char));
                 }
 
                 Builder.AppendLine($"\tdocument.write(unescape('{Encrypted}'));");

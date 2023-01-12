@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using HD = Skylark.Helper.Detect;
+using HF = Skylark.Helper.Format;
 
 namespace Skylark.Helper
 {
@@ -28,7 +29,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static string GetConvert(string Value)
         {
-            return Value.Replace(',', HD.Symbol()).Replace('.', HD.Symbol());
+            return Value.Replace(',', HD.Char).Replace('.', HD.Char);
         }
 
         /// <summary>
@@ -41,11 +42,11 @@ namespace Skylark.Helper
         {
             if (Separator)
             {
-                return string.Format("{0:N0}", Convert.ToInt32(Value));
+                return HF.Formatter("{0:N0}", Convert.ToInt32(Value));
             }
             else
             {
-                return string.Format("{0:0}", Convert.ToInt32(Value));
+                return HF.Formatter("{0:0}", Convert.ToInt32(Value));
             }
         }
 
@@ -59,11 +60,11 @@ namespace Skylark.Helper
         {
             if (Separator)
             {
-                return string.Format("{0:N2}", Value);
+                return HF.Formatter("{0:N2}", Value);
             }
             else
             {
-                return string.Format("{0:0.00}", Value);
+                return HF.Formatter("{0:0.00}", Value);
             }
         }
     }
