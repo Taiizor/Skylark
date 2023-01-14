@@ -26,7 +26,7 @@ namespace Skylark.Extension
             try
             {
                 Path = HL.Parameter(Path, MHM.Path);
-                
+
                 HHH.FileControl(Path);
 
                 using MD5 MD5 = new MD5CryptoServiceProvider();

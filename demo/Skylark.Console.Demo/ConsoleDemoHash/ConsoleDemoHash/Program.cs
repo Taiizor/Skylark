@@ -14,7 +14,7 @@ namespace ConsoleDemoHash
             string SHA1 = HashExtension.FileToSHA1(File, "-", true);
             Console.WriteLine($"SHA1: {SHA1}");
 
-            string SHA256 = HashExtension.FileToSHA256(File, "#", false);
+            string SHA256 = HashExtension.FileToSHA256(File, "%", false);
             Console.WriteLine($"SHA256: {SHA256}");
 
             string SHA384 = HashExtension.FileToSHA384(File, "|", true);

@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skylark" Version="2.0.1.2" />
+    <PackageReference Include="Skylark" Version="2.0.1.3" />
   </ItemGroup>
 
 </Project>

@@ -8,31 +8,31 @@ namespace ConsoleDemoCryptology
 
         static void Main()
         {
-            string Base64 = CryptologyExtension.ToBase(Text);
+            string Base64 = CryptologyExtension.TextToBase(Text);
             Console.WriteLine($"Base64: {Base64}");
             Console.WriteLine($"Base64 -> Text: {CryptologyExtension.BaseToText(Base64)}");
 
             Console.WriteLine();
 
-            string AES = CryptologyExtension.ToAes(Text);
+            string AES = CryptologyExtension.TextToAes(Text);
             Console.WriteLine($"Aes: {AES}");
             Console.WriteLine($"Aes -> Text: {CryptologyExtension.AesToText(AES)}");
 
             Console.WriteLine();
 
-            string MD5 = CryptologyExtension.ToMD5(Text, false);
+            string MD5 = CryptologyExtension.TextToMD5(Text, false);
             Console.WriteLine($"MD5: {MD5}");
 
-            string SHA1 = CryptologyExtension.ToSHA1(Text, true);
+            string SHA1 = CryptologyExtension.TextToSHA1(Text, true);
             Console.WriteLine($"SHA1: {SHA1}");
 
-            string SHA256 = CryptologyExtension.ToSHA256(Text, false);
+            string SHA256 = CryptologyExtension.TextToSHA256(Text, false);
             Console.WriteLine($"SHA256: {SHA256}");
 
-            string SHA384 = CryptologyExtension.ToSHA384(Text, true);
+            string SHA384 = CryptologyExtension.TextToSHA384(Text, true);
             Console.WriteLine($"SHA384: {SHA384}");
 
-            string SHA512 = CryptologyExtension.ToSHA512(Text, false);
+            string SHA512 = CryptologyExtension.TextToSHA512(Text, false);
             Console.WriteLine($"SHA512: {SHA512}");
 
             Console.ReadKey();
