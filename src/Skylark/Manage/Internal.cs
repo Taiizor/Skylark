@@ -16,6 +16,11 @@
         public const int ParameterLength = 64;
 
         /// <summary>
+        /// 1 GB = 1073741824 Byte
+        /// </summary>
+        public const long FileLength = 1073741824;
+
+        /// <summary>
         /// 
         /// </summary>
         public static readonly string[] SplitSpace = new string[] { " " };

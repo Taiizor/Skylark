@@ -11,22 +11,31 @@ namespace Skylark.Helper
         /// 
         /// </summary>
         /// <param name="Format"></param>
+        /// <param name="Invariant"></param>
         /// <param name="Case"></param>
         /// <returns></returns>
-        public static string Formatter(object Format, bool Case)
+        public static string Formatter(object Format, bool Case, bool Invariant = true)
         {
-            return Formatter($"{Format}", Case);
+            return Formatter($"{Format}", Case, Invariant);
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="Format"></param>
+        /// <param name="Invariant"></param>
         /// <param name="Case"></param>
         /// <returns></returns>
-        public static string Formatter(string Format, bool Case)
+        public static string Formatter(string Format, bool Case, bool Invariant = true)
         {
-            return Case == false ? Format.ToLowerInvariant() : Format.ToUpperInvariant();
+            if (Invariant)
+            {
+                return Case == false ? Format.ToLowerInvariant() : Format.ToUpperInvariant();
+            }
+            else
+            {
+                return Case == false ? Format.ToLower() : Format.ToUpper();
+            }
         }
 
         /// <summary>

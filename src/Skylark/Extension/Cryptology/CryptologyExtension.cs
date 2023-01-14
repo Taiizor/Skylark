@@ -21,7 +21,7 @@ namespace Skylark.Extension
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToBase(string Text = MCM.Text, EET Encode = MCM.Encode)
+        public static string TextToBase(string Text = MCM.Text, EET Encode = MCM.Encode)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace Skylark.Extension
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToAes(string Text = MCM.Text, string IV = MCM.IV, string Key = MCM.Key, CipherMode Mode = MCM.Cipher, EET Encode = MCM.Encode)
+        public static string TextToAes(string Text = MCM.Text, string IV = MCM.IV, string Key = MCM.Key, CipherMode Mode = MCM.Cipher, EET Encode = MCM.Encode)
         {
             try
             {
@@ -59,10 +59,10 @@ namespace Skylark.Extension
                 Encryptor.IV = HCH.GetBytes(IV, Encode);
                 Encryptor.Key = HCH.GetBytes(Key, Encode);
 
-                ICryptoTransform Create = Encryptor.CreateEncryptor();
+                ICryptoTransform CEncryptor = Encryptor.CreateEncryptor();
 
                 MemoryStream MStream = new();
-                CryptoStream CStream = new(MStream, Create, CryptoStreamMode.Write);
+                CryptoStream CStream = new(MStream, CEncryptor, CryptoStreamMode.Write);
 
                 string Result = string.Empty;
 
@@ -94,10 +94,11 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Text"></param>
         /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToMD5(string Text = MCM.Text, bool Upper = MCM.Upper, EET Encode = MCM.Mode)
+        public static string TextToMD5(string Text = MCM.Text, bool Upper = MCM.Upper, bool Invariant = MCM.Invariant, EET Encode = MCM.Mode)
         {
             try
             {
@@ -105,7 +106,7 @@ namespace Skylark.Extension
 
                 using MD5 MD5 = MD5.Create();
 
-                return HF.Formatter(HCH.GetBuild(MD5.ComputeHash(HCH.GetBytes(Text, Encode))), Upper);
+                return HF.Formatter(HCH.GetBuild(MD5.ComputeHash(HCH.GetBytes(Text, Encode))), Upper, Invariant);
             }
             catch (E Ex)
             {
@@ -118,10 +119,11 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Text"></param>
         /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToSHA1(string Text = MCM.Text, bool Upper = MCM.Upper, EET Encode = MCM.Mode)
+        public static string TextToSHA1(string Text = MCM.Text, bool Upper = MCM.Upper, bool Invariant = MCM.Invariant, EET Encode = MCM.Mode)
         {
             try
             {
@@ -129,7 +131,7 @@ namespace Skylark.Extension
 
                 using SHA1 SHA1 = SHA1.Create();
 
-                return HF.Formatter(HCH.GetBuild(SHA1.ComputeHash(HCH.GetBytes(Text, Encode))), Upper);
+                return HF.Formatter(HCH.GetBuild(SHA1.ComputeHash(HCH.GetBytes(Text, Encode))), Upper, Invariant);
             }
             catch (E Ex)
             {
@@ -142,10 +144,11 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Text"></param>
         /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToSHA256(string Text = MCM.Text, bool Upper = MCM.Upper, EET Encode = MCM.Mode)
+        public static string TextToSHA256(string Text = MCM.Text, bool Upper = MCM.Upper, bool Invariant = MCM.Invariant, EET Encode = MCM.Mode)
         {
             try
             {
@@ -153,7 +156,7 @@ namespace Skylark.Extension
 
                 using SHA256 SHA256 = SHA256.Create();
 
-                return HF.Formatter(HCH.GetBuild(SHA256.ComputeHash(HCH.GetBytes(Text, Encode))), Upper);
+                return HF.Formatter(HCH.GetBuild(SHA256.ComputeHash(HCH.GetBytes(Text, Encode))), Upper, Invariant);
             }
             catch (E Ex)
             {
@@ -166,10 +169,11 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Text"></param>
         /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToSHA384(string Text = MCM.Text, bool Upper = MCM.Upper, EET Encode = MCM.Mode)
+        public static string TextToSHA384(string Text = MCM.Text, bool Upper = MCM.Upper, bool Invariant = MCM.Invariant, EET Encode = MCM.Mode)
         {
             try
             {
@@ -177,7 +181,7 @@ namespace Skylark.Extension
 
                 using SHA384 SHA384 = SHA384.Create();
 
-                return HF.Formatter(HCH.GetBuild(SHA384.ComputeHash(HCH.GetBytes(Text, Encode))), Upper);
+                return HF.Formatter(HCH.GetBuild(SHA384.ComputeHash(HCH.GetBytes(Text, Encode))), Upper, Invariant);
             }
             catch (E Ex)
             {
@@ -190,10 +194,11 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Text"></param>
         /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToSHA512(string Text = MCM.Text, bool Upper = MCM.Upper, EET Encode = MCM.Mode)
+        public static string TextToSHA512(string Text = MCM.Text, bool Upper = MCM.Upper, bool Invariant = MCM.Invariant, EET Encode = MCM.Mode)
         {
             try
             {
@@ -201,7 +206,7 @@ namespace Skylark.Extension
 
                 using SHA512 SHA512 = SHA512.Create();
 
-                return HF.Formatter(HCH.GetBuild(SHA512.ComputeHash(HCH.GetBytes(Text, Encode))), Upper);
+                return HF.Formatter(HCH.GetBuild(SHA512.ComputeHash(HCH.GetBytes(Text, Encode))), Upper, Invariant);
             }
             catch (E Ex)
             {
@@ -233,22 +238,22 @@ namespace Skylark.Extension
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Base"></param>
+        /// <param name="Aes"></param>
         /// <param name="IV"></param>
         /// <param name="Key"></param>
         /// <param name="Mode"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string AesToText(string Base = MCM.Aes, string IV = MCM.IV, string Key = MCM.Key, CipherMode Mode = MCM.Cipher, EET Encode = MCM.Encode)
+        public static string AesToText(string Aes = MCM.Aes, string IV = MCM.IV, string Key = MCM.Key, CipherMode Mode = MCM.Cipher, EET Encode = MCM.Encode)
         {
             try
             {
                 IV = HA.Pin(IV, MCM.IV, 16);
-                Base = HL.Text(Base, MCM.Aes);
+                Aes = HL.Text(Aes, MCM.Aes);
                 Key = HA.Pin(Key, MCM.Key, 32);
 
-                Aes Decryptor = Aes.Create();
+                Aes Decryptor = System.Security.Cryptography.Aes.Create();
 
                 Decryptor.Mode = Mode;
                 Decryptor.IV = HCH.GetBytes(IV, Encode);
@@ -256,15 +261,15 @@ namespace Skylark.Extension
 
                 MemoryStream MStream = new();
 
-                ICryptoTransform Create = Decryptor.CreateDecryptor();
+                ICryptoTransform CDecryptor = Decryptor.CreateDecryptor();
 
-                CryptoStream CStream = new(MStream, Create, CryptoStreamMode.Write);
+                CryptoStream CStream = new(MStream, CDecryptor, CryptoStreamMode.Write);
 
                 string Result = string.Empty;
 
                 try
                 {
-                    byte[] Bytes = HCH.FromBase64String(Base);
+                    byte[] Bytes = HCH.FromBase64String(Aes);
 
                     CStream.Write(Bytes, 0, Bytes.Length);
                     CStream.FlushFinalBlock();

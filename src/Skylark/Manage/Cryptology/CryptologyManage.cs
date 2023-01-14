@@ -16,6 +16,11 @@ namespace Skylark.Manage
         /// <summary>
         /// 
         /// </summary>
+        public const bool Invariant = true;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const EET Mode = EET.ASCII;
 
         /// <summary>
