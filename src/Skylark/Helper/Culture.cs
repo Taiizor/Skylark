@@ -10,6 +10,20 @@ namespace Skylark.Helper
         /// <summary>
         /// 
         /// </summary>
+        public static CultureInfo All
+        {
+            set
+            {
+                Current = value;
+                CurrentUI = value;
+                ThreadCurrent = value;
+                ThreadCurrentUI = value;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static CultureInfo Current
         {
             get => CultureInfo.CurrentCulture;
@@ -39,7 +53,7 @@ namespace Skylark.Helper
         /// </summary>
         public static CultureInfo ThreadCurrentUI
         {
-            get => CultureInfo.DefaultThreadCurrentCulture;
+            get => CultureInfo.DefaultThreadCurrentUICulture;
             set => CultureInfo.DefaultThreadCurrentUICulture = value;
         }
 
@@ -52,5 +66,35 @@ namespace Skylark.Helper
         /// 
         /// </summary>
         public static CultureInfo InstalledUI => CultureInfo.InstalledUICulture;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string CurrentName => CultureInfo.CurrentCulture.Name;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string CurrentUIName => CultureInfo.CurrentUICulture.Name;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string ThreadCurrentName => CultureInfo.DefaultThreadCurrentCulture.Name;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string ThreadCurrentUIName => CultureInfo.DefaultThreadCurrentUICulture.Name;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string InvariantName => CultureInfo.InvariantCulture.Name;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string InstalledUIName => CultureInfo.InstalledUICulture.Name;
     }
 }
