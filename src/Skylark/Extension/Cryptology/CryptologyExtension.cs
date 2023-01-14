@@ -3,8 +3,8 @@ using E = Skylark.Exception;
 using EET = Skylark.Enum.EncodeType;
 using HA = Skylark.Helper.Adaptation;
 using HCH = Skylark.Helper.CryptologyHelper;
-using HF = Skylark.Helper.Format;
 using HE = Skylark.Helper.Encode;
+using HF = Skylark.Helper.Format;
 using HL = Skylark.Helper.Length;
 using MCM = Skylark.Manage.CryptologyManage;
 
