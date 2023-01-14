@@ -1,13 +1,9 @@
-﻿using System.Text;
-using System.Security;
+﻿using System.Security.Cryptography;
 using E = Skylark.Exception;
+using EET = Skylark.Enum.EncodeType;
+using HCH = Skylark.Helper.CryptologyHelper;
 using HF = Skylark.Helper.Format;
 using HL = Skylark.Helper.Length;
-using System.Security.Cryptography;
-using MI = Skylark.Manage.Internal;
-using EET = Skylark.Enum.EncodeType;
-using HA = Skylark.Helper.Adaptation;
-using HCH = Skylark.Helper.CryptologyHelper;
 using MCM = Skylark.Manage.CryptologyManage;
 
 namespace Skylark.Extension
@@ -29,7 +25,7 @@ namespace Skylark.Extension
             try
             {
                 Text = HL.Text(Text, MCM.Text);
-                
+
                 return Convert.ToBase64String(HCH.GetBytes(Text, Encode));
             }
             catch (E Ex)
@@ -142,7 +138,7 @@ namespace Skylark.Extension
             try
             {
                 Text = HL.Text(Text, MCM.Text);
-                
+
                 using SHA512 SHA512 = SHA512.Create();
 
                 return HF.Formatter(HCH.GetBuild(SHA512.ComputeHash(HCH.GetBytes(Text, EET.ASCII))), Upper);
