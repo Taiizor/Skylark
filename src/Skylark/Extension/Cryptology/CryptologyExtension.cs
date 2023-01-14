@@ -20,7 +20,7 @@ namespace Skylark.Extension
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToBase64(string Text = MCM.Text, EET Encode = MCM.Encode)
+        public static string ToBase(string Text = MCM.Text, EET Encode = MCM.Encode)
         {
             try
             {
@@ -142,6 +142,27 @@ namespace Skylark.Extension
                 using SHA512 SHA512 = SHA512.Create();
 
                 return HF.Formatter(HCH.GetBuild(SHA512.ComputeHash(HCH.GetBytes(Text, EET.ASCII))), Upper);
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Base"></param>
+        /// <param name="Encode"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static string BaseToText(string Base = MCM.Base, EET Encode = MCM.Encode)
+        {
+            try
+            {
+                Base = HL.Text(Base, MCM.Base);
+
+                return HCH.GetString(Convert.FromBase64String(Base.Replace("=", "")), Encode);
             }
             catch (E Ex)
             {

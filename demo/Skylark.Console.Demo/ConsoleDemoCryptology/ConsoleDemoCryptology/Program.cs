@@ -8,8 +8,9 @@ namespace ConsoleDemoCryptology
 
         static void Main()
         {
-            string Base64 = CryptologyExtension.ToBase64(Text);
+            string Base64 = CryptologyExtension.ToBase(Text);
             Console.WriteLine($"Base64: {Base64}");
+            Console.WriteLine($"Base64 -> Text: {CryptologyExtension.BaseToText(Base64)}");
 
             Console.WriteLine();
 

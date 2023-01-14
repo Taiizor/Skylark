@@ -8,7 +8,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public const int TextLength = 500000;
+        public const int TextLength = 1000000;
 
         /// <summary>
         /// 

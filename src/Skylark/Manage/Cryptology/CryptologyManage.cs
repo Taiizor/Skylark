@@ -11,7 +11,7 @@ namespace Skylark.Manage
         /// 
         /// </summary>
         public const bool Upper = false;
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -21,5 +21,9 @@ namespace Skylark.Manage
         /// 
         /// </summary>
         public const string Text = "Taiizor Skylark";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string Base = "VGFpaXpvciBTa3lsYXJr";
     }
 }
