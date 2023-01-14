@@ -4,7 +4,7 @@ namespace ConsoleDemoCryptology
 {
     internal class Program
     {
-        private const string Text = "TaiizorSkylark";
+        private const string Text = "Taiizor Skylark";
 
         static void Main()
         {
@@ -16,6 +16,7 @@ namespace ConsoleDemoCryptology
 
             string AES = CryptologyExtension.ToAes(Text);
             Console.WriteLine($"Aes: {AES}");
+            Console.WriteLine($"Aes -> Text: {CryptologyExtension.AesToText(AES)}");
 
             Console.WriteLine();
 

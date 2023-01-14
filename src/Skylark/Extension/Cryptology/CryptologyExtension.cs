@@ -42,9 +42,10 @@ namespace Skylark.Extension
         /// <param name="IV"></param>
         /// <param name="Key"></param>
         /// <param name="Mode"></param>
+        /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToAes(string Text = MCM.Text, string IV = MCM.IV, string Key = MCM.Key, CipherMode Mode = MCM.Cipher)
+        public static string ToAes(string Text = MCM.Text, string IV = MCM.IV, string Key = MCM.Key, CipherMode Mode = MCM.Cipher, EET Encode = MCM.Encode)
         {
             try
             {
@@ -55,8 +56,8 @@ namespace Skylark.Extension
                 Aes Encryptor = Aes.Create();
 
                 Encryptor.Mode = Mode;
-                Encryptor.IV = HCH.GetBytes(IV, EET.UTF8);
-                Encryptor.Key = HCH.GetBytes(Key, EET.UTF8);
+                Encryptor.IV = HCH.GetBytes(IV, Encode);
+                Encryptor.Key = HCH.GetBytes(Key, Encode);
 
                 ICryptoTransform Create = Encryptor.CreateEncryptor();
 
@@ -67,7 +68,7 @@ namespace Skylark.Extension
 
                 try
                 {
-                    byte[] Bytes = HCH.GetBytes(Text, EET.ASCII);
+                    byte[] Bytes = HCH.GetBytes(Text, Encode);
 
                     CStream.Write(Bytes, 0, Bytes.Length);
                     CStream.FlushFinalBlock();
@@ -221,55 +222,62 @@ namespace Skylark.Extension
             {
                 Base = HL.Text(Base, MCM.Base);
 
+                return HCH.GetString(HCH.FromBase64String(Base), Encode);
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Base"></param>
+        /// <param name="IV"></param>
+        /// <param name="Key"></param>
+        /// <param name="Mode"></param>
+        /// <param name="Encode"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static string AesToText(string Base = MCM.Aes, string IV = MCM.IV, string Key = MCM.Key, CipherMode Mode = MCM.Cipher, EET Encode = MCM.Encode)
+        {
+            try
+            {
+                IV = HA.Pin(IV, MCM.IV, 16);
+                Base = HL.Text(Base, MCM.Aes);
+                Key = HA.Pin(Key, MCM.Key, 32);
+
+                Aes Decryptor = Aes.Create();
+
+                Decryptor.Mode = Mode;
+                Decryptor.IV = HCH.GetBytes(IV, Encode);
+                Decryptor.Key = HCH.GetBytes(Key, Encode);
+
+                MemoryStream MStream = new();
+
+                ICryptoTransform Create = Decryptor.CreateDecryptor();
+
+                CryptoStream CStream = new(MStream, Create, CryptoStreamMode.Write);
+
+                string Result = string.Empty;
+
                 try
                 {
-                    return HCH.GetString(HCH.FromBase64String(Base), Encode);
+                    byte[] Bytes = HCH.FromBase64String(Base);
+
+                    CStream.Write(Bytes, 0, Bytes.Length);
+                    CStream.FlushFinalBlock();
+
+                    Result = HCH.GetString(MStream.ToArray(), Encode);
                 }
-                catch
+                finally
                 {
-                    if (Base.EndsWith("==="))
-                    {
-                        try
-                        {
-                            return HCH.GetString(HCH.FromBase64String(Base.Replace("===", "")), Encode);
-                        }
-                        catch { }
-                    }
-
-                    if (Base.EndsWith("=="))
-                    {
-                        try
-                        {
-                            return HCH.GetString(HCH.FromBase64String(Base.Replace("==", "")), Encode);
-                        }
-                        catch { }
-                    }
-
-                    if (Base.EndsWith("="))
-                    {
-                        try
-                        {
-                            return HCH.GetString(HCH.FromBase64String(Base.Replace("=", "")), Encode);
-                        }
-                        catch { }
-                    }
-
-                    try
-                    {
-                        return BaseToText($"{Base}=", Encode);
-                    }
-                    catch
-                    {
-                        try
-                        {
-                            return BaseToText($"{Base}==", Encode);
-                        }
-                        catch
-                        {
-                            return BaseToText($"{Base}===", Encode);
-                        }
-                    }
+                    MStream.Close();
+                    CStream.Close();
                 }
+
+                return Result;
             }
             catch (E Ex)
             {

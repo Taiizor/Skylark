@@ -44,5 +44,9 @@ namespace Skylark.Manage
         /// 
         /// </summary>
         public const string Base = "VGFpaXpvciBTa3lsYXJr";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string Aes = "FtaPhkX3zIe21xMsryO3dw==";
     }
 }
