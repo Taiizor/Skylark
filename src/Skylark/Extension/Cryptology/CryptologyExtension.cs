@@ -4,6 +4,7 @@ using EET = Skylark.Enum.EncodeType;
 using HA = Skylark.Helper.Adaptation;
 using HCH = Skylark.Helper.CryptologyHelper;
 using HF = Skylark.Helper.Format;
+using HE = Skylark.Helper.Encode;
 using HL = Skylark.Helper.Length;
 using MCM = Skylark.Manage.CryptologyManage;
 
@@ -27,7 +28,7 @@ namespace Skylark.Extension
             {
                 Text = HL.Text(Text, MCM.Text);
 
-                return HCH.ToBase64String(HCH.GetBytes(Text, Encode));
+                return HCH.ToBase64String(HE.GetBytes(Text, Encode));
             }
             catch (E Ex)
             {
@@ -56,8 +57,8 @@ namespace Skylark.Extension
                 Aes Encryptor = Aes.Create();
 
                 Encryptor.Mode = Mode;
-                Encryptor.IV = HCH.GetBytes(IV, Encode);
-                Encryptor.Key = HCH.GetBytes(Key, Encode);
+                Encryptor.IV = HE.GetBytes(IV, Encode);
+                Encryptor.Key = HE.GetBytes(Key, Encode);
 
                 ICryptoTransform CEncryptor = Encryptor.CreateEncryptor();
 
@@ -68,7 +69,7 @@ namespace Skylark.Extension
 
                 try
                 {
-                    byte[] Bytes = HCH.GetBytes(Text, Encode);
+                    byte[] Bytes = HE.GetBytes(Text, Encode);
 
                     CStream.Write(Bytes, 0, Bytes.Length);
                     CStream.FlushFinalBlock();
@@ -106,7 +107,7 @@ namespace Skylark.Extension
 
                 using MD5 MD5 = MD5.Create();
 
-                return HF.Formatter(HCH.GetBuild(MD5.ComputeHash(HCH.GetBytes(Text, Encode))), Upper, Invariant);
+                return HF.Formatter(HCH.GetBuild(MD5.ComputeHash(HE.GetBytes(Text, Encode))), Upper, Invariant);
             }
             catch (E Ex)
             {
@@ -131,7 +132,7 @@ namespace Skylark.Extension
 
                 using SHA1 SHA1 = SHA1.Create();
 
-                return HF.Formatter(HCH.GetBuild(SHA1.ComputeHash(HCH.GetBytes(Text, Encode))), Upper, Invariant);
+                return HF.Formatter(HCH.GetBuild(SHA1.ComputeHash(HE.GetBytes(Text, Encode))), Upper, Invariant);
             }
             catch (E Ex)
             {
@@ -156,7 +157,7 @@ namespace Skylark.Extension
 
                 using SHA256 SHA256 = SHA256.Create();
 
-                return HF.Formatter(HCH.GetBuild(SHA256.ComputeHash(HCH.GetBytes(Text, Encode))), Upper, Invariant);
+                return HF.Formatter(HCH.GetBuild(SHA256.ComputeHash(HE.GetBytes(Text, Encode))), Upper, Invariant);
             }
             catch (E Ex)
             {
@@ -181,7 +182,7 @@ namespace Skylark.Extension
 
                 using SHA384 SHA384 = SHA384.Create();
 
-                return HF.Formatter(HCH.GetBuild(SHA384.ComputeHash(HCH.GetBytes(Text, Encode))), Upper, Invariant);
+                return HF.Formatter(HCH.GetBuild(SHA384.ComputeHash(HE.GetBytes(Text, Encode))), Upper, Invariant);
             }
             catch (E Ex)
             {
@@ -206,7 +207,7 @@ namespace Skylark.Extension
 
                 using SHA512 SHA512 = SHA512.Create();
 
-                return HF.Formatter(HCH.GetBuild(SHA512.ComputeHash(HCH.GetBytes(Text, Encode))), Upper, Invariant);
+                return HF.Formatter(HCH.GetBuild(SHA512.ComputeHash(HE.GetBytes(Text, Encode))), Upper, Invariant);
             }
             catch (E Ex)
             {
@@ -227,7 +228,7 @@ namespace Skylark.Extension
             {
                 Base = HL.Text(Base, MCM.Base);
 
-                return HCH.GetString(HCH.FromBase64String(Base), Encode);
+                return HE.GetString(HCH.FromBase64String(Base), Encode);
             }
             catch (E Ex)
             {
@@ -256,8 +257,8 @@ namespace Skylark.Extension
                 Aes Decryptor = System.Security.Cryptography.Aes.Create();
 
                 Decryptor.Mode = Mode;
-                Decryptor.IV = HCH.GetBytes(IV, Encode);
-                Decryptor.Key = HCH.GetBytes(Key, Encode);
+                Decryptor.IV = HE.GetBytes(IV, Encode);
+                Decryptor.Key = HE.GetBytes(Key, Encode);
 
                 MemoryStream MStream = new();
 
@@ -274,7 +275,7 @@ namespace Skylark.Extension
                     CStream.Write(Bytes, 0, Bytes.Length);
                     CStream.FlushFinalBlock();
 
-                    Result = HCH.GetString(MStream.ToArray(), Encode);
+                    Result = HE.GetString(MStream.ToArray(), Encode);
                 }
                 finally
                 {

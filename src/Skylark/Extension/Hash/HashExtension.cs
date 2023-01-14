@@ -26,6 +26,7 @@ namespace Skylark.Extension
             try
             {
                 Path = HL.Parameter(Path, MHM.Path);
+                Split = HL.Parameter(Split, MHM.Split);
 
                 HHH.FileControl(Path);
 
@@ -53,6 +54,7 @@ namespace Skylark.Extension
             try
             {
                 Path = HL.Parameter(Path, MHM.Path);
+                Split = HL.Parameter(Split, MHM.Split);
 
                 HHH.FileControl(Path);
 
@@ -80,6 +82,7 @@ namespace Skylark.Extension
             try
             {
                 Path = HL.Parameter(Path, MHM.Path);
+                Split = HL.Parameter(Split, MHM.Split);
 
                 HHH.FileControl(Path);
 
@@ -107,6 +110,7 @@ namespace Skylark.Extension
             try
             {
                 Path = HL.Parameter(Path, MHM.Path);
+                Split = HL.Parameter(Split, MHM.Split);
 
                 HHH.FileControl(Path);
 
@@ -134,6 +138,7 @@ namespace Skylark.Extension
             try
             {
                 Path = HL.Parameter(Path, MHM.Path);
+                Split = HL.Parameter(Split, MHM.Split);
 
                 HHH.FileControl(Path);
 

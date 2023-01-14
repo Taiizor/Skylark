@@ -5,7 +5,6 @@
     /// </summary>
     public enum EncodeType
     {
-        None,
         UTF7,
         UTF8,
         UTF32,
