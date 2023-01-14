@@ -1,9 +1,8 @@
 ﻿using System.Drawing;
 using System.Globalization;
 using E = Skylark.Exception;
-using HCH = Skylark.Helper.ColorHelper;
-using HL = Skylark.Helper.Length;
 using HA = Skylark.Helper.Adaptation;
+using HCH = Skylark.Helper.ColorHelper;
 using MCM = Skylark.Manage.ColorManage;
 
 namespace Skylark.Extension

@@ -10,7 +10,7 @@
 
     <PropertyGroup>
         <ApplicationIcon>Resources\Skylark.ico</ApplicationIcon>
-        <Version>2.0.1.2</Version>
+        <Version>2.0.1.3</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>Skylark</Title>
@@ -23,7 +23,7 @@
         <PackageLicenseExpression></PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <PackageReleaseNotes>Code improvements have been made.
-Changes are detailed at https://github.com/Taiizor/Skylark/releases
+Changes are detailed at https://github.com/Taiizor/Skylark/wiki/Changelog
         </PackageReleaseNotes>
         <PackageTags>ReaL Taiizor Soferity Vegalya Skylark C# CSharp VBC VB VisualBasic DotNET .NET NET Multi Purpose Multipurpose Cross App Web Box Tool Tools Convert Converter Minify Beauty Lightweight Library</PackageTags>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>

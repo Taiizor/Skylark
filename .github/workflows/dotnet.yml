@@ -33,7 +33,8 @@ jobs:
             demo/Skylark.Console.Demo/ConsoleDemoColor,
             demo/Skylark.Console.Demo/ConsoleDemoXhtml,
             demo/Skylark.Console.Demo/ConsoleDemoLottery,
-            demo/Skylark.Console.Demo/ConsoleDemoPassword
+            demo/Skylark.Console.Demo/ConsoleDemoPassword,
+            demo/Skylark.Console.Demo/ConsoleDemoCryptology
         ]
 
     steps:
