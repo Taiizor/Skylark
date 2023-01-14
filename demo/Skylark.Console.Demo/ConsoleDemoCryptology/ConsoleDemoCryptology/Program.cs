@@ -4,13 +4,18 @@ namespace ConsoleDemoCryptology
 {
     internal class Program
     {
-        private const string Text = "Taiizor Skylark";
+        private const string Text = "TaiizorSkylark";
 
         static void Main()
         {
             string Base64 = CryptologyExtension.ToBase(Text);
             Console.WriteLine($"Base64: {Base64}");
             Console.WriteLine($"Base64 -> Text: {CryptologyExtension.BaseToText(Base64)}");
+
+            Console.WriteLine();
+
+            string AES = CryptologyExtension.ToAes(Text);
+            Console.WriteLine($"Aes: {AES}");
 
             Console.WriteLine();
 
@@ -28,10 +33,6 @@ namespace ConsoleDemoCryptology
 
             string SHA512 = CryptologyExtension.ToSHA512(Text, false);
             Console.WriteLine($"SHA512: {SHA512}");
-
-            Console.WriteLine();
-
-            //
 
             Console.ReadKey();
         }

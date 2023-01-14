@@ -1,4 +1,5 @@
-﻿using EET = Skylark.Enum.EncodeType;
+﻿using System.Security.Cryptography;
+using EET = Skylark.Enum.EncodeType;
 
 namespace Skylark.Manage
 {
@@ -15,7 +16,25 @@ namespace Skylark.Manage
         /// <summary>
         /// 
         /// </summary>
+        public const EET Mode = EET.ASCII;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const EET Encode = EET.UTF8;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string IV = "QxQsRoZQws61N46H";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string Key = "uS830kWPrPSPyZK0pS7Pgw3wP3SvLOGr";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const CipherMode Cipher = CipherMode.CBC;
 
         /// <summary>
         /// 

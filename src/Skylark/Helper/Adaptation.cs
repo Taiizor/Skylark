@@ -33,6 +33,18 @@
         /// </summary>
         /// <param name="Value"></param>
         /// <param name="Back"></param>
+        /// <param name="Length"></param>
+        /// <returns></returns>
+        public static string Pin(string Value, string Back, int Length)
+        {
+            return Value.Length == Length ? Value : Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Back"></param>
         /// <param name="MinLength"></param>
         /// <param name="MaxLength"></param>
         /// <returns></returns>

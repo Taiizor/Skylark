@@ -35,6 +35,17 @@ namespace Skylark.Helper
         /// <param name="Format"></param>
         /// <param name="Args"></param>
         /// <returns></returns>
+        public static string Formatter(object Format, params object[] Args)
+        {
+            return Formatter($"{Format}", Args);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Format"></param>
+        /// <param name="Args"></param>
+        /// <returns></returns>
         public static string Formatter(string Format, params object[] Args)
         {
             try

@@ -66,5 +66,25 @@ namespace Skylark.Helper
 
             return Builder;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Bytes"></param>
+        /// <returns></returns>
+        public static string ToBase64String(byte[] Bytes)
+        {
+            return Convert.ToBase64String(Bytes);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Base"></param>
+        /// <returns></returns>
+        public static byte[] FromBase64String(string Base)
+        {
+            return Convert.FromBase64String(Base);
+        }
     }
 }
