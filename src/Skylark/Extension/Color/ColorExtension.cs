@@ -3,6 +3,7 @@ using System.Globalization;
 using E = Skylark.Exception;
 using HCH = Skylark.Helper.ColorHelper;
 using HL = Skylark.Helper.Length;
+using HA = Skylark.Helper.Adaptation;
 using MCM = Skylark.Manage.ColorManage;
 
 namespace Skylark.Extension
@@ -447,7 +448,7 @@ namespace Skylark.Extension
         {
             try
             {
-                Hex = HL.Text(Hex, MCM.Hex, 6, 7);
+                Hex = HA.Feed(Hex, MCM.Hex, 6, 7);
 
                 if (Hex.StartsWith("#"))
                 {
@@ -478,7 +479,7 @@ namespace Skylark.Extension
         {
             try
             {
-                Hex = HL.Text(Hex, MCM.HexAlpha, 8, 9);
+                Hex = HA.Feed(Hex, MCM.HexAlpha, 8, 9);
 
                 if (Hex.StartsWith("#"))
                 {
@@ -507,7 +508,7 @@ namespace Skylark.Extension
         {
             try
             {
-                Hex = HL.Text(Hex, MCM.Hex, 6, 9);
+                Hex = HA.Feed(Hex, MCM.Hex, 6, 9);
 
                 if (Hex.StartsWith("#"))
                 {
