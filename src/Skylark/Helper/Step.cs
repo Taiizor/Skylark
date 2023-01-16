@@ -1,15 +1,12 @@
-﻿using System.Linq;
-using EDT = Skylark.Enum.DetectType;
-using HD = Skylark.Helper.Detect;
-using HF = Skylark.Helper.Format;
-using HA = Skylark.Helper.Adaptation;
+﻿using HD = Skylark.Helper.Detect;
+using HL = Skylark.Helper.Length;
 
 namespace Skylark.Helper
 {
     /// <summary>
     /// 
     /// </summary>
-    public class Force
+    public class Step
     {
         /// <summary>
         /// 
@@ -19,15 +16,22 @@ namespace Skylark.Helper
         /// <param name="Fraction"></param>
         /// <param name="Digit"></param>
         /// <param name="Number"></param>
+        /// <param name="Clear"></param>
         /// <returns></returns>
-        public static string Fix(decimal Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0')
+        public static string Force(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', bool Clear = true)
         {
+            Digit = HL.Number(Digit, 0, 99);
 
+            string Temp = HL.Parameter($"{Value}", "123456");
 
-            string Temp = $"{Value}";
+            if (Clear && Temp.Contains(HD.CharCross))
+            {
+                Temp = Temp.Replace(HD.StringCross, "");
+            }
+
             string Last = Temp.Contains(HD.Char) ? Temp.Substring(Temp.IndexOf(HD.Char)) : Temp;
             string First = Temp.Contains(HD.Char) ? Temp.Substring(0, Temp.IndexOf(HD.Char)) : Temp;
-            
+
             if (Decimal)
             {
                 Temp = string.Empty;
