@@ -22,8 +22,7 @@
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageLicenseExpression></PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-        <PackageReleaseNotes>Code improvements have been made.
-Changes are detailed at https://github.com/Taiizor/Skylark/wiki/Changelog
+        <PackageReleaseNotes>All changes are detailed at https://github.com/Taiizor/Skylark/wiki/Changelog.
         </PackageReleaseNotes>
         <PackageTags>ReaL Taiizor Soferity Vegalya Skylark C# CSharp VBC VB VisualBasic DotNET .NET NET Multi Purpose Multipurpose Cross App Web Box Tool Tools Unit Thing Things Product Productivity Convert Converter Minify Beauty Lightweight Library</PackageTags>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
