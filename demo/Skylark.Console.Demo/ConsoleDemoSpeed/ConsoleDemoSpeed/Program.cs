@@ -86,6 +86,46 @@ namespace ConsoleDemoSpeed
             decimal FtsMach = SpeedExtension.FtsToMach(Value);
             Console.WriteLine($"{Value} Fts -> Mach: {FtsMach}");
 
+            Console.WriteLine();
+
+            decimal MphCms = SpeedExtension.MphToCms(Value);
+            Console.WriteLine($"{Value} Mph -> Cms: {MphCms}");
+
+            decimal MphMps = SpeedExtension.MphToMps(Value);
+            Console.WriteLine($"{Value} Mph -> Mps: {MphMps}");
+
+            decimal MphKph = SpeedExtension.MphToKph(Value);
+            Console.WriteLine($"{Value} Mph -> Kph: {MphKph}");
+
+            decimal MphFts = SpeedExtension.MphToFts(Value);
+            Console.WriteLine($"{Value} Mph -> Fts: {MphFts}");
+
+            decimal MphKnot = SpeedExtension.MphToKnot(Value);
+            Console.WriteLine($"{Value} Mph -> Knot: {MphKnot}");
+
+            decimal MphMach = SpeedExtension.MphToMach(Value);
+            Console.WriteLine($"{Value} Mph -> Mach: {MphMach}");
+
+            Console.WriteLine();
+
+            decimal KnotCms = SpeedExtension.KnotToCms(Value);
+            Console.WriteLine($"{Value} Knot -> Cms: {KnotCms}");
+
+            decimal KnotMps = SpeedExtension.KnotToMps(Value);
+            Console.WriteLine($"{Value} Knot -> Mps: {KnotMps}");
+
+            decimal KnotKph = SpeedExtension.KnotToKph(Value);
+            Console.WriteLine($"{Value} Knot -> Kph: {KnotKph}");
+
+            decimal KnotFts = SpeedExtension.KnotToFts(Value);
+            Console.WriteLine($"{Value} Knot -> Fts: {KnotFts}");
+
+            decimal KnotMph = SpeedExtension.KnotToMph(Value);
+            Console.WriteLine($"{Value} Knot -> Mph: {KnotMph}");
+
+            decimal KnotMach = SpeedExtension.KnotToMach(Value);
+            Console.WriteLine($"{Value} Knot -> Mach: {KnotMach}");
+
             Console.ReadKey();
         }
     }

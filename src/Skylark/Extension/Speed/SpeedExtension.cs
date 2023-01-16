@@ -463,5 +463,233 @@ namespace Skylark.Extension
                 throw new E(Ex.Message, Ex);
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mph"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MphToCms(decimal Mph = MSM.Value, decimal Core = MSM.Mph_Cms)
+        {
+            try
+            {
+                return Mph * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mph"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MphToMps(decimal Mph = MSM.Value, decimal Core = MSM.Mph_Mps)
+        {
+            try
+            {
+                return Mph * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mph"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MphToKph(decimal Mph = MSM.Value, decimal Core = MSM.Mph_Kph)
+        {
+            try
+            {
+                return Mph * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mph"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MphToFts(decimal Mph = MSM.Value, decimal Core = MSM.Mph_Fts)
+        {
+            try
+            {
+                return Mph * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mph"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MphToKnot(decimal Mph = MSM.Value, decimal Core = MSM.Mph_Knot)
+        {
+            try
+            {
+                return Mph * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mph"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MphToMach(decimal Mph = MSM.Value, decimal Core = MSM.Mph_Mach)
+        {
+            try
+            {
+                return Mph * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Knot"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal KnotToCms(decimal Knot = MSM.Value, decimal Core = MSM.Knot_Cms)
+        {
+            try
+            {
+                return Knot * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Knot"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal KnotToMps(decimal Knot = MSM.Value, decimal Core = MSM.Knot_Mps)
+        {
+            try
+            {
+                return Knot * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Knot"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal KnotToKph(decimal Knot = MSM.Value, decimal Core = MSM.Knot_Kph)
+        {
+            try
+            {
+                return Knot * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Knot"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal KnotToFts(decimal Knot = MSM.Value, decimal Core = MSM.Knot_Fts)
+        {
+            try
+            {
+                return Knot * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Knot"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal KnotToMph(decimal Knot = MSM.Value, decimal Core = MSM.Knot_Mph)
+        {
+            try
+            {
+                return Knot * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Knot"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal KnotToMach(decimal Knot = MSM.Value, decimal Core = MSM.Knot_Mach)
+        {
+            try
+            {
+                return Knot * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
     }
 }

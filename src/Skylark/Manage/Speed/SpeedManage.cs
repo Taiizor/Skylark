@@ -109,5 +109,55 @@
         /// 
         /// </summary>
         public const decimal Fts_Mach = 0.000887078M; //0.0010330579M
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Mph_Cms = 44.704M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Mph_Mps = 0.44704M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Mph_Kph = 1.60934M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Mph_Fts = 1.4666666667M; //0.68182M
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Mph_Knot = 0.868976M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Mph_Mach = 0.0013010477M; //0.0015151515M
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Knot_Cms = 51.444444M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Knot_Mps = 0.5144444M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Knot_Kph = 1.852M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Knot_Fts = 1.68781M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Knot_Mph = 1.15078M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Knot_Mach = 0.0013010477M; //
     }
 }
