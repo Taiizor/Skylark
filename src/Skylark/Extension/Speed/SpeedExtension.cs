@@ -684,7 +684,121 @@ namespace Skylark.Extension
         {
             try
             {
-                return Knot * Core;
+                return Knot / Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mach"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MachToCms(decimal Mach = MSM.Value, decimal Core = MSM.Mach_Cms)
+        {
+            try
+            {
+                return Mach * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mach"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MachToMps(decimal Mach = MSM.Value, decimal Core = MSM.Mach_Mps)
+        {
+            try
+            {
+                return Mach * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mach"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MachToKph(decimal Mach = MSM.Value, decimal Core = MSM.Mach_Kph)
+        {
+            try
+            {
+                return Mach * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mach"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MachToFts(decimal Mach = MSM.Value, decimal Core = MSM.Mach_Fts)
+        {
+            try
+            {
+                return Mach * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mach"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MachToMph(decimal Mach = MSM.Value, decimal Core = MSM.Mach_Mph)
+        {
+            try
+            {
+                return Mach * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mach"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MachToKnot(decimal Mach = MSM.Value, decimal Core = MSM.Mach_Knot)
+        {
+            try
+            {
+                return Mach * Core;
             }
             catch (E Ex)
             {

@@ -158,6 +158,31 @@
         /// <summary>
         /// 
         /// </summary>
-        public const decimal Knot_Mach = 0.0013010477M; //
+        public const decimal Knot_Mach = 661.47M;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Mach_Cms = 34.030M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Mach_Mps = 343.030M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Mach_Kph = 1234.8M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Mach_Fts = 1125.33M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Mach_Mph = 767.269M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Mach_Knot = 661.47M;
     }
 }

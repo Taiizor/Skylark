@@ -31,6 +31,7 @@ jobs:
             demo/Skylark.Console.Demo/ConsoleDemoHtml,
             demo/Skylark.Console.Demo/ConsoleDemoPing,
             demo/Skylark.Console.Demo/ConsoleDemoPort,
+            demo/Skylark.Console.Demo/ConsoleDemoSpeed,
             demo/Skylark.Console.Demo/ConsoleDemoColor,
             demo/Skylark.Console.Demo/ConsoleDemoXhtml,
             demo/Skylark.Console.Demo/ConsoleDemoUnicode,

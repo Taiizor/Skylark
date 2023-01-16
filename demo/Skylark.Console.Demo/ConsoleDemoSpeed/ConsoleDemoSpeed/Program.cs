@@ -126,6 +126,26 @@ namespace ConsoleDemoSpeed
             decimal KnotMach = SpeedExtension.KnotToMach(Value);
             Console.WriteLine($"{Value} Knot -> Mach: {KnotMach}");
 
+            Console.WriteLine();
+
+            decimal MachCms = SpeedExtension.MachToCms(Value);
+            Console.WriteLine($"{Value} Mach -> Cms: {MachCms}");
+
+            decimal MachMps = SpeedExtension.MachToMps(Value);
+            Console.WriteLine($"{Value} Mach -> Mps: {MachMps}");
+
+            decimal MachKph = SpeedExtension.MachToKph(Value);
+            Console.WriteLine($"{Value} Mach -> Kph: {MachKph}");
+
+            decimal MachFts = SpeedExtension.MachToFts(Value);
+            Console.WriteLine($"{Value} Mach -> Fts: {MachFts}");
+
+            decimal MachMph = SpeedExtension.MachToMph(Value);
+            Console.WriteLine($"{Value} Mach -> Mph: {MachMph}");
+
+            decimal MachKnot = SpeedExtension.MachToKnot(Value);
+            Console.WriteLine($"{Value} Mach -> Knot: {MachKnot}");
+
             Console.ReadKey();
         }
     }
