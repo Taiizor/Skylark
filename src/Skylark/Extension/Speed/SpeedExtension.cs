@@ -1,6 +1,4 @@
 ﻿using E = Skylark.Exception;
-using HL = Skylark.Helper.Length;
-using HSH = Skylark.Helper.SpeedHelper;
 using MSM = Skylark.Manage.SpeedManage;
 
 namespace Skylark.Extension
@@ -13,6 +11,42 @@ namespace Skylark.Extension
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Mps"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MpsToMph(decimal Mps = MSM.Value)
+        {
+            try
+            {
+                return Mps * MSM.Mps_Mph;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mps"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MpsToKph(decimal Mps = MSM.Value)
+        {
+            try
+            {
+                return Mps * MSM.Mps_Kph;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Mph"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
@@ -20,14 +54,14 @@ namespace Skylark.Extension
         {
             try
             {
-                return KphToMps(MphToKph(Mph));
+                return Mph * MSM.Mph_Mps;
             }
             catch (E Ex)
             {
                 throw new E(Ex.Message, Ex);
             }
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
