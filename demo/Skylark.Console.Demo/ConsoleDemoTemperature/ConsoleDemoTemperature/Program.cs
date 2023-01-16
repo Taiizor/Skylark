@@ -21,7 +21,7 @@ namespace ConsoleDemoTemperature
             Console.WriteLine($"{Value} Celsius -> Reaumur: {CRR}");
 
             Console.WriteLine();
-            
+
             decimal FC = TemperatureExtension.FahrenheitToCelsius(Value);
             Console.WriteLine($"{Value} Fahrenheit -> Celsius: {FC}");
 
@@ -47,6 +47,34 @@ namespace ConsoleDemoTemperature
 
             decimal KRR = TemperatureExtension.KelvinToReaumur(Value);
             Console.WriteLine($"{Value} Kelvin -> Reaumur: {KRR}");
+
+            Console.WriteLine();
+
+            decimal REC = TemperatureExtension.RankineToCelsius(Value);
+            Console.WriteLine($"{Value} Rankine -> Celsius: {REC}");
+
+            decimal REF = TemperatureExtension.RankineToFahrenheit(Value);
+            Console.WriteLine($"{Value} Rankine -> Fahrenheit: {REF}");
+
+            decimal REK = TemperatureExtension.RankineToKelvin(Value);
+            Console.WriteLine($"{Value} Rankine -> Kelvin: {REK}");
+
+            decimal RERR = TemperatureExtension.RankineToReaumur(Value);
+            Console.WriteLine($"{Value} Rankine -> Reaumur: {RERR}");
+
+            Console.WriteLine();
+
+            decimal RRC = TemperatureExtension.ReaumurToCelsius(Value);
+            Console.WriteLine($"{Value} Reaumur -> Celsius: {RRC}");
+
+            decimal RRF = TemperatureExtension.ReaumurToFahrenheit(Value);
+            Console.WriteLine($"{Value} Reaumur -> Fahrenheit: {RRF}");
+
+            decimal RRK = TemperatureExtension.ReaumurToKelvin(Value);
+            Console.WriteLine($"{Value} Reaumur -> Kelvin: {RRK}");
+
+            decimal RRRE = TemperatureExtension.ReaumurToRankine(Value);
+            Console.WriteLine($"{Value} Reaumur -> Rankine: {RRRE}");
 
             Console.ReadKey();
         }

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,13 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="Skylark">
-      <HintPath>..\..\..\..\src\Skylark\bin\Release\netstandard2.1\Skylark.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <!--<ItemGroup>
     <PackageReference Include="Skylark" Version="2.0.1.6" />
-  </ItemGroup>-->
+  </ItemGroup>
 
 </Project>
