@@ -1,4 +1,5 @@
 ﻿using Skylark.Helper;
+using System.Globalization;
 
 namespace ConsoleDemoHelper
 {
@@ -6,6 +7,38 @@ namespace ConsoleDemoHelper
     {
         static void Main()
         {
+            Culture.All = new CultureInfo("en-GB"); //tr-TR
+
+            Console.WriteLine(Culture.CurrentName);
+            Console.WriteLine(Culture.CurrentNativeName);
+            Console.WriteLine(Culture.CurrentDisplayName);
+            Console.WriteLine(Culture.CurrentEnglishName);
+            Console.WriteLine(Culture.CurrentTwoLetterISOLanguageName);
+            Console.WriteLine(Culture.CurrentThreeLetterISOLanguageName);
+            Console.WriteLine(Culture.CurrentThreeLetterWindowsLanguageName);
+
+            Console.WriteLine();
+
+            Console.WriteLine(Step.Force(123456789, true, true, 6, '0'));
+            Console.WriteLine(Step.Force("123456789", true, true, 6, '0'));
+            Console.WriteLine(Step.Force(12345.6789M, true, true, 6, '0'));
+            Console.WriteLine(Step.Force(12345.6789d, true, true, 6, '0'));
+            Console.WriteLine(Step.Force(12345.6789f, true, true, 6, '0'));
+            Console.WriteLine(Step.Force("12,345.6789", true, true, 6, '0'));
+            Console.WriteLine(Step.Force("12.345,6789", true, true, 6, '0'));
+            Console.WriteLine(Step.Force("XY.XYZ,XYZQ", true, true, 6, '#'));
+
+            Console.WriteLine();
+
+            Board.Copy("Taiizor Skylark");
+            Console.WriteLine(Board.Paste(true, "Empty!"));
+
+            Console.WriteLine();
+
+            Console.WriteLine(Format.Formatter("Hello {0}!", "Jane Doe"));
+
+            Console.WriteLine();
+
             Console.WriteLine(Currency.Name);
             Console.WriteLine(Currency.Symbol);
             Console.WriteLine(Currency.SymbolName);
