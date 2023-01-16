@@ -80,21 +80,21 @@ namespace Skylark.Helper
         /// <summary>
         /// 
         /// </summary>
-        public static string ThreadCurrentName => CultureInfo.DefaultThreadCurrentCulture.Name;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static string ThreadCurrentUIName => CultureInfo.DefaultThreadCurrentUICulture.Name;
-
-        /// <summary>
-        /// 
-        /// </summary>
         public static string InvariantName => CultureInfo.InvariantCulture.Name;
 
         /// <summary>
         /// 
         /// </summary>
         public static string InstalledUIName => CultureInfo.InstalledUICulture.Name;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string ThreadCurrentName => CultureInfo.DefaultThreadCurrentCulture.Name;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string ThreadCurrentUIName => CultureInfo.DefaultThreadCurrentUICulture.Name;
     }
 }

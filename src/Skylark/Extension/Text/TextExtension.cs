@@ -62,6 +62,26 @@ namespace Skylark.Extension
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Text"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static string Reverse(string Text = MTM.Text)
+        {
+            try
+            {
+                Text = HL.Text(Text, MTM.Text);
+
+                return new string(Text.Reverse().ToArray());
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Paragraph"></param>
         /// <param name="Word"></param>
         /// <returns></returns>
