@@ -13,20 +13,32 @@
         /// <summary>
         /// 
         /// </summary>
-        public const decimal Cmps_Mps = 100M;
+        public const decimal Cms_Mps = 100M;
         /// <summary>
         /// 
         /// </summary>
-        public const decimal Cmps_Kph = 0.36M;
+        public const decimal Cms_Kph = 0.036M;
         /// <summary>
         /// 
         /// </summary>
-        public const decimal Cmps_Fps = 30.48M;
+        public const decimal Cms_Fts = 30.48M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Cms_Mph = 0.022372M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Cms_Knot = 0.0194384M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Cms_Mach = 0.0000291036M; //0.000033893M
 
         /// <summary>
         /// 
         /// </summary>
-        public const decimal Mps_Mph = 2.23694M;
+        public const decimal Mps_Cms = 100M;
         /// <summary>
         /// 
         /// </summary>
@@ -34,25 +46,24 @@
         /// <summary>
         /// 
         /// </summary>
-        public const decimal Mps_Fts = 3.2808M;
+        public const decimal Mps_Fts = 3.281M;
         /// <summary>
         /// 
         /// </summary>
-        public const decimal Mps_Knot = 1.94384M;
+        public const decimal Mps_Mph = 2.237M;
         /// <summary>
         /// 
         /// </summary>
-        public const decimal Mps_Mach = 340.29M;
+        public const decimal Mps_Knot = 1.944M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Mps_Mach = 0.0029103609M; //0.0033892974M
 
         /// <summary>
         /// 
         /// </summary>
-        public const decimal Mph_Mps = 0.44704M;
-        /// <summary>
-        /// 
-        /// </summary>
-        public const decimal Mph_Kph = 1.609344M;
-
+        public const decimal Kph_Cms = 0.036M;
         /// <summary>
         /// 
         /// </summary>
@@ -60,11 +71,18 @@
         /// <summary>
         /// 
         /// </summary>
-        public const decimal Kph_Mph = 1.609344M;
-
+        public const decimal Kph_Fts = 3.281M;
         /// <summary>
         /// 
         /// </summary>
-        public const bool Decimal = false;
+        public const decimal Kph_Mph = 2.237M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Kph_Knot = 1.944M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Kph_Mach = 0.0029103609M; //0.0033892974M
     }
 }

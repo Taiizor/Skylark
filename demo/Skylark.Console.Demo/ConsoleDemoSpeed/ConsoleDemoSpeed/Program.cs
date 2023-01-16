@@ -4,45 +4,59 @@ namespace ConsoleDemoSpeed
 {
     internal class Program
     {
-        private const decimal Value = 10000;
+        private const decimal Value = 1;
 
         static void Main()
         {
-            decimal CmsMps = SpeedExtension.CmpsToMps(Value);
+            decimal CmsMps = SpeedExtension.CmsToMps(Value);
             Console.WriteLine($"{Value} Cms -> Mps: {CmsMps}");
 
+            decimal CmsKph = SpeedExtension.CmsToKph(Value);
+            Console.WriteLine($"{Value} Cms -> Kph: {CmsKph}");
+
+            decimal CmsFts = SpeedExtension.CmsToFts(Value);
+            Console.WriteLine($"{Value} Cms -> Fts: {CmsFts}");
+
+            decimal CmsMph = SpeedExtension.CmsToMph(Value);
+            Console.WriteLine($"{Value} Cms -> Mph: {CmsMph}");
+
+            decimal CmsKnot = SpeedExtension.CmsToKnot(Value);
+            Console.WriteLine($"{Value} Cms -> Knot: {CmsKnot}");
+
+            decimal CmsMach = SpeedExtension.CmsToMach(Value);
+            Console.WriteLine($"{Value} Cms -> Mach: {CmsMach}");
+
             Console.WriteLine();
-
-
-
-
-
-
-
-
-
-            decimal MpsMph = SpeedExtension.MpsToMph(Value);
-            Console.WriteLine($"{Value} Mps -> Mph: {MpsMph}");
-
-            Console.WriteLine();
+            
+            decimal MpsCms = SpeedExtension.MpsToCms(Value);
+            Console.WriteLine($"{Value} Mps -> Cms: {MpsCms}");
 
             decimal MpsKph = SpeedExtension.MpsToKph(Value);
             Console.WriteLine($"{Value} Mps -> Kph: {MpsKph}");
 
-            Console.WriteLine();
-
             decimal MpsFts = SpeedExtension.MpsToFts(Value);
             Console.WriteLine($"{Value} Mps -> Fts: {MpsFts}");
 
-            Console.WriteLine();
+            decimal MpsMph = SpeedExtension.MpsToMph(Value);
+            Console.WriteLine($"{Value} Mps -> Mph: {MpsMph}");
 
             decimal MpsKnot = SpeedExtension.MpsToKnot(Value);
             Console.WriteLine($"{Value} Mps -> Knot: {MpsKnot}");
 
-            Console.WriteLine();
-
             decimal MpsMach = SpeedExtension.MpsToMach(Value);
             Console.WriteLine($"{Value} Mps -> Mach: {MpsMach}");
+
+            Console.WriteLine();
+
+
+
+
+
+
+
+
+
+
 
             Console.WriteLine();
 
