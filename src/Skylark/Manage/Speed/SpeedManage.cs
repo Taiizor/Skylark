@@ -100,7 +100,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public const decimal Fts_Mph = 0.68182M;
+        public const decimal Fts_Mph = 0.68182M; //1.46667M
         /// <summary>
         /// 
         /// </summary>
