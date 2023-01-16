@@ -4,10 +4,23 @@ namespace ConsoleDemoSpeed
 {
     internal class Program
     {
-        private const decimal Value = 60;
+        private const decimal Value = 10000;
 
         static void Main()
         {
+            decimal CmsMps = SpeedExtension.CmpsToMps(Value);
+            Console.WriteLine($"{Value} Cms -> Mps: {CmsMps}");
+
+            Console.WriteLine();
+
+
+
+
+
+
+
+
+
             decimal MpsMph = SpeedExtension.MpsToMph(Value);
             Console.WriteLine($"{Value} Mps -> Mph: {MpsMph}");
 
@@ -15,6 +28,21 @@ namespace ConsoleDemoSpeed
 
             decimal MpsKph = SpeedExtension.MpsToKph(Value);
             Console.WriteLine($"{Value} Mps -> Kph: {MpsKph}");
+
+            Console.WriteLine();
+
+            decimal MpsFts = SpeedExtension.MpsToFts(Value);
+            Console.WriteLine($"{Value} Mps -> Fts: {MpsFts}");
+
+            Console.WriteLine();
+
+            decimal MpsKnot = SpeedExtension.MpsToKnot(Value);
+            Console.WriteLine($"{Value} Mps -> Knot: {MpsKnot}");
+
+            Console.WriteLine();
+
+            decimal MpsMach = SpeedExtension.MpsToMach(Value);
+            Console.WriteLine($"{Value} Mps -> Mach: {MpsMach}");
 
             Console.WriteLine();
 

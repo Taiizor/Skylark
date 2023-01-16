@@ -11,6 +11,74 @@ namespace Skylark.Extension
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Cmps"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal CmpsToMps(decimal Cmps = MSM.Value)
+        {
+            try
+            {
+                return Cmps / MSM.Cmps_Mps;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Cmps"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal CmpsToKph(decimal Cmps = MSM.Value)
+        {
+            try
+            {
+                return Cmps * MSM.Cmps_Kph;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Cmps"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal CmpsToFts(decimal Cmps = MSM.Value)
+        {
+            try
+            {
+                return Cmps / MSM.Mps_Fts;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Mps"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
@@ -37,6 +105,60 @@ namespace Skylark.Extension
             try
             {
                 return Mps * MSM.Mps_Kph;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mps"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MpsToFts(decimal Mps = MSM.Value)
+        {
+            try
+            {
+                return Mps * MSM.Mps_Fts;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mps"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MpsToKnot(decimal Mps = MSM.Value)
+        {
+            try
+            {
+                return Mps * MSM.Mps_Knot;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mps"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal MpsToMach(decimal Mps = MSM.Value)
+        {
+            try
+            {
+                return Mps / MSM.Mps_Mach;
             }
             catch (E Ex)
             {
