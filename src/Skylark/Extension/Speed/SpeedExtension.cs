@@ -254,5 +254,214 @@ namespace Skylark.Extension
                 throw new E(Ex.Message, Ex);
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Kph"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal KphToMps(decimal Kph = MSM.Value, decimal Core = MSM.Kph_Mps)
+        {
+            try
+            {
+                return Kph / Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Kph"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal KphToFts(decimal Kph = MSM.Value, decimal Core = MSM.Kph_Fts)
+        {
+            try
+            {
+                return Kph / Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Kph"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal KphToMph(decimal Kph = MSM.Value, decimal Core = MSM.Kph_Mph)
+        {
+            try
+            {
+                return Kph / Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Kph"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal KphToKnot(decimal Kph = MSM.Value, decimal Core = MSM.Kph_Knot)
+        {
+            try
+            {
+                return Kph / Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Kph"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal KphToMach(decimal Kph = MSM.Value, decimal Core = MSM.Kph_Mach)
+        {
+            try
+            {
+                return Kph * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Fts"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal FtsToCms(decimal Fts = MSM.Value, decimal Core = MSM.Fts_Cms)
+        {
+            try
+            {
+                return Fts * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Fts"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal FtsToMps(decimal Fts = MSM.Value, decimal Core = MSM.Fts_Mps)
+        {
+            try
+            {
+                return Fts * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Fts"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal FtsToKph(decimal Fts = MSM.Value, decimal Core = MSM.Fts_Kph)
+        {
+            try
+            {
+                return Fts * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Fts"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal FtsToMph(decimal Fts = MSM.Value, decimal Core = MSM.Fts_Mph)
+        {
+            try
+            {
+                return Fts * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Fts"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal FtsToKnot(decimal Fts = MSM.Value, decimal Core = MSM.Fts_Knot)
+        {
+            try
+            {
+                return Fts * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Fts"></param>
+        /// <param name="Core"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal FtsToMach(decimal Fts = MSM.Value, decimal Core = MSM.Fts_Mach)
+        {
+            try
+            {
+                return Fts * Core;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
     }
 }

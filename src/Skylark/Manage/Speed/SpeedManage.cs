@@ -71,18 +71,43 @@
         /// <summary>
         /// 
         /// </summary>
-        public const decimal Kph_Fts = 3.281M;
+        public const decimal Kph_Fts = 1.097M;
         /// <summary>
         /// 
         /// </summary>
-        public const decimal Kph_Mph = 2.237M;
+        public const decimal Kph_Mph = 1.609M;
         /// <summary>
         /// 
         /// </summary>
-        public const decimal Kph_Knot = 1.944M;
+        public const decimal Kph_Knot = 1.852M;
         /// <summary>
         /// 
         /// </summary>
-        public const decimal Kph_Mach = 0.0029103609M; //0.0033892974M
+        public const decimal Kph_Mach = 0.0008084336M; //0.0009414715M
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Fts_Cms = 30.48M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Fts_Mps = 0.3048M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Fts_Kph = 1.097M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Fts_Mph = 0.68182M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Fts_Knot = 0.5924838M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Fts_Mach = 0.000887078M; //0.0010330579M
     }
 }
