@@ -13,6 +13,27 @@
         /// <summary>
         /// 
         /// </summary>
+        public const string Kelvin = "K";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string Celsius = "°C";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string Rankine = "°R";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string Reaumur = "°Ré";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string Fahrenheit = "°F";
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const decimal Celsius_Fahrenheit_Coefficient = 9.0M / 5.0M;
         /// <summary>
         /// 

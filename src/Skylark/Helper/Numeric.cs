@@ -6,7 +6,7 @@ namespace Skylark.Helper
     /// <summary>
     /// 
     /// </summary>
-    public class Step
+    public class Numeric
     {
         /// <summary>
         /// 
@@ -18,7 +18,7 @@ namespace Skylark.Helper
         /// <param name="Number"></param>
         /// <param name="Clear"></param>
         /// <returns></returns>
-        public static string Force(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', bool Clear = true)
+        public static string Numeral(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', bool Clear = true)
         {
             Digit = HL.Number(Digit, 0, 99);
 

@@ -11,6 +11,31 @@ namespace Skylark.Extension
         /// <summary>
         /// 
         /// </summary>
+        public static string SymbolKelvin => MTM.Kelvin;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string SymbolCelsius => MTM.Celsius;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string SymbolRankine => MTM.Rankine;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string SymbolReaumur => MTM.Reaumur;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string SymbolFahrenheit => MTM.Fahrenheit;
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Celsius"></param>
         /// <param name="Coefficient"></param>
         /// <param name="Constant"></param>
