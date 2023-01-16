@@ -4,7 +4,7 @@ namespace ConsoleDemoTemperature
 {
     internal class Program
     {
-        private const decimal Value = 999;
+        private const decimal Value = 1234;
 
         static void Main()
         {

@@ -392,7 +392,7 @@ namespace Skylark.Extension
         {
             try
             {
-                return Reaumur * Coefficient + Constant;
+                return (Reaumur * Coefficient) + Constant;
             }
             catch (E Ex)
             {
