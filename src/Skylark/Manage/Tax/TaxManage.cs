@@ -10,7 +10,7 @@ namespace Skylark.Manage
         /// <summary>
         /// 
         /// </summary>
-        public const bool Separator = true;
+        public const bool Decimal = true;
 
         /// <summary>
         /// 

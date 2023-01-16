@@ -20,11 +20,11 @@ namespace Skylark.Extension
         /// <param name="Value"></param>
         /// <param name="Percent"></param>
         /// <param name="Type"></param>
-        /// <param name="Separator"></param>
+        /// <param name="Decimal"></param>
         /// <returns></returns>
-        public static STCS Calc(string Value = MTM.Value, string Percent = MTM.Percent, string Type = MTM.DefaultType, bool Separator = MTM.Separator)
+        public static STCS Calc(string Value = MTM.Value, string Percent = MTM.Percent, string Type = MTM.DefaultType, bool Decimal = MTM.Decimal)
         {
-            return Calc(Value, Percent, HC.Convert(Type, MTM.TaxType), Separator);
+            return Calc(Value, Percent, HC.Convert(Type, MTM.TaxType), Decimal);
         }
 
         /// <summary>
@@ -33,9 +33,9 @@ namespace Skylark.Extension
         /// <param name="Value"></param>
         /// <param name="Percent"></param>
         /// <param name="Type"></param>
-        /// <param name="Separator"></param>
+        /// <param name="Decimal"></param>
         /// <returns></returns>
-        public static STCS Calc(string Value = MTM.Value, string Percent = MTM.Percent, ETT Type = MTM.TaxType, bool Separator = MTM.Separator)
+        public static STCS Calc(string Value = MTM.Value, string Percent = MTM.Percent, ETT Type = MTM.TaxType, bool Decimal = MTM.Decimal)
         {
             try
             {
@@ -70,9 +70,9 @@ namespace Skylark.Extension
 
                 return new()
                 {
-                    Price = $"{HTH.GetPlaces(Math.Round(decimal.Parse(Price), 2), Separator)}",
-                    VatPrice = $"{HTH.GetPlaces(Math.Round(decimal.Parse(VatPrice), 2), Separator)}",
-                    TotalPrice = $"{HTH.GetPlaces(Math.Round(decimal.Parse(TotalPrice), 2), Separator)}",
+                    Price = $"{HTH.GetPlaces(Math.Round(decimal.Parse(Price), 2), Decimal)}",
+                    VatPrice = $"{HTH.GetPlaces(Math.Round(decimal.Parse(VatPrice), 2), Decimal)}",
+                    TotalPrice = $"{HTH.GetPlaces(Math.Round(decimal.Parse(TotalPrice), 2), Decimal)}",
                 };
             }
             catch (E Ex)

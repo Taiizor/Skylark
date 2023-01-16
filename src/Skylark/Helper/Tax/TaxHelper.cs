@@ -22,11 +22,11 @@ namespace Skylark.Helper
         /// 
         /// </summary>
         /// <param name="Value"></param>
-        /// <param name="Separator"></param>
+        /// <param name="Decimal"></param>
         /// <returns></returns>
-        public static string GetPlaces(decimal Value, bool Separator)
+        public static string GetPlaces(decimal Value, bool Decimal)
         {
-            if (Separator)
+            if (Decimal)
             {
                 return HF.Formatter("{0:N2}", Value);
             }
