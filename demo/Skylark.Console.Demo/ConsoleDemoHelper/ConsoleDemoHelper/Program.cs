@@ -19,14 +19,14 @@ namespace ConsoleDemoHelper
 
             Console.WriteLine();
 
-            Console.WriteLine(Step.Force(123456789, true, true, 6, '0'));
-            Console.WriteLine(Step.Force("123456789", true, true, 6, '0'));
-            Console.WriteLine(Step.Force(12345.6789M, true, true, 6, '0'));
-            Console.WriteLine(Step.Force(12345.6789d, true, true, 6, '0'));
-            Console.WriteLine(Step.Force(12345.6789f, true, true, 6, '0'));
-            Console.WriteLine(Step.Force("12,345.6789", true, true, 6, '0'));
-            Console.WriteLine(Step.Force("12.345,6789", true, true, 6, '0'));
-            Console.WriteLine(Step.Force("XY.XYZ,XYZQ", true, true, 6, '#'));
+            Console.WriteLine(Numeric.Numeral(123456789, true, true, 6, '0'));
+            Console.WriteLine(Numeric.Numeral("123456789", true, true, 6, '0'));
+            Console.WriteLine(Numeric.Numeral(12345.6789M, true, true, 6, '0'));
+            Console.WriteLine(Numeric.Numeral(12345.6789d, true, true, 6, '0'));
+            Console.WriteLine(Numeric.Numeral(12345.6789f, true, true, 6, '0'));
+            Console.WriteLine(Numeric.Numeral("12,345.6789", true, true, 6, '0'));
+            Console.WriteLine(Numeric.Numeral("12.345,6789", true, true, 6, '0'));
+            Console.WriteLine(Numeric.Numeral("XY.XYZ,XYZQ", true, true, 6, '#'));
 
             Console.WriteLine();
 

@@ -8,6 +8,14 @@ namespace ConsoleDemoTemperature
 
         static void Main()
         {
+            Console.WriteLine($"Kelvin Symbol {TemperatureExtension.SymbolKelvin}");
+            Console.WriteLine($"Rankine Symbol {TemperatureExtension.SymbolRankine}");
+            Console.WriteLine($"Reaumur Symbol {TemperatureExtension.SymbolReaumur}");
+            Console.WriteLine($"Celsius Symbol {TemperatureExtension.SymbolCelsius}");
+            Console.WriteLine($"Fahrenheit Symbol {TemperatureExtension.SymbolFahrenheit}");
+
+            Console.WriteLine();
+
             decimal CF = TemperatureExtension.CelsiusToFahrenheit(Value);
             Console.WriteLine($"{Value} Celsius -> Fahrenheit: {CF}");
 

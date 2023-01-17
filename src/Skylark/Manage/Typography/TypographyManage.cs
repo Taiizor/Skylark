@@ -13,6 +13,24 @@
         /// <summary>
         /// 
         /// </summary>
+        public const decimal Pixel_Em_Coefficient = 1.0M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Pixel_Em_Constant = 16.0M;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Pixel_Rem_Coefficient = 1.0M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Pixel_Rem_Constant = 16.0M;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const decimal Pixel_Inch_Constant = 0.0104166667M;
 
         /// <summary>
@@ -54,5 +72,24 @@
         /// 
         /// </summary>
         public const decimal Punto_Centimeter_Constant = 0.0352777778M;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Centimeter_Pixel_Coefficient = 2.54M;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Centimeter_Pixel_Constant = 96.0M;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Centimeter_Inch_Constant = 0.3937007874M;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const decimal Centimeter_Punto_Constant = 28.3464567M;
     }
 }

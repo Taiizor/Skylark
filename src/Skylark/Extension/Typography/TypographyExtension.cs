@@ -12,6 +12,46 @@ namespace Skylark.Extension
         /// 
         /// </summary>
         /// <param name="Pixel"></param>
+        /// <param name="Coefficient"></param>
+        /// <param name="Constant"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        private static decimal PixelToEm(decimal Pixel = MTM.Value, decimal Coefficient = MTM.Pixel_Em_Coefficient, decimal Constant = MTM.Pixel_Em_Constant)
+        {
+            try
+            {
+                return Pixel / (Constant / Coefficient);
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Pixel"></param>
+        /// <param name="Coefficient"></param>
+        /// <param name="Constant"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        private static decimal PixelToRem(decimal Pixel = MTM.Value, decimal Coefficient = MTM.Pixel_Rem_Coefficient, decimal Constant = MTM.Pixel_Rem_Constant)
+        {
+            try
+            {
+                return Pixel / (Constant / Coefficient);
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Pixel"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
@@ -172,6 +212,64 @@ namespace Skylark.Extension
             try
             {
                 return Punto * Constant;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Centimeter"></param>
+        /// <param name="Coefficient"></param>
+        /// <param name="Constant"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal CentimeterToPixel(decimal Centimeter = MTM.Value, decimal Coefficient = MTM.Centimeter_Pixel_Coefficient, decimal Constant = MTM.Centimeter_Pixel_Constant)
+        {
+            try
+            {
+                return Centimeter * Constant / Coefficient;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Centimeter"></param>
+        /// <param name="Constant"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal CentimeterToInch(decimal Centimeter = MTM.Value, decimal Constant = MTM.Centimeter_Inch_Constant)
+        {
+            try
+            {
+                return Centimeter * Constant;
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Centimeter"></param>
+        /// <param name="Constant"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static decimal CentimeterToPunto(decimal Centimeter = MTM.Value, decimal Constant = MTM.Centimeter_Punto_Constant)
+        {
+            try
+            {
+                return Centimeter * Constant;
             }
             catch (E Ex)
             {

@@ -38,6 +38,7 @@ jobs:
             demo/Skylark.Console.Demo/ConsoleDemoLottery,
             demo/Skylark.Console.Demo/ConsoleDemoPassword,
             demo/Skylark.Console.Demo/ConsoleDemoCryptology,
+            demo/Skylark.Console.Demo/ConsoleDemoTypography,
             demo/Skylark.Console.Demo/ConsoleDemoTemperature
         ]
 

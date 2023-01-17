@@ -39,6 +39,17 @@ namespace ConsoleDemoTypography
             decimal POC = TypographyExtension.PuntoToCentimeter(Value);
             Console.WriteLine($"{Value} Punto -> Centimeter: {POC}");
 
+            Console.WriteLine();
+
+            decimal CPL = TypographyExtension.CentimeterToPixel(Value);
+            Console.WriteLine($"{Value} Centimeter -> Pixel: {CPL}");
+
+            decimal CI = TypographyExtension.CentimeterToInch(Value);
+            Console.WriteLine($"{Value} Centimeter -> Inch: {CI}");
+
+            decimal CPO = TypographyExtension.CentimeterToPunto(Value);
+            Console.WriteLine($"{Value} Centimeter -> Punto: {CPO}");
+
             Console.ReadKey();
         }
     }
