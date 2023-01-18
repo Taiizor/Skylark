@@ -8,8 +8,17 @@ namespace Skylark.Struct
     [StructLayout(LayoutKind.Sequential)]
     public struct TaxCalcStruct
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public string Price;
+        /// <summary>
+        /// 
+        /// </summary>
         public string VatPrice;
+        /// <summary>
+        /// 
+        /// </summary>
         public string TotalPrice;
     }
 }

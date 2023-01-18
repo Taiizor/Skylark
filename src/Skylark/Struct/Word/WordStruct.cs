@@ -8,7 +8,13 @@ namespace Skylark.Struct
     [StructLayout(LayoutKind.Sequential)]
     public struct WordDataStruct
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public int Word;
+        /// <summary>
+        /// 
+        /// </summary>
         public int Char;
     }
 
@@ -18,7 +24,13 @@ namespace Skylark.Struct
     [StructLayout(LayoutKind.Sequential)]
     public struct WordCombineStruct
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public string Result;
+        /// <summary>
+        /// 
+        /// </summary>
         public int Count;
     }
 }

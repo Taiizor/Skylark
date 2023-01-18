@@ -8,7 +8,13 @@ namespace Skylark.Struct
     [StructLayout(LayoutKind.Sequential)]
     public struct LotteryDrawStruct
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public List<string> Winners;
+        /// <summary>
+        /// 
+        /// </summary>
         public List<string> Reserve;
     }
 }

@@ -9,8 +9,17 @@ namespace Skylark.Struct
     [StructLayout(LayoutKind.Sequential)]
     public struct StorageStruct
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public decimal Value;
+        /// <summary>
+        /// 
+        /// </summary>
         public string Text;
+        /// <summary>
+        /// 
+        /// </summary>
         public EST Type;
     }
 }
