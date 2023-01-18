@@ -58,6 +58,10 @@
         /// </summary>
         Year,
         /// <summary>
+        /// Decade
+        /// </summary>
+        Decade,
+        /// <summary>
         /// Century
         /// </summary>
         Century,
