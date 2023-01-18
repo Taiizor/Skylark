@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    internal class Adaptation
+    public class Adaptation
     {
         /// <summary>
         /// 

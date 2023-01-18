@@ -20,6 +20,7 @@ namespace Skylark.Helper
         /// <param name="Text"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
+        /// <exception cref="E"></exception>
         public static byte[] GetBytes(string Text, EET Encode)
         {
             return Encode switch
@@ -41,6 +42,7 @@ namespace Skylark.Helper
         /// <param name="Bytes"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
+        /// <exception cref="E"></exception>
         public static string GetString(byte[] Bytes, EET Encode)
         {
             return Encode switch

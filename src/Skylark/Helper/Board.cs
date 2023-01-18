@@ -1,6 +1,4 @@
-﻿using E = Skylark.Exception;
-
-namespace Skylark.Helper
+﻿namespace Skylark.Helper
 {
     /// <summary>
     /// 
@@ -16,17 +14,9 @@ namespace Skylark.Helper
         /// 
         /// </summary>
         /// <param name="Value"></param>
-        /// <exception cref="E"></exception>
         public static void Copy(object Value)
         {
-            try
-            {
-                Clipboard = Value;
-            }
-            catch (E Ex)
-            {
-                throw new E(Ex.Message, Ex);
-            }
+            Clipboard = Value;
         }
 
         /// <summary>
@@ -35,30 +25,22 @@ namespace Skylark.Helper
         /// <param name="Clear"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
         public static object Paste(bool Clear = false, object Back = null)
         {
-            try
+            object Value = Clipboard;
+
+            if (Clear)
             {
-                object Value = Clipboard;
-
-                if (Clear)
-                {
-                    Clipboard = null;
-                }
-
-                if (Value == null)
-                {
-                    return Back;
-                }
-                else
-                {
-                    return Value;
-                }
+                Clipboard = null;
             }
-            catch (E Ex)
+
+            if (Value == null)
             {
-                throw new E(Ex.Message, Ex);
+                return Back;
+            }
+            else
+            {
+                return Value;
             }
         }
     }

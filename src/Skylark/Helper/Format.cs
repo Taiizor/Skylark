@@ -1,6 +1,4 @@
-﻿using E = Skylark.Exception;
-
-namespace Skylark.Helper
+﻿namespace Skylark.Helper
 {
     /// <summary>
     /// 
@@ -11,8 +9,8 @@ namespace Skylark.Helper
         /// 
         /// </summary>
         /// <param name="Format"></param>
-        /// <param name="Invariant"></param>
         /// <param name="Case"></param>
+        /// <param name="Invariant"></param>
         /// <returns></returns>
         public static string Formatter(object Format, bool Case, bool Invariant = true)
         {
@@ -23,8 +21,8 @@ namespace Skylark.Helper
         /// 
         /// </summary>
         /// <param name="Format"></param>
-        /// <param name="Invariant"></param>
         /// <param name="Case"></param>
+        /// <param name="Invariant"></param>
         /// <returns></returns>
         public static string Formatter(string Format, bool Case, bool Invariant = true)
         {
@@ -57,14 +55,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static string Formatter(string Format, params object[] Args)
         {
-            try
-            {
-                return string.Format(Format, Args);
-            }
-            catch (E Ex)
-            {
-                throw new E(Ex.Message, Ex);
-            }
+            return string.Format(Format, Args);
         }
     }
 }
