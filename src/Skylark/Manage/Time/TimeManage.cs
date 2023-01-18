@@ -290,7 +290,7 @@ namespace Skylark.Manage
             {
                 ETT.Week, new()
                 {
-                    { ETT.Attosecond, 0M }, //604800000000000000000000000000M
+                    { ETT.Attosecond, -1M }, //604800000000000000000000000000M - 6.048E+23M
                     { ETT.Femtosecond, 6048000000000000000000000000M },
                     { ETT.Picosecond, 60480000000000000000000000M },
                     { ETT.Nanosecond, 60480000000000000000000M },
@@ -311,8 +311,8 @@ namespace Skylark.Manage
             {
                 ETT.Year, new()
                 {
-                    { ETT.Attosecond, 0M }, //31536000000000000000000000000000M
-                    { ETT.Femtosecond, 0M }, //315360000000000000000000000000M
+                    { ETT.Attosecond, -1M }, //31536000000000000000000000000000M - 3.155759999E+25M
+                    { ETT.Femtosecond, -1M }, //315360000000000000000000000000M - 3.155759999E+22M
                     { ETT.Picosecond, 315360000000000000000000000M },
                     { ETT.Nanosecond, 315360000000000000000000M },
                     { ETT.Microsecond, 315360000000000000000M },
@@ -332,8 +332,8 @@ namespace Skylark.Manage
             {
                 ETT.Decade, new()
                 {
-                    { ETT.Attosecond, 0M }, //315360000000000000000000000000000M
-                    { ETT.Femtosecond, 0M }, //3153600000000000000000000000000M
+                    { ETT.Attosecond, -1M }, //315360000000000000000000000000000M - 3.155759999E+26M
+                    { ETT.Femtosecond, -1M }, //3153600000000000000000000000000M - 3.155759999E+23M
                     { ETT.Picosecond, 3153600000000000000000000000M },
                     { ETT.Nanosecond, 3153600000000000000000000M },
                     { ETT.Microsecond, 3153600000000000000000M },
@@ -353,8 +353,8 @@ namespace Skylark.Manage
             {
                 ETT.Century, new()
                 {
-                    { ETT.Attosecond, 0M }, //3153600000000000000000000000000000M
-                    { ETT.Femtosecond, 0M }, //31536000000000000000000000000000M
+                    { ETT.Attosecond, -1M }, //3153600000000000000000000000000000M - 3.155759999E+27M
+                    { ETT.Femtosecond, -1M }, //31536000000000000000000000000000M - 3.155759999E+24M
                     { ETT.Picosecond, 31536000000000000000000000000M },
                     { ETT.Nanosecond, 31536000000000000000000000M },
                     { ETT.Microsecond, 31536000000000000000000M },
@@ -374,9 +374,9 @@ namespace Skylark.Manage
             {
                 ETT.Millennium, new()
                 {
-                    { ETT.Attosecond, 0M }, //31536000000000000000000000000000000M
-                    { ETT.Femtosecond, 0M }, //315360000000000000000000000000000M
-                    { ETT.Picosecond, 0M }, //315360000000000000000000000000M
+                    { ETT.Attosecond, -1M }, //31536000000000000000000000000000000M - 3.155759999E+28M
+                    { ETT.Femtosecond, -1M }, //315360000000000000000000000000000M - 3.155759999E+25M
+                    { ETT.Picosecond, -1M }, //315360000000000000000000000000M - 3.155759999E+22M
                     { ETT.Nanosecond, 315360000000000000000000000M },
                     { ETT.Microsecond, 315360000000000000000000M },
                     { ETT.Millisecond, 315360000000000000000M },

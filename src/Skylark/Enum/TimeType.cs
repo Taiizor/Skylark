@@ -33,6 +33,10 @@
         /// Centisecond
         /// </summary>
         Centisecond,
+        //// <summary>
+        //// Decisecond
+        //// </summary>
+        //Decisecond,
         /// <summary>
         /// Second
         /// </summary>
