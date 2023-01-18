@@ -6,6 +6,18 @@
     public enum TimeType
     {
         /// <summary>
+        /// Attosecond
+        /// </summary>
+        Attosecond,
+        /// <summary>
+        /// Femtosecond
+        /// </summary>
+        Femtosecond,
+        /// <summary>
+        /// Picosecond
+        /// </summary>
+        Picosecond,
+        /// <summary>
         /// Nanosecond
         /// </summary>
         Nanosecond,
@@ -17,6 +29,10 @@
         /// Millisecond
         /// </summary>
         Millisecond,
+        /// <summary>
+        /// Centisecond
+        /// </summary>
+        Centisecond,
         /// <summary>
         /// Second
         /// </summary>

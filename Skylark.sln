@@ -75,6 +75,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDemoTypography", "de
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDemoStorage", "demo\Skylark.Console.Demo\ConsoleDemoStorage\ConsoleDemoStorage\ConsoleDemoStorage.csproj", "{16A594FF-1829-4BF0-8CD2-A4FA9F475D75}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDemoTime", "demo\Skylark.Console.Demo\ConsoleDemoTime\ConsoleDemoTime\ConsoleDemoTime.csproj", "{76CA0A3A-85D5-4A6B-986A-CB9425E61A47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -189,6 +191,10 @@ Global
 		{16A594FF-1829-4BF0-8CD2-A4FA9F475D75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16A594FF-1829-4BF0-8CD2-A4FA9F475D75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16A594FF-1829-4BF0-8CD2-A4FA9F475D75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76CA0A3A-85D5-4A6B-986A-CB9425E61A47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76CA0A3A-85D5-4A6B-986A-CB9425E61A47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76CA0A3A-85D5-4A6B-986A-CB9425E61A47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76CA0A3A-85D5-4A6B-986A-CB9425E61A47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -224,6 +230,7 @@ Global
 		{8FACB740-AB93-4EE1-AC63-7BC96B0A64AB} = {E786A13D-D7DA-4E3A-B303-6033E7723AE1}
 		{326F72AD-64E6-4D35-894A-665C0B25DA9B} = {E786A13D-D7DA-4E3A-B303-6033E7723AE1}
 		{16A594FF-1829-4BF0-8CD2-A4FA9F475D75} = {E786A13D-D7DA-4E3A-B303-6033E7723AE1}
+		{76CA0A3A-85D5-4A6B-986A-CB9425E61A47} = {E786A13D-D7DA-4E3A-B303-6033E7723AE1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2293DDBB-92BC-444A-A771-C4275A09FB4E}

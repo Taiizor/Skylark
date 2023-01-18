@@ -2,10 +2,12 @@
 using ECWT = Skylark.Enum.CompressWebType;
 using ESPT = Skylark.Enum.SpecialPasswordType;
 using EST = Skylark.Enum.StorageType;
-using ETT = Skylark.Enum.TaxType;
+using ETXT = Skylark.Enum.TaxType;
+using ETET = Skylark.Enum.TimeType;
 using MPM = Skylark.Manage.PasswordManage;
 using MSM = Skylark.Manage.StorageManage;
-using MTM = Skylark.Manage.TaxManage;
+using MTXM = Skylark.Manage.TaxManage;
+using MTEM = Skylark.Manage.TimeManage;
 using MWM = Skylark.Manage.WebManage;
 
 namespace Skylark.Helper
@@ -40,9 +42,28 @@ namespace Skylark.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static ETT Convert(string Type, ETT Back = MTM.TaxType)
+        public static ETET Convert(string Type, ETET Back = MTEM.InputType)
         {
-            foreach (ETT Types in (ETT[])System.Enum.GetValues(typeof(ETT)))
+            foreach (ETET Types in (ETET[])System.Enum.GetValues(typeof(ETET)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static ETXT Convert(string Type, ETXT Back = MTXM.TaxType)
+        {
+            foreach (ETXT Types in (ETXT[])System.Enum.GetValues(typeof(ETXT)))
             {
                 if (Check(Type, Types))
                 {
