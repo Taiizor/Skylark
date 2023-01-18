@@ -136,27 +136,15 @@ namespace Skylark.Extension
 
                 if (Result.EndsWith(", "))
                 {
-#if NETSTANDARD2_1
-                    return Result[..^2] + ".";
-#else
                     return Result.Substring(0, Result.Length - 2) + ".";
-#endif
                 }
                 else if (Result.EndsWith(". "))
                 {
-#if NETSTANDARD2_1
-                    return Result[..^1];
-#else
                     return Result.Substring(0, Result.Length - 1);
-#endif
                 }
                 else if (Result.EndsWith(" "))
                 {
-#if NETSTANDARD2_1
-                    return Result[..^1] + ".";
-#else
                     return Result.Substring(0, Result.Length - 1) + ".";
-#endif
                 }
                 else
                 {

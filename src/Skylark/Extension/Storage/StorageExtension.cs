@@ -92,7 +92,7 @@ namespace Skylark.Extension
         private static SSS AutoDetect(decimal Value, EST Input)
         {
             SSS Result = MSM.Result;
-            
+
             EST Active = Input;
 
             for (int i = (int)Input; i <= (int)EST.Yottabyte; i++)

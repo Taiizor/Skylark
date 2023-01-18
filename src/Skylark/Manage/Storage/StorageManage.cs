@@ -12,7 +12,7 @@ namespace Skylark.Manage
         /// 
         /// </summary>
         public const bool Type = true;
-        
+
         /// <summary>
         /// 
         /// </summary>
