@@ -5,11 +5,29 @@
     /// </summary>
     public enum MeterPasswordType
     {
+        /// <summary>
+        /// 
+        /// </summary>
         Dead = 0,
+        /// <summary>
+        /// 
+        /// </summary>
         Weak = 20,
+        /// <summary>
+        /// 
+        /// </summary>
         Medium = 40,
+        /// <summary>
+        /// 
+        /// </summary>
         Normal = 60,
+        /// <summary>
+        /// 
+        /// </summary>
         Strong = 80,
+        /// <summary>
+        /// 
+        /// </summary>
         Legend = 100
     }
 
@@ -18,9 +36,21 @@
     /// </summary>
     public enum SpecialPasswordType
     {
+        /// <summary>
+        /// 
+        /// </summary>
         None,
+        /// <summary>
+        /// 
+        /// </summary>
         Mixed,
+        /// <summary>
+        /// 
+        /// </summary>
         Number,
+        /// <summary>
+        /// 
+        /// </summary>
         Symbol
     }
 
@@ -29,9 +59,21 @@
     /// </summary>
     public enum AlphabeticPasswordType
     {
+        /// <summary>
+        /// 
+        /// </summary>
         Big,
+        /// <summary>
+        /// 
+        /// </summary>
         None,
+        /// <summary>
+        /// 
+        /// </summary>
         Small,
+        /// <summary>
+        /// 
+        /// </summary>
         Mixed
     }
 }
