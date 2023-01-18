@@ -1,49 +1,53 @@
 ﻿namespace Skylark.Enum
 {
     /// <summary>
-    /// Data storage type enum
+    /// Time type enum
     /// </summary>
-    public enum StorageType
+    public enum TimeType
     {
         /// <summary>
-        /// Bit
+        /// Nanosecond
         /// </summary>
-        Bit,
+        Nanosecond,
         /// <summary>
-        /// Byte
+        /// Microsecond
         /// </summary>
-        Byte,
+        Microsecond,
         /// <summary>
-        /// Kilobyte
+        /// Millisecond
         /// </summary>
-        Kilobyte,
+        Millisecond,
         /// <summary>
-        /// Megabyte
+        /// Second
         /// </summary>
-        Megabyte,
+        Second,
         /// <summary>
-        /// Gigabyte
+        /// Minute
         /// </summary>
-        Gigabyte,
+        Minute,
         /// <summary>
-        /// Terabyte
+        /// Hour
         /// </summary>
-        Terabyte,
+        Hour,
         /// <summary>
-        /// Petabyte
+        /// Day
         /// </summary>
-        Petabyte,
+        Day,
         /// <summary>
-        /// Exabyte
+        /// Week
         /// </summary>
-        Exabyte,
+        Week,
         /// <summary>
-        /// Zetabyte
+        /// Year
         /// </summary>
-        Zetabyte,
+        Year,
         /// <summary>
-        /// Yottabyte
+        /// Century
         /// </summary>
-        Yottabyte
+        Century,
+        /// <summary>
+        /// Millennium
+        /// </summary>
+        Millennium
     }
 }

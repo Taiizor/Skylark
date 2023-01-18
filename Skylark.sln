@@ -73,6 +73,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDemoTemperature", "d
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDemoTypography", "demo\Skylark.Console.Demo\ConsoleDemoTypography\ConsoleDemoTypography\ConsoleDemoTypography.csproj", "{326F72AD-64E6-4D35-894A-665C0B25DA9B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDemoStorage", "demo\Skylark.Console.Demo\ConsoleDemoStorage\ConsoleDemoStorage\ConsoleDemoStorage.csproj", "{16A594FF-1829-4BF0-8CD2-A4FA9F475D75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -183,6 +185,10 @@ Global
 		{326F72AD-64E6-4D35-894A-665C0B25DA9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{326F72AD-64E6-4D35-894A-665C0B25DA9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{326F72AD-64E6-4D35-894A-665C0B25DA9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16A594FF-1829-4BF0-8CD2-A4FA9F475D75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16A594FF-1829-4BF0-8CD2-A4FA9F475D75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16A594FF-1829-4BF0-8CD2-A4FA9F475D75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16A594FF-1829-4BF0-8CD2-A4FA9F475D75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -217,6 +223,7 @@ Global
 		{6A61B6B7-3B6F-44E4-A6D0-C8A288BC2B86} = {E786A13D-D7DA-4E3A-B303-6033E7723AE1}
 		{8FACB740-AB93-4EE1-AC63-7BC96B0A64AB} = {E786A13D-D7DA-4E3A-B303-6033E7723AE1}
 		{326F72AD-64E6-4D35-894A-665C0B25DA9B} = {E786A13D-D7DA-4E3A-B303-6033E7723AE1}
+		{16A594FF-1829-4BF0-8CD2-A4FA9F475D75} = {E786A13D-D7DA-4E3A-B303-6033E7723AE1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2293DDBB-92BC-444A-A771-C4275A09FB4E}

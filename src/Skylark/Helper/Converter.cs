@@ -1,8 +1,10 @@
 ﻿using EAPT = Skylark.Enum.AlphabeticPasswordType;
 using ECWT = Skylark.Enum.CompressWebType;
 using ESPT = Skylark.Enum.SpecialPasswordType;
+using EST = Skylark.Enum.StorageType;
 using ETT = Skylark.Enum.TaxType;
 using MPM = Skylark.Manage.PasswordManage;
+using MSM = Skylark.Manage.StorageManage;
 using MTM = Skylark.Manage.TaxManage;
 using MWM = Skylark.Manage.WebManage;
 
@@ -13,6 +15,25 @@ namespace Skylark.Helper
     /// </summary>
     internal class Converter
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static EST Convert(string Type, EST Back = MSM.InputType)
+        {
+            foreach (EST Types in (EST[])System.Enum.GetValues(typeof(EST)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
         /// <summary>
         /// 
         /// </summary>
