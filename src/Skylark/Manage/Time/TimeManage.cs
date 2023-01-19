@@ -280,8 +280,8 @@ namespace Skylark.Manage
                     { ETT.Minute, 14400000M },
                     { ETT.Hour, 240M },
                     { ETT.Day, 1M },
-                    { ETT.Week, 0M },
-                    { ETT.Year, 0M },
+                    { ETT.Week, 0.14285714285714M },
+                    { ETT.Year, 0.0027397260273973M },
                     { ETT.Decade, 0M },
                     { ETT.Century, 0M },
                     { ETT.Millennium, 0M }
@@ -302,7 +302,7 @@ namespace Skylark.Manage
                     { ETT.Hour, 168000000M },
                     { ETT.Day, 7M },
                     { ETT.Week, 1M },
-                    { ETT.Year, 0M },
+                    { ETT.Year, 0.019178082191781M },
                     { ETT.Decade, 0M },
                     { ETT.Century, 0M },
                     { ETT.Millennium, 0M }
@@ -324,9 +324,9 @@ namespace Skylark.Manage
                     { ETT.Day, 365000000M },
                     { ETT.Week, 52.177M },
                     { ETT.Year, 1M },
-                    { ETT.Decade, 0M },
-                    { ETT.Century, 0M },
-                    { ETT.Millennium, 0M }
+                    { ETT.Decade, 0.1M },
+                    { ETT.Century, 0.01M },
+                    { ETT.Millennium, 0.001M }
                 }
             },
             {
@@ -346,8 +346,8 @@ namespace Skylark.Manage
                     { ETT.Week, 521428571430M },
                     { ETT.Year, 10M },
                     { ETT.Decade, 1M },
-                    { ETT.Century, 0M },
-                    { ETT.Millennium, 0M }
+                    { ETT.Century, 0.1M },
+                    { ETT.Millennium, 0.01M }
                 }
             },
             {
