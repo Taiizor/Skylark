@@ -20,7 +20,7 @@ namespace Skylark.Extension
         /// <param name="Input"></param>
         /// <param name="Output"></param>
         /// <returns></returns>
-        public static decimal Convert(decimal Value = MSM.Value, string Input = MSM.DefaultInput, string Output = MSM.DefaultOutput)
+        public static double Convert(double Value = MSM.Value, string Input = MSM.DefaultInput, string Output = MSM.DefaultOutput)
         {
             return Convert(Value, HC.Convert(Input, MSM.InputType), HC.Convert(Output, MSM.OutputType));
         }
@@ -33,7 +33,7 @@ namespace Skylark.Extension
         /// <param name="Output"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static decimal Convert(decimal Value = MSM.Value, EST Input = MSM.InputType, EST Output = MSM.OutputType)
+        public static double Convert(double Value = MSM.Value, EST Input = MSM.InputType, EST Output = MSM.OutputType)
         {
             try
             {
@@ -55,7 +55,7 @@ namespace Skylark.Extension
         /// <param name="Value"></param>
         /// <param name="Input"></param>
         /// <returns></returns>
-        public static SSS AutoConvert(decimal Value = MSM.Value, string Input = MSM.DefaultInput)
+        public static SSS AutoConvert(double Value = MSM.Value, string Input = MSM.DefaultInput)
         {
             return AutoConvert(Value, HC.Convert(Input, MSM.InputType));
         }
@@ -67,7 +67,7 @@ namespace Skylark.Extension
         /// <param name="Input"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static SSS AutoConvert(decimal Value = MSM.Value, EST Input = MSM.InputType)
+        public static SSS AutoConvert(double Value = MSM.Value, EST Input = MSM.InputType)
         {
             try
             {
@@ -89,7 +89,7 @@ namespace Skylark.Extension
         /// <param name="Value"></param>
         /// <param name="Input"></param>
         /// <returns></returns>
-        private static SSS AutoDetect(decimal Value, EST Input)
+        private static SSS AutoDetect(double Value, EST Input)
         {
             SSS Result = MSM.Result;
 

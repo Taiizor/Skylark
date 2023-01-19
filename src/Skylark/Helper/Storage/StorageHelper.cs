@@ -14,7 +14,7 @@ namespace Skylark.Helper
         /// <param name="Input"></param>
         /// <param name="Output"></param>
         /// <returns></returns>
-        public static decimal GetValue(EST Input, EST Output)
+        public static double GetValue(EST Input, EST Output)
         {
             return MSM.Converter[Input][Output];
         }
@@ -25,7 +25,7 @@ namespace Skylark.Helper
         /// <param name="Value1"></param>
         /// <param name="Value2"></param>
         /// <returns></returns>
-        public static decimal GetCalc(decimal Value1, decimal Value2)
+        public static double GetCalc(double Value1, double Value2)
         {
             return Value1 * Value2;
         }

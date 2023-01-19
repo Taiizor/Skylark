@@ -12,7 +12,7 @@ namespace Skylark.Struct
         /// <summary>
         /// 
         /// </summary>
-        public decimal Value;
+        public double Value;
         /// <summary>
         /// 
         /// </summary>
