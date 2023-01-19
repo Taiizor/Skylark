@@ -1238,7 +1238,7 @@ namespace Skylark.UI
                 comboBox15.SelectedIndex = comboBox15.Items.IndexOf("Fraction On");
                 comboBox16.SelectedIndex = comboBox16.Items.IndexOf("Decimal On");
                 comboBox22.SelectedIndex = comboBox22.Items.IndexOf("Centisecond");
-                comboBox19.SelectedIndex = comboBox19.Items.IndexOf("Hour");
+                comboBox19.SelectedIndex = comboBox19.Items.IndexOf("Millennium");
                 comboBox21.SelectedIndex = comboBox21.Items.IndexOf("Decimal On");
                 comboBox20.SelectedIndex = comboBox20.Items.IndexOf("Fraction Off");
                 comboBox18.SelectedIndex = comboBox18.Items.IndexOf("ATC Type On");
