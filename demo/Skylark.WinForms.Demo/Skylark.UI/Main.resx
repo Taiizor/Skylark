@@ -123,7 +123,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="textBox3.MaxLength" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>20</value>
   </data>
   <data name="textBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>206, 20</value>
@@ -699,7 +699,7 @@
     <value>438, 36</value>
   </data>
   <data name="textBox1.MaxLength" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>20</value>
   </data>
   <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>206, 20</value>
@@ -2989,7 +2989,7 @@
     <value>438, 244</value>
   </data>
   <data name="textBox17.MaxLength" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>20</value>
   </data>
   <data name="textBox17.Size" type="System.Drawing.Size, System.Drawing">
     <value>206, 20</value>
@@ -3867,7 +3867,7 @@
     <value>224, 38</value>
   </data>
   <data name="textBox23.MaxLength" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>20</value>
   </data>
   <data name="textBox23.Size" type="System.Drawing.Size, System.Drawing">
     <value>206, 20</value>
@@ -4325,7 +4325,7 @@
     <value>14, 422</value>
   </data>
   <data name="textBox26.MaxLength" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>20</value>
   </data>
   <data name="textBox26.Size" type="System.Drawing.Size, System.Drawing">
     <value>178, 20</value>
