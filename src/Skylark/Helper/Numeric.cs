@@ -20,6 +20,31 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static string Numeral(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', bool Clear = true)
         {
+            string Symbol = "EB+-";
+            string Result = $"{Value}";
+
+            if (Result.Intersect(Symbol).Any())
+            {
+                return Result;
+            }
+            else
+            {
+                return Numeral(Result, Decimal, Fraction, Digit, Number, Clear);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Fraction"></param>
+        /// <param name="Digit"></param>
+        /// <param name="Number"></param>
+        /// <param name="Clear"></param>
+        /// <returns></returns>
+        private static string Numeral(string Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', bool Clear = true)
+        {
             Digit = HL.Number(Digit, 0, 99);
 
             string Temp = HL.Parameter($"{Value}", "123456");
