@@ -20,7 +20,7 @@ namespace Skylark.Extension
         /// <param name="Input"></param>
         /// <param name="Output"></param>
         /// <returns></returns>
-        public static decimal Convert(decimal Value = MTM.Value, string Input = MTM.DefaultInput, string Output = MTM.DefaultOutput)
+        public static double Convert(double Value = MTM.Value, string Input = MTM.DefaultInput, string Output = MTM.DefaultOutput)
         {
             return Convert(Value, HC.Convert(Input, MTM.InputType), HC.Convert(Output, MTM.OutputType));
         }
@@ -33,7 +33,7 @@ namespace Skylark.Extension
         /// <param name="Output"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static decimal Convert(decimal Value = MTM.Value, ETT Input = MTM.InputType, ETT Output = MTM.OutputType)
+        public static double Convert(double Value = MTM.Value, ETT Input = MTM.InputType, ETT Output = MTM.OutputType)
         {
             try
             {
@@ -55,7 +55,7 @@ namespace Skylark.Extension
         /// <param name="Value"></param>
         /// <param name="Input"></param>
         /// <returns></returns>
-        public static STS AutoConvert(decimal Value = MTM.Value, string Input = MTM.DefaultInput)
+        public static STS AutoConvert(double Value = MTM.Value, string Input = MTM.DefaultInput)
         {
             return AutoConvert(Value, HC.Convert(Input, MTM.InputType));
         }
@@ -67,7 +67,7 @@ namespace Skylark.Extension
         /// <param name="Input"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static STS AutoConvert(decimal Value = MTM.Value, ETT Input = MTM.InputType)
+        public static STS AutoConvert(double Value = MTM.Value, ETT Input = MTM.InputType)
         {
             try
             {
@@ -89,7 +89,7 @@ namespace Skylark.Extension
         /// <param name="Value"></param>
         /// <param name="Input"></param>
         /// <returns></returns>
-        private static STS AutoDetect(decimal Value, ETT Input)
+        private static STS AutoDetect(double Value, ETT Input)
         {
             STS Result = MTM.Result;
 
