@@ -30,6 +30,13 @@ namespace ConsoleDemoHelper
 
             Console.WriteLine();
 
+            Console.WriteLine(Adaptation.Cut("123456", 3));
+            Console.WriteLine(Adaptation.Add("123456", '*', 12));
+            Console.WriteLine(Adaptation.Adapt("123456", '*', 9, 12));
+            Console.WriteLine(Adaptation.Feed("123456", "000000", 9, 12));
+
+            Console.WriteLine();
+
             Board.Copy("Taiizor Skylark");
             Console.WriteLine(Board.Paste(true, "Empty!"));
 
