@@ -3603,33 +3603,30 @@
     <value>Millisecond</value>
   </data>
   <data name="comboBox19.Items6" xml:space="preserve">
-    <value>Centisecond</value>
-  </data>
-  <data name="comboBox19.Items7" xml:space="preserve">
     <value>Second</value>
   </data>
-  <data name="comboBox19.Items8" xml:space="preserve">
+  <data name="comboBox19.Items7" xml:space="preserve">
     <value>Minute</value>
   </data>
-  <data name="comboBox19.Items9" xml:space="preserve">
+  <data name="comboBox19.Items8" xml:space="preserve">
     <value>Hour</value>
   </data>
-  <data name="comboBox19.Items10" xml:space="preserve">
+  <data name="comboBox19.Items9" xml:space="preserve">
     <value>Day</value>
   </data>
-  <data name="comboBox19.Items11" xml:space="preserve">
+  <data name="comboBox19.Items10" xml:space="preserve">
     <value>Week</value>
   </data>
-  <data name="comboBox19.Items12" xml:space="preserve">
+  <data name="comboBox19.Items11" xml:space="preserve">
     <value>Year</value>
   </data>
-  <data name="comboBox19.Items13" xml:space="preserve">
+  <data name="comboBox19.Items12" xml:space="preserve">
     <value>Decade</value>
   </data>
-  <data name="comboBox19.Items14" xml:space="preserve">
+  <data name="comboBox19.Items13" xml:space="preserve">
     <value>Century</value>
   </data>
-  <data name="comboBox19.Items15" xml:space="preserve">
+  <data name="comboBox19.Items14" xml:space="preserve">
     <value>Millennium</value>
   </data>
   <data name="comboBox19.Location" type="System.Drawing.Point, System.Drawing">
@@ -3726,33 +3723,30 @@
     <value>Millisecond</value>
   </data>
   <data name="comboBox22.Items6" xml:space="preserve">
-    <value>Centisecond</value>
-  </data>
-  <data name="comboBox22.Items7" xml:space="preserve">
     <value>Second</value>
   </data>
-  <data name="comboBox22.Items8" xml:space="preserve">
+  <data name="comboBox22.Items7" xml:space="preserve">
     <value>Minute</value>
   </data>
-  <data name="comboBox22.Items9" xml:space="preserve">
+  <data name="comboBox22.Items8" xml:space="preserve">
     <value>Hour</value>
   </data>
-  <data name="comboBox22.Items10" xml:space="preserve">
+  <data name="comboBox22.Items9" xml:space="preserve">
     <value>Day</value>
   </data>
-  <data name="comboBox22.Items11" xml:space="preserve">
+  <data name="comboBox22.Items10" xml:space="preserve">
     <value>Week</value>
   </data>
-  <data name="comboBox22.Items12" xml:space="preserve">
+  <data name="comboBox22.Items11" xml:space="preserve">
     <value>Year</value>
   </data>
-  <data name="comboBox22.Items13" xml:space="preserve">
+  <data name="comboBox22.Items12" xml:space="preserve">
     <value>Decade</value>
   </data>
-  <data name="comboBox22.Items14" xml:space="preserve">
+  <data name="comboBox22.Items13" xml:space="preserve">
     <value>Century</value>
   </data>
-  <data name="comboBox22.Items15" xml:space="preserve">
+  <data name="comboBox22.Items14" xml:space="preserve">
     <value>Millennium</value>
   </data>
   <data name="comboBox22.Location" type="System.Drawing.Point, System.Drawing">

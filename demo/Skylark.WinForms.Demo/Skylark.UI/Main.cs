@@ -324,41 +324,37 @@ namespace Skylark.UI
                 }
                 else if (comboBox22.SelectedIndex == 6)
                 {
-                    Selection18 = TimeType.Centisecond;
+                    Selection18 = TimeType.Second;
                 }
                 else if (comboBox22.SelectedIndex == 7)
                 {
-                    Selection18 = TimeType.Second;
+                    Selection18 = TimeType.Minute;
                 }
                 else if (comboBox22.SelectedIndex == 8)
                 {
-                    Selection18 = TimeType.Minute;
+                    Selection18 = TimeType.Hour;
                 }
                 else if (comboBox22.SelectedIndex == 9)
                 {
-                    Selection18 = TimeType.Hour;
+                    Selection18 = TimeType.Day;
                 }
                 else if (comboBox22.SelectedIndex == 10)
                 {
-                    Selection18 = TimeType.Day;
+                    Selection18 = TimeType.Week;
                 }
                 else if (comboBox22.SelectedIndex == 11)
                 {
-                    Selection18 = TimeType.Week;
+                    Selection18 = TimeType.Year;
                 }
                 else if (comboBox22.SelectedIndex == 12)
                 {
-                    Selection18 = TimeType.Year;
+                    Selection18 = TimeType.Decade;
                 }
                 else if (comboBox22.SelectedIndex == 13)
                 {
-                    Selection18 = TimeType.Decade;
-                }
-                else if (comboBox22.SelectedIndex == 14)
-                {
                     Selection18 = TimeType.Century;
                 }
-                else if (comboBox22.SelectedIndex == 15)
+                else if (comboBox22.SelectedIndex == 14)
                 {
                     Selection18 = TimeType.Millennium;
                 }
@@ -389,41 +385,37 @@ namespace Skylark.UI
                 }
                 else if (comboBox19.SelectedIndex == 6)
                 {
-                    Selection19 = TimeType.Centisecond;
+                    Selection19 = TimeType.Second;
                 }
                 else if (comboBox19.SelectedIndex == 7)
                 {
-                    Selection19 = TimeType.Second;
+                    Selection19 = TimeType.Minute;
                 }
                 else if (comboBox19.SelectedIndex == 8)
                 {
-                    Selection19 = TimeType.Minute;
+                    Selection19 = TimeType.Hour;
                 }
                 else if (comboBox19.SelectedIndex == 9)
                 {
-                    Selection19 = TimeType.Hour;
+                    Selection19 = TimeType.Day;
                 }
                 else if (comboBox19.SelectedIndex == 10)
                 {
-                    Selection19 = TimeType.Day;
+                    Selection19 = TimeType.Week;
                 }
                 else if (comboBox19.SelectedIndex == 11)
                 {
-                    Selection19 = TimeType.Week;
+                    Selection19 = TimeType.Year;
                 }
                 else if (comboBox19.SelectedIndex == 12)
                 {
-                    Selection19 = TimeType.Year;
+                    Selection19 = TimeType.Decade;
                 }
                 else if (comboBox19.SelectedIndex == 13)
                 {
-                    Selection19 = TimeType.Decade;
-                }
-                else if (comboBox19.SelectedIndex == 14)
-                {
                     Selection19 = TimeType.Century;
                 }
-                else if (comboBox19.SelectedIndex == 15)
+                else if (comboBox19.SelectedIndex == 14)
                 {
                     Selection19 = TimeType.Millennium;
                 }

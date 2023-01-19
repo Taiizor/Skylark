@@ -39,7 +39,7 @@ namespace Skylark.Extension
             {
                 return Input switch
                 {
-                    ETT.Attosecond or ETT.Femtosecond or ETT.Picosecond or ETT.Nanosecond or ETT.Microsecond or ETT.Millisecond or ETT.Centisecond or ETT.Second or ETT.Minute or ETT.Hour or ETT.Day or ETT.Week or ETT.Year or ETT.Decade or ETT.Century or ETT.Millennium => HTH.GetCalc(Value, HTH.GetValue(Input, Output)),
+                    ETT.Attosecond or ETT.Femtosecond or ETT.Picosecond or ETT.Nanosecond or ETT.Microsecond or ETT.Millisecond or ETT.Second or ETT.Minute or ETT.Hour or ETT.Day or ETT.Week or ETT.Year or ETT.Decade or ETT.Century or ETT.Millennium => HTH.GetCalc(Value, HTH.GetValue(Input, Output)),
                     _ => throw new E(MTM.Error),
                 };
             }
@@ -73,7 +73,7 @@ namespace Skylark.Extension
             {
                 return Input switch
                 {
-                    ETT.Attosecond or ETT.Femtosecond or ETT.Picosecond or ETT.Nanosecond or ETT.Microsecond or ETT.Millisecond or ETT.Centisecond or ETT.Second or ETT.Minute or ETT.Hour or ETT.Day or ETT.Week or ETT.Year or ETT.Decade or ETT.Century or ETT.Millennium => AutoDetect(Value, Input),
+                    ETT.Attosecond or ETT.Femtosecond or ETT.Picosecond or ETT.Nanosecond or ETT.Microsecond or ETT.Millisecond or ETT.Second or ETT.Minute or ETT.Hour or ETT.Day or ETT.Week or ETT.Year or ETT.Decade or ETT.Century or ETT.Millennium => AutoDetect(Value, Input),
                     _ => throw new E(MTM.Error),
                 };
             }

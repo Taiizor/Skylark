@@ -29,10 +29,10 @@
         /// Millisecond
         /// </summary>
         Millisecond,
-        /// <summary>
-        /// Centisecond
-        /// </summary>
-        Centisecond,
+        ///// <summary>
+        ///// Centisecond
+        ///// </summary>
+        //Centisecond,
         //// <summary>
         //// Decisecond
         //// </summary>
