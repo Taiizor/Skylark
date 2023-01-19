@@ -185,12 +185,12 @@ namespace Skylark.Manage
             {
                 ETT.Centisecond, new()
                 {
-                    { ETT.Attosecond, 100000000000000000M },
-                    { ETT.Femtosecond, 100000000000000M },
-                    { ETT.Picosecond, 100000000000M },
-                    { ETT.Nanosecond, 100000000M },
-                    { ETT.Microsecond, 100000M },
-                    { ETT.Millisecond, 100M },
+                    { ETT.Attosecond, 10000000000000000M },
+                    { ETT.Femtosecond, 10000000000000M },
+                    { ETT.Picosecond, 10000000000M },
+                    { ETT.Nanosecond, 10000000M },
+                    { ETT.Microsecond, 10000M },
+                    { ETT.Millisecond, 10M },
                     { ETT.Centisecond, 1M },
                     { ETT.Second, 0.10M },
                     { ETT.Minute, 0.0016666666666667M },
@@ -206,13 +206,13 @@ namespace Skylark.Manage
             {
                 ETT.Second, new()
                 {
-                    { ETT.Attosecond, 100000000000000000000M },
-                    { ETT.Femtosecond, 100000000000000000M },
-                    { ETT.Picosecond, 100000000000000M },
-                    { ETT.Nanosecond, 100000000000M },
-                    { ETT.Microsecond, 100000000M },
-                    { ETT.Millisecond, 100000M },
-                    { ETT.Centisecond, 10000M },
+                    { ETT.Attosecond, 1000000000000000000M },
+                    { ETT.Femtosecond, 1000000000000000M },
+                    { ETT.Picosecond, 1000000000000M },
+                    { ETT.Nanosecond, 1000000000M },
+                    { ETT.Microsecond, 1000000M },
+                    { ETT.Millisecond, 1000M },
+                    { ETT.Centisecond, 100M },
                     { ETT.Second, 1M },
                     { ETT.Minute, 0.016666666666667M },
                     { ETT.Hour, 0.00027777777777778M },
@@ -225,16 +225,16 @@ namespace Skylark.Manage
                 }
             },
             {
-                ETT.Minute, new()
+                ETT.Minute, new() //Here
                 {
-                    { ETT.Attosecond, 60000000000000000000000M },
-                    { ETT.Femtosecond, 600000000000000000000M },
-                    { ETT.Picosecond, 600000000000000000M },
-                    { ETT.Nanosecond, 600000000000000M },
-                    { ETT.Microsecond, 600000000000M },
-                    { ETT.Millisecond, 600000000M },
-                    { ETT.Centisecond, 60000000M },
-                    { ETT.Second, 6000000M },
+                    { ETT.Attosecond, 6000000000000000000000M },
+                    { ETT.Femtosecond, 6000000000000000000M },
+                    { ETT.Picosecond, 6000000000000000M },
+                    { ETT.Nanosecond, 6000000000000M },
+                    { ETT.Microsecond, 6000000000M },
+                    { ETT.Millisecond, 6000000M },
+                    { ETT.Centisecond, 6000M },
+                    { ETT.Second, 60M },
                     { ETT.Minute, 1M },
                     { ETT.Hour, 0.016666666666667M },
                     { ETT.Day, 0.00069444444444444M },
@@ -322,7 +322,7 @@ namespace Skylark.Manage
                     { ETT.Minute, 5256000000000M },
                     { ETT.Hour, 87600000000M },
                     { ETT.Day, 365000000M },
-                    { ETT.Week, 52142857143M },
+                    { ETT.Week, 52.177M },
                     { ETT.Year, 1M },
                     { ETT.Decade, 0.1M },
                     { ETT.Century, 0.01M },
@@ -374,18 +374,18 @@ namespace Skylark.Manage
             {
                 ETT.Millennium, new()
                 {
-                    { ETT.Attosecond, -1M }, //31536000000000000000000000000000000M - 3.155759999E+28M
-                    { ETT.Femtosecond, -1M }, //315360000000000000000000000000000M - 3.155759999E+25M
-                    { ETT.Picosecond, -1M }, //315360000000000000000000000000M - 3.155759999E+22M
-                    { ETT.Nanosecond, 315360000000000000000000000M },
-                    { ETT.Microsecond, 315360000000000000000000M },
-                    { ETT.Millisecond, 315360000000000000000M },
-                    { ETT.Centisecond, 31536000000000000000M },
-                    { ETT.Second, 315360000000000000M },
-                    { ETT.Minute, 5256000000000000M },
-                    { ETT.Hour, 87600000000000M },
-                    { ETT.Day, 365000000000M },
-                    { ETT.Week, 52142857143000M },
+                    { ETT.Attosecond, 31557600000000000000000000000M },
+                    { ETT.Femtosecond, 31557600000000000000000000M },
+                    { ETT.Picosecond, 31557600000000000000000M },
+                    { ETT.Nanosecond, 31557600000000000000M },
+                    { ETT.Microsecond, 31557600000000000M },
+                    { ETT.Millisecond, 31557600000000M },
+                    { ETT.Centisecond, 315576000000M },
+                    { ETT.Second, 31557600000M },
+                    { ETT.Minute, 525960000M },
+                    { ETT.Hour, 8766000M },
+                    { ETT.Day, 365250M },
+                    { ETT.Week, 52142.857143M },
                     { ETT.Year, 1000M },
                     { ETT.Decade, 100M },
                     { ETT.Century, 10M },
