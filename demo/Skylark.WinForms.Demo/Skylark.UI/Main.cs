@@ -556,7 +556,7 @@ namespace Skylark.UI
                     textBox7.Text = "1";
                 }
 
-                textBox4.Text = Numeric.Numeral(StorageExtension.Convert(Convert.ToDecimal(textBox3.Text), Selection1, Selection2), Selection3, Selection4, Convert.ToInt32(textBox7.Text), '0', true);
+                textBox4.Text = Numeric.Numeral(StorageExtension.Convert(Convert.ToDouble(textBox3.Text), Selection1, Selection2), Selection3, Selection4, Convert.ToInt32(textBox7.Text), '0', true);
                 button4.Cursor = Cursors.Hand;
             }
             catch (Exception Ex)
@@ -575,7 +575,7 @@ namespace Skylark.UI
                     textBox7.Text = "1";
                 }
 
-                StorageStruct Result = StorageExtension.AutoConvert(Convert.ToDecimal(textBox3.Text), Selection1);
+                StorageStruct Result = StorageExtension.AutoConvert(Convert.ToDouble(textBox3.Text), Selection1);
 
                 if (Selection5)
                 {
@@ -1229,8 +1229,8 @@ namespace Skylark.UI
                 comboBox17.SelectedIndex = comboBox17.Items.IndexOf("INCH");
                 comboBox15.SelectedIndex = comboBox15.Items.IndexOf("Fraction On");
                 comboBox16.SelectedIndex = comboBox16.Items.IndexOf("Decimal On");
-                comboBox22.SelectedIndex = comboBox22.Items.IndexOf("Femtosecond");
-                comboBox19.SelectedIndex = comboBox19.Items.IndexOf("Attosecond");
+                comboBox22.SelectedIndex = comboBox22.Items.IndexOf("Day");
+                comboBox19.SelectedIndex = comboBox19.Items.IndexOf("Second");
                 comboBox21.SelectedIndex = comboBox21.Items.IndexOf("Decimal On");
                 comboBox20.SelectedIndex = comboBox20.Items.IndexOf("Fraction Off");
                 comboBox18.SelectedIndex = comboBox18.Items.IndexOf("ATC Type On");
