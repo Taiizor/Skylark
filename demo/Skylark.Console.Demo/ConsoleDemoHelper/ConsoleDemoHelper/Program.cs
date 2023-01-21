@@ -28,6 +28,12 @@ namespace ConsoleDemoHelper
             Console.WriteLine(Numeric.Numeral("12.345,6789", true, true, 6, '0'));
             Console.WriteLine(Numeric.Numeral("XY.XYZ,XYZQ", true, true, 6, '#'));
 
+            Console.WriteLine(Numeric.ToDouble(0.0000114077M));
+            Console.WriteLine(Numeric.ToDouble("0.0000114077"));
+
+            Console.WriteLine(Numeric.ToDecimal(1.14077E-5));
+            Console.WriteLine(Numeric.ToDecimal("1.14077E-5"));
+
             Console.WriteLine();
 
             Console.WriteLine(Adaptation.Cut("123456", 3));

@@ -12,6 +12,46 @@ namespace Skylark.Helper
         /// 
         /// </summary>
         /// <param name="Value"></param>
+        /// <returns></returns>
+        public static double ToDouble(string Value)
+        {
+            return Convert.ToDouble(Value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <returns></returns>
+        public static double ToDouble(decimal Value)
+        {
+            return Convert.ToDouble(Value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <returns></returns>
+        public static decimal ToDecimal(string Value)
+        {
+            return ToDecimal(double.Parse(Value));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <returns></returns>
+        public static decimal ToDecimal(double Value)
+        {
+            return Convert.ToDecimal(Value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
         /// <param name="Decimal"></param>
         /// <param name="Fraction"></param>
         /// <param name="Digit"></param>
