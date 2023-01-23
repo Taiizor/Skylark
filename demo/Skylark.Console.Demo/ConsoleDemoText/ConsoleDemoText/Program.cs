@@ -1,4 +1,5 @@
-﻿using Skylark.Extension;
+﻿using Skylark.Enum;
+using Skylark.Extension;
 
 namespace ConsoleDemoText
 {
@@ -18,6 +19,11 @@ namespace ConsoleDemoText
 
             string Paragraph = TextExtension.Paragraph(3, 111);
             Console.WriteLine(Paragraph);
+
+            Console.WriteLine();
+
+            string Cut = TextExtension.Cut(Text, 50, "...", TextType.Mid);
+            Console.WriteLine(Cut);
 
             Console.ReadKey();
         }

@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using E = Skylark.Exception;
+using ETT = Skylark.Enum.TextType;
 using HL = Skylark.Helper.Length;
 using MTM = Skylark.Manage.TextManage;
 
@@ -10,6 +11,47 @@ namespace Skylark.Extension
     /// </summary>
     public class TextExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Length"></param>
+        /// <param name="Symbol"></param>
+        /// <param name="Method"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static string Cut(string Text = MTM.Text, int Length = MTM.Length, string Symbol = MTM.CutSymbol, ETT Method = MTM.CutMethod)
+        {
+            try
+            {
+                Text = HL.Text(Text, MTM.Text);
+                Symbol = HL.Parameter(Symbol, MTM.CutSymbol);
+                Length = HL.Number(Length, MTM.MinLength, MTM.MaxLength);
+
+                if (Text.Length <= Length)
+                {
+                    return Text;
+                }
+                else
+                {
+                    int Difference = Text.Length - Length;
+                    int LeftPart = (Text.Length - Difference) / 2;
+
+                    return Method switch
+                    {
+                        ETT.End => Text.Substring(0, Length) + Symbol,
+                        ETT.Mid => new string(Text.Where((Char, Number) => Number < LeftPart || Number >= LeftPart + Difference).ToArray()).Insert(LeftPart, Symbol),
+                        ETT.Start => Symbol + Text.Substring(Difference),
+                        _ => throw new E(MTM.Error),
+                    };
+                }
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>

@@ -1,4 +1,6 @@
-﻿namespace Skylark.Manage
+﻿using ETT = Skylark.Enum.TextType;
+
+namespace Skylark.Manage
 {
     /// <summary>
     /// 
@@ -39,6 +41,19 @@
         /// <summary>
         /// 
         /// </summary>
+        public const int Length = 10;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int MinLength = 1;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int MaxLength = 500000;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const int Paragraph = 3;
         /// <summary>
         /// 
@@ -48,6 +63,15 @@
         /// 
         /// </summary>
         public const int MaxParagraph = 50;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const ETT CutMethod = ETT.End;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string CutSymbol = "...";
 
         /// <summary>
         /// 
@@ -63,6 +87,11 @@
         /// 
         /// </summary>
         public const string Text = "Taiizor Skylark";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string Error = "Method variable not selected.";
 
         /// <summary>
         /// 
