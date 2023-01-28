@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using ANE = System.ArgumentNullException;
 using AOORE = System.ArgumentOutOfRangeException;
 using E = System.Exception;
 
@@ -10,7 +11,7 @@ using E = System.Exception;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 03.Jan.2023
-//     Changed: 24.Jan.2023
+//     Changed: 29.Jan.2023
 //     Version: 2.0.2.4
 //
 // |---------DO-NOT-REMOVE---------|
@@ -100,6 +101,49 @@ namespace Skylark
         /// <param name="actualValue"></param>
         /// <param name="message"></param>
         public ArgumentException(string paramName, object actualValue, string message) : base(paramName, actualValue, message)
+        {
+        }
+    }
+
+    #endregion
+
+    #region ArgumentNullException
+
+    /// <summary>
+    /// Skylark arguemnt exception class. 
+    /// </summary>
+    public class ArgumentNullException : ANE
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public ArgumentNullException() : base()
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="paramName"></param>
+        public ArgumentNullException(string paramName) : base(paramName)
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="innerException"></param>
+        ArgumentNullException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="paramName"></param>
+        /// <param name="message"></param>
+        public ArgumentNullException(string paramName, string message) : base(paramName, message)
         {
         }
     }
