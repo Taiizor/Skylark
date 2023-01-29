@@ -92,38 +92,38 @@ namespace Skylark.Extension
         /// <returns></returns>
         private static STS AutoDetect(double Value, ETT Input)
         {
-            try
+            STS Result = MTM.Result;
+
+            ETT Active = Input;
+
+            for (int i = (int)ETT.Attosecond; i <= (int)ETT.Millennium; i++)
             {
-                STS Result = MTM.Result;
-
-                ETT Active = Input;
-
-                for (int i = (int)ETT.Attosecond; i <= (int)ETT.Millennium; i++)
+                if (HN.Numeral(Convert(Value, Input, (ETT)i), false, false, Clear: ECNT.Decimal) == "0")
                 {
-                    if (HN.Numeral(Convert(Value, Input, (ETT)i), false, false, Clear: ECNT.Decimal) == "0")
+                    if ((ETT)i - 1 <= 0)
                     {
-                        Active = (ETT)i - 1;
-                        break;
+                        Active = (ETT)i;
                     }
                     else
                     {
-                        if ((ETT)i == ETT.Millennium)
-                        {
-                            Active = (ETT)i;
-                        }
+                        Active = (ETT)i - 1;
+                    }
+                    break;
+                }
+                else
+                {
+                    if ((ETT)i == ETT.Millennium)
+                    {
+                        Active = (ETT)i;
                     }
                 }
-
-                Result.Type = Active;
-                Result.Text = $"{Active}";
-                Result.Value = Convert(Value, Input, Active);
-
-                return Result;
             }
-            catch (E Ex)
-            {
-                throw new E(Ex.Message, Ex);
-            }
+
+            Result.Type = Active;
+            Result.Text = $"{Active}";
+            Result.Value = Convert(Value, Input, Active);
+
+            return Result;
         }
     }
 }
