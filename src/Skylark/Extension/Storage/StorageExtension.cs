@@ -1,5 +1,4 @@
-﻿using NUglify.JavaScript.Syntax;
-using E = Skylark.Exception;
+﻿using E = Skylark.Exception;
 using ECNT = Skylark.Enum.ClearNumericType;
 using EST = Skylark.Enum.StorageType;
 using EMST = Skylark.Enum.ModeStorageType;
