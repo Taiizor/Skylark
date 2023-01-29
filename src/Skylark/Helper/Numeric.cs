@@ -1,10 +1,8 @@
-﻿using HD = Skylark.Helper.Detect;
-using HL = Skylark.Helper.Length;
-using HC = Skylark.Helper.Converter;
-using E = Skylark.Exception;
+﻿using E = Skylark.Exception;
 using ECNT = Skylark.Enum.ClearNumericType;
-using static System.Net.Mime.MediaTypeNames;
-using System.Text;
+using HC = Skylark.Helper.Converter;
+using HD = Skylark.Helper.Detect;
+using HL = Skylark.Helper.Length;
 
 namespace Skylark.Helper
 {

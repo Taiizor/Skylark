@@ -1,16 +1,16 @@
 ﻿using EAPT = Skylark.Enum.AlphabeticPasswordType;
+using ECNT = Skylark.Enum.ClearNumericType;
 using ECWT = Skylark.Enum.CompressWebType;
 using ESPT = Skylark.Enum.SpecialPasswordType;
 using EST = Skylark.Enum.StorageType;
 using ETET = Skylark.Enum.TimeType;
 using ETXT = Skylark.Enum.TaxType;
-using ECNT = Skylark.Enum.ClearNumericType;
+using HN = Skylark.Helper.Numeric;
 using MPM = Skylark.Manage.PasswordManage;
 using MSM = Skylark.Manage.StorageManage;
 using MTEM = Skylark.Manage.TimeManage;
 using MTXM = Skylark.Manage.TaxManage;
 using MWM = Skylark.Manage.WebManage;
-using HN = Skylark.Helper.Numeric;
 
 namespace Skylark.Helper
 {
