@@ -92,31 +92,38 @@ namespace Skylark.Extension
         /// <returns></returns>
         private static SSS AutoDetect(double Value, EST Input)
         {
-            SSS Result = MSM.Result;
-
-            EST Active = Input;
-
-            for (int i = (int)Input; i <= (int)EST.Yottabyte; i++)
+            try
             {
-                if (HN.Numeral(Convert(Value, Input, (EST)i), false, false, Clear: ECNT.Decimal) == "0")
+                SSS Result = MSM.Result;
+
+                EST Active = Input;
+
+                for (int i = (int)EST.Bit; i <= (int)EST.Yottabyte; i++)
                 {
-                    Active = (EST)i - 1;
-                    break;
-                }
-                else
-                {
-                    if ((EST)i == EST.Yottabyte)
+                    if (HN.Numeral(Convert(Value, Input, (EST)i), false, false, Clear: ECNT.Decimal) == "0")
                     {
-                        Active = (EST)i;
+                        Active = (EST)i - 1;
+                        break;
+                    }
+                    else
+                    {
+                        if ((EST)i == EST.Yottabyte)
+                        {
+                            Active = (EST)i;
+                        }
                     }
                 }
+
+                Result.Type = Active;
+                Result.Text = $"{Active}";
+                Result.Value = Convert(Value, Input, Active);
+
+                return Result;
             }
-
-            Result.Type = Active;
-            Result.Text = $"{Active}";
-            Result.Value = Convert(Value, Input, Active);
-
-            return Result;
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
         }
     }
 }
