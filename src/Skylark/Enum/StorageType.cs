@@ -46,4 +46,19 @@
         /// </summary>
         Yottabyte
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public enum ModeStorageType
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        Toucan,
+        /// <summary>
+        /// 
+        /// </summary>
+        Palila
+    }
 }

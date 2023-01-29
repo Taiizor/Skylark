@@ -3,6 +3,7 @@ using ECNT = Skylark.Enum.ClearNumericType;
 using ECWT = Skylark.Enum.CompressWebType;
 using ESPT = Skylark.Enum.SpecialPasswordType;
 using EST = Skylark.Enum.StorageType;
+using EMST = Skylark.Enum.ModeStorageType;
 using ETET = Skylark.Enum.TimeType;
 using ETXT = Skylark.Enum.TaxType;
 using HN = Skylark.Helper.Numeric;
@@ -47,6 +48,25 @@ namespace Skylark.Helper
         public static ECNT Convert(string Type, ECNT Back = HN.ClearType)
         {
             foreach (ECNT Types in (ECNT[])System.Enum.GetValues(typeof(ECNT)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static EMST Convert(string Type, EMST Back = MSM.ModeType)
+        {
+            foreach (EMST Types in (EMST[])System.Enum.GetValues(typeof(EMST)))
             {
                 if (Check(Type, Types))
                 {
