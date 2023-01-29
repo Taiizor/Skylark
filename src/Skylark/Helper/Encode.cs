@@ -32,7 +32,7 @@ namespace Skylark.Helper
                 EET.Unicode => Encoding.Unicode.GetBytes(Text),
                 EET.Default => Encoding.Default.GetBytes(Text),
                 EET.BigEndianUnicode => Encoding.BigEndianUnicode.GetBytes(Text),
-                _ => throw new E(Error),
+                _ => throw new E(Error)
             };
         }
 
@@ -54,7 +54,7 @@ namespace Skylark.Helper
                 EET.Unicode => Encoding.Unicode.GetString(Bytes),
                 EET.Default => Encoding.Default.GetString(Bytes),
                 EET.BigEndianUnicode => Encoding.BigEndianUnicode.GetString(Bytes),
-                _ => throw new E(Error),
+                _ => throw new E(Error)
             };
         }
     }

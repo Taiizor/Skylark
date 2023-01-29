@@ -1,4 +1,5 @@
 ﻿using E = Skylark.Exception;
+using ECNT = Skylark.Enum.ClearNumericType;
 using EST = Skylark.Enum.StorageType;
 using HC = Skylark.Helper.Converter;
 using HN = Skylark.Helper.Numeric;
@@ -97,7 +98,7 @@ namespace Skylark.Extension
 
             for (int i = (int)Input; i <= (int)EST.Yottabyte; i++)
             {
-                if (HN.Numeral(Convert(Value, Input, (EST)i), false, false) == "0")
+                if (HN.Numeral(Convert(Value, Input, (EST)i), false, false, Clear: ECNT.Decimal) == "0")
                 {
                     Active = (EST)i - 1;
                     break;

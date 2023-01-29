@@ -1,4 +1,5 @@
-﻿using Skylark.Helper;
+﻿using Skylark.Enum;
+using Skylark.Helper;
 using System.Globalization;
 
 namespace ConsoleDemoHelper
@@ -19,14 +20,14 @@ namespace ConsoleDemoHelper
 
             Console.WriteLine();
 
-            Console.WriteLine(Numeric.Numeral(123456789, true, true, 6, '0'));
-            Console.WriteLine(Numeric.Numeral("123456789", true, true, 6, '0'));
-            Console.WriteLine(Numeric.Numeral(12345.6789M, true, true, 6, '0'));
-            Console.WriteLine(Numeric.Numeral(12345.6789d, true, true, 6, '0'));
-            Console.WriteLine(Numeric.Numeral(12345.6789f, true, true, 6, '0'));
-            Console.WriteLine(Numeric.Numeral("12,345.6789", true, true, 6, '0'));
-            Console.WriteLine(Numeric.Numeral("12.345,6789", true, true, 6, '0'));
-            Console.WriteLine(Numeric.Numeral("XY.XYZ,XYZQ", true, true, 6, '#'));
+            Console.WriteLine(Numeric.Numeral(123456789, true, true, 6, '0', "None"));
+            Console.WriteLine(Numeric.Numeral("123456789", true, true, 6, '0', ClearNumericType.None));
+            Console.WriteLine(Numeric.Numeral(12345.6789M, true, true, 6, '0', "None"));
+            Console.WriteLine(Numeric.Numeral(12345.6789d, true, true, 6, '0', ClearNumericType.None));
+            Console.WriteLine(Numeric.Numeral(12345.6789f, true, true, 6, '0', "None"));
+            Console.WriteLine(Numeric.Numeral("12,345.6789", true, true, 6, '0', "Decimal"));
+            Console.WriteLine(Numeric.Numeral("12.345,6789", true, true, 6, '0', ClearNumericType.DecimalFraction));
+            Console.WriteLine(Numeric.Numeral("XY.XYZ,XYZQ", true, true, 6, '#', ClearNumericType.DotComma));
 
             Console.WriteLine(Numeric.ToDouble(0.0000114077M));
             Console.WriteLine(Numeric.ToDouble("0.0000114077"));

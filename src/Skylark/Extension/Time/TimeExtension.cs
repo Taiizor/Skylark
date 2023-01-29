@@ -1,4 +1,5 @@
 ﻿using E = Skylark.Exception;
+using ECNT = Skylark.Enum.ClearNumericType;
 using ETT = Skylark.Enum.TimeType;
 using HC = Skylark.Helper.Converter;
 using HN = Skylark.Helper.Numeric;
@@ -97,7 +98,7 @@ namespace Skylark.Extension
 
             for (int i = (int)Input; i <= (int)ETT.Millennium; i++)
             {
-                if (HN.Numeral(Convert(Value, Input, (ETT)i), false, false) == "0")
+                if (HN.Numeral(Convert(Value, Input, (ETT)i), false, false, Clear: ECNT.Decimal) == "0")
                 {
                     Active = (ETT)i - 1;
                     break;
