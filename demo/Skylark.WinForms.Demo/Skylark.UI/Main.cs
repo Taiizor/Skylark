@@ -556,7 +556,7 @@ namespace Skylark.UI
                     textBox7.Text = "1";
                 }
 
-                textBox4.Text = Numeric.Numeral(StorageExtension.Convert(Convert.ToDouble(textBox3.Text), Selection1, Selection2), Selection3, Selection4, Convert.ToInt32(textBox7.Text), '0', true);
+                textBox4.Text = Numeric.Numeral(StorageExtension.Convert(Convert.ToDouble(textBox3.Text), Selection1, Selection2), Selection3, Selection4, Convert.ToInt32(textBox7.Text), '0', ClearNumericType.Decimal);
                 button4.Cursor = Cursors.Hand;
             }
             catch (Exception Ex)
@@ -579,11 +579,11 @@ namespace Skylark.UI
 
                 if (Selection5)
                 {
-                    textBox4.Text = Numeric.Numeral(Result.Value, Selection3, Selection4, Convert.ToInt32(textBox7.Text), '0', true) + " " + Result.Text;
+                    textBox4.Text = Numeric.Numeral(Result.Value, Selection3, Selection4, Convert.ToInt32(textBox7.Text), '0', ClearNumericType.Decimal) + " " + Result.Text;
                 }
                 else
                 {
-                    textBox4.Text = Numeric.Numeral(Result.Value, Selection3, Selection4, Convert.ToInt32(textBox7.Text), '0', true);
+                    textBox4.Text = Numeric.Numeral(Result.Value, Selection3, Selection4, Convert.ToInt32(textBox7.Text), '0', ClearNumericType.Decimal);
                 }
 
                 button4.Cursor = Cursors.Hand;
@@ -639,27 +639,27 @@ namespace Skylark.UI
 
                 if (Selection6 == "K=>C")
                 {
-                    textBox2.Text = Numeric.Numeral(TemperatureExtension.KelvinToCelsius(Convert.ToDecimal(textBox1.Text)), Selection9, Selection8, Convert.ToInt32(textBox5.Text), '0', true);
+                    textBox2.Text = Numeric.Numeral(TemperatureExtension.KelvinToCelsius(Convert.ToDecimal(textBox1.Text)), Selection9, Selection8, Convert.ToInt32(textBox5.Text), '0', ClearNumericType.Decimal);
                 }
                 else if (Selection6 == "K=>F")
                 {
-                    textBox2.Text = Numeric.Numeral(TemperatureExtension.KelvinToFahrenheit(Convert.ToDecimal(textBox1.Text)), Selection9, Selection8, Convert.ToInt32(textBox5.Text), '0', true);
+                    textBox2.Text = Numeric.Numeral(TemperatureExtension.KelvinToFahrenheit(Convert.ToDecimal(textBox1.Text)), Selection9, Selection8, Convert.ToInt32(textBox5.Text), '0', ClearNumericType.Decimal);
                 }
                 else if (Selection6 == "C=>K")
                 {
-                    textBox2.Text = Numeric.Numeral(TemperatureExtension.CelsiusToKelvin(Convert.ToDecimal(textBox1.Text)), Selection9, Selection8, Convert.ToInt32(textBox5.Text), '0', true);
+                    textBox2.Text = Numeric.Numeral(TemperatureExtension.CelsiusToKelvin(Convert.ToDecimal(textBox1.Text)), Selection9, Selection8, Convert.ToInt32(textBox5.Text), '0', ClearNumericType.Decimal);
                 }
                 else if (Selection6 == "C=>F")
                 {
-                    textBox2.Text = Numeric.Numeral(TemperatureExtension.CelsiusToFahrenheit(Convert.ToDecimal(textBox1.Text)), Selection9, Selection8, Convert.ToInt32(textBox5.Text), '0', true);
+                    textBox2.Text = Numeric.Numeral(TemperatureExtension.CelsiusToFahrenheit(Convert.ToDecimal(textBox1.Text)), Selection9, Selection8, Convert.ToInt32(textBox5.Text), '0', ClearNumericType.Decimal);
                 }
                 else if (Selection6 == "F=>K")
                 {
-                    textBox2.Text = Numeric.Numeral(TemperatureExtension.FahrenheitToKelvin(Convert.ToDecimal(textBox1.Text)), Selection9, Selection8, Convert.ToInt32(textBox5.Text), '0', true);
+                    textBox2.Text = Numeric.Numeral(TemperatureExtension.FahrenheitToKelvin(Convert.ToDecimal(textBox1.Text)), Selection9, Selection8, Convert.ToInt32(textBox5.Text), '0', ClearNumericType.Decimal);
                 }
                 else
                 {
-                    textBox2.Text = Numeric.Numeral(TemperatureExtension.FahrenheitToCelsius(Convert.ToDecimal(textBox1.Text)), Selection9, Selection8, Convert.ToInt32(textBox5.Text), '0', true);
+                    textBox2.Text = Numeric.Numeral(TemperatureExtension.FahrenheitToCelsius(Convert.ToDecimal(textBox1.Text)), Selection9, Selection8, Convert.ToInt32(textBox5.Text), '0', ClearNumericType.Decimal);
                 }
 
                 button6.Cursor = Cursors.Hand;
@@ -770,11 +770,11 @@ namespace Skylark.UI
 
                 if (Selection22)
                 {
-                    textBox22.Text = Numeric.Numeral(Result.Value, Selection20, Selection21, Convert.ToInt32(textBox21.Text), '0', true) + " " + Result.Text;
+                    textBox22.Text = Numeric.Numeral(Result.Value, Selection20, Selection21, Convert.ToInt32(textBox21.Text), '0', ClearNumericType.Decimal) + " " + Result.Text;
                 }
                 else
                 {
-                    textBox22.Text = Numeric.Numeral(Result.Value, Selection20, Selection21, Convert.ToInt32(textBox21.Text), '0', true);
+                    textBox22.Text = Numeric.Numeral(Result.Value, Selection20, Selection21, Convert.ToInt32(textBox21.Text), '0', ClearNumericType.Decimal);
                 }
 
                 button24.Cursor = Cursors.Hand;
@@ -816,11 +816,11 @@ namespace Skylark.UI
 
                 if (Selection26 == "MPH => KPH")
                 {
-                    textBox25.Text = Numeric.Numeral(SpeedExtension.MphToKph(Convert.ToDecimal(textBox26.Text)), Selection23, Selection24, Convert.ToInt32(textBox24.Text), '0', true);
+                    textBox25.Text = Numeric.Numeral(SpeedExtension.MphToKph(Convert.ToDecimal(textBox26.Text)), Selection23, Selection24, Convert.ToInt32(textBox24.Text), '0', ClearNumericType.Decimal);
                 }
                 else
                 {
-                    textBox25.Text = Numeric.Numeral(SpeedExtension.KphToMph(Convert.ToDecimal(textBox26.Text)), Selection23, Selection24, Convert.ToInt32(textBox24.Text), '0', true);
+                    textBox25.Text = Numeric.Numeral(SpeedExtension.KphToMph(Convert.ToDecimal(textBox26.Text)), Selection23, Selection24, Convert.ToInt32(textBox24.Text), '0', ClearNumericType.Decimal);
                 }
 
                 button29.Cursor = Cursors.Hand;
@@ -872,7 +872,7 @@ namespace Skylark.UI
                     textBox21.Text = "1";
                 }
 
-                textBox22.Text = Numeric.Numeral(TimeExtension.Convert(Convert.ToDouble(textBox23.Text), Selection18, Selection19), Selection20, Selection21, Convert.ToInt32(textBox21.Text), '0', true);
+                textBox22.Text = Numeric.Numeral(TimeExtension.Convert(Convert.ToDouble(textBox23.Text), Selection18, Selection19), Selection20, Selection21, Convert.ToInt32(textBox21.Text), '0', ClearNumericType.Decimal);
                 button24.Cursor = Cursors.Hand;
             }
             catch (Exception Ex)
@@ -1159,11 +1159,11 @@ namespace Skylark.UI
                 {
                     if (Selection14 == "CM")
                     {
-                        textBox16.Text = Numeric.Numeral(TypographyExtension.InchToCentimeter(Convert.ToDecimal(textBox17.Text)), Selection15, Selection16, Convert.ToInt32(textBox15.Text), '0', true);
+                        textBox16.Text = Numeric.Numeral(TypographyExtension.InchToCentimeter(Convert.ToDecimal(textBox17.Text)), Selection15, Selection16, Convert.ToInt32(textBox15.Text), '0', ClearNumericType.Decimal);
                     }
                     else if (Selection14 == "PX")
                     {
-                        textBox16.Text = Numeric.Numeral(TypographyExtension.InchToPixel(Convert.ToDecimal(textBox17.Text)), Selection15, Selection16, Convert.ToInt32(textBox15.Text), '0', true);
+                        textBox16.Text = Numeric.Numeral(TypographyExtension.InchToPixel(Convert.ToDecimal(textBox17.Text)), Selection15, Selection16, Convert.ToInt32(textBox15.Text), '0', ClearNumericType.Decimal);
                     }
                     else
                     {
@@ -1174,11 +1174,11 @@ namespace Skylark.UI
                 {
                     if (Selection14 == "INCH")
                     {
-                        textBox16.Text = Numeric.Numeral(TypographyExtension.CentimeterToInch(Convert.ToDecimal(textBox17.Text)), Selection15, Selection16, Convert.ToInt32(textBox15.Text), '0', true);
+                        textBox16.Text = Numeric.Numeral(TypographyExtension.CentimeterToInch(Convert.ToDecimal(textBox17.Text)), Selection15, Selection16, Convert.ToInt32(textBox15.Text), '0', ClearNumericType.Decimal);
                     }
                     else if (Selection14 == "PX")
                     {
-                        textBox16.Text = Numeric.Numeral(TypographyExtension.CentimeterToPixel(Convert.ToDecimal(textBox17.Text)), Selection15, Selection16, Convert.ToInt32(textBox15.Text), '0', true);
+                        textBox16.Text = Numeric.Numeral(TypographyExtension.CentimeterToPixel(Convert.ToDecimal(textBox17.Text)), Selection15, Selection16, Convert.ToInt32(textBox15.Text), '0', ClearNumericType.Decimal);
                     }
                     else
                     {
@@ -1189,11 +1189,11 @@ namespace Skylark.UI
                 {
                     if (Selection14 == "INCH")
                     {
-                        textBox16.Text = Numeric.Numeral(TypographyExtension.PixelToInch(Convert.ToDecimal(textBox17.Text)), Selection15, Selection16, Convert.ToInt32(textBox15.Text), '0', true);
+                        textBox16.Text = Numeric.Numeral(TypographyExtension.PixelToInch(Convert.ToDecimal(textBox17.Text)), Selection15, Selection16, Convert.ToInt32(textBox15.Text), '0', ClearNumericType.Decimal);
                     }
                     else if (Selection14 == "CM")
                     {
-                        textBox16.Text = Numeric.Numeral(TypographyExtension.PixelToCentimeter(Convert.ToDecimal(textBox17.Text)), Selection15, Selection16, Convert.ToInt32(textBox15.Text), '0', true);
+                        textBox16.Text = Numeric.Numeral(TypographyExtension.PixelToCentimeter(Convert.ToDecimal(textBox17.Text)), Selection15, Selection16, Convert.ToInt32(textBox15.Text), '0', ClearNumericType.Decimal);
                     }
                     else
                     {
