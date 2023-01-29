@@ -112,7 +112,7 @@ namespace Skylark.Extension
                 }
                 else
                 {
-                    if ((EST)i == EST.Yottabyte)
+                    if ((EST)i >= EST.Yottabyte)
                     {
                         Active = (EST)i;
                     }

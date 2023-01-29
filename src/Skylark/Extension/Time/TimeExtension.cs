@@ -112,7 +112,7 @@ namespace Skylark.Extension
                 }
                 else
                 {
-                    if ((ETT)i == ETT.Millennium)
+                    if ((ETT)i >= ETT.Millennium)
                     {
                         Active = (ETT)i;
                     }
