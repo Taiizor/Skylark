@@ -33,7 +33,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 		</a>
 		<br/>
 		<a href="https://github.com/Taiizor/Skylark/commits?author=Taiizor" title="Code">💻</a>
-		<a href="https://www.taiizor.com" title="Ideas & Planning, Feedback">🤔</a>
+		<a href="https://www.vegalya.com" title="Ideas & Planning, Feedback">🤔</a>
 	</td>
   </tr>
 </table>
