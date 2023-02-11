@@ -48,6 +48,19 @@ namespace Skylark.Extension
         /// <param name="Upper"></param>
         /// <param name="Invariant"></param>
         /// <returns></returns>
+        public static Task<string> FileToMD5Async(string Path = MHM.Path, string Split = MHM.Split, bool Upper = MHM.Upper, bool Invariant = MHM.Invariant)
+        {
+            return Task.FromResult(FileToMD5(Path, Split, Upper, Invariant));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Path"></param>
+        /// <param name="Split"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
+        /// <returns></returns>
         /// <exception cref="E"></exception>
         public static string FileToSHA1(string Path = MHM.Path, string Split = MHM.Split, bool Upper = MHM.Upper, bool Invariant = MHM.Invariant)
         {
@@ -66,6 +79,19 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Path"></param>
+        /// <param name="Split"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
+        /// <returns></returns>
+        public static Task<string> FileToSHA1Async(string Path = MHM.Path, string Split = MHM.Split, bool Upper = MHM.Upper, bool Invariant = MHM.Invariant)
+        {
+            return Task.FromResult(FileToSHA1(Path, Split, Upper, Invariant));
         }
 
         /// <summary>
@@ -104,6 +130,19 @@ namespace Skylark.Extension
         /// <param name="Upper"></param>
         /// <param name="Invariant"></param>
         /// <returns></returns>
+        public static Task<string> FileToSHA256Async(string Path = MHM.Path, string Split = MHM.Split, bool Upper = MHM.Upper, bool Invariant = MHM.Invariant)
+        {
+            return Task.FromResult(FileToSHA256(Path, Split, Upper, Invariant));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Path"></param>
+        /// <param name="Split"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
+        /// <returns></returns>
         /// <exception cref="E"></exception>
         public static string FileToSHA384(string Path = MHM.Path, string Split = MHM.Split, bool Upper = MHM.Upper, bool Invariant = MHM.Invariant)
         {
@@ -132,6 +171,19 @@ namespace Skylark.Extension
         /// <param name="Upper"></param>
         /// <param name="Invariant"></param>
         /// <returns></returns>
+        public static Task<string> FileToSHA384Async(string Path = MHM.Path, string Split = MHM.Split, bool Upper = MHM.Upper, bool Invariant = MHM.Invariant)
+        {
+            return Task.FromResult(FileToSHA384(Path, Split, Upper, Invariant));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Path"></param>
+        /// <param name="Split"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
+        /// <returns></returns>
         /// <exception cref="E"></exception>
         public static string FileToSHA512(string Path = MHM.Path, string Split = MHM.Split, bool Upper = MHM.Upper, bool Invariant = MHM.Invariant)
         {
@@ -150,6 +202,19 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Path"></param>
+        /// <param name="Split"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
+        /// <returns></returns>
+        public static Task<string> FileToSHA512Async(string Path = MHM.Path, string Split = MHM.Split, bool Upper = MHM.Upper, bool Invariant = MHM.Invariant)
+        {
+            return Task.FromResult(FileToSHA512(Path, Split, Upper, Invariant));
         }
     }
 }

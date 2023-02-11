@@ -47,6 +47,16 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Css"></param>
         /// <returns></returns>
+        public static Task<string> ToMinifyAsync(string Css = MCM.Css)
+        {
+            return Task.FromResult(ToMinify(Css));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Css"></param>
+        /// <returns></returns>
         public static string ToBeauty(string Css = MCM.Css)
         {
             try
@@ -68,6 +78,16 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Css"></param>
+        /// <returns></returns>
+        public static Task<string> ToBeautyAsync(string Css = MCM.Css)
+        {
+            return Task.FromResult(ToBeauty(Css));
         }
     }
 }

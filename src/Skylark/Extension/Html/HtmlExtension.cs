@@ -53,6 +53,16 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
+        public static Task<string> EncodeAsync(string Html = MHM.Html)
+        {
+            return Task.FromResult(Encode(Html));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Html"></param>
+        /// <returns></returns>
         public static string Decode(string Html = MHM.Html)
         {
             try
@@ -90,6 +100,16 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
+        public static Task<string> DecodeAsync(string Html = MHM.Html)
+        {
+            return Task.FromResult(Decode(Html));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Html"></param>
+        /// <returns></returns>
         public static string ToMinify(string Html = MHM.Html)
         {
             try
@@ -120,6 +140,16 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
+        public static Task<string> ToMinifyAsync(string Html = MHM.Html)
+        {
+            return Task.FromResult(ToMinify(Html));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Html"></param>
+        /// <returns></returns>
         public static string ToBeauty(string Html = MHM.Html)
         {
             try
@@ -141,6 +171,16 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Html"></param>
+        /// <returns></returns>
+        public static Task<string> ToBeautyAsync(string Html = MHM.Html)
+        {
+            return Task.FromResult(ToBeauty(Html));
         }
     }
 }
