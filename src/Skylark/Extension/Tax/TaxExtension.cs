@@ -35,6 +35,19 @@ namespace Skylark.Extension
         /// <param name="Type"></param>
         /// <param name="Decimal"></param>
         /// <returns></returns>
+        public static Task<STCS> CalcAsync(string Value = MTM.Value, string Percent = MTM.Percent, string Type = MTM.DefaultType, bool Decimal = MTM.Decimal)
+        {
+            return Task.FromResult(Calc(Value, Percent, Type, Decimal));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Percent"></param>
+        /// <param name="Type"></param>
+        /// <param name="Decimal"></param>
+        /// <returns></returns>
         public static STCS Calc(string Value = MTM.Value, string Percent = MTM.Percent, ETT Type = MTM.TaxType, bool Decimal = MTM.Decimal)
         {
             try
@@ -79,6 +92,19 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Percent"></param>
+        /// <param name="Type"></param>
+        /// <param name="Decimal"></param>
+        /// <returns></returns>
+        public static Task<STCS> CalcAsync(string Value = MTM.Value, string Percent = MTM.Percent, ETT Type = MTM.TaxType, bool Decimal = MTM.Decimal)
+        {
+            return Task.FromResult(Calc(Value, Percent, Type, Decimal));
         }
     }
 }

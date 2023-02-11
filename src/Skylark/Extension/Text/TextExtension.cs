@@ -55,6 +55,19 @@ namespace Skylark.Extension
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Length"></param>
+        /// <param name="Symbol"></param>
+        /// <param name="Method"></param>
+        /// <returns></returns>
+        public static Task<string> CutAsync(string Text = MTM.Text, int Length = MTM.Length, string Symbol = MTM.CutSymbol, ETT Method = MTM.CutMethod)
+        {
+            return Task.FromResult(Cut(Text, Length, Symbol, Method));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Word"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
@@ -68,6 +81,16 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Word"></param>
+        /// <returns></returns>
+        public static Task<string> TextAsync(int Word = MTM.Word)
+        {
+            return Task.FromResult(Text(Word));
         }
 
         /// <summary>
@@ -104,6 +127,18 @@ namespace Skylark.Extension
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="List"></param>
+        /// <param name="Symbol"></param>
+        /// <param name="Word"></param>
+        /// <returns></returns>
+        public static Task<string> ListAsync(int List = MTM.List, char Symbol = MTM.ListSymbol, int Word = MTM.Word)
+        {
+            return Task.FromResult(TextExtension.List(List, Symbol, Word));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Text"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
@@ -119,6 +154,16 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <returns></returns>
+        public static Task<string> ReverseAsync(string Text = MTM.Text)
+        {
+            return Task.FromResult(Reverse(Text));
         }
 
         /// <summary>
@@ -154,6 +199,17 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Paragraph"></param>
+        /// <param name="Word"></param>
+        /// <returns></returns>
+        public static Task<string> ParagraphAsync(int Paragraph = MTM.Paragraph, int Word = MTM.Word)
+        {
+            return Task.FromResult(TextExtension.Paragraph(Paragraph, Word));
         }
 
         /// <summary>

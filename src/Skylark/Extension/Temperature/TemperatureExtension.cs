@@ -12,26 +12,46 @@ namespace Skylark.Extension
         /// 
         /// </summary>
         public static string SymbolKelvin => MTM.Kelvin;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Task<string> SymbolKelvinAsync => Task.FromResult(SymbolKelvin);
 
         /// <summary>
         /// 
         /// </summary>
         public static string SymbolCelsius => MTM.Celsius;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Task<string> SymbolCelsiusAsync => Task.FromResult(SymbolCelsius);
 
         /// <summary>
         /// 
         /// </summary>
         public static string SymbolRankine => MTM.Rankine;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Task<string> SymbolRankineAsync => Task.FromResult(SymbolRankine);
 
         /// <summary>
         /// 
         /// </summary>
         public static string SymbolReaumur => MTM.Reaumur;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Task<string> SymbolReaumurAsync => Task.FromResult(SymbolReaumur);
 
         /// <summary>
         /// 
         /// </summary>
         public static string SymbolFahrenheit => MTM.Fahrenheit;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Task<string> SymbolFahrenheitAsync => Task.FromResult(SymbolFahrenheit);
 
         /// <summary>
         /// 

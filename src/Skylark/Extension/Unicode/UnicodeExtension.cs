@@ -36,6 +36,18 @@ namespace Skylark.Extension
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Split"></param>
+        /// <param name="Encode"></param>
+        /// <returns></returns>
+        public static Task<string> TextToASCIIAsync(string Text = MUM.Text, char Split = MUM.Split, EET Encode = MUM.Encode)
+        {
+            return Task.FromResult(TextToASCII(Text, Split, Encode));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="ASCII"></param>
         /// <param name="Split"></param>
         /// <param name="Encode"></param>
@@ -53,6 +65,18 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ASCII"></param>
+        /// <param name="Split"></param>
+        /// <param name="Encode"></param>
+        /// <returns></returns>
+        public static Task<string> ASCIIToTextAsync(string ASCII = MUM.ASCII, char Split = MUM.Split, EET Encode = MUM.Encode)
+        {
+            return Task.FromResult(ASCIIToText(ASCII, Split, Encode));
         }
     }
 }

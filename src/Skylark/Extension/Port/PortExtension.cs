@@ -40,6 +40,16 @@ namespace Skylark.Extension
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Port"></param>
+        /// <returns></returns>
+        public static Task<string> InfoAsync(int Port = MPM.Port)
+        {
+            return Task.FromResult(Info(Port));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Ports"></param>
         /// <returns></returns>
         public static Dictionary<int, string> Info(int[] Ports = null)
@@ -71,6 +81,16 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Ports"></param>
+        /// <returns></returns>
+        public static Task<Dictionary<int, string>> InfoAsync(int[] Ports = null)
+        {
+            return Task.FromResult(Info(Ports));
         }
 
         /// <summary>
@@ -115,6 +135,18 @@ namespace Skylark.Extension
         /// 
         /// </summary>
         /// <param name="Address"></param>
+        /// <param name="Port"></param>
+        /// <param name="Timeout"></param>
+        /// <returns></returns>
+        public static Task<PortType> ScanAsync(string Address = MPM.Address, int Port = MPM.Port, int Timeout = MPM.Timeout)
+        {
+            return Task.FromResult(Scan(Address, Port, Timeout));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Address"></param>
         /// <param name="Ports"></param>
         /// <param name="Timeout"></param>
         /// <returns></returns>
@@ -147,6 +179,18 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Address"></param>
+        /// <param name="Ports"></param>
+        /// <param name="Timeout"></param>
+        /// <returns></returns>
+        public static Task<Dictionary<int, PortType>> ScanAsync(string Address = MPM.Address, int[] Ports = null, int Timeout = MPM.Timeout)
+        {
+            return Task.FromResult(Scan(Address, Ports, Timeout));
         }
     }
 }

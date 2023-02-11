@@ -33,6 +33,18 @@ namespace Skylark.Extension
         /// <param name="Input"></param>
         /// <param name="Output"></param>
         /// <returns></returns>
+        public static Task<double> ConvertAsync(double Value = MTM.Value, string Input = MTM.DefaultInput, string Output = MTM.DefaultOutput)
+        {
+            return Task.FromResult(Convert(Value, Input, Output));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Input"></param>
+        /// <param name="Output"></param>
+        /// <returns></returns>
         /// <exception cref="E"></exception>
         public static double Convert(double Value = MTM.Value, ETT Input = MTM.InputType, ETT Output = MTM.OutputType)
         {
@@ -55,10 +67,33 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Value"></param>
         /// <param name="Input"></param>
+        /// <param name="Output"></param>
+        /// <returns></returns>
+        public static Task<double> ConvertAsync(double Value = MTM.Value, ETT Input = MTM.InputType, ETT Output = MTM.OutputType)
+        {
+            return Task.FromResult(Convert(Value, Input, Output));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Input"></param>
         /// <returns></returns>
         public static STS AutoConvert(double Value = MTM.Value, string Input = MTM.DefaultInput)
         {
             return AutoConvert(Value, HC.Convert(Input, MTM.InputType));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Input"></param>
+        /// <returns></returns>
+        public static Task<STS> AutoConvertAsync(double Value = MTM.Value, string Input = MTM.DefaultInput)
+        {
+            return Task.FromResult(AutoConvert(Value, Input));
         }
 
         /// <summary>
@@ -82,6 +117,17 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Input"></param>
+        /// <returns></returns>
+        public static Task<STS> AutoConvertAsync(double Value = MTM.Value, ETT Input = MTM.InputType)
+        {
+            return Task.FromResult(AutoConvert(Value, Input));
         }
 
         /// <summary>

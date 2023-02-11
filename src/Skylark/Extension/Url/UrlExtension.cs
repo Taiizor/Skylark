@@ -34,6 +34,16 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
+        public static Task<string> EncodeAsync(string Url = MUM.Url)
+        {
+            return Task.FromResult(Encode(Url));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Url"></param>
+        /// <returns></returns>
         public static string Decode(string Url = MUM.Url)
         {
             try
@@ -46,6 +56,16 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Url"></param>
+        /// <returns></returns>
+        public static Task<string> DecodeAsync(string Url = MUM.Url)
+        {
+            return Task.FromResult(Decode(Url));
         }
     }
 }

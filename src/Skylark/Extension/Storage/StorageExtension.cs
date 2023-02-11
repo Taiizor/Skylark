@@ -36,6 +36,19 @@ namespace Skylark.Extension
         /// <param name="Output"></param>
         /// <param name="Mode"></param>
         /// <returns></returns>
+        public static Task<double> ConvertAsync(double Value = MSM.Value, string Input = MSM.DefaultInput, string Output = MSM.DefaultOutput, string Mode = MSM.DefaultMode)
+        {
+            return Task.FromResult(Convert(Value, Input, Output, Mode));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Input"></param>
+        /// <param name="Output"></param>
+        /// <param name="Mode"></param>
+        /// <returns></returns>
         /// <exception cref="E"></exception>
         public static double Convert(double Value = MSM.Value, EST Input = MSM.InputType, EST Output = MSM.OutputType, EMST Mode = MSM.ModeType)
         {
@@ -58,11 +71,36 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Value"></param>
         /// <param name="Input"></param>
+        /// <param name="Output"></param>
+        /// <param name="Mode"></param>
+        /// <returns></returns>
+        public static Task<double> ConvertAsync(double Value = MSM.Value, EST Input = MSM.InputType, EST Output = MSM.OutputType, EMST Mode = MSM.ModeType)
+        {
+            return Task.FromResult(Convert(Value, Input, Output, Mode));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Input"></param>
         /// <param name="Mode"></param>
         /// <returns></returns>
         public static SSS AutoConvert(double Value = MSM.Value, string Input = MSM.DefaultInput, string Mode = MSM.DefaultMode)
         {
             return AutoConvert(Value, HC.Convert(Input, MSM.InputType), HC.Convert(Mode, MSM.ModeType));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Input"></param>
+        /// <param name="Mode"></param>
+        /// <returns></returns>
+        public static Task<SSS> AutoConvertAsync(double Value = MSM.Value, string Input = MSM.DefaultInput, string Mode = MSM.DefaultMode)
+        {
+            return Task.FromResult(AutoConvert(Value, Input, Mode));
         }
 
         /// <summary>
@@ -87,6 +125,18 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Input"></param>
+        /// <param name="Mode"></param>
+        /// <returns></returns>
+        public static Task<SSS> AutoConvertAsync(double Value = MSM.Value, EST Input = MSM.InputType, EMST Mode = MSM.ModeType)
+        {
+            return Task.FromResult(AutoConvert(Value, Input, Mode));
         }
 
         /// <summary>
