@@ -38,6 +38,19 @@ namespace Skylark.Extension
         /// 
         /// </summary>
         /// <param name="Json"></param>
+        /// <param name="Root"></param>
+        /// <param name="Special"></param>
+        /// <param name="Array"></param>
+        /// <returns></returns>
+        public static Task<string> ToXmlAsync(string Json = MJM.Json, string Root = MJM.Root, bool Special = MJM.Special, bool Array = MJM.Array)
+        {
+            return Task.FromResult(ToXml(Json, Root, Special, Array));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Json"></param>
         /// <param name="Token"></param>
         /// <param name="Value"></param>
         /// <param name="Separator"></param>
@@ -79,6 +92,19 @@ namespace Skylark.Extension
         /// 
         /// </summary>
         /// <param name="Json"></param>
+        /// <param name="Token"></param>
+        /// <param name="Value"></param>
+        /// <param name="Separator"></param>
+        /// <returns></returns>
+        public static Task<string> ToReadAsync(string Json = MJM.Json, string Token = MJM.Token, string Value = MJM.Value, string Separator = MJM.Seperator)
+        {
+            return Task.FromResult(ToRead(Json, Token, Value, Separator));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Json"></param>
         /// <returns></returns>
         public static string ToBeauty(string Json = MJM.Json)
         {
@@ -99,6 +125,16 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Json"></param>
         /// <returns></returns>
+        public static Task<string> ToBeautyAsync(string Json = MJM.Json)
+        {
+            return Task.FromResult(ToBeauty(Json));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Json"></param>
+        /// <returns></returns>
         public static string ToMinify(string Json = MJM.Json)
         {
             try
@@ -111,6 +147,16 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Json"></param>
+        /// <returns></returns>
+        public static Task<string> ToMinifyAsync(string Json = MJM.Json)
+        {
+            return Task.FromResult(ToMinify(Json));
         }
     }
 }

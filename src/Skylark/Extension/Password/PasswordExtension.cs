@@ -30,6 +30,16 @@ namespace Skylark.Extension
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Password"></param>
+        /// <returns></returns>
+        public static Task<EMPT> MeterAsync(string Password = MPM.Password)
+        {
+            return Task.FromResult(Meter(Password));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Length"></param>
         /// <param name="Alphabetic"></param>
         /// <param name="Special"></param>
@@ -39,6 +49,20 @@ namespace Skylark.Extension
         public static string Generate(int Length = MPM.Length, string Alphabetic = MPM.DefaultType, string Special = MPM.DefaultType, string Prefix = MPM.Prefix, string Suffix = MPM.Suffix)
         {
             return Generate(Length, HC.Convert(Alphabetic, MPM.AlphabeticType), HC.Convert(Special, MPM.SpecialType), Prefix, Suffix);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Length"></param>
+        /// <param name="Alphabetic"></param>
+        /// <param name="Special"></param>
+        /// <param name="Prefix"></param>
+        /// <param name="Suffix"></param>
+        /// <returns></returns>
+        public static Task<string> GenerateAsync(int Length = MPM.Length, string Alphabetic = MPM.DefaultType, string Special = MPM.DefaultType, string Prefix = MPM.Prefix, string Suffix = MPM.Suffix)
+        {
+            return Task.FromResult(Generate(Length, Alphabetic, Special, Prefix, Suffix));
         }
 
         /// <summary>
@@ -73,6 +97,20 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Length"></param>
+        /// <param name="Alphabetic"></param>
+        /// <param name="Special"></param>
+        /// <param name="Prefix"></param>
+        /// <param name="Suffix"></param>
+        /// <returns></returns>
+        public static Task<string> GenerateAsync(int Length = MPM.Length, EAPT Alphabetic = MPM.AlphabeticType, ESPT Special = MPM.SpecialType, string Prefix = MPM.Prefix, string Suffix = MPM.Suffix)
+        {
+            return Task.FromResult(Generate(Length, Alphabetic, Special, Prefix, Suffix));
         }
     }
 }

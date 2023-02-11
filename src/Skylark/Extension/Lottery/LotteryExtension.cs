@@ -78,6 +78,19 @@ namespace Skylark.Extension
         /// 
         /// </summary>
         /// <param name="List"></param>
+        /// <param name="WinnerCount"></param>
+        /// <param name="ReserveCount"></param>
+        /// <param name="Repeated"></param>
+        /// <returns></returns>
+        public static Task<SLDS> DrawAsync(string List = MLM.List, int WinnerCount = MLM.WinnerCount, int ReserveCount = MLM.ReserveCount, bool Repeated = MLM.Repeat)
+        {
+            return Task.FromResult(Draw(List, WinnerCount, ReserveCount, Repeated));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="List"></param>
         /// <param name="Repeated"></param>
         /// <returns></returns>
         public static string Suffle(string List = MLM.List, bool Repeated = MLM.Repeat)
@@ -97,6 +110,17 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="List"></param>
+        /// <param name="Repeated"></param>
+        /// <returns></returns>
+        public static Task<string> SuffleAsync(string List = MLM.List, bool Repeated = MLM.Repeat)
+        {
+            return Task.FromResult(Suffle(List, Repeated));
         }
     }
 }

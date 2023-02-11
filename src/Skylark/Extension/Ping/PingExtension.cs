@@ -54,5 +54,18 @@ namespace Skylark.Extension
                 throw new E(Ex.Message, Ex);
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Address"></param>
+        /// <param name="Timeout"></param>
+        /// <param name="Ttl"></param>
+        /// <param name="Fragment"></param>
+        /// <returns></returns>
+        public static Task<SPSS> SendAsync(string Address = MPM.Address, int Timeout = MPM.Timeout, int Ttl = MPM.Ttl, bool Fragment = MPM.Fragment)
+        {
+            return Task.FromResult(Send(Address, Timeout, Ttl, Fragment));
+        }
     }
 }
