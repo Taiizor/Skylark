@@ -22,6 +22,16 @@
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Value"></param>
+        public static Task CopyAsync(object Value)
+        {
+            Copy(Value);
+            return Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Clear"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
@@ -42,6 +52,17 @@
             {
                 return Value;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Clear"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static Task<object> PasteAsync(bool Clear = false, object Back = null)
+        {
+            return Task.FromResult(Paste(Clear, Back));
         }
     }
 }

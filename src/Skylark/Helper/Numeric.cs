@@ -41,9 +41,29 @@ namespace Skylark.Helper
         /// </summary>
         /// <param name="Value"></param>
         /// <returns></returns>
+        public static Task<double> ToDoubleAsync(string Value)
+        {
+            return Task.FromResult(ToDouble(Value));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <returns></returns>
         public static double ToDouble(decimal Value)
         {
             return Convert.ToDouble(Value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <returns></returns>
+        public static Task<double> ToDoubleAsync(decimal Value)
+        {
+            return Task.FromResult(ToDouble(Value));
         }
 
         /// <summary>
@@ -61,9 +81,29 @@ namespace Skylark.Helper
         /// </summary>
         /// <param name="Value"></param>
         /// <returns></returns>
+        public static Task<decimal> ToDecimalAsync(string Value)
+        {
+            return Task.FromResult(ToDecimal(Value));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <returns></returns>
         public static decimal ToDecimal(double Value)
         {
             return Convert.ToDecimal(Value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <returns></returns>
+        public static Task<decimal> ToDecimalAsync(double Value)
+        {
+            return Task.FromResult(ToDecimal(Value));
         }
 
         /// <summary>
@@ -101,6 +141,21 @@ namespace Skylark.Helper
         /// <param name="Number"></param>
         /// <param name="Clear"></param>
         /// <returns></returns>
+        public static Task<string> NumeralAsync(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', string Clear = DefaultType)
+        {
+            return Task.FromResult(Numeral(Value, Decimal, Fraction, Digit, Number, Clear));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Fraction"></param>
+        /// <param name="Digit"></param>
+        /// <param name="Number"></param>
+        /// <param name="Clear"></param>
+        /// <returns></returns>
         public static string Numeral(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', ECNT Clear = ClearType)
         {
             string Symbol = "EB+-";
@@ -114,6 +169,21 @@ namespace Skylark.Helper
             {
                 return Numeral(Result, Decimal, Fraction, Digit, Number, Clear);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Fraction"></param>
+        /// <param name="Digit"></param>
+        /// <param name="Number"></param>
+        /// <param name="Clear"></param>
+        /// <returns></returns>
+        public static Task<string> NumeralAsync(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', ECNT Clear = ClearType)
+        {
+            return Task.FromResult(Numeral(Value, Decimal, Fraction, Digit, Number, Clear));
         }
 
         /// <summary>

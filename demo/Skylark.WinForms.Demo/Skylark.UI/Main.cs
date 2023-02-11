@@ -1208,6 +1208,20 @@ namespace Skylark.UI
             }
         }
 
+        private async void Button31_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await Board.CopyAsync("Hello, World!");
+
+                MessageBox.Show($"{await Board.PasteAsync(false, "Empty!")}");
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
         private void Main_Load(object sender, EventArgs e)
         {
             try

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30320.27
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skylark.UI", "Skylark.UI\Skylark.UI.csproj", "{02DA25DA-4405-41BE-A488-E0AC62D29B75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skylark.UI", "Skylark.UI\Skylark.UI.csproj", "{C7F91D69-0E82-44FD-ADD8-9D7F3C0EE393}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{02DA25DA-4405-41BE-A488-E0AC62D29B75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02DA25DA-4405-41BE-A488-E0AC62D29B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02DA25DA-4405-41BE-A488-E0AC62D29B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02DA25DA-4405-41BE-A488-E0AC62D29B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7F91D69-0E82-44FD-ADD8-9D7F3C0EE393}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7F91D69-0E82-44FD-ADD8-9D7F3C0EE393}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7F91D69-0E82-44FD-ADD8-9D7F3C0EE393}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7F91D69-0E82-44FD-ADD8-9D7F3C0EE393}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {6D372EE4-D293-4724-8CDB-4E5F5C521F0D}
+		SolutionGuid = {56B970AC-9ED7-4AEC-9AAA-B9F2A682ED04}
 	EndGlobalSection
 EndGlobal
