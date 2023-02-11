@@ -47,6 +47,16 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Xhtml"></param>
         /// <returns></returns>
+        public static Task<string> ToMinifyAsync(string Xhtml = MXM.Xhtml)
+        {
+            return Task.FromResult(ToMinify(Xhtml));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Xhtml"></param>
+        /// <returns></returns>
         public static string ToBeauty(string Xhtml = MXM.Xhtml)
         {
             try
@@ -68,6 +78,16 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Xhtml"></param>
+        /// <returns></returns>
+        public static Task<string> ToBeautyAsync(string Xhtml = MXM.Xhtml)
+        {
+            return Task.FromResult(ToBeauty(Xhtml));
         }
     }
 }

@@ -39,6 +39,16 @@ namespace Skylark.Extension
         /// 
         /// </summary>
         /// <param name="Url"></param>
+        /// <returns></returns>
+        public static Task<string> SourceAsync(string Url = MWM.Url)
+        {
+            return Task.FromResult(Source(Url));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Url"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
         public static SWRS Ratio(string Url = MWM.Url, bool Separator = MWM.Separator)
@@ -74,6 +84,17 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Url"></param>
+        /// <param name="Separator"></param>
+        /// <returns></returns>
+        public static Task<SWRS> RatioAsync(string Url = MWM.Url, bool Separator = MWM.Separator)
+        {
+            return Task.FromResult(Ratio(Url, Separator));
         }
 
         /// <summary>
@@ -161,6 +182,16 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
+        public static Task<SWHS> HeaderAsync(string Url = MWM.Url)
+        {
+            return Task.FromResult(Header(Url));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Url"></param>
+        /// <returns></returns>
         public static CompressWebType Compress(string Url = MWM.Url)
         {
             try
@@ -185,6 +216,16 @@ namespace Skylark.Extension
             {
                 return CompressWebType.None;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Url"></param>
+        /// <returns></returns>
+        public static Task<CompressWebType> CompressAsync(string Url = MWM.Url)
+        {
+            return Task.FromResult(Compress(Url));
         }
 
         /// <summary>
@@ -220,6 +261,18 @@ namespace Skylark.Extension
             {
                 throw new E(Ex.Message, Ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Url1"></param>
+        /// <param name="Url2"></param>
+        /// <param name="Separator"></param>
+        /// <returns></returns>
+        public static Task<string> SimilarAsync(string Url1 = MWM.Url, string Url2 = MWM.Url, bool Separator = MWM.Separator)
+        {
+            return Task.FromResult(Similar(Url1, Url2, Separator));
         }
     }
 }
