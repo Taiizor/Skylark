@@ -84,7 +84,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<SLDS> DrawAsync(string List = MLM.List, int WinnerCount = MLM.WinnerCount, int ReserveCount = MLM.ReserveCount, bool Repeated = MLM.Repeat)
         {
-            return Task.FromResult(Draw(List, WinnerCount, ReserveCount, Repeated));
+            return Task.Run(() => Draw(List, WinnerCount, ReserveCount, Repeated));
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> SuffleAsync(string List = MLM.List, bool Repeated = MLM.Repeat)
         {
-            return Task.FromResult(Suffle(List, Repeated));
+            return Task.Run(() => Suffle(List, Repeated));
         }
     }
 }

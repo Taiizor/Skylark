@@ -65,7 +65,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<SPSS> SendAsync(string Address = MPM.Address, int Timeout = MPM.Timeout, int Ttl = MPM.Ttl, bool Fragment = MPM.Fragment)
         {
-            return Task.FromResult(Send(Address, Timeout, Ttl, Fragment));
+            return Task.Run(() => Send(Address, Timeout, Ttl, Fragment));
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<double> ConvertAsync(double Value = MTM.Value, string Input = MTM.DefaultInput, string Output = MTM.DefaultOutput)
         {
-            return Task.FromResult(Convert(Value, Input, Output));
+            return Task.Run(() => Convert(Value, Input, Output));
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<double> ConvertAsync(double Value = MTM.Value, ETT Input = MTM.InputType, ETT Output = MTM.OutputType)
         {
-            return Task.FromResult(Convert(Value, Input, Output));
+            return Task.Run(() => Convert(Value, Input, Output));
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<STS> AutoConvertAsync(double Value = MTM.Value, string Input = MTM.DefaultInput)
         {
-            return Task.FromResult(AutoConvert(Value, Input));
+            return Task.Run(() => AutoConvert(Value, Input));
         }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<STS> AutoConvertAsync(double Value = MTM.Value, ETT Input = MTM.InputType)
         {
-            return Task.FromResult(AutoConvert(Value, Input));
+            return Task.Run(() => AutoConvert(Value, Input));
         }
 
         /// <summary>

@@ -42,7 +42,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> TextToASCIIAsync(string Text = MUM.Text, char Split = MUM.Split, EET Encode = MUM.Encode)
         {
-            return Task.FromResult(TextToASCII(Text, Split, Encode));
+            return Task.Run(() => TextToASCII(Text, Split, Encode));
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ASCIIToTextAsync(string ASCII = MUM.ASCII, char Split = MUM.Split, EET Encode = MUM.Encode)
         {
-            return Task.FromResult(ASCIIToText(ASCII, Split, Encode));
+            return Task.Run(() => ASCIIToText(ASCII, Split, Encode));
         }
     }
 }

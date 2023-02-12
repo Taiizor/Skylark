@@ -26,7 +26,7 @@
         /// <returns></returns>
         public static Task<string> FormatterAsync(object Format, bool Case, bool Invariant = true)
         {
-            return Task.FromResult(Formatter(Format, Case, Invariant));
+            return Task.Run(() => Formatter(Format, Case, Invariant));
         }
 
         /// <summary>
@@ -57,7 +57,7 @@
         /// <returns></returns>
         public static Task<string> FormatterAsync(string Format, bool Case, bool Invariant = true)
         {
-            return Task.FromResult(Formatter(Format, Case, Invariant));
+            return Task.Run(() => Formatter(Format, Case, Invariant));
         }
 
         /// <summary>
@@ -79,7 +79,7 @@
         /// <returns></returns>
         public static Task<string> FormatterAsync(object Format, params object[] Args)
         {
-            return Task.FromResult(Formatter(Format, Args));
+            return Task.Run(() => Formatter(Format, Args));
         }
 
         /// <summary>
@@ -101,7 +101,7 @@
         /// <returns></returns>
         public static Task<string> FormatterAsync(string Format, params object[] Args)
         {
-            return Task.FromResult(Formatter(Format, Args));
+            return Task.Run(() => Formatter(Format, Args));
         }
     }
 }

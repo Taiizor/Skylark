@@ -44,7 +44,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> InfoAsync(int Port = MPM.Port)
         {
-            return Task.FromResult(Info(Port));
+            return Task.Run(() => Info(Port));
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<Dictionary<int, string>> InfoAsync(int[] Ports = null)
         {
-            return Task.FromResult(Info(Ports));
+            return Task.Run(() => Info(Ports));
         }
 
         /// <summary>
@@ -140,7 +140,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<PortType> ScanAsync(string Address = MPM.Address, int Port = MPM.Port, int Timeout = MPM.Timeout)
         {
-            return Task.FromResult(Scan(Address, Port, Timeout));
+            return Task.Run(() => Scan(Address, Port, Timeout));
         }
 
         /// <summary>
@@ -190,7 +190,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<Dictionary<int, PortType>> ScanAsync(string Address = MPM.Address, int[] Ports = null, int Timeout = MPM.Timeout)
         {
-            return Task.FromResult(Scan(Address, Ports, Timeout));
+            return Task.Run(() => Scan(Address, Ports, Timeout));
         }
     }
 }

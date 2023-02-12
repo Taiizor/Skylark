@@ -24,7 +24,7 @@
         /// <returns></returns>
         public static Task<string> CutAsync(string Value, int MaxLength)
         {
-            return Task.FromResult(Cut(Value, MaxLength));
+            return Task.Run(() => Cut(Value, MaxLength));
         }
 
         /// <summary>
@@ -48,7 +48,7 @@
         /// <returns></returns>
         public static Task<string> AddAsync(string Value, char Char, int MinLength)
         {
-            return Task.FromResult(Add(Value, Char, MinLength));
+            return Task.Run(() => Add(Value, Char, MinLength));
         }
 
         /// <summary>
@@ -72,7 +72,7 @@
         /// <returns></returns>
         public static Task<string> PinAsync(string Value, string Back, int Length)
         {
-            return Task.FromResult(Pin(Value, Back, Length));
+            return Task.Run(() => Pin(Value, Back, Length));
         }
 
         /// <summary>
@@ -98,7 +98,7 @@
         /// <returns></returns>
         public static Task<string> FeedAsync(string Value, string Back, int MinLength, int MaxLength)
         {
-            return Task.FromResult(Feed(Value, Back, MinLength, MaxLength));
+            return Task.Run(() => Feed(Value, Back, MinLength, MaxLength));
         }
 
         /// <summary>
@@ -124,7 +124,7 @@
         /// <returns></returns>
         public static Task<string> AdaptAsync(string Value, char Char, int MinLength, int MaxLength)
         {
-            return Task.FromResult(Adapt(Value, Char, MinLength, MaxLength));
+            return Task.Run(() => Adapt(Value, Char, MinLength, MaxLength));
         }
     }
 }

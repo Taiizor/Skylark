@@ -34,7 +34,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<EMPT> MeterAsync(string Password = MPM.Password)
         {
-            return Task.FromResult(Meter(Password));
+            return Task.Run(() => Meter(Password));
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> GenerateAsync(int Length = MPM.Length, string Alphabetic = MPM.DefaultType, string Special = MPM.DefaultType, string Prefix = MPM.Prefix, string Suffix = MPM.Suffix)
         {
-            return Task.FromResult(Generate(Length, Alphabetic, Special, Prefix, Suffix));
+            return Task.Run(() => Generate(Length, Alphabetic, Special, Prefix, Suffix));
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> GenerateAsync(int Length = MPM.Length, EAPT Alphabetic = MPM.AlphabeticType, ESPT Special = MPM.SpecialType, string Prefix = MPM.Prefix, string Suffix = MPM.Suffix)
         {
-            return Task.FromResult(Generate(Length, Alphabetic, Special, Prefix, Suffix));
+            return Task.Run(() => Generate(Length, Alphabetic, Special, Prefix, Suffix));
         }
     }
 }

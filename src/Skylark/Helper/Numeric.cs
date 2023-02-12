@@ -43,7 +43,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static Task<double> ToDoubleAsync(string Value)
         {
-            return Task.FromResult(ToDouble(Value));
+            return Task.Run(() => ToDouble(Value));
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static Task<double> ToDoubleAsync(decimal Value)
         {
-            return Task.FromResult(ToDouble(Value));
+            return Task.Run(() => ToDouble(Value));
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static Task<decimal> ToDecimalAsync(string Value)
         {
-            return Task.FromResult(ToDecimal(Value));
+            return Task.Run(() => ToDecimal(Value));
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static Task<decimal> ToDecimalAsync(double Value)
         {
-            return Task.FromResult(ToDecimal(Value));
+            return Task.Run(() => ToDecimal(Value));
         }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static Task<string> NumeralAsync(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', string Clear = DefaultType)
         {
-            return Task.FromResult(Numeral(Value, Decimal, Fraction, Digit, Number, Clear));
+            return Task.Run(() => Numeral(Value, Decimal, Fraction, Digit, Number, Clear));
         }
 
         /// <summary>
@@ -183,7 +183,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static Task<string> NumeralAsync(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', ECNT Clear = ClearType)
         {
-            return Task.FromResult(Numeral(Value, Decimal, Fraction, Digit, Number, Clear));
+            return Task.Run(() => Numeral(Value, Decimal, Fraction, Digit, Number, Clear));
         }
 
         /// <summary>

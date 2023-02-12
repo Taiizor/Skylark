@@ -37,7 +37,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<STCS> CalcAsync(string Value = MTM.Value, string Percent = MTM.Percent, string Type = MTM.DefaultType, bool Decimal = MTM.Decimal)
         {
-            return Task.FromResult(Calc(Value, Percent, Type, Decimal));
+            return Task.Run(() => Calc(Value, Percent, Type, Decimal));
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<STCS> CalcAsync(string Value = MTM.Value, string Percent = MTM.Percent, ETT Type = MTM.TaxType, bool Decimal = MTM.Decimal)
         {
-            return Task.FromResult(Calc(Value, Percent, Type, Decimal));
+            return Task.Run(() => Calc(Value, Percent, Type, Decimal));
         }
     }
 }

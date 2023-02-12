@@ -36,7 +36,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static Task<int[]> IntAsync(int Count = 2)
         {
-            return Task.FromResult(Int(Count));
+            return Task.Run(() => Int(Count));
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static Task<long[]> LongAsync(int Count = 2)
         {
-            return Task.FromResult(Long(Count));
+            return Task.Run(() => Long(Count));
         }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static Task<decimal[]> DecimalAsync(int Count = 2)
         {
-            return Task.FromResult(Decimal(Count));
+            return Task.Run(() => Decimal(Count));
         }
     }
 }

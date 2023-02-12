@@ -42,7 +42,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> SourceAsync(string Url = MWM.Url)
         {
-            return Task.FromResult(Source(Url));
+            return Task.Run(() => Source(Url));
         }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<SWRS> RatioAsync(string Url = MWM.Url, bool Separator = MWM.Separator)
         {
-            return Task.FromResult(Ratio(Url, Separator));
+            return Task.Run(() => Ratio(Url, Separator));
         }
 
         /// <summary>
@@ -184,7 +184,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<SWHS> HeaderAsync(string Url = MWM.Url)
         {
-            return Task.FromResult(Header(Url));
+            return Task.Run(() => Header(Url));
         }
 
         /// <summary>
@@ -225,7 +225,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<CompressWebType> CompressAsync(string Url = MWM.Url)
         {
-            return Task.FromResult(Compress(Url));
+            return Task.Run(() => Compress(Url));
         }
 
         /// <summary>
@@ -272,7 +272,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> SimilarAsync(string Url1 = MWM.Url, string Url2 = MWM.Url, bool Separator = MWM.Separator)
         {
-            return Task.FromResult(Similar(Url1, Url2, Separator));
+            return Task.Run(() => Similar(Url1, Url2, Separator));
         }
     }
 }

@@ -53,7 +53,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToJsonAsync(string Xml = MXM.Xml, bool Format = MXM.Format, bool Root = MXM.Root)
         {
-            return Task.FromResult(ToJson(Xml, Format, Root));
+            return Task.Run(() => ToJson(Xml, Format, Root));
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToBeautyAsync(string Xml = MXM.Xml)
         {
-            return Task.FromResult(ToBeauty(Xml));
+            return Task.Run(() => ToBeauty(Xml));
         }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToMinifyAsync(string Xml = MXM.Xml)
         {
-            return Task.FromResult(ToMinify(Xml));
+            return Task.Run(() => ToMinify(Xml));
         }
     }
 }

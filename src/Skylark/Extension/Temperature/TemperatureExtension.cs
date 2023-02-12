@@ -82,7 +82,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> CelsiusToFahrenheitAsync(decimal Celsius = MTM.Value, decimal Coefficient = MTM.Celsius_Fahrenheit_Coefficient, decimal Constant = MTM.Celsius_Fahrenheit_Constant)
         {
-            return Task.FromResult(CelsiusToFahrenheit(Celsius, Coefficient, Constant));
+            return Task.Run(() => CelsiusToFahrenheit(Celsius, Coefficient, Constant));
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> CelsiusToKelvinAsync(decimal Celsius = MTM.Value, decimal Constant = MTM.Celsius_Kelvin_Constant)
         {
-            return Task.FromResult(CelsiusToKelvin(Celsius, Constant));
+            return Task.Run(() => CelsiusToKelvin(Celsius, Constant));
         }
 
         /// <summary>
@@ -144,7 +144,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> CelsiusToRankineAsync(decimal Celsius = MTM.Value, decimal Coefficient = MTM.Celsius_Rankine_Coefficient, decimal Constant = MTM.Celsius_Rankine_Constant)
         {
-            return Task.FromResult(CelsiusToRankine(Celsius, Coefficient, Constant));
+            return Task.Run(() => CelsiusToRankine(Celsius, Coefficient, Constant));
         }
 
         /// <summary>
@@ -174,7 +174,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> CelsiusToReaumurAsync(decimal Celsius = MTM.Value, decimal Coefficient = MTM.Celsius_Reaumur_Coefficient)
         {
-            return Task.FromResult(CelsiusToReaumur(Celsius, Coefficient));
+            return Task.Run(() => CelsiusToReaumur(Celsius, Coefficient));
         }
 
         /// <summary>
@@ -206,7 +206,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> FahrenheitToCelsiusAsync(decimal Fahrenheit = MTM.Value, decimal Coefficient = MTM.Fahrenheit_Celsius_Coefficient, decimal Constant = MTM.Fahrenheit_Celsius_Constant)
         {
-            return Task.FromResult(FahrenheitToCelsius(Fahrenheit, Coefficient, Constant));
+            return Task.Run(() => FahrenheitToCelsius(Fahrenheit, Coefficient, Constant));
         }
 
         /// <summary>
@@ -238,7 +238,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> FahrenheitToKelvinAsync(decimal Fahrenheit = MTM.Value, decimal Coefficient = MTM.Fahrenheit_Kelvin_Coefficient, decimal Constant = MTM.Fahrenheit_Kelvin_Constant)
         {
-            return Task.FromResult(FahrenheitToKelvin(Fahrenheit, Coefficient, Constant));
+            return Task.Run(() => FahrenheitToKelvin(Fahrenheit, Coefficient, Constant));
         }
 
         /// <summary>
@@ -268,7 +268,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> FahrenheitToRankineAsync(decimal Fahrenheit = MTM.Value, decimal Constant = MTM.Fahrenheit_Rankine_Constant)
         {
-            return Task.FromResult(FahrenheitToRankine(Fahrenheit, Constant));
+            return Task.Run(() => FahrenheitToRankine(Fahrenheit, Constant));
         }
 
         /// <summary>
@@ -300,7 +300,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> FahrenheitToReaumurAsync(decimal Fahrenheit = MTM.Value, decimal Coefficient = MTM.Fahrenheit_Reaumur_Coefficient, decimal Constant = MTM.Fahrenheit_Reaumur_Constant)
         {
-            return Task.FromResult(FahrenheitToReaumur(Fahrenheit, Coefficient, Constant));
+            return Task.Run(() => FahrenheitToReaumur(Fahrenheit, Coefficient, Constant));
         }
 
         /// <summary>
@@ -330,7 +330,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> KelvinToCelsiusAsync(decimal Kelvin = MTM.Value, decimal Constant = MTM.Kelvin_Celsius_Constant)
         {
-            return Task.FromResult(KelvinToCelsius(Kelvin, Constant));
+            return Task.Run(() => KelvinToCelsius(Kelvin, Constant));
         }
 
         /// <summary>
@@ -362,7 +362,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> KelvinToFahrenheitAsync(decimal Kelvin = MTM.Value, decimal Coefficient = MTM.Kelvin_Fahrenheit_Coefficient, decimal Constant = MTM.Kelvin_Fahrenheit_Constant)
         {
-            return Task.FromResult(KelvinToFahrenheit(Kelvin, Coefficient, Constant));
+            return Task.Run(() => KelvinToFahrenheit(Kelvin, Coefficient, Constant));
         }
 
         /// <summary>
@@ -392,7 +392,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> KelvinToRankineAsync(decimal Kelvin = MTM.Value, decimal Coefficient = MTM.Kelvin_Rankine_Coefficient)
         {
-            return Task.FromResult(KelvinToRankine(Kelvin, Coefficient));
+            return Task.Run(() => KelvinToRankine(Kelvin, Coefficient));
         }
 
         /// <summary>
@@ -424,7 +424,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> KelvinToReaumurAsync(decimal Kelvin = MTM.Value, decimal Coefficient = MTM.Kelvin_Reaumur_Coefficient, decimal Constant = MTM.Kelvin_Reaumur_Constant)
         {
-            return Task.FromResult(KelvinToReaumur(Kelvin, Coefficient, Constant));
+            return Task.Run(() => KelvinToReaumur(Kelvin, Coefficient, Constant));
         }
 
         /// <summary>
@@ -456,7 +456,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> RankineToCelsiusAsync(decimal Rankine = MTM.Value, decimal Coefficient = MTM.Rankine_Celsius_Coefficient, decimal Constant = MTM.Rankine_Celsius_Constant)
         {
-            return Task.FromResult(RankineToCelsius(Rankine, Coefficient, Constant));
+            return Task.Run(() => RankineToCelsius(Rankine, Coefficient, Constant));
         }
 
         /// <summary>
@@ -486,7 +486,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> RankineToFahrenheitAsync(decimal Rankine = MTM.Value, decimal Constant = MTM.Rankine_Fahrenheit_Constant)
         {
-            return Task.FromResult(RankineToFahrenheit(Rankine, Constant));
+            return Task.Run(() => RankineToFahrenheit(Rankine, Constant));
         }
 
         /// <summary>
@@ -516,7 +516,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> RankineToKelvinAsync(decimal Rankine = MTM.Value, decimal Coefficient = MTM.Rankine_Kelvin_Coefficient)
         {
-            return Task.FromResult(RankineToKelvin(Rankine, Coefficient));
+            return Task.Run(() => RankineToKelvin(Rankine, Coefficient));
         }
 
         /// <summary>
@@ -548,7 +548,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> RankineToReaumurAsync(decimal Rankine = MTM.Value, decimal Coefficient = MTM.Rankine_Reaumur_Coefficient, decimal Constant = MTM.Rankine_Reaumur_Constant)
         {
-            return Task.FromResult(RankineToReaumur(Rankine, Coefficient, Constant));
+            return Task.Run(() => RankineToReaumur(Rankine, Coefficient, Constant));
         }
 
         /// <summary>
@@ -578,7 +578,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> ReaumurToCelsiusAsync(decimal Reaumur = MTM.Value, decimal Coefficient = MTM.Reaumur_Celsius_Coefficient)
         {
-            return Task.FromResult(ReaumurToCelsius(Reaumur, Coefficient));
+            return Task.Run(() => ReaumurToCelsius(Reaumur, Coefficient));
         }
 
         /// <summary>
@@ -610,7 +610,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> ReaumurToFahrenheitAsync(decimal Reaumur = MTM.Value, decimal Coefficient = MTM.Reaumur_Fahrenheit_Coefficient, decimal Constant = MTM.Reaumur_Fahrenheit_Constant)
         {
-            return Task.FromResult(ReaumurToFahrenheit(Reaumur, Coefficient, Constant));
+            return Task.Run(() => ReaumurToFahrenheit(Reaumur, Coefficient, Constant));
         }
 
         /// <summary>
@@ -642,7 +642,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> ReaumurToKelvinAsync(decimal Reaumur = MTM.Value, decimal Coefficient = MTM.Reaumur_Kelvin_Coefficient, decimal Constant = MTM.Reaumur_Kelvin_Constant)
         {
-            return Task.FromResult(ReaumurToKelvin(Reaumur, Coefficient, Constant));
+            return Task.Run(() => ReaumurToKelvin(Reaumur, Coefficient, Constant));
         }
 
         /// <summary>
@@ -674,7 +674,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> ReaumurToRankineAsync(decimal Reaumur = MTM.Value, decimal Coefficient = MTM.Reaumur_Rankine_Coefficient, decimal Constant = MTM.Reaumur_Rankine_Constant)
         {
-            return Task.FromResult(ReaumurToRankine(Reaumur, Coefficient, Constant));
+            return Task.Run(() => ReaumurToRankine(Reaumur, Coefficient, Constant));
         }
     }
 }

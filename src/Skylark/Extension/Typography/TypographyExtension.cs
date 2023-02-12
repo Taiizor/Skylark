@@ -37,7 +37,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         private static Task<decimal> PixelToEmAsync(decimal Pixel = MTM.Value, decimal Coefficient = MTM.Pixel_Em_Coefficient, decimal Constant = MTM.Pixel_Em_Constant)
         {
-            return Task.FromResult(PixelToEm(Pixel, Coefficient, Constant));
+            return Task.Run(() => PixelToEm(Pixel, Coefficient, Constant));
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         private static Task<decimal> PixelToRemAsync(decimal Pixel = MTM.Value, decimal Coefficient = MTM.Pixel_Rem_Coefficient, decimal Constant = MTM.Pixel_Rem_Constant)
         {
-            return Task.FromResult(PixelToRem(Pixel, Coefficient, Constant));
+            return Task.Run(() => PixelToRem(Pixel, Coefficient, Constant));
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> PixelToInchAsync(decimal Pixel = MTM.Value, decimal Constant = MTM.Pixel_Inch_Constant)
         {
-            return Task.FromResult(PixelToInch(Pixel, Constant));
+            return Task.Run(() => PixelToInch(Pixel, Constant));
         }
 
         /// <summary>
@@ -129,7 +129,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> PixelToPuntoAsync(decimal Pixel = MTM.Value, decimal Coefficient = MTM.Pixel_Punto_Coefficient)
         {
-            return Task.FromResult(PixelToPunto(Pixel, Coefficient));
+            return Task.Run(() => PixelToPunto(Pixel, Coefficient));
         }
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> PixelToCentimeterAsync(decimal Pixel = MTM.Value, decimal Constant = MTM.Pixel_Centimeter_Constant)
         {
-            return Task.FromResult(PixelToCentimeter(Pixel, Constant));
+            return Task.Run(() => PixelToCentimeter(Pixel, Constant));
         }
 
         /// <summary>
@@ -189,7 +189,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> InchToPixelAsync(decimal Inch = MTM.Value, decimal Constant = MTM.Inch_Pixel_Constant)
         {
-            return Task.FromResult(InchToPixel(Inch, Constant));
+            return Task.Run(() => InchToPixel(Inch, Constant));
         }
 
         /// <summary>
@@ -219,7 +219,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> InchToPuntoAsync(decimal Inch = MTM.Value, decimal Constant = MTM.Inch_Punto_Constant)
         {
-            return Task.FromResult(InchToPunto(Inch, Constant));
+            return Task.Run(() => InchToPunto(Inch, Constant));
         }
 
         /// <summary>
@@ -249,7 +249,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> InchToCentimeterAsync(decimal Inch = MTM.Value, decimal Constant = MTM.Inch_Centimeter_Constant)
         {
-            return Task.FromResult(InchToCentimeter(Inch, Constant));
+            return Task.Run(() => InchToCentimeter(Inch, Constant));
         }
 
         /// <summary>
@@ -279,7 +279,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> PuntoToPixelAsync(decimal Punto = MTM.Value, decimal Coefficient = MTM.Punto_Pixel_Coefficient)
         {
-            return Task.FromResult(PuntoToPixel(Punto, Coefficient));
+            return Task.Run(() => PuntoToPixel(Punto, Coefficient));
         }
 
         /// <summary>
@@ -309,7 +309,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> PuntoToInchAsync(decimal Punto = MTM.Value, decimal Constant = MTM.Punto_Inch_Constant)
         {
-            return Task.FromResult(PuntoToInch(Punto, Constant));
+            return Task.Run(() => PuntoToInch(Punto, Constant));
         }
 
         /// <summary>
@@ -339,7 +339,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> PuntoToCentimeterAsync(decimal Punto = MTM.Value, decimal Constant = MTM.Punto_Centimeter_Constant)
         {
-            return Task.FromResult(PuntoToCentimeter(Punto, Constant));
+            return Task.Run(() => PuntoToCentimeter(Punto, Constant));
         }
 
         /// <summary>
@@ -371,7 +371,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> CentimeterToPixelAsync(decimal Centimeter = MTM.Value, decimal Coefficient = MTM.Centimeter_Pixel_Coefficient, decimal Constant = MTM.Centimeter_Pixel_Constant)
         {
-            return Task.FromResult(CentimeterToPixel(Centimeter, Coefficient, Constant));
+            return Task.Run(() => CentimeterToPixel(Centimeter, Coefficient, Constant));
         }
 
         /// <summary>
@@ -401,7 +401,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> CentimeterToInchAsync(decimal Centimeter = MTM.Value, decimal Constant = MTM.Centimeter_Inch_Constant)
         {
-            return Task.FromResult(CentimeterToInch(Centimeter, Constant));
+            return Task.Run(() => CentimeterToInch(Centimeter, Constant));
         }
 
         /// <summary>
@@ -431,7 +431,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<decimal> CentimeterToPuntoAsync(decimal Centimeter = MTM.Value, decimal Constant = MTM.Centimeter_Punto_Constant)
         {
-            return Task.FromResult(CentimeterToPunto(Centimeter, Constant));
+            return Task.Run(() => CentimeterToPunto(Centimeter, Constant));
         }
     }
 }

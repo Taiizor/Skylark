@@ -44,7 +44,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> TextToBaseAsync(string Text = MCM.Text, EET Encode = MCM.Encode)
         {
-            return Task.FromResult(TextToBase(Text, Encode));
+            return Task.Run(() => TextToBase(Text, Encode));
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> TextToAesAsync(string Text = MCM.Text, string IV = MCM.IV, string Key = MCM.Key, CipherMode Mode = MCM.Cipher, EET Encode = MCM.Encode)
         {
-            return Task.FromResult(TextToAes(Text, IV, Key, Mode, Encode));
+            return Task.Run(() => TextToAes(Text, IV, Key, Mode, Encode));
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> TextToMD5Async(string Text = MCM.Text, bool Upper = MCM.Upper, bool Invariant = MCM.Invariant, EET Encode = MCM.Mode)
         {
-            return Task.FromResult(TextToMD5(Text, Upper, Invariant, Encode));
+            return Task.Run(() => TextToMD5(Text, Upper, Invariant, Encode));
         }
 
         /// <summary>
@@ -188,7 +188,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> TextToSHA1Async(string Text = MCM.Text, bool Upper = MCM.Upper, bool Invariant = MCM.Invariant, EET Encode = MCM.Mode)
         {
-            return Task.FromResult(TextToSHA1(Text, Upper, Invariant, Encode));
+            return Task.Run(() => TextToSHA1(Text, Upper, Invariant, Encode));
         }
 
         /// <summary>
@@ -226,7 +226,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> TextToSHA256Async(string Text = MCM.Text, bool Upper = MCM.Upper, bool Invariant = MCM.Invariant, EET Encode = MCM.Mode)
         {
-            return Task.FromResult(TextToSHA256(Text, Upper, Invariant, Encode));
+            return Task.Run(() => TextToSHA256(Text, Upper, Invariant, Encode));
         }
 
         /// <summary>
@@ -264,7 +264,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> TextToSHA384Async(string Text = MCM.Text, bool Upper = MCM.Upper, bool Invariant = MCM.Invariant, EET Encode = MCM.Mode)
         {
-            return Task.FromResult(TextToSHA384(Text, Upper, Invariant, Encode));
+            return Task.Run(() => TextToSHA384(Text, Upper, Invariant, Encode));
         }
 
         /// <summary>
@@ -302,7 +302,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> TextToSHA512Async(string Text = MCM.Text, bool Upper = MCM.Upper, bool Invariant = MCM.Invariant, EET Encode = MCM.Mode)
         {
-            return Task.FromResult(TextToSHA512(Text, Upper, Invariant, Encode));
+            return Task.Run(() => TextToSHA512(Text, Upper, Invariant, Encode));
         }
 
         /// <summary>
@@ -334,7 +334,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> BaseToTextAsync(string Base = MCM.Base, EET Encode = MCM.Encode)
         {
-            return Task.FromResult(BaseToText(Base, Encode));
+            return Task.Run(() => BaseToText(Base, Encode));
         }
 
         /// <summary>
@@ -403,7 +403,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> AesToTextAsync(string Aes = MCM.Aes, string IV = MCM.IV, string Key = MCM.Key, CipherMode Mode = MCM.Cipher, EET Encode = MCM.Encode)
         {
-            return Task.FromResult(AesToText(Aes, IV, Key, Mode, Encode));
+            return Task.Run(() => AesToText(Aes, IV, Key, Mode, Encode));
         }
     }
 }

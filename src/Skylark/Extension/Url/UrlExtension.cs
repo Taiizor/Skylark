@@ -36,7 +36,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> EncodeAsync(string Url = MUM.Url)
         {
-            return Task.FromResult(Encode(Url));
+            return Task.Run(() => Encode(Url));
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> DecodeAsync(string Url = MUM.Url)
         {
-            return Task.FromResult(Decode(Url));
+            return Task.Run(() => Decode(Url));
         }
     }
 }

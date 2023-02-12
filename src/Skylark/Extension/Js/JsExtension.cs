@@ -49,7 +49,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToMinifyAsync(string Js = MJM.Js)
         {
-            return Task.FromResult(ToMinify(Js));
+            return Task.Run(() => ToMinify(Js));
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToBeautyAsync(string Js = MJM.Js)
         {
-            return Task.FromResult(ToBeauty(Js));
+            return Task.Run(() => ToBeauty(Js));
         }
     }
 }

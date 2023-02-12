@@ -55,7 +55,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> EncodeAsync(string Html = MHM.Html)
         {
-            return Task.FromResult(Encode(Html));
+            return Task.Run(() => Encode(Html));
         }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> DecodeAsync(string Html = MHM.Html)
         {
-            return Task.FromResult(Decode(Html));
+            return Task.Run(() => Decode(Html));
         }
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToMinifyAsync(string Html = MHM.Html)
         {
-            return Task.FromResult(ToMinify(Html));
+            return Task.Run(() => ToMinify(Html));
         }
 
         /// <summary>
@@ -180,7 +180,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToBeautyAsync(string Html = MHM.Html)
         {
-            return Task.FromResult(ToBeauty(Html));
+            return Task.Run(() => ToBeauty(Html));
         }
     }
 }

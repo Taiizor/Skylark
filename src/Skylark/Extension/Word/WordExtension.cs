@@ -46,7 +46,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<SWDS> DataAsync(string List = MWM.List)
         {
-            return Task.FromResult(Data(List));
+            return Task.Run(() => Data(List));
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<SWCS> CombineAsync(string List = MWM.List, char Space = MWM.Space, char Separator = MWM.Separator)
         {
-            return Task.FromResult(Combine(List, Space, Separator));
+            return Task.Run(() => Combine(List, Space, Separator));
         }
     }
 }

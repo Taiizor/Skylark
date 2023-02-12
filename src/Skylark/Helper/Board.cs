@@ -62,7 +62,7 @@
         /// <returns></returns>
         public static Task<object> PasteAsync(bool Clear = false, object Back = null)
         {
-            return Task.FromResult(Paste(Clear, Back));
+            return Task.Run(() => Paste(Clear, Back));
         }
     }
 }

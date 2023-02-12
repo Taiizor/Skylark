@@ -50,7 +50,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> FileToMD5Async(string Path = MHM.Path, string Split = MHM.Split, bool Upper = MHM.Upper, bool Invariant = MHM.Invariant)
         {
-            return Task.FromResult(FileToMD5(Path, Split, Upper, Invariant));
+            return Task.Run(() => FileToMD5(Path, Split, Upper, Invariant));
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> FileToSHA1Async(string Path = MHM.Path, string Split = MHM.Split, bool Upper = MHM.Upper, bool Invariant = MHM.Invariant)
         {
-            return Task.FromResult(FileToSHA1(Path, Split, Upper, Invariant));
+            return Task.Run(() => FileToSHA1(Path, Split, Upper, Invariant));
         }
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> FileToSHA256Async(string Path = MHM.Path, string Split = MHM.Split, bool Upper = MHM.Upper, bool Invariant = MHM.Invariant)
         {
-            return Task.FromResult(FileToSHA256(Path, Split, Upper, Invariant));
+            return Task.Run(() => FileToSHA256(Path, Split, Upper, Invariant));
         }
 
         /// <summary>
@@ -173,7 +173,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> FileToSHA384Async(string Path = MHM.Path, string Split = MHM.Split, bool Upper = MHM.Upper, bool Invariant = MHM.Invariant)
         {
-            return Task.FromResult(FileToSHA384(Path, Split, Upper, Invariant));
+            return Task.Run(() => FileToSHA384(Path, Split, Upper, Invariant));
         }
 
         /// <summary>
@@ -214,7 +214,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> FileToSHA512Async(string Path = MHM.Path, string Split = MHM.Split, bool Upper = MHM.Upper, bool Invariant = MHM.Invariant)
         {
-            return Task.FromResult(FileToSHA512(Path, Split, Upper, Invariant));
+            return Task.Run(() => FileToSHA512(Path, Split, Upper, Invariant));
         }
     }
 }

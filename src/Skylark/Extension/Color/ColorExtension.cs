@@ -41,7 +41,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToHexAsync(Color Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
         {
-            return Task.FromResult(ToHex(Color, Upper, Sharp));
+            return Task.Run(() => ToHex(Color, Upper, Sharp));
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToHexIntegerAsync(Color Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
         {
-            return Task.FromResult(ToHexInteger(Color, Upper, Sharp));
+            return Task.Run(() => ToHexInteger(Color, Upper, Sharp));
         }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToRGBAsync(Color Color)
         {
-            return Task.FromResult(ToRGB(Color));
+            return Task.Run(() => ToRGB(Color));
         }
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToARGBAsync(Color Color)
         {
-            return Task.FromResult(ToARGB(Color));
+            return Task.Run(() => ToARGB(Color));
         }
 
         /// <summary>
@@ -169,7 +169,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToHSBAsync(Color Color)
         {
-            return Task.FromResult(ToHSB(Color));
+            return Task.Run(() => ToHSB(Color));
         }
 
         /// <summary>
@@ -203,7 +203,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToHSIAsync(Color Color)
         {
-            return Task.FromResult(ToHSI(Color));
+            return Task.Run(() => ToHSI(Color));
         }
 
         /// <summary>
@@ -237,7 +237,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToHSLAsync(Color Color)
         {
-            return Task.FromResult(ToHSL(Color));
+            return Task.Run(() => ToHSL(Color));
         }
 
         /// <summary>
@@ -271,7 +271,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToHSVAsync(Color Color)
         {
-            return Task.FromResult(ToHSV(Color));
+            return Task.Run(() => ToHSV(Color));
         }
 
         /// <summary>
@@ -305,7 +305,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToHWBAsync(Color Color)
         {
-            return Task.FromResult(ToHWB(Color));
+            return Task.Run(() => ToHWB(Color));
         }
 
         /// <summary>
@@ -340,7 +340,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToCMYKAsync(Color Color)
         {
-            return Task.FromResult(ToCMYK(Color));
+            return Task.Run(() => ToCMYK(Color));
         }
 
         /// <summary>
@@ -374,7 +374,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToCIELABAsync(Color Color)
         {
-            return Task.FromResult(ToCIELAB(Color));
+            return Task.Run(() => ToCIELAB(Color));
         }
 
         /// <summary>
@@ -408,7 +408,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToCIEXYZAsync(Color Color)
         {
-            return Task.FromResult(ToCIEXYZ(Color));
+            return Task.Run(() => ToCIEXYZ(Color));
         }
 
         /// <summary>
@@ -441,7 +441,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToFloatAsync(Color Color)
         {
-            return Task.FromResult(ToFloat(Color));
+            return Task.Run(() => ToFloat(Color));
         }
 
         /// <summary>
@@ -469,7 +469,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToDecimalAsync(Color Color)
         {
-            return Task.FromResult(ToDecimal(Color));
+            return Task.Run(() => ToDecimal(Color));
         }
 
         /// <summary>
@@ -502,7 +502,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToNaturalAsync(Color Color)
         {
-            return Task.FromResult(ToNatural(Color));
+            return Task.Run(() => ToNatural(Color));
         }
 
         /// <summary>
@@ -538,7 +538,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> RGBToHexAsync(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
         {
-            return Task.FromResult(RGBToHex(R, G, B, Upper, Sharp));
+            return Task.Run(() => RGBToHex(R, G, B, Upper, Sharp));
         }
 
         /// <summary>
@@ -576,7 +576,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ARGBToHexAsync(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
         {
-            return Task.FromResult(ARGBToHex(A, R, G, B, Upper, Sharp));
+            return Task.Run(() => ARGBToHex(A, R, G, B, Upper, Sharp));
         }
 
         /// <summary>
@@ -608,7 +608,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<Color> RGBToColorAsync(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
         {
-            return Task.FromResult(RGBToColor(R, G, B));
+            return Task.Run(() => RGBToColor(R, G, B));
         }
 
         /// <summary>
@@ -642,7 +642,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<Color> ARGBToColorAsync(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
         {
-            return Task.FromResult(ARGBToColor(A, R, G, B));
+            return Task.Run(() => ARGBToColor(A, R, G, B));
         }
 
         /// <summary>
@@ -683,7 +683,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> HexToRGBAsync(string Hex = MCM.Hex)
         {
-            return Task.FromResult(HexToRGB(Hex));
+            return Task.Run(() => HexToRGB(Hex));
         }
 
         /// <summary>
@@ -722,7 +722,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> HexToARGBAsync(string Hex = MCM.HexAlpha)
         {
-            return Task.FromResult(HexToARGB(Hex));
+            return Task.Run(() => HexToARGB(Hex));
         }
 
         /// <summary>
@@ -772,7 +772,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<Color> HexToColorAsync(string Hex = MCM.Hex)
         {
-            return Task.FromResult(HexToColor(Hex));
+            return Task.Run(() => HexToColor(Hex));
         }
     }
 }

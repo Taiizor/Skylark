@@ -49,7 +49,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToMinifyAsync(string Xhtml = MXM.Xhtml)
         {
-            return Task.FromResult(ToMinify(Xhtml));
+            return Task.Run(() => ToMinify(Xhtml));
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<string> ToBeautyAsync(string Xhtml = MXM.Xhtml)
         {
-            return Task.FromResult(ToBeauty(Xhtml));
+            return Task.Run(() => ToBeauty(Xhtml));
         }
     }
 }
