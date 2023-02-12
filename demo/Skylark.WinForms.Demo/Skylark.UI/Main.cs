@@ -1212,8 +1212,9 @@ namespace Skylark.UI
         {
             try
             {
-                string Result = await HashExtension.FileToSHA512Async("G:\\Film\\Parasite.mp4", "", true, true);
-                MessageBox.Show(Result);
+                await Board.CopyAsync("Hello, World!");
+
+                MessageBox.Show($"{await Board.PasteAsync(false, "Empty!")}");
             }
             catch (Exception Ex)
             {
