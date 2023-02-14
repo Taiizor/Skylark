@@ -6,7 +6,6 @@ using System;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using TextCopy;
 
 namespace Skylark.UI
 {
@@ -616,9 +615,7 @@ namespace Skylark.UI
                 if (button4.Cursor == Cursors.Hand)
                 {
                     button4.Cursor = Cursors.No;
-                    Board.Copy(textBox4);
-                    ClipboardService.SetText(textBox4.Text);
-
+                    Memory.Copy(textBox4.Text);
                 }
             }
             catch (Exception Ex)
@@ -677,7 +674,7 @@ namespace Skylark.UI
                 if (button6.Cursor == Cursors.Hand)
                 {
                     button6.Cursor = Cursors.No;
-                    ClipboardService.SetText(textBox2.Text);
+                    Memory.Copy(textBox2.Text);
                 }
             }
             catch (Exception Ex)
@@ -747,7 +744,7 @@ namespace Skylark.UI
                 if (button9.Cursor == Cursors.Hand)
                 {
                     button9.Cursor = Cursors.No;
-                    ClipboardService.SetText(textBox8.Text);
+                    Memory.Copy(textBox8.Text);
                 }
             }
             catch (Exception Ex)
@@ -838,7 +835,7 @@ namespace Skylark.UI
                 if (button23.Cursor == Cursors.Hand)
                 {
                     button23.Cursor = Cursors.No;
-                    ClipboardService.SetText(textBox19.Text);
+                    Memory.Copy(textBox19.Text);
                 }
             }
             catch (Exception Ex)
@@ -888,7 +885,7 @@ namespace Skylark.UI
                 if (button24.Cursor == Cursors.Hand)
                 {
                     button24.Cursor = Cursors.No;
-                    ClipboardService.SetText(textBox22.Text);
+                    Memory.Copy(textBox22.Text);
                 }
             }
             catch (Exception Ex)
@@ -938,7 +935,7 @@ namespace Skylark.UI
                 if (button10.Cursor == Cursors.Hand)
                 {
                     button10.Cursor = Cursors.No;
-                    ClipboardService.SetText(textBox6.Text + ", " + textBox9.Text + ", " + textBox10.Text);
+                    Memory.Copy(textBox6.Text + ", " + textBox9.Text + ", " + textBox10.Text);
                 }
             }
             catch (Exception Ex)
@@ -994,7 +991,7 @@ namespace Skylark.UI
                 if (button13.Cursor == Cursors.Hand)
                 {
                     button13.Cursor = Cursors.No;
-                    ClipboardService.SetText(textBox11.Text);
+                    Memory.Copy(textBox11.Text);
                 }
             }
             catch (Exception Ex)
@@ -1010,7 +1007,7 @@ namespace Skylark.UI
                 if (button14.Cursor == Cursors.Hand)
                 {
                     button14.Cursor = Cursors.No;
-                    ClipboardService.SetText(textBox12.Text);
+                    Memory.Copy(textBox12.Text);
                 }
             }
             catch (Exception Ex)
@@ -1097,7 +1094,7 @@ namespace Skylark.UI
             if (button17.Cursor == Cursors.Hand)
             {
                 button17.Cursor = Cursors.No;
-                ClipboardService.SetText(textBox13.Text);
+                Memory.Copy(textBox13.Text);
             }
         }
 
@@ -1106,7 +1103,7 @@ namespace Skylark.UI
             if (button18.Cursor == Cursors.Hand)
             {
                 button18.Cursor = Cursors.No;
-                ClipboardService.SetText(textBox16.Text);
+                Memory.Copy(textBox16.Text);
             }
         }
 

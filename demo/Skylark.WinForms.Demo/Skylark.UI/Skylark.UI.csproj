@@ -15,7 +15,6 @@
     <StartupObject>Skylark.UI.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="TextCopy" Version="6.2.1" />
     <!--<PackageReference Include="Skylark" Version="2.0.2.7" />-->
     <Reference Include="Skylark">
       <HintPath>..\..\..\src\Skylark\bin\Release\netstandard2.1\Skylark.dll</HintPath>
