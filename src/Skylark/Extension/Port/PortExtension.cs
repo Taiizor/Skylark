@@ -9,7 +9,7 @@ namespace Skylark.Extension
     /// <summary>
     /// 
     /// </summary>
-    public class PortExtension
+    public static class PortExtension
     {
         /// <summary>
         /// 
@@ -150,7 +150,7 @@ namespace Skylark.Extension
         /// <param name="Ports"></param>
         /// <param name="Timeout"></param>
         /// <returns></returns>
-        public static Dictionary<int, PortType> ScanFirstOpen(string Address = MPM.Address, int[] Ports = null, int Timeout = MPM.Timeout)
+        public static Dictionary<int, PortType> ScanOpen(string Address = MPM.Address, int[] Ports = null, int Timeout = MPM.Timeout)
         {
             try
             {
@@ -190,7 +190,7 @@ namespace Skylark.Extension
         /// <returns></returns>
         public static Task<Dictionary<int, PortType>> ScanAsync(string Address = MPM.Address, int[] Ports = null, int Timeout = MPM.Timeout)
         {
-            return Task.Run(() => ScanFirstOpen(Address, Ports, Timeout));
+            return Task.Run(() => ScanOpen(Address, Ports, Timeout));
         }
     }
 }
