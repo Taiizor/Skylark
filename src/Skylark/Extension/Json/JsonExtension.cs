@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Dynamic;
+using Newtonsoft.Json;
 using System.Text;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
@@ -158,5 +159,15 @@ namespace Skylark.Extension
         {
             return Task.Run(() => ToMinify(Json));
         }
+
+        /// <summary>
+        /// Deserializes json into an expando object. Convenient
+        /// for quick json parsing and good for unknown/random json
+        /// structures thanks to the underlying Dictionary<string, object?>
+        /// </summary>
+        /// <param name="Json"></param>
+        /// <returns></returns>
+        public static ExpandoObject ToExpando(string Json)
+            => JsonConvert.DeserializeObject<ExpandoObject>(Json);
     }
 }
