@@ -1,5 +1,6 @@
 ﻿using Skylark.Extension;
 using System.Drawing;
+using Skylark.Struct.Color;
 
 namespace ConsoleDemoColor
 {
@@ -58,6 +59,16 @@ namespace ConsoleDemoColor
             Console.WriteLine(ColorExtension.HexToColor("#DC143C").ToString());
             Console.WriteLine(ColorExtension.HexToColor("#00DC143C").ToString());
             Console.WriteLine(ColorExtension.HexToColor("#FFDC143C").ToString());
+
+            Console.WriteLine("\n---New RGB Struct---");
+            var rgb = new Rgb(0, 0, 0);
+            Console.WriteLine(rgb.ToInt());
+            Console.WriteLine(rgb);
+            rgb = new(255, 255, 255);
+            Console.WriteLine(rgb.ToInt());
+            Console.WriteLine(rgb);
+
+            Console.WriteLine($"RGB Blend: {rgb.Blend(new Rgb(0 ,0 ,0))}");
 
             Console.ReadKey();
         }

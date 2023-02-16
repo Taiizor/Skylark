@@ -19,5 +19,32 @@
                 return max;
             return value;
         }
+
+        /// <summary>
+        /// Finds the average of all elements given, implemented
+        /// entirely by the user to be compatible between any
+        /// types.
+        /// </summary>
+        /// <param name="Elements">The elements to average</param>
+        /// <param name="Zero">Zero as TSum for sum start</param>
+        /// <param name="AddToSum">Function to add the TSum with the next TIn element</param>
+        /// <param name="DivSum">Function to divide the TSum with 2. The output is returned</param>
+        /// <typeparam name="TIn">Type of elements to sum</typeparam>
+        /// <typeparam name="TSum">Type to sum into in case of imminent overflow i.e. bytes, shorts</typeparam>
+        /// <typeparam name="TOut">Type to return in DivSum</typeparam>
+        /// <returns></returns>
+        public static TOut Average<TIn, TSum, TOut>
+            (IEnumerable<TIn> Elements, TSum Zero, Func<TSum, TIn, TSum> AddToSum, Func<TSum, int, TOut> DivSum)
+        {
+            var count = 0;
+            TSum sum = Zero;
+            foreach (var el in Elements)
+            {
+                sum = AddToSum(sum, el);
+                count += 1;
+            }
+
+            return DivSum(sum, count);
+        }
     }
 }
