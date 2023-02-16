@@ -7,7 +7,7 @@ namespace Skylark.Helper
     /// <summary>
     /// 
     /// </summary>
-    internal class ColorHelper
+    internal static class ColorHelper
     {
         /// <summary>
         /// 
@@ -18,9 +18,9 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static Color ConvertToColor(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
         {
-            R = HL.Number(R, MCM.ValueMin, MCM.ValueMax);
-            G = HL.Number(G, MCM.ValueMin, MCM.ValueMax);
-            B = HL.Number(B, MCM.ValueMin, MCM.ValueMax);
+            R = HL.Clamp(R, MCM.ValueMin, MCM.ValueMax);
+            G = HL.Clamp(G, MCM.ValueMin, MCM.ValueMax);
+            B = HL.Clamp(B, MCM.ValueMin, MCM.ValueMax);
 
             return Color.FromArgb(R, G, B);
         }
@@ -35,10 +35,10 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static Color ConvertToColor(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
         {
-            A = HL.Number(A, MCM.ValueMin, MCM.ValueMax);
-            R = HL.Number(R, MCM.ValueMin, MCM.ValueMax);
-            G = HL.Number(G, MCM.ValueMin, MCM.ValueMax);
-            B = HL.Number(B, MCM.ValueMin, MCM.ValueMax);
+            A = HL.Clamp(A, MCM.ValueMin, MCM.ValueMax);
+            R = HL.Clamp(R, MCM.ValueMin, MCM.ValueMax);
+            G = HL.Clamp(G, MCM.ValueMin, MCM.ValueMax);
+            B = HL.Clamp(B, MCM.ValueMin, MCM.ValueMax);
 
             return Color.FromArgb(A, R, G, B);
         }

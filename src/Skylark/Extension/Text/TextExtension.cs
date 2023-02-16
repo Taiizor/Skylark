@@ -9,7 +9,7 @@ namespace Skylark.Extension
     /// <summary>
     /// 
     /// </summary>
-    public class TextExtension
+    public static class TextExtension
     {
         /// <summary>
         /// 
@@ -26,7 +26,7 @@ namespace Skylark.Extension
             {
                 Text = HL.Text(Text, MTM.Text);
                 Symbol = HL.Parameter(Symbol, MTM.CutSymbol);
-                Length = HL.Number(Length, MTM.MinLength, MTM.MaxLength);
+                Length = HL.Clamp(Length, MTM.MinLength, MTM.MaxLength);
 
                 if (Text.Length <= Length)
                 {
@@ -105,7 +105,7 @@ namespace Skylark.Extension
         {
             try
             {
-                List = HL.Number(List, MTM.MinList, MTM.MaxList);
+                List = HL.Clamp(List, MTM.MinList, MTM.MaxList);
 
                 StringBuilder Builder = new();
 
@@ -177,7 +177,7 @@ namespace Skylark.Extension
         {
             try
             {
-                Paragraph = HL.Number(Paragraph, MTM.MinParagraph, MTM.MaxParagraph);
+                Paragraph = HL.Clamp(Paragraph, MTM.MinParagraph, MTM.MaxParagraph);
 
                 StringBuilder Builder = new();
 
@@ -223,7 +223,7 @@ namespace Skylark.Extension
         {
             try
             {
-                Word = HL.Number(Word, MTM.MinWord, MTM.MaxWord);
+                Word = HL.Clamp(Word, MTM.MinWord, MTM.MaxWord);
 
                 string Result = string.Empty;
 

@@ -13,7 +13,7 @@ namespace Skylark.Extension
     /// <summary>
     /// 
     /// </summary>
-    public class PasswordExtension
+    public static class PasswordExtension
     {
         public static EMPT Meter(string Password = MPM.Password)
         {
@@ -88,7 +88,7 @@ namespace Skylark.Extension
                     throw new E(MPM.Error);
                 }
 
-                string Secret = new(Enumerable.Repeat(Chars, HL.Number(Length, MPM.MinLength, MPM.MaxLength))
+                string Secret = new(Enumerable.Repeat(Chars, HL.Clamp(Length, MPM.MinLength, MPM.MaxLength))
                     .Select(Char => Char[ME.Randomise.Next(Char.Length)]).ToArray());
 
                 return Prefix + Secret + Suffix;
