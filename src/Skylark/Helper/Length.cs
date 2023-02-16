@@ -1,11 +1,12 @@
-﻿using MI = Skylark.Manage.Internal;
+﻿using HS = Skylark.Helper.Skymath;
+using MI = Skylark.Manage.Internal;
 
 namespace Skylark.Helper
 {
     /// <summary>
     /// 
     /// </summary>
-    internal static class Length
+    internal class Length
     {
         /// <summary>
         /// 
@@ -38,7 +39,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static int Clamp(int Value, int MinValue, int MaxValue)
         {
-            return SkyMath.Clamp(Value, MinValue, MaxValue);
+            return HS.Clamp(Value, MinValue, MaxValue);
         }
     }
 }

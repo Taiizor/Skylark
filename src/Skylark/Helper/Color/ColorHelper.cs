@@ -7,7 +7,7 @@ namespace Skylark.Helper
     /// <summary>
     /// 
     /// </summary>
-    internal static class ColorHelper
+    internal class ColorHelper
     {
         /// <summary>
         /// 

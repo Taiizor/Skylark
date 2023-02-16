@@ -10,7 +10,7 @@ namespace Skylark.Extension
     /// <summary>
     /// 
     /// </summary>
-    public static class PingExtension
+    public class PingExtension
     {
         /// <summary>
         /// 

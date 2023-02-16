@@ -13,7 +13,7 @@ namespace Skylark.Extension
     /// <summary>
     /// 
     /// </summary>
-    public static class PasswordExtension
+    public class PasswordExtension
     {
         public static EMPT Meter(string Password = MPM.Password)
         {

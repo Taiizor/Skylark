@@ -1,23 +1,32 @@
-﻿namespace Skylark
+﻿namespace Skylark.Helper
 {
-    public static class SkyMath
+    /// <summary>
+    /// 
+    /// </summary>
+    internal class Skymath
     {
         /// <summary>
         /// Determines if a number is at least min and at most max.
         /// If val is above max, returns max. If val is below min. returns min.
         /// </summary>
-        /// <param name="value">The value to clamp</param>
-        /// <param name="min">Minimum value to compare</param>
-        /// <param name="max">Maximum value to compare</param>
+        /// <param name="Value">The value to clamp</param>
+        /// <param name="Min">Minimum value to compare</param>
+        /// <param name="Max">Maximum value to compare</param>
         /// <typeparam name="T">Comparable type to clamp</typeparam>
         /// <returns>Clamped value</returns>
-        public static T Clamp<T>(T value, T min, T max) where T : IComparable<T>
+        public static T Clamp<T>(T Value, T Min, T Max) where T : IComparable<T>
         {
-            if (value.CompareTo(min) < 0)
-                return min;
-            if (value.CompareTo(max) > 0)
-                return max;
-            return value;
+            if (Value.CompareTo(Min) < 0)
+            {
+                return Min;
+            }
+
+            if (Value.CompareTo(Max) > 0)
+            {
+                return Max;
+            }
+
+            return Value;
         }
 
         /// <summary>
@@ -33,12 +42,11 @@
         /// <typeparam name="TSum">Type to sum into in case of imminent overflow i.e. bytes, shorts</typeparam>
         /// <typeparam name="TOut">Type to return in DivSum</typeparam>
         /// <returns></returns>
-        public static TOut Average<TIn, TSum, TOut>
-            (IEnumerable<TIn> Elements, TSum Zero, Func<TSum, TIn, TSum> AddToSum, Func<TSum, int, TOut> DivSum)
+        public static TOut Average<TIn, TSum, TOut>(IEnumerable<TIn> Elements, TSum Zero, Func<TSum, TIn, TSum> AddToSum, Func<TSum, int, TOut> DivSum)
         {
-            var count = 0;
+            int count = 0;
             TSum sum = Zero;
-            foreach (var el in Elements)
+            foreach (TIn el in Elements)
             {
                 sum = AddToSum(sum, el);
                 count += 1;
