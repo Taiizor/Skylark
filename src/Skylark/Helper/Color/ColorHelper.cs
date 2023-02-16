@@ -41,7 +41,7 @@ namespace Skylark.Helper
             B = HL.Clamp(B, MCM.ValueMin, MCM.ValueMax);
 
             return Color.FromArgb(A, R, G, B);
-        }d
+        }
 
         /// <summary>
         /// 
