@@ -10,7 +10,7 @@ namespace Skylark.Extension
     /// <summary>
     /// 
     /// </summary>
-    public class PingExtension
+    public static class PingExtension
     {
         /// <summary>
         /// 
@@ -28,9 +28,9 @@ namespace Skylark.Extension
 
                 SPSS Result = MPM.Result;
 
-                ME.PingOptions = new(HL.Number(Ttl, MPM.MinTtl, MPM.MaxTtl), Fragment);
+                ME.PingOptions = new(HL.Clamp(Ttl, MPM.MinTtl, MPM.MaxTtl), Fragment);
 
-                PingReply Reply = ME.Ping.Send(Address, HL.Number(Timeout, MPM.MinTimeout, MPM.MaxTimeout), MPM.Buffer, ME.PingOptions);
+                PingReply Reply = ME.Ping.Send(Address, HL.Clamp(Timeout, MPM.MinTimeout, MPM.MaxTimeout), MPM.Buffer, ME.PingOptions);
 
                 if (Reply.Status == IPStatus.Success)
                 {

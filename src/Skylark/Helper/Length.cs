@@ -5,7 +5,7 @@ namespace Skylark.Helper
     /// <summary>
     /// 
     /// </summary>
-    internal class Length
+    internal static class Length
     {
         /// <summary>
         /// 
@@ -36,9 +36,9 @@ namespace Skylark.Helper
         /// <param name="MinValue"></param>
         /// <param name="MaxValue"></param>
         /// <returns></returns>
-        public static int Number(int Value, int MinValue, int MaxValue)
+        public static int Clamp(int Value, int MinValue, int MaxValue)
         {
-            return Math.Min(MaxValue, Math.Max(Value, MinValue));
+            return SkyMath.Clamp(Value, MinValue, MaxValue);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Skylark.Helper
     /// <summary>
     /// 
     /// </summary>
-    public class Numeric
+    public static class Numeric
     {
         /// <summary>
         /// 
@@ -198,7 +198,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         private static string Numeral(string Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', ECNT Clear = ClearType)
         {
-            Digit = HL.Number(Digit, 0, 99);
+            Digit = HL.Clamp(Digit, 0, 99);
 
             string Temp = HL.Parameter($"{Value}", "123456");
 
