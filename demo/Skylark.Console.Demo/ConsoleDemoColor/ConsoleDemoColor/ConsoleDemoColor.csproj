@@ -7,14 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <!--<ItemGroup>
-    <PackageReference Include="Skylark" Version="2.0.2.7" />
-  </ItemGroup>-->
-
   <ItemGroup>
-    <Reference Include="Skylark">
-      <HintPath>..\..\..\..\src\Skylark\bin\Release\netstandard2.1\Skylark.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Skylark" Version="2.0.2.8" />
   </ItemGroup>
 
 </Project>

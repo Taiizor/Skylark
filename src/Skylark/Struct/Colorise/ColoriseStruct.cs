@@ -40,13 +40,13 @@ namespace Skylark.Struct
         /// <returns></returns>
         public int ToInt()
         {
-            int n = 0;
-            n += R;
-            n <<= 8;
-            n += G;
-            n <<= 8;
-            n += B;
-            return n;
+            int N = 0;
+            N += R;
+            N <<= 8;
+            N += G;
+            N <<= 8;
+            N += B;
+            return N;
         }
 
         /// <summary>
