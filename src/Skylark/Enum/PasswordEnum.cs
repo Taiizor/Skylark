@@ -51,7 +51,7 @@ namespace Skylark.Enum
         {
             var result = (int)meterPasswordType + 20;
             
-            SkyMath.Clamp(result, LowestPasswordStrength, HighestPasswordStrength);
+            Skymath.Clamp(result, LowestPasswordStrength, HighestPasswordStrength);
             Debug.Assert(result % 20 == 0);
             return (MeterPasswordType)result;
         }
@@ -60,7 +60,7 @@ namespace Skylark.Enum
         {
             var result = (int)meterPasswordType - 20;
             
-            SkyMath.Clamp(result, LowestPasswordStrength, HighestPasswordStrength);
+            Skymath.Clamp(result, LowestPasswordStrength, HighestPasswordStrength);
             Debug.Assert(result % 20 == 0);
             return (MeterPasswordType)result;
         }

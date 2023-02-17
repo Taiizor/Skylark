@@ -3,14 +3,14 @@ using System.Dynamic;
 using System.Text;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
-using MJM = Skylark.Manage.JsonManage;
+using MJM = Skylark.Manage.Json.JsonManage;
 
 namespace Skylark.Extension
 {
     /// <summary>
     /// 
     /// </summary>
-    public class JsonExtension
+    public static class JsonExtension
     {
         /// <summary>
         /// 

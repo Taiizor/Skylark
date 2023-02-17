@@ -11,7 +11,7 @@ namespace Skylark.Manage
         /// <summary>
         /// 
         /// </summary>
-        public static readonly Ping Ping = new();
+        public static readonly System.Net.NetworkInformation.Ping Ping = new();
 
         /// <summary>
         /// 
@@ -21,7 +21,7 @@ namespace Skylark.Manage
         /// <summary>
         /// 
         /// </summary>
-        public static PingOptions PingOptions = new(MPM.Ttl, MPM.Fragment);
+        public static readonly PingOptions PingOptions = new(MPM.Ttl, MPM.Fragment);
 
         /// <summary>
         /// 
