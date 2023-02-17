@@ -25,8 +25,8 @@ namespace ConsoleDemoPort
 
             Console.WriteLine();
 
-            Dictionary<int, PortType> Scan2 = PortExtension.Scan("www.google.com", new[] { 21, 80, 443 }, 500);
-            foreach (KeyValuePair<int, PortType> Pair in Scan2)
+            Dictionary<int, PortType> ScanMultiple = PortExtension.ScanMultiple("www.google.com", new[] { 21, 80, 443 }, 500);
+            foreach (KeyValuePair<int, PortType> Pair in ScanMultiple)
             {
                 Console.WriteLine($"{Pair.Key}: {Pair.Value}");
             }

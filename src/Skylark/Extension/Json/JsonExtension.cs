@@ -1,16 +1,16 @@
-﻿using System.Dynamic;
+﻿using Newtonsoft.Json;
+using System.Dynamic;
 using System.Text;
-using Newtonsoft.Json;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
-using MJM = Skylark.Manage.Json.JsonManage;
+using MJM = Skylark.Manage.JsonManage;
 
-namespace Skylark.Extension.Json
+namespace Skylark.Extension
 {
     /// <summary>
     /// 
     /// </summary>
-    public static class JsonExtension
+    public class JsonExtension
     {
         /// <summary>
         /// 
@@ -163,11 +163,25 @@ namespace Skylark.Extension.Json
         /// <summary>
         /// Deserializes json into an expando object. Convenient
         /// for quick json parsing and good for unknown/random json
-        /// structures thanks to the underlying Dictionary<string, object?>
+        /// structures thanks to the underlying <![CDATA[Dictionary<string, object?>]]>
         /// </summary>
         /// <param name="Json"></param>
         /// <returns></returns>
-        public static ExpandoObject ToExpando(string Json)
-            => JsonConvert.DeserializeObject<ExpandoObject>(Json);
+        public static ExpandoObject ToExpando(string Json = MJM.Json)
+        {
+            return JsonConvert.DeserializeObject<ExpandoObject>(Json);
+        }
+
+        /// <summary>
+        /// Deserializes json into an expando object. Convenient
+        /// for quick json parsing and good for unknown/random json
+        /// structures thanks to the underlying <![CDATA[Dictionary<string, object?>]]>
+        /// </summary>
+        /// <param name="Json"></param>
+        /// <returns></returns>
+        public static Task<ExpandoObject> ToExpandaAsync(string Json = MJM.Json)
+        {
+            return Task.Run(() => ToExpando(Json));
+        }
     }
 }

@@ -100,7 +100,7 @@ namespace Skylark.Extension.Port
         /// <param name="Port"></param>
         /// <param name="Timeout"></param>
         /// <returns></returns>
-        public static PortType ScanFirstOpen(string Address = MPM.Address, int Port = MPM.Port, int Timeout = MPM.Timeout)
+        public static PortType Scan(string Address = MPM.Address, int Port = MPM.Port, int Timeout = MPM.Timeout)
         {
             try
             {
@@ -138,9 +138,9 @@ namespace Skylark.Extension.Port
         /// <param name="Port"></param>
         /// <param name="Timeout"></param>
         /// <returns></returns>
-        public static Task<PortType> ScanFirstOpenAsync(string Address = MPM.Address, int Port = MPM.Port, int Timeout = MPM.Timeout)
+        public static Task<PortType> ScanAsync(string Address = MPM.Address, int Port = MPM.Port, int Timeout = MPM.Timeout)
         {
-            return Task.Run(() => ScanFirstOpen(Address, Port, Timeout));
+            return Task.Run(() => Scan(Address, Port, Timeout));
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace Skylark.Extension.Port
         /// <param name="Ports"></param>
         /// <param name="Timeout"></param>
         /// <returns></returns>
-        public static Dictionary<int, PortType> ScanOpen(string Address = MPM.Address, int[] Ports = null, int Timeout = MPM.Timeout)
+        public static Dictionary<int, PortType> ScanMultiple(string Address = MPM.Address, int[] Ports = null, int Timeout = MPM.Timeout)
         {
             try
             {
@@ -169,7 +169,7 @@ namespace Skylark.Extension.Port
 
                     if (!Result.ContainsKey(Socket))
                     {
-                        Result.Add(Socket, ScanFirstOpen(Address, Socket, Timeout));
+                        Result.Add(Socket, Scan(Address, Socket, Timeout));
                     }
                 }
 
@@ -188,9 +188,9 @@ namespace Skylark.Extension.Port
         /// <param name="Ports"></param>
         /// <param name="Timeout"></param>
         /// <returns></returns>
-        public static Task<Dictionary<int, PortType>> ScanAsync(string Address = MPM.Address, int[] Ports = null, int Timeout = MPM.Timeout)
+        public static Task<Dictionary<int, PortType>> ScanMultipleAsync(string Address = MPM.Address, int[] Ports = null, int Timeout = MPM.Timeout)
         {
-            return Task.Run(() => ScanOpen(Address, Ports, Timeout));
+            return Task.Run(() => ScanMultiple(Address, Ports, Timeout));
         }
     }
 }

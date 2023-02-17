@@ -1,6 +1,7 @@
 ﻿using Skylark.Extension;
+using Skylark.Helper;
+using Skylark.Struct;
 using System.Drawing;
-using Skylark.Struct.Color;
 
 namespace ConsoleDemoColor
 {
@@ -60,15 +61,21 @@ namespace ConsoleDemoColor
             Console.WriteLine(ColorExtension.HexToColor("#00DC143C").ToString());
             Console.WriteLine(ColorExtension.HexToColor("#FFDC143C").ToString());
 
-            Console.WriteLine("\n---New RGB Struct---");
-            var rgb = new Rgb(0, 0, 0);
-            Console.WriteLine(rgb.ToInt());
-            Console.WriteLine(rgb);
-            rgb = new(255, 255, 255);
-            Console.WriteLine(rgb.ToInt());
-            Console.WriteLine(rgb);
+            Console.WriteLine();
 
-            Console.WriteLine($"RGB Blend: {rgb.Blend(new Rgb(0 ,0 ,0))}");
+            ColoriseStruct Blend1 = new(0, 0, 0);
+            Console.WriteLine(Blend1.ToInt());
+            Console.WriteLine(Blend1);
+
+            Console.WriteLine("=====^^=====");
+
+            ColoriseStruct Blend2 = new(255, 255, 255);
+            Console.WriteLine(Blend2.ToInt());
+            Console.WriteLine(Blend2);
+
+            Console.WriteLine("=====^^=====");
+
+            Console.WriteLine($"Blend (Mix): {Blend1.ToBlend(Blend2)}");
 
             Console.ReadKey();
         }

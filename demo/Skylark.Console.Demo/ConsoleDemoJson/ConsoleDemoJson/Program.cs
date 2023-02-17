@@ -26,6 +26,11 @@ namespace ConsoleDemoJson
             string Beauty = JsonExtension.ToBeauty(Minify);
             Console.WriteLine(Beauty);
 
+            Console.WriteLine();
+
+            dynamic Expando = JsonExtension.ToExpando(Json);
+            Console.WriteLine(Expando.Taiizor);
+
             Console.ReadKey();
         }
     }
