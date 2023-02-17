@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using Skylark.Enum;
 using EAPT = Skylark.Enum.AlphabeticPasswordType;
 using EMPT = Skylark.Enum.MeterPasswordType;
 using ESPT = Skylark.Enum.SpecialPasswordType;
@@ -9,7 +10,7 @@ namespace Skylark.Helper
     /// <summary>
     /// 
     /// </summary>
-    internal class PasswordHelper
+    internal static class PasswordHelper
     {
         /// <summary>
         /// 
@@ -22,27 +23,27 @@ namespace Skylark.Helper
 
             if (Password.Length >= (int)MPM.MeterOptions["MinLength"])
             {
-                Point += 20;
+                Point = Point.UpgradeMeterLevel();
             }
 
             if (Regex.IsMatch(Password, MPM.MeterOptions["RegexDigit"] as string))
             {
-                Point += 20;
+                Point = Point.UpgradeMeterLevel();
             }
 
             if (Regex.IsMatch(Password, MPM.MeterOptions["RegexSymbol"] as string))
             {
-                Point += 20;
+                Point = Point.UpgradeMeterLevel();
             }
 
             if (Regex.IsMatch(Password, MPM.MeterOptions["RegexLowercase"] as string))
             {
-                Point += 20;
+                Point = Point.UpgradeMeterLevel();
             }
 
             if (Regex.IsMatch(Password, MPM.MeterOptions["RegexUppercase"] as string))
             {
-                Point += 20;
+                Point = Point.UpgradeMeterLevel();
             }
 
             return Point;
