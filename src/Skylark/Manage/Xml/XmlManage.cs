@@ -1,9 +1,9 @@
-﻿namespace Skylark.Manage
+﻿namespace Skylark.Manage.Xml
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class XmlManage
+    internal static class XmlManage
     {
         /// <summary>
         /// 

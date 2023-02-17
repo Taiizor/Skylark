@@ -1,9 +1,9 @@
-﻿namespace Skylark.Manage
+﻿namespace Skylark.Manage.Typography
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class TypographyManage
+    internal static class TypographyManage
     {
         /// <summary>
         /// 

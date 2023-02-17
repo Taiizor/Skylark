@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Skylark.Struct
+namespace Skylark.Struct.Tax
 {
     /// <summary>
     /// 

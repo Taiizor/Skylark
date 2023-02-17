@@ -1,12 +1,12 @@
 ﻿using EAPT = Skylark.Enum.AlphabeticPasswordType;
 using ESPT = Skylark.Enum.SpecialPasswordType;
 
-namespace Skylark.Manage
+namespace Skylark.Manage.Password
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class PasswordManage
+    internal static class PasswordManage
     {
         /// <summary>
         /// 

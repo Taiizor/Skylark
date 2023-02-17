@@ -1,4 +1,4 @@
-﻿namespace Skylark
+﻿namespace Skylark.Helper
 {
     public static class SkyMath
     {

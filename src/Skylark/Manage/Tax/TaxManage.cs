@@ -1,11 +1,11 @@
 ﻿using ETT = Skylark.Enum.TaxType;
 
-namespace Skylark.Manage
+namespace Skylark.Manage.Tax
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class TaxManage
+    internal static class TaxManage
     {
         /// <summary>
         /// 

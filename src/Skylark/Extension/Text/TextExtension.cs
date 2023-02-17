@@ -2,9 +2,9 @@
 using E = Skylark.Exception;
 using ETT = Skylark.Enum.TextType;
 using HL = Skylark.Helper.Length;
-using MTM = Skylark.Manage.TextManage;
+using MTM = Skylark.Manage.Text.TextManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Text
 {
     /// <summary>
     /// 

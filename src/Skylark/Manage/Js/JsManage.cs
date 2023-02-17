@@ -1,9 +1,9 @@
-﻿namespace Skylark.Manage
+﻿namespace Skylark.Manage.Js
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class JsManage
+    internal static class JsManage
     {
         /// <summary>
         /// 

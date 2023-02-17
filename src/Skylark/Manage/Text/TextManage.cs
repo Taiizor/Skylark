@@ -1,11 +1,11 @@
 ﻿using ETT = Skylark.Enum.TextType;
 
-namespace Skylark.Manage
+namespace Skylark.Manage.Text
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class TextManage
+    internal static class TextManage
     {
         /// <summary>
         /// 

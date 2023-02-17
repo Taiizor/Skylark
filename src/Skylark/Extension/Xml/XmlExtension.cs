@@ -1,17 +1,17 @@
-﻿using Newtonsoft.Json;
-using System.Xml;
+﻿using System.Xml;
+using Newtonsoft.Json;
 using WebMarkupMin.Core;
 using BTPXB = Skylark.ThirdParty.Xml.Beauty;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
-using MXM = Skylark.Manage.XmlManage;
+using MXM = Skylark.Manage.Xml.XmlManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Xml
 {
     /// <summary>
     /// 
     /// </summary>
-    public class XmlExtension
+    public static class XmlExtension
     {
         /// <summary>
         /// 
@@ -106,6 +106,7 @@ namespace Skylark.Extension
                 }
                 else
                 {
+                    // TODO: Fix null ref
                     throw new E(Minified.Errors.FirstOrDefault().Message);
                 }
             }

@@ -1,9 +1,9 @@
-﻿namespace Skylark.Manage
+﻿namespace Skylark.Manage.Speed
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class SpeedManage
+    internal static class SpeedManage
     {
         /// <summary>
         /// 

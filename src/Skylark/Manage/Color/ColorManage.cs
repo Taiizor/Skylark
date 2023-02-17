@@ -1,9 +1,9 @@
-﻿namespace Skylark.Manage
+﻿namespace Skylark.Manage.Color
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class ColorManage
+    internal static class ColorManage
     {
         /// <summary>
         /// 

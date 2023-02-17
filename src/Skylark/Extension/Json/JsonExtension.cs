@@ -1,16 +1,16 @@
 ﻿using System.Dynamic;
-using Newtonsoft.Json;
 using System.Text;
+using Newtonsoft.Json;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
-using MJM = Skylark.Manage.JsonManage;
+using MJM = Skylark.Manage.Json.JsonManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Json
 {
     /// <summary>
     /// 
     /// </summary>
-    public class JsonExtension
+    public static class JsonExtension
     {
         /// <summary>
         /// 

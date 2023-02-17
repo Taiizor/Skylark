@@ -1,13 +1,13 @@
 ﻿using System.Net.NetworkInformation;
 using System.Text;
-using SPSS = Skylark.Struct.PingSendStruct;
+using SPSS = Skylark.Struct.Ping.PingSendStruct;
 
-namespace Skylark.Manage
+namespace Skylark.Manage.Ping
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class PingManage
+    internal static class PingManage
     {
         /// <summary>
         /// 

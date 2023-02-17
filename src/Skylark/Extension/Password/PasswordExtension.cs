@@ -4,11 +4,11 @@ using EMPT = Skylark.Enum.MeterPasswordType;
 using ESPT = Skylark.Enum.SpecialPasswordType;
 using HC = Skylark.Helper.Converter;
 using HL = Skylark.Helper.Length;
-using HPH = Skylark.Helper.PasswordHelper;
+using HPH = Skylark.Helper.Password.PasswordHelper;
 using ME = Skylark.Manage.External;
-using MPM = Skylark.Manage.PasswordManage;
+using MPM = Skylark.Manage.Password.PasswordManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Password
 {
     /// <summary>
     /// 

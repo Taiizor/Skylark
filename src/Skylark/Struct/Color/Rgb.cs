@@ -1,4 +1,6 @@
-﻿namespace Skylark.Struct.Color
+﻿using Skylark.Helper;
+
+namespace Skylark.Struct.Color
 {
     public readonly struct Rgb
     {

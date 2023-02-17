@@ -1,9 +1,9 @@
-﻿namespace Skylark.Manage
+﻿namespace Skylark.Manage.Lottery
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class LotteryManage
+    internal static class LotteryManage
     {
         /// <summary>
         /// 

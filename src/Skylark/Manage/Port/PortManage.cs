@@ -1,9 +1,9 @@
-﻿namespace Skylark.Manage
+﻿namespace Skylark.Manage.Port
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class PortManage
+    internal static class PortManage
     {
         /// <summary>
         /// 

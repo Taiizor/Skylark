@@ -1,16 +1,16 @@
 ﻿using System.Security.Cryptography;
 using E = Skylark.Exception;
 using HF = Skylark.Helper.Format;
-using HHH = Skylark.Helper.HashHelper;
+using HHH = Skylark.Helper.Hash.HashHelper;
 using HL = Skylark.Helper.Length;
-using MHM = Skylark.Manage.HashManage;
+using MHM = Skylark.Manage.Hash.HashManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Hash
 {
     /// <summary>
     /// 
     /// </summary>
-    public class HashExtension
+    public static class HashExtension
     {
         /// <summary>
         /// 

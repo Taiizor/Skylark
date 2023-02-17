@@ -1,15 +1,15 @@
 ﻿using E = Skylark.Exception;
-using HWH = Skylark.Helper.WordHelper;
-using MWM = Skylark.Manage.WordManage;
-using SWCS = Skylark.Struct.WordCombineStruct;
-using SWDS = Skylark.Struct.WordDataStruct;
+using HWH = Skylark.Helper.Word.WordHelper;
+using MWM = Skylark.Manage.Word.WordManage;
+using SWCS = Skylark.Struct.Word.WordCombineStruct;
+using SWDS = Skylark.Struct.Word.WordDataStruct;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Word
 {
     /// <summary>
     /// 
     /// </summary>
-    public class WordExtension
+    public static class WordExtension
     {
         /// <summary>
         /// 

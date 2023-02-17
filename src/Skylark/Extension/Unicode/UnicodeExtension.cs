@@ -2,14 +2,14 @@
 using EET = Skylark.Enum.EncodeType;
 using HE = Skylark.Helper.Encode;
 using HL = Skylark.Helper.Length;
-using MUM = Skylark.Manage.UnicodeManage;
+using MUM = Skylark.Manage.Unicode.UnicodeManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Unicode
 {
     /// <summary>
     /// 
     /// </summary>
-    public class UnicodeExtension
+    public static class UnicodeExtension
     {
         /// <summary>
         /// 

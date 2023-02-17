@@ -1,13 +1,13 @@
 ﻿using ME = Skylark.Manage.External;
 using MI = Skylark.Manage.Internal;
-using MLM = Skylark.Manage.LotteryManage;
+using MLM = Skylark.Manage.Lottery.LotteryManage;
 
-namespace Skylark.Helper
+namespace Skylark.Helper.Lottery
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class LotteryHelper
+    internal static class LotteryHelper
     {
         /// <summary>
         /// 

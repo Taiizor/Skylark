@@ -4,16 +4,16 @@ using EMST = Skylark.Enum.ModeStorageType;
 using EST = Skylark.Enum.StorageType;
 using HC = Skylark.Helper.Converter;
 using HN = Skylark.Helper.Numeric;
-using HSH = Skylark.Helper.StorageHelper;
-using MSM = Skylark.Manage.StorageManage;
-using SSS = Skylark.Struct.StorageStruct;
+using HSH = Skylark.Helper.Storage.StorageHelper;
+using MSM = Skylark.Manage.Storage.StorageManage;
+using SSS = Skylark.Struct.Storage.StorageStruct;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Storage
 {
     /// <summary>
     /// 
     /// </summary>
-    public class StorageExtension
+    public static class StorageExtension
     {
         /// <summary>
         /// 

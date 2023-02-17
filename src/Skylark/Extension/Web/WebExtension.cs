@@ -1,18 +1,18 @@
-﻿using Skylark.Enum;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
+using Skylark.Enum;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
-using HWH = Skylark.Helper.WebHelper;
-using MWM = Skylark.Manage.WebManage;
-using SWHS = Skylark.Struct.WebHeaderStruct;
-using SWRS = Skylark.Struct.WebRatioStruct;
+using HWH = Skylark.Helper.Web.WebHelper;
+using MWM = Skylark.Manage.Web.WebManage;
+using SWHS = Skylark.Struct.Web.WebHeaderStruct;
+using SWRS = Skylark.Struct.Web.WebRatioStruct;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Web
 {
     /// <summary>
     /// 
     /// </summary>
-    public class WebExtension
+    public static class WebExtension
     {
         /// <summary>
         /// 
@@ -250,7 +250,7 @@ namespace Skylark.Extension
                 string[] Words1 = HWH.GetTags(Content1);
                 string[] Words2 = HWH.GetTags(Content2);
 
-                int Common = Words1.Where(Tag1 => Words2.Any(Tag2 => Tag2 == Tag1)).Count();
+                int Common = Words1.Count(Tag1 => Words2.Any(Tag2 => Tag2 == Tag1));
 
                 int Total = Words1.Length + Words2.Length - Common;
                 Percent = (double)Common / Total * 100;

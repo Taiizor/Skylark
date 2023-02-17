@@ -1,12 +1,12 @@
 ﻿using System.Net.NetworkInformation;
-using MPM = Skylark.Manage.PingManage;
+using MPM = Skylark.Manage.Ping.PingManage;
 
 namespace Skylark.Manage
 {
     /// <summary>
     /// 
     /// </summary>
-    public class External
+    public static class External
     {
         /// <summary>
         /// 
@@ -21,7 +21,7 @@ namespace Skylark.Manage
         /// <summary>
         /// 
         /// </summary>
-        public static PingOptions PingOptions = new(MPM.Ttl, MPM.Fragment);
+        public static readonly PingOptions PingOptions = new(MPM.Ttl, MPM.Fragment);
 
         /// <summary>
         /// 

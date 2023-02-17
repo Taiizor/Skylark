@@ -3,14 +3,14 @@ using NUglify.JavaScript;
 using WebMarkupMin.Core;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
-using MJM = Skylark.Manage.JsManage;
+using MJM = Skylark.Manage.Js.JsManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Js
 {
     /// <summary>
     /// 
     /// </summary>
-    public class JsExtension
+    public static class JsExtension
     {
         /// <summary>
         /// 
@@ -33,6 +33,7 @@ namespace Skylark.Extension
                 }
                 else
                 {
+                    // TODO: Fix null ref
                     throw new E(Minified.Errors.FirstOrDefault().Message);
                 }
             }
@@ -71,6 +72,7 @@ namespace Skylark.Extension
                 }
                 else
                 {
+                    // TODO: Fix null ref
                     throw new E(Beautified.Errors.FirstOrDefault().Message);
                 }
             }

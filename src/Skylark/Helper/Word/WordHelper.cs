@@ -1,15 +1,15 @@
 ﻿using System.Text;
 using ME = Skylark.Manage.External;
 using MI = Skylark.Manage.Internal;
-using MWM = Skylark.Manage.WordManage;
-using SWCS = Skylark.Struct.WordCombineStruct;
+using MWM = Skylark.Manage.Word.WordManage;
+using SWCS = Skylark.Struct.Word.WordCombineStruct;
 
-namespace Skylark.Helper
+namespace Skylark.Helper.Word
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class WordHelper
+    internal static class WordHelper
     {
         /// <summary>
         /// 

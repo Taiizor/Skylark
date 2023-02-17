@@ -1,13 +1,13 @@
 ﻿using EMST = Skylark.Enum.ModeStorageType;
 using EST = Skylark.Enum.StorageType;
-using SSS = Skylark.Struct.StorageStruct;
+using SSS = Skylark.Struct.Storage.StorageStruct;
 
-namespace Skylark.Manage
+namespace Skylark.Manage.Storage
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class StorageManage
+    internal static class StorageManage
     {
         /// <summary>
         /// 

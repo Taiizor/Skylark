@@ -1,12 +1,12 @@
 ﻿using E = Skylark.Exception;
-using MSM = Skylark.Manage.SpeedManage;
+using MSM = Skylark.Manage.Speed.SpeedManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Speed
 {
     /// <summary>
     /// 
     /// </summary>
-    public class SpeedExtension
+    public static class SpeedExtension
     {
         /// <summary>
         /// 

@@ -1,11 +1,11 @@
 ﻿using System.Text;
 
-namespace Skylark.Helper
+namespace Skylark.Helper.Cryptology
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class CryptologyHelper
+    internal static class CryptologyHelper
     {
         /// <summary>
         /// 

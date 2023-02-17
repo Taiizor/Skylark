@@ -1,9 +1,9 @@
-﻿namespace Skylark.Manage
+﻿namespace Skylark.Manage.Url
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class UrlManage
+    internal static class UrlManage
     {
         /// <summary>
         /// 

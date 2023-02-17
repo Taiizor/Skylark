@@ -1,9 +1,9 @@
-﻿namespace Skylark.Manage
+﻿namespace Skylark.Manage.Temperature
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class TemperatureManage
+    internal static class TemperatureManage
     {
         /// <summary>
         /// 

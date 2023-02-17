@@ -1,11 +1,11 @@
 ﻿using ECWT = Skylark.Enum.CompressWebType;
 
-namespace Skylark.Manage
+namespace Skylark.Manage.Web
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class WebManage
+    internal static class WebManage
     {
         /// <summary>
         /// 

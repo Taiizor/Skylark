@@ -1,9 +1,9 @@
-﻿namespace Skylark.Manage
+﻿namespace Skylark.Manage.Json
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class JsonManage
+    internal static class JsonManage
     {
         /// <summary>
         /// 
