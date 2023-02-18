@@ -46,20 +46,20 @@ namespace Skylark.Enum
             .GetEnumValues()
             .Cast<int>()
             .Max();
-        
+
         public static MeterPasswordType UpgradeMeterLevel(this MeterPasswordType meterPasswordType)
         {
-            var result = (int)meterPasswordType + 20;
-            
+            int result = (int)meterPasswordType + 20;
+
             Skymath.Clamp(result, LowestPasswordStrength, HighestPasswordStrength);
             Debug.Assert(result % 20 == 0);
             return (MeterPasswordType)result;
         }
-        
+
         public static MeterPasswordType DowngradeMeterLevel(this MeterPasswordType meterPasswordType)
         {
-            var result = (int)meterPasswordType - 20;
-            
+            int result = (int)meterPasswordType - 20;
+
             Skymath.Clamp(result, LowestPasswordStrength, HighestPasswordStrength);
             Debug.Assert(result % 20 == 0);
             return (MeterPasswordType)result;

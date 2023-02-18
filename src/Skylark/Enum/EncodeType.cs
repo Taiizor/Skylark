@@ -48,7 +48,7 @@ namespace Skylark.Enum
                     return Encoding.UTF8;
                 throw new Skylark.Exception(errorMessage);
             }
-            
+
             return encodeType switch
             {
                 EncodeType.UTF8 => Encoding.UTF8,
