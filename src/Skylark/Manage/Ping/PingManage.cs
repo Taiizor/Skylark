@@ -1,6 +1,6 @@
 ﻿using System.Net.NetworkInformation;
 using System.Text;
-using SPSS = Skylark.Struct.Ping.PingSendStruct;
+using SPPSS = Skylark.Struct.Ping.PingSendStruct;
 
 namespace Skylark.Manage.Ping
 {
@@ -58,7 +58,7 @@ namespace Skylark.Manage.Ping
         /// <summary>
         /// 
         /// </summary>
-        public static readonly SPSS Result = new()
+        public static readonly SPPSS Result = new()
         {
             Result = IPStatus.Unknown,
             Fragment = Fragment,

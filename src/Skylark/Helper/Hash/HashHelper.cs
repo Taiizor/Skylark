@@ -1,5 +1,5 @@
 ﻿using E = Skylark.Exception;
-using MHM = Skylark.Manage.Hash.HashManage;
+using MHHM = Skylark.Manage.Hash.HashManage;
 using MI = Skylark.Manage.Internal;
 
 namespace Skylark.Helper.Hash
@@ -33,12 +33,12 @@ namespace Skylark.Helper.Hash
 
                 if (Byte > MI.FileLength)
                 {
-                    throw new E(MHM.Length);
+                    throw new E(MHHM.Length);
                 }
             }
             else
             {
-                throw new E(MHM.Error);
+                throw new E(MHHM.Error);
             }
         }
 

@@ -1,5 +1,5 @@
 ﻿using HS = Skylark.Helper.Skymath;
-using SCS = Skylark.Struct.ColoriseStruct;
+using SCCS = Skylark.Struct.Colorise.ColoriseStruct;
 
 namespace Skylark.Helper
 {
@@ -14,13 +14,13 @@ namespace Skylark.Helper
         /// <param name="RGB"></param>
         /// <param name="Other"></param>
         /// <returns></returns>
-        public static SCS ToBlend(this SCS RGB, SCS Other)
+        public static SCCS ToBlend(this SCCS RGB, SCCS Other)
         {
             byte R = BlendToAvg(RGB.R, Other.R);
             byte G = BlendToAvg(RGB.G, Other.G);
             byte B = BlendToAvg(RGB.B, Other.B);
 
-            return new SCS(R, G, B);
+            return new SCCS(R, G, B);
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Skylark.Helper
         /// <param name="RGB"></param>
         /// <param name="Other"></param>
         /// <returns></returns>
-        public static Task<SCS> ToBlendAsync(this SCS RGB, SCS Other)
+        public static Task<SCCS> ToBlendAsync(this SCCS RGB, SCCS Other)
         {
             return Task.Run(() => ToBlend(RGB, Other));
         }

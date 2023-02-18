@@ -1,6 +1,6 @@
 ﻿using ME = Skylark.Manage.External;
 using MI = Skylark.Manage.Internal;
-using MLM = Skylark.Manage.Lottery.LotteryManage;
+using MLLM = Skylark.Manage.Lottery.LotteryManage;
 
 namespace Skylark.Helper.Lottery
 {
@@ -17,7 +17,7 @@ namespace Skylark.Helper.Lottery
         /// <returns></returns>
         public static string[] GetSplit(string List, bool Repeated)
         {
-            List = List.Length > MI.TextLength ? MLM.List : List;
+            List = List.Length > MI.TextLength ? MLLM.List : List;
 
             string[] Result = List.Split(MI.SplitNewLine, ME.SplitOption);
 

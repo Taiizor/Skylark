@@ -1,8 +1,8 @@
 ﻿using System.Text;
 using ME = Skylark.Manage.External;
 using MI = Skylark.Manage.Internal;
-using MWM = Skylark.Manage.Word.WordManage;
-using SWCS = Skylark.Struct.Word.WordCombineStruct;
+using MWWM = Skylark.Manage.Word.WordManage;
+using SWWCS = Skylark.Struct.Word.WordCombineStruct;
 
 namespace Skylark.Helper.Word
 {
@@ -18,7 +18,7 @@ namespace Skylark.Helper.Word
         /// <returns></returns>
         public static string[] GetSplit(string List)
         {
-            return (List.Length > MI.TextLength ? MWM.List : List).Split(MI.SplitSpace, ME.SplitOption);
+            return (List.Length > MI.TextLength ? MWWM.List : List).Split(MI.SplitSpace, ME.SplitOption);
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Skylark.Helper.Word
         /// <returns></returns>
         public static string[] GetSplits(string List)
         {
-            return (List.Length > MI.TextLength ? MWM.List : List).Split(MI.SplitSpaceNewLine, ME.SplitOption);
+            return (List.Length > MI.TextLength ? MWWM.List : List).Split(MI.SplitSpaceNewLine, ME.SplitOption);
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace Skylark.Helper.Word
         /// <param name="Space"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static SWCS GetCombine(string[] List, char Space, char Separator)
+        public static SWWCS GetCombine(string[] List, char Space, char Separator)
         {
             int Count = 0;
             StringBuilder Builder = new();

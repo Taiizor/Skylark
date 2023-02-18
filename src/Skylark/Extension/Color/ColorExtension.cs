@@ -1,8 +1,8 @@
 ﻿using System.Globalization;
 using E = Skylark.Exception;
 using HA = Skylark.Helper.Adaptation;
-using HCH = Skylark.Helper.Color.ColorHelper;
-using MCM = Skylark.Manage.Color.ColorManage;
+using HCCH = Skylark.Helper.Color.ColorHelper;
+using MCCM = Skylark.Manage.Color.ColorManage;
 using SDC = System.Drawing.Color;
 
 namespace Skylark.Extension.Color
@@ -20,11 +20,11 @@ namespace Skylark.Extension.Color
         /// <param name="Sharp"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToHex(SDC Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        public static string ToHex(SDC Color, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
         {
             try
             {
-                return $"hex({HCH.ConvertToHex(Color.R, Color.G, Color.B, Upper, Sharp)})";
+                return $"hex({HCCH.ConvertToHex(Color.R, Color.G, Color.B, Upper, Sharp)})";
             }
             catch (E Ex)
             {
@@ -39,7 +39,7 @@ namespace Skylark.Extension.Color
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        public static Task<string> ToHexAsync(SDC Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        public static Task<string> ToHexAsync(SDC Color, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
         {
             return Task.Run(() => ToHex(Color, Upper, Sharp));
         }
@@ -51,11 +51,11 @@ namespace Skylark.Extension.Color
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        public static string ToHexInteger(SDC Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        public static string ToHexInteger(SDC Color, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
         {
             try
             {
-                string Result = $"0x{HCH.ConvertToHex(Color.A, Color.R, Color.G, Color.B, Upper, false)}";
+                string Result = $"0x{HCCH.ConvertToHex(Color.A, Color.R, Color.G, Color.B, Upper, false)}";
 
                 if (Sharp)
                 {
@@ -77,7 +77,7 @@ namespace Skylark.Extension.Color
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        public static Task<string> ToHexIntegerAsync(SDC Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        public static Task<string> ToHexIntegerAsync(SDC Color, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
         {
             return Task.Run(() => ToHexInteger(Color, Upper, Sharp));
         }
@@ -148,7 +148,7 @@ namespace Skylark.Extension.Color
         {
             try
             {
-                (double Hue, double Saturation, double Brightness) = HCH.ConvertToHSB(Color);
+                (double Hue, double Saturation, double Brightness) = HCCH.ConvertToHSB(Color);
 
                 Hue = Math.Round(Hue);
                 Saturation = Math.Round(Saturation * 100);
@@ -182,7 +182,7 @@ namespace Skylark.Extension.Color
         {
             try
             {
-                (double Hue, double Saturation, double Intensity) = HCH.ConvertToHSI(Color);
+                (double Hue, double Saturation, double Intensity) = HCCH.ConvertToHSI(Color);
 
                 Hue = Math.Round(Hue);
                 Saturation = Math.Round(Saturation * 100);
@@ -216,7 +216,7 @@ namespace Skylark.Extension.Color
         {
             try
             {
-                (double Hue, double Saturation, double Lightness) = HCH.ConvertToHSL(Color);
+                (double Hue, double Saturation, double Lightness) = HCCH.ConvertToHSL(Color);
 
                 Hue = Math.Round(Hue);
                 Saturation = Math.Round(Saturation * 100);
@@ -250,7 +250,7 @@ namespace Skylark.Extension.Color
         {
             try
             {
-                (double Hue, double Saturation, double Value) = HCH.ConvertToHSV(Color);
+                (double Hue, double Saturation, double Value) = HCCH.ConvertToHSV(Color);
 
                 Hue = Math.Round(Hue);
                 Saturation = Math.Round(Saturation * 100);
@@ -284,7 +284,7 @@ namespace Skylark.Extension.Color
         {
             try
             {
-                (double Hue, double Whiteness, double Blackness) = HCH.ConvertToHWB(Color);
+                (double Hue, double Whiteness, double Blackness) = HCCH.ConvertToHWB(Color);
 
                 Hue = Math.Round(Hue);
                 Whiteness = Math.Round(Whiteness * 100);
@@ -318,7 +318,7 @@ namespace Skylark.Extension.Color
         {
             try
             {
-                (double Cyan, double Magenta, double Yellow, double BlackKey) = HCH.ConvertToCMYK(Color);
+                (double Cyan, double Magenta, double Yellow, double BlackKey) = HCCH.ConvertToCMYK(Color);
 
                 Cyan = Math.Round(Cyan * 100);
                 Magenta = Math.Round(Magenta * 100);
@@ -353,7 +353,7 @@ namespace Skylark.Extension.Color
         {
             try
             {
-                (double Lightness, double ChromaticityA, double ChromaticityB) = HCH.ConvertToCIELAB(Color);
+                (double Lightness, double ChromaticityA, double ChromaticityB) = HCCH.ConvertToCIELAB(Color);
 
                 Lightness = Math.Round(Lightness, 2);
                 ChromaticityA = Math.Round(ChromaticityA, 2);
@@ -387,7 +387,7 @@ namespace Skylark.Extension.Color
         {
             try
             {
-                (double X, double Y, double Z) = HCH.ConvertToCIEXYZ(Color);
+                (double X, double Y, double Z) = HCCH.ConvertToCIEXYZ(Color);
 
                 X = Math.Round(X * 100, 4);
                 Y = Math.Round(Y * 100, 4);
@@ -421,7 +421,7 @@ namespace Skylark.Extension.Color
         {
             try
             {
-                (double Red, double Green, double Blue) = HCH.ConvertToDouble(Color);
+                (double Red, double Green, double Blue) = HCCH.ConvertToDouble(Color);
 
                 const int Precision = 2;
                 const string FloatFormat = "0.##";
@@ -482,7 +482,7 @@ namespace Skylark.Extension.Color
         {
             try
             {
-                (string Hue, double Whiteness, double Blackness) = HCH.ConvertToNatural(Color);
+                (string Hue, double Whiteness, double Blackness) = HCCH.ConvertToNatural(Color);
 
                 Whiteness = Math.Round(Whiteness * 100);
                 Blackness = Math.Round(Blackness * 100);
@@ -515,11 +515,11 @@ namespace Skylark.Extension.Color
         /// <param name="Sharp"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string RGBToHex(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        public static string RGBToHex(int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
         {
             try
             {
-                return $"hex({HCH.ConvertToHex(R, G, B, Upper, Sharp)})";
+                return $"hex({HCCH.ConvertToHex(R, G, B, Upper, Sharp)})";
             }
             catch (E Ex)
             {
@@ -536,7 +536,7 @@ namespace Skylark.Extension.Color
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        public static Task<string> RGBToHexAsync(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        public static Task<string> RGBToHexAsync(int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
         {
             return Task.Run(() => RGBToHex(R, G, B, Upper, Sharp));
         }
@@ -552,11 +552,11 @@ namespace Skylark.Extension.Color
         /// <param name="Sharp"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ARGBToHex(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        public static string ARGBToHex(int A = MCCM.Value, int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
         {
             try
             {
-                return $"hex({HCH.ConvertToHex(A, R, G, B, Upper, Sharp)})";
+                return $"hex({HCCH.ConvertToHex(A, R, G, B, Upper, Sharp)})";
             }
             catch (E Ex)
             {
@@ -574,7 +574,7 @@ namespace Skylark.Extension.Color
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        public static Task<string> ARGBToHexAsync(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        public static Task<string> ARGBToHexAsync(int A = MCCM.Value, int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
         {
             return Task.Run(() => ARGBToHex(A, R, G, B, Upper, Sharp));
         }
@@ -587,11 +587,11 @@ namespace Skylark.Extension.Color
         /// <param name="B"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static SDC RGBToColor(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
+        public static SDC RGBToColor(int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value)
         {
             try
             {
-                return HCH.ConvertToColor(R, G, B);
+                return HCCH.ConvertToColor(R, G, B);
             }
             catch (E Ex)
             {
@@ -606,7 +606,7 @@ namespace Skylark.Extension.Color
         /// <param name="G"></param>
         /// <param name="B"></param>
         /// <returns></returns>
-        public static Task<SDC> RGBToColorAsync(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
+        public static Task<SDC> RGBToColorAsync(int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value)
         {
             return Task.Run(() => RGBToColor(R, G, B));
         }
@@ -620,11 +620,11 @@ namespace Skylark.Extension.Color
         /// <param name="B"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static SDC ARGBToColor(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
+        public static SDC ARGBToColor(int A = MCCM.Value, int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value)
         {
             try
             {
-                return HCH.ConvertToColor(A, R, G, B);
+                return HCCH.ConvertToColor(A, R, G, B);
             }
             catch (E Ex)
             {
@@ -640,7 +640,7 @@ namespace Skylark.Extension.Color
         /// <param name="G"></param>
         /// <param name="B"></param>
         /// <returns></returns>
-        public static Task<SDC> ARGBToColorAsync(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
+        public static Task<SDC> ARGBToColorAsync(int A = MCCM.Value, int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value)
         {
             return Task.Run(() => ARGBToColor(A, R, G, B));
         }
@@ -651,11 +651,11 @@ namespace Skylark.Extension.Color
         /// <param name="Hex"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string HexToRGB(string Hex = MCM.Hex)
+        public static string HexToRGB(string Hex = MCCM.Hex)
         {
             try
             {
-                Hex = HA.Feed(Hex, MCM.Hex, 6, 7);
+                Hex = HA.Feed(Hex, MCCM.Hex, 6, 7);
 
                 if (Hex.StartsWith("#"))
                 {
@@ -681,7 +681,7 @@ namespace Skylark.Extension.Color
         /// </summary>
         /// <param name="Hex"></param>
         /// <returns></returns>
-        public static Task<string> HexToRGBAsync(string Hex = MCM.Hex)
+        public static Task<string> HexToRGBAsync(string Hex = MCCM.Hex)
         {
             return Task.Run(() => HexToRGB(Hex));
         }
@@ -692,11 +692,11 @@ namespace Skylark.Extension.Color
         /// <param name="Hex"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string HexToARGB(string Hex = MCM.HexAlpha)
+        public static string HexToARGB(string Hex = MCCM.HexAlpha)
         {
             try
             {
-                Hex = HA.Feed(Hex, MCM.HexAlpha, 8, 9);
+                Hex = HA.Feed(Hex, MCCM.HexAlpha, 8, 9);
 
                 if (Hex.StartsWith("#"))
                 {
@@ -720,7 +720,7 @@ namespace Skylark.Extension.Color
         /// </summary>
         /// <param name="Hex"></param>
         /// <returns></returns>
-        public static Task<string> HexToARGBAsync(string Hex = MCM.HexAlpha)
+        public static Task<string> HexToARGBAsync(string Hex = MCCM.HexAlpha)
         {
             return Task.Run(() => HexToARGB(Hex));
         }
@@ -731,11 +731,11 @@ namespace Skylark.Extension.Color
         /// <param name="Hex"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static SDC HexToColor(string Hex = MCM.Hex)
+        public static SDC HexToColor(string Hex = MCCM.Hex)
         {
             try
             {
-                Hex = HA.Feed(Hex, MCM.Hex, 6, 9);
+                Hex = HA.Feed(Hex, MCCM.Hex, 6, 9);
 
                 if (Hex.StartsWith("#"))
                 {
@@ -770,7 +770,7 @@ namespace Skylark.Extension.Color
         /// </summary>
         /// <param name="Hex"></param>
         /// <returns></returns>
-        public static Task<SDC> HexToColorAsync(string Hex = MCM.Hex)
+        public static Task<SDC> HexToColorAsync(string Hex = MCCM.Hex)
         {
             return Task.Run(() => HexToColor(Hex));
         }

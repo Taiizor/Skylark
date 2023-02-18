@@ -1,5 +1,5 @@
 ﻿using ETT = Skylark.Enum.TimeType;
-using STS = Skylark.Struct.Time.TimeStruct;
+using STTS = Skylark.Struct.Time.TimeStruct;
 
 namespace Skylark.Manage.Time
 {
@@ -44,7 +44,7 @@ namespace Skylark.Manage.Time
         /// <summary>
         /// 
         /// </summary>
-        public static readonly STS Result = new()
+        public static readonly STTS Result = new()
         {
             Value = Value,
             Type = InputType,

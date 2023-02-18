@@ -1,6 +1,6 @@
 ﻿using EMST = Skylark.Enum.ModeStorageType;
 using EST = Skylark.Enum.StorageType;
-using SSS = Skylark.Struct.Storage.StorageStruct;
+using SSSS = Skylark.Struct.Storage.StorageStruct;
 
 namespace Skylark.Manage.Storage
 {
@@ -55,7 +55,7 @@ namespace Skylark.Manage.Storage
         /// <summary>
         /// 
         /// </summary>
-        public static readonly SSS Result = new()
+        public static readonly SSSS Result = new()
         {
             Value = Value,
             Type = InputType,
