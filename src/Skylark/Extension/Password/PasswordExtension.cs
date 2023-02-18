@@ -4,9 +4,9 @@ using EMPT = Skylark.Enum.MeterPasswordType;
 using ESPT = Skylark.Enum.SpecialPasswordType;
 using HC = Skylark.Helper.Converter;
 using HL = Skylark.Helper.Length;
-using HPH = Skylark.Helper.Password.PasswordHelper;
+using HPPH = Skylark.Helper.Password.PasswordHelper;
 using ME = Skylark.Manage.External;
-using MPM = Skylark.Manage.Password.PasswordManage;
+using MPPM = Skylark.Manage.Password.PasswordManage;
 
 namespace Skylark.Extension.Password
 {
@@ -15,11 +15,11 @@ namespace Skylark.Extension.Password
     /// </summary>
     public static class PasswordExtension
     {
-        public static EMPT Meter(string Password = MPM.Password)
+        public static EMPT Meter(string Password = MPPM.Password)
         {
             try
             {
-                return HPH.GetMeter(HL.Parameter(Password, MPM.Password));
+                return HPPH.GetMeter(HL.Parameter(Password, MPPM.Password));
             }
             catch (E Ex)
             {
@@ -32,7 +32,7 @@ namespace Skylark.Extension.Password
         /// </summary>
         /// <param name="Password"></param>
         /// <returns></returns>
-        public static Task<EMPT> MeterAsync(string Password = MPM.Password)
+        public static Task<EMPT> MeterAsync(string Password = MPPM.Password)
         {
             return Task.Run(() => Meter(Password));
         }
@@ -46,9 +46,9 @@ namespace Skylark.Extension.Password
         /// <param name="Prefix"></param>
         /// <param name="Suffix"></param>
         /// <returns></returns>
-        public static string Generate(int Length = MPM.Length, string Alphabetic = MPM.DefaultType, string Special = MPM.DefaultType, string Prefix = MPM.Prefix, string Suffix = MPM.Suffix)
+        public static string Generate(int Length = MPPM.Length, string Alphabetic = MPPM.DefaultType, string Special = MPPM.DefaultType, string Prefix = MPPM.Prefix, string Suffix = MPPM.Suffix)
         {
-            return Generate(Length, HC.Convert(Alphabetic, MPM.AlphabeticType), HC.Convert(Special, MPM.SpecialType), Prefix, Suffix);
+            return Generate(Length, HC.Convert(Alphabetic, MPPM.AlphabeticType), HC.Convert(Special, MPPM.SpecialType), Prefix, Suffix);
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Skylark.Extension.Password
         /// <param name="Prefix"></param>
         /// <param name="Suffix"></param>
         /// <returns></returns>
-        public static Task<string> GenerateAsync(int Length = MPM.Length, string Alphabetic = MPM.DefaultType, string Special = MPM.DefaultType, string Prefix = MPM.Prefix, string Suffix = MPM.Suffix)
+        public static Task<string> GenerateAsync(int Length = MPPM.Length, string Alphabetic = MPPM.DefaultType, string Special = MPPM.DefaultType, string Prefix = MPPM.Prefix, string Suffix = MPPM.Suffix)
         {
             return Task.Run(() => Generate(Length, Alphabetic, Special, Prefix, Suffix));
         }
@@ -74,21 +74,21 @@ namespace Skylark.Extension.Password
         /// <param name="Prefix"></param>
         /// <param name="Suffix"></param>
         /// <returns></returns>
-        public static string Generate(int Length = MPM.Length, EAPT Alphabetic = MPM.AlphabeticType, ESPT Special = MPM.SpecialType, string Prefix = MPM.Prefix, string Suffix = MPM.Suffix)
+        public static string Generate(int Length = MPPM.Length, EAPT Alphabetic = MPPM.AlphabeticType, ESPT Special = MPPM.SpecialType, string Prefix = MPPM.Prefix, string Suffix = MPPM.Suffix)
         {
             try
             {
-                Prefix = HL.Parameter(Prefix, MPM.Prefix);
-                Suffix = HL.Parameter(Suffix, MPM.Suffix);
+                Prefix = HL.Parameter(Prefix, MPPM.Prefix);
+                Suffix = HL.Parameter(Suffix, MPPM.Suffix);
 
-                string Chars = HPH.GetAlphabetic(Alphabetic) + HPH.GetSpecial(Special);
+                string Chars = HPPH.GetAlphabetic(Alphabetic) + HPPH.GetSpecial(Special);
 
                 if (Chars.Length <= 0)
                 {
-                    throw new E(MPM.Error);
+                    throw new E(MPPM.Error);
                 }
 
-                string Secret = new(Enumerable.Repeat(Chars, HL.Clamp(Length, MPM.MinLength, MPM.MaxLength))
+                string Secret = new(Enumerable.Repeat(Chars, HL.Clamp(Length, MPPM.MinLength, MPPM.MaxLength))
                     .Select(Char => Char[ME.Randomise.Next(Char.Length)]).ToArray());
 
                 return Prefix + Secret + Suffix;
@@ -108,7 +108,7 @@ namespace Skylark.Extension.Password
         /// <param name="Prefix"></param>
         /// <param name="Suffix"></param>
         /// <returns></returns>
-        public static Task<string> GenerateAsync(int Length = MPM.Length, EAPT Alphabetic = MPM.AlphabeticType, ESPT Special = MPM.SpecialType, string Prefix = MPM.Prefix, string Suffix = MPM.Suffix)
+        public static Task<string> GenerateAsync(int Length = MPPM.Length, EAPT Alphabetic = MPPM.AlphabeticType, ESPT Special = MPPM.SpecialType, string Prefix = MPPM.Prefix, string Suffix = MPPM.Suffix)
         {
             return Task.Run(() => Generate(Length, Alphabetic, Special, Prefix, Suffix));
         }

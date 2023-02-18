@@ -2,10 +2,10 @@
 using System.Text.RegularExpressions;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
-using HWH = Skylark.Helper.Web.WebHelper;
-using MWM = Skylark.Manage.Web.WebManage;
-using SWHS = Skylark.Struct.Web.WebHeaderStruct;
-using SWRS = Skylark.Struct.Web.WebRatioStruct;
+using HWWH = Skylark.Helper.Web.WebHelper;
+using MWWM = Skylark.Manage.Web.WebManage;
+using SWWHS = Skylark.Struct.Web.WebHeaderStruct;
+using SWWRS = Skylark.Struct.Web.WebRatioStruct;
 
 namespace Skylark.Extension.Web
 {
@@ -19,11 +19,11 @@ namespace Skylark.Extension.Web
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static string Source(string Url = MWM.Url)
+        public static string Source(string Url = MWWM.Url)
         {
             try
             {
-                Url = HL.Parameter(Url, MWM.Url);
+                Url = HL.Parameter(Url, MWWM.Url);
 
                 HttpClient Client = new();
 
@@ -40,7 +40,7 @@ namespace Skylark.Extension.Web
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static Task<string> SourceAsync(string Url = MWM.Url)
+        public static Task<string> SourceAsync(string Url = MWWM.Url)
         {
             return Task.Run(() => Source(Url));
         }
@@ -51,11 +51,11 @@ namespace Skylark.Extension.Web
         /// <param name="Url"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static SWRS Ratio(string Url = MWM.Url, bool Separator = MWM.Separator)
+        public static SWWRS Ratio(string Url = MWWM.Url, bool Separator = MWWM.Separator)
         {
             try
             {
-                Url = HL.Parameter(Url, MWM.Url);
+                Url = HL.Parameter(Url, MWWM.Url);
 
                 string Rate;
                 string Code;
@@ -74,10 +74,10 @@ namespace Skylark.Extension.Web
 
                 return new()
                 {
-                    Rate = HWH.GetPlaces(Math.Round(decimal.Parse(Rate), 2), Separator),
-                    Total = HWH.GetPlaces(Total, Separator),
-                    Text = HWH.GetPlaces(Text, Separator),
-                    Code = HWH.GetPlaces(Code, Separator)
+                    Rate = HWWH.GetPlaces(Math.Round(decimal.Parse(Rate), 2), Separator),
+                    Total = HWWH.GetPlaces(Total, Separator),
+                    Text = HWWH.GetPlaces(Text, Separator),
+                    Code = HWWH.GetPlaces(Code, Separator)
                 };
             }
             catch (E Ex)
@@ -92,7 +92,7 @@ namespace Skylark.Extension.Web
         /// <param name="Url"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static Task<SWRS> RatioAsync(string Url = MWM.Url, bool Separator = MWM.Separator)
+        public static Task<SWWRS> RatioAsync(string Url = MWWM.Url, bool Separator = MWWM.Separator)
         {
             return Task.Run(() => Ratio(Url, Separator));
         }
@@ -102,13 +102,13 @@ namespace Skylark.Extension.Web
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static SWHS Header(string Url = MWM.Url)
+        public static SWWHS Header(string Url = MWWM.Url)
         {
             try
             {
-                Url = HL.Parameter(Url, MWM.Url);
+                Url = HL.Parameter(Url, MWWM.Url);
 
-                SWHS Result = new();
+                SWWHS Result = new();
 
                 HttpClient Client = new();
 
@@ -182,7 +182,7 @@ namespace Skylark.Extension.Web
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static Task<SWHS> HeaderAsync(string Url = MWM.Url)
+        public static Task<SWWHS> HeaderAsync(string Url = MWWM.Url)
         {
             return Task.Run(() => Header(Url));
         }
@@ -192,15 +192,15 @@ namespace Skylark.Extension.Web
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static CompressWebType Compress(string Url = MWM.Url)
+        public static CompressWebType Compress(string Url = MWWM.Url)
         {
             try
             {
-                Url = HL.Parameter(Url, MWM.Url);
+                Url = HL.Parameter(Url, MWWM.Url);
 
                 HttpClient Client = new();
 
-                Client.DefaultRequestHeaders.Add(MWM.Header, MWM.Types);
+                Client.DefaultRequestHeaders.Add(MWWM.Header, MWWM.Types);
 
                 HttpResponseMessage Response = Client.GetAsync(Url).Result;
 
@@ -223,7 +223,7 @@ namespace Skylark.Extension.Web
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static Task<CompressWebType> CompressAsync(string Url = MWM.Url)
+        public static Task<CompressWebType> CompressAsync(string Url = MWWM.Url)
         {
             return Task.Run(() => Compress(Url));
         }
@@ -235,27 +235,27 @@ namespace Skylark.Extension.Web
         /// <param name="Url2"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static string Similar(string Url1 = MWM.Url, string Url2 = MWM.Url, bool Separator = MWM.Separator)
+        public static string Similar(string Url1 = MWWM.Url, string Url2 = MWWM.Url, bool Separator = MWWM.Separator)
         {
             try
             {
-                Url1 = HL.Parameter(Url1, MWM.Url);
-                Url2 = HL.Parameter(Url2, MWM.Url);
+                Url1 = HL.Parameter(Url1, MWWM.Url);
+                Url2 = HL.Parameter(Url2, MWWM.Url);
 
                 double Percent = 0;
 
                 string Content1 = Source(Url1).ToLower();
                 string Content2 = Source(Url2).ToLower();
 
-                string[] Words1 = HWH.GetTags(Content1);
-                string[] Words2 = HWH.GetTags(Content2);
+                string[] Words1 = HWWH.GetTags(Content1);
+                string[] Words2 = HWWH.GetTags(Content2);
 
                 int Common = Words1.Count(Tag1 => Words2.Any(Tag2 => Tag2 == Tag1));
 
                 int Total = Words1.Length + Words2.Length - Common;
                 Percent = (double)Common / Total * 100;
 
-                return HWH.GetPlaces(Math.Round(decimal.Parse($"{Percent}"), 2), Separator);
+                return HWWH.GetPlaces(Math.Round(decimal.Parse($"{Percent}"), 2), Separator);
             }
             catch (E Ex)
             {
@@ -270,7 +270,7 @@ namespace Skylark.Extension.Web
         /// <param name="Url2"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static Task<string> SimilarAsync(string Url1 = MWM.Url, string Url2 = MWM.Url, bool Separator = MWM.Separator)
+        public static Task<string> SimilarAsync(string Url1 = MWWM.Url, string Url2 = MWWM.Url, bool Separator = MWWM.Separator)
         {
             return Task.Run(() => Similar(Url1, Url2, Separator));
         }

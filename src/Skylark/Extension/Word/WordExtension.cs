@@ -1,8 +1,8 @@
 ﻿using E = Skylark.Exception;
-using HWH = Skylark.Helper.Word.WordHelper;
-using MWM = Skylark.Manage.Word.WordManage;
-using SWCS = Skylark.Struct.Word.WordCombineStruct;
-using SWDS = Skylark.Struct.Word.WordDataStruct;
+using HWWH = Skylark.Helper.Word.WordHelper;
+using MWWM = Skylark.Manage.Word.WordManage;
+using SWWCS = Skylark.Struct.Word.WordCombineStruct;
+using SWWDS = Skylark.Struct.Word.WordDataStruct;
 
 namespace Skylark.Extension.Word
 {
@@ -16,15 +16,15 @@ namespace Skylark.Extension.Word
         /// </summary>
         /// <param name="List"></param>
         /// <returns></returns>
-        public static SWDS Data(string List = MWM.List)
+        public static SWWDS Data(string List = MWWM.List)
         {
             try
             {
-                string[] Array = HWH.GetSplit(List);
+                string[] Array = HWWH.GetSplit(List);
 
                 if (!Array.Any())
                 {
-                    throw new E(MWM.ListEmpty);
+                    throw new E(MWWM.ListEmpty);
                 }
 
                 return new()
@@ -44,7 +44,7 @@ namespace Skylark.Extension.Word
         /// </summary>
         /// <param name="List"></param>
         /// <returns></returns>
-        public static Task<SWDS> DataAsync(string List = MWM.List)
+        public static Task<SWWDS> DataAsync(string List = MWWM.List)
         {
             return Task.Run(() => Data(List));
         }
@@ -57,18 +57,18 @@ namespace Skylark.Extension.Word
         /// <param name="Separator"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static SWCS Combine(string List = MWM.List, char Space = MWM.Space, char Separator = MWM.Separator)
+        public static SWWCS Combine(string List = MWWM.List, char Space = MWWM.Space, char Separator = MWWM.Separator)
         {
             try
             {
-                string[] Array = HWH.GetSplits(List);
+                string[] Array = HWWH.GetSplits(List);
 
                 if (!Array.Any())
                 {
-                    throw new E(MWM.ListEmpty);
+                    throw new E(MWWM.ListEmpty);
                 }
 
-                return HWH.GetCombine(Array, Space, Separator);
+                return HWWH.GetCombine(Array, Space, Separator);
             }
             catch (E Ex)
             {
@@ -83,7 +83,7 @@ namespace Skylark.Extension.Word
         /// <param name="Space"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static Task<SWCS> CombineAsync(string List = MWM.List, char Space = MWM.Space, char Separator = MWM.Separator)
+        public static Task<SWWCS> CombineAsync(string List = MWWM.List, char Space = MWWM.Space, char Separator = MWWM.Separator)
         {
             return Task.Run(() => Combine(List, Space, Separator));
         }

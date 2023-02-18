@@ -3,9 +3,9 @@ using ECNT = Skylark.Enum.ClearNumericType;
 using ETT = Skylark.Enum.TimeType;
 using HC = Skylark.Helper.Converter;
 using HN = Skylark.Helper.Numeric;
-using HTH = Skylark.Helper.Time.TimeHelper;
-using MTM = Skylark.Manage.Time.TimeManage;
-using STS = Skylark.Struct.Time.TimeStruct;
+using HTTH = Skylark.Helper.Time.TimeHelper;
+using MTTM = Skylark.Manage.Time.TimeManage;
+using STTS = Skylark.Struct.Time.TimeStruct;
 
 namespace Skylark.Extension.Time
 {
@@ -21,9 +21,9 @@ namespace Skylark.Extension.Time
         /// <param name="Input"></param>
         /// <param name="Output"></param>
         /// <returns></returns>
-        public static double Convert(double Value = MTM.Value, string Input = MTM.DefaultInput, string Output = MTM.DefaultOutput)
+        public static double Convert(double Value = MTTM.Value, string Input = MTTM.DefaultInput, string Output = MTTM.DefaultOutput)
         {
-            return Convert(Value, HC.Convert(Input, MTM.InputType), HC.Convert(Output, MTM.OutputType));
+            return Convert(Value, HC.Convert(Input, MTTM.InputType), HC.Convert(Output, MTTM.OutputType));
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace Skylark.Extension.Time
         /// <param name="Input"></param>
         /// <param name="Output"></param>
         /// <returns></returns>
-        public static Task<double> ConvertAsync(double Value = MTM.Value, string Input = MTM.DefaultInput, string Output = MTM.DefaultOutput)
+        public static Task<double> ConvertAsync(double Value = MTTM.Value, string Input = MTTM.DefaultInput, string Output = MTTM.DefaultOutput)
         {
             return Task.Run(() => Convert(Value, Input, Output));
         }
@@ -46,14 +46,14 @@ namespace Skylark.Extension.Time
         /// <param name="Output"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static double Convert(double Value = MTM.Value, ETT Input = MTM.InputType, ETT Output = MTM.OutputType)
+        public static double Convert(double Value = MTTM.Value, ETT Input = MTTM.InputType, ETT Output = MTTM.OutputType)
         {
             try
             {
                 return Input switch
                 {
-                    ETT.Attosecond or ETT.Femtosecond or ETT.Picosecond or ETT.Nanosecond or ETT.Microsecond or ETT.Millisecond or ETT.Second or ETT.Minute or ETT.Hour or ETT.Day or ETT.Week or ETT.Year or ETT.Decade or ETT.Century or ETT.Millennium => HTH.GetCalc(Value, HTH.GetValue(Input, Output)),
-                    _ => throw new E(MTM.Error),
+                    ETT.Attosecond or ETT.Femtosecond or ETT.Picosecond or ETT.Nanosecond or ETT.Microsecond or ETT.Millisecond or ETT.Second or ETT.Minute or ETT.Hour or ETT.Day or ETT.Week or ETT.Year or ETT.Decade or ETT.Century or ETT.Millennium => HTTH.GetCalc(Value, HTTH.GetValue(Input, Output)),
+                    _ => throw new E(MTTM.Error),
                 };
             }
             catch (E Ex)
@@ -69,7 +69,7 @@ namespace Skylark.Extension.Time
         /// <param name="Input"></param>
         /// <param name="Output"></param>
         /// <returns></returns>
-        public static Task<double> ConvertAsync(double Value = MTM.Value, ETT Input = MTM.InputType, ETT Output = MTM.OutputType)
+        public static Task<double> ConvertAsync(double Value = MTTM.Value, ETT Input = MTTM.InputType, ETT Output = MTTM.OutputType)
         {
             return Task.Run(() => Convert(Value, Input, Output));
         }
@@ -80,9 +80,9 @@ namespace Skylark.Extension.Time
         /// <param name="Value"></param>
         /// <param name="Input"></param>
         /// <returns></returns>
-        public static STS AutoConvert(double Value = MTM.Value, string Input = MTM.DefaultInput)
+        public static STTS AutoConvert(double Value = MTTM.Value, string Input = MTTM.DefaultInput)
         {
-            return AutoConvert(Value, HC.Convert(Input, MTM.InputType));
+            return AutoConvert(Value, HC.Convert(Input, MTTM.InputType));
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace Skylark.Extension.Time
         /// <param name="Value"></param>
         /// <param name="Input"></param>
         /// <returns></returns>
-        public static Task<STS> AutoConvertAsync(double Value = MTM.Value, string Input = MTM.DefaultInput)
+        public static Task<STTS> AutoConvertAsync(double Value = MTTM.Value, string Input = MTTM.DefaultInput)
         {
             return Task.Run(() => AutoConvert(Value, Input));
         }
@@ -103,14 +103,14 @@ namespace Skylark.Extension.Time
         /// <param name="Input"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static STS AutoConvert(double Value = MTM.Value, ETT Input = MTM.InputType)
+        public static STTS AutoConvert(double Value = MTTM.Value, ETT Input = MTTM.InputType)
         {
             try
             {
                 return Input switch
                 {
                     ETT.Attosecond or ETT.Femtosecond or ETT.Picosecond or ETT.Nanosecond or ETT.Microsecond or ETT.Millisecond or ETT.Second or ETT.Minute or ETT.Hour or ETT.Day or ETT.Week or ETT.Year or ETT.Decade or ETT.Century or ETT.Millennium => AutoDetect(Value, Input),
-                    _ => throw new E(MTM.Error),
+                    _ => throw new E(MTTM.Error),
                 };
             }
             catch (E Ex)
@@ -125,7 +125,7 @@ namespace Skylark.Extension.Time
         /// <param name="Value"></param>
         /// <param name="Input"></param>
         /// <returns></returns>
-        public static Task<STS> AutoConvertAsync(double Value = MTM.Value, ETT Input = MTM.InputType)
+        public static Task<STTS> AutoConvertAsync(double Value = MTTM.Value, ETT Input = MTTM.InputType)
         {
             return Task.Run(() => AutoConvert(Value, Input));
         }
@@ -136,9 +136,9 @@ namespace Skylark.Extension.Time
         /// <param name="Value"></param>
         /// <param name="Input"></param>
         /// <returns></returns>
-        private static STS AutoDetect(double Value, ETT Input)
+        private static STTS AutoDetect(double Value, ETT Input)
         {
-            STS Result = MTM.Result;
+            STTS Result = MTTM.Result;
 
             ETT Active = Input;
 

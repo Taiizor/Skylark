@@ -3,7 +3,7 @@ using NUglify.Html;
 using WebMarkupMin.Core;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
-using MXM = Skylark.Manage.Xhtml.XhtmlManage;
+using MXXM = Skylark.Manage.Xhtml.XhtmlManage;
 
 namespace Skylark.Extension.Xhtml
 {
@@ -17,11 +17,11 @@ namespace Skylark.Extension.Xhtml
         /// </summary>
         /// <param name="Xhtml"></param>
         /// <returns></returns>
-        public static string ToMinify(string Xhtml = MXM.Xhtml)
+        public static string ToMinify(string Xhtml = MXXM.Xhtml)
         {
             try
             {
-                Xhtml = HL.Text(Xhtml, MXM.Xhtml);
+                Xhtml = HL.Text(Xhtml, MXXM.Xhtml);
 
                 XhtmlMinifier Minifier = new();
 
@@ -48,7 +48,7 @@ namespace Skylark.Extension.Xhtml
         /// </summary>
         /// <param name="Xhtml"></param>
         /// <returns></returns>
-        public static Task<string> ToMinifyAsync(string Xhtml = MXM.Xhtml)
+        public static Task<string> ToMinifyAsync(string Xhtml = MXXM.Xhtml)
         {
             return Task.Run(() => ToMinify(Xhtml));
         }
@@ -58,11 +58,11 @@ namespace Skylark.Extension.Xhtml
         /// </summary>
         /// <param name="Xhtml"></param>
         /// <returns></returns>
-        public static string ToBeauty(string Xhtml = MXM.Xhtml)
+        public static string ToBeauty(string Xhtml = MXXM.Xhtml)
         {
             try
             {
-                Xhtml = HL.Text(Xhtml, MXM.Xhtml);
+                Xhtml = HL.Text(Xhtml, MXXM.Xhtml);
 
                 UglifyResult Beautified = Uglify.Html(Xhtml, HtmlSettings.Pretty());
 
@@ -87,7 +87,7 @@ namespace Skylark.Extension.Xhtml
         /// </summary>
         /// <param name="Xhtml"></param>
         /// <returns></returns>
-        public static Task<string> ToBeautyAsync(string Xhtml = MXM.Xhtml)
+        public static Task<string> ToBeautyAsync(string Xhtml = MXXM.Xhtml)
         {
             return Task.Run(() => ToBeauty(Xhtml));
         }

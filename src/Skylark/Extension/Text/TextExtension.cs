@@ -2,7 +2,7 @@
 using E = Skylark.Exception;
 using ETT = Skylark.Enum.TextType;
 using HL = Skylark.Helper.Length;
-using MTM = Skylark.Manage.Text.TextManage;
+using MTTM = Skylark.Manage.Text.TextManage;
 
 namespace Skylark.Extension.Text
 {
@@ -20,13 +20,13 @@ namespace Skylark.Extension.Text
         /// <param name="Method"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string Cut(string Text = MTM.Text, int Length = MTM.Length, string Symbol = MTM.CutSymbol, ETT Method = MTM.CutMethod)
+        public static string Cut(string Text = MTTM.Text, int Length = MTTM.Length, string Symbol = MTTM.CutSymbol, ETT Method = MTTM.CutMethod)
         {
             try
             {
-                Text = HL.Text(Text, MTM.Text);
-                Symbol = HL.Parameter(Symbol, MTM.CutSymbol);
-                Length = HL.Clamp(Length, MTM.MinLength, MTM.MaxLength);
+                Text = HL.Text(Text, MTTM.Text);
+                Symbol = HL.Parameter(Symbol, MTTM.CutSymbol);
+                Length = HL.Clamp(Length, MTTM.MinLength, MTTM.MaxLength);
 
                 if (Text.Length <= Length)
                 {
@@ -42,7 +42,7 @@ namespace Skylark.Extension.Text
                         ETT.End => Text.Substring(0, Length) + Symbol,
                         ETT.Mid => new string(Text.Where((Char, Number) => Number < LeftPart || Number >= LeftPart + Difference).ToArray()).Insert(LeftPart, Symbol),
                         ETT.Start => Symbol + Text.Substring(Difference),
-                        _ => throw new E(MTM.Error),
+                        _ => throw new E(MTTM.Error),
                     };
                 }
             }
@@ -60,7 +60,7 @@ namespace Skylark.Extension.Text
         /// <param name="Symbol"></param>
         /// <param name="Method"></param>
         /// <returns></returns>
-        public static Task<string> CutAsync(string Text = MTM.Text, int Length = MTM.Length, string Symbol = MTM.CutSymbol, ETT Method = MTM.CutMethod)
+        public static Task<string> CutAsync(string Text = MTTM.Text, int Length = MTTM.Length, string Symbol = MTTM.CutSymbol, ETT Method = MTTM.CutMethod)
         {
             return Task.Run(() => Cut(Text, Length, Symbol, Method));
         }
@@ -71,11 +71,11 @@ namespace Skylark.Extension.Text
         /// <param name="Word"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string Text(int Word = MTM.Word)
+        public static string Text(int Word = MTTM.Word)
         {
             try
             {
-                return Generate(Word, MTM.Pass);
+                return Generate(Word, MTTM.Pass);
             }
             catch (E Ex)
             {
@@ -88,7 +88,7 @@ namespace Skylark.Extension.Text
         /// </summary>
         /// <param name="Word"></param>
         /// <returns></returns>
-        public static Task<string> TextAsync(int Word = MTM.Word)
+        public static Task<string> TextAsync(int Word = MTTM.Word)
         {
             return Task.Run(() => Text(Word));
         }
@@ -101,11 +101,11 @@ namespace Skylark.Extension.Text
         /// <param name="Word"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string List(int List = MTM.List, char Symbol = MTM.ListSymbol, int Word = MTM.Word)
+        public static string List(int List = MTTM.List, char Symbol = MTTM.ListSymbol, int Word = MTTM.Word)
         {
             try
             {
-                List = HL.Clamp(List, MTM.MinList, MTM.MaxList);
+                List = HL.Clamp(List, MTTM.MinList, MTTM.MaxList);
 
                 StringBuilder Builder = new();
 
@@ -131,7 +131,7 @@ namespace Skylark.Extension.Text
         /// <param name="Symbol"></param>
         /// <param name="Word"></param>
         /// <returns></returns>
-        public static Task<string> ListAsync(int List = MTM.List, char Symbol = MTM.ListSymbol, int Word = MTM.Word)
+        public static Task<string> ListAsync(int List = MTTM.List, char Symbol = MTTM.ListSymbol, int Word = MTTM.Word)
         {
             return Task.Run(() => TextExtension.List(List, Symbol, Word));
         }
@@ -142,11 +142,11 @@ namespace Skylark.Extension.Text
         /// <param name="Text"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string Reverse(string Text = MTM.Text)
+        public static string Reverse(string Text = MTTM.Text)
         {
             try
             {
-                Text = HL.Text(Text, MTM.Text);
+                Text = HL.Text(Text, MTTM.Text);
 
                 return new string(Text.Reverse().ToArray());
             }
@@ -161,7 +161,7 @@ namespace Skylark.Extension.Text
         /// </summary>
         /// <param name="Text"></param>
         /// <returns></returns>
-        public static Task<string> ReverseAsync(string Text = MTM.Text)
+        public static Task<string> ReverseAsync(string Text = MTTM.Text)
         {
             return Task.Run(() => Reverse(Text));
         }
@@ -173,11 +173,11 @@ namespace Skylark.Extension.Text
         /// <param name="Word"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string Paragraph(int Paragraph = MTM.Paragraph, int Word = MTM.Word)
+        public static string Paragraph(int Paragraph = MTTM.Paragraph, int Word = MTTM.Word)
         {
             try
             {
-                Paragraph = HL.Clamp(Paragraph, MTM.MinParagraph, MTM.MaxParagraph);
+                Paragraph = HL.Clamp(Paragraph, MTTM.MinParagraph, MTTM.MaxParagraph);
 
                 StringBuilder Builder = new();
 
@@ -207,7 +207,7 @@ namespace Skylark.Extension.Text
         /// <param name="Paragraph"></param>
         /// <param name="Word"></param>
         /// <returns></returns>
-        public static Task<string> ParagraphAsync(int Paragraph = MTM.Paragraph, int Word = MTM.Word)
+        public static Task<string> ParagraphAsync(int Paragraph = MTTM.Paragraph, int Word = MTTM.Word)
         {
             return Task.Run(() => TextExtension.Paragraph(Paragraph, Word));
         }
@@ -219,17 +219,17 @@ namespace Skylark.Extension.Text
         /// <param name="Pass"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        private static string Generate(int Word = MTM.Word, int Pass = MTM.Pass)
+        private static string Generate(int Word = MTTM.Word, int Pass = MTTM.Pass)
         {
             try
             {
-                Word = HL.Clamp(Word, MTM.MinWord, MTM.MaxWord);
+                Word = HL.Clamp(Word, MTTM.MinWord, MTTM.MaxWord);
 
                 string Result = string.Empty;
 
                 for (int Count = 0; Count < Word; Count++)
                 {
-                    Result += MTM.Words[(Count + Pass) % MTM.Words.Length] + " ";
+                    Result += MTTM.Words[(Count + Pass) % MTTM.Words.Length] + " ";
                 }
 
                 if (Result.EndsWith(", "))
@@ -246,7 +246,7 @@ namespace Skylark.Extension.Text
                 }
                 else
                 {
-                    return MTM.Unknown;
+                    return MTTM.Unknown;
                 }
             }
             catch (E Ex)

@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System.Xml;
 using WebMarkupMin.Core;
-using BTPXB = Skylark.ThirdParty.Xml.Beauty;
+using TPXB = Skylark.ThirdParty.Xml.Beauty;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
-using MXM = Skylark.Manage.Xml.XmlManage;
+using MXXM = Skylark.Manage.Xml.XmlManage;
 
 namespace Skylark.Extension.Xml
 {
@@ -20,11 +20,11 @@ namespace Skylark.Extension.Xml
         /// <param name="Format"></param>
         /// <param name="Root"></param>
         /// <returns></returns>
-        public static string ToJson(string Xml = MXM.Xml, bool Format = MXM.Format, bool Root = MXM.Root)
+        public static string ToJson(string Xml = MXXM.Xml, bool Format = MXXM.Format, bool Root = MXXM.Root)
         {
             try
             {
-                Xml = HL.Text(Xml, MXM.Xml);
+                Xml = HL.Text(Xml, MXXM.Xml);
 
                 XmlDocument Document = new();
 
@@ -51,7 +51,7 @@ namespace Skylark.Extension.Xml
         /// <param name="Format"></param>
         /// <param name="Root"></param>
         /// <returns></returns>
-        public static Task<string> ToJsonAsync(string Xml = MXM.Xml, bool Format = MXM.Format, bool Root = MXM.Root)
+        public static Task<string> ToJsonAsync(string Xml = MXXM.Xml, bool Format = MXXM.Format, bool Root = MXXM.Root)
         {
             return Task.Run(() => ToJson(Xml, Format, Root));
         }
@@ -61,13 +61,13 @@ namespace Skylark.Extension.Xml
         /// </summary>
         /// <param name="Xml"></param>
         /// <returns></returns>
-        public static string ToBeauty(string Xml = MXM.Xml)
+        public static string ToBeauty(string Xml = MXXM.Xml)
         {
             try
             {
-                Xml = HL.Text(Xml, MXM.Xml);
+                Xml = HL.Text(Xml, MXXM.Xml);
 
-                return BTPXB.Beautifier(Xml);
+                return TPXB.Beautifier(Xml);
             }
             catch (E Ex)
             {
@@ -80,7 +80,7 @@ namespace Skylark.Extension.Xml
         /// </summary>
         /// <param name="Xml"></param>
         /// <returns></returns>
-        public static Task<string> ToBeautyAsync(string Xml = MXM.Xml)
+        public static Task<string> ToBeautyAsync(string Xml = MXXM.Xml)
         {
             return Task.Run(() => ToBeauty(Xml));
         }
@@ -90,11 +90,11 @@ namespace Skylark.Extension.Xml
         /// </summary>
         /// <param name="Xml"></param>
         /// <returns></returns>
-        public static string ToMinify(string Xml = MXM.Xml)
+        public static string ToMinify(string Xml = MXXM.Xml)
         {
             try
             {
-                Xml = HL.Text(Xml, MXM.Xml);
+                Xml = HL.Text(Xml, MXXM.Xml);
 
                 XmlMinifier Minifier = new();
 
@@ -121,7 +121,7 @@ namespace Skylark.Extension.Xml
         /// </summary>
         /// <param name="Xml"></param>
         /// <returns></returns>
-        public static Task<string> ToMinifyAsync(string Xml = MXM.Xml)
+        public static Task<string> ToMinifyAsync(string Xml = MXXM.Xml)
         {
             return Task.Run(() => ToMinify(Xml));
         }

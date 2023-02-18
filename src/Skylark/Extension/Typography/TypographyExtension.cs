@@ -1,5 +1,5 @@
 ﻿using E = Skylark.Exception;
-using MTM = Skylark.Manage.Typography.TypographyManage;
+using MTTM = Skylark.Manage.Typography.TypographyManage;
 
 namespace Skylark.Extension.Typography
 {
@@ -16,7 +16,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Constant"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        private static decimal PixelToEm(decimal Pixel = MTM.Value, decimal Coefficient = MTM.Pixel_Em_Coefficient, decimal Constant = MTM.Pixel_Em_Constant)
+        private static decimal PixelToEm(decimal Pixel = MTTM.Value, decimal Coefficient = MTTM.Pixel_Em_Coefficient, decimal Constant = MTTM.Pixel_Em_Constant)
         {
             try
             {
@@ -35,7 +35,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Coefficient"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        private static Task<decimal> PixelToEmAsync(decimal Pixel = MTM.Value, decimal Coefficient = MTM.Pixel_Em_Coefficient, decimal Constant = MTM.Pixel_Em_Constant)
+        private static Task<decimal> PixelToEmAsync(decimal Pixel = MTTM.Value, decimal Coefficient = MTTM.Pixel_Em_Coefficient, decimal Constant = MTTM.Pixel_Em_Constant)
         {
             return Task.Run(() => PixelToEm(Pixel, Coefficient, Constant));
         }
@@ -48,7 +48,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Constant"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        private static decimal PixelToRem(decimal Pixel = MTM.Value, decimal Coefficient = MTM.Pixel_Rem_Coefficient, decimal Constant = MTM.Pixel_Rem_Constant)
+        private static decimal PixelToRem(decimal Pixel = MTTM.Value, decimal Coefficient = MTTM.Pixel_Rem_Coefficient, decimal Constant = MTTM.Pixel_Rem_Constant)
         {
             try
             {
@@ -67,7 +67,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Coefficient"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        private static Task<decimal> PixelToRemAsync(decimal Pixel = MTM.Value, decimal Coefficient = MTM.Pixel_Rem_Coefficient, decimal Constant = MTM.Pixel_Rem_Constant)
+        private static Task<decimal> PixelToRemAsync(decimal Pixel = MTTM.Value, decimal Coefficient = MTTM.Pixel_Rem_Coefficient, decimal Constant = MTTM.Pixel_Rem_Constant)
         {
             return Task.Run(() => PixelToRem(Pixel, Coefficient, Constant));
         }
@@ -79,7 +79,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Constant"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static decimal PixelToInch(decimal Pixel = MTM.Value, decimal Constant = MTM.Pixel_Inch_Constant)
+        public static decimal PixelToInch(decimal Pixel = MTTM.Value, decimal Constant = MTTM.Pixel_Inch_Constant)
         {
             try
             {
@@ -97,7 +97,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Pixel"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> PixelToInchAsync(decimal Pixel = MTM.Value, decimal Constant = MTM.Pixel_Inch_Constant)
+        public static Task<decimal> PixelToInchAsync(decimal Pixel = MTTM.Value, decimal Constant = MTTM.Pixel_Inch_Constant)
         {
             return Task.Run(() => PixelToInch(Pixel, Constant));
         }
@@ -109,7 +109,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Coefficient"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static decimal PixelToPunto(decimal Pixel = MTM.Value, decimal Coefficient = MTM.Pixel_Punto_Coefficient)
+        public static decimal PixelToPunto(decimal Pixel = MTTM.Value, decimal Coefficient = MTTM.Pixel_Punto_Coefficient)
         {
             try
             {
@@ -127,7 +127,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Pixel"></param>
         /// <param name="Coefficient"></param>
         /// <returns></returns>
-        public static Task<decimal> PixelToPuntoAsync(decimal Pixel = MTM.Value, decimal Coefficient = MTM.Pixel_Punto_Coefficient)
+        public static Task<decimal> PixelToPuntoAsync(decimal Pixel = MTTM.Value, decimal Coefficient = MTTM.Pixel_Punto_Coefficient)
         {
             return Task.Run(() => PixelToPunto(Pixel, Coefficient));
         }
@@ -139,7 +139,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Constant"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static decimal PixelToCentimeter(decimal Pixel = MTM.Value, decimal Constant = MTM.Pixel_Centimeter_Constant)
+        public static decimal PixelToCentimeter(decimal Pixel = MTTM.Value, decimal Constant = MTTM.Pixel_Centimeter_Constant)
         {
             try
             {
@@ -157,7 +157,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Pixel"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> PixelToCentimeterAsync(decimal Pixel = MTM.Value, decimal Constant = MTM.Pixel_Centimeter_Constant)
+        public static Task<decimal> PixelToCentimeterAsync(decimal Pixel = MTTM.Value, decimal Constant = MTTM.Pixel_Centimeter_Constant)
         {
             return Task.Run(() => PixelToCentimeter(Pixel, Constant));
         }
@@ -169,7 +169,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Constant"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static decimal InchToPixel(decimal Inch = MTM.Value, decimal Constant = MTM.Inch_Pixel_Constant)
+        public static decimal InchToPixel(decimal Inch = MTTM.Value, decimal Constant = MTTM.Inch_Pixel_Constant)
         {
             try
             {
@@ -187,7 +187,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Inch"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> InchToPixelAsync(decimal Inch = MTM.Value, decimal Constant = MTM.Inch_Pixel_Constant)
+        public static Task<decimal> InchToPixelAsync(decimal Inch = MTTM.Value, decimal Constant = MTTM.Inch_Pixel_Constant)
         {
             return Task.Run(() => InchToPixel(Inch, Constant));
         }
@@ -199,7 +199,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Constant"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static decimal InchToPunto(decimal Inch = MTM.Value, decimal Constant = MTM.Inch_Punto_Constant)
+        public static decimal InchToPunto(decimal Inch = MTTM.Value, decimal Constant = MTTM.Inch_Punto_Constant)
         {
             try
             {
@@ -217,7 +217,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Inch"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> InchToPuntoAsync(decimal Inch = MTM.Value, decimal Constant = MTM.Inch_Punto_Constant)
+        public static Task<decimal> InchToPuntoAsync(decimal Inch = MTTM.Value, decimal Constant = MTTM.Inch_Punto_Constant)
         {
             return Task.Run(() => InchToPunto(Inch, Constant));
         }
@@ -229,7 +229,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Constant"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static decimal InchToCentimeter(decimal Inch = MTM.Value, decimal Constant = MTM.Inch_Centimeter_Constant)
+        public static decimal InchToCentimeter(decimal Inch = MTTM.Value, decimal Constant = MTTM.Inch_Centimeter_Constant)
         {
             try
             {
@@ -247,7 +247,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Inch"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> InchToCentimeterAsync(decimal Inch = MTM.Value, decimal Constant = MTM.Inch_Centimeter_Constant)
+        public static Task<decimal> InchToCentimeterAsync(decimal Inch = MTTM.Value, decimal Constant = MTTM.Inch_Centimeter_Constant)
         {
             return Task.Run(() => InchToCentimeter(Inch, Constant));
         }
@@ -259,7 +259,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Coefficient"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static decimal PuntoToPixel(decimal Punto = MTM.Value, decimal Coefficient = MTM.Punto_Pixel_Coefficient)
+        public static decimal PuntoToPixel(decimal Punto = MTTM.Value, decimal Coefficient = MTTM.Punto_Pixel_Coefficient)
         {
             try
             {
@@ -277,7 +277,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Punto"></param>
         /// <param name="Coefficient"></param>
         /// <returns></returns>
-        public static Task<decimal> PuntoToPixelAsync(decimal Punto = MTM.Value, decimal Coefficient = MTM.Punto_Pixel_Coefficient)
+        public static Task<decimal> PuntoToPixelAsync(decimal Punto = MTTM.Value, decimal Coefficient = MTTM.Punto_Pixel_Coefficient)
         {
             return Task.Run(() => PuntoToPixel(Punto, Coefficient));
         }
@@ -289,7 +289,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Constant"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static decimal PuntoToInch(decimal Punto = MTM.Value, decimal Constant = MTM.Punto_Inch_Constant)
+        public static decimal PuntoToInch(decimal Punto = MTTM.Value, decimal Constant = MTTM.Punto_Inch_Constant)
         {
             try
             {
@@ -307,7 +307,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Punto"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> PuntoToInchAsync(decimal Punto = MTM.Value, decimal Constant = MTM.Punto_Inch_Constant)
+        public static Task<decimal> PuntoToInchAsync(decimal Punto = MTTM.Value, decimal Constant = MTTM.Punto_Inch_Constant)
         {
             return Task.Run(() => PuntoToInch(Punto, Constant));
         }
@@ -319,7 +319,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Constant"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static decimal PuntoToCentimeter(decimal Punto = MTM.Value, decimal Constant = MTM.Punto_Centimeter_Constant)
+        public static decimal PuntoToCentimeter(decimal Punto = MTTM.Value, decimal Constant = MTTM.Punto_Centimeter_Constant)
         {
             try
             {
@@ -337,7 +337,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Punto"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> PuntoToCentimeterAsync(decimal Punto = MTM.Value, decimal Constant = MTM.Punto_Centimeter_Constant)
+        public static Task<decimal> PuntoToCentimeterAsync(decimal Punto = MTTM.Value, decimal Constant = MTTM.Punto_Centimeter_Constant)
         {
             return Task.Run(() => PuntoToCentimeter(Punto, Constant));
         }
@@ -350,7 +350,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Constant"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static decimal CentimeterToPixel(decimal Centimeter = MTM.Value, decimal Coefficient = MTM.Centimeter_Pixel_Coefficient, decimal Constant = MTM.Centimeter_Pixel_Constant)
+        public static decimal CentimeterToPixel(decimal Centimeter = MTTM.Value, decimal Coefficient = MTTM.Centimeter_Pixel_Coefficient, decimal Constant = MTTM.Centimeter_Pixel_Constant)
         {
             try
             {
@@ -369,7 +369,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Coefficient"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> CentimeterToPixelAsync(decimal Centimeter = MTM.Value, decimal Coefficient = MTM.Centimeter_Pixel_Coefficient, decimal Constant = MTM.Centimeter_Pixel_Constant)
+        public static Task<decimal> CentimeterToPixelAsync(decimal Centimeter = MTTM.Value, decimal Coefficient = MTTM.Centimeter_Pixel_Coefficient, decimal Constant = MTTM.Centimeter_Pixel_Constant)
         {
             return Task.Run(() => CentimeterToPixel(Centimeter, Coefficient, Constant));
         }
@@ -381,7 +381,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Constant"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static decimal CentimeterToInch(decimal Centimeter = MTM.Value, decimal Constant = MTM.Centimeter_Inch_Constant)
+        public static decimal CentimeterToInch(decimal Centimeter = MTTM.Value, decimal Constant = MTTM.Centimeter_Inch_Constant)
         {
             try
             {
@@ -399,7 +399,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Centimeter"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> CentimeterToInchAsync(decimal Centimeter = MTM.Value, decimal Constant = MTM.Centimeter_Inch_Constant)
+        public static Task<decimal> CentimeterToInchAsync(decimal Centimeter = MTTM.Value, decimal Constant = MTTM.Centimeter_Inch_Constant)
         {
             return Task.Run(() => CentimeterToInch(Centimeter, Constant));
         }
@@ -411,7 +411,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Constant"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static decimal CentimeterToPunto(decimal Centimeter = MTM.Value, decimal Constant = MTM.Centimeter_Punto_Constant)
+        public static decimal CentimeterToPunto(decimal Centimeter = MTTM.Value, decimal Constant = MTTM.Centimeter_Punto_Constant)
         {
             try
             {
@@ -429,7 +429,7 @@ namespace Skylark.Extension.Typography
         /// <param name="Centimeter"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> CentimeterToPuntoAsync(decimal Centimeter = MTM.Value, decimal Constant = MTM.Centimeter_Punto_Constant)
+        public static Task<decimal> CentimeterToPuntoAsync(decimal Centimeter = MTTM.Value, decimal Constant = MTTM.Centimeter_Punto_Constant)
         {
             return Task.Run(() => CentimeterToPunto(Centimeter, Constant));
         }

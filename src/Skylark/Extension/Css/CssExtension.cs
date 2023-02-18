@@ -3,7 +3,7 @@ using NUglify.Css;
 using WebMarkupMin.Core;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
-using MCM = Skylark.Manage.Css.CssManage;
+using MCCM = Skylark.Manage.Css.CssManage;
 
 namespace Skylark.Extension.Css
 {
@@ -17,11 +17,11 @@ namespace Skylark.Extension.Css
         /// </summary>
         /// <param name="Css"></param>
         /// <returns></returns>
-        public static string ToMinify(string Css = MCM.Css)
+        public static string ToMinify(string Css = MCCM.Css)
         {
             try
             {
-                Css = HL.Text(Css, MCM.Css);
+                Css = HL.Text(Css, MCCM.Css);
 
                 KristensenCssMinifier Minifier = new();
 
@@ -48,7 +48,7 @@ namespace Skylark.Extension.Css
         /// </summary>
         /// <param name="Css"></param>
         /// <returns></returns>
-        public static Task<string> ToMinifyAsync(string Css = MCM.Css)
+        public static Task<string> ToMinifyAsync(string Css = MCCM.Css)
         {
             return Task.Run(() => ToMinify(Css));
         }
@@ -58,11 +58,11 @@ namespace Skylark.Extension.Css
         /// </summary>
         /// <param name="Css"></param>
         /// <returns></returns>
-        public static string ToBeauty(string Css = MCM.Css)
+        public static string ToBeauty(string Css = MCCM.Css)
         {
             try
             {
-                Css = HL.Text(Css, MCM.Css);
+                Css = HL.Text(Css, MCCM.Css);
 
                 UglifyResult Beautified = Uglify.Css(Css, CssSettings.Pretty());
 
@@ -87,7 +87,7 @@ namespace Skylark.Extension.Css
         /// </summary>
         /// <param name="Css"></param>
         /// <returns></returns>
-        public static Task<string> ToBeautyAsync(string Css = MCM.Css)
+        public static Task<string> ToBeautyAsync(string Css = MCCM.Css)
         {
             return Task.Run(() => ToBeauty(Css));
         }

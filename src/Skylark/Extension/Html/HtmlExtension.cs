@@ -5,7 +5,7 @@ using WebMarkupMin.Core;
 using E = Skylark.Exception;
 using HF = Skylark.Helper.Format;
 using HL = Skylark.Helper.Length;
-using MHM = Skylark.Manage.Html.HtmlManage;
+using MHHM = Skylark.Manage.Html.HtmlManage;
 
 namespace Skylark.Extension.Html
 {
@@ -19,11 +19,11 @@ namespace Skylark.Extension.Html
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
-        public static string Encode(string Html = MHM.Html)
+        public static string Encode(string Html = MHHM.Html)
         {
             try
             {
-                Html = HL.Text(Html, MHM.Html);
+                Html = HL.Text(Html, MHHM.Html);
 
                 StringBuilder Builder = new();
 
@@ -53,7 +53,7 @@ namespace Skylark.Extension.Html
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
-        public static Task<string> EncodeAsync(string Html = MHM.Html)
+        public static Task<string> EncodeAsync(string Html = MHHM.Html)
         {
             return Task.Run(() => Encode(Html));
         }
@@ -63,11 +63,11 @@ namespace Skylark.Extension.Html
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
-        public static string Decode(string Html = MHM.Html)
+        public static string Decode(string Html = MHHM.Html)
         {
             try
             {
-                Html = HL.Text(Html, MHM.Html);
+                Html = HL.Text(Html, MHHM.Html);
 
                 Html = Html.Replace("<script type=\"text/javascript\">", string.Empty);
                 Html = Html.Replace("</script>", string.Empty);
@@ -100,7 +100,7 @@ namespace Skylark.Extension.Html
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
-        public static Task<string> DecodeAsync(string Html = MHM.Html)
+        public static Task<string> DecodeAsync(string Html = MHHM.Html)
         {
             return Task.Run(() => Decode(Html));
         }
@@ -110,11 +110,11 @@ namespace Skylark.Extension.Html
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
-        public static string ToMinify(string Html = MHM.Html)
+        public static string ToMinify(string Html = MHHM.Html)
         {
             try
             {
-                Html = HL.Text(Html, MHM.Html);
+                Html = HL.Text(Html, MHHM.Html);
 
                 HtmlMinifier Minifier = new();
 
@@ -141,7 +141,7 @@ namespace Skylark.Extension.Html
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
-        public static Task<string> ToMinifyAsync(string Html = MHM.Html)
+        public static Task<string> ToMinifyAsync(string Html = MHHM.Html)
         {
             return Task.Run(() => ToMinify(Html));
         }
@@ -151,11 +151,11 @@ namespace Skylark.Extension.Html
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
-        public static string ToBeauty(string Html = MHM.Html)
+        public static string ToBeauty(string Html = MHHM.Html)
         {
             try
             {
-                Html = HL.Text(Html, MHM.Html);
+                Html = HL.Text(Html, MHHM.Html);
 
                 UglifyResult Beautified = Uglify.Html(Html, NUglify.Html.HtmlSettings.Pretty());
 
@@ -180,7 +180,7 @@ namespace Skylark.Extension.Html
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
-        public static Task<string> ToBeautyAsync(string Html = MHM.Html)
+        public static Task<string> ToBeautyAsync(string Html = MHHM.Html)
         {
             return Task.Run(() => ToBeauty(Html));
         }

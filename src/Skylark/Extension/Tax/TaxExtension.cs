@@ -3,9 +3,9 @@ using E = Skylark.Exception;
 using ETT = Skylark.Enum.TaxType;
 using HC = Skylark.Helper.Converter;
 using HL = Skylark.Helper.Length;
-using HTH = Skylark.Helper.Tax.TaxHelper;
-using MTM = Skylark.Manage.Tax.TaxManage;
-using STCS = Skylark.Struct.Tax.TaxCalcStruct;
+using HTTH = Skylark.Helper.Tax.TaxHelper;
+using MTTM = Skylark.Manage.Tax.TaxManage;
+using STTCS = Skylark.Struct.Tax.TaxCalcStruct;
 
 namespace Skylark.Extension.Tax
 {
@@ -22,9 +22,9 @@ namespace Skylark.Extension.Tax
         /// <param name="Type"></param>
         /// <param name="Decimal"></param>
         /// <returns></returns>
-        public static STCS Calc(string Value = MTM.Value, string Percent = MTM.Percent, string Type = MTM.DefaultType, bool Decimal = MTM.Decimal)
+        public static STTCS Calc(string Value = MTTM.Value, string Percent = MTTM.Percent, string Type = MTTM.DefaultType, bool Decimal = MTTM.Decimal)
         {
-            return Calc(Value, Percent, HC.Convert(Type, MTM.TaxType), Decimal);
+            return Calc(Value, Percent, HC.Convert(Type, MTTM.TaxType), Decimal);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Skylark.Extension.Tax
         /// <param name="Type"></param>
         /// <param name="Decimal"></param>
         /// <returns></returns>
-        public static Task<STCS> CalcAsync(string Value = MTM.Value, string Percent = MTM.Percent, string Type = MTM.DefaultType, bool Decimal = MTM.Decimal)
+        public static Task<STTCS> CalcAsync(string Value = MTTM.Value, string Percent = MTTM.Percent, string Type = MTTM.DefaultType, bool Decimal = MTTM.Decimal)
         {
             return Task.Run(() => Calc(Value, Percent, Type, Decimal));
         }
@@ -48,12 +48,12 @@ namespace Skylark.Extension.Tax
         /// <param name="Type"></param>
         /// <param name="Decimal"></param>
         /// <returns></returns>
-        public static STCS Calc(string Value = MTM.Value, string Percent = MTM.Percent, ETT Type = MTM.TaxType, bool Decimal = MTM.Decimal)
+        public static STTCS Calc(string Value = MTTM.Value, string Percent = MTTM.Percent, ETT Type = MTTM.TaxType, bool Decimal = MTTM.Decimal)
         {
             try
             {
-                Value = HTH.GetConvert(HL.Parameter(Value, MTM.Value));
-                Percent = HTH.GetConvert(HL.Parameter(Percent, MTM.Percent));
+                Value = HTTH.GetConvert(HL.Parameter(Value, MTTM.Value));
+                Percent = HTTH.GetConvert(HL.Parameter(Percent, MTTM.Percent));
 
                 string Price;
                 string VatPrice;
@@ -83,9 +83,9 @@ namespace Skylark.Extension.Tax
 
                 return new()
                 {
-                    Price = $"{HTH.GetPlaces(Math.Round(decimal.Parse(Price), 2), Decimal)}",
-                    VatPrice = $"{HTH.GetPlaces(Math.Round(decimal.Parse(VatPrice), 2), Decimal)}",
-                    TotalPrice = $"{HTH.GetPlaces(Math.Round(decimal.Parse(TotalPrice), 2), Decimal)}",
+                    Price = $"{HTTH.GetPlaces(Math.Round(decimal.Parse(Price), 2), Decimal)}",
+                    VatPrice = $"{HTTH.GetPlaces(Math.Round(decimal.Parse(VatPrice), 2), Decimal)}",
+                    TotalPrice = $"{HTTH.GetPlaces(Math.Round(decimal.Parse(TotalPrice), 2), Decimal)}",
                 };
             }
             catch (E Ex)
@@ -102,7 +102,7 @@ namespace Skylark.Extension.Tax
         /// <param name="Type"></param>
         /// <param name="Decimal"></param>
         /// <returns></returns>
-        public static Task<STCS> CalcAsync(string Value = MTM.Value, string Percent = MTM.Percent, ETT Type = MTM.TaxType, bool Decimal = MTM.Decimal)
+        public static Task<STTCS> CalcAsync(string Value = MTTM.Value, string Percent = MTTM.Percent, ETT Type = MTTM.TaxType, bool Decimal = MTTM.Decimal)
         {
             return Task.Run(() => Calc(Value, Percent, Type, Decimal));
         }

@@ -3,7 +3,7 @@ using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
 using ME = Skylark.Manage.External;
 using MPM = Skylark.Manage.Ping.PingManage;
-using SPSS = Skylark.Struct.Ping.PingSendStruct;
+using SPPSS = Skylark.Struct.Ping.PingSendStruct;
 
 namespace Skylark.Extension.Ping
 {
@@ -20,13 +20,13 @@ namespace Skylark.Extension.Ping
         /// <param name="Ttl"></param>
         /// <param name="Fragment"></param>
         /// <returns></returns>
-        public static SPSS Send(string Address = MPM.Address, int Timeout = MPM.Timeout, int Ttl = MPM.Ttl, bool Fragment = MPM.Fragment)
+        public static SPPSS Send(string Address = MPM.Address, int Timeout = MPM.Timeout, int Ttl = MPM.Ttl, bool Fragment = MPM.Fragment)
         {
             try
             {
                 Address = HL.Parameter(Address, MPM.Address);
 
-                SPSS Result = MPM.Result;
+                SPPSS Result = MPM.Result;
 
                 ME.PingOptions = new(HL.Clamp(Ttl, MPM.MinTtl, MPM.MaxTtl), Fragment);
 
@@ -63,7 +63,7 @@ namespace Skylark.Extension.Ping
         /// <param name="Ttl"></param>
         /// <param name="Fragment"></param>
         /// <returns></returns>
-        public static Task<SPSS> SendAsync(string Address = MPM.Address, int Timeout = MPM.Timeout, int Ttl = MPM.Ttl, bool Fragment = MPM.Fragment)
+        public static Task<SPPSS> SendAsync(string Address = MPM.Address, int Timeout = MPM.Timeout, int Ttl = MPM.Ttl, bool Fragment = MPM.Fragment)
         {
             return Task.Run(() => Send(Address, Timeout, Ttl, Fragment));
         }

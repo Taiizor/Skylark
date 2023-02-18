@@ -2,7 +2,7 @@
 using EET = Skylark.Enum.EncodeType;
 using HE = Skylark.Helper.Encode;
 using HL = Skylark.Helper.Length;
-using MUM = Skylark.Manage.Unicode.UnicodeManage;
+using MUUM = Skylark.Manage.Unicode.UnicodeManage;
 
 namespace Skylark.Extension.Unicode
 {
@@ -19,11 +19,11 @@ namespace Skylark.Extension.Unicode
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string TextToASCII(string Text = MUM.Text, char Split = MUM.Split, EET Encode = MUM.Encode)
+        public static string TextToASCII(string Text = MUUM.Text, char Split = MUUM.Split, EET Encode = MUUM.Encode)
         {
             try
             {
-                Text = HL.Text(Text, MUM.Text);
+                Text = HL.Text(Text, MUUM.Text);
 
                 return string.Join($"{Split}", HE.GetBytes(Text, Encode).Select(Byte => $"{Byte}"));
             }
@@ -40,7 +40,7 @@ namespace Skylark.Extension.Unicode
         /// <param name="Split"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static Task<string> TextToASCIIAsync(string Text = MUM.Text, char Split = MUM.Split, EET Encode = MUM.Encode)
+        public static Task<string> TextToASCIIAsync(string Text = MUUM.Text, char Split = MUUM.Split, EET Encode = MUUM.Encode)
         {
             return Task.Run(() => TextToASCII(Text, Split, Encode));
         }
@@ -53,11 +53,11 @@ namespace Skylark.Extension.Unicode
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ASCIIToText(string ASCII = MUM.ASCII, char Split = MUM.Split, EET Encode = MUM.Encode)
+        public static string ASCIIToText(string ASCII = MUUM.ASCII, char Split = MUUM.Split, EET Encode = MUUM.Encode)
         {
             try
             {
-                ASCII = HL.Text(ASCII, MUM.ASCII);
+                ASCII = HL.Text(ASCII, MUUM.ASCII);
 
                 return HE.GetString(ASCII.Split(Split).Select(Code => Convert.ToByte(Code)).ToArray(), Encode);
             }
@@ -74,7 +74,7 @@ namespace Skylark.Extension.Unicode
         /// <param name="Split"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static Task<string> ASCIIToTextAsync(string ASCII = MUM.ASCII, char Split = MUM.Split, EET Encode = MUM.Encode)
+        public static Task<string> ASCIIToTextAsync(string ASCII = MUUM.ASCII, char Split = MUUM.Split, EET Encode = MUUM.Encode)
         {
             return Task.Run(() => ASCIIToText(ASCII, Split, Encode));
         }

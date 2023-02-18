@@ -3,7 +3,7 @@ using NUglify.JavaScript;
 using WebMarkupMin.Core;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
-using MJM = Skylark.Manage.Js.JsManage;
+using MJJM = Skylark.Manage.Js.JsManage;
 
 namespace Skylark.Extension.Js
 {
@@ -17,11 +17,11 @@ namespace Skylark.Extension.Js
         /// </summary>
         /// <param name="Js"></param>
         /// <returns></returns>
-        public static string ToMinify(string Js = MJM.Js)
+        public static string ToMinify(string Js = MJJM.Js)
         {
             try
             {
-                Js = HL.Text(Js, MJM.Js);
+                Js = HL.Text(Js, MJJM.Js);
 
                 CrockfordJsMinifier Minifier = new();
 
@@ -48,7 +48,7 @@ namespace Skylark.Extension.Js
         /// </summary>
         /// <param name="Js"></param>
         /// <returns></returns>
-        public static Task<string> ToMinifyAsync(string Js = MJM.Js)
+        public static Task<string> ToMinifyAsync(string Js = MJJM.Js)
         {
             return Task.Run(() => ToMinify(Js));
         }
@@ -58,11 +58,11 @@ namespace Skylark.Extension.Js
         /// </summary>
         /// <param name="Js"></param>
         /// <returns></returns>
-        public static string ToBeauty(string Js = MJM.Js)
+        public static string ToBeauty(string Js = MJJM.Js)
         {
             try
             {
-                Js = HL.Text(Js, MJM.Js);
+                Js = HL.Text(Js, MJJM.Js);
 
                 UglifyResult Beautified = Uglify.Js(Js, CodeSettings.Pretty());
 
@@ -87,7 +87,7 @@ namespace Skylark.Extension.Js
         /// </summary>
         /// <param name="Js"></param>
         /// <returns></returns>
-        public static Task<string> ToBeautyAsync(string Js = MJM.Js)
+        public static Task<string> ToBeautyAsync(string Js = MJJM.Js)
         {
             return Task.Run(() => ToBeauty(Js));
         }

@@ -4,9 +4,9 @@ using EMST = Skylark.Enum.ModeStorageType;
 using EST = Skylark.Enum.StorageType;
 using HC = Skylark.Helper.Converter;
 using HN = Skylark.Helper.Numeric;
-using HSH = Skylark.Helper.Storage.StorageHelper;
-using MSM = Skylark.Manage.Storage.StorageManage;
-using SSS = Skylark.Struct.Storage.StorageStruct;
+using HSSH = Skylark.Helper.Storage.StorageHelper;
+using MSSM = Skylark.Manage.Storage.StorageManage;
+using SSSS = Skylark.Struct.Storage.StorageStruct;
 
 namespace Skylark.Extension.Storage
 {
@@ -23,9 +23,9 @@ namespace Skylark.Extension.Storage
         /// <param name="Output"></param>
         /// <param name="Mode"></param>
         /// <returns></returns>
-        public static double Convert(double Value = MSM.Value, string Input = MSM.DefaultInput, string Output = MSM.DefaultOutput, string Mode = MSM.DefaultMode)
+        public static double Convert(double Value = MSSM.Value, string Input = MSSM.DefaultInput, string Output = MSSM.DefaultOutput, string Mode = MSSM.DefaultMode)
         {
-            return Convert(Value, HC.Convert(Input, MSM.InputType), HC.Convert(Output, MSM.OutputType), HC.Convert(Mode, MSM.ModeType));
+            return Convert(Value, HC.Convert(Input, MSSM.InputType), HC.Convert(Output, MSSM.OutputType), HC.Convert(Mode, MSSM.ModeType));
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Skylark.Extension.Storage
         /// <param name="Output"></param>
         /// <param name="Mode"></param>
         /// <returns></returns>
-        public static Task<double> ConvertAsync(double Value = MSM.Value, string Input = MSM.DefaultInput, string Output = MSM.DefaultOutput, string Mode = MSM.DefaultMode)
+        public static Task<double> ConvertAsync(double Value = MSSM.Value, string Input = MSSM.DefaultInput, string Output = MSSM.DefaultOutput, string Mode = MSSM.DefaultMode)
         {
             return Task.Run(() => Convert(Value, Input, Output, Mode));
         }
@@ -50,14 +50,14 @@ namespace Skylark.Extension.Storage
         /// <param name="Mode"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static double Convert(double Value = MSM.Value, EST Input = MSM.InputType, EST Output = MSM.OutputType, EMST Mode = MSM.ModeType)
+        public static double Convert(double Value = MSSM.Value, EST Input = MSSM.InputType, EST Output = MSSM.OutputType, EMST Mode = MSSM.ModeType)
         {
             try
             {
                 return Input switch
                 {
-                    EST.Bit or EST.Byte or EST.Kilobyte or EST.Megabyte or EST.Gigabyte or EST.Terabyte or EST.Petabyte or EST.Exabyte or EST.Zetabyte or EST.Yottabyte => HSH.GetCalc(Value, HSH.GetValue(Input, Output, Mode)),
-                    _ => throw new E(MSM.Error),
+                    EST.Bit or EST.Byte or EST.Kilobyte or EST.Megabyte or EST.Gigabyte or EST.Terabyte or EST.Petabyte or EST.Exabyte or EST.Zetabyte or EST.Yottabyte => HSSH.GetCalc(Value, HSSH.GetValue(Input, Output, Mode)),
+                    _ => throw new E(MSSM.Error),
                 };
             }
             catch (E Ex)
@@ -74,7 +74,7 @@ namespace Skylark.Extension.Storage
         /// <param name="Output"></param>
         /// <param name="Mode"></param>
         /// <returns></returns>
-        public static Task<double> ConvertAsync(double Value = MSM.Value, EST Input = MSM.InputType, EST Output = MSM.OutputType, EMST Mode = MSM.ModeType)
+        public static Task<double> ConvertAsync(double Value = MSSM.Value, EST Input = MSSM.InputType, EST Output = MSSM.OutputType, EMST Mode = MSSM.ModeType)
         {
             return Task.Run(() => Convert(Value, Input, Output, Mode));
         }
@@ -86,9 +86,9 @@ namespace Skylark.Extension.Storage
         /// <param name="Input"></param>
         /// <param name="Mode"></param>
         /// <returns></returns>
-        public static SSS AutoConvert(double Value = MSM.Value, string Input = MSM.DefaultInput, string Mode = MSM.DefaultMode)
+        public static SSSS AutoConvert(double Value = MSSM.Value, string Input = MSSM.DefaultInput, string Mode = MSSM.DefaultMode)
         {
-            return AutoConvert(Value, HC.Convert(Input, MSM.InputType), HC.Convert(Mode, MSM.ModeType));
+            return AutoConvert(Value, HC.Convert(Input, MSSM.InputType), HC.Convert(Mode, MSSM.ModeType));
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace Skylark.Extension.Storage
         /// <param name="Input"></param>
         /// <param name="Mode"></param>
         /// <returns></returns>
-        public static Task<SSS> AutoConvertAsync(double Value = MSM.Value, string Input = MSM.DefaultInput, string Mode = MSM.DefaultMode)
+        public static Task<SSSS> AutoConvertAsync(double Value = MSSM.Value, string Input = MSSM.DefaultInput, string Mode = MSSM.DefaultMode)
         {
             return Task.Run(() => AutoConvert(Value, Input, Mode));
         }
@@ -111,14 +111,14 @@ namespace Skylark.Extension.Storage
         /// <param name="Mode"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static SSS AutoConvert(double Value = MSM.Value, EST Input = MSM.InputType, EMST Mode = MSM.ModeType)
+        public static SSSS AutoConvert(double Value = MSSM.Value, EST Input = MSSM.InputType, EMST Mode = MSSM.ModeType)
         {
             try
             {
                 return Input switch
                 {
                     EST.Bit or EST.Byte or EST.Kilobyte or EST.Megabyte or EST.Gigabyte or EST.Terabyte or EST.Petabyte or EST.Exabyte or EST.Zetabyte or EST.Yottabyte => AutoDetect(Value, Input, Mode),
-                    _ => throw new E(MSM.Error),
+                    _ => throw new E(MSSM.Error),
                 };
             }
             catch (E Ex)
@@ -134,7 +134,7 @@ namespace Skylark.Extension.Storage
         /// <param name="Input"></param>
         /// <param name="Mode"></param>
         /// <returns></returns>
-        public static Task<SSS> AutoConvertAsync(double Value = MSM.Value, EST Input = MSM.InputType, EMST Mode = MSM.ModeType)
+        public static Task<SSSS> AutoConvertAsync(double Value = MSSM.Value, EST Input = MSSM.InputType, EMST Mode = MSSM.ModeType)
         {
             return Task.Run(() => AutoConvert(Value, Input, Mode));
         }
@@ -146,9 +146,9 @@ namespace Skylark.Extension.Storage
         /// <param name="Input"></param>
         /// <param name="Mode"></param>
         /// <returns></returns>
-        private static SSS AutoDetect(double Value, EST Input, EMST Mode)
+        private static SSSS AutoDetect(double Value, EST Input, EMST Mode)
         {
-            SSS Result = MSM.Result;
+            SSSS Result = MSSM.Result;
 
             EST Active = Input;
 

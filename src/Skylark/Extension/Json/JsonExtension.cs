@@ -3,7 +3,7 @@ using System.Dynamic;
 using System.Text;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
-using MJM = Skylark.Manage.Json.JsonManage;
+using MJJM = Skylark.Manage.Json.JsonManage;
 
 namespace Skylark.Extension.Json
 {
@@ -20,12 +20,12 @@ namespace Skylark.Extension.Json
         /// <param name="Special"></param>
         /// <param name="Array"></param>
         /// <returns></returns>
-        public static string ToXml(string Json = MJM.Json, string Root = MJM.Root, bool Special = MJM.Special, bool Array = MJM.Array)
+        public static string ToXml(string Json = MJJM.Json, string Root = MJJM.Root, bool Special = MJJM.Special, bool Array = MJJM.Array)
         {
             try
             {
-                Json = HL.Text(Json, MJM.Json);
-                Root = HL.Parameter(Root, MJM.Root);
+                Json = HL.Text(Json, MJJM.Json);
+                Root = HL.Parameter(Root, MJJM.Root);
 
                 return JsonConvert.DeserializeXNode(Json, Root, Array, Special).ToString();
             }
@@ -43,7 +43,7 @@ namespace Skylark.Extension.Json
         /// <param name="Special"></param>
         /// <param name="Array"></param>
         /// <returns></returns>
-        public static Task<string> ToXmlAsync(string Json = MJM.Json, string Root = MJM.Root, bool Special = MJM.Special, bool Array = MJM.Array)
+        public static Task<string> ToXmlAsync(string Json = MJJM.Json, string Root = MJJM.Root, bool Special = MJJM.Special, bool Array = MJJM.Array)
         {
             return Task.Run(() => ToXml(Json, Root, Special, Array));
         }
@@ -56,14 +56,14 @@ namespace Skylark.Extension.Json
         /// <param name="Value"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static string ToRead(string Json = MJM.Json, string Token = MJM.Token, string Value = MJM.Value, string Separator = MJM.Seperator)
+        public static string ToRead(string Json = MJJM.Json, string Token = MJJM.Token, string Value = MJJM.Value, string Separator = MJJM.Seperator)
         {
             try
             {
-                Json = HL.Text(Json, MJM.Json);
-                Token = HL.Parameter(Token, MJM.Token);
-                Value = HL.Parameter(Value, MJM.Value);
-                Separator = HL.Parameter(Separator, MJM.Seperator);
+                Json = HL.Text(Json, MJJM.Json);
+                Token = HL.Parameter(Token, MJJM.Token);
+                Value = HL.Parameter(Value, MJJM.Value);
+                Separator = HL.Parameter(Separator, MJJM.Seperator);
 
                 StringBuilder Builder = new();
 
@@ -97,7 +97,7 @@ namespace Skylark.Extension.Json
         /// <param name="Value"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static Task<string> ToReadAsync(string Json = MJM.Json, string Token = MJM.Token, string Value = MJM.Value, string Separator = MJM.Seperator)
+        public static Task<string> ToReadAsync(string Json = MJJM.Json, string Token = MJJM.Token, string Value = MJJM.Value, string Separator = MJJM.Seperator)
         {
             return Task.Run(() => ToRead(Json, Token, Value, Separator));
         }
@@ -107,11 +107,11 @@ namespace Skylark.Extension.Json
         /// </summary>
         /// <param name="Json"></param>
         /// <returns></returns>
-        public static string ToBeauty(string Json = MJM.Json)
+        public static string ToBeauty(string Json = MJJM.Json)
         {
             try
             {
-                Json = HL.Text(Json, MJM.Json);
+                Json = HL.Text(Json, MJJM.Json);
 
                 return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(Json), Formatting.Indented);
             }
@@ -126,7 +126,7 @@ namespace Skylark.Extension.Json
         /// </summary>
         /// <param name="Json"></param>
         /// <returns></returns>
-        public static Task<string> ToBeautyAsync(string Json = MJM.Json)
+        public static Task<string> ToBeautyAsync(string Json = MJJM.Json)
         {
             return Task.Run(() => ToBeauty(Json));
         }
@@ -136,11 +136,11 @@ namespace Skylark.Extension.Json
         /// </summary>
         /// <param name="Json"></param>
         /// <returns></returns>
-        public static string ToMinify(string Json = MJM.Json)
+        public static string ToMinify(string Json = MJJM.Json)
         {
             try
             {
-                Json = HL.Text(Json, MJM.Json);
+                Json = HL.Text(Json, MJJM.Json);
 
                 return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(Json), Formatting.None);
             }
@@ -155,7 +155,7 @@ namespace Skylark.Extension.Json
         /// </summary>
         /// <param name="Json"></param>
         /// <returns></returns>
-        public static Task<string> ToMinifyAsync(string Json = MJM.Json)
+        public static Task<string> ToMinifyAsync(string Json = MJJM.Json)
         {
             return Task.Run(() => ToMinify(Json));
         }
@@ -167,7 +167,7 @@ namespace Skylark.Extension.Json
         /// </summary>
         /// <param name="Json"></param>
         /// <returns></returns>
-        public static ExpandoObject ToExpando(string Json = MJM.Json)
+        public static ExpandoObject ToExpando(string Json = MJJM.Json)
         {
             return JsonConvert.DeserializeObject<ExpandoObject>(Json);
         }
@@ -179,7 +179,7 @@ namespace Skylark.Extension.Json
         /// </summary>
         /// <param name="Json"></param>
         /// <returns></returns>
-        public static Task<ExpandoObject> ToExpandaAsync(string Json = MJM.Json)
+        public static Task<ExpandoObject> ToExpandaAsync(string Json = MJJM.Json)
         {
             return Task.Run(() => ToExpando(Json));
         }

@@ -1,8 +1,8 @@
 ﻿using E = Skylark.Exception;
-using HLH = Skylark.Helper.Lottery.LotteryHelper;
+using HLLH = Skylark.Helper.Lottery.LotteryHelper;
 using ME = Skylark.Manage.External;
-using MLM = Skylark.Manage.Lottery.LotteryManage;
-using SLDS = Skylark.Struct.Lottery.LotteryDrawStruct;
+using MLLM = Skylark.Manage.Lottery.LotteryManage;
+using SLLDS = Skylark.Struct.Lottery.LotteryDrawStruct;
 
 namespace Skylark.Extension.Lottery
 {
@@ -19,11 +19,11 @@ namespace Skylark.Extension.Lottery
         /// <param name="ReserveCount"></param>
         /// <param name="Repeated"></param>
         /// <returns></returns>
-        public static SLDS Draw(string List = MLM.List, int WinnerCount = MLM.WinnerCount, int ReserveCount = MLM.ReserveCount, bool Repeated = MLM.Repeat)
+        public static SLLDS Draw(string List = MLLM.List, int WinnerCount = MLLM.WinnerCount, int ReserveCount = MLLM.ReserveCount, bool Repeated = MLLM.Repeat)
         {
             try
             {
-                string[] Array = HLH.GetSplit(List, Repeated);
+                string[] Array = HLLH.GetSplit(List, Repeated);
 
                 int Total = WinnerCount + ReserveCount;
 
@@ -31,11 +31,11 @@ namespace Skylark.Extension.Lottery
                 {
                     if (Array.Length < Total)
                     {
-                        throw new E(MLM.ListSmall);
+                        throw new E(MLLM.ListSmall);
                     }
                     else
                     {
-                        throw new E(MLM.ListEmpty);
+                        throw new E(MLLM.ListEmpty);
                     }
                 }
 
@@ -82,7 +82,7 @@ namespace Skylark.Extension.Lottery
         /// <param name="ReserveCount"></param>
         /// <param name="Repeated"></param>
         /// <returns></returns>
-        public static Task<SLDS> DrawAsync(string List = MLM.List, int WinnerCount = MLM.WinnerCount, int ReserveCount = MLM.ReserveCount, bool Repeated = MLM.Repeat)
+        public static Task<SLLDS> DrawAsync(string List = MLLM.List, int WinnerCount = MLLM.WinnerCount, int ReserveCount = MLLM.ReserveCount, bool Repeated = MLLM.Repeat)
         {
             return Task.Run(() => Draw(List, WinnerCount, ReserveCount, Repeated));
         }
@@ -93,15 +93,15 @@ namespace Skylark.Extension.Lottery
         /// <param name="List"></param>
         /// <param name="Repeated"></param>
         /// <returns></returns>
-        public static string Suffle(string List = MLM.List, bool Repeated = MLM.Repeat)
+        public static string Suffle(string List = MLLM.List, bool Repeated = MLLM.Repeat)
         {
             try
             {
-                string[] Array = HLH.GetSplit(List, Repeated);
+                string[] Array = HLLH.GetSplit(List, Repeated);
 
                 if (!Array.Any())
                 {
-                    return MLM.Error;
+                    return MLLM.Error;
                 }
 
                 return string.Join(Environment.NewLine, Array.OrderBy(_ => ME.Randomise.Next()));
@@ -118,7 +118,7 @@ namespace Skylark.Extension.Lottery
         /// <param name="List"></param>
         /// <param name="Repeated"></param>
         /// <returns></returns>
-        public static Task<string> SuffleAsync(string List = MLM.List, bool Repeated = MLM.Repeat)
+        public static Task<string> SuffleAsync(string List = MLLM.List, bool Repeated = MLLM.Repeat)
         {
             return Task.Run(() => Suffle(List, Repeated));
         }
