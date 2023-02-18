@@ -45,7 +45,10 @@ namespace Skylark.Enum
             if (!System.Enum.IsDefined(typeof(EncodeType), encodeType))
             {
                 if (useUtf8IfNotValid)
+                {
                     return Encoding.UTF8;
+                }
+
                 throw new Skylark.Exception(errorMessage);
             }
 

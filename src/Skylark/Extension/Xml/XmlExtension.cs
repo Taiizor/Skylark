@@ -1,5 +1,5 @@
-﻿using System.Xml;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System.Xml;
 using WebMarkupMin.Core;
 using BTPXB = Skylark.ThirdParty.Xml.Beauty;
 using E = Skylark.Exception;

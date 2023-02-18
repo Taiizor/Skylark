@@ -1,5 +1,5 @@
-﻿using System.Diagnostics;
-using Skylark.Helper;
+﻿using Skylark.Helper;
+using System.Diagnostics;
 
 namespace Skylark.Enum
 {

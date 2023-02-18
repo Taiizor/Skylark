@@ -1,5 +1,5 @@
-﻿using System.Text.RegularExpressions;
-using Skylark.Enum;
+﻿using Skylark.Enum;
+using System.Text.RegularExpressions;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
 using HWH = Skylark.Helper.Web.WebHelper;

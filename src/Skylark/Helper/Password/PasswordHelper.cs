@@ -1,5 +1,5 @@
-﻿using System.Text.RegularExpressions;
-using Skylark.Enum;
+﻿using Skylark.Enum;
+using System.Text.RegularExpressions;
 using EAPT = Skylark.Enum.AlphabeticPasswordType;
 using EMPT = Skylark.Enum.MeterPasswordType;
 using ESPT = Skylark.Enum.SpecialPasswordType;

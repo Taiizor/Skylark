@@ -1,6 +1,6 @@
-﻿using System.Globalization;
+﻿using NUglify;
+using System.Globalization;
 using System.Text;
-using NUglify;
 using WebMarkupMin.Core;
 using E = Skylark.Exception;
 using HF = Skylark.Helper.Format;
