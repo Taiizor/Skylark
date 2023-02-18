@@ -5,7 +5,7 @@ using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
 using MJM = Skylark.Manage.Json.JsonManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Json
 {
     /// <summary>
     /// 

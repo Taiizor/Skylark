@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public class Format
+    public static class Format
     {
         /// <summary>
         /// 

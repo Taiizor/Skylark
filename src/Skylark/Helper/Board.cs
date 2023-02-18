@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public class Board
+    public static class Board
     {
         /// <summary>
         /// 

@@ -5,7 +5,7 @@ namespace Skylark.Helper
     /// <summary>
     /// 
     /// </summary>
-    public class Culture
+    public static class Culture
     {
         /// <summary>
         /// 

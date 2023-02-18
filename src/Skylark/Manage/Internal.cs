@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    internal class Internal
+    internal static class Internal
     {
         /// <summary>
         /// 

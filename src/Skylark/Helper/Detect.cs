@@ -5,7 +5,7 @@ namespace Skylark.Helper
     /// <summary>
     /// 
     /// </summary>
-    internal class Detect
+    internal static class Detect
     {
         /// <summary>
         /// 

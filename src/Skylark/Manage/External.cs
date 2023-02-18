@@ -1,5 +1,6 @@
-﻿using System.Net.NetworkInformation;
-using MPM = Skylark.Manage.Ping.PingManage;
+﻿using MPPM = Skylark.Manage.Ping.PingManage;
+using SNNIP = System.Net.NetworkInformation.Ping;
+using SNNIPO = System.Net.NetworkInformation.PingOptions;
 
 namespace Skylark.Manage
 {
@@ -11,7 +12,7 @@ namespace Skylark.Manage
         /// <summary>
         /// 
         /// </summary>
-        public static readonly System.Net.NetworkInformation.Ping Ping = new();
+        public static readonly SNNIP Ping = new();
 
         /// <summary>
         /// 
@@ -21,7 +22,7 @@ namespace Skylark.Manage
         /// <summary>
         /// 
         /// </summary>
-        public static PingOptions PingOptions = new(MPM.Ttl, MPM.Fragment);
+        public static SNNIPO PingOptions = new(MPPM.Ttl, MPPM.Fragment);
 
         /// <summary>
         /// 

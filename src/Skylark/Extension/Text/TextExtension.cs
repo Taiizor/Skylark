@@ -9,7 +9,7 @@ namespace Skylark.Extension.Text
     /// <summary>
     /// 
     /// </summary>
-    public class TextExtension
+    public static class TextExtension
     {
         /// <summary>
         /// 

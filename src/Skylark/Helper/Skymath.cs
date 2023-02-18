@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    internal class Skymath
+    internal static class Skymath
     {
         /// <summary>
         /// Determines if a number is at least min and at most max.

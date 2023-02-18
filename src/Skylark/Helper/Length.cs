@@ -6,7 +6,7 @@ namespace Skylark.Helper
     /// <summary>
     /// 
     /// </summary>
-    internal class Length
+    internal static class Length
     {
         /// <summary>
         /// 

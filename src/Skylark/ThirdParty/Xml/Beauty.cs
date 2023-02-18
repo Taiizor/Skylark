@@ -6,7 +6,7 @@ namespace Skylark.ThirdParty.Xml
     /// <summary>
     /// 
     /// </summary>
-    internal class Beauty
+    internal static class Beauty
     {
         /// <summary>
         /// 

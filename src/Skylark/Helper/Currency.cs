@@ -5,7 +5,7 @@ namespace Skylark.Helper
     /// <summary>
     /// 
     /// </summary>
-    public class Currency
+    public static class Currency
     {
         /// <summary>
         /// 

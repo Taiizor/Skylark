@@ -1,12 +1,13 @@
 ﻿using HL = Skylark.Helper.Length;
 using MCM = Skylark.Manage.Color.ColorManage;
+using SDC = System.Drawing.Color;
 
 namespace Skylark.Helper.Color
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class ColorHelper
+    internal static class ColorHelper
     {
         /// <summary>
         /// 
@@ -15,13 +16,13 @@ namespace Skylark.Helper.Color
         /// <param name="G"></param>
         /// <param name="B"></param>
         /// <returns></returns>
-        public static System.Drawing.Color ConvertToColor(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
+        public static SDC ConvertToColor(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
         {
             R = HL.Clamp(R, MCM.ValueMin, MCM.ValueMax);
             G = HL.Clamp(G, MCM.ValueMin, MCM.ValueMax);
             B = HL.Clamp(B, MCM.ValueMin, MCM.ValueMax);
 
-            return System.Drawing.Color.FromArgb(R, G, B);
+            return SDC.FromArgb(R, G, B);
         }
 
         /// <summary>
@@ -35,14 +36,14 @@ namespace Skylark.Helper.Color
         // TODO: Fix overlapping method signatures
         // Can't use other RGB ConvertToColor method because
         // all parameters have defaults
-        public static System.Drawing.Color ConvertToColor(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
+        public static SDC ConvertToColor(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
         {
             A = HL.Clamp(A, MCM.ValueMin, MCM.ValueMax);
             R = HL.Clamp(R, MCM.ValueMin, MCM.ValueMax);
             G = HL.Clamp(G, MCM.ValueMin, MCM.ValueMax);
             B = HL.Clamp(B, MCM.ValueMin, MCM.ValueMax);
 
-            return System.Drawing.Color.FromArgb(A, R, G, B);
+            return SDC.FromArgb(A, R, G, B);
         }
 
         /// <summary>
@@ -56,7 +57,7 @@ namespace Skylark.Helper.Color
         /// <returns></returns>
         public static string ConvertToHex(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
         {
-            System.Drawing.Color Color = ConvertToColor(R, G, B);
+            SDC Color = ConvertToColor(R, G, B);
 
             string Result;
 
@@ -89,7 +90,7 @@ namespace Skylark.Helper.Color
         /// <returns></returns>
         public static string ConvertToHex(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
         {
-            System.Drawing.Color Color = ConvertToColor(A, R, G, B);
+            SDC Color = ConvertToColor(A, R, G, B);
 
             string Result;
 
@@ -115,7 +116,7 @@ namespace Skylark.Helper.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static (double Red, double Green, double Blue) ConvertToDouble(System.Drawing.Color Color)
+        public static (double Red, double Green, double Blue) ConvertToDouble(SDC Color)
         {
             return (Color.R / 255d, Color.G / 255d, Color.B / 255d);
         }
@@ -125,7 +126,7 @@ namespace Skylark.Helper.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static (double Hue, double Saturation, double Brightness) ConvertToHSB(System.Drawing.Color Color)
+        public static (double Hue, double Saturation, double Brightness) ConvertToHSB(SDC Color)
         {
             return ConvertToHSV(Color);
         }
@@ -135,7 +136,7 @@ namespace Skylark.Helper.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static (double Hue, double Saturation, double Intensity) ConvertToHSI(System.Drawing.Color Color)
+        public static (double Hue, double Saturation, double Intensity) ConvertToHSI(SDC Color)
         {
             if (Color.R == 0 && Color.G == 0 && Color.B == 0)
             {
@@ -158,7 +159,7 @@ namespace Skylark.Helper.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static (double Hue, double Saturation, double Lightness) ConvertToHSL(System.Drawing.Color Color)
+        public static (double Hue, double Saturation, double Lightness) ConvertToHSL(SDC Color)
         {
             double Min = Math.Min(Math.Min(Color.R, Color.G), Color.B) / 255d;
             double Max = Math.Max(Math.Max(Color.R, Color.G), Color.B) / 255d;
@@ -182,7 +183,7 @@ namespace Skylark.Helper.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static (double Hue, double Saturation, double Value) ConvertToHSV(System.Drawing.Color Color)
+        public static (double Hue, double Saturation, double Value) ConvertToHSV(SDC Color)
         {
             double Min = Math.Min(Math.Min(Color.R, Color.G), Color.B) / 255d;
             double Max = Math.Max(Math.Max(Color.R, Color.G), Color.B) / 255d;
@@ -195,7 +196,7 @@ namespace Skylark.Helper.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static (double Hue, double Whiteness, double Blackness) ConvertToHWB(System.Drawing.Color Color)
+        public static (double Hue, double Whiteness, double Blackness) ConvertToHWB(SDC Color)
         {
             double Min = Math.Min(Math.Min(Color.R, Color.G), Color.B) / 255d;
             double Max = Math.Max(Math.Max(Color.R, Color.G), Color.B) / 255d;
@@ -208,7 +209,7 @@ namespace Skylark.Helper.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static (double Cyan, double Magenta, double Yellow, double BlackKey) ConvertToCMYK(System.Drawing.Color Color)
+        public static (double Cyan, double Magenta, double Yellow, double BlackKey) ConvertToCMYK(SDC Color)
         {
             if (Color.R == 0 && Color.G == 0 && Color.B == 0)
             {
@@ -238,7 +239,7 @@ namespace Skylark.Helper.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static (double Lightness, double ChromaticityA, double ChromaticityB) ConvertToCIELAB(System.Drawing.Color Color)
+        public static (double Lightness, double ChromaticityA, double ChromaticityB) ConvertToCIELAB(SDC Color)
         {
             (double X, double Y, double Z) = ConvertToCIEXYZ(Color);
             (double Lightness, double ChromaticityA, double ChromaticityB) LAB = GetCIELABColorFromCIEXYZ(X, Y, Z);
@@ -251,7 +252,7 @@ namespace Skylark.Helper.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static (double X, double Y, double Z) ConvertToCIEXYZ(System.Drawing.Color Color)
+        public static (double X, double Y, double Z) ConvertToCIEXYZ(SDC Color)
         {
             double R = Color.R / 255d;
             double G = Color.G / 255d;
@@ -273,7 +274,7 @@ namespace Skylark.Helper.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static (string Hue, double Whiteness, double Blackness) ConvertToNatural(System.Drawing.Color Color)
+        public static (string Hue, double Whiteness, double Blackness) ConvertToNatural(SDC Color)
         {
             double Min = Math.Min(Math.Min(Color.R, Color.G), Color.B) / 255d;
             double Max = Math.Max(Math.Max(Color.R, Color.G), Color.B) / 255d;

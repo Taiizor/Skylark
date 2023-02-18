@@ -9,7 +9,7 @@ namespace Skylark.Helper
     /// <summary>
     /// 
     /// </summary>
-    public class Numeric
+    public static class Numeric
     {
         /// <summary>
         /// 
