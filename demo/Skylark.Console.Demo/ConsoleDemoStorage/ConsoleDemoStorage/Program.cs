@@ -1,6 +1,6 @@
 ﻿using Skylark.Enum;
-using Skylark.Extension;
-using Skylark.Struct;
+using Skylark.Extension.Storage;
+using Skylark.Struct.Storage;
 
 namespace ConsoleDemoStorage
 {

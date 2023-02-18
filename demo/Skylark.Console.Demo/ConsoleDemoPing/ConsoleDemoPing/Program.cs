@@ -1,5 +1,5 @@
-﻿using Skylark.Extension;
-using Skylark.Struct;
+﻿using Skylark.Extension.Ping;
+using Skylark.Struct.Ping;
 
 namespace ConsoleDemoPing
 {

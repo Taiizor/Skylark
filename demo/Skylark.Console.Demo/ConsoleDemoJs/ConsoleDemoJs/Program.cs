@@ -1,4 +1,4 @@
-﻿using Skylark.Extension;
+﻿using Skylark.Extension.Js;
 
 namespace ConsoleDemoJs
 {

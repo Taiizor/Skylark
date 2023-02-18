@@ -1,6 +1,6 @@
 ﻿using Skylark.Enum;
-using Skylark.Extension;
-using Skylark.Struct;
+using Skylark.Extension.Web;
+using Skylark.Struct.Web;
 
 namespace ConsoleDemoWeb
 {

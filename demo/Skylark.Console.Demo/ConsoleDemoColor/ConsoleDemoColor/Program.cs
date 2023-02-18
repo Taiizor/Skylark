@@ -1,6 +1,6 @@
-﻿using Skylark.Extension;
+﻿using Skylark.Extension.Color;
 using Skylark.Helper;
-using Skylark.Struct;
+using Skylark.Struct.Colorise;
 using System.Drawing;
 
 namespace ConsoleDemoColor

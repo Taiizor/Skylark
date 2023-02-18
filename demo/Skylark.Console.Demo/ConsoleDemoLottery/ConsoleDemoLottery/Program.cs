@@ -1,5 +1,5 @@
-﻿using Skylark.Extension;
-using Skylark.Struct;
+﻿using Skylark.Extension.Lottery;
+using Skylark.Struct.Lottery;
 
 namespace ConsoleDemoLottery
 {

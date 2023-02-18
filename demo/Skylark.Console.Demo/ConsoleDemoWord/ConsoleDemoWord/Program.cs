@@ -1,5 +1,5 @@
-﻿using Skylark.Extension;
-using Skylark.Struct;
+﻿using Skylark.Extension.Word;
+using Skylark.Struct.Word;
 
 namespace ConsoleDemoWord
 {

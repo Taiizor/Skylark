@@ -1,6 +1,6 @@
 ﻿using Skylark.Enum;
-using Skylark.Extension;
-using Skylark.Struct;
+using Skylark.Extension.Time;
+using Skylark.Struct.Time;
 
 namespace ConsoleDemoTime
 {

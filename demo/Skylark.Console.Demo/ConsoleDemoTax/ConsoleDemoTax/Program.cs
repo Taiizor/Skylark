@@ -1,7 +1,7 @@
 ﻿using Skylark.Enum;
-using Skylark.Extension;
+using Skylark.Extension.Tax;
 using Skylark.Helper;
-using Skylark.Struct;
+using Skylark.Struct.Tax;
 
 namespace ConsoleDemoTax
 {
