@@ -1,12 +1,12 @@
 ﻿using System.Security.Cryptography;
 using EET = Skylark.Enum.EncodeType;
 
-namespace Skylark.Manage
+namespace Skylark.Manage.Cryptology
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class CryptologyManage
+    internal static class CryptologyManage
     {
         /// <summary>
         /// 

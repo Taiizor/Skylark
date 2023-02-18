@@ -1,13 +1,13 @@
 ﻿using E = Skylark.Exception;
-using MHM = Skylark.Manage.HashManage;
+using MHM = Skylark.Manage.Hash.HashManage;
 using MI = Skylark.Manage.Internal;
 
-namespace Skylark.Helper
+namespace Skylark.Helper.Hash
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class HashHelper
+    internal static class HashHelper
     {
         /// <summary>
         /// 

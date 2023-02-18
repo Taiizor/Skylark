@@ -1,11 +1,11 @@
 ﻿using EET = Skylark.Enum.EncodeType;
 
-namespace Skylark.Manage
+namespace Skylark.Manage.Unicode
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class UnicodeManage
+    internal static class UnicodeManage
     {
         /// <summary>
         /// 

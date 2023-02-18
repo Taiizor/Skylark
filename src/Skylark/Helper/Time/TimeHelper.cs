@@ -1,12 +1,12 @@
 ﻿using ETT = Skylark.Enum.TimeType;
-using MTM = Skylark.Manage.TimeManage;
+using MTM = Skylark.Manage.Time.TimeManage;
 
-namespace Skylark.Helper
+namespace Skylark.Helper.Time
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class TimeHelper
+    internal static class TimeHelper
     {
         /// <summary>
         /// 

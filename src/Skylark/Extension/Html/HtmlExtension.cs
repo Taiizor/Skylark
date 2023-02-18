@@ -1,18 +1,18 @@
-﻿using NUglify;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Text;
+using NUglify;
 using WebMarkupMin.Core;
 using E = Skylark.Exception;
 using HF = Skylark.Helper.Format;
 using HL = Skylark.Helper.Length;
-using MHM = Skylark.Manage.HtmlManage;
+using MHM = Skylark.Manage.Html.HtmlManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Html
 {
     /// <summary>
     /// 
     /// </summary>
-    public class HtmlExtension
+    public static class HtmlExtension
     {
         /// <summary>
         /// 
@@ -126,6 +126,7 @@ namespace Skylark.Extension
                 }
                 else
                 {
+                    // TODO: Handle null ref
                     throw new E(Minified.Errors.FirstOrDefault().Message);
                 }
             }
@@ -164,6 +165,7 @@ namespace Skylark.Extension
                 }
                 else
                 {
+                    // TODO: Handle null ref
                     throw new E(Beautified.Errors.FirstOrDefault().Message);
                 }
             }

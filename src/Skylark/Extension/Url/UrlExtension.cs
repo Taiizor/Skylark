@@ -1,14 +1,14 @@
 ﻿using System.Web;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
-using MUM = Skylark.Manage.UrlManage;
+using MUM = Skylark.Manage.Url.UrlManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Url
 {
     /// <summary>
     /// 
     /// </summary>
-    public class UrlExtension
+    public static class UrlExtension
     {
         /// <summary>
         /// 

@@ -1,9 +1,9 @@
-﻿namespace Skylark.Manage
+﻿namespace Skylark.Manage.Html
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class HtmlManage
+    internal static class HtmlManage
     {
         /// <summary>
         /// 

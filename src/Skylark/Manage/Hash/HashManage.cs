@@ -1,9 +1,9 @@
-﻿namespace Skylark.Manage
+﻿namespace Skylark.Manage.Hash
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class HashManage
+    internal static class HashManage
     {
         /// <summary>
         /// 

@@ -3,16 +3,16 @@ using ECNT = Skylark.Enum.ClearNumericType;
 using ETT = Skylark.Enum.TimeType;
 using HC = Skylark.Helper.Converter;
 using HN = Skylark.Helper.Numeric;
-using HTH = Skylark.Helper.TimeHelper;
-using MTM = Skylark.Manage.TimeManage;
-using STS = Skylark.Struct.TimeStruct;
+using HTH = Skylark.Helper.Time.TimeHelper;
+using MTM = Skylark.Manage.Time.TimeManage;
+using STS = Skylark.Struct.Time.TimeStruct;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Time
 {
     /// <summary>
     /// 
     /// </summary>
-    public class TimeExtension
+    public static class TimeExtension
     {
         /// <summary>
         /// 

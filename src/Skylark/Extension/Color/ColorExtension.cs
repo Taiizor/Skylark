@@ -1,16 +1,15 @@
-﻿using System.Drawing;
-using System.Globalization;
+﻿using System.Globalization;
 using E = Skylark.Exception;
 using HA = Skylark.Helper.Adaptation;
-using HCH = Skylark.Helper.ColorHelper;
-using MCM = Skylark.Manage.ColorManage;
+using HCH = Skylark.Helper.Color.ColorHelper;
+using MCM = Skylark.Manage.Color.ColorManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Color
 {
     /// <summary>
     /// 
     /// </summary>
-    public class ColorExtension
+    public static class ColorExtension
     {
         /// <summary>
         /// 
@@ -20,7 +19,7 @@ namespace Skylark.Extension
         /// <param name="Sharp"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToHex(Color Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        public static string ToHex(System.Drawing.Color Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
         {
             try
             {
@@ -39,7 +38,7 @@ namespace Skylark.Extension
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        public static Task<string> ToHexAsync(Color Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        public static Task<string> ToHexAsync(System.Drawing.Color Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
         {
             return Task.Run(() => ToHex(Color, Upper, Sharp));
         }
@@ -51,7 +50,7 @@ namespace Skylark.Extension
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        public static string ToHexInteger(Color Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        public static string ToHexInteger(System.Drawing.Color Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
         {
             try
             {
@@ -77,7 +76,7 @@ namespace Skylark.Extension
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        public static Task<string> ToHexIntegerAsync(Color Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
+        public static Task<string> ToHexIntegerAsync(System.Drawing.Color Color, bool Upper = MCM.Upper, bool Sharp = MCM.Sharp)
         {
             return Task.Run(() => ToHexInteger(Color, Upper, Sharp));
         }
@@ -88,7 +87,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToRGB(Color Color)
+        public static string ToRGB(System.Drawing.Color Color)
         {
             try
             {
@@ -105,7 +104,7 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToRGBAsync(Color Color)
+        public static Task<string> ToRGBAsync(System.Drawing.Color Color)
         {
             return Task.Run(() => ToRGB(Color));
         }
@@ -116,7 +115,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToARGB(Color Color)
+        public static string ToARGB(System.Drawing.Color Color)
         {
             try
             {
@@ -133,7 +132,7 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToARGBAsync(Color Color)
+        public static Task<string> ToARGBAsync(System.Drawing.Color Color)
         {
             return Task.Run(() => ToARGB(Color));
         }
@@ -144,7 +143,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToHSB(Color Color)
+        public static string ToHSB(System.Drawing.Color Color)
         {
             try
             {
@@ -167,7 +166,7 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToHSBAsync(Color Color)
+        public static Task<string> ToHSBAsync(System.Drawing.Color Color)
         {
             return Task.Run(() => ToHSB(Color));
         }
@@ -178,7 +177,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToHSI(Color Color)
+        public static string ToHSI(System.Drawing.Color Color)
         {
             try
             {
@@ -201,7 +200,7 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToHSIAsync(Color Color)
+        public static Task<string> ToHSIAsync(System.Drawing.Color Color)
         {
             return Task.Run(() => ToHSI(Color));
         }
@@ -212,7 +211,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToHSL(Color Color)
+        public static string ToHSL(System.Drawing.Color Color)
         {
             try
             {
@@ -235,7 +234,7 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToHSLAsync(Color Color)
+        public static Task<string> ToHSLAsync(System.Drawing.Color Color)
         {
             return Task.Run(() => ToHSL(Color));
         }
@@ -246,7 +245,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToHSV(Color Color)
+        public static string ToHSV(System.Drawing.Color Color)
         {
             try
             {
@@ -269,7 +268,7 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToHSVAsync(Color Color)
+        public static Task<string> ToHSVAsync(System.Drawing.Color Color)
         {
             return Task.Run(() => ToHSV(Color));
         }
@@ -280,7 +279,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToHWB(Color Color)
+        public static string ToHWB(System.Drawing.Color Color)
         {
             try
             {
@@ -303,7 +302,7 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToHWBAsync(Color Color)
+        public static Task<string> ToHWBAsync(System.Drawing.Color Color)
         {
             return Task.Run(() => ToHWB(Color));
         }
@@ -314,7 +313,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToCMYK(Color Color)
+        public static string ToCMYK(System.Drawing.Color Color)
         {
             try
             {
@@ -338,7 +337,7 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToCMYKAsync(Color Color)
+        public static Task<string> ToCMYKAsync(System.Drawing.Color Color)
         {
             return Task.Run(() => ToCMYK(Color));
         }
@@ -349,7 +348,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToCIELAB(Color Color)
+        public static string ToCIELAB(System.Drawing.Color Color)
         {
             try
             {
@@ -372,7 +371,7 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToCIELABAsync(Color Color)
+        public static Task<string> ToCIELABAsync(System.Drawing.Color Color)
         {
             return Task.Run(() => ToCIELAB(Color));
         }
@@ -383,7 +382,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToCIEXYZ(Color Color)
+        public static string ToCIEXYZ(System.Drawing.Color Color)
         {
             try
             {
@@ -406,7 +405,7 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToCIEXYZAsync(Color Color)
+        public static Task<string> ToCIEXYZAsync(System.Drawing.Color Color)
         {
             return Task.Run(() => ToCIEXYZ(Color));
         }
@@ -417,7 +416,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToFloat(Color Color)
+        public static string ToFloat(System.Drawing.Color Color)
         {
             try
             {
@@ -439,7 +438,7 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToFloatAsync(Color Color)
+        public static Task<string> ToFloatAsync(System.Drawing.Color Color)
         {
             return Task.Run(() => ToFloat(Color));
         }
@@ -450,7 +449,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToDecimal(Color Color)
+        public static string ToDecimal(System.Drawing.Color Color)
         {
             try
             {
@@ -467,7 +466,7 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToDecimalAsync(Color Color)
+        public static Task<string> ToDecimalAsync(System.Drawing.Color Color)
         {
             return Task.Run(() => ToDecimal(Color));
         }
@@ -478,7 +477,7 @@ namespace Skylark.Extension
         /// <param name="Color"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static string ToNatural(Color Color)
+        public static string ToNatural(System.Drawing.Color Color)
         {
             try
             {
@@ -500,7 +499,7 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToNaturalAsync(Color Color)
+        public static Task<string> ToNaturalAsync(System.Drawing.Color Color)
         {
             return Task.Run(() => ToNatural(Color));
         }
@@ -587,7 +586,7 @@ namespace Skylark.Extension
         /// <param name="B"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static Color RGBToColor(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
+        public static System.Drawing.Color RGBToColor(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
         {
             try
             {
@@ -606,7 +605,7 @@ namespace Skylark.Extension
         /// <param name="G"></param>
         /// <param name="B"></param>
         /// <returns></returns>
-        public static Task<Color> RGBToColorAsync(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
+        public static Task<System.Drawing.Color> RGBToColorAsync(int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
         {
             return Task.Run(() => RGBToColor(R, G, B));
         }
@@ -620,7 +619,7 @@ namespace Skylark.Extension
         /// <param name="B"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static Color ARGBToColor(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
+        public static System.Drawing.Color ARGBToColor(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
         {
             try
             {
@@ -640,7 +639,7 @@ namespace Skylark.Extension
         /// <param name="G"></param>
         /// <param name="B"></param>
         /// <returns></returns>
-        public static Task<Color> ARGBToColorAsync(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
+        public static Task<System.Drawing.Color> ARGBToColorAsync(int A = MCM.Value, int R = MCM.Value, int G = MCM.Value, int B = MCM.Value)
         {
             return Task.Run(() => ARGBToColor(A, R, G, B));
         }
@@ -705,7 +704,7 @@ namespace Skylark.Extension
 
                 int Value = int.Parse(Hex, NumberStyles.HexNumber);
 
-                Color Color = Color.FromArgb(Value);
+                System.Drawing.Color Color = System.Drawing.Color.FromArgb(Value);
 
                 return $"argb({Color.A}, {Color.R}, {Color.G}, {Color.B})";
             }
@@ -731,7 +730,7 @@ namespace Skylark.Extension
         /// <param name="Hex"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static Color HexToColor(string Hex = MCM.Hex)
+        public static System.Drawing.Color HexToColor(string Hex = MCM.Hex)
         {
             try
             {
@@ -750,13 +749,13 @@ namespace Skylark.Extension
                     int Green = (Value >> 8) & 0xFF;
                     int Blue = Value & 0xFF;
 
-                    return Color.FromArgb(Red, Green, Blue);
+                    return System.Drawing.Color.FromArgb(Red, Green, Blue);
                 }
                 else
                 {
                     int Value = int.Parse(Hex, NumberStyles.HexNumber);
 
-                    return Color.FromArgb(Value);
+                    return System.Drawing.Color.FromArgb(Value);
                 }
             }
             catch (E Ex)
@@ -770,7 +769,7 @@ namespace Skylark.Extension
         /// </summary>
         /// <param name="Hex"></param>
         /// <returns></returns>
-        public static Task<Color> HexToColorAsync(string Hex = MCM.Hex)
+        public static Task<System.Drawing.Color> HexToColorAsync(string Hex = MCM.Hex)
         {
             return Task.Run(() => HexToColor(Hex));
         }

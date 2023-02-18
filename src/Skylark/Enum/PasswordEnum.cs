@@ -1,4 +1,7 @@
-﻿namespace Skylark.Enum
+﻿using System.Diagnostics;
+using Skylark.Helper;
+
+namespace Skylark.Enum
 {
     /// <summary>
     /// 
@@ -29,6 +32,38 @@
         /// 
         /// </summary>
         Legend = 100
+    }
+
+    public static class MeterPasswordTypeHelper // Move this class?
+    {
+        // If more password strengths are removed or added, this will compute it automatically
+        public static readonly int LowestPasswordStrength = typeof(MeterPasswordType)
+            .GetEnumValues()
+            .Cast<int>()
+            .Min();
+
+        public static readonly int HighestPasswordStrength = typeof(MeterPasswordType)
+            .GetEnumValues()
+            .Cast<int>()
+            .Max();
+        
+        public static MeterPasswordType UpgradeMeterLevel(this MeterPasswordType meterPasswordType)
+        {
+            var result = (int)meterPasswordType + 20;
+            
+            Skymath.Clamp(result, LowestPasswordStrength, HighestPasswordStrength);
+            Debug.Assert(result % 20 == 0);
+            return (MeterPasswordType)result;
+        }
+        
+        public static MeterPasswordType DowngradeMeterLevel(this MeterPasswordType meterPasswordType)
+        {
+            var result = (int)meterPasswordType - 20;
+            
+            Skymath.Clamp(result, LowestPasswordStrength, HighestPasswordStrength);
+            Debug.Assert(result % 20 == 0);
+            return (MeterPasswordType)result;
+        }
     }
 
     /// <summary>

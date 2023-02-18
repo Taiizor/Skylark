@@ -3,14 +3,14 @@ using NUglify.Html;
 using WebMarkupMin.Core;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
-using MXM = Skylark.Manage.XhtmlManage;
+using MXM = Skylark.Manage.Xhtml.XhtmlManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Xhtml
 {
     /// <summary>
     /// 
     /// </summary>
-    public class XhtmlExtension
+    public static class XhtmlExtension
     {
         /// <summary>
         /// 
@@ -33,6 +33,7 @@ namespace Skylark.Extension
                 }
                 else
                 {
+                    // TODO: Fix null ref
                     throw new E(Minified.Errors.FirstOrDefault().Message);
                 }
             }
@@ -71,6 +72,7 @@ namespace Skylark.Extension
                 }
                 else
                 {
+                    // TODO: Fix null ref
                     throw new E(Beautified.Errors.FirstOrDefault().Message);
                 }
             }

@@ -3,16 +3,16 @@ using E = Skylark.Exception;
 using ETT = Skylark.Enum.TaxType;
 using HC = Skylark.Helper.Converter;
 using HL = Skylark.Helper.Length;
-using HTH = Skylark.Helper.TaxHelper;
-using MTM = Skylark.Manage.TaxManage;
-using STCS = Skylark.Struct.TaxCalcStruct;
+using HTH = Skylark.Helper.Tax.TaxHelper;
+using MTM = Skylark.Manage.Tax.TaxManage;
+using STCS = Skylark.Struct.Tax.TaxCalcStruct;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Tax
 {
     /// <summary>
     /// 
     /// </summary>
-    public class TaxExtension
+    public static class TaxExtension
     {
         /// <summary>
         /// 

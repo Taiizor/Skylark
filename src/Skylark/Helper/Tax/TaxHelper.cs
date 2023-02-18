@@ -1,12 +1,12 @@
 ﻿using HD = Skylark.Helper.Detect;
 using HF = Skylark.Helper.Format;
 
-namespace Skylark.Helper
+namespace Skylark.Helper.Tax
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class TaxHelper
+    internal static class TaxHelper
     {
         /// <summary>
         /// 

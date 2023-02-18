@@ -7,18 +7,18 @@ using EST = Skylark.Enum.StorageType;
 using ETET = Skylark.Enum.TimeType;
 using ETXT = Skylark.Enum.TaxType;
 using HN = Skylark.Helper.Numeric;
-using MPM = Skylark.Manage.PasswordManage;
-using MSM = Skylark.Manage.StorageManage;
-using MTEM = Skylark.Manage.TimeManage;
-using MTXM = Skylark.Manage.TaxManage;
-using MWM = Skylark.Manage.WebManage;
+using MPM = Skylark.Manage.Password.PasswordManage;
+using MSM = Skylark.Manage.Storage.StorageManage;
+using MTEM = Skylark.Manage.Time.TimeManage;
+using MTXM = Skylark.Manage.Tax.TaxManage;
+using MWM = Skylark.Manage.Web.WebManage;
 
 namespace Skylark.Helper
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class Converter
+    internal static class Converter
     {
         /// <summary>
         /// 

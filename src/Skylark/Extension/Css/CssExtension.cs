@@ -3,14 +3,14 @@ using NUglify.Css;
 using WebMarkupMin.Core;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
-using MCM = Skylark.Manage.CssManage;
+using MCM = Skylark.Manage.Css.CssManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Css
 {
     /// <summary>
     /// 
     /// </summary>
-    public class CssExtension
+    public static class CssExtension
     {
         /// <summary>
         /// 
@@ -33,6 +33,7 @@ namespace Skylark.Extension
                 }
                 else
                 {
+                    // TODO: Handle null reference
                     throw new E(Minified.Errors.FirstOrDefault().Message);
                 }
             }
@@ -71,6 +72,7 @@ namespace Skylark.Extension
                 }
                 else
                 {
+                    // TODO: Handle null ref
                     throw new E(Beautified.Errors.FirstOrDefault().Message);
                 }
             }

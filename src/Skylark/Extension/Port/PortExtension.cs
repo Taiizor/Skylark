@@ -1,10 +1,10 @@
-﻿using Skylark.Enum;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
+using Skylark.Enum;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
-using MPM = Skylark.Manage.PortManage;
+using MPM = Skylark.Manage.Port.PortManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Port
 {
     /// <summary>
     /// 

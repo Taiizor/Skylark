@@ -1,12 +1,12 @@
 ﻿using E = Skylark.Exception;
-using MTM = Skylark.Manage.TemperatureManage;
+using MTM = Skylark.Manage.Temperature.TemperatureManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Temperature
 {
     /// <summary>
     /// 
     /// </summary>
-    public class TemperatureExtension
+    public static class TemperatureExtension
     {
         /// <summary>
         /// 

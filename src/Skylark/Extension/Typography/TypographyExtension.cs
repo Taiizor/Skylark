@@ -1,12 +1,12 @@
 ﻿using E = Skylark.Exception;
-using MTM = Skylark.Manage.TypographyManage;
+using MTM = Skylark.Manage.Typography.TypographyManage;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Typography
 {
     /// <summary>
     /// 
     /// </summary>
-    public class TypographyExtension
+    public static class TypographyExtension
     {
         /// <summary>
         /// 

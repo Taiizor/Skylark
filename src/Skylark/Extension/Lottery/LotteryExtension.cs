@@ -1,15 +1,15 @@
 ﻿using E = Skylark.Exception;
-using HLH = Skylark.Helper.LotteryHelper;
+using HLH = Skylark.Helper.Lottery.LotteryHelper;
 using ME = Skylark.Manage.External;
-using MLM = Skylark.Manage.LotteryManage;
-using SLDS = Skylark.Struct.LotteryDrawStruct;
+using MLM = Skylark.Manage.Lottery.LotteryManage;
+using SLDS = Skylark.Struct.Lottery.LotteryDrawStruct;
 
-namespace Skylark.Extension
+namespace Skylark.Extension.Lottery
 {
     /// <summary>
     /// 
     /// </summary>
-    public class LotteryExtension
+    public static class LotteryExtension
     {
         /// <summary>
         /// 

@@ -1,7 +1,7 @@
 ﻿using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 
-namespace Skylark.Struct
+namespace Skylark.Struct.Ping
 {
     /// <summary>
     /// 

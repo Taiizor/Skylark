@@ -2,12 +2,12 @@
 using HD = Skylark.Helper.Detect;
 using HF = Skylark.Helper.Format;
 
-namespace Skylark.Helper
+namespace Skylark.Helper.Web
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class WebHelper
+    internal static class WebHelper
     {
         /// <summary>
         /// 

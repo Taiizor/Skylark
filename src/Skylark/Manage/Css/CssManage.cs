@@ -1,9 +1,9 @@
-﻿namespace Skylark.Manage
+﻿namespace Skylark.Manage.Css
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class CssManage
+    internal static class CssManage
     {
         /// <summary>
         /// 

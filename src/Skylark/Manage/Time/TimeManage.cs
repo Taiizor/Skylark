@@ -1,12 +1,12 @@
 ﻿using ETT = Skylark.Enum.TimeType;
-using STS = Skylark.Struct.TimeStruct;
+using STS = Skylark.Struct.Time.TimeStruct;
 
-namespace Skylark.Manage
+namespace Skylark.Manage.Time
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class TimeManage
+    internal static class TimeManage
     {
         /// <summary>
         /// 

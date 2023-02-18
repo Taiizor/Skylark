@@ -1,9 +1,9 @@
-﻿namespace Skylark.Manage
+﻿namespace Skylark.Manage.Word
 {
     /// <summary>
     /// 
     /// </summary>
-    internal class WordManage
+    internal static class WordManage
     {
         /// <summary>
         /// 

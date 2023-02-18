@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using ETT = Skylark.Enum.TimeType;
 
-namespace Skylark.Struct
+namespace Skylark.Struct.Time
 {
     /// <summary>
     /// 
