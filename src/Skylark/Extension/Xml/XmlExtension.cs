@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System.Xml;
 using WebMarkupMin.Core;
-using TPXB = Skylark.ThirdParty.Xml.Beauty;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
 using MXXM = Skylark.Manage.Xml.XmlManage;
+using TPXB = Skylark.ThirdParty.Xml.Beauty;
 
 namespace Skylark.Extension.Xml
 {

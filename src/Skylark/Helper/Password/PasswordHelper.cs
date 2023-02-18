@@ -1,4 +1,4 @@
-﻿using Skylark.Enum;
+﻿using System.Diagnostics;
 using System.Text.RegularExpressions;
 using EAPT = Skylark.Enum.AlphabeticPasswordType;
 using EMPT = Skylark.Enum.MeterPasswordType;
@@ -79,6 +79,50 @@ namespace Skylark.Helper.Password
                 EAPT.Small => MPPM.Small,
                 _ => MPPM.Big + MPPM.Small,
             };
+        }
+
+        /// <summary>
+        /// If more password strengths are removed, this will compute it automatically
+        /// </summary>
+        private static readonly int LowestPasswordStrength = typeof(EMPT)
+            .GetEnumValues()
+            .Cast<int>()
+            .Min();
+
+        /// <summary>
+        /// If more password strengths are added, this will compute it automatically
+        /// </summary>
+        private static readonly int HighestPasswordStrength = typeof(EMPT)
+            .GetEnumValues()
+            .Cast<int>()
+            .Max();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="MeterPasswordType"></param>
+        /// <returns></returns>
+        private static EMPT UpgradeMeterLevel(this EMPT MeterPasswordType)
+        {
+            int Result = (int)MeterPasswordType + 20;
+
+            Skymath.Clamp(Result, LowestPasswordStrength, HighestPasswordStrength);
+            Debug.Assert(Result % 20 == 0);
+            return (EMPT)Result;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="MeterPasswordType"></param>
+        /// <returns></returns>
+        private static EMPT DowngradeMeterLevel(this EMPT MeterPasswordType)
+        {
+            int Result = (int)MeterPasswordType - 20;
+
+            Skymath.Clamp(Result, LowestPasswordStrength, HighestPasswordStrength);
+            Debug.Assert(Result % 20 == 0);
+            return (EMPT)Result;
         }
     }
 }
