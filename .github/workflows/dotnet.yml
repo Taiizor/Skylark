@@ -18,32 +18,7 @@ jobs:
             Release
         ]
         solution: [
-            src,
-            demo/Skylark.Console.Demo/ConsoleDemoJs,
-            demo/Skylark.Console.Demo/ConsoleDemoCss,
-            demo/Skylark.Console.Demo/ConsoleDemoTax,
-            demo/Skylark.Console.Demo/ConsoleDemoUrl,
-            demo/Skylark.Console.Demo/ConsoleDemoWeb,
-            demo/Skylark.Console.Demo/ConsoleDemoXml,
-            demo/Skylark.Console.Demo/ConsoleDemoHash,
-            demo/Skylark.Console.Demo/ConsoleDemoWord,
-            demo/Skylark.Console.Demo/ConsoleDemoJson,
-            demo/Skylark.Console.Demo/ConsoleDemoHtml,
-            demo/Skylark.Console.Demo/ConsoleDemoPing,
-            demo/Skylark.Console.Demo/ConsoleDemoPort,
-            demo/Skylark.Console.Demo/ConsoleDemoText,
-            demo/Skylark.Console.Demo/ConsoleDemoTime,
-            demo/Skylark.Console.Demo/ConsoleDemoSpeed,
-            demo/Skylark.Console.Demo/ConsoleDemoColor,
-            demo/Skylark.Console.Demo/ConsoleDemoXhtml,
-            demo/Skylark.Console.Demo/ConsoleDemoHelper,
-            demo/Skylark.Console.Demo/ConsoleDemoUnicode,
-            demo/Skylark.Console.Demo/ConsoleDemoLottery,
-            demo/Skylark.Console.Demo/ConsoleDemoStorage,
-            demo/Skylark.Console.Demo/ConsoleDemoPassword,
-            demo/Skylark.Console.Demo/ConsoleDemoCryptology,
-            demo/Skylark.Console.Demo/ConsoleDemoTypography,
-            demo/Skylark.Console.Demo/ConsoleDemoTemperature
+            /
         ]
 
     steps:

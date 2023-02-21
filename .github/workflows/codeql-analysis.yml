@@ -39,7 +39,7 @@ jobs:
             Release
         ]
         solution: [
-            src
+            /
         ]
 
     steps:
