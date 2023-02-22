@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleDemoCryptology", "ConsoleDemoCryptology\ConsoleDemoCryptology.csproj", "{86ED2581-1F4B-47BF-8F43-B54D90E790B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDemoCryptology", "ConsoleDemoCryptology\ConsoleDemoCryptology.csproj", "{86ED2581-1F4B-47BF-8F43-B54D90E790B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{65A16A1F-1EE0-4D5B-B610-B48938E543C8}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\src\global.json = ..\..\..\src\global.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
