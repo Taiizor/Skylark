@@ -20,8 +20,8 @@ namespace ConsoleDemoWeb
 
             Console.WriteLine();
 
-            string Similar = WebExtension.Similar("https://www.vegalya.com", "https://www.vegalya.com");
-            Console.WriteLine($"Similarity: %{Similar}");
+            string Similarity = WebExtension.Similarity("https://www.vegalya.com", "https://www.vegalya.com");
+            Console.WriteLine($"Similarity: %{Similarity}");
 
             Console.WriteLine();
 

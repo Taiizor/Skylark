@@ -69,6 +69,13 @@ namespace Skylark.Helper.Password
             return Point;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Password1"></param>
+        /// <param name="Password2"></param>
+        /// <param name="Similar"></param>
+        /// <returns></returns>
         public static double GetSimilarity(string Password1, string Password2, ESRPT Similar)
         {
             switch (Similar)
@@ -151,14 +158,20 @@ namespace Skylark.Helper.Password
 
                     int[,] D = new int[P1 + 1, P2 + 1];
 
+                    double Similarity = 0;
+
                     if (P1 == 0)
                     {
-                        return P2;
+                        Similarity = 1 - (double)P2 / Math.Max(Password1.Length, Password2.Length);
+
+                        return Similarity;
                     }
 
                     if (P2 == 0)
                     {
-                        return P1;
+                        Similarity = 1 - (double)P1 / Math.Max(Password1.Length, Password2.Length);
+
+                        return Similarity;
                     }
 
                     for (int i = 1; i <= P1; i++)
@@ -171,7 +184,11 @@ namespace Skylark.Helper.Password
                         }
                     }
 
-                    return D[P1, P2];
+                    int Distance = D[P1, P2];
+
+                    Similarity = 1 - (double)Distance / Math.Max(Password1.Length, Password2.Length);
+
+                    return Similarity;
             }
         }
 

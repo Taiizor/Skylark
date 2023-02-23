@@ -35,6 +35,12 @@ namespace ConsoleDemoPassword
             string Password6 = PasswordExtension.Generate(18, AlphabeticPasswordType.Mixed, SpecialPasswordType.Mixed, "Prefix", "Suffix");
             Console.WriteLine($"{Password6} Meter: {PasswordExtension.Meter(Password6)}");
 
+            Console.WriteLine();
+            
+            string Password7 = "Password7";
+            string Password8 = "Password8";
+            Console.WriteLine($"{Password7} - {Password8} Similarity: {PasswordExtension.Similarity(Password7, Password8, SimilarPasswordType.Jaccard)}");
+
             Console.ReadKey();
         }
     }

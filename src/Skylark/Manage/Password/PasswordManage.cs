@@ -22,7 +22,7 @@ namespace Skylark.Manage.Password
         /// <summary>
         /// 
         /// </summary>
-        public const ESRPT SimilarType = ESRPT.Levenshtein;
+        public const ESRPT SimilarType = ESRPT.Jaccard;
 
         /// <summary>
         /// 

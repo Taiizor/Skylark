@@ -153,7 +153,7 @@ namespace Skylark.Extension.Password
                 Password1 = HL.Parameter(Password1, MPPM.Password);
                 Password2 = HL.Parameter(Password2, MPPM.Password);
 
-                return HPPH.GetPlaces(Math.Round(decimal.Parse($"{HPPH.GetSimilarity(Password1, Password2, Similar)}"), 2), true);
+                return HPPH.GetPlaces(Math.Round(decimal.Parse($"{HPPH.GetSimilarity(Password1, Password2, Similar):P}".Replace("%", "")), 2), true);
             }
             catch (E Ex)
             {
