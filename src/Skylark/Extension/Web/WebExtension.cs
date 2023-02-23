@@ -235,7 +235,7 @@ namespace Skylark.Extension.Web
         /// <param name="Url2"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static string Similar(string Url1 = MWWM.Url, string Url2 = MWWM.Url, bool Separator = MWWM.Separator)
+        public static string Similarity(string Url1 = MWWM.Url, string Url2 = MWWM.Url, bool Separator = MWWM.Separator)
         {
             try
             {
@@ -270,9 +270,9 @@ namespace Skylark.Extension.Web
         /// <param name="Url2"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static Task<string> SimilarAsync(string Url1 = MWWM.Url, string Url2 = MWWM.Url, bool Separator = MWWM.Separator)
+        public static Task<string> SimilarityAsync(string Url1 = MWWM.Url, string Url2 = MWWM.Url, bool Separator = MWWM.Separator)
         {
-            return Task.Run(() => Similar(Url1, Url2, Separator));
+            return Task.Run(() => Similarity(Url1, Url2, Separator));
         }
     }
 }

@@ -2,7 +2,8 @@
 using ECNT = Skylark.Enum.ClearNumericType;
 using ECWT = Skylark.Enum.CompressWebType;
 using EMST = Skylark.Enum.ModeStorageType;
-using ESPT = Skylark.Enum.SpecialPasswordType;
+using ESLPT = Skylark.Enum.SpecialPasswordType;
+using ESRPT = Skylark.Enum.SimilarPasswordType;
 using EST = Skylark.Enum.StorageType;
 using ETET = Skylark.Enum.TimeType;
 using ETXT = Skylark.Enum.TaxType;
@@ -121,9 +122,28 @@ namespace Skylark.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static ESPT Convert(string Type, ESPT Back = MPPM.SpecialType)
+        public static ESRPT Convert(string Type, ESRPT Back = MPPM.SimilarType)
         {
-            foreach (ESPT Types in (ESPT[])System.Enum.GetValues(typeof(ESPT)))
+            foreach (ESRPT Types in (ESRPT[])System.Enum.GetValues(typeof(ESRPT)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static ESLPT Convert(string Type, ESLPT Back = MPPM.SpecialType)
+        {
+            foreach (ESLPT Types in (ESLPT[])System.Enum.GetValues(typeof(ESLPT)))
             {
                 if (Check(Type, Types))
                 {

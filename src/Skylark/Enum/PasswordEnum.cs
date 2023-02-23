@@ -34,6 +34,29 @@
     /// <summary>
     /// 
     /// </summary>
+    public enum SimilarPasswordType
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        Cosine,
+        /// <summary>
+        /// 
+        /// </summary>
+        Jaccard,
+        /// <summary>
+        /// 
+        /// </summary>
+        Jaccardy,
+        /// <summary>
+        /// 
+        /// </summary>
+        Levenshtein
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public enum SpecialPasswordType
     {
         /// <summary>

@@ -1,7 +1,8 @@
 ﻿using E = Skylark.Exception;
 using EAPT = Skylark.Enum.AlphabeticPasswordType;
 using EMPT = Skylark.Enum.MeterPasswordType;
-using ESPT = Skylark.Enum.SpecialPasswordType;
+using ESLPT = Skylark.Enum.SpecialPasswordType;
+using ESRPT = Skylark.Enum.SimilarPasswordType;
 using HC = Skylark.Helper.Converter;
 using HL = Skylark.Helper.Length;
 using HPPH = Skylark.Helper.Password.PasswordHelper;
@@ -74,7 +75,7 @@ namespace Skylark.Extension.Password
         /// <param name="Prefix"></param>
         /// <param name="Suffix"></param>
         /// <returns></returns>
-        public static string Generate(int Length = MPPM.Length, EAPT Alphabetic = MPPM.AlphabeticType, ESPT Special = MPPM.SpecialType, string Prefix = MPPM.Prefix, string Suffix = MPPM.Suffix)
+        public static string Generate(int Length = MPPM.Length, EAPT Alphabetic = MPPM.AlphabeticType, ESLPT Special = MPPM.SpecialType, string Prefix = MPPM.Prefix, string Suffix = MPPM.Suffix)
         {
             try
             {
@@ -108,9 +109,61 @@ namespace Skylark.Extension.Password
         /// <param name="Prefix"></param>
         /// <param name="Suffix"></param>
         /// <returns></returns>
-        public static Task<string> GenerateAsync(int Length = MPPM.Length, EAPT Alphabetic = MPPM.AlphabeticType, ESPT Special = MPPM.SpecialType, string Prefix = MPPM.Prefix, string Suffix = MPPM.Suffix)
+        public static Task<string> GenerateAsync(int Length = MPPM.Length, EAPT Alphabetic = MPPM.AlphabeticType, ESLPT Special = MPPM.SpecialType, string Prefix = MPPM.Prefix, string Suffix = MPPM.Suffix)
         {
             return Task.Run(() => Generate(Length, Alphabetic, Special, Prefix, Suffix));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Password1"></param>
+        /// <param name="Password2"></param>
+        /// <param name="Similar"></param>
+        /// <returns></returns>
+        public static string Similarity(string Password1 = MPPM.Password, string Password2 = MPPM.Password, string Similar = MPPM.DefaultType)
+        {
+            return Similarity(Password1, Password2, HC.Convert(Similar, MPPM.SimilarType));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Password1"></param>
+        /// <param name="Password2"></param>
+        /// <param name="Similar"></param>
+        /// <returns></returns>
+        public static Task<string> SimilarityAsync(string Password1 = MPPM.Password, string Password2 = MPPM.Password, string Similar = MPPM.DefaultType)
+        {
+            return Task.Run(() => Similarity(Password1, Password2, Similar));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Password1"></param>
+        /// <param name="Password2"></param>
+        /// <param name="Similar"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static string Similarity(string Password1 = MPPM.Password, string Password2 = MPPM.Password, ESRPT Similar = MPPM.SimilarType)
+        {
+            try
+            {
+                Password1 = HL.Parameter(Password1, MPPM.Password);
+                Password2 = HL.Parameter(Password2, MPPM.Password);
+
+                return HPPH.GetPlaces(Math.Round(decimal.Parse($"{HPPH.GetSimilarity(Password1, Password2, Similar)}"), 2), true);
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        public static Task<string> SimilarityAsync(string Password1 = MPPM.Password, string Password2 = MPPM.Password, ESRPT Similar = MPPM.SimilarType)
+        {
+            return Task.Run(() => Similarity(Password1, Password2, Similar));
         }
     }
 }

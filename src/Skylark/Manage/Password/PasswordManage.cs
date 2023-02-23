@@ -1,5 +1,6 @@
 ﻿using EAPT = Skylark.Enum.AlphabeticPasswordType;
-using ESPT = Skylark.Enum.SpecialPasswordType;
+using ESLPT = Skylark.Enum.SpecialPasswordType;
+using ESRPT = Skylark.Enum.SimilarPasswordType;
 
 namespace Skylark.Manage.Password
 {
@@ -21,7 +22,12 @@ namespace Skylark.Manage.Password
         /// <summary>
         /// 
         /// </summary>
-        public const ESPT SpecialType = ESPT.Mixed;
+        public const ESRPT SimilarType = ESRPT.Levenshtein;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const ESLPT SpecialType = ESLPT.Mixed;
         /// <summary>
         /// 
         /// </summary>
