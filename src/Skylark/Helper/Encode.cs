@@ -64,11 +64,11 @@ namespace Skylark.Helper
 
             return EncodeType switch
             {
+                EET.UTF7 => Encoding.UTF7,
                 EET.UTF8 => Encoding.UTF8,
                 EET.UTF32 => Encoding.UTF32,
                 EET.ASCII => Encoding.ASCII,
                 EET.Unicode => Encoding.Unicode,
-                EET.UTF7 => Encoding.UTF7,
                 EET.BigEndianUnicode => Encoding.BigEndianUnicode,
                 _ => Encoding.Default
             };

@@ -1,6 +1,7 @@
 ﻿using EAPT = Skylark.Enum.AlphabeticPasswordType;
 using ECNT = Skylark.Enum.ClearNumericType;
 using ECWT = Skylark.Enum.CompressWebType;
+using EHWT = Skylark.Enum.HttpWebType;
 using EMST = Skylark.Enum.ModeStorageType;
 using ESLPT = Skylark.Enum.SpecialPasswordType;
 using ESRPT = Skylark.Enum.SimilarPasswordType;
@@ -163,6 +164,25 @@ namespace Skylark.Helper
         public static ECWT Convert(string Type, ECWT Back = MWWM.CompressType)
         {
             foreach (ECWT Types in (ECWT[])System.Enum.GetValues(typeof(ECWT)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static EHWT Convert(string Type, EHWT Back = MWWM.HttpType)
+        {
+            foreach (EHWT Types in (EHWT[])System.Enum.GetValues(typeof(EHWT)))
             {
                 if (Check(Type, Types))
                 {

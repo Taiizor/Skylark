@@ -1,4 +1,5 @@
 ﻿using ECWT = Skylark.Enum.CompressWebType;
+using EHWT = Skylark.Enum.HttpWebType;
 
 namespace Skylark.Manage.Web
 {
@@ -35,6 +36,16 @@ namespace Skylark.Manage.Web
         /// <summary>
         /// 
         /// </summary>
+        public const EHWT HttpType = EHWT.POST;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string DefaultType = "POST";
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const ECWT CompressType = ECWT.None;
 
         /// <summary>
@@ -46,6 +57,11 @@ namespace Skylark.Manage.Web
         /// 
         /// </summary>
         public const string Types = "gzip, deflate, br";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string Error = "Invalid Type value.";
 
         /// <summary>
         /// 

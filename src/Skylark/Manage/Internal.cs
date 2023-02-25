@@ -34,5 +34,13 @@
         /// 
         /// </summary>
         public static readonly string[] SplitSpaceNewLine = new string[] { "\r\n", "\r", "\n", " " };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly Dictionary<string, object> HttpParameter = new()
+        {
+            { "Taiizor", "Skylark" }
+        };
     }
 }
