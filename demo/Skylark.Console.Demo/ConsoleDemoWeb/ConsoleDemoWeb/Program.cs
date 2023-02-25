@@ -6,6 +6,11 @@ namespace ConsoleDemoWeb
 {
     internal class Program
     {
+        private static readonly Dictionary<string, object> Parameter = new()
+        {
+            { "q", "Taiizor Skylark" }
+        };
+
         private const string Css = "@charset 'UTF-8';\n* {\r\n\tmargin: 0;\r\n\tpadding: 0;\r\n\t-webkit-text-size-adjust: none;\r\n}";
 
         static void Main()
@@ -50,6 +55,11 @@ namespace ConsoleDemoWeb
             Console.WriteLine($"Version: {Header.Version}");
             Console.WriteLine($"Modified: {Header.Modified}");
             Console.WriteLine($"Security: {Header.Security}");
+
+            Console.WriteLine();
+
+            string Request = WebExtension.Request("https://www.google.com/search", Parameter, HttpWebType.GET);
+            Console.WriteLine($"Request (Cut): {Request[..512]}...");
 
             Console.ReadKey();
         }
