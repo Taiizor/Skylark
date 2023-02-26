@@ -39,7 +39,9 @@ jobs:
             Release
         ]
         solution: [
-            src
+            src/Skylark.sln,
+            src/Skylark.DNS.sln,
+            src/Skylark.Clipboard.sln
         ]
 
     steps:

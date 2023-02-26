@@ -19,6 +19,8 @@ jobs:
         ]
         solution: [
             src/Skylark.sln,
+            src/Skylark.DNS.sln,
+            src/Skylark.Clipboard.sln,
             demo/Skylark.Console.Demo/ConsoleDemoJs/ConsoleDemoJs.sln,
             demo/Skylark.Console.Demo/ConsoleDemoCss/ConsoleDemoCss.sln,
             demo/Skylark.Console.Demo/ConsoleDemoTax/ConsoleDemoTax.sln,
