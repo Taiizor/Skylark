@@ -1,7 +1,4 @@
-﻿using DnsClient;
-using System.Net;
-
-namespace Skylark.DNS.Manage
+﻿namespace Skylark.DNS.Manage
 {
     /// <summary>
     /// 
@@ -17,15 +14,5 @@ namespace Skylark.DNS.Manage
         /// 
         /// </summary>
         public static string Server = "8.8.8.8";
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static LookupClient Client = new(Endpoint);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static IPEndPoint Endpoint = new(IPAddress.Parse(Server), Port);
     }
 }
