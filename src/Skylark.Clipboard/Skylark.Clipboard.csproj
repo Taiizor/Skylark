@@ -4,6 +4,7 @@
         <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
         <RootNamespace>Skylark.Clipboard</RootNamespace>
         <DefaultLanguage>en-GB</DefaultLanguage>
+        <UseWindowsForms>true</UseWindowsForms>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>disable</Nullable>
     </PropertyGroup>
@@ -52,12 +53,6 @@
             <Version>1.1.1</Version>
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Skylark" Version="2.0.3.2" />
-        <PackageReference Include="WebMarkupMin.NUglify" Version="2.13.6" />
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3-beta1" />
     </ItemGroup>
 
     <ItemGroup>
