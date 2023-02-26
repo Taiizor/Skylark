@@ -1,11 +1,11 @@
 ﻿using DnsClient;
 using DnsClient.Protocol;
+using HL = Skylark.Helper.Length;
 using E = Skylark.Exception;
 using EQDT = Skylark.DNS.Enum.QueryDomainType;
 using HC = Skylark.DNS.Helper.Converter;
 using MDDM = Skylark.DNS.Manage.Domain.DomainManage;
 using ME = Skylark.DNS.Manage.External;
-using MI = Skylark.DNS.Manage.Internal;
 
 namespace Skylark.DNS.Extension.Domain
 {
@@ -25,7 +25,7 @@ namespace Skylark.DNS.Extension.Domain
         {
             try
             {
-                Domain = Domain.Length > MI.ParameterLength ? MDDM.Domain : Domain;
+                Domain = HL.Parameter(Domain, MDDM.Domain);
 
                 return ME.Client.Query(Domain, HC.Convert(Type, MDDM.DefaultType));
             }
