@@ -1,6 +1,11 @@
-﻿using SWFC = System.Windows.Forms.Clipboard;
+﻿using System.Drawing;
+using System.IO;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using SCSSC = System.Collections.Specialized.StringCollection;
+using SWFC = System.Windows.Forms.Clipboard;
 
-namespace Skylark.Helper
+namespace Skylark.Clipboard.Helper
 {
     /// <summary>
     /// 
@@ -10,9 +15,17 @@ namespace Skylark.Helper
         /// <summary>
         /// 
         /// </summary>
+        public static void Clear()
+        {
+            SWFC.Clear();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Format"></param>
         /// <param name="Data"></param>
-        public static void CopyData(string Format, object Data)
+        public static void SetData(string Format, object Data)
         {
             SWFC.SetData(Format, Data);
         }
@@ -23,17 +36,57 @@ namespace Skylark.Helper
         /// <param name="Format"></param>
         /// <param name="Data"></param>
         /// <returns></returns>
-        public static Task CopyDataAsync(string Format, object Data)
+        public static Task SetDataAsync(string Format, object Data)
         {
-            CopyData(Format, Data);
+            SetData(Format, Data);
             return Task.CompletedTask;
         }
 
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Format"></param>
+        /// <returns></returns>
+        public static object GetData(string Format)
+        {
+            return SWFC.GetData(Format);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Format"></param>
+        /// <returns></returns>
+        public static Task<object> GetDataAsync(string Format)
+        {
+            return Task.Run(() => GetData(Format));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Format"></param>
+        /// <returns></returns>
+        public static bool ContainsData(string Format)
+        {
+            return SWFC.ContainsData(Format);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Format"></param>
+        /// <returns></returns>
+        public static Task<bool> ContainsDataAsync(string Format)
+        {
+            return Task.Run(() => ContainsData(Format));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Bytes"></param>
-        public static void CopyAudio(byte[] Bytes)
+        public static void SetAudio(byte[] Bytes)
         {
             SWFC.SetAudio(Bytes);
         }
@@ -43,9 +96,9 @@ namespace Skylark.Helper
         /// </summary>
         /// <param name="Bytes"></param>
         /// <returns></returns>
-        public static Task CopyAudioAsync(byte[] Bytes)
+        public static Task SetAudioAsync(byte[] Bytes)
         {
-            CopyAudio(Bytes);
+            SetAudio(Bytes);
             return Task.CompletedTask;
         }
 
@@ -53,7 +106,7 @@ namespace Skylark.Helper
         /// 
         /// </summary>
         /// <param name="Stream"></param>
-        public static void CopyAudio(Stream Stream)
+        public static void SetAudio(Stream Stream)
         {
             SWFC.SetAudio(Stream);
         }
@@ -63,17 +116,53 @@ namespace Skylark.Helper
         /// </summary>
         /// <param name="Stream"></param>
         /// <returns></returns>
-        public static Task CopyAudioAsync(Stream Stream)
+        public static Task SetAudioAsync(Stream Stream)
         {
-            CopyAudio(Stream);
+            SetAudio(Stream);
             return Task.CompletedTask;
         }
 
         /// <summary>
         /// 
         /// </summary>
+        /// <returns></returns>
+        public static Stream GetAudio()
+        {
+            return SWFC.GetAudioStream();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Task<Stream> GetAudioAsync()
+        {
+            return Task.Run(GetAudio);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static bool ContainsAudio()
+        {
+            return SWFC.ContainsAudio();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Task<bool> ContainsAudioAsync()
+        {
+            return Task.Run(ContainsAudio);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Image"></param>
-        public static void CopyImage(Image Image)
+        public static void SetImage(Image Image)
         {
             SWFC.SetImage(Image);
         }
@@ -83,32 +172,142 @@ namespace Skylark.Helper
         /// </summary>
         /// <param name="Image"></param>
         /// <returns></returns>
-        public static Task CopyImageAsync(Image Image)
+        public static Task SetImageAsync(Image Image)
         {
-            CopyImage(Image);
+            SetImage(Image);
             return Task.CompletedTask;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Data"></param>
-        /// <param name="Copy"></param>
-        public static void CopyDataObject(object Data, bool Copy)
-        {
-            SWFC.SetDataObject(Data, Copy);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Data"></param>
-        /// <param name="Copy"></param>
         /// <returns></returns>
-        public static Task CopyDataObjectAsync(object Data, bool Copy)
+        public static Image GetImage()
         {
-            CopyDataObject(Data, Copy);
+            return SWFC.GetImage();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Task<Image> GetImageAsync()
+        {
+            return Task.Run(GetImage);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static bool ContainsImage()
+        {
+            return SWFC.ContainsImage();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Task<bool> ContainsImageAsync()
+        {
+            return Task.Run(ContainsImage);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Data"></param>
+        /// <param name="Set"></param>
+        public static void SetDataObject(object Data, bool Set)
+        {
+            SWFC.SetDataObject(Data, Set);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Data"></param>
+        /// <param name="Set"></param>
+        /// <returns></returns>
+        public static Task SetDataObjectAsync(object Data, bool Set)
+        {
+            SetDataObject(Data, Set);
             return Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static IDataObject GetDataObject()
+        {
+            return SWFC.GetDataObject();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Task<IDataObject> GetDataObjectAsync()
+        {
+            return Task.Run(GetDataObject);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Paths"></param>
+        public static void SetFileDropList(SCSSC Paths)
+        {
+            SWFC.SetFileDropList(Paths);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Paths"></param>
+        /// <returns></returns>
+        public static Task SetFileDropListAsync(SCSSC Paths)
+        {
+            SetFileDropList(Paths);
+            return Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static SCSSC GetFileDropList()
+        {
+            return SWFC.GetFileDropList();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Task<SCSSC> GetFileDropListAsync()
+        {
+            return Task.Run(GetFileDropList);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static bool ContainsFileDropList()
+        {
+            return SWFC.ContainsFileDropList();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Task<bool> ContainsFileDropListAsync()
+        {
+            return Task.Run(ContainsFileDropList);
         }
 
         /// <summary>
@@ -116,7 +315,7 @@ namespace Skylark.Helper
         /// </summary>
         /// <param name="Text"></param>
         /// <param name="Format"></param>
-        public static void CopyText(string Text, TextDataFormat Format = TextDataFormat.Text)
+        public static void SetText(string Text, TextDataFormat Format = TextDataFormat.Text)
         {
             SWFC.SetText(Text, Format);
         }
@@ -127,79 +326,50 @@ namespace Skylark.Helper
         /// <param name="Text"></param>
         /// <param name="Format"></param>
         /// <returns></returns>
-        public static Task CopyTextAsync(string Text, TextDataFormat Format = TextDataFormat.Text)
+        public static Task SetTextAsync(string Text, TextDataFormat Format = TextDataFormat.Text)
         {
-            CopyText(Text, Format);
-            return Task.CompletedTask;
-        }
-
-
-
-
-
-
-
-
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private static object Clipboard = null;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Value"></param>
-        public static void Copy(object Value)
-        {
-            Clipboard = Value;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Value"></param>
-        public static Task CopyAsync(object Value)
-        {
-            Copy(Value);
+            SetText(Text, Format);
             return Task.CompletedTask;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Clear"></param>
-        /// <param name="Back"></param>
+        /// <param name="Format"></param>
         /// <returns></returns>
-        public static object Paste(bool Clear = false, object Back = null)
+        public static string GetText(TextDataFormat Format = TextDataFormat.Text)
         {
-            object Value = Clipboard;
-
-            if (Clear)
-            {
-                Clipboard = null;
-            }
-
-            if (Value == null)
-            {
-                return Back;
-            }
-            else
-            {
-                return Value;
-            }
+            return SWFC.GetText(Format);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Clear"></param>
-        /// <param name="Back"></param>
+        /// <param name="Format"></param>
         /// <returns></returns>
-        public static Task<object> PasteAsync(bool Clear = false, object Back = null)
+        public static Task<string> GetTextAsync(TextDataFormat Format = TextDataFormat.Text)
         {
-            return Task.Run(() => Paste(Clear, Back));
+            return Task.Run(() => GetText(Format));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Format"></param>
+        /// <returns></returns>
+        public static bool ContainsText(TextDataFormat Format = TextDataFormat.Text)
+        {
+            return SWFC.ContainsText(Format);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Format"></param>
+        /// <returns></returns>
+        public static Task<bool> ContainsTextAsync(TextDataFormat Format = TextDataFormat.Text)
+        {
+            return Task.Run(() => ContainsText(Format));
         }
     }
 }
