@@ -1,5 +1,4 @@
-﻿using System.IO;
-using SWFC = System.Windows.Forms.Clipboard;
+﻿using SWFC = System.Windows.Forms.Clipboard;
 
 namespace Skylark.Helper
 {
@@ -87,6 +86,28 @@ namespace Skylark.Helper
         public static Task CopyImageAsync(Image Image)
         {
             CopyImage(Image);
+            return Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Data"></param>
+        /// <param name="Copy"></param>
+        public static void CopyDataObject(object Data, bool Copy)
+        {
+            SWFC.SetDataObject(Data, Copy);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Data"></param>
+        /// <param name="Copy"></param>
+        /// <returns></returns>
+        public static Task CopyDataObjectAsync(object Data, bool Copy)
+        {
+            CopyDataObject(Data, Copy);
             return Task.CompletedTask;
         }
 
