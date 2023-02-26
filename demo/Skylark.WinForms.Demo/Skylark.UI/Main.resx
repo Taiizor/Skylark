@@ -148,7 +148,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox3.ZOrder" xml:space="preserve">
-    <value>86</value>
+    <value>85</value>
   </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 143</value>
@@ -172,7 +172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>85</value>
+    <value>84</value>
   </data>
   <data name="textBox4.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 61</value>
@@ -202,7 +202,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox4.ZOrder" xml:space="preserve">
-    <value>84</value>
+    <value>83</value>
   </data>
   <data name="comboBox1.Items" xml:space="preserve">
     <value>Bit</value>
@@ -253,7 +253,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox1.ZOrder" xml:space="preserve">
-    <value>82</value>
+    <value>81</value>
   </data>
   <data name="textBox7.Location" type="System.Drawing.Point, System.Drawing">
     <value>118, 113</value>
@@ -283,7 +283,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox7.ZOrder" xml:space="preserve">
-    <value>83</value>
+    <value>82</value>
   </data>
   <data name="comboBox3.Items" xml:space="preserve">
     <value>Decimal On</value>
@@ -310,7 +310,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox3.ZOrder" xml:space="preserve">
-    <value>81</value>
+    <value>80</value>
   </data>
   <data name="comboBox4.Items" xml:space="preserve">
     <value>Fraction On</value>
@@ -337,7 +337,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox4.ZOrder" xml:space="preserve">
-    <value>80</value>
+    <value>79</value>
   </data>
   <data name="comboBox2.Items" xml:space="preserve">
     <value>Bit</value>
@@ -388,7 +388,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox2.ZOrder" xml:space="preserve">
-    <value>79</value>
+    <value>78</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 172</value>
@@ -412,7 +412,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
-    <value>78</value>
+    <value>77</value>
   </data>
   <data name="comboBox5.Items" xml:space="preserve">
     <value>ADC Type On</value>
@@ -439,7 +439,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox5.ZOrder" xml:space="preserve">
-    <value>77</value>
+    <value>76</value>
   </data>
   <data name="button3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -618,7 +618,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button3.ZOrder" xml:space="preserve">
-    <value>76</value>
+    <value>75</value>
   </data>
   <data name="button4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -693,7 +693,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button4.ZOrder" xml:space="preserve">
-    <value>75</value>
+    <value>74</value>
   </data>
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>438, 36</value>
@@ -723,7 +723,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
-    <value>74</value>
+    <value>73</value>
   </data>
   <data name="button5.Location" type="System.Drawing.Point, System.Drawing">
     <value>437, 144</value>
@@ -747,7 +747,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button5.ZOrder" xml:space="preserve">
-    <value>73</value>
+    <value>72</value>
   </data>
   <data name="comboBox6.Items" xml:space="preserve">
     <value>K - Kelvin =&gt; C - Celsius</value>
@@ -786,7 +786,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox6.ZOrder" xml:space="preserve">
-    <value>72</value>
+    <value>71</value>
   </data>
   <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>438, 62</value>
@@ -816,7 +816,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
-    <value>71</value>
+    <value>70</value>
   </data>
   <data name="button6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -891,7 +891,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button6.ZOrder" xml:space="preserve">
-    <value>70</value>
+    <value>69</value>
   </data>
   <data name="comboBox8.Items" xml:space="preserve">
     <value>Fraction On</value>
@@ -918,7 +918,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox8.ZOrder" xml:space="preserve">
-    <value>68</value>
+    <value>67</value>
   </data>
   <data name="textBox5.Location" type="System.Drawing.Point, System.Drawing">
     <value>544, 114</value>
@@ -948,7 +948,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox5.ZOrder" xml:space="preserve">
-    <value>69</value>
+    <value>68</value>
   </data>
   <data name="comboBox9.Items" xml:space="preserve">
     <value>Decimal On</value>
@@ -975,7 +975,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox9.ZOrder" xml:space="preserve">
-    <value>67</value>
+    <value>66</value>
   </data>
   <data name="button7.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1154,7 +1154,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button7.ZOrder" xml:space="preserve">
-    <value>66</value>
+    <value>65</value>
   </data>
   <data name="button8.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1333,7 +1333,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button8.ZOrder" xml:space="preserve">
-    <value>64</value>
+    <value>63</value>
   </data>
   <data name="comboBox10.Items" xml:space="preserve">
     <value>RGB =&gt; HEX</value>
@@ -1360,7 +1360,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox10.ZOrder" xml:space="preserve">
-    <value>65</value>
+    <value>64</value>
   </data>
   <data name="textBox6.Location" type="System.Drawing.Point, System.Drawing">
     <value>660, 36</value>
@@ -1390,7 +1390,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox6.ZOrder" xml:space="preserve">
-    <value>60</value>
+    <value>59</value>
   </data>
   <data name="button9.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1465,7 +1465,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button9.ZOrder" xml:space="preserve">
-    <value>62</value>
+    <value>61</value>
   </data>
   <data name="textBox8.Location" type="System.Drawing.Point, System.Drawing">
     <value>651, 62</value>
@@ -1495,7 +1495,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox8.ZOrder" xml:space="preserve">
-    <value>63</value>
+    <value>62</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1522,7 +1522,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>61</value>
+    <value>60</value>
   </data>
   <data name="textBox9.Location" type="System.Drawing.Point, System.Drawing">
     <value>731, 36</value>
@@ -1552,7 +1552,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox9.ZOrder" xml:space="preserve">
-    <value>58</value>
+    <value>57</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1579,7 +1579,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>59</value>
+    <value>58</value>
   </data>
   <data name="textBox10.Location" type="System.Drawing.Point, System.Drawing">
     <value>801, 36</value>
@@ -1609,7 +1609,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox10.ZOrder" xml:space="preserve">
-    <value>56</value>
+    <value>55</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1636,7 +1636,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>57</value>
+    <value>56</value>
   </data>
   <data name="button10.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1711,7 +1711,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button10.ZOrder" xml:space="preserve">
-    <value>55</value>
+    <value>54</value>
   </data>
   <data name="button11.Location" type="System.Drawing.Point, System.Drawing">
     <value>650, 86</value>
@@ -1735,7 +1735,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button11.ZOrder" xml:space="preserve">
-    <value>54</value>
+    <value>53</value>
   </data>
   <data name="button12.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1917,7 +1917,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button12.ZOrder" xml:space="preserve">
-    <value>52</value>
+    <value>51</value>
   </data>
   <data name="comboBox11.Items" xml:space="preserve">
     <value>Char =&gt; ASCII</value>
@@ -1944,7 +1944,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox11.ZOrder" xml:space="preserve">
-    <value>53</value>
+    <value>52</value>
   </data>
   <data name="button13.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2019,7 +2019,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button13.ZOrder" xml:space="preserve">
-    <value>50</value>
+    <value>49</value>
   </data>
   <data name="textBox11.Location" type="System.Drawing.Point, System.Drawing">
     <value>652, 246</value>
@@ -2046,7 +2046,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox11.ZOrder" xml:space="preserve">
-    <value>51</value>
+    <value>50</value>
   </data>
   <data name="button14.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2121,7 +2121,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button14.ZOrder" xml:space="preserve">
-    <value>48</value>
+    <value>47</value>
   </data>
   <data name="textBox12.Location" type="System.Drawing.Point, System.Drawing">
     <value>652, 272</value>
@@ -2148,7 +2148,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox12.ZOrder" xml:space="preserve">
-    <value>49</value>
+    <value>48</value>
   </data>
   <data name="button15.Location" type="System.Drawing.Point, System.Drawing">
     <value>696, 298</value>
@@ -2172,7 +2172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button15.ZOrder" xml:space="preserve">
-    <value>47</value>
+    <value>46</value>
   </data>
   <data name="button16.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 351</value>
@@ -2196,7 +2196,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button16.ZOrder" xml:space="preserve">
-    <value>41</value>
+    <value>40</value>
   </data>
   <data name="button17.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2271,7 +2271,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button17.ZOrder" xml:space="preserve">
-    <value>42</value>
+    <value>41</value>
   </data>
   <data name="textBox13.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 272</value>
@@ -2298,7 +2298,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox13.ZOrder" xml:space="preserve">
-    <value>43</value>
+    <value>42</value>
   </data>
   <data name="textBox14.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 246</value>
@@ -2325,7 +2325,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox14.ZOrder" xml:space="preserve">
-    <value>44</value>
+    <value>43</value>
   </data>
   <data name="button19.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2504,7 +2504,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button19.ZOrder" xml:space="preserve">
-    <value>45</value>
+    <value>44</value>
   </data>
   <data name="comboBox12.Items" xml:space="preserve">
     <value>Text =&gt; Base</value>
@@ -2552,7 +2552,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox12.ZOrder" xml:space="preserve">
-    <value>46</value>
+    <value>45</value>
   </data>
   <data name="button18.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2630,7 +2630,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button18.ZOrder" xml:space="preserve">
-    <value>32</value>
+    <value>31</value>
   </data>
   <data name="button20.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2812,7 +2812,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button20.ZOrder" xml:space="preserve">
-    <value>33</value>
+    <value>32</value>
   </data>
   <data name="comboBox15.Items" xml:space="preserve">
     <value>Fraction On</value>
@@ -2839,7 +2839,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox15.ZOrder" xml:space="preserve">
-    <value>34</value>
+    <value>33</value>
   </data>
   <data name="comboBox16.Items" xml:space="preserve">
     <value>Decimal On</value>
@@ -2866,7 +2866,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox16.ZOrder" xml:space="preserve">
-    <value>35</value>
+    <value>34</value>
   </data>
   <data name="comboBox17.Items" xml:space="preserve">
     <value>INCH</value>
@@ -2896,7 +2896,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox17.ZOrder" xml:space="preserve">
-    <value>36</value>
+    <value>35</value>
   </data>
   <data name="textBox15.Location" type="System.Drawing.Point, System.Drawing">
     <value>544, 319</value>
@@ -2926,7 +2926,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox15.ZOrder" xml:space="preserve">
-    <value>37</value>
+    <value>36</value>
   </data>
   <data name="textBox16.Location" type="System.Drawing.Point, System.Drawing">
     <value>438, 267</value>
@@ -2956,7 +2956,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox16.ZOrder" xml:space="preserve">
-    <value>38</value>
+    <value>37</value>
   </data>
   <data name="button21.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2983,7 +2983,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button21.ZOrder" xml:space="preserve">
-    <value>39</value>
+    <value>38</value>
   </data>
   <data name="textBox17.Location" type="System.Drawing.Point, System.Drawing">
     <value>438, 244</value>
@@ -3013,7 +3013,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox17.ZOrder" xml:space="preserve">
-    <value>40</value>
+    <value>39</value>
   </data>
   <data name="comboBox13.Items" xml:space="preserve">
     <value>INCH</value>
@@ -3043,7 +3043,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox13.ZOrder" xml:space="preserve">
-    <value>31</value>
+    <value>30</value>
   </data>
   <data name="textBox18.Location" type="System.Drawing.Point, System.Drawing">
     <value>652, 299</value>
@@ -3073,7 +3073,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox18.ZOrder" xml:space="preserve">
-    <value>30</value>
+    <value>29</value>
   </data>
   <data name="button22.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -3100,7 +3100,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button22.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>24</value>
   </data>
   <data name="button23.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3178,7 +3178,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button23.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>25</value>
   </data>
   <data name="textBox19.Location" type="System.Drawing.Point, System.Drawing">
     <value>225, 272</value>
@@ -3205,7 +3205,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox19.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>26</value>
   </data>
   <data name="textBox20.Location" type="System.Drawing.Point, System.Drawing">
     <value>225, 246</value>
@@ -3232,7 +3232,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox20.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>27</value>
   </data>
   <data name="comboBox14.Items" xml:space="preserve">
     <value>FILE =&gt; MD5</value>
@@ -3268,7 +3268,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox14.ZOrder" xml:space="preserve">
-    <value>29</value>
+    <value>28</value>
   </data>
   <data name="button24.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3346,7 +3346,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button24.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>12</value>
   </data>
   <data name="button25.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3528,7 +3528,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button25.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <data name="comboBox18.Items" xml:space="preserve">
     <value>ATC Type On</value>
@@ -3555,7 +3555,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox18.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>14</value>
   </data>
   <data name="button26.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -3582,7 +3582,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button26.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>15</value>
   </data>
   <data name="comboBox19.Items" xml:space="preserve">
     <value>Attosecond</value>
@@ -3648,7 +3648,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox19.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>16</value>
   </data>
   <data name="comboBox20.Items" xml:space="preserve">
     <value>Fraction On</value>
@@ -3675,7 +3675,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox20.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>17</value>
   </data>
   <data name="comboBox21.Items" xml:space="preserve">
     <value>Decimal On</value>
@@ -3702,7 +3702,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox21.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>18</value>
   </data>
   <data name="comboBox22.Items" xml:space="preserve">
     <value>Attosecond</value>
@@ -3768,7 +3768,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox22.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>19</value>
   </data>
   <data name="textBox21.Location" type="System.Drawing.Point, System.Drawing">
     <value>330, 113</value>
@@ -3798,7 +3798,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox21.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>20</value>
   </data>
   <data name="textBox22.Location" type="System.Drawing.Point, System.Drawing">
     <value>224, 61</value>
@@ -3828,7 +3828,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox22.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>21</value>
   </data>
   <data name="button27.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -3855,7 +3855,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button27.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>22</value>
   </data>
   <data name="textBox23.Location" type="System.Drawing.Point, System.Drawing">
     <value>224, 38</value>
@@ -3885,7 +3885,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox23.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>23</value>
   </data>
   <data name="button28.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4067,7 +4067,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button28.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="comboBox23.Items" xml:space="preserve">
     <value>Decimal On</value>
@@ -4094,7 +4094,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox23.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="comboBox24.Items" xml:space="preserve">
     <value>Fraction On</value>
@@ -4121,7 +4121,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox24.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="textBox24.Location" type="System.Drawing.Point, System.Drawing">
     <value>120, 500</value>
@@ -4151,7 +4151,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox24.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="button29.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4229,7 +4229,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button29.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="textBox25.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 448</value>
@@ -4259,7 +4259,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox25.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="comboBox26.Items" xml:space="preserve">
     <value>Miles Per Hour =&gt; Kilometers Per Hour</value>
@@ -4286,7 +4286,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox26.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="button30.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -4313,7 +4313,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button30.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="textBox26.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 422</value>
@@ -4343,7 +4343,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox26.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <data name="textBox27.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 300</value>
@@ -4373,7 +4373,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox27.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="textBox28.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 325</value>
@@ -4403,7 +4403,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox28.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="comboBox27.Items" xml:space="preserve">
     <value>CBC</value>
@@ -4439,30 +4439,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox27.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="button31.Location" type="System.Drawing.Point, System.Drawing">
-    <value>461, 420</value>
-  </data>
-  <data name="button31.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="button31.TabIndex" type="System.Int32, mscorlib">
-    <value>103</value>
-  </data>
-  <data name="button31.Text" xml:space="preserve">
-    <value>button31</value>
-  </data>
-  <data name="&gt;&gt;button31.Name" xml:space="preserve">
-    <value>button31</value>
-  </data>
-  <data name="&gt;&gt;button31.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button31.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;button31.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

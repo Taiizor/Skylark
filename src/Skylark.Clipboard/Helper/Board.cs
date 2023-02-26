@@ -218,21 +218,21 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <param name="Data"></param>
-        /// <param name="Set"></param>
-        public static void SetDataObject(object Data, bool Set)
+        /// <param name="Copy"></param>
+        public static void SetDataObject(object Data, bool Copy)
         {
-            SWFC.SetDataObject(Data, Set);
+            SWFC.SetDataObject(Data, Copy);
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="Data"></param>
-        /// <param name="Set"></param>
+        /// <param name="Copy"></param>
         /// <returns></returns>
-        public static Task SetDataObjectAsync(object Data, bool Set)
+        public static Task SetDataObjectAsync(object Data, bool Copy)
         {
-            SetDataObject(Data, Set);
+            SetDataObject(Data, Copy);
             return Task.CompletedTask;
         }
 

@@ -15,6 +15,7 @@ using System;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using SCHB = Skylark.Clipboard.Helper.Board;
 
 namespace Skylark.UI
 {
@@ -624,7 +625,7 @@ namespace Skylark.UI
                 if (button4.Cursor == Cursors.Hand)
                 {
                     button4.Cursor = Cursors.No;
-                    Memory.Copy(textBox4.Text);
+                    SCHB.SetDataObject(textBox4.Text, true);
                 }
             }
             catch (Exception Ex)
@@ -683,7 +684,7 @@ namespace Skylark.UI
                 if (button6.Cursor == Cursors.Hand)
                 {
                     button6.Cursor = Cursors.No;
-                    Memory.Copy(textBox2.Text);
+                    SCHB.SetDataObject(textBox2.Text, true);
                 }
             }
             catch (Exception Ex)
@@ -753,7 +754,7 @@ namespace Skylark.UI
                 if (button9.Cursor == Cursors.Hand)
                 {
                     button9.Cursor = Cursors.No;
-                    Memory.Copy(textBox8.Text);
+                    SCHB.SetDataObject(textBox8.Text, true);
                 }
             }
             catch (Exception Ex)
@@ -844,7 +845,7 @@ namespace Skylark.UI
                 if (button23.Cursor == Cursors.Hand)
                 {
                     button23.Cursor = Cursors.No;
-                    Memory.Copy(textBox19.Text);
+                    SCHB.SetDataObject(textBox19.Text, true);
                 }
             }
             catch (Exception Ex)
@@ -894,7 +895,7 @@ namespace Skylark.UI
                 if (button24.Cursor == Cursors.Hand)
                 {
                     button24.Cursor = Cursors.No;
-                    Memory.Copy(textBox22.Text);
+                    SCHB.SetDataObject(textBox22.Text, true);
                 }
             }
             catch (Exception Ex)
@@ -944,7 +945,7 @@ namespace Skylark.UI
                 if (button10.Cursor == Cursors.Hand)
                 {
                     button10.Cursor = Cursors.No;
-                    Memory.Copy(textBox6.Text + ", " + textBox9.Text + ", " + textBox10.Text);
+                    SCHB.SetDataObject(textBox6.Text + ", " + textBox9.Text + ", " + textBox10.Text, true);
                 }
             }
             catch (Exception Ex)
@@ -1000,7 +1001,7 @@ namespace Skylark.UI
                 if (button13.Cursor == Cursors.Hand)
                 {
                     button13.Cursor = Cursors.No;
-                    Memory.Copy(textBox11.Text);
+                    SCHB.SetDataObject(textBox11.Text, true);
                 }
             }
             catch (Exception Ex)
@@ -1016,7 +1017,7 @@ namespace Skylark.UI
                 if (button14.Cursor == Cursors.Hand)
                 {
                     button14.Cursor = Cursors.No;
-                    Memory.Copy(textBox12.Text);
+                    SCHB.SetDataObject(textBox12.Text, true);
                 }
             }
             catch (Exception Ex)
@@ -1103,7 +1104,7 @@ namespace Skylark.UI
             if (button17.Cursor == Cursors.Hand)
             {
                 button17.Cursor = Cursors.No;
-                Memory.Copy(textBox13.Text);
+                SCHB.SetDataObject(textBox13.Text, true);
             }
         }
 
@@ -1112,7 +1113,7 @@ namespace Skylark.UI
             if (button18.Cursor == Cursors.Hand)
             {
                 button18.Cursor = Cursors.No;
-                Memory.Copy(textBox16.Text);
+                SCHB.SetDataObject(textBox16.Text, true);
             }
         }
 
@@ -1207,20 +1208,6 @@ namespace Skylark.UI
                     }
                 }
                 button18.Cursor = Cursors.Hand;
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-            }
-        }
-
-        private async void Button31_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                await Board.CopyAsync("Hello, World!");
-
-                MessageBox.Show($"{await Board.PasteAsync(false, "Empty!")}");
             }
             catch (Exception Ex)
             {
