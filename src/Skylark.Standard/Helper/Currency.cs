@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace Skylark.Helper
+namespace Skylark.Standard.Helper
 {
     /// <summary>
     /// 

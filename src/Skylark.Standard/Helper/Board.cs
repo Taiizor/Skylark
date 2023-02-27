@@ -1,4 +1,4 @@
-﻿namespace Skylark.Helper
+﻿namespace Skylark.Standard.Helper
 {
     /// <summary>
     /// 

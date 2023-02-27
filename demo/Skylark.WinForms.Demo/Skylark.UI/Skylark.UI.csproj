@@ -15,12 +15,8 @@
     <StartupObject>Skylark.UI.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <!--<PackageReference Include="Skylark" Version="2.0.3.2" />-->
-    <Reference Include="Skylark">
-      <HintPath>..\..\..\src\Skylark\bin\Release\netstandard2.1\Skylark.dll</HintPath>
-    </Reference>
-    <Reference Include="Skylark.Clipboard">
-      <HintPath>..\..\..\src\Skylark.Clipboard\bin\Release\$(TargetFramework)\Skylark.Clipboard.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Skylark" Version="3.0.0.3" />
+    <PackageReference Include="Skylark.Standard" Version="3.0.0.3" />
+    <PackageReference Include="Skylark.Clipboard" Version="3.0.0.3" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-﻿using Skylark.Extension.Json;
+﻿using Skylark.Standard.Extension.Json;
 
 namespace ConsoleDemoJson
 {

@@ -1,5 +1,5 @@
 ﻿using Skylark.Enum;
-using Skylark.Extension.Web;
+using Skylark.Standard.Extension.Web;
 using Skylark.Struct.Web;
 
 namespace ConsoleDemoWeb

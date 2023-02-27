@@ -1,5 +1,5 @@
 ﻿using Skylark.Enum;
-using Skylark.Extension.Password;
+using Skylark.Standard.Extension.Password;
 
 namespace ConsoleDemoPassword
 {

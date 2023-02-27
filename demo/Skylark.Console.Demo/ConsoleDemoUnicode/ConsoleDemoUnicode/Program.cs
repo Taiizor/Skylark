@@ -1,4 +1,4 @@
-﻿using Skylark.Extension.Unicode;
+﻿using Skylark.Standard.Extension.Unicode;
 
 namespace ConsoleDemoUnicode
 {

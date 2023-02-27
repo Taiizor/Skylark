@@ -1,4 +1,4 @@
-﻿using Skylark.Extension.Temperature;
+﻿using Skylark.Standard.Extension.Temperature;
 
 namespace ConsoleDemoTemperature
 {

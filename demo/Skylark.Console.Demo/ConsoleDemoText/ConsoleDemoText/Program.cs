@@ -1,5 +1,5 @@
 ﻿using Skylark.Enum;
-using Skylark.Extension.Text;
+using Skylark.Standard.Extension.Text;
 
 namespace ConsoleDemoText
 {

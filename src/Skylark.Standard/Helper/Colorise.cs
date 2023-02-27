@@ -1,7 +1,7 @@
 ﻿using SHS = Skylark.Helper.Skymath;
 using SSCCS = Skylark.Struct.Colorise.ColoriseStruct;
 
-namespace Skylark.Helper
+namespace Skylark.Standard.Helper
 {
     /// <summary>
     /// 

@@ -1,4 +1,4 @@
-﻿using Skylark.Extension.Typography;
+﻿using Skylark.Standard.Extension.Typography;
 
 namespace ConsoleDemoTypography
 {

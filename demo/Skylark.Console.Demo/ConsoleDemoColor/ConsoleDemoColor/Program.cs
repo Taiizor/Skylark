@@ -1,5 +1,5 @@
-﻿using Skylark.Extension.Color;
-using Skylark.Helper;
+﻿using Skylark.Standard.Extension.Color;
+using Skylark.Standard.Helper;
 using Skylark.Struct.Colorise;
 using System.Drawing;
 

@@ -1,4 +1,4 @@
-﻿using Skylark.Extension.Url;
+﻿using Skylark.Standard.Extension.Url;
 
 namespace ConsoleDemoUrl
 {

@@ -1,4 +1,4 @@
-﻿using Skylark.Extension.Html;
+﻿using Skylark.Standard.Extension.Html;
 
 namespace ConsoleDemoHtml
 {

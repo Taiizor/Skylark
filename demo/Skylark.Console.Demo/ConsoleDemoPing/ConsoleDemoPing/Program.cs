@@ -1,4 +1,4 @@
-﻿using Skylark.Extension.Ping;
+﻿using Skylark.Standard.Extension.Ping;
 using Skylark.Struct.Ping;
 
 namespace ConsoleDemoPing

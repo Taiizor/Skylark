@@ -1,6 +1,6 @@
 ﻿using Skylark.Enum;
-using Skylark.Extension.Tax;
-using Skylark.Helper;
+using Skylark.Standard.Extension.Tax;
+using Skylark.Standard.Helper;
 using Skylark.Struct.Tax;
 
 namespace ConsoleDemoTax

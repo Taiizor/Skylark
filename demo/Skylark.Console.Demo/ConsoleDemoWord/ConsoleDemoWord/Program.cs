@@ -1,4 +1,4 @@
-﻿using Skylark.Extension.Word;
+﻿using Skylark.Standard.Extension.Word;
 using Skylark.Struct.Word;
 
 namespace ConsoleDemoWord

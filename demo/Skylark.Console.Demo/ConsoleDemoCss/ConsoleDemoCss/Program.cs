@@ -1,4 +1,4 @@
-﻿using Skylark.Extension.Css;
+﻿using Skylark.Standard.Extension.Css;
 
 namespace ConsoleDemoCss
 {

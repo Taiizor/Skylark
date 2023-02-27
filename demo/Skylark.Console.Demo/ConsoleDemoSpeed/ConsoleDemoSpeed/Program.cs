@@ -1,4 +1,4 @@
-﻿using Skylark.Extension.Speed;
+﻿using Skylark.Standard.Extension.Speed;
 
 namespace ConsoleDemoSpeed
 {

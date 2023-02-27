@@ -1,4 +1,4 @@
-﻿using Skylark.Extension.Hash;
+﻿using Skylark.Standard.Extension.Hash;
 
 namespace ConsoleDemoHash
 {

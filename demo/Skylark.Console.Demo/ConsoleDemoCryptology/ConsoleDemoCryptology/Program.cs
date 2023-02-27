@@ -1,4 +1,4 @@
-﻿using Skylark.Extension.Cryptology;
+﻿using Skylark.Standard.Extension.Cryptology;
 
 namespace ConsoleDemoCryptology
 {

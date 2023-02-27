@@ -5,7 +5,7 @@ using HHHH = Skylark.Standard.Helper.Hash.HashHelper;
 using HL = Skylark.Helper.Length;
 using MHHM = Skylark.Standard.Manage.Hash.HashManage;
 
-namespace Skylark.Extension.Hash
+namespace Skylark.Standard.Extension.Hash
 {
     /// <summary>
     /// 

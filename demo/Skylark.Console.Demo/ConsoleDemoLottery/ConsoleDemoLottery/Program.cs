@@ -1,4 +1,4 @@
-﻿using Skylark.Extension.Lottery;
+﻿using Skylark.Standard.Extension.Lottery;
 using Skylark.Struct.Lottery;
 
 namespace ConsoleDemoLottery

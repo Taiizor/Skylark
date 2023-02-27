@@ -1,6 +1,6 @@
 ﻿using SHL = Skylark.Helper.Length;
 
-namespace Skylark.Helper
+namespace Skylark.Standard.Helper
 {
     /// <summary>
     /// 
