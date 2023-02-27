@@ -1,5 +1,5 @@
-﻿using HS = Skylark.Helper.Skymath;
-using SCCS = Skylark.Struct.Colorise.ColoriseStruct;
+﻿using SHS = Skylark.Helper.Skymath;
+using SSCCS = Skylark.Struct.Colorise.ColoriseStruct;
 
 namespace Skylark.Helper
 {
@@ -14,13 +14,13 @@ namespace Skylark.Helper
         /// <param name="RGB"></param>
         /// <param name="Other"></param>
         /// <returns></returns>
-        public static SCCS ToBlend(this SCCS RGB, SCCS Other)
+        public static SSCCS ToBlend(this SSCCS RGB, SSCCS Other)
         {
             byte R = BlendToAvg(RGB.R, Other.R);
             byte G = BlendToAvg(RGB.G, Other.G);
             byte B = BlendToAvg(RGB.B, Other.B);
 
-            return new SCCS(R, G, B);
+            return new SSCCS(R, G, B);
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Skylark.Helper
         /// <param name="RGB"></param>
         /// <param name="Other"></param>
         /// <returns></returns>
-        public static Task<SCCS> ToBlendAsync(this SCCS RGB, SCCS Other)
+        public static Task<SSCCS> ToBlendAsync(this SSCCS RGB, SSCCS Other)
         {
             return Task.Run(() => ToBlend(RGB, Other));
         }
@@ -48,7 +48,7 @@ namespace Skylark.Helper
                 B2
             };
 
-            float Result = HS.Average(Bytes, 0, (X, Y) => X + Y, (X, Y) => (float)X / Y);
+            float Result = SHS.Average(Bytes, 0, (X, Y) => X + Y, (X, Y) => (float)X / Y);
 
             return (byte)Math.Round(Result);
         }

@@ -1,13 +1,13 @@
 ﻿using System.Text;
-using E = Skylark.Exception;
-using EET = Skylark.Enum.EncodeType;
+using SE = Skylark.Exception;
+using SEET = Skylark.Enum.EncodeType;
 
 namespace Skylark.Helper
 {
     /// <summary>
     /// 
     /// </summary>
-    internal static class Encode
+    public static class Encode
     {
         /// <summary>
         /// 
@@ -20,8 +20,8 @@ namespace Skylark.Helper
         /// <param name="Text"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
-        public static byte[] GetBytes(string Text, EET Encode)
+        /// <exception cref="SE"></exception>
+        public static byte[] GetBytes(string Text, SEET Encode)
         {
             return Encode
                 .GetEncoding(false, ErrorMessage)
@@ -34,8 +34,8 @@ namespace Skylark.Helper
         /// <param name="Bytes"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
-        public static string GetString(byte[] Bytes, EET Encode)
+        /// <exception cref="SE"></exception>
+        public static string GetString(byte[] Bytes, SEET Encode)
         {
             return Encode
                 .GetEncoding(false, ErrorMessage)
@@ -49,27 +49,27 @@ namespace Skylark.Helper
         /// <param name="UseUtf8IfNotValid"></param>
         /// <param name="ErrorMessage"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
-        private static Encoding GetEncoding(this EET EncodeType, bool UseUtf8IfNotValid = false, string ErrorMessage = ErrorMessage)
+        /// <exception cref="SE"></exception>
+        private static Encoding GetEncoding(this SEET EncodeType, bool UseUtf8IfNotValid = false, string ErrorMessage = ErrorMessage)
         {
-            if (!System.Enum.IsDefined(typeof(EET), EncodeType))
+            if (!System.Enum.IsDefined(typeof(SEET), EncodeType))
             {
                 if (UseUtf8IfNotValid)
                 {
                     return Encoding.UTF8;
                 }
 
-                throw new E(ErrorMessage);
+                throw new SE(ErrorMessage);
             }
 
             return EncodeType switch
             {
-                EET.UTF7 => Encoding.UTF7,
-                EET.UTF8 => Encoding.UTF8,
-                EET.UTF32 => Encoding.UTF32,
-                EET.ASCII => Encoding.ASCII,
-                EET.Unicode => Encoding.Unicode,
-                EET.BigEndianUnicode => Encoding.BigEndianUnicode,
+                SEET.UTF7 => Encoding.UTF7,
+                SEET.UTF8 => Encoding.UTF8,
+                SEET.UTF32 => Encoding.UTF32,
+                SEET.ASCII => Encoding.ASCII,
+                SEET.Unicode => Encoding.Unicode,
+                SEET.BigEndianUnicode => Encoding.BigEndianUnicode,
                 _ => Encoding.Default
             };
         }

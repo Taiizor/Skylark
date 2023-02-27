@@ -1,4 +1,4 @@
-﻿using HL = Skylark.Helper.Length;
+﻿using SHL = Skylark.Helper.Length;
 
 namespace Skylark.Helper
 {
@@ -14,7 +14,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static int[] Int(int Count = 2)
         {
-            Count = HL.Clamp(Count, 2, 47);
+            Count = SHL.Clamp(Count, 2, 47);
 
             int[] Result = new int[Count];
 
@@ -46,7 +46,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static long[] Long(int Count = 2)
         {
-            Count = HL.Clamp(Count, 2, 93);
+            Count = SHL.Clamp(Count, 2, 93);
 
             long[] Result = new long[Count];
 
@@ -78,7 +78,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static decimal[] Decimal(int Count = 2)
         {
-            Count = HL.Clamp(Count, 2, 140);
+            Count = SHL.Clamp(Count, 2, 140);
 
             decimal[] Result = new decimal[Count];
 

@@ -10,7 +10,7 @@
 
     <PropertyGroup>
         <ApplicationIcon>Resources\Skylark.ico</ApplicationIcon>
-        <Version>2.0.3.4</Version>
+        <Version>3.0.0.3</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>Skylark</Title>
@@ -24,7 +24,7 @@
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <PackageReleaseNotes>All changes are detailed at https://github.com/Taiizor/Skylark/wiki/Changelog.
         </PackageReleaseNotes>
-        <PackageTags>ReaL Taiizor Soferity Vegalya Skylark C# CSharp VBC VB VisualBasic DotNET .NET NET Multi Purpose Multipurpose Cross App Web Box Tool Tools Unit Thing Things Product Productivity Convert Converter Minify Beauty Lightweight Library</PackageTags>
+        <PackageTags>ReaL Taiizor Soferity Vegalya Skylark Core C# CSharp VBC VB VisualBasic DotNET .NET NET Multi Purpose Multipurpose Cross App Web Box Tool Tools Unit Thing Things Product Productivity Convert Converter Minify Beauty Lightweight Library</PackageTags>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <!--<DocumentationFile>..\$(Title)\bin$(OutputPath)\$(Configuration)\$(TargetFramework)\$(Title).xml</DocumentationFile>-->
         <PackageProjectUrl>https://github.com/Taiizor/Skylark</PackageProjectUrl>
@@ -52,11 +52,6 @@
             <Version>1.1.1</Version>
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3-beta1" />
-        <PackageReference Include="WebMarkupMin.NUglify" Version="2.13.6" />
     </ItemGroup>
 
     <ItemGroup>

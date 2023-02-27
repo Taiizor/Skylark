@@ -1,8 +1,8 @@
 ﻿#region Imports
 
-using ANE = System.ArgumentNullException;
-using AOORE = System.ArgumentOutOfRangeException;
-using E = System.Exception;
+using SANE = System.ArgumentNullException;
+using SAOORE = System.ArgumentOutOfRangeException;
+using SE = System.Exception;
 
 #endregion
 
@@ -11,8 +11,8 @@ using E = System.Exception;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 03.Jan.2023
-//     Changed: 26.Feb.2023
-//     Version: 2.0.3.4
+//     Changed: 27.Feb.2023
+//     Version: 3.0.0.3
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -25,7 +25,7 @@ namespace Skylark
     /// <summary>
     /// Skylark exception class. 
     /// </summary>
-    public class Exception : E
+    public class Exception : SE
     {
         /// <summary>
         /// 
@@ -59,7 +59,7 @@ namespace Skylark
     /// <summary>
     /// Skylark arguemnt exception class. 
     /// </summary>
-    public class ArgumentException : AOORE
+    public class ArgumentException : SAOORE
     {
         /// <summary>
         /// 
@@ -112,7 +112,7 @@ namespace Skylark
     /// <summary>
     /// Skylark arguemnt exception class. 
     /// </summary>
-    public class ArgumentNullException : ANE
+    public class ArgumentNullException : SANE
     {
         /// <summary>
         /// 
@@ -134,7 +134,7 @@ namespace Skylark
         /// </summary>
         /// <param name="message"></param>
         /// <param name="innerException"></param>
-        ArgumentNullException(string message, Exception innerException) : base(message, innerException)
+        public ArgumentNullException(string message, Exception innerException) : base(message, innerException)
         {
         }
 

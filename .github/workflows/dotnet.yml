@@ -21,6 +21,7 @@ jobs:
             src/Skylark.sln,
             src/Skylark.DNS.sln,
             src/Skylark.Uptime.sln,
+            src/Skylark.Standard.sln,
             src/Skylark.Clipboard.sln,
             demo/Skylark.Console.Demo/ConsoleDemoJs/ConsoleDemoJs.sln,
             demo/Skylark.Console.Demo/ConsoleDemoCss/ConsoleDemoCss.sln,

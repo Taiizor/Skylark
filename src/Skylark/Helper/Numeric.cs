@@ -1,8 +1,8 @@
-﻿using E = Skylark.Exception;
-using ECNT = Skylark.Enum.ClearNumericType;
-using HC = Skylark.Helper.Converter;
-using HD = Skylark.Helper.Detect;
-using HL = Skylark.Helper.Length;
+﻿using SE = Skylark.Exception;
+using SECNT = Skylark.Enum.ClearNumericType;
+using SHC = Skylark.Helper.Converter;
+using SHD = Skylark.Helper.Detect;
+using SHL = Skylark.Helper.Length;
 
 namespace Skylark.Helper
 {
@@ -19,7 +19,7 @@ namespace Skylark.Helper
         /// <summary>
         /// 
         /// </summary>
-        internal const ECNT ClearType = ECNT.Dot;
+        internal const SECNT ClearType = SECNT.Dot;
 
         /// <summary>
         /// 
@@ -127,7 +127,7 @@ namespace Skylark.Helper
             }
             else
             {
-                return Numeral(Result, Decimal, Fraction, Digit, Number, HC.Convert(Clear, ClearType));
+                return Numeral(Result, Decimal, Fraction, Digit, Number, SHC.Convert(Clear, ClearType));
             }
         }
 
@@ -156,7 +156,7 @@ namespace Skylark.Helper
         /// <param name="Number"></param>
         /// <param name="Clear"></param>
         /// <returns></returns>
-        public static string Numeral(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', ECNT Clear = ClearType)
+        public static string Numeral(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', SECNT Clear = ClearType)
         {
             string Symbol = "EB+-";
             string Result = $"{Value}";
@@ -181,7 +181,7 @@ namespace Skylark.Helper
         /// <param name="Number"></param>
         /// <param name="Clear"></param>
         /// <returns></returns>
-        public static Task<string> NumeralAsync(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', ECNT Clear = ClearType)
+        public static Task<string> NumeralAsync(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', SECNT Clear = ClearType)
         {
             return Task.Run(() => Numeral(Value, Decimal, Fraction, Digit, Number, Clear));
         }
@@ -196,26 +196,26 @@ namespace Skylark.Helper
         /// <param name="Number"></param>
         /// <param name="Clear"></param>
         /// <returns></returns>
-        private static string Numeral(string Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', ECNT Clear = ClearType)
+        private static string Numeral(string Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', SECNT Clear = ClearType)
         {
-            Digit = HL.Clamp(Digit, 0, 99);
+            Digit = SHL.Clamp(Digit, 0, 99);
 
-            string Temp = HL.Parameter($"{Value}", "123456");
+            string Temp = SHL.Parameter($"{Value}", "123456");
 
             Temp = Clear switch
             {
-                ECNT.Dot => Temp.Replace(".", ""),
-                ECNT.None => Temp,
-                ECNT.Comma => Temp.Replace(",", ""),
-                ECNT.Decimal => Temp.Replace(HD.StringCross, ""),
-                ECNT.Fraction => Temp.Replace(HD.String, ""),
-                ECNT.DotComma => Temp.Replace(".", "").Replace(",", ""),
-                ECNT.DecimalFraction => Temp.Replace(HD.String, "").Replace(HD.StringCross, ""),
-                _ => throw new E(Error)
+                SECNT.Dot => Temp.Replace(".", ""),
+                SECNT.None => Temp,
+                SECNT.Comma => Temp.Replace(",", ""),
+                SECNT.Decimal => Temp.Replace(SHD.StringCross, ""),
+                SECNT.Fraction => Temp.Replace(SHD.String, ""),
+                SECNT.DotComma => Temp.Replace(".", "").Replace(",", ""),
+                SECNT.DecimalFraction => Temp.Replace(SHD.String, "").Replace(SHD.StringCross, ""),
+                _ => throw new SE(Error)
             };
 
-            string Last = Temp.Contains(HD.Char) ? Temp.Substring(Temp.IndexOf(HD.Char)) : Temp;
-            string First = Temp.Contains(HD.Char) ? Temp.Substring(0, Temp.IndexOf(HD.Char)) : Temp;
+            string Last = Temp.Contains(SHD.Char) ? Temp.Substring(Temp.IndexOf(SHD.Char)) : Temp;
+            string First = Temp.Contains(SHD.Char) ? Temp.Substring(0, Temp.IndexOf(SHD.Char)) : Temp;
 
             if (Decimal)
             {
@@ -225,7 +225,7 @@ namespace Skylark.Helper
                 {
                     if (First.Substring(Count, First.Length - Count - 1).Length % 3 == 0)
                     {
-                        Temp += $"{First.Substring(Count, 1)}{HD.CharCross}";
+                        Temp += $"{First.Substring(Count, 1)}{SHD.CharCross}";
                     }
                     else
                     {
@@ -238,13 +238,13 @@ namespace Skylark.Helper
 
             if (Fraction && Digit > 0)
             {
-                if (Last.Contains(HD.Char))
+                if (Last.Contains(SHD.Char))
                 {
-                    Last = Last.Substring(Last.IndexOf(HD.Char), Last.Length - Last.IndexOf(HD.Char));
+                    Last = Last.Substring(Last.IndexOf(SHD.Char), Last.Length - Last.IndexOf(SHD.Char));
                 }
                 else
                 {
-                    Last = $"{HD.Char}{new string(Number, Digit)}";
+                    Last = $"{SHD.Char}{new string(Number, Digit)}";
                 }
 
                 if (Last.Length < Digit + 1)

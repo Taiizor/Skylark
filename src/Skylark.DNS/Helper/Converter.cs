@@ -12,25 +12,6 @@ namespace Skylark.DNS.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static EQDT Convert(string Type, EQDT Back = MDDM.QueryType)
-        {
-            foreach (EQDT Types in (EQDT[])System.Enum.GetValues(typeof(EQDT)))
-            {
-                if (Check(Type, Types))
-                {
-                    return Types;
-                }
-            }
-
-            return Back;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Type"></param>
-        /// <param name="Back"></param>
-        /// <returns></returns>
         public static EQDT Convert(DCQT Type, EQDT Back = MDDM.QueryType)
         {
             foreach (EQDT Types in (EQDT[])System.Enum.GetValues(typeof(EQDT)))
