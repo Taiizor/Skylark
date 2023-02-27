@@ -1,6 +1,6 @@
 ﻿using DCQT = DnsClient.QueryType;
-using EQDT = Skylark.DNS.Enum.QueryDomainType;
-using MDDM = Skylark.DNS.Manage.Domain.DomainManage;
+using SEQDT = Skylark.Enum.QueryDomainType;
+using SDNSMDDM = Skylark.DNS.Manage.Domain.DomainManage;
 
 namespace Skylark.DNS.Helper
 {
@@ -12,9 +12,9 @@ namespace Skylark.DNS.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static EQDT Convert(DCQT Type, EQDT Back = MDDM.QueryType)
+        public static SEQDT Convert(DCQT Type, SEQDT Back = SDNSMDDM.QueryType)
         {
-            foreach (EQDT Types in (EQDT[])System.Enum.GetValues(typeof(EQDT)))
+            foreach (SEQDT Types in (SEQDT[])System.Enum.GetValues(typeof(SEQDT)))
             {
                 if (Check(Type, Types))
                 {
@@ -31,7 +31,7 @@ namespace Skylark.DNS.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static DCQT Convert(EQDT Type, DCQT Back = MDDM.DefaultType)
+        public static DCQT Convert(SEQDT Type, DCQT Back = SDNSMDDM.DefaultType)
         {
             foreach (DCQT Types in (DCQT[])System.Enum.GetValues(typeof(DCQT)))
             {

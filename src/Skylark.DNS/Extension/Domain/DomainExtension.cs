@@ -1,12 +1,12 @@
 ﻿using DCIDQR = DnsClient.IDnsQueryResponse;
 using DCLC = DnsClient.LookupClient;
 using DCPDRR = DnsClient.Protocol.DnsResourceRecord;
-using E = Skylark.Exception;
-using EQDT = Skylark.DNS.Enum.QueryDomainType;
-using HC = Skylark.DNS.Helper.Converter;
-using HL = Skylark.Helper.Length;
-using MDDM = Skylark.DNS.Manage.Domain.DomainManage;
-using ME = Skylark.DNS.Manage.External;
+using SE = Skylark.Exception;
+using SEQDT = Skylark.Enum.QueryDomainType;
+using SDNSHC = Skylark.DNS.Helper.Converter;
+using SHL = Skylark.Helper.Length;
+using SDNSMDDM = Skylark.DNS.Manage.Domain.DomainManage;
+using SDNSME = Skylark.DNS.Manage.External;
 using SNIPA = System.Net.IPAddress;
 using SNIPEP = System.Net.IPEndPoint;
 
@@ -23,21 +23,21 @@ namespace Skylark.DNS.Extension.Domain
         /// <param name="Domain"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
-        public static DCIDQR QueryResponse(string Domain = MDDM.Domain, EQDT Type = MDDM.QueryType)
+        /// <exception cref="SE"></exception>
+        public static DCIDQR QueryResponse(string Domain = SDNSMDDM.Domain, SEQDT Type = SDNSMDDM.QueryType)
         {
             try
             {
-                Domain = HL.Parameter(Domain, MDDM.Domain);
+                Domain = SHL.Parameter(Domain, SDNSMDDM.Domain);
 
-                SNIPEP Endpoint = new(SNIPA.Parse(ME.Server), ME.Port);
+                SNIPEP Endpoint = new(SNIPA.Parse(SDNSME.Server), SDNSME.Port);
                 DCLC Client = new(Endpoint);
 
-                return Client.Query(Domain, HC.Convert(Type, MDDM.DefaultType));
+                return Client.Query(Domain, SDNSHC.Convert(Type, SDNSMDDM.DefaultType));
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -47,7 +47,7 @@ namespace Skylark.DNS.Extension.Domain
         /// <param name="Domain"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static Task<DCIDQR> QueryResponseAsync(string Domain = MDDM.Domain, EQDT Type = MDDM.QueryType)
+        public static Task<DCIDQR> QueryResponseAsync(string Domain = SDNSMDDM.Domain, SEQDT Type = SDNSMDDM.QueryType)
         {
             return Task.Run(() => QueryResponse(Domain, Type));
         }
@@ -57,7 +57,9 @@ namespace Skylark.DNS.Extension.Domain
         /// </summary>
         /// <param name="Domain"></param>
         /// <param name="Type"></param>
-        public static IReadOnlyList<DCPDRR> QueryAnswers(string Domain = MDDM.Domain, EQDT Type = MDDM.QueryType)
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
+        public static IReadOnlyList<DCPDRR> QueryAnswers(string Domain = SDNSMDDM.Domain, SEQDT Type = SDNSMDDM.QueryType)
         {
             try
             {
@@ -65,9 +67,9 @@ namespace Skylark.DNS.Extension.Domain
 
                 return Result.Answers;
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -77,7 +79,7 @@ namespace Skylark.DNS.Extension.Domain
         /// <param name="Domain"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static Task<IReadOnlyList<DCPDRR>> QueryAnswersAsync(string Domain = MDDM.Domain, EQDT Type = MDDM.QueryType)
+        public static Task<IReadOnlyList<DCPDRR>> QueryAnswersAsync(string Domain = SDNSMDDM.Domain, SEQDT Type = SDNSMDDM.QueryType)
         {
             return Task.Run(() => QueryAnswers(Domain, Type));
         }

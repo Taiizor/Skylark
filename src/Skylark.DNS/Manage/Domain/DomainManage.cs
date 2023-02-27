@@ -1,5 +1,5 @@
 ﻿using DCQT = DnsClient.QueryType;
-using EQDT = Skylark.DNS.Enum.QueryDomainType;
+using SEQDT = Skylark.Enum.QueryDomainType;
 
 namespace Skylark.DNS.Manage.Domain
 {
@@ -11,7 +11,7 @@ namespace Skylark.DNS.Manage.Domain
         /// <summary>
         /// 
         /// </summary>
-        public const EQDT QueryType = EQDT.TXT;
+        public const SEQDT QueryType = SEQDT.TXT;
 
         /// <summary>
         /// 
