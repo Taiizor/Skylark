@@ -20,6 +20,14 @@
         /// <summary>
         /// 
         /// </summary>
+        DNS = 53,
+        /// <summary>
+        /// 
+        /// </summary>
+        HTTP = 80,
+        /// <summary>
+        /// 
+        /// </summary>
         POP3 = 110,
         /// <summary>
         /// 
@@ -28,10 +36,26 @@
         /// <summary>
         /// 
         /// </summary>
-        HTTP = 80,
+        HTTPS = 443,
         /// <summary>
         /// 
         /// </summary>
-        HTTPS = 443
+        MSSQL = 1433,
+        /// <summary>
+        /// 
+        /// </summary>
+        MySQL = 3306,
+        /// <summary>
+        /// 
+        /// </summary>
+        PostgreSQL = 5432,
+        /// <summary>
+        /// 
+        /// </summary>
+        Redis = 6379,
+        /// <summary>
+        /// 
+        /// </summary>
+        MongoDB = 27017
     }
 }

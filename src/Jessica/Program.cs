@@ -9,11 +9,13 @@ namespace Jessica
     {
         static void Main()
         {
-            Uptimer Uptiming = new("www.bing.com");
+            string Address = "www.bing.com";
+
+            Uptimer Uptiming = new(Address);
 
             PingSendStruct Pong = Uptiming.Ping();
 
-            Console.WriteLine($"Address: {Pong.Address} (www.bing.com)");
+            Console.WriteLine($"Address: {Pong.Address} ({Address})");
             Console.WriteLine($"Status: {Pong.Result}");
             Console.WriteLine($"Ping: {Pong.RoundTrip} MS");
 
@@ -27,6 +29,8 @@ namespace Jessica
 
             Console.WriteLine();
 
+            Console.WriteLine($"MSSQL Service: {Uptiming.Service(ServiceType.MSSQL)}");
+            Console.WriteLine($"MySQL Service: {Uptiming.Service(ServiceType.MySQL)}");
             Console.WriteLine($"HTTPS Service: {Uptiming.Service(ServiceType.HTTPS)}");
             Console.WriteLine($"HTTP Service: {Uptiming.Service(ServiceType.HTTP)}");
             Console.WriteLine($"SMTP Service: {Uptiming.Service(ServiceType.SMTP)}");
@@ -34,6 +38,7 @@ namespace Jessica
             Console.WriteLine($"IMAP Service: {Uptiming.Service(ServiceType.IMAP)}");
             Console.WriteLine($"FTP Service: {Uptiming.Service(ServiceType.FTP)}");
             Console.WriteLine($"SSH Service: {Uptiming.Service(ServiceType.SSH)}");
+            Console.WriteLine($"DNS Service: {Uptiming.Service(ServiceType.DNS)}");
 
             Console.ReadKey();
         }
