@@ -56,7 +56,7 @@
 
     <ItemGroup>
         <PackageReference Include="Skylark" Version="3.0.0.4" />
-        <PackageReference Include="Skylark.Standard" Version="3.0.0.3" />
+        <PackageReference Include="Skylark.Standard" Version="3.0.0.4" />
     </ItemGroup>
 
     <ItemGroup>
