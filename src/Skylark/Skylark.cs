@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using SAE = System.ArgumentException;
 using SANE = System.ArgumentNullException;
 using SAOORE = System.ArgumentOutOfRangeException;
 using SE = System.Exception;
@@ -12,7 +13,7 @@ using SE = System.Exception;
 //     Website: www.Vegalya.com
 //     Created: 03.Jan.2023
 //     Changed: 27.Feb.2023
-//     Version: 3.0.0.3
+//     Version: 3.0.0.4
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -47,7 +48,7 @@ namespace Skylark
         /// </summary>
         /// <param name="message"></param>
         /// <param name="innerException"></param>
-        public Exception(string message, Exception innerException) : base(message, innerException)
+        public Exception(string message, SE innerException) : base(message, innerException)
         {
         }
     }
@@ -59,7 +60,7 @@ namespace Skylark
     /// <summary>
     /// Skylark arguemnt exception class. 
     /// </summary>
-    public class ArgumentException : SAOORE
+    public class ArgumentException : SAE
     {
         /// <summary>
         /// 
@@ -71,8 +72,8 @@ namespace Skylark
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="paramName"></param>
-        public ArgumentException(string paramName) : base(paramName)
+        /// <param name="message"></param>
+        public ArgumentException(string message) : base(message)
         {
         }
 
@@ -81,26 +82,26 @@ namespace Skylark
         /// </summary>
         /// <param name="message"></param>
         /// <param name="innerException"></param>
-        public ArgumentException(string message, Exception innerException) : base(message, innerException)
+        public ArgumentException(string message, SE innerException) : base(message, innerException)
         {
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="paramName"></param>
         /// <param name="message"></param>
-        public ArgumentException(string paramName, string message) : base(paramName, message)
+        /// <param name="paramName"></param>
+        public ArgumentException(string message, string paramName) : base(message, paramName)
         {
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="paramName"></param>
-        /// <param name="actualValue"></param>
         /// <param name="message"></param>
-        public ArgumentException(string paramName, object actualValue, string message) : base(paramName, actualValue, message)
+        /// <param name="paramName"></param>
+        /// <param name="innerException"></param>
+        public ArgumentException(string message, string paramName, SE innerException) : base(message, paramName, innerException)
         {
         }
     }
@@ -134,7 +135,7 @@ namespace Skylark
         /// </summary>
         /// <param name="message"></param>
         /// <param name="innerException"></param>
-        public ArgumentNullException(string message, Exception innerException) : base(message, innerException)
+        public ArgumentNullException(string message, SE innerException) : base(message, innerException)
         {
         }
 
@@ -144,6 +145,59 @@ namespace Skylark
         /// <param name="paramName"></param>
         /// <param name="message"></param>
         public ArgumentNullException(string paramName, string message) : base(paramName, message)
+        {
+        }
+    }
+
+    #endregion
+
+    #region ArgumentOutOfRangeException
+
+    /// <summary>
+    /// Skylark arguemnt exception class. 
+    /// </summary>
+    public class ArgumentOutOfRangeException : SAOORE
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public ArgumentOutOfRangeException() : base()
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="paramName"></param>
+        public ArgumentOutOfRangeException(string paramName) : base(paramName)
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="innerException"></param>
+        public ArgumentOutOfRangeException(string message, SE innerException) : base(message, innerException)
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="paramName"></param>
+        /// <param name="message"></param>
+        public ArgumentOutOfRangeException(string paramName, string message) : base(paramName, message)
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="paramName"></param>
+        /// <param name="actualValue"></param>
+        /// <param name="message"></param>
+        public ArgumentOutOfRangeException(string paramName, object actualValue, string message) : base(paramName, actualValue, message)
         {
         }
     }
