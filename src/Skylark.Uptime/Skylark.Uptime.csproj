@@ -71,6 +71,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Extension\Certificate\" />
+      <Folder Include="Extension\Service\" />
+      <Folder Include="Manage\Certificate\" />
+      <Folder Include="Manage\Service\" />
       <Folder Include="Properties\" />
     </ItemGroup>
 

@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public enum ServiceUptimeType
+    public enum ServiceType
     {
         /// <summary>
         /// 
