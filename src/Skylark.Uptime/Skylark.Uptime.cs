@@ -1,8 +1,9 @@
 ﻿#region Imports
 
+using Skylark.Enum;
+using Skylark.Standard.Extension.Port;
 using Skylark.Struct.Ping;
 using System.Net.Sockets;
-using SAE = Skylark.ArgumentException;
 using SSEPPE = Skylark.Standard.Extension.Ping.PingExtension;
 
 #endregion
@@ -40,30 +41,9 @@ namespace Skylark.Uptime
             return SSEPPE.Send(domainName);
         }
 
-        public bool Service(string serviceName)
+        public PortType Service(ServiceUptimeType Type)
         {
-            int port = serviceName.ToLower() switch
-            {
-                "http" => 80,
-                "https" => 443,
-                "smtp" => 25,
-                "pop3" => 110,
-                "imap" => 143,
-                "ftp" => 21,
-                "ssh" => 22,
-                _ => throw new SAE("Geçersiz servis adı"),
-            };
-            try
-            {
-                using TcpClient client = new();
-                client.Connect(domainName, port);
-
-                return true;
-            }
-            catch (SocketException)
-            {
-                return false;
-            }
+            return PortExtension.Scan(domainName, (int)Type);
         }
     }
 
