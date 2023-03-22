@@ -8,6 +8,11 @@
         /// <summary>
         /// 
         /// </summary>
+        public const int PathLength = 4096;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const int TextLength = 1000000;
 
         /// <summary>

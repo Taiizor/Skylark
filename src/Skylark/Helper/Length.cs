@@ -25,6 +25,17 @@ namespace Skylark.Helper
         /// <param name="Value"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
+        public static string Path(string Value, string Back)
+        {
+            return Value.Length > SMI.PathLength ? Back : Value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
         public static string Parameter(string Value, string Back)
         {
             return Value.Length > SMI.ParameterLength ? Back : Value;

@@ -25,7 +25,7 @@ namespace Skylark.Standard.Extension.Hash
         {
             try
             {
-                Path = HL.Parameter(Path, MHHM.Path);
+                Path = HL.Path(Path, MHHM.Path);
                 Split = HL.Parameter(Split, MHHM.Split);
 
                 HHHH.FileControl(Path);
@@ -66,7 +66,7 @@ namespace Skylark.Standard.Extension.Hash
         {
             try
             {
-                Path = HL.Parameter(Path, MHHM.Path);
+                Path = HL.Path(Path, MHHM.Path);
                 Split = HL.Parameter(Split, MHHM.Split);
 
                 HHHH.FileControl(Path);
@@ -107,7 +107,7 @@ namespace Skylark.Standard.Extension.Hash
         {
             try
             {
-                Path = HL.Parameter(Path, MHHM.Path);
+                Path = HL.Path(Path, MHHM.Path);
                 Split = HL.Parameter(Split, MHHM.Split);
 
                 HHHH.FileControl(Path);
@@ -148,7 +148,7 @@ namespace Skylark.Standard.Extension.Hash
         {
             try
             {
-                Path = HL.Parameter(Path, MHHM.Path);
+                Path = HL.Path(Path, MHHM.Path);
                 Split = HL.Parameter(Split, MHHM.Split);
 
                 HHHH.FileControl(Path);
@@ -189,7 +189,7 @@ namespace Skylark.Standard.Extension.Hash
         {
             try
             {
-                Path = HL.Parameter(Path, MHHM.Path);
+                Path = HL.Path(Path, MHHM.Path);
                 Split = HL.Parameter(Split, MHHM.Split);
 
                 HHHH.FileControl(Path);
