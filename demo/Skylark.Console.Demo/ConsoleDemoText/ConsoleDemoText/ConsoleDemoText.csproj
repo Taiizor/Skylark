@@ -9,7 +9,7 @@
 
  <ItemGroup>
     <PackageReference Include="Skylark" Version="3.0.0.4" />
-   <PackageReference Include="Skylark.Standard" Version="3.0.0.4" />
+   <PackageReference Include="Skylark.Standard" Version="3.0.0.5" />
   </ItemGroup>
 
 </Project>
