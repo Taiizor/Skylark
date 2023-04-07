@@ -56,11 +56,26 @@
             return DivSum(sum, count);
         }
 
+        /// <summary>
+        /// Performs linear interpolation between two one-dimensional points.
+        /// For example, using a weight of 0.5 finds the midpoint of the segment between both points.
+        /// </summary>
+        /// <param name="A">Point 1</param>
+        /// <param name="B">Point 2</param>
+        /// <param name="Weight">Percentage of distance to B from A</param>
+        /// <returns>Point A with a weight towards B</returns>
         public static double Lerp(double A, double B, double Weight)
         {
             return A * (1f - Weight) + B * Weight;
         }
         
+        /// <summary>
+        /// <inheritdoc cref="Lerp(double,double,double)"/>
+        /// </summary>
+        /// <param name="A">Point 1</param>
+        /// <param name="B">Point 2</param>
+        /// <param name="Weight">Percentage of distance to B from A</param>
+        /// <returns>Point A with a weight towards B</returns>
         public static double Lerp(float A, float B, float Weight)
         {
             return A * (1f - Weight) + B * Weight;
