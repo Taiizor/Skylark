@@ -44,16 +44,26 @@
         /// <returns></returns>
         public static TOut Average<TIn, TSum, TOut>(IEnumerable<TIn> Elements, TSum Zero, Func<TSum, TIn, TSum> AddToSum, Func<TSum, int, TOut> DivSum)
         {
-            int Count = 0;
-            TSum Sum = Zero;
+            int count = 0;
+            TSum sum = Zero;
 
-            foreach (TIn Element in Elements)
+            foreach (TIn element in Elements)
             {
-                Sum = AddToSum(Sum, Element);
-                Count += 1;
+                sum = AddToSum(sum, element);
+                count += 1;
             }
 
-            return DivSum(Sum, Count);
+            return DivSum(sum, count);
+        }
+
+        public static double Lerp(double A, double B, double Weight)
+        {
+            return A * (1f - Weight) + B * Weight;
+        }
+        
+        public static double Lerp(float A, float B, float Weight)
+        {
+            return A * (1f - Weight) + B * Weight;
         }
     }
 }
