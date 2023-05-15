@@ -55,9 +55,7 @@ namespace Skylark.Standard.Extension.Tax
                 Value = HTTH.GetConvert(HL.Parameter(Value, MTTM.Value));
                 Percent = HTTH.GetConvert(HL.Parameter(Percent, MTTM.Percent));
 
-                string Price;
-                string VatPrice;
-                string TotalPrice;
+                string Price, VatPrice, TotalPrice;
 
                 double Tax = Convert.ToDouble(Value, CultureInfo.CurrentCulture);
                 double Vat = Convert.ToDouble(Percent, CultureInfo.CurrentCulture);
