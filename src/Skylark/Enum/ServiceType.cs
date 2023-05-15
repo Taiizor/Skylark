@@ -32,6 +32,10 @@
         /// <summary>
         /// 
         /// </summary>
+        NTP = 123,
+        /// <summary>
+        /// 
+        /// </summary>
         IMAP = 143,
         /// <summary>
         /// 
@@ -48,11 +52,19 @@
         /// <summary>
         /// 
         /// </summary>
+        RDP = 3389,
+        /// <summary>
+        /// 
+        /// </summary>
         PostgreSQL = 5432,
         /// <summary>
         /// 
         /// </summary>
         Redis = 6379,
+        /// <summary>
+        /// 
+        /// </summary>
+        Oracle = 1521,
         /// <summary>
         /// 
         /// </summary>
