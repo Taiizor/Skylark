@@ -52,11 +52,11 @@ namespace Skylark.Uptime
         {
             try
             {
-                using TcpClient client = new();
-                await client.ConnectAsync(Address, 443);
+                using TcpClient Client = new();
+                await Client.ConnectAsync(Address, 443);
 
-                using NetworkStream stream = client.GetStream();
-                using SslStream sslStream = new(stream);
+                using NetworkStream Stream = Client.GetStream();
+                using SslStream sslStream = new(Stream);
                 await sslStream.AuthenticateAsClientAsync(Address);
 
                 X509Certificate certificate = sslStream.RemoteCertificate;
