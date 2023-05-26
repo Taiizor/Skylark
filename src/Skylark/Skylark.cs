@@ -12,7 +12,7 @@ using SE = System.Exception;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 03.Jan.2023
-//     Changed: 17.May.2023
+//     Changed: 26.May.2023
 //     Version: 3.0.0.7
 //
 // |---------DO-NOT-REMOVE---------|
