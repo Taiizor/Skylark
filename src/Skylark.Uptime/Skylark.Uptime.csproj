@@ -10,7 +10,7 @@
 
     <PropertyGroup>
         <ApplicationIcon>Resources\Skylark.Uptime.ico</ApplicationIcon>
-        <Version>3.0.0.7</Version>
+        <Version>3.0.0.8</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>Skylark.Uptime</Title>
