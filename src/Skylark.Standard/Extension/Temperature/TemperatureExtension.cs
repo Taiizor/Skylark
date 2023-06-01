@@ -15,7 +15,7 @@ namespace Skylark.Standard.Extension.Temperature
         /// <summary>
         /// 
         /// </summary>
-        public static async Task<string> SymbolKelvinAsync() 
+        public static async Task<string> SymbolKelvinAsync()
         {
             return await Task.FromResult(SymbolKelvin);
         }

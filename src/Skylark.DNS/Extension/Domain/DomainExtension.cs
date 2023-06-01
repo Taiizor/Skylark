@@ -1,12 +1,12 @@
 ﻿using DCIDQR = DnsClient.IDnsQueryResponse;
 using DCLC = DnsClient.LookupClient;
 using DCPDRR = DnsClient.Protocol.DnsResourceRecord;
-using SE = Skylark.Exception;
-using SEQDT = Skylark.Enum.QueryDomainType;
 using SDNSHC = Skylark.DNS.Helper.Converter;
-using SHL = Skylark.Helper.Length;
 using SDNSMDDM = Skylark.DNS.Manage.Domain.DomainManage;
 using SDNSME = Skylark.DNS.Manage.External;
+using SE = Skylark.Exception;
+using SEQDT = Skylark.Enum.QueryDomainType;
+using SHL = Skylark.Helper.Length;
 using SNIPA = System.Net.IPAddress;
 using SNIPEP = System.Net.IPEndPoint;
 

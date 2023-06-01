@@ -1,6 +1,4 @@
-﻿using NUglify;
-using NUglify.Css;
-using WebMarkupMin.Core;
+﻿using WebMarkupMin.Core;
 using E = Skylark.Exception;
 using HL = Skylark.Helper.Length;
 using MBBM = Skylark.Standard.Manage.Browser.BrowserManage;

@@ -163,14 +163,14 @@ namespace Skylark.Standard.Helper.Password
 
                     if (P1 == 0)
                     {
-                        Similarity = 1 - (double)P2 / Math.Max(Password1.Length, Password2.Length);
+                        Similarity = 1 - ((double)P2 / Math.Max(Password1.Length, Password2.Length));
 
                         return Similarity;
                     }
 
                     if (P2 == 0)
                     {
-                        Similarity = 1 - (double)P1 / Math.Max(Password1.Length, Password2.Length);
+                        Similarity = 1 - ((double)P1 / Math.Max(Password1.Length, Password2.Length));
 
                         return Similarity;
                     }
@@ -187,7 +187,7 @@ namespace Skylark.Standard.Helper.Password
 
                     int Distance = D[P1, P2];
 
-                    Similarity = 1 - (double)Distance / Math.Max(Password1.Length, Password2.Length);
+                    Similarity = 1 - ((double)Distance / Math.Max(Password1.Length, Password2.Length));
 
                     return Similarity;
             }

@@ -1,6 +1,6 @@
 ﻿using DCQT = DnsClient.QueryType;
-using SEQDT = Skylark.Enum.QueryDomainType;
 using SDNSMDDM = Skylark.DNS.Manage.Domain.DomainManage;
+using SEQDT = Skylark.Enum.QueryDomainType;
 
 namespace Skylark.DNS.Helper
 {
