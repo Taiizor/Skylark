@@ -13,8 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CS", "CS", "{5BEF1DA6-728C-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2C5AFEBD-ED44-4C65-91CD-C455EE67917E}"
 	ProjectSection(SolutionItems) = preProject
-		src\.editorconfig = src\.editorconfig
-		src\global.json = src\global.json
+		.editorconfig = .editorconfig
+		global.json = global.json
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "create-project", "tutorial\C#\#001 create-project\create-project\create-project.csproj", "{9B5739D8-A77F-413A-9753-7A02D620B78B}"

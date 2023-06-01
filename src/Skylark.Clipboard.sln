@@ -7,8 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skylark.Clipboard", "Skylar
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3943FC00-5155-481C-ABD2-2F1E094589A0}"
 	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-		global.json = global.json
+		..\.editorconfig = ..\.editorconfig
+		..\global.json = ..\global.json
 	EndProjectSection
 EndProject
 Global
