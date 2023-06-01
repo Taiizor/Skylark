@@ -66,7 +66,7 @@
         /// <returns>Point A with a weight towards B</returns>
         public static double Lerp(double A, double B, double Weight)
         {
-            return A * (1f - Weight) + B * Weight;
+            return A * (1d - Weight) + B * Weight;
         }
         
         /// <summary>
