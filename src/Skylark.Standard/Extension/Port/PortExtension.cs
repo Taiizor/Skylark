@@ -42,9 +42,9 @@ namespace Skylark.Standard.Extension.Port
         /// </summary>
         /// <param name="Port"></param>
         /// <returns></returns>
-        public static Task<string> InfoAsync(int Port = MPPM.Port)
+        public static async Task<string> InfoAsync(int Port = MPPM.Port)
         {
-            return Task.Run(() => Info(Port));
+            return await Task.Run(() => Info(Port));
         }
 
         /// <summary>
@@ -88,9 +88,9 @@ namespace Skylark.Standard.Extension.Port
         /// </summary>
         /// <param name="Ports"></param>
         /// <returns></returns>
-        public static Task<Dictionary<int, string>> InfoAsync(int[] Ports = null)
+        public static async Task<Dictionary<int, string>> InfoAsync(int[] Ports = null)
         {
-            return Task.Run(() => Info(Ports));
+            return await Task.Run(() => Info(Ports));
         }
 
         /// <summary>
@@ -138,9 +138,9 @@ namespace Skylark.Standard.Extension.Port
         /// <param name="Port"></param>
         /// <param name="Timeout"></param>
         /// <returns></returns>
-        public static Task<PortType> ScanAsync(string Address = MPPM.Address, int Port = MPPM.Port, int Timeout = MPPM.Timeout)
+        public static async Task<PortType> ScanAsync(string Address = MPPM.Address, int Port = MPPM.Port, int Timeout = MPPM.Timeout)
         {
-            return Task.Run(() => Scan(Address, Port, Timeout));
+            return await Task.Run(() => Scan(Address, Port, Timeout));
         }
 
         /// <summary>
@@ -188,9 +188,9 @@ namespace Skylark.Standard.Extension.Port
         /// <param name="Ports"></param>
         /// <param name="Timeout"></param>
         /// <returns></returns>
-        public static Task<Dictionary<int, PortType>> ScanMultipleAsync(string Address = MPPM.Address, int[] Ports = null, int Timeout = MPPM.Timeout)
+        public static async Task<Dictionary<int, PortType>> ScanMultipleAsync(string Address = MPPM.Address, int[] Ports = null, int Timeout = MPPM.Timeout)
         {
-            return Task.Run(() => ScanMultiple(Address, Ports, Timeout));
+            return await Task.Run(() => ScanMultiple(Address, Ports, Timeout));
         }
     }
 }

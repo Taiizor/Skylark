@@ -63,9 +63,9 @@ namespace Skylark.Standard.Extension.Ping
         /// <param name="Ttl"></param>
         /// <param name="Fragment"></param>
         /// <returns></returns>
-        public static Task<SPPSS> SendAsync(string Address = MPM.Address, int Timeout = MPM.Timeout, int Ttl = MPM.Ttl, bool Fragment = MPM.Fragment)
+        public static async Task<SPPSS> SendAsync(string Address = MPM.Address, int Timeout = MPM.Timeout, int Ttl = MPM.Ttl, bool Fragment = MPM.Fragment)
         {
-            return Task.Run(() => Send(Address, Timeout, Ttl, Fragment));
+            return await Task.Run(() => Send(Address, Timeout, Ttl, Fragment));
         }
     }
 }

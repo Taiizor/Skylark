@@ -60,9 +60,9 @@ namespace Skylark.Standard.Extension.Text
         /// <param name="Symbol"></param>
         /// <param name="Method"></param>
         /// <returns></returns>
-        public static Task<string> CutAsync(string Text = MTTM.Text, int Length = MTTM.Length, string Symbol = MTTM.CutSymbol, ETT Method = MTTM.CutMethod)
+        public static async Task<string> CutAsync(string Text = MTTM.Text, int Length = MTTM.Length, string Symbol = MTTM.CutSymbol, ETT Method = MTTM.CutMethod)
         {
-            return Task.Run(() => Cut(Text, Length, Symbol, Method));
+            return await Task.Run(() => Cut(Text, Length, Symbol, Method));
         }
 
         /// <summary>
@@ -88,9 +88,9 @@ namespace Skylark.Standard.Extension.Text
         /// </summary>
         /// <param name="Word"></param>
         /// <returns></returns>
-        public static Task<string> TextAsync(int Word = MTTM.Word)
+        public static async Task<string> TextAsync(int Word = MTTM.Word)
         {
-            return Task.Run(() => Text(Word));
+            return await Task.Run(() => Text(Word));
         }
 
         /// <summary>
@@ -131,9 +131,9 @@ namespace Skylark.Standard.Extension.Text
         /// <param name="Symbol"></param>
         /// <param name="Word"></param>
         /// <returns></returns>
-        public static Task<string> ListAsync(int List = MTTM.List, char Symbol = MTTM.ListSymbol, int Word = MTTM.Word)
+        public static async Task<string> ListAsync(int List = MTTM.List, char Symbol = MTTM.ListSymbol, int Word = MTTM.Word)
         {
-            return Task.Run(() => TextExtension.List(List, Symbol, Word));
+            return await Task.Run(() => TextExtension.List(List, Symbol, Word));
         }
 
         /// <summary>
@@ -161,9 +161,9 @@ namespace Skylark.Standard.Extension.Text
         /// </summary>
         /// <param name="Text"></param>
         /// <returns></returns>
-        public static Task<string> ReverseAsync(string Text = MTTM.Text)
+        public static async Task<string> ReverseAsync(string Text = MTTM.Text)
         {
-            return Task.Run(() => Reverse(Text));
+            return await Task.Run(() => Reverse(Text));
         }
 
         /// <summary>
@@ -207,9 +207,9 @@ namespace Skylark.Standard.Extension.Text
         /// <param name="Paragraph"></param>
         /// <param name="Word"></param>
         /// <returns></returns>
-        public static Task<string> ParagraphAsync(int Paragraph = MTTM.Paragraph, int Word = MTTM.Word)
+        public static async Task<string> ParagraphAsync(int Paragraph = MTTM.Paragraph, int Word = MTTM.Word)
         {
-            return Task.Run(() => TextExtension.Paragraph(Paragraph, Word));
+            return await Task.Run(() => TextExtension.Paragraph(Paragraph, Word));
         }
 
         /// <summary>

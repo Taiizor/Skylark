@@ -42,9 +42,9 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Text"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static Task<string> TextToBaseAsync(string Text = MCCM.Text, EET Encode = MCCM.Encode)
+        public static async Task<string> TextToBaseAsync(string Text = MCCM.Text, EET Encode = MCCM.Encode)
         {
-            return Task.Run(() => TextToBase(Text, Encode));
+            return await Task.Run(() => TextToBase(Text, Encode));
         }
 
         /// <summary>
@@ -110,9 +110,9 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Mode"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static Task<string> TextToAesAsync(string Text = MCCM.Text, string IV = MCCM.IV, string Key = MCCM.Key, CipherMode Mode = MCCM.Cipher, EET Encode = MCCM.Encode)
+        public static async Task<string> TextToAesAsync(string Text = MCCM.Text, string IV = MCCM.IV, string Key = MCCM.Key, CipherMode Mode = MCCM.Cipher, EET Encode = MCCM.Encode)
         {
-            return Task.Run(() => TextToAes(Text, IV, Key, Mode, Encode));
+            return await Task.Run(() => TextToAes(Text, IV, Key, Mode, Encode));
         }
 
         /// <summary>
@@ -148,9 +148,9 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static Task<string> TextToMD5Async(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
+        public static async Task<string> TextToMD5Async(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
         {
-            return Task.Run(() => TextToMD5(Text, Upper, Invariant, Encode));
+            return await Task.Run(() => TextToMD5(Text, Upper, Invariant, Encode));
         }
 
         /// <summary>
@@ -186,9 +186,9 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static Task<string> TextToSHA1Async(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
+        public static async Task<string> TextToSHA1Async(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
         {
-            return Task.Run(() => TextToSHA1(Text, Upper, Invariant, Encode));
+            return await Task.Run(() => TextToSHA1(Text, Upper, Invariant, Encode));
         }
 
         /// <summary>
@@ -224,9 +224,9 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static Task<string> TextToSHA256Async(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
+        public static async Task<string> TextToSHA256Async(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
         {
-            return Task.Run(() => TextToSHA256(Text, Upper, Invariant, Encode));
+            return await Task.Run(() => TextToSHA256(Text, Upper, Invariant, Encode));
         }
 
         /// <summary>
@@ -262,9 +262,9 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static Task<string> TextToSHA384Async(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
+        public static async Task<string> TextToSHA384Async(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
         {
-            return Task.Run(() => TextToSHA384(Text, Upper, Invariant, Encode));
+            return await Task.Run(() => TextToSHA384(Text, Upper, Invariant, Encode));
         }
 
         /// <summary>
@@ -300,9 +300,9 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static Task<string> TextToSHA512Async(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
+        public static async Task<string> TextToSHA512Async(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
         {
-            return Task.Run(() => TextToSHA512(Text, Upper, Invariant, Encode));
+            return await Task.Run(() => TextToSHA512(Text, Upper, Invariant, Encode));
         }
 
         /// <summary>
@@ -332,9 +332,9 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Base"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static Task<string> BaseToTextAsync(string Base = MCCM.Base, EET Encode = MCCM.Encode)
+        public static async Task<string> BaseToTextAsync(string Base = MCCM.Base, EET Encode = MCCM.Encode)
         {
-            return Task.Run(() => BaseToText(Base, Encode));
+            return await Task.Run(() => BaseToText(Base, Encode));
         }
 
         /// <summary>
@@ -401,9 +401,9 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Mode"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static Task<string> AesToTextAsync(string Aes = MCCM.Aes, string IV = MCCM.IV, string Key = MCCM.Key, CipherMode Mode = MCCM.Cipher, EET Encode = MCCM.Encode)
+        public static async Task<string> AesToTextAsync(string Aes = MCCM.Aes, string IV = MCCM.IV, string Key = MCCM.Key, CipherMode Mode = MCCM.Cipher, EET Encode = MCCM.Encode)
         {
-            return Task.Run(() => AesToText(Aes, IV, Key, Mode, Encode));
+            return await Task.Run(() => AesToText(Aes, IV, Key, Mode, Encode));
         }
     }
 }

@@ -47,9 +47,9 @@ namespace Skylark.DNS.Extension.Domain
         /// <param name="Domain"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static Task<DCIDQR> QueryResponseAsync(string Domain = SDNSMDDM.Domain, SEQDT Type = SDNSMDDM.QueryType)
+        public static async Task<DCIDQR> QueryResponseAsync(string Domain = SDNSMDDM.Domain, SEQDT Type = SDNSMDDM.QueryType)
         {
-            return Task.Run(() => QueryResponse(Domain, Type));
+            return await Task.Run(() => QueryResponse(Domain, Type));
         }
 
         /// <summary>
@@ -79,9 +79,9 @@ namespace Skylark.DNS.Extension.Domain
         /// <param name="Domain"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static Task<IReadOnlyList<DCPDRR>> QueryAnswersAsync(string Domain = SDNSMDDM.Domain, SEQDT Type = SDNSMDDM.QueryType)
+        public static async Task<IReadOnlyList<DCPDRR>> QueryAnswersAsync(string Domain = SDNSMDDM.Domain, SEQDT Type = SDNSMDDM.QueryType)
         {
-            return Task.Run(() => QueryAnswers(Domain, Type));
+            return await Task.Run(() => QueryAnswers(Domain, Type));
         }
     }
 }

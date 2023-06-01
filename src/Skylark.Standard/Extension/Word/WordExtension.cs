@@ -44,9 +44,9 @@ namespace Skylark.Standard.Extension.Word
         /// </summary>
         /// <param name="List"></param>
         /// <returns></returns>
-        public static Task<SWWDS> DataAsync(string List = MWWM.List)
+        public static async Task<SWWDS> DataAsync(string List = MWWM.List)
         {
-            return Task.Run(() => Data(List));
+            return await Task.Run(() => Data(List));
         }
 
         /// <summary>
@@ -83,9 +83,9 @@ namespace Skylark.Standard.Extension.Word
         /// <param name="Space"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static Task<SWWCS> CombineAsync(string List = MWWM.List, char Space = MWWM.Space, char Separator = MWWM.Separator)
+        public static async Task<SWWCS> CombineAsync(string List = MWWM.List, char Space = MWWM.Space, char Separator = MWWM.Separator)
         {
-            return Task.Run(() => Combine(List, Space, Separator));
+            return await Task.Run(() => Combine(List, Space, Separator));
         }
     }
 }

@@ -41,9 +41,9 @@ namespace Skylark.Helper
         /// </summary>
         /// <param name="Value"></param>
         /// <returns></returns>
-        public static Task<double> ToDoubleAsync(string Value)
+        public static async Task<double> ToDoubleAsync(string Value)
         {
-            return Task.Run(() => ToDouble(Value));
+            return await Task.Run(() => ToDouble(Value));
         }
 
         /// <summary>
@@ -61,9 +61,9 @@ namespace Skylark.Helper
         /// </summary>
         /// <param name="Value"></param>
         /// <returns></returns>
-        public static Task<double> ToDoubleAsync(decimal Value)
+        public static async Task<double> ToDoubleAsync(decimal Value)
         {
-            return Task.Run(() => ToDouble(Value));
+            return await Task.Run(() => ToDouble(Value));
         }
 
         /// <summary>
@@ -81,9 +81,9 @@ namespace Skylark.Helper
         /// </summary>
         /// <param name="Value"></param>
         /// <returns></returns>
-        public static Task<decimal> ToDecimalAsync(string Value)
+        public static async Task<decimal> ToDecimalAsync(string Value)
         {
-            return Task.Run(() => ToDecimal(Value));
+            return await Task.Run(() => ToDecimal(Value));
         }
 
         /// <summary>
@@ -101,9 +101,9 @@ namespace Skylark.Helper
         /// </summary>
         /// <param name="Value"></param>
         /// <returns></returns>
-        public static Task<decimal> ToDecimalAsync(double Value)
+        public static async Task<decimal> ToDecimalAsync(double Value)
         {
-            return Task.Run(() => ToDecimal(Value));
+            return await Task.Run(() => ToDecimal(Value));
         }
 
         /// <summary>
@@ -141,9 +141,9 @@ namespace Skylark.Helper
         /// <param name="Number"></param>
         /// <param name="Clear"></param>
         /// <returns></returns>
-        public static Task<string> NumeralAsync(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', string Clear = DefaultType)
+        public static async Task<string> NumeralAsync(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', string Clear = DefaultType)
         {
-            return Task.Run(() => Numeral(Value, Decimal, Fraction, Digit, Number, Clear));
+            return await Task.Run(() => Numeral(Value, Decimal, Fraction, Digit, Number, Clear));
         }
 
         /// <summary>
@@ -181,9 +181,9 @@ namespace Skylark.Helper
         /// <param name="Number"></param>
         /// <param name="Clear"></param>
         /// <returns></returns>
-        public static Task<string> NumeralAsync(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', SECNT Clear = ClearType)
+        public static async Task<string> NumeralAsync(object Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', SECNT Clear = ClearType)
         {
-            return Task.Run(() => Numeral(Value, Decimal, Fraction, Digit, Number, Clear));
+            return await Task.Run(() => Numeral(Value, Decimal, Fraction, Digit, Number, Clear));
         }
 
         /// <summary>

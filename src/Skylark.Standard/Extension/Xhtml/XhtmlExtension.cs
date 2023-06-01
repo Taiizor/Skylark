@@ -48,9 +48,9 @@ namespace Skylark.Standard.Extension.Xhtml
         /// </summary>
         /// <param name="Xhtml"></param>
         /// <returns></returns>
-        public static Task<string> ToMinifyAsync(string Xhtml = MXXM.Xhtml)
+        public static async Task<string> ToMinifyAsync(string Xhtml = MXXM.Xhtml)
         {
-            return Task.Run(() => ToMinify(Xhtml));
+            return await Task.Run(() => ToMinify(Xhtml));
         }
 
         /// <summary>
@@ -87,9 +87,9 @@ namespace Skylark.Standard.Extension.Xhtml
         /// </summary>
         /// <param name="Xhtml"></param>
         /// <returns></returns>
-        public static Task<string> ToBeautyAsync(string Xhtml = MXXM.Xhtml)
+        public static async Task<string> ToBeautyAsync(string Xhtml = MXXM.Xhtml)
         {
-            return Task.Run(() => ToBeauty(Xhtml));
+            return await Task.Run(() => ToBeauty(Xhtml));
         }
     }
 }

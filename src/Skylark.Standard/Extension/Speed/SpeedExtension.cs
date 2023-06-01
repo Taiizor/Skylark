@@ -33,9 +33,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Cms"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> CmsToMpsAsync(decimal Cms = MSSM.Value, decimal Constant = MSSM.Cms_Mps_Constant)
+        public static async Task<decimal> CmsToMpsAsync(decimal Cms = MSSM.Value, decimal Constant = MSSM.Cms_Mps_Constant)
         {
-            return Task.Run(() => CmsToMps(Cms, Constant));
+            return await Task.Run(() => CmsToMps(Cms, Constant));
         }
 
         /// <summary>
@@ -63,9 +63,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Cms"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> CmsToKphAsync(decimal Cms = MSSM.Value, decimal Constant = MSSM.Cms_Kph_Constant)
+        public static async Task<decimal> CmsToKphAsync(decimal Cms = MSSM.Value, decimal Constant = MSSM.Cms_Kph_Constant)
         {
-            return Task.Run(() => CmsToKph(Cms, Constant));
+            return await Task.Run(() => CmsToKph(Cms, Constant));
         }
 
         /// <summary>
@@ -93,9 +93,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Cms"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> CmsToFtsAsync(decimal Cms = MSSM.Value, decimal Constant = MSSM.Cms_Fts_Constant)
+        public static async Task<decimal> CmsToFtsAsync(decimal Cms = MSSM.Value, decimal Constant = MSSM.Cms_Fts_Constant)
         {
-            return Task.Run(() => CmsToFts(Cms, Constant));
+            return await Task.Run(() => CmsToFts(Cms, Constant));
         }
 
         /// <summary>
@@ -123,9 +123,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Cms"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> CmsToMphAsync(decimal Cms = MSSM.Value, decimal Constant = MSSM.Cms_Mph_Constant)
+        public static async Task<decimal> CmsToMphAsync(decimal Cms = MSSM.Value, decimal Constant = MSSM.Cms_Mph_Constant)
         {
-            return Task.Run(() => CmsToMph(Cms, Constant));
+            return await Task.Run(() => CmsToMph(Cms, Constant));
         }
 
         /// <summary>
@@ -153,9 +153,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Cms"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> CmsToKnotAsync(decimal Cms = MSSM.Value, decimal Constant = MSSM.Cms_Knot_Constant)
+        public static async Task<decimal> CmsToKnotAsync(decimal Cms = MSSM.Value, decimal Constant = MSSM.Cms_Knot_Constant)
         {
-            return Task.Run(() => CmsToKnot(Cms, Constant));
+            return await Task.Run(() => CmsToKnot(Cms, Constant));
         }
 
         /// <summary>
@@ -183,9 +183,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Cms"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> CmsToMachAsync(decimal Cms = MSSM.Value, decimal Constant = MSSM.Cms_Mach_Constant)
+        public static async Task<decimal> CmsToMachAsync(decimal Cms = MSSM.Value, decimal Constant = MSSM.Cms_Mach_Constant)
         {
-            return Task.Run(() => CmsToMach(Cms, Constant));
+            return await Task.Run(() => CmsToMach(Cms, Constant));
         }
 
         /// <summary>
@@ -213,9 +213,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mps"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MpsToCmsAsync(decimal Mps = MSSM.Value, decimal Constant = MSSM.Mps_Cms_Constant)
+        public static async Task<decimal> MpsToCmsAsync(decimal Mps = MSSM.Value, decimal Constant = MSSM.Mps_Cms_Constant)
         {
-            return Task.Run(() => MpsToCms(Mps, Constant));
+            return await Task.Run(() => MpsToCms(Mps, Constant));
         }
 
         /// <summary>
@@ -243,9 +243,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mps"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MpsToKphAsync(decimal Mps = MSSM.Value, decimal Constant = MSSM.Mps_Kph_Constant)
+        public static async Task<decimal> MpsToKphAsync(decimal Mps = MSSM.Value, decimal Constant = MSSM.Mps_Kph_Constant)
         {
-            return Task.Run(() => MpsToKph(Mps, Constant));
+            return await Task.Run(() => MpsToKph(Mps, Constant));
         }
 
         /// <summary>
@@ -273,9 +273,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mps"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MpsToFtsAsync(decimal Mps = MSSM.Value, decimal Constant = MSSM.Mps_Fts_Constant)
+        public static async Task<decimal> MpsToFtsAsync(decimal Mps = MSSM.Value, decimal Constant = MSSM.Mps_Fts_Constant)
         {
-            return Task.Run(() => MpsToFts(Mps, Constant));
+            return await Task.Run(() => MpsToFts(Mps, Constant));
         }
 
         /// <summary>
@@ -303,9 +303,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mps"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MpsToMphAsync(decimal Mps = MSSM.Value, decimal Constant = MSSM.Mps_Mph_Constant)
+        public static async Task<decimal> MpsToMphAsync(decimal Mps = MSSM.Value, decimal Constant = MSSM.Mps_Mph_Constant)
         {
-            return Task.Run(() => MpsToMph(Mps, Constant));
+            return await Task.Run(() => MpsToMph(Mps, Constant));
         }
 
         /// <summary>
@@ -333,9 +333,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mps"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MpsToKnotAsync(decimal Mps = MSSM.Value, decimal Constant = MSSM.Mps_Knot_Constant)
+        public static async Task<decimal> MpsToKnotAsync(decimal Mps = MSSM.Value, decimal Constant = MSSM.Mps_Knot_Constant)
         {
-            return Task.Run(() => MpsToKnot(Mps, Constant));
+            return await Task.Run(() => MpsToKnot(Mps, Constant));
         }
 
         /// <summary>
@@ -363,9 +363,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mps"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MpsToMachAsync(decimal Mps = MSSM.Value, decimal Constant = MSSM.Mps_Mach_Constant)
+        public static async Task<decimal> MpsToMachAsync(decimal Mps = MSSM.Value, decimal Constant = MSSM.Mps_Mach_Constant)
         {
-            return Task.Run(() => MpsToMach(Mps, Constant));
+            return await Task.Run(() => MpsToMach(Mps, Constant));
         }
 
         /// <summary>
@@ -393,9 +393,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Kph"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> KphToCmsAsync(decimal Kph = MSSM.Value, decimal Constant = MSSM.Kph_Cms_Constant)
+        public static async Task<decimal> KphToCmsAsync(decimal Kph = MSSM.Value, decimal Constant = MSSM.Kph_Cms_Constant)
         {
-            return Task.Run(() => KphToCms(Kph, Constant));
+            return await Task.Run(() => KphToCms(Kph, Constant));
         }
 
         /// <summary>
@@ -423,9 +423,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Kph"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> KphToMpsAsync(decimal Kph = MSSM.Value, decimal Constant = MSSM.Kph_Mps_Constant)
+        public static async Task<decimal> KphToMpsAsync(decimal Kph = MSSM.Value, decimal Constant = MSSM.Kph_Mps_Constant)
         {
-            return Task.Run(() => KphToMps(Kph, Constant));
+            return await Task.Run(() => KphToMps(Kph, Constant));
         }
 
         /// <summary>
@@ -453,9 +453,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Kph"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> KphToFtsAsync(decimal Kph = MSSM.Value, decimal Constant = MSSM.Kph_Fts_Constant)
+        public static async Task<decimal> KphToFtsAsync(decimal Kph = MSSM.Value, decimal Constant = MSSM.Kph_Fts_Constant)
         {
-            return Task.Run(() => KphToFts(Kph, Constant));
+            return await Task.Run(() => KphToFts(Kph, Constant));
         }
 
         /// <summary>
@@ -483,9 +483,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Kph"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> KphToMphAsync(decimal Kph = MSSM.Value, decimal Constant = MSSM.Kph_Mph_Constant)
+        public static async Task<decimal> KphToMphAsync(decimal Kph = MSSM.Value, decimal Constant = MSSM.Kph_Mph_Constant)
         {
-            return Task.Run(() => KphToMph(Kph, Constant));
+            return await Task.Run(() => KphToMph(Kph, Constant));
         }
 
         /// <summary>
@@ -513,9 +513,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Kph"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> KphToKnotAsync(decimal Kph = MSSM.Value, decimal Constant = MSSM.Kph_Knot_Constant)
+        public static async Task<decimal> KphToKnotAsync(decimal Kph = MSSM.Value, decimal Constant = MSSM.Kph_Knot_Constant)
         {
-            return Task.Run(() => KphToKnot(Kph, Constant));
+            return await Task.Run(() => KphToKnot(Kph, Constant));
         }
 
         /// <summary>
@@ -543,9 +543,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Kph"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> KphToMachAsync(decimal Kph = MSSM.Value, decimal Constant = MSSM.Kph_Mach_Constant)
+        public static async Task<decimal> KphToMachAsync(decimal Kph = MSSM.Value, decimal Constant = MSSM.Kph_Mach_Constant)
         {
-            return Task.Run(() => KphToMach(Kph, Constant));
+            return await Task.Run(() => KphToMach(Kph, Constant));
         }
 
         /// <summary>
@@ -573,9 +573,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Fts"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> FtsToCmsAsync(decimal Fts = MSSM.Value, decimal Constant = MSSM.Fts_Cms_Constant)
+        public static async Task<decimal> FtsToCmsAsync(decimal Fts = MSSM.Value, decimal Constant = MSSM.Fts_Cms_Constant)
         {
-            return Task.Run(() => FtsToCms(Fts, Constant));
+            return await Task.Run(() => FtsToCms(Fts, Constant));
         }
 
         /// <summary>
@@ -603,9 +603,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Fts"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> FtsToMpsAsync(decimal Fts = MSSM.Value, decimal Constant = MSSM.Fts_Mps_Constant)
+        public static async Task<decimal> FtsToMpsAsync(decimal Fts = MSSM.Value, decimal Constant = MSSM.Fts_Mps_Constant)
         {
-            return Task.Run(() => FtsToMps(Fts, Constant));
+            return await Task.Run(() => FtsToMps(Fts, Constant));
         }
 
         /// <summary>
@@ -633,9 +633,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Fts"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> FtsToKphAsync(decimal Fts = MSSM.Value, decimal Constant = MSSM.Fts_Kph_Constant)
+        public static async Task<decimal> FtsToKphAsync(decimal Fts = MSSM.Value, decimal Constant = MSSM.Fts_Kph_Constant)
         {
-            return Task.Run(() => FtsToKph(Fts, Constant));
+            return await Task.Run(() => FtsToKph(Fts, Constant));
         }
 
         /// <summary>
@@ -663,9 +663,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Fts"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> FtsToMphAsync(decimal Fts = MSSM.Value, decimal Constant = MSSM.Fts_Mph_Constant)
+        public static async Task<decimal> FtsToMphAsync(decimal Fts = MSSM.Value, decimal Constant = MSSM.Fts_Mph_Constant)
         {
-            return Task.Run(() => FtsToMph(Fts, Constant));
+            return await Task.Run(() => FtsToMph(Fts, Constant));
         }
 
         /// <summary>
@@ -693,9 +693,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Fts"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> FtsToKnotAsync(decimal Fts = MSSM.Value, decimal Constant = MSSM.Fts_Knot_Constant)
+        public static async Task<decimal> FtsToKnotAsync(decimal Fts = MSSM.Value, decimal Constant = MSSM.Fts_Knot_Constant)
         {
-            return Task.Run(() => FtsToKnot(Fts, Constant));
+            return await Task.Run(() => FtsToKnot(Fts, Constant));
         }
 
         /// <summary>
@@ -723,9 +723,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Fts"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> FtsToMachAsync(decimal Fts = MSSM.Value, decimal Constant = MSSM.Fts_Mach_Constant)
+        public static async Task<decimal> FtsToMachAsync(decimal Fts = MSSM.Value, decimal Constant = MSSM.Fts_Mach_Constant)
         {
-            return Task.Run(() => FtsToMach(Fts, Constant));
+            return await Task.Run(() => FtsToMach(Fts, Constant));
         }
 
         /// <summary>
@@ -753,9 +753,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mph"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MphToCmsAsync(decimal Mph = MSSM.Value, decimal Constant = MSSM.Mph_Cms_Constant)
+        public static async Task<decimal> MphToCmsAsync(decimal Mph = MSSM.Value, decimal Constant = MSSM.Mph_Cms_Constant)
         {
-            return Task.Run(() => MphToCms(Mph, Constant));
+            return await Task.Run(() => MphToCms(Mph, Constant));
         }
 
         /// <summary>
@@ -783,9 +783,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mph"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MphToMpsAsync(decimal Mph = MSSM.Value, decimal Constant = MSSM.Mph_Mps_Constant)
+        public static async Task<decimal> MphToMpsAsync(decimal Mph = MSSM.Value, decimal Constant = MSSM.Mph_Mps_Constant)
         {
-            return Task.Run(() => MphToMps(Mph, Constant));
+            return await Task.Run(() => MphToMps(Mph, Constant));
         }
 
         /// <summary>
@@ -813,9 +813,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mph"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MphToKphAsync(decimal Mph = MSSM.Value, decimal Constant = MSSM.Mph_Kph_Constant)
+        public static async Task<decimal> MphToKphAsync(decimal Mph = MSSM.Value, decimal Constant = MSSM.Mph_Kph_Constant)
         {
-            return Task.Run(() => MphToKph(Mph, Constant));
+            return await Task.Run(() => MphToKph(Mph, Constant));
         }
 
         /// <summary>
@@ -843,9 +843,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mph"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MphToFtsAsync(decimal Mph = MSSM.Value, decimal Constant = MSSM.Mph_Fts_Constant)
+        public static async Task<decimal> MphToFtsAsync(decimal Mph = MSSM.Value, decimal Constant = MSSM.Mph_Fts_Constant)
         {
-            return Task.Run(() => MphToFts(Mph, Constant));
+            return await Task.Run(() => MphToFts(Mph, Constant));
         }
 
         /// <summary>
@@ -873,9 +873,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mph"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MphToKnotAsync(decimal Mph = MSSM.Value, decimal Constant = MSSM.Mph_Knot_Constant)
+        public static async Task<decimal> MphToKnotAsync(decimal Mph = MSSM.Value, decimal Constant = MSSM.Mph_Knot_Constant)
         {
-            return Task.Run(() => MphToKnot(Mph, Constant));
+            return await Task.Run(() => MphToKnot(Mph, Constant));
         }
 
         /// <summary>
@@ -903,9 +903,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mph"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MphToMachAsync(decimal Mph = MSSM.Value, decimal Constant = MSSM.Mph_Mach_Constant)
+        public static async Task<decimal> MphToMachAsync(decimal Mph = MSSM.Value, decimal Constant = MSSM.Mph_Mach_Constant)
         {
-            return Task.Run(() => MphToMach(Mph, Constant));
+            return await Task.Run(() => MphToMach(Mph, Constant));
         }
 
         /// <summary>
@@ -933,9 +933,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Knot"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> KnotToCmsAsync(decimal Knot = MSSM.Value, decimal Constant = MSSM.Knot_Cms_Constant)
+        public static async Task<decimal> KnotToCmsAsync(decimal Knot = MSSM.Value, decimal Constant = MSSM.Knot_Cms_Constant)
         {
-            return Task.Run(() => KnotToCms(Knot, Constant));
+            return await Task.Run(() => KnotToCms(Knot, Constant));
         }
 
         /// <summary>
@@ -963,9 +963,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Knot"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> KnotToMpsAsync(decimal Knot = MSSM.Value, decimal Constant = MSSM.Knot_Mps_Constant)
+        public static async Task<decimal> KnotToMpsAsync(decimal Knot = MSSM.Value, decimal Constant = MSSM.Knot_Mps_Constant)
         {
-            return Task.Run(() => KnotToMps(Knot, Constant));
+            return await Task.Run(() => KnotToMps(Knot, Constant));
         }
 
         /// <summary>
@@ -993,9 +993,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Knot"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> KnotToKphAsync(decimal Knot = MSSM.Value, decimal Constant = MSSM.Knot_Kph_Constant)
+        public static async Task<decimal> KnotToKphAsync(decimal Knot = MSSM.Value, decimal Constant = MSSM.Knot_Kph_Constant)
         {
-            return Task.Run(() => KnotToKph(Knot, Constant));
+            return await Task.Run(() => KnotToKph(Knot, Constant));
         }
 
         /// <summary>
@@ -1023,9 +1023,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Knot"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> KnotToFtsAsync(decimal Knot = MSSM.Value, decimal Constant = MSSM.Knot_Fts_Constant)
+        public static async Task<decimal> KnotToFtsAsync(decimal Knot = MSSM.Value, decimal Constant = MSSM.Knot_Fts_Constant)
         {
-            return Task.Run(() => KnotToFts(Knot, Constant));
+            return await Task.Run(() => KnotToFts(Knot, Constant));
         }
 
         /// <summary>
@@ -1053,9 +1053,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Knot"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> KnotToMphAsync(decimal Knot = MSSM.Value, decimal Constant = MSSM.Knot_Mph_Constant)
+        public static async Task<decimal> KnotToMphAsync(decimal Knot = MSSM.Value, decimal Constant = MSSM.Knot_Mph_Constant)
         {
-            return Task.Run(() => KnotToMph(Knot, Constant));
+            return await Task.Run(() => KnotToMph(Knot, Constant));
         }
 
         /// <summary>
@@ -1083,9 +1083,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Knot"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> KnotToMachAsync(decimal Knot = MSSM.Value, decimal Constant = MSSM.Knot_Mach_Constant)
+        public static async Task<decimal> KnotToMachAsync(decimal Knot = MSSM.Value, decimal Constant = MSSM.Knot_Mach_Constant)
         {
-            return Task.Run(() => KnotToMach(Knot, Constant));
+            return await Task.Run(() => KnotToMach(Knot, Constant));
         }
 
         /// <summary>
@@ -1113,9 +1113,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mach"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MachToCmsAsync(decimal Mach = MSSM.Value, decimal Constant = MSSM.Mach_Cms_Constant)
+        public static async Task<decimal> MachToCmsAsync(decimal Mach = MSSM.Value, decimal Constant = MSSM.Mach_Cms_Constant)
         {
-            return Task.Run(() => MachToCms(Mach, Constant));
+            return await Task.Run(() => MachToCms(Mach, Constant));
         }
 
         /// <summary>
@@ -1143,9 +1143,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mach"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MachToMpsAsync(decimal Mach = MSSM.Value, decimal Constant = MSSM.Mach_Mps_Constant)
+        public static async Task<decimal> MachToMpsAsync(decimal Mach = MSSM.Value, decimal Constant = MSSM.Mach_Mps_Constant)
         {
-            return Task.Run(() => MachToMps(Mach, Constant));
+            return await Task.Run(() => MachToMps(Mach, Constant));
         }
 
         /// <summary>
@@ -1173,9 +1173,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mach"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MachToKphAsync(decimal Mach = MSSM.Value, decimal Constant = MSSM.Mach_Kph_Constant)
+        public static async Task<decimal> MachToKphAsync(decimal Mach = MSSM.Value, decimal Constant = MSSM.Mach_Kph_Constant)
         {
-            return Task.Run(() => MachToKph(Mach, Constant));
+            return await Task.Run(() => MachToKph(Mach, Constant));
         }
 
         /// <summary>
@@ -1203,9 +1203,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mach"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MachToFtsAsync(decimal Mach = MSSM.Value, decimal Constant = MSSM.Mach_Fts_Constant)
+        public static async Task<decimal> MachToFtsAsync(decimal Mach = MSSM.Value, decimal Constant = MSSM.Mach_Fts_Constant)
         {
-            return Task.Run(() => MachToFts(Mach, Constant));
+            return await Task.Run(() => MachToFts(Mach, Constant));
         }
 
         /// <summary>
@@ -1233,9 +1233,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mach"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MachToMphAsync(decimal Mach = MSSM.Value, decimal Constant = MSSM.Mach_Mph_Constant)
+        public static async Task<decimal> MachToMphAsync(decimal Mach = MSSM.Value, decimal Constant = MSSM.Mach_Mph_Constant)
         {
-            return Task.Run(() => MachToMph(Mach, Constant));
+            return await Task.Run(() => MachToMph(Mach, Constant));
         }
 
         /// <summary>
@@ -1263,9 +1263,9 @@ namespace Skylark.Standard.Extension.Speed
         /// <param name="Mach"></param>
         /// <param name="Constant"></param>
         /// <returns></returns>
-        public static Task<decimal> MachToKnotAsync(decimal Mach = MSSM.Value, decimal Constant = MSSM.Mach_Knot_Constant)
+        public static async Task<decimal> MachToKnotAsync(decimal Mach = MSSM.Value, decimal Constant = MSSM.Mach_Knot_Constant)
         {
-            return Task.Run(() => MachToKnot(Mach, Constant));
+            return await Task.Run(() => MachToKnot(Mach, Constant));
         }
     }
 }

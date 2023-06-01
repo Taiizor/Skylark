@@ -36,9 +36,9 @@ namespace Skylark.Standard.Extension.Storage
         /// <param name="Output"></param>
         /// <param name="Mode"></param>
         /// <returns></returns>
-        public static Task<double> ConvertAsync(double Value = MSSM.Value, string Input = MSSM.DefaultInput, string Output = MSSM.DefaultOutput, string Mode = MSSM.DefaultMode)
+        public static async Task<double> ConvertAsync(double Value = MSSM.Value, string Input = MSSM.DefaultInput, string Output = MSSM.DefaultOutput, string Mode = MSSM.DefaultMode)
         {
-            return Task.Run(() => Convert(Value, Input, Output, Mode));
+            return await Task.Run(() => Convert(Value, Input, Output, Mode));
         }
 
         /// <summary>
@@ -74,9 +74,9 @@ namespace Skylark.Standard.Extension.Storage
         /// <param name="Output"></param>
         /// <param name="Mode"></param>
         /// <returns></returns>
-        public static Task<double> ConvertAsync(double Value = MSSM.Value, EST Input = MSSM.InputType, EST Output = MSSM.OutputType, EMST Mode = MSSM.ModeType)
+        public static async Task<double> ConvertAsync(double Value = MSSM.Value, EST Input = MSSM.InputType, EST Output = MSSM.OutputType, EMST Mode = MSSM.ModeType)
         {
-            return Task.Run(() => Convert(Value, Input, Output, Mode));
+            return await Task.Run(() => Convert(Value, Input, Output, Mode));
         }
 
         /// <summary>
@@ -98,9 +98,9 @@ namespace Skylark.Standard.Extension.Storage
         /// <param name="Input"></param>
         /// <param name="Mode"></param>
         /// <returns></returns>
-        public static Task<SSSS> AutoConvertAsync(double Value = MSSM.Value, string Input = MSSM.DefaultInput, string Mode = MSSM.DefaultMode)
+        public static async Task<SSSS> AutoConvertAsync(double Value = MSSM.Value, string Input = MSSM.DefaultInput, string Mode = MSSM.DefaultMode)
         {
-            return Task.Run(() => AutoConvert(Value, Input, Mode));
+            return await Task.Run(() => AutoConvert(Value, Input, Mode));
         }
 
         /// <summary>
@@ -134,9 +134,9 @@ namespace Skylark.Standard.Extension.Storage
         /// <param name="Input"></param>
         /// <param name="Mode"></param>
         /// <returns></returns>
-        public static Task<SSSS> AutoConvertAsync(double Value = MSSM.Value, EST Input = MSSM.InputType, EMST Mode = MSSM.ModeType)
+        public static async Task<SSSS> AutoConvertAsync(double Value = MSSM.Value, EST Input = MSSM.InputType, EMST Mode = MSSM.ModeType)
         {
-            return Task.Run(() => AutoConvert(Value, Input, Mode));
+            return await Task.Run(() => AutoConvert(Value, Input, Mode));
         }
 
         /// <summary>
