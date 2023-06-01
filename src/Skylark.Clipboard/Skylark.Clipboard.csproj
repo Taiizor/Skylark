@@ -20,6 +20,7 @@
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
         <Summary>A lightweight .NET library with things to maximize productivity.</Summary>
         <Description>Skylark is a collection of tools and resources that can help with developing .NET projects. It is designed to be lightweight, easy to use, and not too complicated or resource-intensive. It can be useful for developers who are new to .NET or who want to quickly set up a new project without having to spend a lot of time configuring everything from scratch.</Description>
+        <PackageReadmeFile>README.MD</PackageReadmeFile>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageLicenseExpression></PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -56,10 +57,14 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.0.0.6" />
+        <PackageReference Include="Skylark" Version="3.0.0.7" />
     </ItemGroup>
 
     <ItemGroup>
+        <None Include="..\README.MD">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
         <None Include="..\..\LICENSE">
             <Pack>True</Pack>
             <PackagePath></PackagePath>
