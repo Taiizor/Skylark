@@ -17,8 +17,8 @@ using SUMI = Skylark.Uptime.Manage.Internal;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 27.Feb.2023
-//     Changed: 23.Mar.2023
-//     Version: 3.0.0.6
+//     Changed: 26.May.2023
+//     Version: 3.0.0.7
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -52,11 +52,11 @@ namespace Skylark.Uptime
         {
             try
             {
-                using TcpClient client = new();
-                await client.ConnectAsync(Address, 443);
+                using TcpClient Client = new();
+                await Client.ConnectAsync(Address, 443);
 
-                using NetworkStream stream = client.GetStream();
-                using SslStream sslStream = new(stream);
+                using NetworkStream Stream = Client.GetStream();
+                using SslStream sslStream = new(Stream);
                 await sslStream.AuthenticateAsClientAsync(Address);
 
                 X509Certificate certificate = sslStream.RemoteCertificate;

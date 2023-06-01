@@ -62,10 +62,7 @@ namespace Skylark.Standard.Extension.Web
             {
                 Url = HL.Parameter(Url, MWWM.Url);
 
-                string Rate;
-                string Code;
-                string Text;
-                string Total;
+                string Rate, Code, Text, Total;
 
                 string Content = Source(Url);
 
@@ -342,7 +339,7 @@ namespace Skylark.Standard.Extension.Web
             }
             catch
             {
-                return ECWT.None;
+                return MWWM.CompressType;
             }
         }
 

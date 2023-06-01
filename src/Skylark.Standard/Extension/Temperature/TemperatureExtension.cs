@@ -424,7 +424,7 @@ namespace Skylark.Standard.Extension.Temperature
         {
             try
             {
-                return (Kelvin - Constant) * 0.8M;
+                return (Kelvin - Constant) * Coefficient;
             }
             catch (E Ex)
             {
