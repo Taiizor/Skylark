@@ -1,15 +1,15 @@
-﻿using SEAPT = Skylark.Enum.AlphabeticPasswordType;
-using SECNT = Skylark.Enum.ClearNumericType;
-using SECWT = Skylark.Enum.CompressWebType;
-using SEHWT = Skylark.Enum.HttpWebType;
-using SEMST = Skylark.Enum.ModeStorageType;
-using SEQDT = Skylark.Enum.QueryDomainType;
-using SESLPT = Skylark.Enum.SpecialPasswordType;
-using SESRPT = Skylark.Enum.SimilarPasswordType;
-using SEST = Skylark.Enum.StorageType;
-using SETET = Skylark.Enum.TimeType;
-using SETXT = Skylark.Enum.TaxType;
-using SHN = Skylark.Helper.Numeric;
+﻿using EAPT = Skylark.Enum.AlphabeticPasswordType;
+using ECNT = Skylark.Enum.ClearNumericType;
+using ECWT = Skylark.Enum.CompressWebType;
+using EHWT = Skylark.Enum.HttpWebType;
+using EMST = Skylark.Enum.ModeStorageType;
+using EQDT = Skylark.Enum.QueryDomainType;
+using ESLPT = Skylark.Enum.SpecialPasswordType;
+using ESRPT = Skylark.Enum.SimilarPasswordType;
+using EST = Skylark.Enum.StorageType;
+using ETET = Skylark.Enum.TimeType;
+using ETXT = Skylark.Enum.TaxType;
+using HN = Skylark.Helper.Numeric;
 
 namespace Skylark.Helper
 {
@@ -24,9 +24,9 @@ namespace Skylark.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static SEST Convert(string Type, SEST Back = SEST.Bit)
+        public static EST Convert(string Type, EST Back = EST.Bit)
         {
-            foreach (SEST Types in (SEST[])System.Enum.GetValues(typeof(SEST)))
+            foreach (EST Types in (EST[])System.Enum.GetValues(typeof(EST)))
             {
                 if (Check(Type, Types))
                 {
@@ -43,9 +43,9 @@ namespace Skylark.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static SEQDT Convert(string Type, SEQDT Back = SEQDT.TXT)
+        public static EQDT Convert(string Type, EQDT Back = EQDT.TXT)
         {
-            foreach (SEQDT Types in (SEQDT[])System.Enum.GetValues(typeof(SEQDT)))
+            foreach (EQDT Types in (EQDT[])System.Enum.GetValues(typeof(EQDT)))
             {
                 if (Check(Type, Types))
                 {
@@ -62,9 +62,9 @@ namespace Skylark.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static SECNT Convert(string Type, SECNT Back = SHN.ClearType)
+        public static ECNT Convert(string Type, ECNT Back = HN.ClearType)
         {
-            foreach (SECNT Types in (SECNT[])System.Enum.GetValues(typeof(SECNT)))
+            foreach (ECNT Types in (ECNT[])System.Enum.GetValues(typeof(ECNT)))
             {
                 if (Check(Type, Types))
                 {
@@ -81,9 +81,9 @@ namespace Skylark.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static SEMST Convert(string Type, SEMST Back = SEMST.Toucan)
+        public static EMST Convert(string Type, EMST Back = EMST.Toucan)
         {
-            foreach (SEMST Types in (SEMST[])System.Enum.GetValues(typeof(SEMST)))
+            foreach (EMST Types in (EMST[])System.Enum.GetValues(typeof(EMST)))
             {
                 if (Check(Type, Types))
                 {
@@ -100,9 +100,9 @@ namespace Skylark.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static SETET Convert(string Type, SETET Back = SETET.Attosecond)
+        public static ETET Convert(string Type, ETET Back = ETET.Attosecond)
         {
-            foreach (SETET Types in (SETET[])System.Enum.GetValues(typeof(SETET)))
+            foreach (ETET Types in (ETET[])System.Enum.GetValues(typeof(ETET)))
             {
                 if (Check(Type, Types))
                 {
@@ -119,9 +119,9 @@ namespace Skylark.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static SETXT Convert(string Type, SETXT Back = SETXT.Amount)
+        public static ETXT Convert(string Type, ETXT Back = ETXT.Amount)
         {
-            foreach (SETXT Types in (SETXT[])System.Enum.GetValues(typeof(SETXT)))
+            foreach (ETXT Types in (ETXT[])System.Enum.GetValues(typeof(ETXT)))
             {
                 if (Check(Type, Types))
                 {
@@ -138,9 +138,9 @@ namespace Skylark.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static SESRPT Convert(string Type, SESRPT Back = SESRPT.Jaccard)
+        public static ESRPT Convert(string Type, ESRPT Back = ESRPT.Jaccard)
         {
-            foreach (SESRPT Types in (SESRPT[])System.Enum.GetValues(typeof(SESRPT)))
+            foreach (ESRPT Types in (ESRPT[])System.Enum.GetValues(typeof(ESRPT)))
             {
                 if (Check(Type, Types))
                 {
@@ -157,9 +157,9 @@ namespace Skylark.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static SESLPT Convert(string Type, SESLPT Back = SESLPT.Mixed)
+        public static ESLPT Convert(string Type, ESLPT Back = ESLPT.Mixed)
         {
-            foreach (SESLPT Types in (SESLPT[])System.Enum.GetValues(typeof(SESLPT)))
+            foreach (ESLPT Types in (ESLPT[])System.Enum.GetValues(typeof(ESLPT)))
             {
                 if (Check(Type, Types))
                 {
@@ -176,9 +176,9 @@ namespace Skylark.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static SECWT Convert(string Type, SECWT Back = SECWT.None)
+        public static ECWT Convert(string Type, ECWT Back = ECWT.None)
         {
-            foreach (SECWT Types in (SECWT[])System.Enum.GetValues(typeof(SECWT)))
+            foreach (ECWT Types in (ECWT[])System.Enum.GetValues(typeof(ECWT)))
             {
                 if (Check(Type, Types))
                 {
@@ -195,9 +195,9 @@ namespace Skylark.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static SEHWT Convert(string Type, SEHWT Back = SEHWT.POST)
+        public static EHWT Convert(string Type, EHWT Back = EHWT.POST)
         {
-            foreach (SEHWT Types in (SEHWT[])System.Enum.GetValues(typeof(SEHWT)))
+            foreach (EHWT Types in (EHWT[])System.Enum.GetValues(typeof(EHWT)))
             {
                 if (Check(Type, Types))
                 {
@@ -214,9 +214,9 @@ namespace Skylark.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static SEAPT Convert(string Type, SEAPT Back = SEAPT.Mixed)
+        public static EAPT Convert(string Type, EAPT Back = EAPT.Mixed)
         {
-            foreach (SEAPT Types in (SEAPT[])System.Enum.GetValues(typeof(SEAPT)))
+            foreach (EAPT Types in (EAPT[])System.Enum.GetValues(typeof(EAPT)))
             {
                 if (Check(Type, Types))
                 {

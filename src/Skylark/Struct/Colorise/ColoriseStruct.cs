@@ -1,5 +1,5 @@
 ﻿using System.Runtime.InteropServices;
-using Skylark.Helper;
+using HS = Skylark.Helper.Skymath;
 
 namespace Skylark.Struct.Colorise
 {
@@ -38,15 +38,37 @@ namespace Skylark.Struct.Colorise
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Other"></param>
+        /// <param name="Weight"></param>
+        /// <returns></returns>
+        public ColoriseStruct Lerp(ColoriseStruct Other, double Weight)
+        {
+            byte R, G, B;
+
+            checked
+            {
+                R = (byte)HS.Lerp(this.R, Other.R, Weight);
+                G = (byte)HS.Lerp(this.G, Other.G, Weight);
+                B = (byte)HS.Lerp(this.B, Other.B, Weight);
+            }
+
+            return new ColoriseStruct(R, G, B);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <returns></returns>
         public int ToInt()
         {
             int N = 0;
+
             N += R;
             N <<= 8;
             N += G;
             N <<= 8;
             N += B;
+
             return N;
         }
 
@@ -57,27 +79,6 @@ namespace Skylark.Struct.Colorise
         public string ToHex()
         {
             return $"0x{ToInt():X}";
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="other"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
-        public ColoriseStruct Lerp(ColoriseStruct other, double weight)
-        {
-            byte r;
-            byte g;
-            byte b;
-            checked
-            {
-                r = (byte)Skymath.Lerp(R, other.R, weight);
-                g = (byte)Skymath.Lerp(G, other.G, weight);
-                b = (byte)Skymath.Lerp(B, other.B, weight);
-            }
-            
-            return new ColoriseStruct(r, g, b);
         }
 
         /// <summary>

@@ -1,6 +1,6 @@
 ﻿namespace Skylark.Helper
 {
-    public static class RandomHelper
+    public static class Randomly
     {
         /// <summary>
         /// Gets a random element from within an IList

@@ -14,15 +14,17 @@
         /// <returns></returns>
         public static T[] FastRange<T>(T Start, T One, int Length, Func<T, T, T> IncrementFunc)
         {
-            var arr = new T[Length];
-            T n = Start;
-            for (var i = 0; i < arr.Length; i++)
+            T[] Array = new T[Length];
+
+            T Element = Start;
+
+            for (int Count = 0; Count < Array.Length; Count++)
             {
-                arr[i] = n;
-                n = IncrementFunc(n, One);
+                Array[Count] = Element;
+                Element = IncrementFunc(Element, One);
             }
 
-            return arr;
+            return Array;
         }
 
         /// <summary>
@@ -34,13 +36,14 @@
         /// <returns>An eagerly generated IEnumerable</returns>
         public static IEnumerable<T> GenerateEnumerable<T>(Func<int, T> IndexedGenerator, int Length)
         {
-            var arr = new T[Length];
-            for (var i = 0; i < arr.Length; i++)
+            T[] Array = new T[Length];
+
+            for (int Count = 0; Count < Array.Length; Count++)
             {
-                arr[i] = IndexedGenerator(i);
+                Array[Count] = IndexedGenerator(Count);
             }
 
-            return arr;
+            return Array;
         }
 
         /// <summary>
@@ -52,9 +55,9 @@
         /// <returns>A lazily generated IEnumerable</returns>
         public static IEnumerable<T> GenerateEnumerableLazy<T>(Func<int, T> IndexedGenerator, int Length)
         {
-            for (var i = 0; i < Length; i++)
+            for (int Count = 0; Count < Length; Count++)
             {
-                yield return IndexedGenerator(i);
+                yield return IndexedGenerator(Count);
             }
         }
 
@@ -67,13 +70,14 @@
         /// <returns></returns>
         public static string GenerateString(IList<char> AllowedChars, int Length, Random Random)
         {
-            var chars = new char[Length];
-            for (var i = 0; i < chars.Length; i++)
+            char[] Chars = new char[Length];
+
+            for (int Count = 0; Count < Chars.Length; Count++)
             {
-                chars[i] = Random.FromWithin(AllowedChars);
+                Chars[Count] = Random.FromWithin(AllowedChars);
             }
 
-            return new string(chars);
+            return new string(Chars);
         }
     }
 }

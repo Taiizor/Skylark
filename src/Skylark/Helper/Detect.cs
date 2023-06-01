@@ -1,4 +1,4 @@
-﻿using SEDT = Skylark.Enum.DetectType;
+﻿using EDT = Skylark.Enum.DetectType;
 
 namespace Skylark.Helper
 {
@@ -20,21 +20,21 @@ namespace Skylark.Helper
         /// <summary>
         /// 
         /// </summary>
-        public static SEDT Enum => Char switch
+        public static EDT Enum => Char switch
         {
-            '.' => SEDT.Dot,
-            ',' => SEDT.Comma,
-            _ => SEDT.None,
+            '.' => EDT.Dot,
+            ',' => EDT.Comma,
+            _ => EDT.None,
         };
 
         /// <summary>
         /// 
         /// </summary>
-        public static SEDT EnumCross => CharCross switch
+        public static EDT EnumCross => CharCross switch
         {
-            '.' => SEDT.Dot,
-            ',' => SEDT.Comma,
-            _ => SEDT.None,
+            '.' => EDT.Dot,
+            ',' => EDT.Comma,
+            _ => EDT.None,
         };
 
         /// <summary>

@@ -1,13 +1,14 @@
 ﻿#region Imports
 
-using Skylark.Enum;
-using Skylark.Standard.Extension.Port;
-using Skylark.Struct.Certificate;
-using Skylark.Struct.Ping;
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
-using SSEPPE = Skylark.Standard.Extension.Ping.PingExtension;
+using SEPT = Skylark.Enum.PortType;
+using SEST = Skylark.Enum.ServiceType;
+using SSCCS = Skylark.Struct.Certificate.CertificateStruct;
+using SSEPPGE = Skylark.Standard.Extension.Ping.PingExtension;
+using SSEPPTE = Skylark.Standard.Extension.Port.PortExtension;
+using SSPPSS = Skylark.Struct.Ping.PingSendStruct;
 using SUMI = Skylark.Uptime.Manage.Internal;
 
 #endregion
@@ -43,12 +44,12 @@ namespace Skylark.Uptime
             this.Address = Address;
         }
 
-        public PingSendStruct Ping()
+        public SSPPSS Ping()
         {
-            return SSEPPE.Send(Address);
+            return SSEPPGE.Send(Address);
         }
 
-        public async Task<CertificateStruct> Certificate()
+        public async Task<SSCCS> Certificate()
         {
             try
             {
@@ -89,9 +90,9 @@ namespace Skylark.Uptime
             }
         }
 
-        public PortType Service(ServiceType Type)
+        public SEPT Service(SEST Type)
         {
-            return PortExtension.Scan(Address, (int)Type);
+            return SSEPPTE.Scan(Address, (int)Type);
         }
     }
 
