@@ -43,9 +43,9 @@ namespace Skylark.Standard.Extension.Json
         /// <param name="Special"></param>
         /// <param name="Array"></param>
         /// <returns></returns>
-        public static Task<string> ToXmlAsync(string Json = MJJM.Json, string Root = MJJM.Root, bool Special = MJJM.Special, bool Array = MJJM.Array)
+        public static async Task<string> ToXmlAsync(string Json = MJJM.Json, string Root = MJJM.Root, bool Special = MJJM.Special, bool Array = MJJM.Array)
         {
-            return Task.Run(() => ToXml(Json, Root, Special, Array));
+            return await Task.Run(() => ToXml(Json, Root, Special, Array));
         }
 
         /// <summary>
@@ -97,9 +97,9 @@ namespace Skylark.Standard.Extension.Json
         /// <param name="Value"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static Task<string> ToReadAsync(string Json = MJJM.Json, string Token = MJJM.Token, string Value = MJJM.Value, string Separator = MJJM.Seperator)
+        public static async Task<string> ToReadAsync(string Json = MJJM.Json, string Token = MJJM.Token, string Value = MJJM.Value, string Separator = MJJM.Seperator)
         {
-            return Task.Run(() => ToRead(Json, Token, Value, Separator));
+            return await Task.Run(() => ToRead(Json, Token, Value, Separator));
         }
 
         /// <summary>
@@ -126,9 +126,9 @@ namespace Skylark.Standard.Extension.Json
         /// </summary>
         /// <param name="Json"></param>
         /// <returns></returns>
-        public static Task<string> ToBeautyAsync(string Json = MJJM.Json)
+        public static async Task<string> ToBeautyAsync(string Json = MJJM.Json)
         {
-            return Task.Run(() => ToBeauty(Json));
+            return await Task.Run(() => ToBeauty(Json));
         }
 
         /// <summary>
@@ -155,9 +155,9 @@ namespace Skylark.Standard.Extension.Json
         /// </summary>
         /// <param name="Json"></param>
         /// <returns></returns>
-        public static Task<string> ToMinifyAsync(string Json = MJJM.Json)
+        public static async Task<string> ToMinifyAsync(string Json = MJJM.Json)
         {
-            return Task.Run(() => ToMinify(Json));
+            return await Task.Run(() => ToMinify(Json));
         }
 
         /// <summary>
@@ -179,9 +179,9 @@ namespace Skylark.Standard.Extension.Json
         /// </summary>
         /// <param name="Json"></param>
         /// <returns></returns>
-        public static Task<ExpandoObject> ToExpandaAsync(string Json = MJJM.Json)
+        public static async Task<ExpandoObject> ToExpandaAsync(string Json = MJJM.Json)
         {
-            return Task.Run(() => ToExpando(Json));
+            return await Task.Run(() => ToExpando(Json));
         }
     }
 }

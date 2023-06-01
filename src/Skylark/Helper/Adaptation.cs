@@ -22,9 +22,9 @@
         /// <param name="Value"></param>
         /// <param name="MaxLength"></param>
         /// <returns></returns>
-        public static Task<string> CutAsync(string Value, int MaxLength)
+        public static async Task<string> CutAsync(string Value, int MaxLength)
         {
-            return Task.Run(() => Cut(Value, MaxLength));
+            return await Task.Run(() => Cut(Value, MaxLength));
         }
 
         /// <summary>
@@ -46,9 +46,9 @@
         /// <param name="Char"></param>
         /// <param name="MinLength"></param>
         /// <returns></returns>
-        public static Task<string> AddAsync(string Value, char Char, int MinLength)
+        public static async Task<string> AddAsync(string Value, char Char, int MinLength)
         {
-            return Task.Run(() => Add(Value, Char, MinLength));
+            return await Task.Run(() => Add(Value, Char, MinLength));
         }
 
         /// <summary>
@@ -70,9 +70,9 @@
         /// <param name="Back"></param>
         /// <param name="Length"></param>
         /// <returns></returns>
-        public static Task<string> PinAsync(string Value, string Back, int Length)
+        public static async Task<string> PinAsync(string Value, string Back, int Length)
         {
-            return Task.Run(() => Pin(Value, Back, Length));
+            return await Task.Run(() => Pin(Value, Back, Length));
         }
 
         /// <summary>
@@ -96,9 +96,9 @@
         /// <param name="MinLength"></param>
         /// <param name="MaxLength"></param>
         /// <returns></returns>
-        public static Task<string> FeedAsync(string Value, string Back, int MinLength, int MaxLength)
+        public static async Task<string> FeedAsync(string Value, string Back, int MinLength, int MaxLength)
         {
-            return Task.Run(() => Feed(Value, Back, MinLength, MaxLength));
+            return await Task.Run(() => Feed(Value, Back, MinLength, MaxLength));
         }
 
         /// <summary>
@@ -122,9 +122,9 @@
         /// <param name="MinLength"></param>
         /// <param name="MaxLength"></param>
         /// <returns></returns>
-        public static Task<string> AdaptAsync(string Value, char Char, int MinLength, int MaxLength)
+        public static async Task<string> AdaptAsync(string Value, char Char, int MinLength, int MaxLength)
         {
-            return Task.Run(() => Adapt(Value, Char, MinLength, MaxLength));
+            return await Task.Run(() => Adapt(Value, Char, MinLength, MaxLength));
         }
     }
 }

@@ -45,9 +45,9 @@ namespace Skylark.Standard.Extension.Web
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static Task<string> SourceAsync(string Url = MWWM.Url)
+        public static async Task<string> SourceAsync(string Url = MWWM.Url)
         {
-            return Task.Run(() => Source(Url));
+            return await Task.Run(() => Source(Url));
         }
 
         /// <summary>
@@ -94,9 +94,9 @@ namespace Skylark.Standard.Extension.Web
         /// <param name="Url"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static Task<SWWRS> RatioAsync(string Url = MWWM.Url, bool Separator = MWWM.Separator)
+        public static async Task<SWWRS> RatioAsync(string Url = MWWM.Url, bool Separator = MWWM.Separator)
         {
-            return Task.Run(() => Ratio(Url, Separator));
+            return await Task.Run(() => Ratio(Url, Separator));
         }
 
         /// <summary>
@@ -184,9 +184,9 @@ namespace Skylark.Standard.Extension.Web
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static Task<SWWHS> HeaderAsync(string Url = MWWM.Url)
+        public static async Task<SWWHS> HeaderAsync(string Url = MWWM.Url)
         {
-            return Task.Run(() => Header(Url));
+            return await Task.Run(() => Header(Url));
         }
 
         /// <summary>
@@ -208,9 +208,9 @@ namespace Skylark.Standard.Extension.Web
         /// <param name="Parameter"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static Task<string> RequestAsync(string Url = MWWM.Url, Dictionary<string, object> Parameter = null, string Type = MWWM.DefaultType)
+        public static async Task<string> RequestAsync(string Url = MWWM.Url, Dictionary<string, object> Parameter = null, string Type = MWWM.DefaultType)
         {
-            return Task.Run(() => Request(Url, Parameter, Type));
+            return await Task.Run(() => Request(Url, Parameter, Type));
         }
 
         /// <summary>
@@ -307,9 +307,9 @@ namespace Skylark.Standard.Extension.Web
         /// <param name="Parameter"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static Task<string> RequestAsync(string Url = MWWM.Url, Dictionary<string, object> Parameter = null, EHWT Type = MWWM.HttpType)
+        public static async Task<string> RequestAsync(string Url = MWWM.Url, Dictionary<string, object> Parameter = null, EHWT Type = MWWM.HttpType)
         {
-            return Task.Run(() => Request(Url, Parameter, Type));
+            return await Task.Run(() => Request(Url, Parameter, Type));
         }
 
         /// <summary>
@@ -348,9 +348,9 @@ namespace Skylark.Standard.Extension.Web
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static Task<ECWT> CompressAsync(string Url = MWWM.Url)
+        public static async Task<ECWT> CompressAsync(string Url = MWWM.Url)
         {
-            return Task.Run(() => Compress(Url));
+            return await Task.Run(() => Compress(Url));
         }
 
         /// <summary>
@@ -395,9 +395,9 @@ namespace Skylark.Standard.Extension.Web
         /// <param name="Url2"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static Task<string> SimilarityAsync(string Url1 = MWWM.Url, string Url2 = MWWM.Url, bool Separator = MWWM.Separator)
+        public static async Task<string> SimilarityAsync(string Url1 = MWWM.Url, string Url2 = MWWM.Url, bool Separator = MWWM.Separator)
         {
-            return Task.Run(() => Similarity(Url1, Url2, Separator));
+            return await Task.Run(() => Similarity(Url1, Url2, Separator));
         }
     }
 }

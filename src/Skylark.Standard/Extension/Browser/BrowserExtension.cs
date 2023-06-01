@@ -48,9 +48,9 @@ namespace Skylark.Standard.Extension.Browser
         /// </summary>
         /// <param name="Css"></param>
         /// <returns></returns>
-        public static Task<string> ToMinifyAsync(string Css = MBBM.Css)
+        public static async Task<string> ToMinifyAsync(string Css = MBBM.Css)
         {
-            return Task.Run(() => ToMinify(Css));
+            return await Task.Run(() => ToMinify(Css));
         }
     }
 }

@@ -34,9 +34,9 @@ namespace Skylark.Standard.Extension.Url
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static Task<string> EncodeAsync(string Url = MUUM.Url)
+        public static async Task<string> EncodeAsync(string Url = MUUM.Url)
         {
-            return Task.Run(() => Encode(Url));
+            return await Task.Run(() => Encode(Url));
         }
 
         /// <summary>
@@ -63,9 +63,9 @@ namespace Skylark.Standard.Extension.Url
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static Task<string> DecodeAsync(string Url = MUUM.Url)
+        public static async Task<string> DecodeAsync(string Url = MUUM.Url)
         {
-            return Task.Run(() => Decode(Url));
+            return await Task.Run(() => Decode(Url));
         }
     }
 }

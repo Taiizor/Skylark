@@ -39,9 +39,9 @@ namespace Skylark.Standard.Extension.Color
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        public static Task<string> ToHexAsync(SDC Color, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
+        public static async Task<string> ToHexAsync(SDC Color, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
         {
-            return Task.Run(() => ToHex(Color, Upper, Sharp));
+            return await Task.Run(() => ToHex(Color, Upper, Sharp));
         }
 
         /// <summary>
@@ -77,9 +77,9 @@ namespace Skylark.Standard.Extension.Color
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        public static Task<string> ToHexIntegerAsync(SDC Color, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
+        public static async Task<string> ToHexIntegerAsync(SDC Color, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
         {
-            return Task.Run(() => ToHexInteger(Color, Upper, Sharp));
+            return await Task.Run(() => ToHexInteger(Color, Upper, Sharp));
         }
 
         /// <summary>
@@ -105,9 +105,9 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToRGBAsync(SDC Color)
+        public static async Task<string> ToRGBAsync(SDC Color)
         {
-            return Task.Run(() => ToRGB(Color));
+            return await Task.Run(() => ToRGB(Color));
         }
 
         /// <summary>
@@ -133,9 +133,9 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToARGBAsync(SDC Color)
+        public static async Task<string> ToARGBAsync(SDC Color)
         {
-            return Task.Run(() => ToARGB(Color));
+            return await Task.Run(() => ToARGB(Color));
         }
 
         /// <summary>
@@ -167,9 +167,9 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToHSBAsync(SDC Color)
+        public static async Task<string> ToHSBAsync(SDC Color)
         {
-            return Task.Run(() => ToHSB(Color));
+            return await Task.Run(() => ToHSB(Color));
         }
 
         /// <summary>
@@ -201,9 +201,9 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToHSIAsync(SDC Color)
+        public static async Task<string> ToHSIAsync(SDC Color)
         {
-            return Task.Run(() => ToHSI(Color));
+            return await Task.Run(() => ToHSI(Color));
         }
 
         /// <summary>
@@ -235,9 +235,9 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToHSLAsync(SDC Color)
+        public static async Task<string> ToHSLAsync(SDC Color)
         {
-            return Task.Run(() => ToHSL(Color));
+            return await Task.Run(() => ToHSL(Color));
         }
 
         /// <summary>
@@ -269,9 +269,9 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToHSVAsync(SDC Color)
+        public static async Task<string> ToHSVAsync(SDC Color)
         {
-            return Task.Run(() => ToHSV(Color));
+            return await Task.Run(() => ToHSV(Color));
         }
 
         /// <summary>
@@ -303,9 +303,9 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToHWBAsync(SDC Color)
+        public static async Task<string> ToHWBAsync(SDC Color)
         {
-            return Task.Run(() => ToHWB(Color));
+            return await Task.Run(() => ToHWB(Color));
         }
 
         /// <summary>
@@ -338,9 +338,9 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToCMYKAsync(SDC Color)
+        public static async Task<string> ToCMYKAsync(SDC Color)
         {
-            return Task.Run(() => ToCMYK(Color));
+            return await Task.Run(() => ToCMYK(Color));
         }
 
         /// <summary>
@@ -372,9 +372,9 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToCIELABAsync(SDC Color)
+        public static async Task<string> ToCIELABAsync(SDC Color)
         {
-            return Task.Run(() => ToCIELAB(Color));
+            return await Task.Run(() => ToCIELAB(Color));
         }
 
         /// <summary>
@@ -406,9 +406,9 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToCIEXYZAsync(SDC Color)
+        public static async Task<string> ToCIEXYZAsync(SDC Color)
         {
-            return Task.Run(() => ToCIEXYZ(Color));
+            return await Task.Run(() => ToCIEXYZ(Color));
         }
 
         /// <summary>
@@ -439,9 +439,9 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToFloatAsync(SDC Color)
+        public static async Task<string> ToFloatAsync(SDC Color)
         {
-            return Task.Run(() => ToFloat(Color));
+            return await Task.Run(() => ToFloat(Color));
         }
 
         /// <summary>
@@ -467,9 +467,9 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToDecimalAsync(SDC Color)
+        public static async Task<string> ToDecimalAsync(SDC Color)
         {
-            return Task.Run(() => ToDecimal(Color));
+            return await Task.Run(() => ToDecimal(Color));
         }
 
         /// <summary>
@@ -500,9 +500,9 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        public static Task<string> ToNaturalAsync(SDC Color)
+        public static async Task<string> ToNaturalAsync(SDC Color)
         {
-            return Task.Run(() => ToNatural(Color));
+            return await Task.Run(() => ToNatural(Color));
         }
 
         /// <summary>
@@ -536,9 +536,9 @@ namespace Skylark.Standard.Extension.Color
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        public static Task<string> RGBToHexAsync(int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
+        public static async Task<string> RGBToHexAsync(int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
         {
-            return Task.Run(() => RGBToHex(R, G, B, Upper, Sharp));
+            return await Task.Run(() => RGBToHex(R, G, B, Upper, Sharp));
         }
 
         /// <summary>
@@ -574,9 +574,9 @@ namespace Skylark.Standard.Extension.Color
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        public static Task<string> ARGBToHexAsync(int A = MCCM.Value, int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
+        public static async Task<string> ARGBToHexAsync(int A = MCCM.Value, int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
         {
-            return Task.Run(() => ARGBToHex(A, R, G, B, Upper, Sharp));
+            return await Task.Run(() => ARGBToHex(A, R, G, B, Upper, Sharp));
         }
 
         /// <summary>
@@ -606,9 +606,9 @@ namespace Skylark.Standard.Extension.Color
         /// <param name="G"></param>
         /// <param name="B"></param>
         /// <returns></returns>
-        public static Task<SDC> RGBToColorAsync(int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value)
+        public static async Task<SDC> RGBToColorAsync(int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value)
         {
-            return Task.Run(() => RGBToColor(R, G, B));
+            return await Task.Run(() => RGBToColor(R, G, B));
         }
 
         /// <summary>
@@ -640,9 +640,9 @@ namespace Skylark.Standard.Extension.Color
         /// <param name="G"></param>
         /// <param name="B"></param>
         /// <returns></returns>
-        public static Task<SDC> ARGBToColorAsync(int A = MCCM.Value, int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value)
+        public static async Task<SDC> ARGBToColorAsync(int A = MCCM.Value, int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value)
         {
-            return Task.Run(() => ARGBToColor(A, R, G, B));
+            return await Task.Run(() => ARGBToColor(A, R, G, B));
         }
 
         /// <summary>
@@ -681,9 +681,9 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Hex"></param>
         /// <returns></returns>
-        public static Task<string> HexToRGBAsync(string Hex = MCCM.Hex)
+        public static async Task<string> HexToRGBAsync(string Hex = MCCM.Hex)
         {
-            return Task.Run(() => HexToRGB(Hex));
+            return await Task.Run(() => HexToRGB(Hex));
         }
 
         /// <summary>
@@ -720,9 +720,9 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Hex"></param>
         /// <returns></returns>
-        public static Task<string> HexToARGBAsync(string Hex = MCCM.HexAlpha)
+        public static async Task<string> HexToARGBAsync(string Hex = MCCM.HexAlpha)
         {
-            return Task.Run(() => HexToARGB(Hex));
+            return await Task.Run(() => HexToARGB(Hex));
         }
 
         /// <summary>
@@ -770,9 +770,9 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Hex"></param>
         /// <returns></returns>
-        public static Task<SDC> HexToColorAsync(string Hex = MCCM.Hex)
+        public static async Task<SDC> HexToColorAsync(string Hex = MCCM.Hex)
         {
-            return Task.Run(() => HexToColor(Hex));
+            return await Task.Run(() => HexToColor(Hex));
         }
     }
 }

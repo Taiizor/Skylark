@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using Skylark.Helper;
 
 namespace Skylark.Struct.Colorise
 {
@@ -56,6 +57,27 @@ namespace Skylark.Struct.Colorise
         public string ToHex()
         {
             return $"0x{ToInt():X}";
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="other"></param>
+        /// <param name="weight"></param>
+        /// <returns></returns>
+        public ColoriseStruct Lerp(ColoriseStruct other, double weight)
+        {
+            byte r;
+            byte g;
+            byte b;
+            checked
+            {
+                r = (byte)Skymath.Lerp(R, other.R, weight);
+                g = (byte)Skymath.Lerp(G, other.G, weight);
+                b = (byte)Skymath.Lerp(B, other.B, weight);
+            }
+            
+            return new ColoriseStruct(r, g, b);
         }
 
         /// <summary>

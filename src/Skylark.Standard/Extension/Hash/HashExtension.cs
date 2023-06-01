@@ -48,9 +48,9 @@ namespace Skylark.Standard.Extension.Hash
         /// <param name="Upper"></param>
         /// <param name="Invariant"></param>
         /// <returns></returns>
-        public static Task<string> FileToMD5Async(string Path = MHHM.Path, string Split = MHHM.Split, bool Upper = MHHM.Upper, bool Invariant = MHHM.Invariant)
+        public static async Task<string> FileToMD5Async(string Path = MHHM.Path, string Split = MHHM.Split, bool Upper = MHHM.Upper, bool Invariant = MHHM.Invariant)
         {
-            return Task.Run(() => FileToMD5(Path, Split, Upper, Invariant));
+            return await Task.Run(() => FileToMD5(Path, Split, Upper, Invariant));
         }
 
         /// <summary>
@@ -89,9 +89,9 @@ namespace Skylark.Standard.Extension.Hash
         /// <param name="Upper"></param>
         /// <param name="Invariant"></param>
         /// <returns></returns>
-        public static Task<string> FileToSHA1Async(string Path = MHHM.Path, string Split = MHHM.Split, bool Upper = MHHM.Upper, bool Invariant = MHHM.Invariant)
+        public static async Task<string> FileToSHA1Async(string Path = MHHM.Path, string Split = MHHM.Split, bool Upper = MHHM.Upper, bool Invariant = MHHM.Invariant)
         {
-            return Task.Run(() => FileToSHA1(Path, Split, Upper, Invariant));
+            return await Task.Run(() => FileToSHA1(Path, Split, Upper, Invariant));
         }
 
         /// <summary>
@@ -130,9 +130,9 @@ namespace Skylark.Standard.Extension.Hash
         /// <param name="Upper"></param>
         /// <param name="Invariant"></param>
         /// <returns></returns>
-        public static Task<string> FileToSHA256Async(string Path = MHHM.Path, string Split = MHHM.Split, bool Upper = MHHM.Upper, bool Invariant = MHHM.Invariant)
+        public static async Task<string> FileToSHA256Async(string Path = MHHM.Path, string Split = MHHM.Split, bool Upper = MHHM.Upper, bool Invariant = MHHM.Invariant)
         {
-            return Task.Run(() => FileToSHA256(Path, Split, Upper, Invariant));
+            return await Task.Run(() => FileToSHA256(Path, Split, Upper, Invariant));
         }
 
         /// <summary>
@@ -171,9 +171,9 @@ namespace Skylark.Standard.Extension.Hash
         /// <param name="Upper"></param>
         /// <param name="Invariant"></param>
         /// <returns></returns>
-        public static Task<string> FileToSHA384Async(string Path = MHHM.Path, string Split = MHHM.Split, bool Upper = MHHM.Upper, bool Invariant = MHHM.Invariant)
+        public static async Task<string> FileToSHA384Async(string Path = MHHM.Path, string Split = MHHM.Split, bool Upper = MHHM.Upper, bool Invariant = MHHM.Invariant)
         {
-            return Task.Run(() => FileToSHA384(Path, Split, Upper, Invariant));
+            return await Task.Run(() => FileToSHA384(Path, Split, Upper, Invariant));
         }
 
         /// <summary>
@@ -212,9 +212,9 @@ namespace Skylark.Standard.Extension.Hash
         /// <param name="Upper"></param>
         /// <param name="Invariant"></param>
         /// <returns></returns>
-        public static Task<string> FileToSHA512Async(string Path = MHHM.Path, string Split = MHHM.Split, bool Upper = MHHM.Upper, bool Invariant = MHHM.Invariant)
+        public static async Task<string> FileToSHA512Async(string Path = MHHM.Path, string Split = MHHM.Split, bool Upper = MHHM.Upper, bool Invariant = MHHM.Invariant)
         {
-            return Task.Run(() => FileToSHA512(Path, Split, Upper, Invariant));
+            return await Task.Run(() => FileToSHA512(Path, Split, Upper, Invariant));
         }
     }
 }

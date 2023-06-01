@@ -48,9 +48,9 @@ namespace Skylark.Standard.Extension.Css
         /// </summary>
         /// <param name="Css"></param>
         /// <returns></returns>
-        public static Task<string> ToMinifyAsync(string Css = MCCM.Css)
+        public static async Task<string> ToMinifyAsync(string Css = MCCM.Css)
         {
-            return Task.Run(() => ToMinify(Css));
+            return await Task.Run(() => ToMinify(Css));
         }
 
         /// <summary>
@@ -87,9 +87,9 @@ namespace Skylark.Standard.Extension.Css
         /// </summary>
         /// <param name="Css"></param>
         /// <returns></returns>
-        public static Task<string> ToBeautyAsync(string Css = MCCM.Css)
+        public static async Task<string> ToBeautyAsync(string Css = MCCM.Css)
         {
-            return Task.Run(() => ToBeauty(Css));
+            return await Task.Run(() => ToBeauty(Css));
         }
     }
 }

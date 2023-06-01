@@ -40,9 +40,9 @@ namespace Skylark.Standard.Extension.Unicode
         /// <param name="Split"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static Task<string> TextToASCIIAsync(string Text = MUUM.Text, char Split = MUUM.Split, EET Encode = MUUM.Encode)
+        public static async Task<string> TextToASCIIAsync(string Text = MUUM.Text, char Split = MUUM.Split, EET Encode = MUUM.Encode)
         {
-            return Task.Run(() => TextToASCII(Text, Split, Encode));
+            return await Task.Run(() => TextToASCII(Text, Split, Encode));
         }
 
         /// <summary>
@@ -74,9 +74,9 @@ namespace Skylark.Standard.Extension.Unicode
         /// <param name="Split"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static Task<string> ASCIIToTextAsync(string ASCII = MUUM.ASCII, char Split = MUUM.Split, EET Encode = MUUM.Encode)
+        public static async Task<string> ASCIIToTextAsync(string ASCII = MUUM.ASCII, char Split = MUUM.Split, EET Encode = MUUM.Encode)
         {
-            return Task.Run(() => ASCIIToText(ASCII, Split, Encode));
+            return await Task.Run(() => ASCIIToText(ASCII, Split, Encode));
         }
     }
 }

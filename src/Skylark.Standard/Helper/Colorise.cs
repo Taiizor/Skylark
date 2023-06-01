@@ -29,9 +29,9 @@ namespace Skylark.Standard.Helper
         /// <param name="RGB"></param>
         /// <param name="Other"></param>
         /// <returns></returns>
-        public static Task<SSCCS> ToBlendAsync(this SSCCS RGB, SSCCS Other)
+        public static async Task<SSCCS> ToBlendAsync(this SSCCS RGB, SSCCS Other)
         {
-            return Task.Run(() => ToBlend(RGB, Other));
+            return await Task.Run(() => ToBlend(RGB, Other));
         }
 
         /// <summary>

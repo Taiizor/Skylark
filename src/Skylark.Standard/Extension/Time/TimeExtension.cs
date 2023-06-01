@@ -33,9 +33,9 @@ namespace Skylark.Standard.Extension.Time
         /// <param name="Input"></param>
         /// <param name="Output"></param>
         /// <returns></returns>
-        public static Task<double> ConvertAsync(double Value = MTTM.Value, string Input = MTTM.DefaultInput, string Output = MTTM.DefaultOutput)
+        public static async Task<double> ConvertAsync(double Value = MTTM.Value, string Input = MTTM.DefaultInput, string Output = MTTM.DefaultOutput)
         {
-            return Task.Run(() => Convert(Value, Input, Output));
+            return await Task.Run(() => Convert(Value, Input, Output));
         }
 
         /// <summary>
@@ -69,9 +69,9 @@ namespace Skylark.Standard.Extension.Time
         /// <param name="Input"></param>
         /// <param name="Output"></param>
         /// <returns></returns>
-        public static Task<double> ConvertAsync(double Value = MTTM.Value, ETT Input = MTTM.InputType, ETT Output = MTTM.OutputType)
+        public static async Task<double> ConvertAsync(double Value = MTTM.Value, ETT Input = MTTM.InputType, ETT Output = MTTM.OutputType)
         {
-            return Task.Run(() => Convert(Value, Input, Output));
+            return await Task.Run(() => Convert(Value, Input, Output));
         }
 
         /// <summary>
@@ -91,9 +91,9 @@ namespace Skylark.Standard.Extension.Time
         /// <param name="Value"></param>
         /// <param name="Input"></param>
         /// <returns></returns>
-        public static Task<STTS> AutoConvertAsync(double Value = MTTM.Value, string Input = MTTM.DefaultInput)
+        public static async Task<STTS> AutoConvertAsync(double Value = MTTM.Value, string Input = MTTM.DefaultInput)
         {
-            return Task.Run(() => AutoConvert(Value, Input));
+            return await Task.Run(() => AutoConvert(Value, Input));
         }
 
         /// <summary>
@@ -125,9 +125,9 @@ namespace Skylark.Standard.Extension.Time
         /// <param name="Value"></param>
         /// <param name="Input"></param>
         /// <returns></returns>
-        public static Task<STTS> AutoConvertAsync(double Value = MTTM.Value, ETT Input = MTTM.InputType)
+        public static async Task<STTS> AutoConvertAsync(double Value = MTTM.Value, ETT Input = MTTM.InputType)
         {
-            return Task.Run(() => AutoConvert(Value, Input));
+            return await Task.Run(() => AutoConvert(Value, Input));
         }
 
         /// <summary>

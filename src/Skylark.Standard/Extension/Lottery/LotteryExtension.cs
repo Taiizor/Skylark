@@ -82,9 +82,9 @@ namespace Skylark.Standard.Extension.Lottery
         /// <param name="ReserveCount"></param>
         /// <param name="Repeated"></param>
         /// <returns></returns>
-        public static Task<SLLDS> DrawAsync(string List = MLLM.List, int WinnerCount = MLLM.WinnerCount, int ReserveCount = MLLM.ReserveCount, bool Repeated = MLLM.Repeat)
+        public static async Task<SLLDS> DrawAsync(string List = MLLM.List, int WinnerCount = MLLM.WinnerCount, int ReserveCount = MLLM.ReserveCount, bool Repeated = MLLM.Repeat)
         {
-            return Task.Run(() => Draw(List, WinnerCount, ReserveCount, Repeated));
+            return await Task.Run(() => Draw(List, WinnerCount, ReserveCount, Repeated));
         }
 
         /// <summary>
@@ -118,9 +118,9 @@ namespace Skylark.Standard.Extension.Lottery
         /// <param name="List"></param>
         /// <param name="Repeated"></param>
         /// <returns></returns>
-        public static Task<string> SuffleAsync(string List = MLLM.List, bool Repeated = MLLM.Repeat)
+        public static async Task<string> SuffleAsync(string List = MLLM.List, bool Repeated = MLLM.Repeat)
         {
-            return Task.Run(() => Suffle(List, Repeated));
+            return await Task.Run(() => Suffle(List, Repeated));
         }
     }
 }

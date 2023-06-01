@@ -36,10 +36,9 @@ namespace Skylark.Clipboard.Helper
         /// <param name="Format"></param>
         /// <param name="Data"></param>
         /// <returns></returns>
-        public static Task SetDataAsync(string Format, object Data)
+        public static async Task SetDataAsync(string Format, object Data)
         {
-            SetData(Format, Data);
-            return Task.CompletedTask;
+            await Task.Run(() => SetData(Format, Data));
         }
 
         /// <summary>
@@ -57,9 +56,9 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Format"></param>
         /// <returns></returns>
-        public static Task<object> GetDataAsync(string Format)
+        public static async Task<object> GetDataAsync(string Format)
         {
-            return Task.Run(() => GetData(Format));
+            return await Task.Run(() => GetData(Format));
         }
 
         /// <summary>
@@ -77,9 +76,9 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Format"></param>
         /// <returns></returns>
-        public static Task<bool> ContainsDataAsync(string Format)
+        public static async Task<bool> ContainsDataAsync(string Format)
         {
-            return Task.Run(() => ContainsData(Format));
+            return await Task.Run(() => ContainsData(Format));
         }
 
         /// <summary>
@@ -96,10 +95,9 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Bytes"></param>
         /// <returns></returns>
-        public static Task SetAudioAsync(byte[] Bytes)
+        public static async Task SetAudioAsync(byte[] Bytes)
         {
-            SetAudio(Bytes);
-            return Task.CompletedTask;
+            await Task.Run(() => SetAudio(Bytes));
         }
 
         /// <summary>
@@ -116,10 +114,9 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Stream"></param>
         /// <returns></returns>
-        public static Task SetAudioAsync(Stream Stream)
+        public static async Task SetAudioAsync(Stream Stream)
         {
-            SetAudio(Stream);
-            return Task.CompletedTask;
+            await Task.Run(() => SetAudio(Stream));
         }
 
         /// <summary>
@@ -135,9 +132,9 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <returns></returns>
-        public static Task<Stream> GetAudioAsync()
+        public static async Task<Stream> GetAudioAsync()
         {
-            return Task.Run(GetAudio);
+            return await Task.Run(GetAudio);
         }
 
         /// <summary>
@@ -153,9 +150,9 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <returns></returns>
-        public static Task<bool> ContainsAudioAsync()
+        public static async Task<bool> ContainsAudioAsync()
         {
-            return Task.Run(ContainsAudio);
+            return await Task.Run(ContainsAudio);
         }
 
         /// <summary>
@@ -172,10 +169,9 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Image"></param>
         /// <returns></returns>
-        public static Task SetImageAsync(Image Image)
+        public static async Task SetImageAsync(Image Image)
         {
-            SetImage(Image);
-            return Task.CompletedTask;
+            await Task.Run(() => SetImage(Image));
         }
 
         /// <summary>
@@ -191,9 +187,9 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <returns></returns>
-        public static Task<Image> GetImageAsync()
+        public static async Task<Image> GetImageAsync()
         {
-            return Task.Run(GetImage);
+            return await Task.Run(GetImage);
         }
 
         /// <summary>
@@ -209,9 +205,9 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <returns></returns>
-        public static Task<bool> ContainsImageAsync()
+        public static async Task<bool> ContainsImageAsync()
         {
-            return Task.Run(ContainsImage);
+            return await Task.Run(ContainsImage);
         }
 
         /// <summary>
@@ -230,10 +226,9 @@ namespace Skylark.Clipboard.Helper
         /// <param name="Data"></param>
         /// <param name="Copy"></param>
         /// <returns></returns>
-        public static Task SetDataObjectAsync(object Data, bool Copy)
+        public static async Task SetDataObjectAsync(object Data, bool Copy)
         {
-            SetDataObject(Data, Copy);
-            return Task.CompletedTask;
+            await Task.Run(() => SetDataObject(Data, Copy));
         }
 
         /// <summary>
@@ -249,9 +244,9 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <returns></returns>
-        public static Task<IDataObject> GetDataObjectAsync()
+        public static async Task<IDataObject> GetDataObjectAsync()
         {
-            return Task.Run(GetDataObject);
+            return await Task.Run(GetDataObject);
         }
 
         /// <summary>
@@ -268,10 +263,9 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Paths"></param>
         /// <returns></returns>
-        public static Task SetFileDropListAsync(SCSSC Paths)
+        public static async Task SetFileDropListAsync(SCSSC Paths)
         {
-            SetFileDropList(Paths);
-            return Task.CompletedTask;
+            await Task.Run(() => SetFileDropList(Paths));
         }
 
         /// <summary>
@@ -287,9 +281,9 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <returns></returns>
-        public static Task<SCSSC> GetFileDropListAsync()
+        public static async Task<SCSSC> GetFileDropListAsync()
         {
-            return Task.Run(GetFileDropList);
+            return await Task.Run(GetFileDropList);
         }
 
         /// <summary>
@@ -305,9 +299,9 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <returns></returns>
-        public static Task<bool> ContainsFileDropListAsync()
+        public static async Task<bool> ContainsFileDropListAsync()
         {
-            return Task.Run(ContainsFileDropList);
+            return await Task.Run(ContainsFileDropList);
         }
 
         /// <summary>
@@ -326,10 +320,9 @@ namespace Skylark.Clipboard.Helper
         /// <param name="Text"></param>
         /// <param name="Format"></param>
         /// <returns></returns>
-        public static Task SetTextAsync(string Text, TextDataFormat Format = TextDataFormat.Text)
+        public static async Task SetTextAsync(string Text, TextDataFormat Format = TextDataFormat.Text)
         {
-            SetText(Text, Format);
-            return Task.CompletedTask;
+            await Task.Run(() => SetText(Text, Format));
         }
 
         /// <summary>
@@ -347,9 +340,9 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Format"></param>
         /// <returns></returns>
-        public static Task<string> GetTextAsync(TextDataFormat Format = TextDataFormat.Text)
+        public static async Task<string> GetTextAsync(TextDataFormat Format = TextDataFormat.Text)
         {
-            return Task.Run(() => GetText(Format));
+            return await Task.Run(() => GetText(Format));
         }
 
         /// <summary>
@@ -367,9 +360,9 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Format"></param>
         /// <returns></returns>
-        public static Task<bool> ContainsTextAsync(TextDataFormat Format = TextDataFormat.Text)
+        public static async Task<bool> ContainsTextAsync(TextDataFormat Format = TextDataFormat.Text)
         {
-            return Task.Run(() => ContainsText(Format));
+            return await Task.Run(() => ContainsText(Format));
         }
     }
 }
