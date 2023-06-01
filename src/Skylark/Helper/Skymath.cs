@@ -58,11 +58,12 @@
 
         /// <summary>
         /// Performs linear interpolation between two one-dimensional points.
-        /// For example, using a weight of 0.5 finds the midpoint of the segment between both points.
+        /// For example, using a weight of 0.5 finds the midpoint of the segment between both points
+        /// and using a weight of 0.75 finds the point 75% of the way from A to B
         /// </summary>
         /// <param name="A">Point 1</param>
         /// <param name="B">Point 2</param>
-        /// <param name="Weight">Percentage of distance to B from A</param>
+        /// <param name="Weight">Percentage of distance from A to B</param>
         /// <returns>Point A with a weight towards B</returns>
         public static double Lerp(double A, double B, double Weight)
         {
@@ -74,7 +75,7 @@
         /// </summary>
         /// <param name="A">Point 1</param>
         /// <param name="B">Point 2</param>
-        /// <param name="Weight">Percentage of distance to B from A</param>
+        /// <param name="Weight">Percentage of distance from A to B</param>
         /// <returns>Point A with a weight towards B</returns>
         public static double Lerp(float A, float B, float Weight)
         {
