@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using MI = Skylark.Manage.Internal;
+using ME = Skylark.Manage.External;
 using SAE = System.ArgumentException;
 using SANE = System.ArgumentNullException;
 using SAOORE = System.ArgumentOutOfRangeException;
@@ -13,8 +14,8 @@ using SE = System.Exception;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 03.Jan.2023
-//     Changed: 01.Jun.2023
-//     Version: 3.0.0.8
+//     Changed: 06.Jun.2023
+//     Version: 3.0.0.9
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -68,13 +69,13 @@ namespace Skylark
         /// </summary>
         public Configuration()
         {
-            PathLength = MI.PathLength;
-            TextLength = MI.TextLength;
-            ParameterLength = MI.ParameterLength;
-            FileLength = MI.FileLength;
-            SplitSpace = MI.SplitSpace;
-            SplitNewLine = MI.SplitNewLine;
-            SplitSpaceNewLine = MI.SplitSpaceNewLine;
+            ME.Configuration.PathLength = PathLength = MI.PathLength;
+            ME.Configuration.TextLength = TextLength = MI.TextLength;
+            ME.Configuration.ParameterLength = ParameterLength = MI.ParameterLength;
+            ME.Configuration.FileLength = FileLength = MI.FileLength;
+            ME.Configuration.SplitSpace = SplitSpace = MI.SplitSpace;
+            ME.Configuration.SplitNewLine = SplitNewLine = MI.SplitNewLine;
+            ME.Configuration.SplitSpaceNewLine = SplitSpaceNewLine = MI.SplitSpaceNewLine;
         }
 
         /// <summary>

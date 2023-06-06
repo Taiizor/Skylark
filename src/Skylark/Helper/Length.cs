@@ -1,5 +1,6 @@
 ﻿using HS = Skylark.Helper.Skymath;
 using MI = Skylark.Manage.Internal;
+using ME = Skylark.Manage.External;
 
 namespace Skylark.Helper
 {
@@ -16,7 +17,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static string Text(string Value, string Back)
         {
-            return Value.Length > MI.TextLength ? Back : Value;
+            return Value.Length > ME.Configuration.TextLength ? Back : Value;
         }
 
         /// <summary>
@@ -27,7 +28,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static string Path(string Value, string Back)
         {
-            return Value.Length > MI.PathLength ? Back : Value;
+            return Value.Length > ME.Configuration.PathLength ? Back : Value;
         }
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         public static string Parameter(string Value, string Back)
         {
-            return Value.Length > MI.ParameterLength ? Back : Value;
+            return Value.Length > ME.Configuration.ParameterLength ? Back : Value;
         }
 
         /// <summary>

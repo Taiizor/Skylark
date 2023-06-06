@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skylark" Version="3.0.0.7" />
+    <PackageReference Include="Skylark" Version="3.0.0.8" />
     <PackageReference Include="Skylark.Standard" Version="3.0.0.7" />
   </ItemGroup>
 
