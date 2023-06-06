@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace Skylark.Helper
+﻿namespace Skylark.Helper
 {
     /// <summary>
     /// 

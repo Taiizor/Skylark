@@ -70,7 +70,7 @@
         /// <returns>An eagerly generated IEnumerable</returns>
         public static async Task<IEnumerable<T>> GenerateEnumerableAsync<T>(Func<int, T> IndexedGenerator, int Length)
         {
-            return await Task.Run(() => GenerateEnumerable<T>(IndexedGenerator,Length));
+            return await Task.Run(() => GenerateEnumerable<T>(IndexedGenerator, Length));
         }
 
         /// <summary>
