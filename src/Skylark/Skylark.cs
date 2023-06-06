@@ -55,6 +55,56 @@ namespace Skylark
 
     #endregion
 
+    #region Configuration
+
+    /// <summary>
+    /// Skylark configuration class. 
+    /// </summary>
+    public class Configuration
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        //public Configuration();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int PathLength { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int TextLength { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int ParameterLength { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long FileLength { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string[] SplitSpace { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string[] SplitNewLine { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string[] SplitSpaceNewLine { get; set; }
+    }
+
+    #endregion
+
     #region ArgumentException
 
     /// <summary>

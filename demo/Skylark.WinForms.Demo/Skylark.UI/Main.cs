@@ -1,4 +1,5 @@
 ﻿using Skylark.Enum;
+using Skylark.Helper;
 using Skylark.Standard.Extension.Color;
 using Skylark.Standard.Extension.Cryptology;
 using Skylark.Standard.Extension.Hash;
@@ -8,7 +9,6 @@ using Skylark.Standard.Extension.Temperature;
 using Skylark.Standard.Extension.Time;
 using Skylark.Standard.Extension.Typography;
 using Skylark.Standard.Extension.Unicode;
-using Skylark.Helper;
 using Skylark.Struct.Storage;
 using Skylark.Struct.Time;
 using System;
@@ -960,7 +960,7 @@ namespace Skylark.UI
                 ComboBox();
                 if (Selection10)
                 {
-                    textBox8.Text = ColorExtension.RGBToHex(Convert.ToInt32(textBox6.Text), Convert.ToInt32(textBox9.Text), Convert.ToInt32(textBox10.Text), false, false).TrimStart("hex(".ToCharArray()).TrimEnd(")".ToCharArray());
+                    textBox8.Text = ColorExtension.RGBToHex(Convert.ToInt32(textBox6.Text), Convert.ToInt32(textBox9.Text), Convert.ToInt32(textBox10.Text), true, false).TrimStart("hex(".ToCharArray()).TrimEnd(")".ToCharArray());
                 }
                 else
                 {
