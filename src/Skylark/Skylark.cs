@@ -1,7 +1,5 @@
 ﻿#region Imports
 
-using MI = Skylark.Manage.Internal;
-using ME = Skylark.Manage.External;
 using SAE = System.ArgumentException;
 using SANE = System.ArgumentNullException;
 using SAOORE = System.ArgumentOutOfRangeException;
@@ -53,65 +51,6 @@ namespace Skylark
         public Exception(string message, SE innerException) : base(message, innerException)
         {
         }
-    }
-
-    #endregion
-
-    #region Configuration
-
-    /// <summary>
-    /// Skylark configuration class. 
-    /// </summary>
-    public class Configuration
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        public Configuration()
-        {
-            ME.Configuration.PathLength = PathLength = MI.PathLength;
-            ME.Configuration.TextLength = TextLength = MI.TextLength;
-            ME.Configuration.ParameterLength = ParameterLength = MI.ParameterLength;
-            ME.Configuration.FileLength = FileLength = MI.FileLength;
-            ME.Configuration.SplitSpace = SplitSpace = MI.SplitSpace;
-            ME.Configuration.SplitNewLine = SplitNewLine = MI.SplitNewLine;
-            ME.Configuration.SplitSpaceNewLine = SplitSpaceNewLine = MI.SplitSpaceNewLine;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int PathLength { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int TextLength { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int ParameterLength { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public long FileLength { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string[] SplitSpace { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string[] SplitNewLine { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string[] SplitSpaceNewLine { get; set; }
     }
 
     #endregion
