@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using MI = Skylark.Manage.Internal;
 using SAE = System.ArgumentException;
 using SANE = System.ArgumentNullException;
 using SAOORE = System.ArgumentOutOfRangeException;
@@ -65,7 +66,16 @@ namespace Skylark
         /// <summary>
         /// 
         /// </summary>
-        //public Configuration();
+        public Configuration()
+        {
+            PathLength = MI.PathLength;
+            TextLength = MI.TextLength;
+            ParameterLength = MI.ParameterLength;
+            FileLength = MI.FileLength;
+            SplitSpace = MI.SplitSpace;
+            SplitNewLine = MI.SplitNewLine;
+            SplitSpaceNewLine = MI.SplitSpaceNewLine;
+        }
 
         /// <summary>
         /// 
