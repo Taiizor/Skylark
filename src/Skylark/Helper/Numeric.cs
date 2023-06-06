@@ -263,5 +263,20 @@ namespace Skylark.Helper
 
             return First + Last;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Fraction"></param>
+        /// <param name="Digit"></param>
+        /// <param name="Number"></param>
+        /// <param name="Clear"></param>
+        /// <returns></returns>
+        private static async Task<string> NumeralAsync(string Value, bool Decimal = true, bool Fraction = true, int Digit = 2, char Number = '0', ECNT Clear = ClearType)
+        {
+            return await Task.Run(() => Numeral(Value, Decimal, Fraction, Digit, Number, Clear));
+        }
     }
 }

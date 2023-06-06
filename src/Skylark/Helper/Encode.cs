@@ -31,6 +31,17 @@ namespace Skylark.Helper
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Encode"></param>
+        /// <returns></returns>
+        public static async Task<byte[]> GetBytesAsync(string Text, EET Encode)
+        {
+            return await Task.Run(() => GetBytes(Text, Encode));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Bytes"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
@@ -40,6 +51,17 @@ namespace Skylark.Helper
             return Encode
                 .GetEncoding(false, ErrorMessage)
                 .GetString(Bytes);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Bytes"></param>
+        /// <param name="Encode"></param>
+        /// <returns></returns>
+        public static async Task<string> GetStringAsync(byte[] Bytes, EET Encode)
+        {
+            return await Task.Run(() => GetString(Bytes, Encode));
         }
 
         /// <summary>
@@ -72,6 +94,18 @@ namespace Skylark.Helper
                 EET.BigEndianUnicode => Encoding.BigEndianUnicode,
                 _ => Encoding.Default
             };
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="EncodeType"></param>
+        /// <param name="UseUtf8IfNotValid"></param>
+        /// <param name="ErrorMessage"></param>
+        /// <returns></returns>
+        private static async Task<Encoding> GetEncodingAsync(this EET EncodeType, bool UseUtf8IfNotValid = false, string ErrorMessage = ErrorMessage)
+        {
+            return await Task.Run(() => GetEncoding(EncodeType, UseUtf8IfNotValid, ErrorMessage));
         }
     }
 }

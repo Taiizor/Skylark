@@ -52,5 +52,16 @@ namespace Skylark.Standard.Helper
 
             return (byte)Math.Round(Result);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="B1"></param>
+        /// <param name="B2"></param>
+        /// <returns></returns>
+        public static async Task<byte> BlendToAvgAsync(byte B1, byte B2)
+        {
+            return await Task.Run(() => BlendToAvg(B1, B2));
+        }
     }
 }
