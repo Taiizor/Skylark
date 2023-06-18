@@ -4,7 +4,7 @@
     /// AncestorFlags type enum
     /// </summary>
     [Flags]
-    public enum AncestorFlags : uint
+    public enum AncestorFlagsType : uint
     {
         /// <summary>
         /// Retrieves the parent window. This does not include the owner, as it does with the GetParent function. 
@@ -24,7 +24,7 @@
     /// TimeoutFlags type enum
     /// </summary>
     [Flags]
-    public enum TimeoutFlags : uint
+    public enum TimeoutFlagsType : uint
     {
         /// <summary>
         /// 
@@ -52,7 +52,7 @@
     /// WindowPosFlags type enum
     /// </summary>
     [Flags]
-    public enum WindowPosFlags : uint
+    public enum WindowPosFlagsType : uint
     {
         /// <summary>
         /// 

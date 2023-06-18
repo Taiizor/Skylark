@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using EAF = Skylark.Enum.AncestorFlags;
+using EAFT = Skylark.Enum.AncestorFlagsType;
 using HWAPI = Skylark.Wing.Helper.WinAPI;
 using MI = Skylark.Manage.Internal;
 using SMMS = Skylark.Struct.Monitor.MonitorStruct;
@@ -132,7 +132,7 @@ namespace Skylark.Wing.Utility
                 return false;
             }
 
-            ForegroundWindow = HWAPI.GetAncestor(ForegroundWindow, EAF.GetRoot);
+            ForegroundWindow = HWAPI.GetAncestor(ForegroundWindow, EAFT.GetRoot);
 
             // If you are yourself, you are not covered.
             if (ForegroundWindow == Form.Handle)

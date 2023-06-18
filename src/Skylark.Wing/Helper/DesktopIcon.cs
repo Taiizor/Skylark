@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using E = Skylark.Exception;
-using ETF = Skylark.Enum.TimeoutFlags;
+using ETFT = Skylark.Enum.TimeoutFlagsType;
 using HWAPI = Skylark.Wing.Helper.WinAPI;
 
 namespace Skylark.Wing.Helper
@@ -37,7 +37,7 @@ namespace Skylark.Wing.Helper
                     if (Count % 2 == 0)
                     {
                         IntPtr Result = IntPtr.Zero;
-                        HWAPI.SendMessageTimeout(Progman, 0x052C, new IntPtr(0), IntPtr.Zero, ETF.SMTO_NORMAL, 10000, out Result);
+                        HWAPI.SendMessageTimeout(Progman, 0x052C, new IntPtr(0), IntPtr.Zero, ETFT.SMTO_NORMAL, 10000, out Result);
                     }
 
                     HWAPI.EnumWindows(new HWAPI.EnumWindowsProc((TopHandle, TopParamHandle) =>

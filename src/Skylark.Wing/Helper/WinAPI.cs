@@ -2,10 +2,10 @@
 using System.Runtime.InteropServices;
 using System.Text;
 using E = Skylark.Exception;
-using EAF = Skylark.Enum.AncestorFlags;
-using ECA = Skylark.Enum.CompositionActions;
-using ETF = Skylark.Enum.TimeoutFlags;
-using EWPF = Skylark.Enum.WindowPosFlags;
+using EAFT = Skylark.Enum.AncestorFlagsType;
+using ECAT = Skylark.Enum.CompositionActionsType;
+using ETFT = Skylark.Enum.TimeoutFlagsType;
+using EWPFT = Skylark.Enum.WindowPosFlagsType;
 using SMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SRRS = Skylark.Struct.Rectangles.RectanglesStruct;
 
@@ -85,7 +85,7 @@ namespace Skylark.Wing.Helper
         /// <param name="result"></param>
         /// <returns></returns>
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-        public static extern IntPtr SendMessageTimeout(IntPtr windowHandle, uint Msg, IntPtr wParam, IntPtr lParam, ETF flags, uint timeout, out IntPtr result);
+        public static extern IntPtr SendMessageTimeout(IntPtr windowHandle, uint Msg, IntPtr wParam, IntPtr lParam, ETFT flags, uint timeout, out IntPtr result);
 
         /// <summary>
         /// 
@@ -186,7 +186,7 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         [DllImport("user32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, EWPF uFlags);
+        public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, EWPFT uFlags);
 
         /// <summary>
         /// 
@@ -220,14 +220,14 @@ namespace Skylark.Wing.Helper
         /// </summary>
         /// <param name="uCompositionAction"></param>
         [DllImport("dwmapi.dll", PreserveSig = false)]
-        private static extern void DwmEnableComposition(ECA uCompositionAction);
+        private static extern void DwmEnableComposition(ECAT uCompositionAction);
         /// <summary>
         /// 
         /// </summary>
         /// <param name="uCompositionAction"></param>
         /// <exception cref="DllNotFoundException"></exception>
         /// <exception cref="E"></exception>
-        public static void EnableComposition(ECA uCompositionAction)
+        public static void EnableComposition(ECAT uCompositionAction)
         {
             try
             {
@@ -268,7 +268,7 @@ namespace Skylark.Wing.Helper
         /// <param name="flags"></param>
         /// <returns></returns>
         [DllImport("user32.dll", ExactSpelling = true)]
-        public static extern IntPtr GetAncestor(IntPtr hwnd, EAF flags); // Get the top level handle containing hWnd.
+        public static extern IntPtr GetAncestor(IntPtr hwnd, EAFT flags); // Get the top level handle containing hWnd.
 
         /// <summary>
         /// 

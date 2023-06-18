@@ -13,7 +13,7 @@ using SE = System.Exception;
 //     Website: www.Vegalya.com
 //     Created: 03.Jan.2023
 //     Changed: 19.Jun.2023
-//     Version: 3.0.1.1
+//     Version: 3.0.1.2
 //
 // |---------DO-NOT-REMOVE---------|
 

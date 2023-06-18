@@ -4,7 +4,7 @@
     /// CompositionActions type enum
     /// </summary>
     [Flags]
-    public enum CompositionActions : uint
+    public enum CompositionActionsType : uint
     {
         /// <summary>
         /// 

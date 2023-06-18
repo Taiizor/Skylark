@@ -1,4 +1,6 @@
-﻿using EAPT = Skylark.Enum.AlphabeticPasswordType;
+﻿using EAFT = Skylark.Enum.AncestorFlagsType;
+using EAPT = Skylark.Enum.AlphabeticPasswordType;
+using ECAT = Skylark.Enum.CompositionActionsType;
 using ECNT = Skylark.Enum.ClearNumericType;
 using ECWT = Skylark.Enum.CompressWebType;
 using EHWT = Skylark.Enum.HttpWebType;
@@ -8,7 +10,9 @@ using ESLPT = Skylark.Enum.SpecialPasswordType;
 using ESRPT = Skylark.Enum.SimilarPasswordType;
 using EST = Skylark.Enum.StorageType;
 using ETET = Skylark.Enum.TimeType;
+using ETFT = Skylark.Enum.TimeoutFlagsType;
 using ETXT = Skylark.Enum.TaxType;
+using EWPFT = Skylark.Enum.WindowPosFlagsType;
 using HN = Skylark.Helper.Numeric;
 
 namespace Skylark.Helper
@@ -46,6 +50,63 @@ namespace Skylark.Helper
         public static EQDT Convert(string Type, EQDT Back = EQDT.TXT)
         {
             foreach (EQDT Types in (EQDT[])System.Enum.GetValues(typeof(EQDT)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static EAFT Convert(string Type, EAFT Back = EAFT.GetParent)
+        {
+            foreach (EAFT Types in (EAFT[])System.Enum.GetValues(typeof(EAFT)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static ETFT Convert(string Type, ETFT Back = ETFT.SMTO_NORMAL)
+        {
+            foreach (ETFT Types in (ETFT[])System.Enum.GetValues(typeof(ETFT)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static ECAT Convert(string Type, ECAT Back = ECAT.DWM_EC_DISABLECOMPOSITION)
+        {
+            foreach (ECAT Types in (ECAT[])System.Enum.GetValues(typeof(ECAT)))
             {
                 if (Check(Type, Types))
                 {
@@ -122,6 +183,25 @@ namespace Skylark.Helper
         public static ETXT Convert(string Type, ETXT Back = ETXT.Amount)
         {
             foreach (ETXT Types in (ETXT[])System.Enum.GetValues(typeof(ETXT)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static EWPFT Convert(string Type, EWPFT Back = EWPFT.SWP_ASYNCWINDOWPOS)
+        {
+            foreach (EWPFT Types in (EWPFT[])System.Enum.GetValues(typeof(EWPFT)))
             {
                 if (Check(Type, Types))
                 {
