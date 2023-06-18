@@ -7,33 +7,20 @@ namespace Skylark.Struct.Colorise
     /// 
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    public readonly struct ColoriseStruct
+    public readonly struct ColoriseStruct(byte R, byte G, byte B)
     {
         /// <summary>
         /// 
         /// </summary>
-        public readonly byte R;
+        public readonly byte R = R;
         /// <summary>
         /// 
         /// </summary>
-        public readonly byte G;
+        public readonly byte G = G;
         /// <summary>
         /// 
         /// </summary>
-        public readonly byte B;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="R"></param>
-        /// <param name="G"></param>
-        /// <param name="B"></param>
-        public ColoriseStruct(byte R, byte G, byte B)
-        {
-            this.R = R;
-            this.G = G;
-            this.B = B;
-        }
+        public readonly byte B = B;
 
         /// <summary>
         /// 

@@ -1,4 +1,6 @@
-﻿namespace Skylark.Manage
+﻿using SRRS = Skylark.Struct.Rectangles.RectanglesStruct;
+
+namespace Skylark.Manage
 {
     /// <summary>
     /// 
@@ -18,6 +20,11 @@
         /// <summary>
         /// 
         /// </summary>
+        public static SRRS CombinedRectangles;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ParameterLength = 128;
 
         /// <summary>
@@ -28,6 +35,19 @@
         /// 5 GB = 5368709120 Byte
         /// </summary>
         public const long FileLength = 5368709120;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int MONITOR_DEFAULTTONULL = 0;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int MONITOR_DEFAULTTOPRIMARY = 1;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int MONITOR_DEFAULTTONEAREST = 2;
 
         /// <summary>
         /// 

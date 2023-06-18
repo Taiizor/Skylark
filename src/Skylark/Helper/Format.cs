@@ -103,5 +103,29 @@
         {
             return await Task.Run(() => Formatter(Format, Args));
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Provider"></param>
+        /// <param name="Format"></param>
+        /// <param name="Args"></param>
+        /// <returns></returns>
+        public static string Formatter(IFormatProvider Provider, string Format, params object[] Args)
+        {
+            return string.Format(Provider, Format, Args);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Provider"></param>
+        /// <param name="Format"></param>
+        /// <param name="Args"></param>
+        /// <returns></returns>
+        public static async Task<string> FormatterAsync(IFormatProvider Provider, string Format, params object[] Args)
+        {
+            return await Task.Run(() => Formatter(Provider, Format, Args));
+        }
     }
 }
