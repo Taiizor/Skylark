@@ -2,20 +2,21 @@
 
     <PropertyGroup>
         <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
-        <RootNamespace>Skylark.Clipboard</RootNamespace>
+        <RootNamespace>Skylark.Wing</RootNamespace>
         <DefaultLanguage>en-GB</DefaultLanguage>
         <ImplicitUsings>disable</ImplicitUsings>
         <UseWindowsForms>true</UseWindowsForms>
         <Nullable>disable</Nullable>
+        <UseWPF>true</UseWPF>
     </PropertyGroup>
 
     <PropertyGroup>
-        <ApplicationIcon>Resources\Skylark.Clipboard.ico</ApplicationIcon>
-        <Version>3.0.1.0</Version>
+        <ApplicationIcon>Resources\Skylark.Wing.ico</ApplicationIcon>
+        <Version>3.0.0.4</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Title>Skylark.Clipboard</Title>
-        <PackageId>Skylark.Clipboard</PackageId>
+        <Title>Skylark.Wing</Title>
+        <PackageId>Skylark.Wing</PackageId>
         <Authors>Taiizor</Authors>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
         <Summary>A lightweight .NET library with things to maximize productivity.</Summary>
@@ -26,14 +27,14 @@
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <PackageReleaseNotes>All changes are detailed at https://github.com/Taiizor/Skylark/wiki/Changelog.
         </PackageReleaseNotes>
-        <PackageTags>ReaL Taiizor Soferity Vegalya Skylark Clipboard Board C# CSharp VBC VB VisualBasic DotNET .NET NET Multi Purpose Multipurpose Cross App Web Box Tool Tools Unit Thing Things Product Productivity Convert Converter Minify Beauty Lightweight Library</PackageTags>
+        <PackageTags>ReaL Taiizor Soferity Vegalya Skylark Wing Wallpaper C# CSharp VBC VB VisualBasic DotNET .NET NET Multi Purpose Multipurpose Cross App Web Box Tool Tools Unit Thing Things Product Productivity Convert Converter Minify Beauty Lightweight Library</PackageTags>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <!--<DocumentationFile>..\$(Title)\bin$(OutputPath)\$(Configuration)\$(TargetFramework)\$(Title).xml</DocumentationFile>-->
         <PackageProjectUrl>https://github.com/Taiizor/Skylark</PackageProjectUrl>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>git://github.com/Taiizor/Skylark</RepositoryUrl>
         <PackageDescription>$(Description)</PackageDescription>
-        <PackageIcon>Skylark.Clipboard.png</PackageIcon>
+        <PackageIcon>Skylark.Wing.png</PackageIcon>
         <Company>$(Authors)</Company>
         <Owners>$(Authors)</Owners>
         <AnalysisLevel>preview</AnalysisLevel>
@@ -69,7 +70,7 @@
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
-        <None Include="Resources\Skylark.Clipboard.png">
+        <None Include="Resources\Skylark.Wing.png">
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>

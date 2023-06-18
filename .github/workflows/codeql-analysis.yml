@@ -41,6 +41,7 @@ jobs:
         solution: [
             src/Skylark.sln,
             src/Skylark.DNS.sln,
+            src/Skylark.Wing.sln,
             src/Skylark.Uptime.sln,
             src/Skylark.Standard.sln,
             src/Skylark.Clipboard.sln

@@ -87,6 +87,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skylark.Standard", "src\Sky
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skylark.Uptime", "src\Skylark.Uptime\Skylark.Uptime.csproj", "{7861EA91-6B8F-41C5-B669-95BE0877E4BF}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skylark.Wing", "src\Skylark.Wing\Skylark.Wing.csproj", "{988DA019-7A63-46EC-B24A-7A2FFB8A4479}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -225,6 +227,10 @@ Global
 		{7861EA91-6B8F-41C5-B669-95BE0877E4BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7861EA91-6B8F-41C5-B669-95BE0877E4BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7861EA91-6B8F-41C5-B669-95BE0877E4BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{988DA019-7A63-46EC-B24A-7A2FFB8A4479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{988DA019-7A63-46EC-B24A-7A2FFB8A4479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{988DA019-7A63-46EC-B24A-7A2FFB8A4479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{988DA019-7A63-46EC-B24A-7A2FFB8A4479}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -266,6 +272,7 @@ Global
 		{26039980-1294-49A3-AF66-4EFC94B41F7C} = {EE41EED3-F5A4-4E1B-A827-E52ECB29ABF1}
 		{917CE641-1A5D-47F1-8B1D-118B61DBE8E7} = {EE41EED3-F5A4-4E1B-A827-E52ECB29ABF1}
 		{7861EA91-6B8F-41C5-B669-95BE0877E4BF} = {EE41EED3-F5A4-4E1B-A827-E52ECB29ABF1}
+		{988DA019-7A63-46EC-B24A-7A2FFB8A4479} = {EE41EED3-F5A4-4E1B-A827-E52ECB29ABF1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2293DDBB-92BC-444A-A771-C4275A09FB4E}
