@@ -196,8 +196,7 @@ namespace Skylark.WallpaperEngine.UI
 
         public static MousePoint GetCursorPosition()
         {
-            MousePoint currentMousePoint;
-            var gotPoint = GetCursorPos(out currentMousePoint);
+            bool gotPoint = GetCursorPos(out MousePoint currentMousePoint);
             if (!gotPoint) { currentMousePoint = new MousePoint(0, 0); }
             return currentMousePoint;
         }
