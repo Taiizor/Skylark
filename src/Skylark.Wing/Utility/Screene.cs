@@ -130,7 +130,10 @@ namespace Skylark.Wing.Utility
 
             //Window.ShowInTaskbar = false;
             Window.WindowStyle = WindowStyle.None;
-            //Window.ResizeMode = ResizeMode.NoResize;
+            Window.ResizeMode = ResizeMode.NoResize;
+
+            Window.UpdateLayout();
+            Window.InvalidateVisual();
 
             //IntPtr hwnd = HWI.EnsureHandle(Window);
             //int exStyle = NM.GetWindowLong(hwnd, (int)NM.GWL.GWL_EXSTYLE);
