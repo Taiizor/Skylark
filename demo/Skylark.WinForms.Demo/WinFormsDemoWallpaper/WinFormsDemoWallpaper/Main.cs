@@ -30,11 +30,11 @@ namespace WinFormsDemoWallpaper
 
         protected bool PinToBackground()
         {
-            IsFixed = DesktopIcon.Fix(Handle);
+            IsFixed = DesktopIcon.FixForm(this);
 
             if (IsFixed)
             {
-                Screene.FillScreen(this, OwnerScreen);
+                Screene.FillScreenForm(this, OwnerScreen);
             }
 
             return IsFixed;

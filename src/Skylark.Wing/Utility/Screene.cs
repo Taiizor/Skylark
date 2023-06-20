@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Windows.Forms;
 using EAFT = Skylark.Enum.AncestorFlagsType;
+using HFI = Skylark.Wing.Helper.FormInterop;
 using HWAPI = Skylark.Wing.Helper.WinAPI;
+using HWI = Skylark.Wing.Helper.WindowInterop;
 using MI = Skylark.Manage.Internal;
 using SMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SRRS = Skylark.Struct.Rectangles.RectanglesStruct;
@@ -98,14 +101,29 @@ namespace Skylark.Wing.Utility
         /// </summary>
         /// <param name="Form"></param>
         /// <param name="Screen"></param>
-        public static void FillScreen(Form Form, SMMS Screen)
+        public static void FillScreenForm(Form Form, SMMS Screen)
         {
             SRRS Rectangle = Screen.rcMonitor; //Screen.rcWork;
 
             int X = Rectangle.Left - MI.CombinedRectangles.Left;
             int Y = Rectangle.Top - MI.CombinedRectangles.Top;
 
-            HWAPI.MoveWindow(Form.Handle, X, Y, Rectangle.Width, Rectangle.Height, false);
+            HWAPI.MoveWindow(HFI.Handle(Form), X, Y, Rectangle.Width, Rectangle.Height, false);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Window"></param>
+        /// <param name="Screen"></param>
+        public static void FillScreenWindow(Window Window, SMMS Screen)
+        {
+            SRRS Rectangle = Screen.rcMonitor; //Screen.rcWork;
+
+            int X = Rectangle.Left - MI.CombinedRectangles.Left;
+            int Y = Rectangle.Top - MI.CombinedRectangles.Top;
+
+            HWAPI.MoveWindow(HWI.Handle(Window), X, Y, Rectangle.Width, Rectangle.Height, false);
         }
 
         /// <summary>
@@ -113,7 +131,7 @@ namespace Skylark.Wing.Utility
         /// </summary>
         /// <param name="Form"></param>
         /// <returns></returns>
-        public static bool IsOverlayed(Form Form)
+        public static bool IsOverlayedForm(Form Form)
         {
             // A list of class names to ignore even if fullscreen
             string[] ClassNamesExcluded =
@@ -135,7 +153,7 @@ namespace Skylark.Wing.Utility
             ForegroundWindow = HWAPI.GetAncestor(ForegroundWindow, EAFT.GetRoot);
 
             // If you are yourself, you are not covered.
-            if (ForegroundWindow == Form.Handle)
+            if (ForegroundWindow == HFI.Handle(Form))
             {
                 return false;
             }
@@ -156,7 +174,103 @@ namespace Skylark.Wing.Utility
 
             // Retrieves the rectangular area of the monitor to which the current control belongs.
             SRRS Desktop;
-            IntPtr Monitor = HWAPI.MonitorFromWindow(Form.Handle, MI.MONITOR_DEFAULTTONEAREST);
+            IntPtr Monitor = HWAPI.MonitorFromWindow(HFI.Handle(Form), MI.MONITOR_DEFAULTTONEAREST);
+
+            if (Monitor == IntPtr.Zero)
+            {
+                // If the monitor cannot be found, it is set to the handle of the current window screen.
+                IntPtr DesktopWnd = HWAPI.GetDesktopWindow();
+
+                if (DesktopWnd == IntPtr.Zero)
+                {
+                    return false;
+                }
+
+                if (HWAPI.GetWindowRect(DesktopWnd, out Desktop) == false)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                SMMS Info = new()
+                {
+                    cbSize = (sizeof(int) * 4 * 2) + (sizeof(int) * 2)
+                };
+
+                if (HWAPI.GetMonitorInfo(Monitor, ref Info) == false)
+                {
+                    return false;
+                }
+
+                Desktop = Info.rcMonitor;
+            }
+
+            // Retrieves the working area of a control.
+            if (HWAPI.GetWindowRect(ForegroundWindow, out SRRS Client) == false)
+            {
+                return false;
+            }
+
+            // If a control doesn't fit completely on the monitor or is smaller than its size, it's not full screen.
+            if (Client.Left > Desktop.Left + 1 || Client.Top > Desktop.Top + 1 || Client.Right < Desktop.Right - 1 || Client.Bottom < Desktop.Bottom - 1)
+            {
+                return false;
+            }
+
+            // If you've reached this point, you're in full screen.
+            return true;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Window"></param>
+        /// <returns></returns>
+        public static bool IsOverlayedWindow(Window Window)
+        {
+            // A list of class names to ignore even if fullscreen
+            string[] ClassNamesExcluded =
+            {
+                "WorkerW", // Wallpapers
+                "ProgMan", //Progman, Program Manager
+                "ImmersiveLauncher" // Win8 Splash Screen
+            };
+
+
+            // Get the handle of the top-level control.
+            IntPtr ForegroundWindow = HWAPI.GetForegroundWindow();
+
+            if (ForegroundWindow == IntPtr.Zero)
+            {
+                return false;
+            }
+
+            ForegroundWindow = HWAPI.GetAncestor(ForegroundWindow, EAFT.GetRoot);
+
+            // If you are yourself, you are not covered.
+            if (ForegroundWindow == HWI.Handle(Window))
+            {
+                return false;
+            }
+
+            // Gets the control's class name.
+            string ClassName = HWAPI.GetClassName(ForegroundWindow);
+
+            if (ClassName.Length <= 0)
+            {
+                return false;
+            }
+
+            // Check if any of the exclusions apply.
+            if (ClassNamesExcluded.Any((Name) => Name.ToUpper() == ClassName.ToUpper()))
+            {
+                return false;
+            }
+
+            // Retrieves the rectangular area of the monitor to which the current control belongs.
+            SRRS Desktop;
+            IntPtr Monitor = HWAPI.MonitorFromWindow(HWI.Handle(Window), MI.MONITOR_DEFAULTTONEAREST);
 
             if (Monitor == IntPtr.Zero)
             {

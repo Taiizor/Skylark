@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Threading;
+using System.Windows;
+using System.Windows.Forms;
 using E = Skylark.Exception;
 using ETFT = Skylark.Enum.TimeoutFlagsType;
+using HFI = Skylark.Wing.Helper.FormInterop;
 using HWAPI = Skylark.Wing.Helper.WinAPI;
+using HWI = Skylark.Wing.Helper.WindowInterop;
 
 namespace Skylark.Wing.Helper
 {
@@ -14,10 +18,45 @@ namespace Skylark.Wing.Helper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="FormHandle"></param>
+        /// <param name="Form"></param>
+        /// <returns></returns>
+        public static bool FixForm(Form Form)
+        {
+            try
+            {
+                return FixHandle(HFI.Handle(Form));
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Window"></param>
         /// <returns></returns>
         /// <exception cref="E"></exception>
-        public static bool Fix(IntPtr FormHandle)
+        public static bool FixWindow(Window Window)
+        {
+            try
+            {
+                return FixHandle(HWI.Handle(Window));
+            }
+            catch (E Ex)
+            {
+                throw new E(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Handle"></param>
+        /// <returns></returns>
+        /// <exception cref="E"></exception>
+        public static bool FixHandle(IntPtr Handle)
         {
             try
             {
@@ -69,7 +108,7 @@ namespace Skylark.Wing.Helper
                 }
 
                 HWAPI.ShowWindow(WorkerW, 0); /*HIDE*/
-                HWAPI.SetParent(FormHandle, Progman);
+                HWAPI.SetParent(Handle, Progman);
 
                 return true;
             }
