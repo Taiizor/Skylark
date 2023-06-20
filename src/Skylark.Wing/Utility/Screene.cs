@@ -123,7 +123,20 @@ namespace Skylark.Wing.Utility
             int X = Rectangle.Left - MI.CombinedRectangles.Left;
             int Y = Rectangle.Top - MI.CombinedRectangles.Top;
 
-            HWAPI.MoveWindow(HWI.Handle(Window), X, Y, Rectangle.Width, Rectangle.Height, false);
+            //Window.Left = X;
+            //Window.Top = Y;
+            //Window.Width = Rectangle.Width;
+            //Window.Height = Rectangle.Height;
+
+            //Window.ShowInTaskbar = false;
+            Window.WindowStyle = WindowStyle.None;
+            //Window.ResizeMode = ResizeMode.NoResize;
+
+            //IntPtr hwnd = HWI.EnsureHandle(Window);
+            //int exStyle = NM.GetWindowLong(hwnd, (int)NM.GWL.GWL_EXSTYLE);
+            //NM.SetWindowLong(hwnd, (int)NM.GWL.GWL_EXSTYLE, exStyle | (int)NM.WindowStyles.WS_EX_NOACTIVATE);
+
+            HWAPI.MoveWindow(HWI.EnsureHandle(Window), X, Y, Rectangle.Width, Rectangle.Height, true);
         }
 
         /// <summary>
@@ -140,7 +153,6 @@ namespace Skylark.Wing.Utility
                 "ProgMan", //Progman, Program Manager
                 "ImmersiveLauncher" // Win8 Splash Screen
             };
-
 
             // Get the handle of the top-level control.
             IntPtr ForegroundWindow = HWAPI.GetForegroundWindow();
@@ -237,7 +249,6 @@ namespace Skylark.Wing.Utility
                 "ImmersiveLauncher" // Win8 Splash Screen
             };
 
-
             // Get the handle of the top-level control.
             IntPtr ForegroundWindow = HWAPI.GetForegroundWindow();
 
@@ -249,7 +260,7 @@ namespace Skylark.Wing.Utility
             ForegroundWindow = HWAPI.GetAncestor(ForegroundWindow, EAFT.GetRoot);
 
             // If you are yourself, you are not covered.
-            if (ForegroundWindow == HWI.Handle(Window))
+            if (ForegroundWindow == HWI.EnsureHandle(Window))
             {
                 return false;
             }
@@ -270,7 +281,7 @@ namespace Skylark.Wing.Utility
 
             // Retrieves the rectangular area of the monitor to which the current control belongs.
             SRRS Desktop;
-            IntPtr Monitor = HWAPI.MonitorFromWindow(HWI.Handle(Window), MI.MONITOR_DEFAULTTONEAREST);
+            IntPtr Monitor = HWAPI.MonitorFromWindow(HWI.EnsureHandle(Window), MI.MONITOR_DEFAULTTONEAREST);
 
             if (Monitor == IntPtr.Zero)
             {

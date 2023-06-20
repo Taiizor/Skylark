@@ -42,7 +42,7 @@ namespace Skylark.Wing.Helper
         {
             try
             {
-                return FixHandle(HWI.Handle(Window));
+                return FixHandle(HWI.EnsureHandle(Window));
             }
             catch (E Ex)
             {

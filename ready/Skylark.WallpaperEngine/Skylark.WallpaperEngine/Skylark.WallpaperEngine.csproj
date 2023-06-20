@@ -2,9 +2,9 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <!--<TargetFramework>net8.0-windows</TargetFramework>-->
+        <TargetFramework>net8.0-windows</TargetFramework>
         <!--<TargetFramework>net48</TargetFramework>-->
-        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
+        <!--<TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>-->
         <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
         <StartupObject>Skylark.WallpaperEngine.Program</StartupObject>
         <ApplicationManifest>App.manifest</ApplicationManifest>
@@ -58,7 +58,7 @@
     <ItemGroup>
         <PackageReference Include="Skylark" Version="3.0.1.2" />
         <PackageReference Include="ReaLTaiizor" Version="3.7.9.3" />
-        <PackageReference Include="Skylark.Wing" Version="3.0.0.9" />
+        <!--<PackageReference Include="Skylark.Wing" Version="3.0.0.9" />-->
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="Costura.Fody" Version="5.8.0-alpha0098">
             <PrivateAssets>all</PrivateAssets>
@@ -67,11 +67,11 @@
         <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1905-prerelease" />
     </ItemGroup>
 
-    <!--<ItemGroup>
+    <ItemGroup>
         <Reference Include="Skylark.Wing">
             <HintPath>..\..\..\src\Skylark.Wing\bin\Release\net8.0-windows\Skylark.Wing.dll</HintPath>
         </Reference>
-    </ItemGroup>-->
+    </ItemGroup>
 
     <!--<PropertyGroup Label="Globals">
         <WebView2LoaderPreference>Dynamic</WebView2LoaderPreference>

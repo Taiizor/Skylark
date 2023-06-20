@@ -1344,6 +1344,9 @@ namespace Skylark.Wing.Native
         public static uint MF_BYPOSITION = 0x400;
         public static uint MF_REMOVE = 0x1000;
 
+        [DllImport("user32.dll")]
+        public static extern IntPtr SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
         // This helper static method is required because the 32-bit version of user32.dll does not contain this API
         // (on any versions of Windows), so linking the method will fail at run-time. The bridge dispatches the request
         // to the correct function (GetWindowLong in 32-bit mode and GetWindowLongPtr in 64-bit mode)
