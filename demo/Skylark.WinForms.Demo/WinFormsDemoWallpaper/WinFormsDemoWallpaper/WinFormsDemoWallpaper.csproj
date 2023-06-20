@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
         <LangVersion>preview</LangVersion>
@@ -13,6 +13,6 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Skylark" Version="3.0.1.2" />
-        <PackageReference Include="Skylark.Wing" Version="3.0.0.6" />
+        <PackageReference Include="Skylark.Wing" Version="3.0.0.7" />
     </ItemGroup>
 </Project>
