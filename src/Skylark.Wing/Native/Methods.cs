@@ -7,16 +7,17 @@ using System.Text;
 namespace Skylark.Wing.Native
 {
 #pragma warning disable CA1707, CA1401, CA1712
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Methods
     {
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern bool QueryFullProcessImageName([In] IntPtr hProcess, [In] int dwFlags, [Out] StringBuilder lpExeName, ref int lpdwSize);
 
         [DllImport("dwmapi.dll", CharSet = CharSet.Unicode, PreserveSig = false)]
-        public static extern void DwmSetWindowAttribute(IntPtr hwnd,
-                                                 DWMWINDOWATTRIBUTE attribute,
-                                                 ref DWM_WINDOW_CORNER_PREFERENCE pvAttribute,
-                                                 uint cbAttribute);
+        public static extern void DwmSetWindowAttribute(IntPtr hwnd, DWMWINDOWATTRIBUTE attribute, ref DWM_WINDOW_CORNER_PREFERENCE pvAttribute, uint cbAttribute);
+
         public enum DWMWINDOWATTRIBUTE
         {
             NCRenderingEnabled = 1,
@@ -1325,8 +1326,7 @@ namespace Skylark.Wing.Native
         public static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
 
         [DllImport("kernel32.dll")]
-        public static extern bool SetProcessWorkingSetSize(IntPtr hProcess, int
-                dwMinimumWorkingSetSize, int dwMaximumWorkingSetSize);
+        public static extern bool SetProcessWorkingSetSize(IntPtr hProcess, int dwMinimumWorkingSetSize, int dwMaximumWorkingSetSize);
 
         #region Window_Style
         [DllImport("user32.dll")]

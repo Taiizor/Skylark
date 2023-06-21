@@ -27,12 +27,33 @@ namespace Skylark.Wing.Helper
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="nCode"></param>
+        /// <param name="wParam"></param>
+        /// <param name="lParam"></param>
+        /// <returns></returns>
+        public delegate IntPtr MouseEventCallback(int nCode, IntPtr wParam, IntPtr lParam);
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="hMonitor"></param>
         /// <param name="hdcMonitor"></param>
         /// <param name="lprcMonitor"></param>
         /// <param name="dwData"></param>
         /// <returns></returns>
         public delegate bool MonitorEnumDelegate(IntPtr hMonitor, IntPtr hdcMonitor, ref SRRS lprcMonitor, int dwData);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hWinEventHook"></param>
+        /// <param name="eventType"></param>
+        /// <param name="hwnd"></param>
+        /// <param name="idObject"></param>
+        /// <param name="idChild"></param>
+        /// <param name="dwEventThread"></param>
+        /// <param name="dwmsEventTime"></param>
+        public delegate void WinEventDelegate(IntPtr hWinEventHook, uint eventType, IntPtr hwnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime);
 
         /// <summary>
         /// 
@@ -366,5 +387,57 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         [DllImport("user32.dll", SetLastError = true)]
         public static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hhk"></param>
+        /// <param name="nCode"></param>
+        /// <param name="wParam"></param>
+        /// <param name="lParam"></param>
+        /// <returns></returns>
+        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idHook"></param>
+        /// <param name="lpfn"></param>
+        /// <param name="hMod"></param>
+        /// <param name="dwThreadId"></param>
+        /// <returns></returns>
+        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr SetWindowsHookEx(int idHook, MouseEventCallback lpfn, IntPtr hMod, uint dwThreadId);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="eventMin"></param>
+        /// <param name="eventMax"></param>
+        /// <param name="hmodWinEventProc"></param>
+        /// <param name="lpfnWinEventProc"></param>
+        /// <param name="idProcess"></param>
+        /// <param name="idThread"></param>
+        /// <param name="dwFlags"></param>
+        /// <returns></returns>
+        [DllImport("user32.dll")]
+        public static extern IntPtr SetWinEventHook(int eventMin, int eventMax, IntPtr hmodWinEventProc, WinEventDelegate lpfnWinEventProc, int idProcess, int idThread, int dwFlags);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hWinEventHook"></param>
+        /// <returns></returns>
+        [DllImport("user32.dll")]
+        public static extern bool UnhookWinEvent(IntPtr hWinEventHook);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hhk"></param>
+        /// <returns></returns>
+        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+        public static extern bool UnhookWindowsHookEx(IntPtr hhk);
     }
 }

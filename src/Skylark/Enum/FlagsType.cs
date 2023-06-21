@@ -115,4 +115,44 @@
         /// </summary>
         SWP_SHOWWINDOW = 0x0040
     }
+
+    /// <summary>
+    /// MouseEventFlags type enum
+    /// </summary>
+    [Flags]
+    public enum MouseEventFlagsType
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        LeftDown = 0x00000002,
+        /// <summary>
+        /// 
+        /// </summary>
+        LeftUp = 0x00000004,
+        /// <summary>
+        /// 
+        /// </summary>
+        MiddleDown = 0x00000020,
+        /// <summary>
+        /// 
+        /// </summary>
+        MiddleUp = 0x00000040,
+        /// <summary>
+        /// 
+        /// </summary>
+        Move = 0x00000001,
+        /// <summary>
+        /// 
+        /// </summary>
+        Absolute = 0x00008000,
+        /// <summary>
+        /// 
+        /// </summary>
+        RightDown = 0x00000008,
+        /// <summary>
+        /// 
+        /// </summary>
+        RightUp = 0x00000010
+    }
 }

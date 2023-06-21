@@ -1,10 +1,13 @@
 ﻿using Skylark.Struct.Monitor;
+using Skylark.Enum;
 using Skylark.Wing.Helper;
 using Skylark.Wing.Utility;
 using System;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CefSharp;
+using CefSharp.WinForms;
 
 namespace Skylark.WallpaperEngine.UI
 {
@@ -17,30 +20,32 @@ namespace Skylark.WallpaperEngine.UI
         public bool State { get; private set; } = false;
 
         private const int WH_MOUSE_LL = 14;
-        private const int WM_MOUSEMOVE = 0x0200;
 
         private static IntPtr MouseHook = IntPtr.Zero;
+
+        private readonly ChromiumWebBrowser WallView;
 
         public Back(string Uri = "https://www.vegalya.com", bool Hook = false)
         {
             InitializeComponent();
 
-            InitializeWallView();
-            WallView.Source = new Uri(Uri);
+            WallView = new ChromiumWebBrowser(Uri);
+            WallView.LoadingStateChanged += WallView_LoadingStateChanged;
+            WallView.Dock = DockStyle.Fill;
+            Controls.Add(WallView);
 
-            PinToBackground();
+            //PinToBackground();
 
             if (Hook)
             {
                 MouseEventCall = CatchMouseEvent;
-                MouseHook = SetWindowsHookEx(WH_MOUSE_LL, MouseEventCall, IntPtr.Zero, 0);
+                MouseHook = WinAPI.SetWindowsHookEx(WH_MOUSE_LL, MouseEventCall, IntPtr.Zero, 0);
             }
         }
 
-        private async void InitializeWallView()
+        private void WallView_LoadingStateChanged(object sender, LoadingStateChangedEventArgs e)
         {
-            await WallView.EnsureCoreWebView2Async(null);
-            State = true;
+            //State = true;
         }
 
         protected bool PinToBackground()
@@ -95,42 +100,75 @@ namespace Skylark.WallpaperEngine.UI
             }
         }
 
-        private delegate IntPtr MouseEventCallback(int nCode, IntPtr wParam, IntPtr lParam);
-
-        private static MouseEventCallback MouseEventCall;
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-        private static extern IntPtr SetWindowsHookEx(int idHook, MouseEventCallback lpfn, IntPtr hMod, uint dwThreadId);
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-        private static extern bool UnhookWindowsHookEx(IntPtr hhk);
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-        private static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam);
-
-        private async Task Test(string Script)
-        {
-            await WallView.CoreWebView2.ExecuteScriptAsync(Script);
-        }
+        private static WinAPI.MouseEventCallback MouseEventCall;
 
         private IntPtr CatchMouseEvent(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            if (nCode >= 0 && wParam == (IntPtr)WM_MOUSEMOVE)
+            if (State)
             {
-                if (State)
+                IBrowserHost WVHost = WallView.GetBrowser().GetHost();
+
+                MouseExtraHookStruct mouseHookStruct = (MouseExtraHookStruct)Marshal.PtrToStructure(lParam, typeof(MouseExtraHookStruct));
+                int X = mouseHookStruct.Point.X;
+                int Y = mouseHookStruct.Point.Y;
+
+                if (nCode >= 0 && MouseMessagesType.WM_WHEEL == (MouseMessagesType)wParam)
                 {
-                    // Fare hareketi gerçekleştiğinde yapılacak işlemler
-                    MouseHookStruct HookStruct = Marshal.PtrToStructure<MouseHookStruct>(lParam);
+                    int delta = (mouseHookStruct.MouseData >> 16) & 0xFFFF;
+                    bool isScrollDown = (delta & 0x8000) != 0;
 
-                    int X = HookStruct.pt.X;
-                    int Y = HookStruct.pt.Y;
+                    int deltaX = mouseHookStruct.MouseData & 0xFFFF;
+                    int deltaY = (mouseHookStruct.MouseData >> 16) & 0xFFFF;
 
-                    // Fare koordinatlarıyla yapılacak işlemler
-                    Test($"handleMouseMove({X}, {Y});");
+                    int amount = 120;
+
+                    if (isScrollDown)
+                    {
+                        //deltaX = -+(delta / amount);
+                        deltaY = -amount;
+                    }
+                    else
+                    {
+                        //deltaX = delta / amount;
+                        deltaY = amount;
+                    }
+
+                    MouseEvent mouseEvent = new(deltaX, deltaY, CefEventFlags.None);
+                    WVHost.SendMouseWheelEvent(mouseEvent, deltaX, deltaY);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONDOWN == (MouseMessagesType)wParam)
+                {
+                    // Sol tuşa basma olayı
+                    // İlgili işlemleri burada gerçekleştirin
+                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, false, 1, CefEventFlags.None);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONUP == (MouseMessagesType)wParam)
+                {
+                    // Sol tuştan el çekme olayı
+                    // İlgili işlemleri burada gerçekleştirin
+                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, true, 1, CefEventFlags.None);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONDOWN == (MouseMessagesType)wParam)
+                {
+                    // Sağ tuşa basma olayı
+                    // İlgili işlemleri burada gerçekleştirin
+                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, false, 1, CefEventFlags.None);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONUP == (MouseMessagesType)wParam)
+                {
+                    // Sağ tuştan el çekme olayı
+                    // İlgili işlemleri burada gerçekleştirin
+                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, true, 1, CefEventFlags.None);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_MOVE == (MouseMessagesType)wParam)
+                {
+                    // Fare hareketi olayı
+                    // İlgili işlemleri burada gerçekleştirin
+                    WVHost.SendMouseMoveEvent(X, Y, false, CefEventFlags.None);
                 }
             }
 
-            return CallNextHookEx(MouseHook, nCode, wParam, lParam);
+            return WinAPI.CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);
         }
 
         [StructLayout(LayoutKind.Sequential)]
@@ -149,9 +187,19 @@ namespace Skylark.WallpaperEngine.UI
             public IntPtr dwExtraInfo;
         }
 
+        [StructLayout(LayoutKind.Sequential)]
+        private struct MouseExtraHookStruct
+        {
+            public MousePoint Point;
+            public int MouseData;
+            public int Flags;
+            public int Time;
+            public IntPtr ExtraInfo;
+        }
+
         public new void Dispose()
         {
-            UnhookWindowsHookEx(MouseHook);
+            WinAPI.UnhookWindowsHookEx(MouseHook);
 
             Dispose(true);
             GC.SuppressFinalize(this);
@@ -160,19 +208,6 @@ namespace Skylark.WallpaperEngine.UI
 
     public class MouseOperations
     {
-        [Flags]
-        public enum MouseEventFlags
-        {
-            LeftDown = 0x00000002,
-            LeftUp = 0x00000004,
-            MiddleDown = 0x00000020,
-            MiddleUp = 0x00000040,
-            Move = 0x00000001,
-            Absolute = 0x00008000,
-            RightDown = 0x00000008,
-            RightUp = 0x00000010
-        }
-
         [DllImport("user32.dll", EntryPoint = "SetCursorPos")]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SetCursorPos(int x, int y);
@@ -201,7 +236,7 @@ namespace Skylark.WallpaperEngine.UI
             return currentMousePoint;
         }
 
-        public static void MouseEvent(MouseEventFlags value)
+        public static void MouseEvent(MouseEventFlagsType value)
         {
             MousePoint position = GetCursorPosition();
 
