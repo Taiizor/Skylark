@@ -1,13 +1,14 @@
-﻿using ReaLTaiizor.Controls;
-using ReaLTaiizor.Forms;
-using System;
-using System.Windows.Forms;
+﻿using System.Windows;
+using System.Windows.Controls;
 
-namespace Skylark.WallpaperEngine.UI
+namespace Skylark.WallpaperEngine
 {
-    public partial class Main : CrownForm
+    /// <summary>
+    /// Main.xaml etkileşim mantığı
+    /// </summary>
+    public partial class Main : Window
     {
-        private Form Engine = null;
+        private Window Engine = null;
 
         private readonly string Uri1 = "https://www.vegalya.com/3/0wj1biqk.f41/fluid.html";
         private readonly string Uri2 = "https://www.vegalya.com/3/iqdvd4pt.jyo/triangle.html";
@@ -24,15 +25,15 @@ namespace Skylark.WallpaperEngine.UI
             InitializeComponent();
         }
 
-        private void CrownButton_Click(object sender, EventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (Engine == null)
             {
-                switch ((sender as CrownButton).Text)
+                switch ((sender as Button).Content)
                 {
                     case "Design 1":
                         Engine = new Back(Uri1, true);
-                        Engine.Show();
+                        Engine.ShowDialog();
                         break;
                     case "Design 2":
                         Engine = new Back(Uri2, true);
@@ -72,10 +73,10 @@ namespace Skylark.WallpaperEngine.UI
             }
             else
             {
-                Engine.Dispose();
+                //Engine.Dispose();
                 Engine = null;
 
-                CrownButton_Click(sender, e);
+                Button_Click(sender, e);
             }
         }
     }

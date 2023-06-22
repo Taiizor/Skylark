@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
@@ -6,7 +6,8 @@
         <!--<TargetFramework>net8.0-windows</TargetFramework>-->
         <!--<TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>-->
         <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
-        <StartupObject>Skylark.WallpaperEngine.App</StartupObject>
+        <StartupObject>Skylark.WallpaperEngine.Program</StartupObject>
+        <ApplicationManifest>App.manifest</ApplicationManifest>
         <Company>Taiizor</Company>
         <Title>$(AssemblyName) - New Generation Password Generator</Title>
         <Description>$(Title)</Description>
@@ -18,6 +19,7 @@
         <AssemblyName>Skylark.WallpaperEngine</AssemblyName>
         <RootNamespace>$(AssemblyName)</RootNamespace>
         <UseWPF>true</UseWPF>
+        <UseWindowsForms>true</UseWindowsForms>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
@@ -58,19 +60,19 @@
     <ItemGroup>
         <PackageReference Include="CefSharp.Wpf" Version="114.2.100" />
         <PackageReference Include="Skylark" Version="3.0.1.3" />
+        <PackageReference Include="ReaLTaiizor" Version="3.7.9.3" />
         <PackageReference Include="Skylark.Wing" Version="3.0.1.202" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="Costura.Fody" Version="5.8.0-alpha0098">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
         </PackageReference>
     </ItemGroup>
 
-    <ItemGroup>
-        <Reference Include="System.Windows.Forms" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <Folder Include="Properties\" />
-    </ItemGroup>
+    <!--<ItemGroup>
+        <Reference Include="Skylark.Wing">
+            <HintPath>..\..\..\src\Skylark.Wing\bin\Release\net8.0-windows\Skylark.Wing.dll</HintPath>
+        </Reference>
+    </ItemGroup>-->
 
 </Project>

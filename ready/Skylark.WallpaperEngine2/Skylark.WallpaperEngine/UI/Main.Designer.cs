@@ -207,6 +207,7 @@
             this.Controls.Add(this.crownButton3);
             this.Controls.Add(this.crownButton2);
             this.Controls.Add(this.crownButton1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Main";

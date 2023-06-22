@@ -46,22 +46,18 @@
   </compatibility>
 
   <!-- Uygulamanın DPI kullanan uygulama olduğunu ve yüksek DPI'larda Windows tarafından otomatik olarak ölçeklendirilmeyeceğini
-       belirtir. Windows Presentation Foundation (WPF) uygulamaları otomatik olarak DPI kullanan uygulamalardır ve bunun kabul edilmesi 
-       gerekmez. Bu ayarın kabul edildiği ve .NET Framework 4.6'yı hedefleyen Windows Forms uygulamalarında da 
-       app.config'de 'EnableWindowsFormsHighDpiAutoResizing' ayarının 'true' olarak belirlenmesi gerekir. 
-       
-       Uygulamayı uzun yol kullanan uygulama haline getirir. Bkz. https://docs.microsoft.com/windows/win32/fileio/maximum-file-path-limitation -->
+       belirtir. Windows Presentation Foundation (WPF) uygulamaları otomatik olarak DPI kullanan uygulamalardır ve bunu kabul etmeleri 
+       gerekmez. Bu ayarı kabul eden ve .NET Framework 4.6'yı hedefleyen Windows Forms uygulamalarının da 
+       app.config'de  'EnableWindowsFormsHighDpiAutoResizing' ayarını 'true' olarak belirlemeleri gerekir. -->
   <!--
   <application xmlns="urn:schemas-microsoft-com:asm.v3">
     <windowsSettings>
       <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">true</dpiAware>
-      <longPathAware xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">true</longPathAware>
     </windowsSettings>
   </application>
   -->
 
   <!-- Windows genel denetimler ve iletişim kutuları için temaları etkinleştir (Windows XP ve sonrası) -->
-  <!--
   <dependency>
     <dependentAssembly>
       <assemblyIdentity
@@ -74,6 +70,5 @@
         />
     </dependentAssembly>
   </dependency>
-  -->
 
 </assembly>

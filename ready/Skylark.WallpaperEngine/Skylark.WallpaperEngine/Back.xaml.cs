@@ -1,17 +1,19 @@
-﻿using Skylark.Struct.Monitor;
+﻿using CefSharp;
 using Skylark.Enum;
+using Skylark.Struct.Monitor;
 using Skylark.Wing.Helper;
 using Skylark.Wing.Utility;
 using System;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
-using CefSharp;
-using CefSharp.WinForms;
 
-namespace Skylark.WallpaperEngine.UI
+namespace Skylark.WallpaperEngine
 {
-    public partial class Back : Form, IDisposable
+    /// <summary>
+    /// Interaction logic for Back.xaml
+    /// </summary>
+    public partial class Back : Window
     {
         public int ScreenIndex { get; private set; } = 0;
 
@@ -19,42 +21,40 @@ namespace Skylark.WallpaperEngine.UI
 
         public bool State { get; private set; } = false;
 
-        private const int WH_MOUSE_LL = 14;
+        public bool Hook { get; private set; } = false;
 
         private static IntPtr MouseHook = IntPtr.Zero;
-
-        private readonly ChromiumWebBrowser WallView;
 
         public Back(string Uri = "https://www.vegalya.com", bool Hook = false)
         {
             InitializeComponent();
 
-            WallView = new ChromiumWebBrowser(Uri);
-            WallView.LoadingStateChanged += WallView_LoadingStateChanged;
-            WallView.Dock = DockStyle.Fill;
-            Controls.Add(WallView);
+            this.Hook = Hook;
+            WallView.Address = Uri;
 
-            //PinToBackground();
+            WallView.MenuHandler = new CustomContextMenuHandler();
 
-            if (Hook)
-            {
-                MouseEventCall = CatchMouseEvent;
-                MouseHook = WinAPI.SetWindowsHookEx(WH_MOUSE_LL, MouseEventCall, IntPtr.Zero, 0);
-            }
+            PinToBackground();
         }
 
-        private void WallView_LoadingStateChanged(object sender, LoadingStateChangedEventArgs e)
+        private void WallView_Loaded(object sender, RoutedEventArgs e)
         {
-            //State = true;
+            //if (Hook)
+            //{
+            //    State = true;
+
+            //    MouseEventCall = CatchMouseEvent;
+            //    MouseHook = WinAPI.SetWindowsHookEx(14, MouseEventCall, IntPtr.Zero, 0);
+            //}
         }
 
         protected bool PinToBackground()
         {
-            IsFixed = DesktopIcon.FixForm(this);
+            IsFixed = DesktopIcon.FixWindow(this);
 
             if (IsFixed)
             {
-                Screene.FillScreenForm(this, OwnerScreen);
+                Screene.FillScreenWindow(this, OwnerScreen);
             }
 
             return IsFixed;
@@ -100,7 +100,33 @@ namespace Skylark.WallpaperEngine.UI
             }
         }
 
-        private static WinAPI.MouseEventCallback MouseEventCall;
+        private static WinAPI.MouseEventCallback? MouseEventCall;
+
+        [StructLayout(LayoutKind.Sequential)]
+        private struct MousePoint
+        {
+            public int X;
+            public int Y;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        private struct MouseHookStruct
+        {
+            public MousePoint pt;
+            public IntPtr hwnd;
+            public uint wHitTestCode;
+            public IntPtr dwExtraInfo;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        private struct MouseExtraHookStruct
+        {
+            public MousePoint Point;
+            public int MouseData;
+            public int Flags;
+            public int Time;
+            public IntPtr ExtraInfo;
+        }
 
         private IntPtr CatchMouseEvent(int nCode, IntPtr wParam, IntPtr lParam)
         {
@@ -170,96 +196,28 @@ namespace Skylark.WallpaperEngine.UI
 
             return WinAPI.CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);
         }
-
-        [StructLayout(LayoutKind.Sequential)]
-        private struct MousePoint
-        {
-            public int X;
-            public int Y;
-        }
-
-        [StructLayout(LayoutKind.Sequential)]
-        private struct MouseHookStruct
-        {
-            public MousePoint pt;
-            public IntPtr hwnd;
-            public uint wHitTestCode;
-            public IntPtr dwExtraInfo;
-        }
-
-        [StructLayout(LayoutKind.Sequential)]
-        private struct MouseExtraHookStruct
-        {
-            public MousePoint Point;
-            public int MouseData;
-            public int Flags;
-            public int Time;
-            public IntPtr ExtraInfo;
-        }
-
-        public new void Dispose()
-        {
-            WinAPI.UnhookWindowsHookEx(MouseHook);
-
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
     }
 
-    public class MouseOperations
+    public class CustomContextMenuHandler : IContextMenuHandler
     {
-        [DllImport("user32.dll", EntryPoint = "SetCursorPos")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool SetCursorPos(int x, int y);
-
-        [DllImport("user32.dll")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool GetCursorPos(out MousePoint lpMousePoint);
-
-        [DllImport("user32.dll")]
-        private static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
-
-        public static void SetCursorPosition(int x, int y)
+        public void OnBeforeContextMenu(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame, IContextMenuParams parameters, IMenuModel model)
         {
-            SetCursorPos(x, y);
+            model.Clear();
         }
 
-        public static void SetCursorPosition(MousePoint point)
+        public bool OnContextMenuCommand(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame, IContextMenuParams parameters, CefMenuCommand commandId, CefEventFlags eventFlags)
         {
-            SetCursorPos(point.X, point.Y);
+            return false;
         }
 
-        public static MousePoint GetCursorPosition()
+        public void OnContextMenuDismissed(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame)
         {
-            bool gotPoint = GetCursorPos(out MousePoint currentMousePoint);
-            if (!gotPoint) { currentMousePoint = new MousePoint(0, 0); }
-            return currentMousePoint;
+            return;
         }
 
-        public static void MouseEvent(MouseEventFlagsType value)
+        public bool RunContextMenu(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame, IContextMenuParams parameters, IMenuModel model, IRunContextMenuCallback callback)
         {
-            MousePoint position = GetCursorPosition();
-
-            mouse_event
-                ((int)value,
-                 position.X,
-                 position.Y,
-                 0,
-                 0)
-                ;
-        }
-
-        [StructLayout(LayoutKind.Sequential)]
-        public struct MousePoint
-        {
-            public int X;
-            public int Y;
-
-            public MousePoint(int x, int y)
-            {
-                X = x;
-                Y = y;
-            }
+            return false;
         }
     }
 }
