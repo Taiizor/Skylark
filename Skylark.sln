@@ -91,10 +91,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skylark.UI", "demo\Skylark.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsDemoWallpaper", "demo\Skylark.WinForms.Demo\WinFormsDemoWallpaper\WinFormsDemoWallpaper\WinFormsDemoWallpaper.csproj", "{5F09A66A-C904-4CDD-8349-40684109C819}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ready", "ready", "{212A53FA-DED4-46BF-82EE-7889E231179D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skylark.WallpaperEngine", "ready\Skylark.WallpaperEngine\Skylark.WallpaperEngine\Skylark.WallpaperEngine.csproj", "{6F985B4F-7BEC-4AE8-B3BB-0E5C33D0B655}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -312,12 +308,6 @@ Global
 		{5F09A66A-C904-4CDD-8349-40684109C819}.GitHub|Any CPU.Build.0 = Release|Any CPU
 		{5F09A66A-C904-4CDD-8349-40684109C819}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F09A66A-C904-4CDD-8349-40684109C819}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F985B4F-7BEC-4AE8-B3BB-0E5C33D0B655}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F985B4F-7BEC-4AE8-B3BB-0E5C33D0B655}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F985B4F-7BEC-4AE8-B3BB-0E5C33D0B655}.GitHub|Any CPU.ActiveCfg = GitHub|Any CPU
-		{6F985B4F-7BEC-4AE8-B3BB-0E5C33D0B655}.GitHub|Any CPU.Build.0 = GitHub|Any CPU
-		{6F985B4F-7BEC-4AE8-B3BB-0E5C33D0B655}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F985B4F-7BEC-4AE8-B3BB-0E5C33D0B655}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -361,7 +351,6 @@ Global
 		{988DA019-7A63-46EC-B24A-7A2FFB8A4479} = {EE41EED3-F5A4-4E1B-A827-E52ECB29ABF1}
 		{41D308D3-8C2B-4239-BAAB-FA09212A654E} = {23416745-EE9E-4028-90B8-732E0744EF6A}
 		{5F09A66A-C904-4CDD-8349-40684109C819} = {23416745-EE9E-4028-90B8-732E0744EF6A}
-		{6F985B4F-7BEC-4AE8-B3BB-0E5C33D0B655} = {212A53FA-DED4-46BF-82EE-7889E231179D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2293DDBB-92BC-444A-A771-C4275A09FB4E}
