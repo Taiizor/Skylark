@@ -36,8 +36,8 @@
             "RainmeterMeterWindow",
             //GlassWire Notifyicon Expanded Popup
             "Qt5152QWindowPopupSaveBits",
-			//Genshin Impact Notifyicon Expanded Popup
-			"Qt5QWindowPopupDropShadowSaveBits",
+            //Genshin Impact Notifyicon Expanded Popup
+            "Qt5QWindowPopupDropShadowSaveBits",
             //Discord Notifyicon Expanded Popup
             "Chrome_WidgetWin_1",
             //Coodesker
@@ -49,8 +49,8 @@
         /// </summary>
         public static readonly string[] StartsWithClassWhiteList = new string[]
         {
-			//Qt Notifyicon Expanded Popup
-			"Qt5",
+            //Qt Notifyicon Expanded Popup
+            "Qt5",
         };
     }
 }
