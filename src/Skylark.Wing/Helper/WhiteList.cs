@@ -24,5 +24,19 @@ namespace Skylark.Wing.Helper
 
             return NM.GetClassName((int)hwnd, className, maxChars) > 0 && MI.ClassWhiteList.Any(x => x.Equals(className.ToString(), StringComparison.Ordinal));
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hwnd"></param>
+        /// <returns></returns>
+        public static bool IsWhitelistedStartsWithClass(IntPtr hwnd)
+        {
+            const int maxChars = 256;
+
+            StringBuilder className = new(maxChars);
+
+            return NM.GetClassName((int)hwnd, className, maxChars) > 0 && MI.StartsWithClassWhiteList.Any(x => className.ToString().StartsWith(x));
+        }
     }
 }
