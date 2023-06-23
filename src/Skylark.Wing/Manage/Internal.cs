@@ -34,6 +34,10 @@
             "NotifyIconOverflowWindow",
             //RainMeter Widgets
             "RainmeterMeterWindow",
+            //GlassWire Notifyicon Expanded Popup
+            "Qt5152QWindowPopupSaveBits",
+            //Discord Notifyicon Expanded Popup
+            "Chrome_WidgetWin_1",
             //Coodesker
             "_cls_desk_"
         };
