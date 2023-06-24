@@ -28,7 +28,7 @@ namespace Skylark.Wing.Helper
 
         private static void SetStartupRegistry(string AppName, string AppPath, bool Startup)
         {
-            RegistryKey Key = GetRegistryKey();
+            RegistryKey Key = GetRegistryKey(true);
 
             try
             {
@@ -66,9 +66,9 @@ namespace Skylark.Wing.Helper
             return Assembly.GetExecutingAssembly();
         }
 
-        private static RegistryKey GetRegistryKey()
+        private static RegistryKey GetRegistryKey(bool Writable = false)
         {
-            return Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            return Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", Writable);
         }
     }
 }

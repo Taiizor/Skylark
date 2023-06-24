@@ -32,17 +32,12 @@ namespace Skylark.Uptime
     /// <summary>
     /// Skylark uptimer class. 
     /// </summary>
-    public class Uptimer
+    public class Uptimer(string Address)
     {
         /// <summary>
         /// 
         /// </summary>
-        private readonly string Address;
-
-        public Uptimer(string Address)
-        {
-            this.Address = Address;
-        }
+        private readonly string Address = Address;
 
         public SSPPSS Ping()
         {
