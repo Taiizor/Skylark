@@ -52,6 +52,18 @@
         /// <summary>
         /// 
         /// </summary>
-        WM_RBUTTONDBLCLK = 0x206
+        WM_RBUTTONDBLCLK = 0x206,
+        /// <summary>
+        /// The WM_MBUTTONDOWN message is posted when the user presses the middle mouse button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse.
+        /// </summary>
+        WM_MBUTTONDOWN = 0x207,
+        /// <summary>
+        /// The WM_MBUTTONUP message is posted when the user releases the middle mouse button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse.
+        /// </summary>
+        WM_MBUTTONUP = 0x208,
+        /// <summary>
+        /// The WM_MBUTTONDBLCLK message is posted when the user double-clicks the middle mouse button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse.
+        /// </summary>
+        WM_MBUTTONDBLCLK = 0x209
     }
 }
