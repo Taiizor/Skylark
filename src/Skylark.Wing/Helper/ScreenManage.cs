@@ -53,15 +53,15 @@ namespace Skylark.Wing.Helper
                         {
                             rcMonitor = new()
                             {
-                                Width = 0,
                                 Height = 0,
+                                Width = 0,
                                 Left = 0,
                                 Top = 0
                             },
                             rcWork = new()
                             {
-                                Width = 0,
                                 Height = 0,
+                                Width = 0,
                                 Left = 0,
                                 Top = 0
                             }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Management;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -16,11 +17,14 @@ namespace Skylark.Wing.Helper
             try
             {
                 using ManagementObjectSearcher myVideoObject = new("SELECT * from Win32_VideoController");
+                
                 StringBuilder sb = new();
-                foreach (ManagementObject obj in myVideoObject.Get())
+                
+                foreach (ManagementObject obj in myVideoObject.Get().Cast<ManagementObject>())
                 {
                     sb.AppendLine("GPU: " + obj["Name"]);
                 }
+
                 return sb.ToString().TrimEnd();
             }
             catch (SE e)
@@ -32,15 +36,18 @@ namespace Skylark.Wing.Helper
         public static List<string> GetGpu()
         {
             List<string> result = new();
+            
             try
             {
                 using ManagementObjectSearcher myVideoObject = new("SELECT * FROM Win32_VideoController");
-                foreach (ManagementObject obj in myVideoObject.Get())
+                
+                foreach (ManagementObject obj in myVideoObject.Get().Cast<ManagementObject>())
                 {
                     result.Add(obj["Name"].ToString());
                 }
             }
             catch { }
+
             return result;
         }
 
@@ -49,11 +56,14 @@ namespace Skylark.Wing.Helper
             try
             {
                 using ManagementObjectSearcher myProcessorObject = new("SELECT * FROM Win32_Processor");
+                
                 StringBuilder sb = new();
-                foreach (ManagementObject obj in myProcessorObject.Get())
+                
+                foreach (ManagementObject obj in myProcessorObject.Get().Cast<ManagementObject>())
                 {
                     sb.AppendLine("CPU: " + obj["Name"]);
                 }
+                
                 return sb.ToString().TrimEnd();
             }
             catch (SE e)
@@ -65,15 +75,18 @@ namespace Skylark.Wing.Helper
         public static List<string> GetCpu()
         {
             List<string> result = new();
+            
             try
             {
                 using ManagementObjectSearcher myProcessorObject = new("SELECT * FROM Win32_Processor");
-                foreach (ManagementObject obj in myProcessorObject.Get())
+                
+                foreach (ManagementObject obj in myProcessorObject.Get().Cast<ManagementObject>())
                 {
                     result.Add(obj["Name"].ToString());
                 }
             }
             catch { }
+
             return result;
         }
 
@@ -82,11 +95,14 @@ namespace Skylark.Wing.Helper
             try
             {
                 using ManagementObjectSearcher myOperativeSystemObject = new("SELECT * FROM Win32_OperatingSystem");
+                
                 StringBuilder sb = new();
-                foreach (ManagementObject obj in myOperativeSystemObject.Get())
+                
+                foreach (ManagementObject obj in myOperativeSystemObject.Get().Cast<ManagementObject>())
                 {
                     sb.AppendLine("OS: " + obj["Caption"] + " " + obj["Version"]);
                 }
+                
                 return sb.ToString().TrimEnd();
             }
             catch (SE e)
@@ -98,19 +114,23 @@ namespace Skylark.Wing.Helper
         public static bool CheckWindowsNorKN()
         {
             bool result = false;
+            
             try
             {
                 int sku = 0;
                 using ManagementObjectSearcher myOperativeSystemObject = new("SELECT * FROM Win32_OperatingSystem");
-                foreach (ManagementObject obj in myOperativeSystemObject.Get())
+                
+                foreach (ManagementObject obj in myOperativeSystemObject.Get().Cast<ManagementObject>())
                 {
                     sku = int.Parse(obj["OperatingSystemSKU"].ToString());
                     break;
                 }
+
                 //ref: https://docs.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo
                 result = sku is 5 or 16 or 26 or 27 or 28 or 47 or 49 or 84 or 122 or 162;
             }
             catch { }
+            
             return result;
         }
 

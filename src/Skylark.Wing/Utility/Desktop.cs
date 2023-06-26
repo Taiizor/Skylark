@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Skylark.Wing.Utility
@@ -68,6 +69,56 @@ namespace Skylark.Wing.Utility
         {
             //todo: Find a better way to do this?
             SWNM.SystemParametersInfo(SWNM.SPI_SETDESKWALLPAPER, 0, null, SWNM.SPIF_UPDATEINIFILE);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsDesktopBasic()
+        {
+            IntPtr fHandle = SWNM.GetForegroundWindow();
+
+            const int MaxChars = 256;
+
+            StringBuilder ClassName = new(MaxChars);
+            SWNM.GetClassName((int)fHandle, ClassName, MaxChars);
+
+            return ClassName.ToString() is "WorkerW" or "SHELLDLL_DefView";
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsDesktopAdvanced()
+        {
+            IntPtr workerWOrig = IntPtr.Zero;
+            IntPtr progman = SWNM.FindWindow("Progman", null);
+            IntPtr folderView = SWNM.FindWindowEx(progman, IntPtr.Zero, "SHELLDLL_DefView", null);
+
+            if (folderView == IntPtr.Zero)
+            {
+                //If the desktop isn't under Progman, cycle through the WorkerW handles and find the correct one
+                do
+                {
+                    workerWOrig = SWNM.FindWindowEx(SWNM.GetDesktopWindow(), workerWOrig, "WorkerW", null);
+                    folderView = SWNM.FindWindowEx(workerWOrig, IntPtr.Zero, "SHELLDLL_DefView", null);
+                } while (folderView == IntPtr.Zero && workerWOrig != IntPtr.Zero);
+            }
+            //else
+            //{
+            //    //If the desktop is under Progman, cycle through the WorkerW handles and find the correct one
+            //    do
+            //    {
+            //        workerWOrig = SWNM.FindWindowEx(SWNM.GetDesktopWindow(), workerWOrig, "WorkerW", null);
+            //        folderView = SWNM.FindWindowEx(workerWOrig, IntPtr.Zero, "SHELLDLL_DefView", null);
+            //    } while (folderView != IntPtr.Zero && workerWOrig != IntPtr.Zero);
+            //}
+
+            IntPtr fHandle = SWNM.GetForegroundWindow();
+
+            return Equals(fHandle, workerWOrig) || Equals(fHandle, progman);
         }
     }
 }
