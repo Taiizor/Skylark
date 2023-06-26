@@ -18,11 +18,11 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         public static bool IsWhitelistedClass(IntPtr hwnd)
         {
-            const int maxChars = 256;
+            const int MaxChars = 256;
 
-            StringBuilder className = new(maxChars);
+            StringBuilder ClassName = new(MaxChars);
 
-            return NM.GetClassName((int)hwnd, className, maxChars) > 0 && MI.ClassWhiteList.Any(x => x.Equals(className.ToString(), StringComparison.Ordinal));
+            return NM.GetClassName((int)hwnd, ClassName, MaxChars) > 0 && MI.ClassWhiteList.Any(x => x.Equals(ClassName.ToString(), StringComparison.Ordinal));
         }
 
         /// <summary>
@@ -32,11 +32,11 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         public static bool IsWhitelistedStartsWithClass(IntPtr hwnd)
         {
-            const int maxChars = 256;
+            const int MaxChars = 256;
 
-            StringBuilder className = new(maxChars);
+            StringBuilder ClassName = new(MaxChars);
 
-            return NM.GetClassName((int)hwnd, className, maxChars) > 0 && MI.StartsWithClassWhiteList.Any(x => className.ToString().StartsWith(x));
+            return NM.GetClassName((int)hwnd, ClassName, MaxChars) > 0 && MI.StartsWithClassWhiteList.Any(x => ClassName.ToString().StartsWith(x));
         }
     }
 }

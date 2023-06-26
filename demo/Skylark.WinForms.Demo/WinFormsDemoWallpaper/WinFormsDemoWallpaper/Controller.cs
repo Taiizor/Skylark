@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Skylark.Wing.Utility;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace WinFormsDemoWallpaper
@@ -39,6 +40,8 @@ namespace WinFormsDemoWallpaper
                         Form.Close();
                     }
                 }
+
+                Desktop.RefreshDesktop();
             }
         }
     }

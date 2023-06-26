@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Forms;
 using EAFT = Skylark.Enum.AncestorFlagsType;
+using EST = Skylark.Enum.ScreenType;
 using HFI = Skylark.Wing.Helper.FormInterop;
 using HWAPI = Skylark.Wing.Helper.WinAPI;
 using HWI = Skylark.Wing.Helper.WindowInterop;
@@ -101,9 +102,14 @@ namespace Skylark.Wing.Utility
         /// </summary>
         /// <param name="Form"></param>
         /// <param name="Screen"></param>
-        public static void FillScreenForm(Form Form, SMMS Screen)
+        /// <param name="Type"></param>
+        public static void FillScreenForm(Form Form, SMMS Screen, EST Type)
         {
-            SRRS Rectangle = Screen.rcMonitor; //Screen.rcWork;
+            SRRS Rectangle = Type switch
+            {
+                EST.WorkingArea => Screen.rcWork,
+                _ => Screen.rcMonitor,
+            };
 
             int X = Rectangle.Left - MI.CombinedRectangles.Left;
             int Y = Rectangle.Top - MI.CombinedRectangles.Top;
@@ -116,9 +122,14 @@ namespace Skylark.Wing.Utility
         /// </summary>
         /// <param name="Window"></param>
         /// <param name="Screen"></param>
-        public static void FillScreenWindow(Window Window, SMMS Screen)
+        /// <param name="Type"></param>
+        public static void FillScreenWindow(Window Window, SMMS Screen, EST Type)
         {
-            SRRS Rectangle = Screen.rcMonitor; //Screen.rcWork;
+            SRRS Rectangle = Type switch
+            {
+                EST.WorkingArea => Screen.rcWork,
+                _ => Screen.rcMonitor,
+            };
 
             int X = Rectangle.Left - MI.CombinedRectangles.Left;
             int Y = Rectangle.Top - MI.CombinedRectangles.Top;

@@ -1369,6 +1369,7 @@ namespace Skylark.Wing.Native
         public static extern IntPtr SetWindowLongPtr64(HandleRef hWnd, int nIndex, IntPtr dwNewLong);
 
         #endregion
+
         //ref: https://docs.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.marshal.getlastwin32error?view=netframework-4.8
         //[DllImportAttribute("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         //public static extern int MessageBox(IntPtr hwnd, String text, String caption, uint type);

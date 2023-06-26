@@ -6,19 +6,19 @@
     public enum ThemeType
     {
         /// <summary>
-        /// 
+        /// System
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        /// Dark
         /// </summary>
         Dark,
         /// <summary>
-        /// 
+        /// Light
         /// </summary>
         Light,
         /// <summary>
-        /// 
+        /// Custom
         /// </summary>
         Custom
     }
@@ -29,11 +29,11 @@
     public enum WindowsThemeType
     {
         /// <summary>
-        /// 
+        /// Dark
         /// </summary>
         Dark,
         /// <summary>
-        /// 
+        /// Light
         /// </summary>
         Light
     }
