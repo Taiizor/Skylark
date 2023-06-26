@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
-using SWUS = Skylark.Wing.Utility.Screene;
-using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SEEST = Skylark.Enum.ExpandScreenType;
+using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
+using SWUS = Skylark.Wing.Utility.Screene;
 
 namespace Skylark.Wing.Helper
 {
@@ -30,7 +30,7 @@ namespace Skylark.Wing.Helper
                 rcWork = Screen.PrimaryScreen.WorkingArea
             };
         }
-        
+
         /// <summary>
         /// 
         /// </summary>

@@ -14,4 +14,15 @@
         /// </summary>
         DisplayBound
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public enum ExpandScreenType
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        Default
+    }
 }
