@@ -16,7 +16,7 @@ namespace WinFormsDemoWallpaper
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
 #endif
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Application.Run(new Controller());
         }
     }
 }

@@ -20,12 +20,6 @@ namespace WinFormsDemoWallpaper
             Title.Text += Count;
 
             PinToBackground();
-
-            for (int C = 0; C < Count; C++)
-            {
-                Form F1 = new Main(C);
-                F1.Show();
-            }
         }
 
         protected bool PinToBackground()
