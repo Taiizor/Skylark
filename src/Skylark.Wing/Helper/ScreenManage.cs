@@ -19,6 +19,8 @@ namespace Skylark.Wing.Helper
         {
             Index = OwnerScreenIndex(Index);
 
+            //SWUS.Initialize(); // Initialize the screens.
+
             if (Index < SWUS.Screens.Length)
             {
                 return SWUS.Screens[Index];
@@ -38,55 +40,62 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         public static SSMMS OwnerScreen(SEEST Method)
         {
-            switch (Method)
+            if (Screen.AllScreens.Length <= 1)
             {
-                default:
-                    SSMMS MonitorStruct = new()
-                    {
-                        rcMonitor = new()
+                return OwnerScreen(0);
+            }
+            else
+            {
+                switch (Method)
+                {
+                    default:
+                        SSMMS MonitorStruct = new()
                         {
-                            Width = 0,
-                            Height = 0,
-                            Left = 0,
-                            Top = 0
-                        },
-                        rcWork = new()
-                        {
-                            Width = 0,
-                            Height = 0,
-                            Left = 0,
-                            Top = 0
-                        }
-                    };
+                            rcMonitor = new()
+                            {
+                                Width = 0,
+                                Height = 0,
+                                Left = 0,
+                                Top = 0
+                            },
+                            rcWork = new()
+                            {
+                                Width = 0,
+                                Height = 0,
+                                Left = 0,
+                                Top = 0
+                            }
+                        };
 
-                    foreach (Screen Screene in Screen.AllScreens)
-                    {
-                        if (MonitorStruct.rcMonitor.Width < Screene.Bounds.Width)
+                        foreach (Screen Screene in Screen.AllScreens)
                         {
-                            MonitorStruct.rcMonitor.Width = Screene.Bounds.Width;
-                        }
-                        if (MonitorStruct.rcWork.Width < Screene.WorkingArea.Width)
-                        {
-                            MonitorStruct.rcWork.Width = Screene.WorkingArea.Width;
+                            if (MonitorStruct.rcMonitor.Width < Screene.Bounds.Width)
+                            {
+                                MonitorStruct.rcMonitor.Width = Screene.Bounds.Width;
+                            }
+                            if (MonitorStruct.rcWork.Width < Screene.WorkingArea.Width)
+                            {
+                                MonitorStruct.rcWork.Width = Screene.WorkingArea.Width;
+                            }
+
+                            if (MonitorStruct.rcMonitor.Height < Screene.Bounds.Height)
+                            {
+                                MonitorStruct.rcMonitor.Height = Screene.Bounds.Height;
+                            }
+                            if (MonitorStruct.rcWork.Height < Screene.WorkingArea.Height)
+                            {
+                                MonitorStruct.rcWork.Height = Screene.WorkingArea.Height;
+                            }
+
+                            //MonitorStruct.rcMonitor.Height += Screene.Bounds.Height;
+                            //MonitorStruct.rcWork.Height += Screene.WorkingArea.Height;
+
+                            MonitorStruct.rcMonitor.Width += Screene.Bounds.Width;
+                            MonitorStruct.rcWork.Width += Screene.WorkingArea.Width;
                         }
 
-                        if (MonitorStruct.rcMonitor.Height < Screene.Bounds.Height)
-                        {
-                            MonitorStruct.rcMonitor.Height = Screene.Bounds.Height;
-                        }
-                        if (MonitorStruct.rcWork.Height < Screene.WorkingArea.Height)
-                        {
-                            MonitorStruct.rcWork.Height = Screene.WorkingArea.Height;
-                        }
-
-                        //MonitorStruct.rcMonitor.Height += Screene.Bounds.Height;
-                        //MonitorStruct.rcWork.Height += Screene.WorkingArea.Height;
-
-                        MonitorStruct.rcMonitor.Width += Screene.Bounds.Width;
-                        MonitorStruct.rcWork.Width += Screene.WorkingArea.Width;
-                    }
-
-                    return MonitorStruct;
+                        return MonitorStruct;
+                }
             }
         }
 

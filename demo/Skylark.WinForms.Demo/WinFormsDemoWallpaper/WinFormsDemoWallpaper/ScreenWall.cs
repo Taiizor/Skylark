@@ -4,14 +4,17 @@ using System.Windows.Forms;
 
 namespace WinFormsDemoWallpaper
 {
-    public partial class Main : Form
+    public partial class ScreenWall : Form
     {
-        public Main(int Count = 0)
+        public ScreenWall(int Count = 0)
         {
             InitializeComponent();
 
+            // Text is the index of the screen.
             Title.Text += Count;
 
+            // Count is the index of the screen.
+            // ScreenType.DisplayBound is the screen's display bound.
             Engine.WallpaperForm(this, Count, ScreenType.DisplayBound);
         }
     }

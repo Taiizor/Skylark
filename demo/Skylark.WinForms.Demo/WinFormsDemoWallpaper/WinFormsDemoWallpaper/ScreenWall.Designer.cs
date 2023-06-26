@@ -1,6 +1,6 @@
 ﻿namespace WinFormsDemoWallpaper
 {
-    partial class Main
+    partial class ScreenWall
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScreenWall));
             this.Title = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -45,7 +45,7 @@
             this.Title.Text = "Screen ";
             this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Main
+            // ScreenWall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -54,7 +54,7 @@
             this.Controls.Add(this.Title);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Main";
+            this.Name = "ScreenWall";
             this.Text = "Skylark Wallpaper";
             this.ResumeLayout(false);
 

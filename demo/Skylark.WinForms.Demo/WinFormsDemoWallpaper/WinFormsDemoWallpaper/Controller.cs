@@ -21,9 +21,20 @@ namespace WinFormsDemoWallpaper
 
                 for (int C = 0; C < Screen.AllScreens.Length; C++)
                 {
-                    Form Wall = new Main(C);
+                    ScreenWall Wall = new(C);
                     Wall.Show();
                 }
+            }
+        }
+
+        private void Button3_Click(object sender, System.EventArgs e)
+        {
+            if (State)
+            {
+                State = false;
+
+                ExpandWall Wall = new();
+                Wall.Show();
             }
         }
 
