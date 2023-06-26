@@ -1,11 +1,11 @@
 ﻿using Microsoft.Win32;
-using EWTT = Skylark.Enum.WindowsThemeType;
+using SEWTT = Skylark.Enum.WindowsThemeType;
 
 namespace Skylark.Wing.Helper
 {
     public static class WindowsTheme
     {
-        public static EWTT GetTheme()
+        public static SEWTT GetTheme()
         {
             try
             {
@@ -15,22 +15,22 @@ namespace Skylark.Wing.Helper
 
                 if (Values == null)
                 {
-                    return EWTT.Light;
+                    return SEWTT.Light;
                 }
 
                 int Value = (int)Values;
 
-                return Value > 0 ? EWTT.Light : EWTT.Dark;
+                return Value > 0 ? SEWTT.Light : SEWTT.Dark;
             }
             catch
             {
-                return EWTT.Dark;
+                return SEWTT.Dark;
             }
         }
 
         private static RegistryKey GetRegistryKey(bool Writable = false)
         {
-            return Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", false);
+            return Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", Writable);
         }
     }
 }

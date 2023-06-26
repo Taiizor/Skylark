@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Text;
-using E = Skylark.Exception;
-using EAFT = Skylark.Enum.AncestorFlagsType;
-using ECAT = Skylark.Enum.CompositionActionsType;
-using ETFT = Skylark.Enum.TimeoutFlagsType;
-using EWPFT = Skylark.Enum.WindowPosFlagsType;
-using SMMS = Skylark.Struct.Monitor.MonitorStruct;
-using SRRS = Skylark.Struct.Rectangles.RectanglesStruct;
+using SE = Skylark.Exception;
+using SEAFT = Skylark.Enum.AncestorFlagsType;
+using SECAT = Skylark.Enum.CompositionActionsType;
+using SETFT = Skylark.Enum.TimeoutFlagsType;
+using SEWPFT = Skylark.Enum.WindowPosFlagsType;
+using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
+using SSRRS = Skylark.Struct.Rectangles.RectanglesStruct;
 
 namespace Skylark.Wing.Helper
 {
@@ -41,7 +41,7 @@ namespace Skylark.Wing.Helper
         /// <param name="lprcMonitor"></param>
         /// <param name="dwData"></param>
         /// <returns></returns>
-        public delegate bool MonitorEnumDelegate(IntPtr hMonitor, IntPtr hdcMonitor, ref SRRS lprcMonitor, int dwData);
+        public delegate bool MonitorEnumDelegate(IntPtr hMonitor, IntPtr hdcMonitor, ref SSRRS lprcMonitor, int dwData);
 
         /// <summary>
         /// 
@@ -61,16 +61,16 @@ namespace Skylark.Wing.Helper
         /// <param name="High"></param>
         /// <param name="Low"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static int MakeParam(int High, int Low)
         {
             try
             {
                 return (High << 16) | (Low & 0xFFFF);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -106,7 +106,7 @@ namespace Skylark.Wing.Helper
         /// <param name="result"></param>
         /// <returns></returns>
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-        public static extern IntPtr SendMessageTimeout(IntPtr windowHandle, uint Msg, IntPtr wParam, IntPtr lParam, ETFT flags, uint timeout, out IntPtr result);
+        public static extern IntPtr SendMessageTimeout(IntPtr windowHandle, uint Msg, IntPtr wParam, IntPtr lParam, SETFT flags, uint timeout, out IntPtr result);
 
         /// <summary>
         /// 
@@ -207,7 +207,7 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         [DllImport("user32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, EWPFT uFlags);
+        public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, SEWPFT uFlags);
 
         /// <summary>
         /// 
@@ -241,14 +241,14 @@ namespace Skylark.Wing.Helper
         /// </summary>
         /// <param name="uCompositionAction"></param>
         [DllImport("dwmapi.dll", PreserveSig = false)]
-        private static extern void DwmEnableComposition(ECAT uCompositionAction);
+        private static extern void DwmEnableComposition(SECAT uCompositionAction);
         /// <summary>
         /// 
         /// </summary>
         /// <param name="uCompositionAction"></param>
         /// <exception cref="DllNotFoundException"></exception>
-        /// <exception cref="E"></exception>
-        public static void EnableComposition(ECAT uCompositionAction)
+        /// <exception cref="SE"></exception>
+        public static void EnableComposition(SECAT uCompositionAction)
         {
             try
             {
@@ -259,9 +259,9 @@ namespace Skylark.Wing.Helper
                 // Empty.
                 throw new DllNotFoundException(Ex.Message, Ex);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -273,7 +273,7 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool GetWindowRect(IntPtr hWnd, out SRRS lpRect);
+        public static extern bool GetWindowRect(IntPtr hWnd, out SSRRS lpRect);
 
         /// <summary>
         /// 
@@ -289,7 +289,7 @@ namespace Skylark.Wing.Helper
         /// <param name="flags"></param>
         /// <returns></returns>
         [DllImport("user32.dll", ExactSpelling = true)]
-        public static extern IntPtr GetAncestor(IntPtr hwnd, EAFT flags); // Get the top level handle containing hWnd.
+        public static extern IntPtr GetAncestor(IntPtr hwnd, SEAFT flags); // Get the top level handle containing hWnd.
 
         /// <summary>
         /// 
@@ -305,7 +305,7 @@ namespace Skylark.Wing.Helper
         /// </summary>
         /// <param name="hWnd"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string GetClassName(IntPtr hWnd)
         {
             try
@@ -324,9 +324,9 @@ namespace Skylark.Wing.Helper
 
                 return className.ToString();
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -346,7 +346,7 @@ namespace Skylark.Wing.Helper
         /// <param name="lpmi"></param>
         /// <returns></returns>
         [DllImport("user32.dll")]
-        public static extern bool GetMonitorInfo(IntPtr hMonitor, ref SMMS lpmi); // Get monitor information.
+        public static extern bool GetMonitorInfo(IntPtr hMonitor, ref SSMMS lpmi); // Get monitor information.
 
         /// <summary>
         /// 
@@ -362,7 +362,7 @@ namespace Skylark.Wing.Helper
         /// <param name="lpRect"></param>
         /// <returns></returns>
         [DllImport("user32.dll")]
-        public static extern bool GetClientRect(IntPtr hWnd, out SRRS lpRect); // Get the working area of hWnd.
+        public static extern bool GetClientRect(IntPtr hWnd, out SSRRS lpRect); // Get the working area of hWnd.
 
         /// <summary>
         /// 

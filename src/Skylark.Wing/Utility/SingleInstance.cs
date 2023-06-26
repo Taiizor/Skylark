@@ -10,6 +10,7 @@ namespace Skylark.Wing.Utility
         public static bool IsAppMutexRunning(string mutexName)
         {
             Mutex mutex = null;
+
             try
             {
                 return Mutex.TryOpenExisting(mutexName, out mutex);

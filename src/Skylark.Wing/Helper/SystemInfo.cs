@@ -2,6 +2,7 @@
 using System.Management;
 using System.Runtime.InteropServices;
 using System.Text;
+using SE = Skylark.Exception;
 
 namespace Skylark.Wing.Helper
 {
@@ -22,7 +23,7 @@ namespace Skylark.Wing.Helper
                 }
                 return sb.ToString().TrimEnd();
             }
-            catch (Exception e)
+            catch (SE e)
             {
                 return "GPU: " + e.Message;
             }
@@ -55,7 +56,7 @@ namespace Skylark.Wing.Helper
                 }
                 return sb.ToString().TrimEnd();
             }
-            catch (Exception e)
+            catch (SE e)
             {
                 return "CPU: " + e.Message;
             }
@@ -88,7 +89,7 @@ namespace Skylark.Wing.Helper
                 }
                 return sb.ToString().TrimEnd();
             }
-            catch (Exception e)
+            catch (SE e)
             {
                 return "OS: " + e.Message;
             }

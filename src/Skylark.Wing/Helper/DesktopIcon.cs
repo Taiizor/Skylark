@@ -2,11 +2,11 @@
 using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
-using E = Skylark.Exception;
-using ETFT = Skylark.Enum.TimeoutFlagsType;
-using HFI = Skylark.Wing.Helper.FormInterop;
-using HWAPI = Skylark.Wing.Helper.WinAPI;
-using HWI = Skylark.Wing.Helper.WindowInterop;
+using SE = Skylark.Exception;
+using SETFT = Skylark.Enum.TimeoutFlagsType;
+using SWHFI = Skylark.Wing.Helper.FormInterop;
+using SWHWAPI = Skylark.Wing.Helper.WinAPI;
+using SWHWI = Skylark.Wing.Helper.WindowInterop;
 
 namespace Skylark.Wing.Helper
 {
@@ -24,11 +24,11 @@ namespace Skylark.Wing.Helper
         {
             try
             {
-                return FixHandle(HFI.Handle(Form));
+                return FixHandle(SWHFI.Handle(Form));
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -37,16 +37,16 @@ namespace Skylark.Wing.Helper
         /// </summary>
         /// <param name="Window"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static bool FixWindow(Window Window)
         {
             try
             {
-                return FixHandle(HWI.EnsureHandle(Window));
+                return FixHandle(SWHWI.EnsureHandle(Window));
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -55,12 +55,12 @@ namespace Skylark.Wing.Helper
         /// </summary>
         /// <param name="Handle"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static bool FixHandle(IntPtr Handle)
         {
             try
             {
-                IntPtr Progman = HWAPI.FindWindow("Progman", null); //"Progman", "Program Manager"
+                IntPtr Progman = SWHWAPI.FindWindow("Progman", null); //"Progman", "Program Manager"
 
                 if (Progman == IntPtr.Zero)
                 {
@@ -76,16 +76,16 @@ namespace Skylark.Wing.Helper
                     if (Count % 2 == 0)
                     {
                         IntPtr Result = IntPtr.Zero;
-                        HWAPI.SendMessageTimeout(Progman, 0x052C, new IntPtr(0), IntPtr.Zero, ETFT.SMTO_NORMAL, 10000, out Result);
+                        SWHWAPI.SendMessageTimeout(Progman, 0x052C, new IntPtr(0), IntPtr.Zero, SETFT.SMTO_NORMAL, 10000, out Result);
                     }
 
-                    HWAPI.EnumWindows(new HWAPI.EnumWindowsProc((TopHandle, TopParamHandle) =>
+                    SWHWAPI.EnumWindows(new SWHWAPI.EnumWindowsProc((TopHandle, TopParamHandle) =>
                     {
-                        IntPtr IntPtr = HWAPI.FindWindowEx(TopHandle, IntPtr.Zero, "SHELLDLL_DefView", IntPtr.Zero);
+                        IntPtr IntPtr = SWHWAPI.FindWindowEx(TopHandle, IntPtr.Zero, "SHELLDLL_DefView", IntPtr.Zero);
 
                         if (IntPtr != IntPtr.Zero)
                         {
-                            WorkerW = HWAPI.FindWindowEx(IntPtr.Zero, TopHandle, "WorkerW", IntPtr.Zero);
+                            WorkerW = SWHWAPI.FindWindowEx(IntPtr.Zero, TopHandle, "WorkerW", IntPtr.Zero);
                         }
 
                         return true;
@@ -107,14 +107,14 @@ namespace Skylark.Wing.Helper
                     return false;
                 }
 
-                HWAPI.ShowWindow(WorkerW, 0); /*HIDE*/
-                HWAPI.SetParent(Handle, Progman);
+                SWHWAPI.ShowWindow(WorkerW, 0); /*HIDE*/
+                SWHWAPI.SetParent(Handle, Progman);
 
                 return true;
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
     }

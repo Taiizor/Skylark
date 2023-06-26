@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Drawing;
-using MI = Skylark.Wing.Manage.Internal;
-using NM = Skylark.Wing.Native.Methods;
-using SRRS = Skylark.Struct.Rectangles.RectanglesStruct;
+using SSRRS = Skylark.Struct.Rectangles.RectanglesStruct;
+using SWMI = Skylark.Wing.Manage.Internal;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Skylark.Wing.Helper
 {
@@ -17,9 +17,9 @@ namespace Skylark.Wing.Helper
         /// <param name="wndHandle"></param>
         /// <param name="screeneRectangles"></param>
         /// <returns></returns>
-        public static bool IsFullscreen(IntPtr wndHandle, SRRS screeneRectangles)
+        public static bool IsFullscreen(IntPtr wndHandle, SSRRS screeneRectangles)
         {
-            NM.GetWindowRect(wndHandle, out NM.RECT Rectangle);
+            SWNM.GetWindowRect(wndHandle, out SWNM.RECT Rectangle);
 
             return new Rectangle(Rectangle.Left, Rectangle.Top, Rectangle.Right - Rectangle.Left, Rectangle.Bottom - Rectangle.Top).Contains(screeneRectangles);
         }
@@ -31,9 +31,9 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         public static bool IsFullscreen2(IntPtr hWnd)
         {
-            int exStyle = NM.GetWindowLong(hWnd, -20);
+            int exStyle = SWNM.GetWindowLong(hWnd, -20);
 
-            return ((exStyle & MI.WS_EX_TOPMOST) == MI.WS_EX_TOPMOST) && ((exStyle & MI.WS_EX_TOOLWINDOW) == MI.WS_EX_TOOLWINDOW);
+            return ((exStyle & SWMI.WS_EX_TOPMOST) == SWMI.WS_EX_TOPMOST) && ((exStyle & SWMI.WS_EX_TOOLWINDOW) == SWMI.WS_EX_TOOLWINDOW);
         }
     }
 }

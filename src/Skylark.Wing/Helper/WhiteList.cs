@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using MI = Skylark.Wing.Manage.Internal;
-using NM = Skylark.Wing.Native.Methods;
+using SWMI = Skylark.Wing.Manage.Internal;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Skylark.Wing.Helper
 {
@@ -22,7 +22,7 @@ namespace Skylark.Wing.Helper
 
             StringBuilder ClassName = new(MaxChars);
 
-            return NM.GetClassName((int)hwnd, ClassName, MaxChars) > 0 && MI.ClassWhiteList.Any(x => x.Equals(ClassName.ToString(), StringComparison.Ordinal));
+            return SWNM.GetClassName((int)hwnd, ClassName, MaxChars) > 0 && SWMI.ClassWhiteList.Any(x => x.Equals(ClassName.ToString(), StringComparison.Ordinal));
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Skylark.Wing.Helper
 
             StringBuilder ClassName = new(MaxChars);
 
-            return NM.GetClassName((int)hwnd, ClassName, MaxChars) > 0 && MI.StartsWithClassWhiteList.Any(x => ClassName.ToString().StartsWith(x));
+            return SWNM.GetClassName((int)hwnd, ClassName, MaxChars) > 0 && SWMI.StartsWithClassWhiteList.Any(x => ClassName.ToString().StartsWith(x));
         }
     }
 }

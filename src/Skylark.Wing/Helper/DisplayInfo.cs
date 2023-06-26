@@ -1,4 +1,4 @@
-﻿using SRRS = Skylark.Struct.Rectangles.RectanglesStruct;
+﻿using SSRRS = Skylark.Struct.Rectangles.RectanglesStruct;
 
 namespace Skylark.Wing.Helper
 {
@@ -10,12 +10,12 @@ namespace Skylark.Wing.Helper
         /// <summary>
         /// 
         /// </summary>
-        public static SRRS WorkArea { get; set; }
+        public static SSRRS WorkArea { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public static SRRS MonitorArea { get; set; }
+        public static SSRRS MonitorArea { get; set; }
 
         /// <summary>
         /// 

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using NM = Skylark.Wing.Native.Methods;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Skylark.Wing.Interface
 {
@@ -26,7 +26,7 @@ namespace Skylark.Wing.Interface
         uint GetMonitorDevicePathCount();
 
         [return: MarshalAs(UnmanagedType.Struct)]
-        NM.RECT GetMonitorRECT([MarshalAs(UnmanagedType.LPWStr)] string monitorID);
+        SWNM.RECT GetMonitorRECT([MarshalAs(UnmanagedType.LPWStr)] string monitorID);
 
         void SetBackgroundColor([MarshalAs(UnmanagedType.U4)] uint color);
         [return: MarshalAs(UnmanagedType.U4)]

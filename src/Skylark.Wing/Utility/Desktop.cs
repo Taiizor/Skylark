@@ -1,5 +1,5 @@
 ﻿using System;
-using NM = Skylark.Wing.Native.Methods;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Skylark.Wing.Utility
 {
@@ -14,8 +14,8 @@ namespace Skylark.Wing.Utility
 
         public static bool GetDesktopIconVisibility()
         {
-            NM.SHELLSTATE state = new();
-            NM.SHGetSetSettings(ref state, NM.SSF.SSF_HIDEICONS, false); //get state
+            SWNM.SHELLSTATE state = new();
+            SWNM.SHGetSetSettings(ref state, SWNM.SSF.SSF_HIDEICONS, false); //get state
             return !state.fHideIcons;
         }
 
@@ -23,11 +23,11 @@ namespace Skylark.Wing.Utility
         public static void SetDesktopIconVisibility(bool isVisible)
         {
             //Does not work in Win10
-            //NM.SHGetSetSettings(ref state, NM.SSF.SSF_HIDEICONS, true);
+            //SWNM.SHGetSetSettings(ref state, SWNM.SSF.SSF_HIDEICONS, true);
 
             if (GetDesktopIconVisibility() ^ isVisible) //XOR!!!
             {
-                NM.SendMessage(GetDesktopSHELLDLL_DefView(), (int)NM.WM.COMMAND, (IntPtr)0x7402, IntPtr.Zero);
+                SWNM.SendMessage(GetDesktopSHELLDLL_DefView(), (int)SWNM.WM.COMMAND, (IntPtr)0x7402, IntPtr.Zero);
             }
         }
 
@@ -36,14 +36,15 @@ namespace Skylark.Wing.Utility
             IntPtr hShellViewWin = IntPtr.Zero;
             IntPtr hWorkerW = IntPtr.Zero;
 
-            IntPtr hProgman = NM.FindWindow("Progman", "Program Manager");
-            IntPtr hDesktopWnd = NM.GetDesktopWindow();
+            IntPtr hProgman = SWNM.FindWindow("Progman", "Program Manager");
+            IntPtr hDesktopWnd = SWNM.GetDesktopWindow();
 
             // If the main Program Manager window is found
             if (hProgman != IntPtr.Zero)
             {
                 // Get and load the main List view window containing the icons.
-                hShellViewWin = NM.FindWindowEx(hProgman, IntPtr.Zero, "SHELLDLL_DefView", null);
+                hShellViewWin = SWNM.FindWindowEx(hProgman, IntPtr.Zero, "SHELLDLL_DefView", null);
+
                 if (hShellViewWin == IntPtr.Zero)
                 {
                     // When this fails (picture rotation is turned ON), then look for the WorkerW windows list to get the
@@ -51,11 +52,12 @@ namespace Skylark.Wing.Utility
                     // As there can be multiple WorkerW windows, iterate through all to get the correct one
                     do
                     {
-                        hWorkerW = NM.FindWindowEx(hDesktopWnd, hWorkerW, "WorkerW", null);
-                        hShellViewWin = NM.FindWindowEx(hWorkerW, IntPtr.Zero, "SHELLDLL_DefView", null);
+                        hWorkerW = SWNM.FindWindowEx(hDesktopWnd, hWorkerW, "WorkerW", null);
+                        hShellViewWin = SWNM.FindWindowEx(hWorkerW, IntPtr.Zero, "SHELLDLL_DefView", null);
                     } while (hShellViewWin == IntPtr.Zero && hWorkerW != IntPtr.Zero);
                 }
             }
+
             return hShellViewWin;
         }
 
@@ -65,7 +67,7 @@ namespace Skylark.Wing.Utility
         public static void RefreshDesktop()
         {
             //todo: Find a better way to do this?
-            NM.SystemParametersInfo(NM.SPI_SETDESKWALLPAPER, 0, null, NM.SPIF_UPDATEINIFILE);
+            SWNM.SystemParametersInfo(SWNM.SPI_SETDESKWALLPAPER, 0, null, SWNM.SPIF_UPDATEINIFILE);
         }
     }
 }
