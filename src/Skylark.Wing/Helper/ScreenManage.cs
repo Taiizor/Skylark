@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
+using Rectangle = System.Drawing.Rectangle;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SWUS = Skylark.Wing.Utility.Screene;
@@ -40,7 +42,7 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         public static SSMMS OwnerScreen(SEEST Method)
         {
-            if (Screen.AllScreens.Length <= 1)
+            if (SWUS.Screens.Length <= 1)
             {
                 return OwnerScreen(0);
             }
@@ -49,52 +51,28 @@ namespace Skylark.Wing.Helper
                 switch (Method)
                 {
                     default:
-                        SSMMS MonitorStruct = new()
+                        Screen[] Screens = Screen.AllScreens;
+
+                        Rectangle Work = WorkRectangle(Screens);
+                        Rectangle Monitor = MonitorRectangle(Screens);
+
+                        return new()
                         {
-                            rcMonitor = new()
-                            {
-                                Height = 0,
-                                Width = 0,
-                                Left = 0,
-                                Top = 0
-                            },
                             rcWork = new()
                             {
-                                Height = 0,
-                                Width = 0,
-                                Left = 0,
-                                Top = 0
+                                Top = Work.Top,
+                                Left = Work.Left,
+                                Width = Work.Width,
+                                Height = Work.Height,
+                            },
+                            rcMonitor = new()
+                            {
+                                Top = Monitor.Top,
+                                Left = Monitor.Left,
+                                Width = Monitor.Width,
+                                Height = Monitor.Height,
                             }
                         };
-
-                        foreach (Screen Screene in Screen.AllScreens)
-                        {
-                            if (MonitorStruct.rcMonitor.Width < Screene.Bounds.Width)
-                            {
-                                MonitorStruct.rcMonitor.Width = Screene.Bounds.Width;
-                            }
-                            if (MonitorStruct.rcWork.Width < Screene.WorkingArea.Width)
-                            {
-                                MonitorStruct.rcWork.Width = Screene.WorkingArea.Width;
-                            }
-
-                            if (MonitorStruct.rcMonitor.Height < Screene.Bounds.Height)
-                            {
-                                MonitorStruct.rcMonitor.Height = Screene.Bounds.Height;
-                            }
-                            if (MonitorStruct.rcWork.Height < Screene.WorkingArea.Height)
-                            {
-                                MonitorStruct.rcWork.Height = Screene.WorkingArea.Height;
-                            }
-
-                            //MonitorStruct.rcMonitor.Height += Screene.Bounds.Height;
-                            //MonitorStruct.rcWork.Height += Screene.WorkingArea.Height;
-
-                            MonitorStruct.rcMonitor.Width += Screene.Bounds.Width;
-                            MonitorStruct.rcWork.Width += Screene.WorkingArea.Width;
-                        }
-
-                        return MonitorStruct;
                 }
             }
         }
@@ -110,7 +88,7 @@ namespace Skylark.Wing.Helper
             {
                 return 0;
             }
-            else if (Index >= Screen.AllScreens.Length)
+            else if (Index >= SWUS.Screens.Length)
             {
                 return 0;
             }
@@ -118,6 +96,60 @@ namespace Skylark.Wing.Helper
             {
                 return Index;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Screens"></param>
+        /// <returns></returns>
+        private static Rectangle WorkRectangle(Screen[] Screens)
+        {
+            int MinX = int.MaxValue;
+            int MinY = int.MaxValue;
+
+            int MaxRight = int.MinValue;
+            int MaxBottom = int.MinValue;
+
+            foreach (Screen screen in Screens)
+            {
+                Rectangle workingArea = screen.WorkingArea;
+
+                MinX = Math.Min(MinX, workingArea.Left);
+                MinY = Math.Min(MinY, workingArea.Top);
+
+                MaxRight = Math.Max(MaxRight, workingArea.Right);
+                MaxBottom = Math.Max(MaxBottom, workingArea.Bottom);
+            }
+
+            return new Rectangle(MinX, MinY, MaxRight - MinX, MaxBottom - MinY);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Screens"></param>
+        /// <returns></returns>
+        private static Rectangle MonitorRectangle(Screen[] Screens)
+        {
+            int MinX = int.MaxValue;
+            int MinY = int.MaxValue;
+
+            int MaxRight = int.MinValue;
+            int MaxBottom = int.MinValue;
+
+            foreach (Screen screen in Screens)
+            {
+                Rectangle bounds = screen.Bounds;
+
+                MinX = Math.Min(MinX, bounds.Left);
+                MinY = Math.Min(MinY, bounds.Top);
+
+                MaxRight = Math.Max(MaxRight, bounds.Right);
+                MaxBottom = Math.Max(MaxBottom, bounds.Bottom);
+            }
+
+            return new Rectangle(MinX, MinY, MaxRight - MinX, MaxBottom - MinY);
         }
     }
 }

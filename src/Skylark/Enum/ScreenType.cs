@@ -1,4 +1,6 @@
-﻿namespace Skylark.Enum
+﻿using System.ComponentModel;
+
+namespace Skylark.Enum
 {
     /// <summary>
     /// 
@@ -13,6 +15,25 @@
         /// 
         /// </summary>
         DisplayBound
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public enum MouseScreenType
+    {
+        /// <summary>
+        /// Per Display
+        /// </summary>
+        PerDisplay,
+        /// <summary>
+        /// Span Across All Display(s)
+        /// </summary>
+        SpanAcross,
+        /// <summary>
+        /// Same wp for all Display(s)
+        /// </summary>
+        SameDuplicate
     }
 
     /// <summary>
