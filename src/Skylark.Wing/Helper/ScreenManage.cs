@@ -111,15 +111,15 @@ namespace Skylark.Wing.Helper
             int MaxRight = int.MinValue;
             int MaxBottom = int.MinValue;
 
-            foreach (Screen screen in Screens)
+            foreach (Screen Screen in Screens)
             {
-                Rectangle workingArea = screen.WorkingArea;
+                Rectangle WorkingArea = Screen.WorkingArea;
 
-                MinX = Math.Min(MinX, workingArea.Left);
-                MinY = Math.Min(MinY, workingArea.Top);
+                MinX = Math.Min(MinX, WorkingArea.Left);
+                MinY = Math.Min(MinY, WorkingArea.Top);
 
-                MaxRight = Math.Max(MaxRight, workingArea.Right);
-                MaxBottom = Math.Max(MaxBottom, workingArea.Bottom);
+                MaxRight = Math.Max(MaxRight, WorkingArea.Right);
+                MaxBottom = Math.Max(MaxBottom, WorkingArea.Bottom);
             }
 
             return new Rectangle(MinX, MinY, MaxRight - MinX, MaxBottom - MinY);
@@ -138,15 +138,15 @@ namespace Skylark.Wing.Helper
             int MaxRight = int.MinValue;
             int MaxBottom = int.MinValue;
 
-            foreach (Screen screen in Screens)
+            foreach (Screen Screen in Screens)
             {
-                Rectangle bounds = screen.Bounds;
+                Rectangle Bounds = Screen.Bounds;
 
-                MinX = Math.Min(MinX, bounds.Left);
-                MinY = Math.Min(MinY, bounds.Top);
+                MinX = Math.Min(MinX, Bounds.Left);
+                MinY = Math.Min(MinY, Bounds.Top);
 
-                MaxRight = Math.Max(MaxRight, bounds.Right);
-                MaxBottom = Math.Max(MaxBottom, bounds.Bottom);
+                MaxRight = Math.Max(MaxRight, Bounds.Right);
+                MaxBottom = Math.Max(MaxBottom, Bounds.Bottom);
             }
 
             return new Rectangle(MinX, MinY, MaxRight - MinX, MaxBottom - MinY);
