@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Forms;
-using EAFT = Skylark.Enum.AncestorFlagsType;
-using EST = Skylark.Enum.ScreenType;
+using SEAFT = Skylark.Enum.AncestorFlagsType;
+using SEST = Skylark.Enum.ScreenType;
+using SEDST = Skylark.Enum.DuplicateScreenType;
 using HFI = Skylark.Wing.Helper.FormInterop;
 using HWAPI = Skylark.Wing.Helper.WinAPI;
 using HWI = Skylark.Wing.Helper.WindowInterop;
@@ -103,11 +104,11 @@ namespace Skylark.Wing.Utility
         /// <param name="Form"></param>
         /// <param name="Screen"></param>
         /// <param name="Type"></param>
-        public static void FillScreenForm(Form Form, SMMS Screen, EST Type)
+        public static void FillScreenForm(Form Form, SMMS Screen, SEST Type)
         {
             SSRRS Rectangle = Type switch
             {
-                EST.WorkingArea => Screen.rcWork,
+                SEST.WorkingArea => Screen.rcWork,
                 _ => Screen.rcMonitor,
             };
 
@@ -123,11 +124,11 @@ namespace Skylark.Wing.Utility
         /// <param name="Window"></param>
         /// <param name="Screen"></param>
         /// <param name="Type"></param>
-        public static void FillScreenWindow(Window Window, SMMS Screen, EST Type)
+        public static void FillScreenWindow(Window Window, SMMS Screen, SEST Type)
         {
             SSRRS Rectangle = Type switch
             {
-                EST.WorkingArea => Screen.rcWork,
+                SEST.WorkingArea => Screen.rcWork,
                 _ => Screen.rcMonitor,
             };
 
@@ -176,7 +177,7 @@ namespace Skylark.Wing.Utility
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="hwnd"></param>
+        /// <param name="Handle"></param>
         /// <returns></returns>
         private static bool IsOverlayedHandle(IntPtr Handle)
         {
@@ -196,7 +197,7 @@ namespace Skylark.Wing.Utility
                 return false;
             }
 
-            ForegroundWindow = HWAPI.GetAncestor(ForegroundWindow, EAFT.GetRoot);
+            ForegroundWindow = HWAPI.GetAncestor(ForegroundWindow, SEAFT.GetRoot);
 
             // If you are yourself, you are not covered.
             if (ForegroundWindow == Handle)

@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Rectangle = System.Drawing.Rectangle;
 using SEEST = Skylark.Enum.ExpandScreenType;
+using SEDST = Skylark.Enum.DuplicateScreenType;
 using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SWUS = Skylark.Wing.Utility.Screene;
 

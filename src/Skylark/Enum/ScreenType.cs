@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace Skylark.Enum
+﻿namespace Skylark.Enum
 {
     /// <summary>
     /// 
@@ -40,6 +38,17 @@ namespace Skylark.Enum
     /// 
     /// </summary>
     public enum ExpandScreenType
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        Default
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public enum DuplicateScreenType
     {
         /// <summary>
         /// 

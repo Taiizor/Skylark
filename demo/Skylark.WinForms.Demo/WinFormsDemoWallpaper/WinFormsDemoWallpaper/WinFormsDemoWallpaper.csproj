@@ -12,7 +12,12 @@
         <StartupObject>WinFormsDemoWallpaper.Program</StartupObject>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.0.1.307" />
-        <PackageReference Include="Skylark.Wing" Version="3.0.1.212" />
+        <PackageReference Include="Skylark" Version="3.0.1.308" />
+        <PackageReference Include="Skylark.Wing" Version="3.0.1.213" />
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Update="DuplicateWall.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 ﻿using Skylark.Wing.Utility;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -13,7 +14,7 @@ namespace WinFormsDemoWallpaper
             InitializeComponent();
         }
 
-        private void Button1_Click(object sender, System.EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (State)
             {
@@ -27,7 +28,7 @@ namespace WinFormsDemoWallpaper
             }
         }
 
-        private void Button3_Click(object sender, System.EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             if (State)
             {
@@ -38,7 +39,18 @@ namespace WinFormsDemoWallpaper
             }
         }
 
-        private void Button2_Click(object sender, System.EventArgs e)
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            if (State)
+            {
+                State = false;
+
+                DuplicateWall Wall = new();
+                Wall.Show();
+            }
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
         {
             if (!State)
             {
@@ -46,7 +58,7 @@ namespace WinFormsDemoWallpaper
 
                 foreach (Form Form in Application.OpenForms.Cast<Form>().ToList())
                 {
-                    if (Form.Text == "Skylark Wallpaper")
+                    if (Form.Text != "Skylark Controller")
                     {
                         Form.Close();
                     }

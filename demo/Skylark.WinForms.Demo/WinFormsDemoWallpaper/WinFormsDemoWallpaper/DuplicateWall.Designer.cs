@@ -1,6 +1,6 @@
 ﻿namespace WinFormsDemoWallpaper
 {
-    partial class ExpandWall
+    partial class DuplicateWall
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpandWall));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DuplicateWall));
             this.Title = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -42,10 +42,10 @@
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(800, 450);
             this.Title.TabIndex = 2;
-            this.Title.Text = "Expand Screen";
+            this.Title.Text = "Duplicate Screen";
             this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ExpandWall
+            // DuplicateWall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -55,7 +55,7 @@
             this.Controls.Add(this.Title);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ExpandWall";
+            this.Name = "DuplicateWall";
             this.Text = "Skylark Wallpaper";
             this.ResumeLayout(false);
 
