@@ -7,11 +7,13 @@ using SEAFT = Skylark.Enum.AncestorFlagsType;
 using SEST = Skylark.Enum.ScreenType;
 using SEDST = Skylark.Enum.DuplicateScreenType;
 using HFI = Skylark.Wing.Helper.FormInterop;
+using HPI = Skylark.Wing.Helper.ProcessInterop;
 using HWAPI = Skylark.Wing.Helper.WinAPI;
 using HWI = Skylark.Wing.Helper.WindowInterop;
 using MI = Skylark.Manage.Internal;
 using SMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SSRRS = Skylark.Struct.Rectangles.RectanglesStruct;
+using System.Diagnostics;
 
 namespace Skylark.Wing.Utility
 {
@@ -148,10 +150,33 @@ namespace Skylark.Wing.Utility
             Window.InvalidateVisual();
 
             //IntPtr hwnd = HWI.EnsureHandle(Window);
-            //int exStyle = NM.GetWindowLong(hwnd, (int)NM.GWL.GWL_EXSTYLE);
-            //NM.SetWindowLong(hwnd, (int)NM.GWL.GWL_EXSTYLE, exStyle | (int)NM.WindowStyles.WS_EX_NOACTIVATE);
+            //int exStyle = Methods.GetWindowLong(hwnd, (int)Methods.GWL.GWL_EXSTYLE);
+            //Methods.SetWindowLong(hwnd, (int)Methods.GWL.GWL_EXSTYLE, exStyle | (int)Methods.WindowStyles.WS_EX_NOACTIVATE);
 
             HWAPI.MoveWindow(HWI.EnsureHandle(Window), X, Y, Rectangle.Width, Rectangle.Height, true);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Handle"></param>
+        /// <param name="Screen"></param>
+        /// <param name="Type"></param>
+        public static void FillScreenHandle(IntPtr Handle, SMMS Screen, SEST Type)
+        {
+            SSRRS Rectangle = Type switch
+            {
+                SEST.WorkingArea => Screen.rcWork,
+                _ => Screen.rcMonitor,
+            };
+
+            int X = Rectangle.Left - MI.CombinedRectangles.Left;
+            int Y = Rectangle.Top - MI.CombinedRectangles.Top;
+
+            //int exStyle = Methods.GetWindowLong(Handle, (int)Methods.GWL.GWL_EXSTYLE);
+            //Methods.SetWindowLong(Handle, (int)Methods.GWL.GWL_EXSTYLE, exStyle | (int)Methods.WindowStyles.WS_EX_NOACTIVATE);
+
+            HWAPI.MoveWindow(Handle, X, Y, Rectangle.Width, Rectangle.Height, false);
         }
 
         /// <summary>
@@ -172,6 +197,16 @@ namespace Skylark.Wing.Utility
         public static bool IsOverlayedWindow(Window Window)
         {
             return IsOverlayedHandle(HWI.EnsureHandle(Window));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Process"></param>
+        /// <returns></returns>
+        public static bool IsOverlayedProcess(Process Process)
+        {
+            return IsOverlayedHandle(HPI.MainWindowHandle(Process));
         }
 
         /// <summary>

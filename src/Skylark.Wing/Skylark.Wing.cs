@@ -7,11 +7,13 @@ using SEDST = Skylark.Enum.DuplicateScreenType;
 using SEST = Skylark.Enum.ScreenType;
 using SWHDI = Skylark.Wing.Helper.DesktopIcon;
 using SWHSM = Skylark.Wing.Helper.ScreenManage;
+using SWHPI = Skylark.Wing.Helper.ProcessInterop;
 using SWUS = Skylark.Wing.Utility.Screene;
 using System.Windows.Media;
 using System.Windows.Controls;
 using System.Drawing;
 using System;
+using System.Diagnostics;
 
 #endregion
 
@@ -20,8 +22,8 @@ using System;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 17.Jun.2023
-//     Changed: 28.Jun.2023
-//     Version: 3.0.1.214
+//     Changed: 29.Jun.2023
+//     Version: 3.0.1.215
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -198,6 +200,48 @@ namespace Skylark.Wing
                         }
                         break;
                 }
+            }
+
+            return IsFixed;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Process"></param>
+        /// <param name="Index"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static bool WallpaperProcess(Process Process, int Index, SEST Type)
+        {
+            IntPtr Handle = SWHPI.MainWindowHandle(Process);
+
+            bool IsFixed = SWHDI.FixHandle(Handle);
+
+            if (IsFixed)
+            {
+                SWUS.FillScreenHandle(Handle, SWHSM.OwnerScreen(Index), Type);
+            }
+
+            return IsFixed;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Process"></param>
+        /// <param name="Method"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static bool WallpaperProcess(Process Process, SEEST Method, SEST Type)
+        {
+            IntPtr Handle = SWHPI.MainWindowHandle(Process);
+
+            bool IsFixed = SWHDI.FixHandle(Handle);
+
+            if (IsFixed)
+            {
+                SWUS.FillScreenHandle(Handle, SWHSM.OwnerScreen(Method), Type);
             }
 
             return IsFixed;
