@@ -1,29 +1,27 @@
-﻿using Skylark.Struct.Mouse;
-using System.Drawing;
+﻿using System.Drawing;
 using SEMST = Skylark.Enum.MouseScreenType;
+using SSMMEHS = Skylark.Struct.Mouse.MouseExtraHookStruct;
 using SSMMPS = Skylark.Struct.Mouse.MousePointStruct;
-using SWIIDM = Skylark.Wing.Interface.IDisplayManager;
+using SWMI = Skylark.Wing.Manage.Internal;
 
 namespace Skylark.Wing.Helper
 {
     public static class Calculate
     {
-        public static SSMMPS MousePosition(MouseExtraHookStruct Mouse, SEMST Type)
+        public static SSMMPS MousePosition(SSMMEHS Mouse, SEMST Type)
         {
-            SWIIDM DisplayManager = new DisplayManager();
-
-            if (DisplayManager.IsMultiScreen())
+            if (SWMI.DisplayManager.IsMultiScreen())
             {
                 switch (Type)
                 {
                     case SEMST.SpanAcross:
-                        Rectangle ScreenArea = DisplayManager.VirtualScreenBounds;
+                        Rectangle ScreenArea = SWMI.DisplayManager.VirtualScreenBounds;
 
                         Mouse.Point.X -= ScreenArea.Location.X;
                         Mouse.Point.Y -= ScreenArea.Location.Y;
                         break;
                     default: //PerDisplay or SameDuplicate mode.
-                        DisplayMonitor DisplayMonitor = DisplayManager.GetDisplayMonitorFromPoint(Mouse);
+                        DisplayMonitor DisplayMonitor = SWMI.DisplayManager.GetDisplayMonitorFromPoint(Mouse);
 
                         Mouse.Point.X += -1 * DisplayMonitor.Bounds.X;
                         Mouse.Point.Y += -1 * DisplayMonitor.Bounds.Y;

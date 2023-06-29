@@ -1,4 +1,7 @@
-﻿namespace Skylark.Wing.Manage
+﻿using SWHDM = Skylark.Wing.Helper.DisplayManager;
+using SWIIDM = Skylark.Wing.Interface.IDisplayManager;
+
+namespace Skylark.Wing.Manage
 {
     /// <summary>
     /// 
@@ -13,6 +16,11 @@
         /// 
         /// </summary>
         public const int WS_EX_TOOLWINDOW = 0x00000080;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly SWIIDM DisplayManager = new SWHDM();
 
         /// <summary>
         /// 
