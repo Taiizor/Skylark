@@ -117,6 +117,14 @@ namespace Skylark.Wing.Utility
             int X = Rectangle.Left - MI.CombinedRectangles.Left;
             int Y = Rectangle.Top - MI.CombinedRectangles.Top;
 
+            if (Form.FormBorderStyle != FormBorderStyle.None)
+            {
+                Form.FormBorderStyle = FormBorderStyle.None;
+
+                Form.Update();
+                Form.Invalidate();
+            }
+
             HWAPI.MoveWindow(HFI.Handle(Form), X, Y, Rectangle.Width, Rectangle.Height, false);
         }
 
@@ -143,17 +151,21 @@ namespace Skylark.Wing.Utility
             //Window.Height = Rectangle.Height;
 
             //Window.ShowInTaskbar = false;
-            Window.WindowStyle = WindowStyle.None;
-            Window.ResizeMode = ResizeMode.NoResize;
 
-            Window.UpdateLayout();
-            Window.InvalidateVisual();
+            if (Window.WindowStyle != WindowStyle.None || Window.ResizeMode != ResizeMode.NoResize)
+            {
+                Window.WindowStyle = WindowStyle.None;
+                Window.ResizeMode = ResizeMode.NoResize;
+
+                Window.UpdateLayout();
+                Window.InvalidateVisual();
+            }
 
             //IntPtr hwnd = HWI.EnsureHandle(Window);
             //int exStyle = Methods.GetWindowLong(hwnd, (int)Methods.GWL.GWL_EXSTYLE);
             //Methods.SetWindowLong(hwnd, (int)Methods.GWL.GWL_EXSTYLE, exStyle | (int)Methods.WindowStyles.WS_EX_NOACTIVATE);
 
-            HWAPI.MoveWindow(HWI.EnsureHandle(Window), X, Y, Rectangle.Width, Rectangle.Height, true);
+            HWAPI.MoveWindow(HWI.EnsureHandle(Window), X, Y, Rectangle.Width, Rectangle.Height, false);
         }
 
         /// <summary>
@@ -256,6 +268,7 @@ namespace Skylark.Wing.Utility
 
             // Retrieves the rectangular area of the monitor to which the current control belongs.
             SSRRS Desktop;
+
             IntPtr Monitor = HWAPI.MonitorFromWindow(Handle, MI.MONITOR_DEFAULTTONEAREST);
 
             if (Monitor == IntPtr.Zero)

@@ -7,7 +7,7 @@
     public enum AncestorFlagsType : uint
     {
         /// <summary>
-        /// Retrieves the parent window. This does not include the owner, as it does with the GetParent function. 
+        /// Retrieves the parent window. This does not include the owner, as it does with the GetParent function.
         /// </summary>
         GetParent = 1,
         /// <summary>
@@ -15,7 +15,7 @@
         /// </summary>
         GetRoot = 2,
         /// <summary>
-        /// Retrieves the owned root window by walking the chain of parent and owner windows returned by GetParent. 
+        /// Retrieves the owned root window by walking the chain of parent and owner windows returned by GetParent.
         /// </summary>
         GetRootOwner = 3
     }
