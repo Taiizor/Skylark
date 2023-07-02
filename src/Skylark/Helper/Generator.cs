@@ -1,5 +1,8 @@
 ﻿namespace Skylark.Helper
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Generator
     {
         /// <summary>

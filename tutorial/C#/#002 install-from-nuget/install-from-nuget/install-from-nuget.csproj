@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.0.1.309" />
+        <PackageReference Include="Skylark" Version="3.0.1.311" />
         <PackageReference Include="Skylark.DNS" Version="3.0.1.3" />
         <PackageReference Include="Skylark.Uptime" Version="3.0.1.3" />
         <PackageReference Include="Skylark.Standard" Version="3.0.1.3" />
