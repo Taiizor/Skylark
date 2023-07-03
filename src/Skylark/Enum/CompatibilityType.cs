@@ -26,6 +26,10 @@
         /// </summary>
         InfoFile,
         /// <summary>
+        /// Seçilen dosya bulunamadı!
+        /// </summary>
+        NotFound,
+        /// <summary>
         /// FileName dosyası bulunamadı!
         /// </summary>
         FileName,

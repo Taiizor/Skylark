@@ -15,7 +15,7 @@
     <StartupObject>Skylark.UI.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Skylark" Version="3.0.1.311" />
+    <PackageReference Include="Skylark" Version="3.0.1.312" />
     <PackageReference Include="Skylark.Standard" Version="3.0.1.3" />
     <PackageReference Include="Skylark.Clipboard" Version="3.0.1.302" />
   </ItemGroup>
