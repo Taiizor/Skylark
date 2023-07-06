@@ -60,7 +60,7 @@ namespace Skylark.Wing.Helper
         {
             try
             {
-                IntPtr Progman = SWHWAPI.FindWindow("Progman", null); //"Progman", "Program Manager"
+                IntPtr Progman = SWHWAPI.FindWindow("Progman", "Program Manager"); //"Progman", null - "Progman", "Program Manager"
 
                 if (Progman == IntPtr.Zero)
                 {
