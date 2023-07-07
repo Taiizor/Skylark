@@ -1,19 +1,19 @@
 ﻿#region Imports
 
-using System.Windows;
-using System.Windows.Forms;
-using SEEST = Skylark.Enum.ExpandScreenType;
-using SEDST = Skylark.Enum.DuplicateScreenType;
-using SEST = Skylark.Enum.ScreenType;
-using SWHDI = Skylark.Wing.Helper.DesktopIcon;
-using SWHSM = Skylark.Wing.Helper.ScreenManage;
-using SWHPI = Skylark.Wing.Helper.ProcessInterop;
-using SWUS = Skylark.Wing.Utility.Screene;
-using System.Windows.Media;
-using System.Windows.Controls;
-using System.Drawing;
 using System;
 using System.Diagnostics;
+using System.Drawing;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Forms;
+using System.Windows.Media;
+using SEDST = Skylark.Enum.DuplicateScreenType;
+using SEEST = Skylark.Enum.ExpandScreenType;
+using SEST = Skylark.Enum.ScreenType;
+using SWHDI = Skylark.Wing.Helper.DesktopIcon;
+using SWHPI = Skylark.Wing.Helper.ProcessInterop;
+using SWHSM = Skylark.Wing.Helper.ScreenManage;
+using SWUS = Skylark.Wing.Utility.Screene;
 
 #endregion
 
@@ -22,8 +22,8 @@ using System.Diagnostics;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 17.Jun.2023
-//     Changed: 05.Jul.2023
-//     Version: 3.0.1.221
+//     Changed: 07.Jul.2023
+//     Version: 3.0.1.222
 //
 // |---------DO-NOT-REMOVE---------|
 

@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Forms;
-using SEAFT = Skylark.Enum.AncestorFlagsType;
-using SEST = Skylark.Enum.ScreenType;
-using SEDST = Skylark.Enum.DuplicateScreenType;
 using HFI = Skylark.Wing.Helper.FormInterop;
 using HPI = Skylark.Wing.Helper.ProcessInterop;
 using HWAPI = Skylark.Wing.Helper.WinAPI;
 using HWI = Skylark.Wing.Helper.WindowInterop;
 using MI = Skylark.Manage.Internal;
+using SEAFT = Skylark.Enum.AncestorFlagsType;
+using SEST = Skylark.Enum.ScreenType;
 using SMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SSRRS = Skylark.Struct.Rectangles.RectanglesStruct;
-using System.Diagnostics;
 
 namespace Skylark.Wing.Utility
 {

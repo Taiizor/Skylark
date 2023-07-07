@@ -1688,6 +1688,16 @@ namespace Skylark.Wing.Native
 
         }
 
+        public struct APPBARDATA
+        {
+            public int cbSize;
+            public IntPtr hWnd;
+            public int uCallbackMessage;
+            public int uEdge;
+            public RECT rc;
+            public IntPtr lParam;
+        }
+
         [DllImport("user32.dll", SetLastError = true)]
         public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
@@ -2088,6 +2098,9 @@ namespace Skylark.Wing.Native
         }
 
         #region shell
+
+        [DllImport("shell32.dll")]
+        public static extern IntPtr SHAppBarMessage(int msg, ref APPBARDATA data);
 
         [DllImport("shell32.dll")]
         public static extern void SHGetSetSettings(ref SHELLSTATE lpss, SSF dwMask, bool bSet);
@@ -4139,6 +4152,10 @@ namespace Skylark.Wing.Native
         public static extern bool SystemParametersInfo(int nAction, int nParam, ref RECT rc, int nUpdate);
 
         public const int EDD_GET_DEVICE_INTERFACE_NAME = 0x00000001;
+
+        public const int TaskbarWidthCheckTrigger = 250;
+
+        public const int ABM_GETTASKBARPOS = 5;
 
         #endregion //display mgr
     }

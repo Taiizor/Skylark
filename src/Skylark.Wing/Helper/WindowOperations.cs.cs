@@ -12,7 +12,7 @@ namespace Skylark.Wing.Helper
         public static void SetParentSafe(IntPtr child, IntPtr parent)
         {
             IntPtr ret = SWNM.SetParent(child, parent);
-            
+
             if (ret.Equals(IntPtr.Zero))
             {
                 //Debug.WriteLine("Failed to set window parent");
@@ -35,7 +35,7 @@ namespace Skylark.Wing.Helper
             //https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowlongptra
             //Certain window data is cached, so changes you make using SetWindowLongPtr will not take effect until you call the SetWindowPos function?
             SWNM.ShowWindow(handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
-            
+
             if (SWNM.SetWindowLongPtr(new HandleRef(null, handle), (int)SWNM.GWL.GWL_EXSTYLE, (IntPtr)styleNewWindowExtended) == IntPtr.Zero)
             {
                 //LogUtil.LogWin32Error("Failed to modify window style");
