@@ -46,13 +46,17 @@
         /// </summary>
         AppVersion,
         /// <summary>
-        /// Url adresi geçersiz!
+        /// Geçersiz url adresi!
         /// </summary>
-        UrlInvalid,
+        InvalidUrl,
         /// <summary>
-        /// Dosya uzantısı geçersiz!
+        /// Geçersiz dosya!
         /// </summary>
-        FileExtension,
+        InvalidFile,
+        /// <summary>
+        /// Geçersiz dosya uzantısı!
+        /// </summary>
+        InvalidExtension,
         /// <summary>
         /// Öngörülemeyen sonuçlar.
         /// </summary>

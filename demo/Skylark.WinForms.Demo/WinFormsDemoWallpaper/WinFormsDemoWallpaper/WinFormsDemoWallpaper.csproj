@@ -12,7 +12,7 @@
         <StartupObject>WinFormsDemoWallpaper.Program</StartupObject>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.0.1.313" />
+        <PackageReference Include="Skylark" Version="3.0.1.314" />
         <PackageReference Include="Skylark.Wing" Version="3.0.1.221" />
     </ItemGroup>
     <ItemGroup>
