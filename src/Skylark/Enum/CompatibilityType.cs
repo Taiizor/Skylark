@@ -46,6 +46,14 @@
         /// </summary>
         AppVersion,
         /// <summary>
+        /// Url adresi geçersiz!
+        /// </summary>
+        UrlInvalid,
+        /// <summary>
+        /// Dosya uzantısı geçersiz!
+        /// </summary>
+        FileExtension,
+        /// <summary>
         /// Öngörülemeyen sonuçlar.
         /// </summary>
         UnforeseenConsequences

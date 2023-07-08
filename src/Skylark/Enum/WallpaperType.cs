@@ -24,6 +24,10 @@
         /// <summary>
         /// 
         /// </summary>
+        YouTube,
+        /// <summary>
+        /// 
+        /// </summary>
         Application
     }
 }
