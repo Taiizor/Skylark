@@ -38,7 +38,7 @@ namespace Skylark.Wing.Helper
 
             if (SWNM.SetWindowLongPtr(new HandleRef(null, handle), (int)SWNM.GWL.GWL_EXSTYLE, (IntPtr)styleNewWindowExtended) == IntPtr.Zero)
             {
-                //LogUtil.LogWin32Error("Failed to modify window style");
+                //Debug.WriteLine("Failed to modify window style");
             }
 
             SWNM.ShowWindow(handle, (int)SWNM.SHOWWINDOW.SW_SHOW);

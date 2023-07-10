@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Skylark.Wing.Helper
 {
-    public static class WindowsStartup
+    public static class WindowsMachineStartup
     {
         public static void SetStartup(string AppName, string AppPath, bool Startup)
         {
@@ -57,7 +57,7 @@ namespace Skylark.Wing.Helper
 
         private static RegistryKey GetRegistryKey(bool Writable = false)
         {
-            return Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", Writable);
+            return Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", Writable);
         }
     }
 }
