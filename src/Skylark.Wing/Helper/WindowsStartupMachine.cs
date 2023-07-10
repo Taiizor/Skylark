@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Skylark.Wing.Helper
 {
-    public static class WindowsMachineStartup
+    public static class WindowsStartupMachine
     {
         public static void SetStartup(string AppName, string AppPath, bool Startup)
         {
