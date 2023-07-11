@@ -70,7 +70,7 @@
         /// An MKV file is a video file saved in the Matroska multimedia container format that often
         /// stores short video clips, TV shows, and movies. It supports several types of audio and video
         /// codecs and may include .SRT, .SSA, .USF (Universal Subtitle Format), or VobSub subtitles.
-        /// Many video players can open MKV files, including the Microsoft Movies & TV app bundled with
+        /// Many video players can open MKV files, including the Microsoft Movies and TV app bundled with
         /// Windows and the free VideoLAN VLC media player.
         /// </summary>
         MKV,
