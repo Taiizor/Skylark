@@ -1721,6 +1721,8 @@ namespace Skylark.Wing.Native
 
         public const int APPCOMMAND_VOLUME_MUTE = 0x80000;
         public const int WM_APPCOMMAND = 0x319;
+        public const int MAX_VOLUME = 0xFFFF;
+        public const int MIN_VOLUME = 0;
 
         [DllImport("user32.dll")]
         public static extern IntPtr SendMessageW(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);

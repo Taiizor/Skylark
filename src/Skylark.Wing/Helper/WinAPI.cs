@@ -144,7 +144,7 @@ namespace Skylark.Wing.Helper
         /// <param name="volume"></param>
         /// <returns></returns>
         [DllImport("winmm.dll")]
-        public static extern int WaveOutGetVolume(IntPtr p, out uint volume);
+        public static extern int waveOutGetVolume(IntPtr p, out uint volume);
 
         /// <summary>
         /// 
@@ -153,7 +153,7 @@ namespace Skylark.Wing.Helper
         /// <param name="volume"></param>
         /// <returns></returns>
         [DllImport("winmm.dll")]
-        public static extern int WaveOutSetVolume(IntPtr p, uint volume);
+        public static extern int waveOutSetVolume(IntPtr p, uint volume);
 
         /// <summary>
         /// 
