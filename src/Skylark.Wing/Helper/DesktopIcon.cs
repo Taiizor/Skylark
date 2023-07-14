@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
 using SE = Skylark.Exception;
 using SETFT = Skylark.Enum.TimeoutFlagsType;
 using SWHFI = Skylark.Wing.Helper.FormInterop;
+using SWHPI = Skylark.Wing.Helper.ProcessInterop;
 using SWHWAPI = Skylark.Wing.Helper.WinAPI;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 
@@ -43,6 +45,24 @@ namespace Skylark.Wing.Helper
             try
             {
                 return FixHandle(SWHWI.EnsureHandle(Window));
+            }
+            catch (SE Ex)
+            {
+                throw new SE(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Process"></param>
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
+        public static bool FixProcess(Process Process)
+        {
+            try
+            {
+                return FixHandle(SWHPI.MainWindowHandle(Process));
             }
             catch (SE Ex)
             {

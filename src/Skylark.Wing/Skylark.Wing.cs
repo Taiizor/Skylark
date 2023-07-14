@@ -11,7 +11,6 @@ using SEDST = Skylark.Enum.DuplicateScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
 using SWHDI = Skylark.Wing.Helper.DesktopIcon;
-using SWHPI = Skylark.Wing.Helper.ProcessInterop;
 using SWHSM = Skylark.Wing.Helper.ScreenManage;
 using SWUS = Skylark.Wing.Utility.Screene;
 
@@ -22,8 +21,8 @@ using SWUS = Skylark.Wing.Utility.Screene;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 17.Jun.2023
-//     Changed: 13.Jul.2023
-//     Version: 3.0.1.227
+//     Changed: 14.Jul.2023
+//     Version: 3.0.1.229
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -214,13 +213,11 @@ namespace Skylark.Wing
         /// <returns></returns>
         public static bool WallpaperProcess(Process Process, int Index, SEST Type)
         {
-            IntPtr Handle = SWHPI.MainWindowHandle(Process);
-
-            bool IsFixed = SWHDI.FixHandle(Handle);
+            bool IsFixed = SWHDI.FixProcess(Process);
 
             if (IsFixed)
             {
-                SWUS.FillScreenHandle(Handle, SWHSM.OwnerScreen(Index), Type);
+                SWUS.FillScreenProcess(Process, SWHSM.OwnerScreen(Index), Type);
             }
 
             return IsFixed;
@@ -235,13 +232,11 @@ namespace Skylark.Wing
         /// <returns></returns>
         public static bool WallpaperProcess(Process Process, SEEST Method, SEST Type)
         {
-            IntPtr Handle = SWHPI.MainWindowHandle(Process);
-
-            bool IsFixed = SWHDI.FixHandle(Handle);
+            bool IsFixed = SWHDI.FixProcess(Process);
 
             if (IsFixed)
             {
-                SWUS.FillScreenHandle(Handle, SWHSM.OwnerScreen(Method), Type);
+                SWUS.FillScreenProcess(Process, SWHSM.OwnerScreen(Method), Type);
             }
 
             return IsFixed;

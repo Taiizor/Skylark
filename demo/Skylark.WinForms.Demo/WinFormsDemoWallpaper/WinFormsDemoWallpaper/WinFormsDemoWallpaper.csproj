@@ -13,7 +13,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Skylark" Version="3.0.1.316" />
-        <PackageReference Include="Skylark.Wing" Version="3.0.1.226" />
+        <PackageReference Include="Skylark.Wing" Version="3.0.1.228" />
     </ItemGroup>
     <ItemGroup>
       <Compile Update="DuplicateWall.cs">

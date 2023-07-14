@@ -170,6 +170,30 @@ namespace Skylark.Wing.Utility
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Process"></param>
+        /// <param name="Screen"></param>
+        /// <param name="Type"></param>
+        public static void FillScreenProcess(Process Process, SMMS Screen, SEST Type)
+        {
+            SSRRS Rectangle = Type switch
+            {
+                SEST.WorkingArea => Screen.rcWork,
+                _ => Screen.rcMonitor,
+            };
+
+            int X = Rectangle.Left - MI.CombinedRectangles.Left;
+            int Y = Rectangle.Top - MI.CombinedRectangles.Top;
+
+            //IntPtr hwnd = HPI.MainWindowHandle(Process);
+            //int exStyle = Methods.GetWindowLong(hwnd, (int)Methods.GWL.GWL_EXSTYLE);
+            //Methods.SetWindowLong(hwnd, (int)Methods.GWL.GWL_EXSTYLE, exStyle | (int)Methods.WindowStyles.WS_EX_NOACTIVATE);
+
+            HWAPI.MoveWindow(HPI.MainWindowHandle(Process), X, Y, Rectangle.Width, Rectangle.Height, false);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Handle"></param>
         /// <param name="Screen"></param>
         /// <param name="Type"></param>
