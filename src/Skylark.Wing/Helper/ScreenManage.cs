@@ -10,7 +10,7 @@ namespace Skylark.Wing.Helper
     /// <summary>
     /// 
     /// </summary>
-    internal static class ScreenManage
+    public static class ScreenManage
     {
         /// <summary>
         /// 
