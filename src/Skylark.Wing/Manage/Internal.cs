@@ -1,4 +1,5 @@
-﻿using SWHDM = Skylark.Wing.Helper.DisplayManager;
+﻿using System;
+using SWHDM = Skylark.Wing.Helper.DisplayManager;
 using SWIIDM = Skylark.Wing.Interface.IDisplayManager;
 
 namespace Skylark.Wing.Manage
@@ -21,6 +22,15 @@ namespace Skylark.Wing.Manage
         /// 
         /// </summary>
         public static readonly SWIIDM DisplayManager = new SWHDM();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static object M_SHELL => Activator.CreateInstance(M_TYPE);
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Type M_TYPE => Type.GetTypeFromProgID("WScript.Shell");
 
         /// <summary>
         /// 
