@@ -16,6 +16,7 @@ namespace Skylark.Standard.Extension.Word
         /// </summary>
         /// <param name="List"></param>
         /// <returns></returns>
+        /// <exception cref="SE"></exception>
         public static SSWWDS Data(string List = SSMWWM.List)
         {
             try

@@ -1,6 +1,6 @@
-﻿using EAPT = Skylark.Enum.AlphabeticPasswordType;
-using ESLPT = Skylark.Enum.SpecialPasswordType;
-using ESRPT = Skylark.Enum.SimilarPasswordType;
+﻿using SEAPT = Skylark.Enum.AlphabeticPasswordType;
+using SESLPT = Skylark.Enum.SpecialPasswordType;
+using SESRPT = Skylark.Enum.SimilarPasswordType;
 
 namespace Skylark.Standard.Manage.Password
 {
@@ -22,16 +22,16 @@ namespace Skylark.Standard.Manage.Password
         /// <summary>
         /// 
         /// </summary>
-        public const ESRPT SimilarType = ESRPT.Jaccard;
+        public const SESRPT SimilarType = SESRPT.Jaccard;
 
         /// <summary>
         /// 
         /// </summary>
-        public const ESLPT SpecialType = ESLPT.Mixed;
+        public const SESLPT SpecialType = SESLPT.Mixed;
         /// <summary>
         /// 
         /// </summary>
-        public const EAPT AlphabeticType = EAPT.Mixed;
+        public const SEAPT AlphabeticType = SEAPT.Mixed;
 
         /// <summary>
         /// 

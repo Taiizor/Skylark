@@ -1,13 +1,13 @@
 ﻿using SE = Skylark.Exception;
-using EAPT = Skylark.Enum.AlphabeticPasswordType;
-using EMPT = Skylark.Enum.MeterPasswordType;
-using ESLPT = Skylark.Enum.SpecialPasswordType;
-using ESRPT = Skylark.Enum.SimilarPasswordType;
+using SEAPT = Skylark.Enum.AlphabeticPasswordType;
+using SEMPT = Skylark.Enum.MeterPasswordType;
+using SESLPT = Skylark.Enum.SpecialPasswordType;
+using SESRPT = Skylark.Enum.SimilarPasswordType;
 using SHC = Skylark.Helper.Converter;
 using SHL = Skylark.Helper.Length;
-using SHPPH = Skylark.Standard.Helper.Password.PasswordHelper;
+using SSHPPH = Skylark.Standard.Helper.Password.PasswordHelper;
 using SSME = Skylark.Standard.Manage.External;
-using SMPPM = Skylark.Standard.Manage.Password.PasswordManage;
+using SSMPPM = Skylark.Standard.Manage.Password.PasswordManage;
 
 namespace Skylark.Standard.Extension.Password
 {
@@ -16,11 +16,17 @@ namespace Skylark.Standard.Extension.Password
     /// </summary>
     public static class PasswordExtension
     {
-        public static EMPT Meter(string Password = MPPM.Password)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Password"></param>
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
+        public static SEMPT Meter(string Password = SSMPPM.Password)
         {
             try
             {
-                return HPPH.GetMeter(HL.Parameter(Password, MPPM.Password));
+                return SSHPPH.GetMeter(SHL.Parameter(Password, SSMPPM.Password));
             }
             catch (SE Ex)
             {
@@ -33,7 +39,7 @@ namespace Skylark.Standard.Extension.Password
         /// </summary>
         /// <param name="Password"></param>
         /// <returns></returns>
-        public static async Task<EMPT> MeterAsync(string Password = MPPM.Password)
+        public static async Task<SEMPT> MeterAsync(string Password = SSMPPM.Password)
         {
             return await Task.Run(() => Meter(Password));
         }
@@ -47,9 +53,9 @@ namespace Skylark.Standard.Extension.Password
         /// <param name="Prefix"></param>
         /// <param name="Suffix"></param>
         /// <returns></returns>
-        public static string Generate(int Length = MPPM.Length, string Alphabetic = MPPM.DefaultType, string Special = MPPM.DefaultType, string Prefix = MPPM.Prefix, string Suffix = MPPM.Suffix)
+        public static string Generate(int Length = SSMPPM.Length, string Alphabetic = SSMPPM.DefaultType, string Special = SSMPPM.DefaultType, string Prefix = SSMPPM.Prefix, string Suffix = SSMPPM.Suffix)
         {
-            return Generate(Length, HC.Convert(Alphabetic, MPPM.AlphabeticType), HC.Convert(Special, MPPM.SpecialType), Prefix, Suffix);
+            return Generate(Length, SHC.Convert(Alphabetic, SSMPPM.AlphabeticType), SHC.Convert(Special, SSMPPM.SpecialType), Prefix, Suffix);
         }
 
         /// <summary>
@@ -61,7 +67,7 @@ namespace Skylark.Standard.Extension.Password
         /// <param name="Prefix"></param>
         /// <param name="Suffix"></param>
         /// <returns></returns>
-        public static async Task<string> GenerateAsync(int Length = MPPM.Length, string Alphabetic = MPPM.DefaultType, string Special = MPPM.DefaultType, string Prefix = MPPM.Prefix, string Suffix = MPPM.Suffix)
+        public static async Task<string> GenerateAsync(int Length = SSMPPM.Length, string Alphabetic = SSMPPM.DefaultType, string Special = SSMPPM.DefaultType, string Prefix = SSMPPM.Prefix, string Suffix = SSMPPM.Suffix)
         {
             return await Task.Run(() => Generate(Length, Alphabetic, Special, Prefix, Suffix));
         }
@@ -75,22 +81,23 @@ namespace Skylark.Standard.Extension.Password
         /// <param name="Prefix"></param>
         /// <param name="Suffix"></param>
         /// <returns></returns>
-        public static string Generate(int Length = MPPM.Length, EAPT Alphabetic = MPPM.AlphabeticType, ESLPT Special = MPPM.SpecialType, string Prefix = MPPM.Prefix, string Suffix = MPPM.Suffix)
+        /// <exception cref="SE"></exception>
+        public static string Generate(int Length = SSMPPM.Length, SEAPT Alphabetic = SSMPPM.AlphabeticType, SESLPT Special = SSMPPM.SpecialType, string Prefix = SSMPPM.Prefix, string Suffix = SSMPPM.Suffix)
         {
             try
             {
-                Prefix = HL.Parameter(Prefix, MPPM.Prefix);
-                Suffix = HL.Parameter(Suffix, MPPM.Suffix);
+                Prefix = SHL.Parameter(Prefix, SSMPPM.Prefix);
+                Suffix = SHL.Parameter(Suffix, SSMPPM.Suffix);
 
-                string Chars = HPPH.GetAlphabetic(Alphabetic) + HPPH.GetSpecial(Special);
+                string Chars = SSHPPH.GetAlphabetic(Alphabetic) + SSHPPH.GetSpecial(Special);
 
                 if (Chars.Length <= 0)
                 {
-                    throw new SE(MPPM.Error);
+                    throw new SE(SSMPPM.Error);
                 }
 
-                string Secret = new(Enumerable.Repeat(Chars, HL.Clamp(Length, MPPM.MinLength, MPPM.MaxLength))
-                    .Select(Char => Char[ME.Randomise.Next(Char.Length)]).ToArray());
+                string Secret = new(Enumerable.Repeat(Chars, SHL.Clamp(Length, SSMPPM.MinLength, SSMPPM.MaxLength))
+                    .Select(Char => Char[SSME.Randomise.Next(Char.Length)]).ToArray());
 
                 return Prefix + Secret + Suffix;
             }
@@ -109,7 +116,7 @@ namespace Skylark.Standard.Extension.Password
         /// <param name="Prefix"></param>
         /// <param name="Suffix"></param>
         /// <returns></returns>
-        public static async Task<string> GenerateAsync(int Length = MPPM.Length, EAPT Alphabetic = MPPM.AlphabeticType, ESLPT Special = MPPM.SpecialType, string Prefix = MPPM.Prefix, string Suffix = MPPM.Suffix)
+        public static async Task<string> GenerateAsync(int Length = SSMPPM.Length, SEAPT Alphabetic = SSMPPM.AlphabeticType, SESLPT Special = SSMPPM.SpecialType, string Prefix = SSMPPM.Prefix, string Suffix = SSMPPM.Suffix)
         {
             return await Task.Run(() => Generate(Length, Alphabetic, Special, Prefix, Suffix));
         }
@@ -121,9 +128,9 @@ namespace Skylark.Standard.Extension.Password
         /// <param name="Password2"></param>
         /// <param name="Similar"></param>
         /// <returns></returns>
-        public static string Similarity(string Password1 = MPPM.Password, string Password2 = MPPM.Password, string Similar = MPPM.DefaultType)
+        public static string Similarity(string Password1 = SSMPPM.Password, string Password2 = SSMPPM.Password, string Similar = SSMPPM.DefaultType)
         {
-            return Similarity(Password1, Password2, HC.Convert(Similar, MPPM.SimilarType));
+            return Similarity(Password1, Password2, SHC.Convert(Similar, SSMPPM.SimilarType));
         }
 
         /// <summary>
@@ -133,7 +140,7 @@ namespace Skylark.Standard.Extension.Password
         /// <param name="Password2"></param>
         /// <param name="Similar"></param>
         /// <returns></returns>
-        public static async Task<string> SimilarityAsync(string Password1 = MPPM.Password, string Password2 = MPPM.Password, string Similar = MPPM.DefaultType)
+        public static async Task<string> SimilarityAsync(string Password1 = SSMPPM.Password, string Password2 = SSMPPM.Password, string Similar = SSMPPM.DefaultType)
         {
             return await Task.Run(() => Similarity(Password1, Password2, Similar));
         }
@@ -146,14 +153,14 @@ namespace Skylark.Standard.Extension.Password
         /// <param name="Similar"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string Similarity(string Password1 = MPPM.Password, string Password2 = MPPM.Password, ESRPT Similar = MPPM.SimilarType)
+        public static string Similarity(string Password1 = SSMPPM.Password, string Password2 = SSMPPM.Password, SESRPT Similar = SSMPPM.SimilarType)
         {
             try
             {
-                Password1 = HL.Parameter(Password1, MPPM.Password);
-                Password2 = HL.Parameter(Password2, MPPM.Password);
+                Password1 = SHL.Parameter(Password1, SSMPPM.Password);
+                Password2 = SHL.Parameter(Password2, SSMPPM.Password);
 
-                return HPPH.GetPlaces(Math.Round(decimal.Parse($"{HPPH.GetSimilarity(Password1, Password2, Similar):P}".Replace("%", "")), 2), true);
+                return SSHPPH.GetPlaces(Math.Round(decimal.Parse($"{SSHPPH.GetSimilarity(Password1, Password2, Similar):P}".Replace("%", "")), 2), true);
             }
             catch (SE Ex)
             {
@@ -161,7 +168,7 @@ namespace Skylark.Standard.Extension.Password
             }
         }
 
-        public static async Task<string> SimilarityAsync(string Password1 = MPPM.Password, string Password2 = MPPM.Password, ESRPT Similar = MPPM.SimilarType)
+        public static async Task<string> SimilarityAsync(string Password1 = SSMPPM.Password, string Password2 = SSMPPM.Password, SESRPT Similar = SSMPPM.SimilarType)
         {
             return await Task.Run(() => Similarity(Password1, Password2, Similar));
         }

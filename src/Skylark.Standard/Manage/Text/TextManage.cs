@@ -67,11 +67,11 @@ namespace Skylark.Standard.Manage.Text
         /// <summary>
         /// 
         /// </summary>
-        public const ETT CutMethod = ETT.End;
+        public const string CutSymbol = "...";
         /// <summary>
         /// 
         /// </summary>
-        public const string CutSymbol = "...";
+        public const SETT CutMethod = SETT.End;
 
         /// <summary>
         /// 

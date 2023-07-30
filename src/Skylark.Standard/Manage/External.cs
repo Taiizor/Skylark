@@ -1,4 +1,4 @@
-﻿using MPPM = Skylark.Standard.Manage.Ping.PingManage;
+﻿using SMPPM = Skylark.Standard.Manage.Ping.PingManage;
 using SNNIP = System.Net.NetworkInformation.Ping;
 using SNNIPO = System.Net.NetworkInformation.PingOptions;
 
@@ -22,7 +22,7 @@ namespace Skylark.Standard.Manage
         /// <summary>
         /// 
         /// </summary>
-        public static SNNIPO PingOptions = new(MPPM.Ttl, MPPM.Fragment);
+        public static SNNIPO PingOptions = new(SMPPM.Ttl, SMPPM.Fragment);
 
         /// <summary>
         /// 

@@ -21,7 +21,7 @@ namespace Skylark.Standard.Extension.Js
         {
             try
             {
-                Js = HL.Text(Js, MJJM.Js);
+                Js = SHL.Text(Js, MJJM.Js);
 
                 CrockfordJsMinifier Minifier = new();
 
@@ -62,7 +62,7 @@ namespace Skylark.Standard.Extension.Js
         {
             try
             {
-                Js = HL.Text(Js, MJJM.Js);
+                Js = SHL.Text(Js, MJJM.Js);
 
                 UglifyResult Beautified = Uglify.Js(Js, CodeSettings.Pretty());
 

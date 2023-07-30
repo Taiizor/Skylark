@@ -1,7 +1,7 @@
 ﻿using SE = Skylark.Exception;
-using SHLLH = Skylark.Standard.Helper.Lottery.LotteryHelper;
+using SSHLLH = Skylark.Standard.Helper.Lottery.LotteryHelper;
 using SSME = Skylark.Standard.Manage.External;
-using SMLLM = Skylark.Standard.Manage.Lottery.LotteryManage;
+using SSMLLM = Skylark.Standard.Manage.Lottery.LotteryManage;
 using SSLLDS = Skylark.Struct.Lottery.LotteryDrawStruct;
 
 namespace Skylark.Standard.Extension.Lottery
@@ -19,11 +19,12 @@ namespace Skylark.Standard.Extension.Lottery
         /// <param name="ReserveCount"></param>
         /// <param name="Repeated"></param>
         /// <returns></returns>
-        public static SLLDS Draw(string List = MLLM.List, int WinnerCount = MLLM.WinnerCount, int ReserveCount = MLLM.ReserveCount, bool Repeated = MLLM.Repeat)
+        /// <exception cref="SE"></exception>
+        public static SSLLDS Draw(string List = SSMLLM.List, int WinnerCount = SSMLLM.WinnerCount, int ReserveCount = SSMLLM.ReserveCount, bool Repeated = SSMLLM.Repeat)
         {
             try
             {
-                string[] Array = HLLH.GetSplit(List, Repeated);
+                string[] Array = SSHLLH.GetSplit(List, Repeated);
 
                 int Total = WinnerCount + ReserveCount;
 
@@ -31,11 +32,11 @@ namespace Skylark.Standard.Extension.Lottery
                 {
                     if (Array.Length < Total)
                     {
-                        throw new SE(MLLM.ListSmall);
+                        throw new SE(SSMLLM.ListSmall);
                     }
                     else
                     {
-                        throw new SE(MLLM.ListEmpty);
+                        throw new SE(SSMLLM.ListEmpty);
                     }
                 }
 
@@ -45,7 +46,7 @@ namespace Skylark.Standard.Extension.Lottery
 
                 while (Count < Total)
                 {
-                    string Item = Array[ME.Randomise.Next(0, Array.Length)];
+                    string Item = Array[SSME.Randomise.Next(0, Array.Length)];
 
                     if (!Win.Contains(Item) && !Res.Contains(Item))
                     {
@@ -82,7 +83,7 @@ namespace Skylark.Standard.Extension.Lottery
         /// <param name="ReserveCount"></param>
         /// <param name="Repeated"></param>
         /// <returns></returns>
-        public static async Task<SLLDS> DrawAsync(string List = MLLM.List, int WinnerCount = MLLM.WinnerCount, int ReserveCount = MLLM.ReserveCount, bool Repeated = MLLM.Repeat)
+        public static async Task<SSLLDS> DrawAsync(string List = SSMLLM.List, int WinnerCount = SSMLLM.WinnerCount, int ReserveCount = SSMLLM.ReserveCount, bool Repeated = SSMLLM.Repeat)
         {
             return await Task.Run(() => Draw(List, WinnerCount, ReserveCount, Repeated));
         }
@@ -93,18 +94,19 @@ namespace Skylark.Standard.Extension.Lottery
         /// <param name="List"></param>
         /// <param name="Repeated"></param>
         /// <returns></returns>
-        public static string Suffle(string List = MLLM.List, bool Repeated = MLLM.Repeat)
+        /// <exception cref="SE"></exception>
+        public static string Suffle(string List = SSMLLM.List, bool Repeated = SSMLLM.Repeat)
         {
             try
             {
-                string[] Array = HLLH.GetSplit(List, Repeated);
+                string[] Array = SSHLLH.GetSplit(List, Repeated);
 
                 if (!Array.Any())
                 {
-                    return MLLM.Error;
+                    return SSMLLM.Error;
                 }
 
-                return string.Join(Environment.NewLine, Array.OrderBy(_ => ME.Randomise.Next()));
+                return string.Join(Environment.NewLine, Array.OrderBy(_ => SSME.Randomise.Next()));
             }
             catch (SE Ex)
             {
@@ -118,7 +120,7 @@ namespace Skylark.Standard.Extension.Lottery
         /// <param name="List"></param>
         /// <param name="Repeated"></param>
         /// <returns></returns>
-        public static async Task<string> SuffleAsync(string List = MLLM.List, bool Repeated = MLLM.Repeat)
+        public static async Task<string> SuffleAsync(string List = SSMLLM.List, bool Repeated = SSMLLM.Repeat)
         {
             return await Task.Run(() => Suffle(List, Repeated));
         }

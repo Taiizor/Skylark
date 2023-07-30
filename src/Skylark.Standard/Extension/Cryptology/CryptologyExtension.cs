@@ -26,7 +26,7 @@ namespace Skylark.Standard.Extension.Cryptology
         {
             try
             {
-                Text = HL.Text(Text, MCCM.Text);
+                Text = SHL.Text(Text, MCCM.Text);
 
                 return HCCH.ToBase64String(HE.GetBytes(Text, Encode));
             }
@@ -63,7 +63,7 @@ namespace Skylark.Standard.Extension.Cryptology
             {
                 IV = HA.Pin(IV, MCCM.IV, 16);
                 Key = HA.Pin(Key, MCCM.Key, 32);
-                Text = HL.Text(Text, MCCM.Text);
+                Text = SHL.Text(Text, MCCM.Text);
 
                 Aes Encryptor = Aes.Create();
 
@@ -128,7 +128,7 @@ namespace Skylark.Standard.Extension.Cryptology
         {
             try
             {
-                Text = HL.Text(Text, MCCM.Text);
+                Text = SHL.Text(Text, MCCM.Text);
 
                 using MD5 MD5 = MD5.Create();
 
@@ -166,7 +166,7 @@ namespace Skylark.Standard.Extension.Cryptology
         {
             try
             {
-                Text = HL.Text(Text, MCCM.Text);
+                Text = SHL.Text(Text, MCCM.Text);
 
                 using SHA1 SHA1 = SHA1.Create();
 
@@ -204,7 +204,7 @@ namespace Skylark.Standard.Extension.Cryptology
         {
             try
             {
-                Text = HL.Text(Text, MCCM.Text);
+                Text = SHL.Text(Text, MCCM.Text);
 
                 using SHA256 SHA256 = SHA256.Create();
 
@@ -242,7 +242,7 @@ namespace Skylark.Standard.Extension.Cryptology
         {
             try
             {
-                Text = HL.Text(Text, MCCM.Text);
+                Text = SHL.Text(Text, MCCM.Text);
 
                 using SHA384 SHA384 = SHA384.Create();
 
@@ -280,7 +280,7 @@ namespace Skylark.Standard.Extension.Cryptology
         {
             try
             {
-                Text = HL.Text(Text, MCCM.Text);
+                Text = SHL.Text(Text, MCCM.Text);
 
                 using SHA512 SHA512 = SHA512.Create();
 
@@ -316,7 +316,7 @@ namespace Skylark.Standard.Extension.Cryptology
         {
             try
             {
-                Base = HL.Text(Base, MCCM.Base);
+                Base = SHL.Text(Base, MCCM.Base);
 
                 return HE.GetString(HCCH.FromBase64String(Base), Encode);
             }
@@ -352,7 +352,7 @@ namespace Skylark.Standard.Extension.Cryptology
             try
             {
                 IV = HA.Pin(IV, MCCM.IV, 16);
-                Aes = HL.Text(Aes, MCCM.Aes);
+                Aes = SHL.Text(Aes, MCCM.Aes);
                 Key = HA.Pin(Key, MCCM.Key, 32);
 
                 Aes Decryptor = System.Security.Cryptography.Aes.Create();

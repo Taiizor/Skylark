@@ -1,6 +1,6 @@
-﻿using Skylark.Enum;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
 using SE = Skylark.Exception;
+using SEPT = Skylark.Enum.PortType;
 using SHL = Skylark.Helper.Length;
 using SSMPPM = Skylark.Standard.Manage.Port.PortManage;
 
@@ -16,17 +16,18 @@ namespace Skylark.Standard.Extension.Port
         /// </summary>
         /// <param name="Port"></param>
         /// <returns></returns>
-        public static string Info(int Port = MPPM.Port)
+        /// <exception cref="SE"></exception>
+        public static string Info(int Port = SSMPPM.Port)
         {
             try
             {
-                Port = HL.Clamp(Port, MPPM.MinPort, MPPM.MaxPort);
+                Port = SHL.Clamp(Port, SSMPPM.MinPort, SSMPPM.MaxPort);
 
-                MPPM.List.TryGetValue(Port, out string Result);
+                SSMPPM.List.TryGetValue(Port, out string Result);
 
                 if (string.IsNullOrEmpty(Result))
                 {
-                    Result = MPPM.Unknown;
+                    Result = SSMPPM.Unknown;
                 }
 
                 return Result;
@@ -42,7 +43,7 @@ namespace Skylark.Standard.Extension.Port
         /// </summary>
         /// <param name="Port"></param>
         /// <returns></returns>
-        public static async Task<string> InfoAsync(int Port = MPPM.Port)
+        public static async Task<string> InfoAsync(int Port = SSMPPM.Port)
         {
             return await Task.Run(() => Info(Port));
         }
@@ -52,22 +53,23 @@ namespace Skylark.Standard.Extension.Port
         /// </summary>
         /// <param name="Ports"></param>
         /// <returns></returns>
+        /// <exception cref="SE"></exception>
         public static Dictionary<int, string> Info(int[] Ports = null)
         {
             try
             {
-                Ports ??= MPPM.Ports;
+                Ports ??= SSMPPM.Ports;
 
-                if (Ports.Length > MPPM.Count)
+                if (Ports.Length > SSMPPM.Count)
                 {
-                    throw new SE(MPPM.Error);
+                    throw new SE(SSMPPM.Error);
                 }
 
                 Dictionary<int, string> Result = new();
 
                 foreach (int Port in Ports)
                 {
-                    int Socket = HL.Clamp(Port, MPPM.MinPort, MPPM.MaxPort);
+                    int Socket = SHL.Clamp(Port, SSMPPM.MinPort, SSMPPM.MaxPort);
 
                     if (!Result.ContainsKey(Socket))
                     {
@@ -100,13 +102,13 @@ namespace Skylark.Standard.Extension.Port
         /// <param name="Port"></param>
         /// <param name="Timeout"></param>
         /// <returns></returns>
-        public static PortType Scan(string Address = MPPM.Address, int Port = MPPM.Port, int Timeout = MPPM.Timeout)
+        public static SEPT Scan(string Address = SSMPPM.Address, int Port = SSMPPM.Port, int Timeout = SSMPPM.Timeout)
         {
             try
             {
-                Address = HL.Parameter(Address, MPPM.Address);
-                Port = HL.Clamp(Port, MPPM.MinPort, MPPM.MaxPort);
-                Timeout = HL.Clamp(Timeout, MPPM.MinTimeout, MPPM.MaxTimeout);
+                Address = SHL.Parameter(Address, SSMPPM.Address);
+                Port = SHL.Clamp(Port, SSMPPM.MinPort, SSMPPM.MaxPort);
+                Timeout = SHL.Clamp(Timeout, SSMPPM.MinTimeout, SSMPPM.MaxTimeout);
 
                 using TcpClient Client = new();
 
@@ -114,20 +116,20 @@ namespace Skylark.Standard.Extension.Port
 
                 using (Result.AsyncWaitHandle)
                 {
-                    if (Result.AsyncWaitHandle.WaitOne(MPPM.Timeout, false))
+                    if (Result.AsyncWaitHandle.WaitOne(SSMPPM.Timeout, false))
                     {
                         Client.EndConnect(Result);
-                        return PortType.Open;
+                        return SEPT.Open;
                     }
                     else
                     {
-                        return PortType.Close;
+                        return SEPT.Close;
                     }
                 }
             }
             catch
             {
-                return PortType.Close;
+                return SEPT.Close;
             }
         }
 
@@ -138,7 +140,7 @@ namespace Skylark.Standard.Extension.Port
         /// <param name="Port"></param>
         /// <param name="Timeout"></param>
         /// <returns></returns>
-        public static async Task<PortType> ScanAsync(string Address = MPPM.Address, int Port = MPPM.Port, int Timeout = MPPM.Timeout)
+        public static async Task<SEPT> ScanAsync(string Address = SSMPPM.Address, int Port = SSMPPM.Port, int Timeout = SSMPPM.Timeout)
         {
             return await Task.Run(() => Scan(Address, Port, Timeout));
         }
@@ -150,22 +152,23 @@ namespace Skylark.Standard.Extension.Port
         /// <param name="Ports"></param>
         /// <param name="Timeout"></param>
         /// <returns></returns>
-        public static Dictionary<int, PortType> ScanMultiple(string Address = MPPM.Address, int[] Ports = null, int Timeout = MPPM.Timeout)
+        /// <exception cref="SE"></exception>
+        public static Dictionary<int, SEPT> ScanMultiple(string Address = SSMPPM.Address, int[] Ports = null, int Timeout = SSMPPM.Timeout)
         {
             try
             {
-                Ports ??= MPPM.Ports;
+                Ports ??= SSMPPM.Ports;
 
-                if (Ports.Length > MPPM.Count)
+                if (Ports.Length > SSMPPM.Count)
                 {
-                    throw new SE(MPPM.Error);
+                    throw new SE(SSMPPM.Error);
                 }
 
-                Dictionary<int, PortType> Result = new();
+                Dictionary<int, SEPT> Result = new();
 
                 foreach (int Port in Ports)
                 {
-                    int Socket = HL.Clamp(Port, MPPM.MinPort, MPPM.MaxPort);
+                    int Socket = SHL.Clamp(Port, SSMPPM.MinPort, SSMPPM.MaxPort);
 
                     if (!Result.ContainsKey(Socket))
                     {
@@ -188,7 +191,7 @@ namespace Skylark.Standard.Extension.Port
         /// <param name="Ports"></param>
         /// <param name="Timeout"></param>
         /// <returns></returns>
-        public static async Task<Dictionary<int, PortType>> ScanMultipleAsync(string Address = MPPM.Address, int[] Ports = null, int Timeout = MPPM.Timeout)
+        public static async Task<Dictionary<int, SEPT>> ScanMultipleAsync(string Address = SSMPPM.Address, int[] Ports = null, int Timeout = SSMPPM.Timeout)
         {
             return await Task.Run(() => ScanMultiple(Address, Ports, Timeout));
         }

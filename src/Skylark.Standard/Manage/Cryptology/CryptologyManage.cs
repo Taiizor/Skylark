@@ -21,12 +21,12 @@ namespace Skylark.Standard.Manage.Cryptology
         /// <summary>
         /// 
         /// </summary>
-        public const EET Mode = EET.ASCII;
+        public const SEET Mode = SEET.ASCII;
 
         /// <summary>
         /// 
         /// </summary>
-        public const EET Encode = EET.UTF8;
+        public const SEET Encode = SEET.UTF8;
 
         /// <summary>
         /// 

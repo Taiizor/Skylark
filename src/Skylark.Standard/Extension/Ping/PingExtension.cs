@@ -3,7 +3,7 @@ using SE = Skylark.Exception;
 using SHL = Skylark.Helper.Length;
 using SSME = Skylark.Standard.Manage.External;
 using SSMPPM = Skylark.Standard.Manage.Ping.PingManage;
-using SPPSS = Skylark.Struct.Ping.PingSendStruct;
+using SSPPSS = Skylark.Struct.Ping.PingSendStruct;
 
 namespace Skylark.Standard.Extension.Ping
 {
@@ -20,17 +20,18 @@ namespace Skylark.Standard.Extension.Ping
         /// <param name="Ttl"></param>
         /// <param name="Fragment"></param>
         /// <returns></returns>
-        public static SPPSS Send(string Address = MPM.Address, int Timeout = MPM.Timeout, int Ttl = MPM.Ttl, bool Fragment = MPM.Fragment)
+        /// <exception cref="SE"></exception>
+        public static SSPPSS Send(string Address = SSMPPM.Address, int Timeout = SSMPPM.Timeout, int Ttl = SSMPPM.Ttl, bool Fragment = SSMPPM.Fragment)
         {
             try
             {
-                Address = HL.Parameter(Address, MPM.Address);
+                Address = SHL.Parameter(Address, SSMPPM.Address);
 
-                SPPSS Result = MPM.Result;
+                SSPPSS Result = SSMPPM.Result;
 
-                ME.PingOptions = new(HL.Clamp(Ttl, MPM.MinTtl, MPM.MaxTtl), Fragment);
+                SSME.PingOptions = new(SHL.Clamp(Ttl, SSMPPM.MinTtl, SSMPPM.MaxTtl), Fragment);
 
-                PingReply Reply = ME.Ping.Send(Address, HL.Clamp(Timeout, MPM.MinTimeout, MPM.MaxTimeout), MPM.Buffer, ME.PingOptions);
+                PingReply Reply = SSME.Ping.Send(Address, SHL.Clamp(Timeout, SSMPPM.MinTimeout, SSMPPM.MaxTimeout), SSMPPM.Buffer, SSME.PingOptions);
 
                 if (Reply.Status == IPStatus.Success)
                 {
@@ -63,7 +64,7 @@ namespace Skylark.Standard.Extension.Ping
         /// <param name="Ttl"></param>
         /// <param name="Fragment"></param>
         /// <returns></returns>
-        public static async Task<SPPSS> SendAsync(string Address = MPM.Address, int Timeout = MPM.Timeout, int Ttl = MPM.Ttl, bool Fragment = MPM.Fragment)
+        public static async Task<SSPPSS> SendAsync(string Address = SSMPPM.Address, int Timeout = SSMPPM.Timeout, int Ttl = SSMPPM.Ttl, bool Fragment = SSMPPM.Fragment)
         {
             return await Task.Run(() => Send(Address, Timeout, Ttl, Fragment));
         }

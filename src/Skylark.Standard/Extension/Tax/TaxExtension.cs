@@ -22,9 +22,9 @@ namespace Skylark.Standard.Extension.Tax
         /// <param name="Type"></param>
         /// <param name="Decimal"></param>
         /// <returns></returns>
-        public static STTCS Calc(string Value = MTTM.Value, string Percent = MTTM.Percent, string Type = MTTM.DefaultType, bool Decimal = MTTM.Decimal)
+        public static SSTTCS Calc(string Value = SSMTTM.Value, string Percent = SSMTTM.Percent, string Type = SSMTTM.DefaultType, bool Decimal = SSMTTM.Decimal)
         {
-            return Calc(Value, Percent, HC.Convert(Type, MTTM.TaxType), Decimal);
+            return Calc(Value, Percent, SHC.Convert(Type, SSMTTM.TaxType), Decimal);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Skylark.Standard.Extension.Tax
         /// <param name="Type"></param>
         /// <param name="Decimal"></param>
         /// <returns></returns>
-        public static async Task<STTCS> CalcAsync(string Value = MTTM.Value, string Percent = MTTM.Percent, string Type = MTTM.DefaultType, bool Decimal = MTTM.Decimal)
+        public static async Task<SSTTCS> CalcAsync(string Value = SSMTTM.Value, string Percent = SSMTTM.Percent, string Type = SSMTTM.DefaultType, bool Decimal = SSMTTM.Decimal)
         {
             return await Task.Run(() => Calc(Value, Percent, Type, Decimal));
         }
@@ -48,12 +48,13 @@ namespace Skylark.Standard.Extension.Tax
         /// <param name="Type"></param>
         /// <param name="Decimal"></param>
         /// <returns></returns>
-        public static STTCS Calc(string Value = MTTM.Value, string Percent = MTTM.Percent, ETT Type = MTTM.TaxType, bool Decimal = MTTM.Decimal)
+        /// <exception cref="SE"></exception>
+        public static SSTTCS Calc(string Value = SSMTTM.Value, string Percent = SSMTTM.Percent, SETT Type = SSMTTM.TaxType, bool Decimal = SSMTTM.Decimal)
         {
             try
             {
-                Value = HTTH.GetConvert(HL.Parameter(Value, MTTM.Value));
-                Percent = HTTH.GetConvert(HL.Parameter(Percent, MTTM.Percent));
+                Value = SSHTTH.GetConvert(SHL.Parameter(Value, SSMTTM.Value));
+                Percent = SSHTTH.GetConvert(SHL.Parameter(Percent, SSMTTM.Percent));
 
                 string Price, VatPrice, TotalPrice;
 
@@ -62,12 +63,12 @@ namespace Skylark.Standard.Extension.Tax
 
                 switch (Type)
                 {
-                    case ETT.Internal:
+                    case SETT.Internal:
                         Price = $"{Tax / (1 + (Vat / 100d))}";
                         VatPrice = $"{Tax - (Tax / (1 + (Vat / 100d)))}";
                         TotalPrice = $"{Tax}";
                         break;
-                    case ETT.External:
+                    case SETT.External:
                         Price = $"{Tax}";
                         VatPrice = $"{Tax * Vat / 100d}";
                         TotalPrice = $"{Tax + (Tax * Vat / 100d)}";
@@ -81,9 +82,9 @@ namespace Skylark.Standard.Extension.Tax
 
                 return new()
                 {
-                    Price = $"{HTTH.GetPlaces(Math.Round(decimal.Parse(Price), 2), Decimal)}",
-                    VatPrice = $"{HTTH.GetPlaces(Math.Round(decimal.Parse(VatPrice), 2), Decimal)}",
-                    TotalPrice = $"{HTTH.GetPlaces(Math.Round(decimal.Parse(TotalPrice), 2), Decimal)}",
+                    Price = $"{SSHTTH.GetPlaces(Math.Round(decimal.Parse(Price), 2), Decimal)}",
+                    VatPrice = $"{SSHTTH.GetPlaces(Math.Round(decimal.Parse(VatPrice), 2), Decimal)}",
+                    TotalPrice = $"{SSHTTH.GetPlaces(Math.Round(decimal.Parse(TotalPrice), 2), Decimal)}",
                 };
             }
             catch (SE Ex)
@@ -100,7 +101,7 @@ namespace Skylark.Standard.Extension.Tax
         /// <param name="Type"></param>
         /// <param name="Decimal"></param>
         /// <returns></returns>
-        public static async Task<STTCS> CalcAsync(string Value = MTTM.Value, string Percent = MTTM.Percent, ETT Type = MTTM.TaxType, bool Decimal = MTTM.Decimal)
+        public static async Task<SSTTCS> CalcAsync(string Value = SSMTTM.Value, string Percent = SSMTTM.Percent, SETT Type = SSMTTM.TaxType, bool Decimal = SSMTTM.Decimal)
         {
             return await Task.Run(() => Calc(Value, Percent, Type, Decimal));
         }

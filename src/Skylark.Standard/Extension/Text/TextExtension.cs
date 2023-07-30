@@ -20,13 +20,13 @@ namespace Skylark.Standard.Extension.Text
         /// <param name="Method"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string Cut(string Text = MTTM.Text, int Length = MTTM.Length, string Symbol = MTTM.CutSymbol, ETT Method = MTTM.CutMethod)
+        public static string Cut(string Text = SSMTTM.Text, int Length = SSMTTM.Length, string Symbol = SSMTTM.CutSymbol, SETT Method = SSMTTM.CutMethod)
         {
             try
             {
-                Text = HL.Text(Text, MTTM.Text);
-                Symbol = HL.Parameter(Symbol, MTTM.CutSymbol);
-                Length = HL.Clamp(Length, MTTM.MinLength, MTTM.MaxLength);
+                Text = SHL.Text(Text, SSMTTM.Text);
+                Symbol = SHL.Parameter(Symbol, SSMTTM.CutSymbol);
+                Length = SHL.Clamp(Length, SSMTTM.MinLength, SSMTTM.MaxLength);
 
                 if (Text.Length <= Length)
                 {
@@ -39,10 +39,10 @@ namespace Skylark.Standard.Extension.Text
 
                     return Method switch
                     {
-                        ETT.End => Text.Substring(0, Length) + Symbol,
-                        ETT.Mid => new string(Text.Where((Char, Number) => Number < LeftPart || Number >= LeftPart + Difference).ToArray()).Insert(LeftPart, Symbol),
-                        ETT.Start => Symbol + Text.Substring(Difference),
-                        _ => throw new SE(MTTM.Error),
+                        SETT.End => Text.Substring(0, Length) + Symbol,
+                        SETT.Mid => new string(Text.Where((Char, Number) => Number < LeftPart || Number >= LeftPart + Difference).ToArray()).Insert(LeftPart, Symbol),
+                        SETT.Start => Symbol + Text.Substring(Difference),
+                        _ => throw new SE(SSMTTM.Error),
                     };
                 }
             }
@@ -60,7 +60,7 @@ namespace Skylark.Standard.Extension.Text
         /// <param name="Symbol"></param>
         /// <param name="Method"></param>
         /// <returns></returns>
-        public static async Task<string> CutAsync(string Text = MTTM.Text, int Length = MTTM.Length, string Symbol = MTTM.CutSymbol, ETT Method = MTTM.CutMethod)
+        public static async Task<string> CutAsync(string Text = SSMTTM.Text, int Length = SSMTTM.Length, string Symbol = SSMTTM.CutSymbol, SETT Method = SSMTTM.CutMethod)
         {
             return await Task.Run(() => Cut(Text, Length, Symbol, Method));
         }
@@ -71,11 +71,11 @@ namespace Skylark.Standard.Extension.Text
         /// <param name="Word"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string Text(int Word = MTTM.Word)
+        public static string Text(int Word = SSMTTM.Word)
         {
             try
             {
-                return Generate(Word, MTTM.Pass);
+                return Generate(Word, SSMTTM.Pass);
             }
             catch (SE Ex)
             {
@@ -88,7 +88,7 @@ namespace Skylark.Standard.Extension.Text
         /// </summary>
         /// <param name="Word"></param>
         /// <returns></returns>
-        public static async Task<string> TextAsync(int Word = MTTM.Word)
+        public static async Task<string> TextAsync(int Word = SSMTTM.Word)
         {
             return await Task.Run(() => Text(Word));
         }
@@ -101,11 +101,11 @@ namespace Skylark.Standard.Extension.Text
         /// <param name="Word"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string List(int List = MTTM.List, char Symbol = MTTM.ListSymbol, int Word = MTTM.Word)
+        public static string List(int List = SSMTTM.List, char Symbol = SSMTTM.ListSymbol, int Word = SSMTTM.Word)
         {
             try
             {
-                List = HL.Clamp(List, MTTM.MinList, MTTM.MaxList);
+                List = SHL.Clamp(List, SSMTTM.MinList, SSMTTM.MaxList);
 
                 StringBuilder Builder = new();
 
@@ -131,7 +131,7 @@ namespace Skylark.Standard.Extension.Text
         /// <param name="Symbol"></param>
         /// <param name="Word"></param>
         /// <returns></returns>
-        public static async Task<string> ListAsync(int List = MTTM.List, char Symbol = MTTM.ListSymbol, int Word = MTTM.Word)
+        public static async Task<string> ListAsync(int List = SSMTTM.List, char Symbol = SSMTTM.ListSymbol, int Word = SSMTTM.Word)
         {
             return await Task.Run(() => TextExtension.List(List, Symbol, Word));
         }
@@ -142,11 +142,11 @@ namespace Skylark.Standard.Extension.Text
         /// <param name="Text"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string Reverse(string Text = MTTM.Text)
+        public static string Reverse(string Text = SSMTTM.Text)
         {
             try
             {
-                Text = HL.Text(Text, MTTM.Text);
+                Text = SHL.Text(Text, SSMTTM.Text);
 
                 return new string(Text.Reverse().ToArray());
             }
@@ -161,7 +161,7 @@ namespace Skylark.Standard.Extension.Text
         /// </summary>
         /// <param name="Text"></param>
         /// <returns></returns>
-        public static async Task<string> ReverseAsync(string Text = MTTM.Text)
+        public static async Task<string> ReverseAsync(string Text = SSMTTM.Text)
         {
             return await Task.Run(() => Reverse(Text));
         }
@@ -173,11 +173,11 @@ namespace Skylark.Standard.Extension.Text
         /// <param name="Word"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string Paragraph(int Paragraph = MTTM.Paragraph, int Word = MTTM.Word)
+        public static string Paragraph(int Paragraph = SSMTTM.Paragraph, int Word = SSMTTM.Word)
         {
             try
             {
-                Paragraph = HL.Clamp(Paragraph, MTTM.MinParagraph, MTTM.MaxParagraph);
+                Paragraph = SHL.Clamp(Paragraph, SSMTTM.MinParagraph, SSMTTM.MaxParagraph);
 
                 StringBuilder Builder = new();
 
@@ -207,7 +207,7 @@ namespace Skylark.Standard.Extension.Text
         /// <param name="Paragraph"></param>
         /// <param name="Word"></param>
         /// <returns></returns>
-        public static async Task<string> ParagraphAsync(int Paragraph = MTTM.Paragraph, int Word = MTTM.Word)
+        public static async Task<string> ParagraphAsync(int Paragraph = SSMTTM.Paragraph, int Word = SSMTTM.Word)
         {
             return await Task.Run(() => TextExtension.Paragraph(Paragraph, Word));
         }
@@ -219,17 +219,17 @@ namespace Skylark.Standard.Extension.Text
         /// <param name="Pass"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        private static string Generate(int Word = MTTM.Word, int Pass = MTTM.Pass)
+        private static string Generate(int Word = SSMTTM.Word, int Pass = SSMTTM.Pass)
         {
             try
             {
-                Word = HL.Clamp(Word, MTTM.MinWord, MTTM.MaxWord);
+                Word = SHL.Clamp(Word, SSMTTM.MinWord, SSMTTM.MaxWord);
 
                 string Result = string.Empty;
 
                 for (int Count = 0; Count < Word; Count++)
                 {
-                    Result += MTTM.Words[(Count + Pass) % MTTM.Words.Length] + " ";
+                    Result += SSMTTM.Words[(Count + Pass) % SSMTTM.Words.Length] + " ";
                 }
 
                 if (Result.EndsWith(", "))
@@ -246,7 +246,7 @@ namespace Skylark.Standard.Extension.Text
                 }
                 else
                 {
-                    return MTTM.Unknown;
+                    return SSMTTM.Unknown;
                 }
             }
             catch (SE Ex)

@@ -24,11 +24,12 @@ namespace Skylark.Standard.Extension.Web
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static string Source(string Url = MWWM.Url)
+        /// <exception cref="SE"></exception>
+        public static string Source(string Url = SSMWWM.Url)
         {
             try
             {
-                Url = HL.Parameter(Url, MWWM.Url);
+                Url = SHL.Parameter(Url, SSMWWM.Url);
 
                 HttpClient Client = new();
 
@@ -45,7 +46,7 @@ namespace Skylark.Standard.Extension.Web
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static async Task<string> SourceAsync(string Url = MWWM.Url)
+        public static async Task<string> SourceAsync(string Url = SSMWWM.Url)
         {
             return await Task.Run(() => Source(Url));
         }
@@ -56,11 +57,12 @@ namespace Skylark.Standard.Extension.Web
         /// <param name="Url"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static SWWRS Ratio(string Url = MWWM.Url, bool Separator = MWWM.Separator)
+        /// <exception cref="SE"></exception>
+        public static SSWWRS Ratio(string Url = SSMWWM.Url, bool Separator = SSMWWM.Separator)
         {
             try
             {
-                Url = HL.Parameter(Url, MWWM.Url);
+                Url = SHL.Parameter(Url, SSMWWM.Url);
 
                 string Rate, Code, Text, Total;
 
@@ -76,10 +78,10 @@ namespace Skylark.Standard.Extension.Web
 
                 return new()
                 {
-                    Rate = HWWH.GetPlaces(Math.Round(decimal.Parse(Rate), 2), Separator),
-                    Total = HWWH.GetPlaces(Total, Separator),
-                    Text = HWWH.GetPlaces(Text, Separator),
-                    Code = HWWH.GetPlaces(Code, Separator)
+                    Rate = SSHWWH.GetPlaces(Math.Round(decimal.Parse(Rate), 2), Separator),
+                    Total = SSHWWH.GetPlaces(Total, Separator),
+                    Text = SSHWWH.GetPlaces(Text, Separator),
+                    Code = SSHWWH.GetPlaces(Code, Separator)
                 };
             }
             catch (SE Ex)
@@ -94,7 +96,7 @@ namespace Skylark.Standard.Extension.Web
         /// <param name="Url"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static async Task<SWWRS> RatioAsync(string Url = MWWM.Url, bool Separator = MWWM.Separator)
+        public static async Task<SSWWRS> RatioAsync(string Url = SSMWWM.Url, bool Separator = SSMWWM.Separator)
         {
             return await Task.Run(() => Ratio(Url, Separator));
         }
@@ -104,13 +106,14 @@ namespace Skylark.Standard.Extension.Web
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static SWWHS Header(string Url = MWWM.Url)
+        /// <exception cref="SE"></exception>
+        public static SSWWHS Header(string Url = SSMWWM.Url)
         {
             try
             {
-                Url = HL.Parameter(Url, MWWM.Url);
+                Url = SHL.Parameter(Url, SSMWWM.Url);
 
-                SWWHS Result = new();
+                SSWWHS Result = new();
 
                 HttpClient Client = new();
 
@@ -184,7 +187,7 @@ namespace Skylark.Standard.Extension.Web
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static async Task<SWWHS> HeaderAsync(string Url = MWWM.Url)
+        public static async Task<SSWWHS> HeaderAsync(string Url = SSMWWM.Url)
         {
             return await Task.Run(() => Header(Url));
         }
@@ -196,9 +199,9 @@ namespace Skylark.Standard.Extension.Web
         /// <param name="Parameter"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static string Request(string Url = MWWM.Url, Dictionary<string, object> Parameter = null, string Type = MWWM.DefaultType)
+        public static string Request(string Url = SSMWWM.Url, Dictionary<string, object> Parameter = null, string Type = SSMWWM.DefaultType)
         {
-            return Request(Url, Parameter, HC.Convert(Type, MWWM.HttpType));
+            return Request(Url, Parameter, SHC.Convert(Type, SSMWWM.HttpType));
         }
 
         /// <summary>
@@ -208,7 +211,7 @@ namespace Skylark.Standard.Extension.Web
         /// <param name="Parameter"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static async Task<string> RequestAsync(string Url = MWWM.Url, Dictionary<string, object> Parameter = null, string Type = MWWM.DefaultType)
+        public static async Task<string> RequestAsync(string Url = SSMWWM.Url, Dictionary<string, object> Parameter = null, string Type = SSMWWM.DefaultType)
         {
             return await Task.Run(() => Request(Url, Parameter, Type));
         }
@@ -221,13 +224,13 @@ namespace Skylark.Standard.Extension.Web
         /// <param name="Type"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string Request(string Url = MWWM.Url, Dictionary<string, object> Parameter = null, EHWT Type = MWWM.HttpType)
+        public static string Request(string Url = SSMWWM.Url, Dictionary<string, object> Parameter = null, SEHWT Type = SSMWWM.HttpType)
         {
             try
             {
-                Url = HL.Parameter(Url, MWWM.Url);
+                Url = SHL.Parameter(Url, SSMWWM.Url);
 
-                Parameter ??= MI.HttpParameter;
+                Parameter ??= SSMI.HttpParameter;
 
                 HttpClient Client = new();
 
@@ -239,19 +242,19 @@ namespace Skylark.Standard.Extension.Web
 
                 switch (Type)
                 {
-                    case EHWT.GET:
+                    case SEHWT.GET:
                         Response = Client.GetAsync(Url + "?" + Parameters.ReadAsStringAsync().Result);
                         Result = Response.Result.Content.ReadAsStringAsync();
                         return Result.Result;
-                    case EHWT.PUT:
+                    case SEHWT.PUT:
                         Response = Client.PutAsync(Url, Parameters);
                         Result = Response.Result.Content.ReadAsStringAsync();
                         return Result.Result;
-                    case EHWT.POST:
+                    case SEHWT.POST:
                         Response = Client.PostAsync(Url, Parameters);
                         Result = Response.Result.Content.ReadAsStringAsync();
                         return Result.Result;
-                    case EHWT.HEAD:
+                    case SEHWT.HEAD:
                         Request = new()
                         {
                             Method = HttpMethod.Head,
@@ -260,7 +263,7 @@ namespace Skylark.Standard.Extension.Web
 
                         Response = Client.SendAsync(Request);
                         return Response.Result.StatusCode.ToString();
-                    case EHWT.DELETE:
+                    case SEHWT.DELETE:
                         Request = new()
                         {
                             Method = HttpMethod.Delete,
@@ -269,7 +272,7 @@ namespace Skylark.Standard.Extension.Web
 
                         Response = Client.SendAsync(Request);
                         return Response.Result.StatusCode.ToString();
-                    case EHWT.PATCH:
+                    case SEHWT.PATCH:
                         Content = new(JsonConvert.SerializeObject(Parameter), Encoding.UTF8, "application/json");
 
                         Request = new()
@@ -281,7 +284,7 @@ namespace Skylark.Standard.Extension.Web
 
                         Response = Client.SendAsync(Request);
                         return Response.Result.Content.ReadAsStringAsync().Result;
-                    case EHWT.OPTIONS:
+                    case SEHWT.OPTIONS:
                         Request = new()
                         {
                             Method = new HttpMethod("OPTIONS"),
@@ -291,7 +294,7 @@ namespace Skylark.Standard.Extension.Web
                         Response = Client.SendAsync(Request);
                         return Response.Result.Content.ReadAsStringAsync().Result;
                     default:
-                        throw new SE(MWWM.Error);
+                        throw new SE(SSMWWM.Error);
                 }
             }
             catch (SE Ex)
@@ -307,7 +310,7 @@ namespace Skylark.Standard.Extension.Web
         /// <param name="Parameter"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static async Task<string> RequestAsync(string Url = MWWM.Url, Dictionary<string, object> Parameter = null, EHWT Type = MWWM.HttpType)
+        public static async Task<string> RequestAsync(string Url = SSMWWM.Url, Dictionary<string, object> Parameter = null, SEHWT Type = SSMWWM.HttpType)
         {
             return await Task.Run(() => Request(Url, Parameter, Type));
         }
@@ -317,29 +320,29 @@ namespace Skylark.Standard.Extension.Web
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static ECWT Compress(string Url = MWWM.Url)
+        public static SECWT Compress(string Url = SSMWWM.Url)
         {
             try
             {
-                Url = HL.Parameter(Url, MWWM.Url);
+                Url = SHL.Parameter(Url, SSMWWM.Url);
 
                 HttpClient Client = new();
 
-                Client.DefaultRequestHeaders.Add(MWWM.Header, MWWM.Types);
+                Client.DefaultRequestHeaders.Add(SSMWWM.Header, SSMWWM.Types);
 
                 HttpResponseMessage Response = Client.GetAsync(Url).Result;
 
                 return $"{Response.Content.Headers.ContentEncoding}" switch
                 {
-                    "deflate" => ECWT.Deflate,
-                    "gzip" => ECWT.Gzip,
-                    "br" => ECWT.Brotli,
-                    _ => ECWT.None,
+                    "deflate" => SECWT.Deflate,
+                    "gzip" => SECWT.Gzip,
+                    "br" => SECWT.Brotli,
+                    _ => SECWT.None,
                 };
             }
             catch
             {
-                return MWWM.CompressType;
+                return SSMWWM.CompressType;
             }
         }
 
@@ -348,7 +351,7 @@ namespace Skylark.Standard.Extension.Web
         /// </summary>
         /// <param name="Url"></param>
         /// <returns></returns>
-        public static async Task<ECWT> CompressAsync(string Url = MWWM.Url)
+        public static async Task<SECWT> CompressAsync(string Url = SSMWWM.Url)
         {
             return await Task.Run(() => Compress(Url));
         }
@@ -360,27 +363,28 @@ namespace Skylark.Standard.Extension.Web
         /// <param name="Url2"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static string Similarity(string Url1 = MWWM.Url, string Url2 = MWWM.Url, bool Separator = MWWM.Separator)
+        /// <exception cref="SE"></exception>
+        public static string Similarity(string Url1 = SSMWWM.Url, string Url2 = SSMWWM.Url, bool Separator = SSMWWM.Separator)
         {
             try
             {
-                Url1 = HL.Parameter(Url1, MWWM.Url);
-                Url2 = HL.Parameter(Url2, MWWM.Url);
+                Url1 = SHL.Parameter(Url1, SSMWWM.Url);
+                Url2 = SHL.Parameter(Url2, SSMWWM.Url);
 
                 double Percent = 0;
 
                 string Content1 = Source(Url1).ToLower();
                 string Content2 = Source(Url2).ToLower();
 
-                string[] Words1 = HWWH.GetTags(Content1);
-                string[] Words2 = HWWH.GetTags(Content2);
+                string[] Words1 = SSHWWH.GetTags(Content1);
+                string[] Words2 = SSHWWH.GetTags(Content2);
 
                 int Common = Words1.Count(Tag1 => Words2.Any(Tag2 => Tag2 == Tag1));
 
                 int Total = Words1.Length + Words2.Length - Common;
                 Percent = (double)Common / Total * 100;
 
-                return HWWH.GetPlaces(Math.Round(decimal.Parse($"{Percent}"), 2), Separator);
+                return SSHWWH.GetPlaces(Math.Round(decimal.Parse($"{Percent}"), 2), Separator);
             }
             catch (SE Ex)
             {
@@ -395,7 +399,7 @@ namespace Skylark.Standard.Extension.Web
         /// <param name="Url2"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static async Task<string> SimilarityAsync(string Url1 = MWWM.Url, string Url2 = MWWM.Url, bool Separator = MWWM.Separator)
+        public static async Task<string> SimilarityAsync(string Url1 = SSMWWM.Url, string Url2 = SSMWWM.Url, bool Separator = SSMWWM.Separator)
         {
             return await Task.Run(() => Similarity(Url1, Url2, Separator));
         }

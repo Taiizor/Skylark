@@ -23,7 +23,7 @@ namespace Skylark.Standard.Extension.Html
         {
             try
             {
-                Html = HL.Text(Html, MHHM.Html);
+                Html = SHL.Text(Html, MHHM.Html);
 
                 StringBuilder Builder = new();
 
@@ -67,7 +67,7 @@ namespace Skylark.Standard.Extension.Html
         {
             try
             {
-                Html = HL.Text(Html, MHHM.Html);
+                Html = SHL.Text(Html, MHHM.Html);
 
                 Html = Html.Replace("<script type=\"text/javascript\">", string.Empty);
                 Html = Html.Replace("</script>", string.Empty);
@@ -114,7 +114,7 @@ namespace Skylark.Standard.Extension.Html
         {
             try
             {
-                Html = HL.Text(Html, MHHM.Html);
+                Html = SHL.Text(Html, MHHM.Html);
 
                 HtmlMinifier Minifier = new();
 
@@ -155,7 +155,7 @@ namespace Skylark.Standard.Extension.Html
         {
             try
             {
-                Html = HL.Text(Html, MHHM.Html);
+                Html = SHL.Text(Html, MHHM.Html);
 
                 UglifyResult Beautified = Uglify.Html(Html, NUglify.Html.HtmlSettings.Pretty());
 

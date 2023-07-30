@@ -18,9 +18,9 @@ namespace Skylark.Standard.Helper.Color
         /// <returns></returns>
         public static SDC ConvertToColor(int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value)
         {
-            R = HL.Clamp(R, MCCM.ValueMin, MCCM.ValueMax);
-            G = HL.Clamp(G, MCCM.ValueMin, MCCM.ValueMax);
-            B = HL.Clamp(B, MCCM.ValueMin, MCCM.ValueMax);
+            R = SHL.Clamp(R, MCCM.ValueMin, MCCM.ValueMax);
+            G = SHL.Clamp(G, MCCM.ValueMin, MCCM.ValueMax);
+            B = SHL.Clamp(B, MCCM.ValueMin, MCCM.ValueMax);
 
             return SDC.FromArgb(R, G, B);
         }
@@ -38,10 +38,10 @@ namespace Skylark.Standard.Helper.Color
         // all parameters have defaults
         public static SDC ConvertToColor(int A = MCCM.Value, int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value)
         {
-            A = HL.Clamp(A, MCCM.ValueMin, MCCM.ValueMax);
-            R = HL.Clamp(R, MCCM.ValueMin, MCCM.ValueMax);
-            G = HL.Clamp(G, MCCM.ValueMin, MCCM.ValueMax);
-            B = HL.Clamp(B, MCCM.ValueMin, MCCM.ValueMax);
+            A = SHL.Clamp(A, MCCM.ValueMin, MCCM.ValueMax);
+            R = SHL.Clamp(R, MCCM.ValueMin, MCCM.ValueMax);
+            G = SHL.Clamp(G, MCCM.ValueMin, MCCM.ValueMax);
+            B = SHL.Clamp(B, MCCM.ValueMin, MCCM.ValueMax);
 
             return SDC.FromArgb(A, R, G, B);
         }

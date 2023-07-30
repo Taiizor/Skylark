@@ -21,9 +21,9 @@ namespace Skylark.Standard.Extension.Time
         /// <param name="Input"></param>
         /// <param name="Output"></param>
         /// <returns></returns>
-        public static double Convert(double Value = MTTM.Value, string Input = MTTM.DefaultInput, string Output = MTTM.DefaultOutput)
+        public static double Convert(double Value = SSMTTM.Value, string Input = SSMTTM.DefaultInput, string Output = SSMTTM.DefaultOutput)
         {
-            return Convert(Value, HC.Convert(Input, MTTM.InputType), HC.Convert(Output, MTTM.OutputType));
+            return Convert(Value, SHC.Convert(Input, SSMTTM.InputType), SHC.Convert(Output, SSMTTM.OutputType));
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace Skylark.Standard.Extension.Time
         /// <param name="Input"></param>
         /// <param name="Output"></param>
         /// <returns></returns>
-        public static async Task<double> ConvertAsync(double Value = MTTM.Value, string Input = MTTM.DefaultInput, string Output = MTTM.DefaultOutput)
+        public static async Task<double> ConvertAsync(double Value = SSMTTM.Value, string Input = SSMTTM.DefaultInput, string Output = SSMTTM.DefaultOutput)
         {
             return await Task.Run(() => Convert(Value, Input, Output));
         }
@@ -46,14 +46,14 @@ namespace Skylark.Standard.Extension.Time
         /// <param name="Output"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static double Convert(double Value = MTTM.Value, ETT Input = MTTM.InputType, ETT Output = MTTM.OutputType)
+        public static double Convert(double Value = SSMTTM.Value, SETT Input = SSMTTM.InputType, SETT Output = SSMTTM.OutputType)
         {
             try
             {
                 return Input switch
                 {
-                    ETT.Attosecond or ETT.Femtosecond or ETT.Picosecond or ETT.Nanosecond or ETT.Microsecond or ETT.Millisecond or ETT.Second or ETT.Minute or ETT.Hour or ETT.Day or ETT.Week or ETT.Year or ETT.Decade or ETT.Century or ETT.Millennium => HTTH.GetCalc(Value, HTTH.GetValue(Input, Output)),
-                    _ => throw new SE(MTTM.Error),
+                    SETT.Attosecond or SETT.Femtosecond or SETT.Picosecond or SETT.Nanosecond or SETT.Microsecond or SETT.Millisecond or SETT.Second or SETT.Minute or SETT.Hour or SETT.Day or SETT.Week or SETT.Year or SETT.Decade or SETT.Century or SETT.Millennium => SSHTTH.GetCalc(Value, SSHTTH.GetValue(Input, Output)),
+                    _ => throw new SE(SSMTTM.Error),
                 };
             }
             catch (SE Ex)
@@ -69,7 +69,7 @@ namespace Skylark.Standard.Extension.Time
         /// <param name="Input"></param>
         /// <param name="Output"></param>
         /// <returns></returns>
-        public static async Task<double> ConvertAsync(double Value = MTTM.Value, ETT Input = MTTM.InputType, ETT Output = MTTM.OutputType)
+        public static async Task<double> ConvertAsync(double Value = SSMTTM.Value, SETT Input = SSMTTM.InputType, SETT Output = SSMTTM.OutputType)
         {
             return await Task.Run(() => Convert(Value, Input, Output));
         }
@@ -80,9 +80,9 @@ namespace Skylark.Standard.Extension.Time
         /// <param name="Value"></param>
         /// <param name="Input"></param>
         /// <returns></returns>
-        public static STTS AutoConvert(double Value = MTTM.Value, string Input = MTTM.DefaultInput)
+        public static SSTTS AutoConvert(double Value = SSMTTM.Value, string Input = SSMTTM.DefaultInput)
         {
-            return AutoConvert(Value, HC.Convert(Input, MTTM.InputType));
+            return AutoConvert(Value, SHC.Convert(Input, SSMTTM.InputType));
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace Skylark.Standard.Extension.Time
         /// <param name="Value"></param>
         /// <param name="Input"></param>
         /// <returns></returns>
-        public static async Task<STTS> AutoConvertAsync(double Value = MTTM.Value, string Input = MTTM.DefaultInput)
+        public static async Task<SSTTS> AutoConvertAsync(double Value = SSMTTM.Value, string Input = SSMTTM.DefaultInput)
         {
             return await Task.Run(() => AutoConvert(Value, Input));
         }
@@ -103,14 +103,14 @@ namespace Skylark.Standard.Extension.Time
         /// <param name="Input"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static STTS AutoConvert(double Value = MTTM.Value, ETT Input = MTTM.InputType)
+        public static SSTTS AutoConvert(double Value = SSMTTM.Value, SETT Input = SSMTTM.InputType)
         {
             try
             {
                 return Input switch
                 {
-                    ETT.Attosecond or ETT.Femtosecond or ETT.Picosecond or ETT.Nanosecond or ETT.Microsecond or ETT.Millisecond or ETT.Second or ETT.Minute or ETT.Hour or ETT.Day or ETT.Week or ETT.Year or ETT.Decade or ETT.Century or ETT.Millennium => AutoDetect(Value, Input),
-                    _ => throw new SE(MTTM.Error),
+                    SETT.Attosecond or SETT.Femtosecond or SETT.Picosecond or SETT.Nanosecond or SETT.Microsecond or SETT.Millisecond or SETT.Second or SETT.Minute or SETT.Hour or SETT.Day or SETT.Week or SETT.Year or SETT.Decade or SETT.Century or SETT.Millennium => AutoDetect(Value, Input),
+                    _ => throw new SE(SSMTTM.Error),
                 };
             }
             catch (SE Ex)
@@ -125,7 +125,7 @@ namespace Skylark.Standard.Extension.Time
         /// <param name="Value"></param>
         /// <param name="Input"></param>
         /// <returns></returns>
-        public static async Task<STTS> AutoConvertAsync(double Value = MTTM.Value, ETT Input = MTTM.InputType)
+        public static async Task<SSTTS> AutoConvertAsync(double Value = SSMTTM.Value, SETT Input = SSMTTM.InputType)
         {
             return await Task.Run(() => AutoConvert(Value, Input));
         }
@@ -136,31 +136,31 @@ namespace Skylark.Standard.Extension.Time
         /// <param name="Value"></param>
         /// <param name="Input"></param>
         /// <returns></returns>
-        private static STTS AutoDetect(double Value, ETT Input)
+        private static SSTTS AutoDetect(double Value, SETT Input)
         {
-            STTS Result = MTTM.Result;
+            SSTTS Result = SSMTTM.Result;
 
-            ETT Active = Input;
+            SETT Active = Input;
 
-            for (int i = (int)ETT.Attosecond; i <= (int)ETT.Millennium; i++)
+            for (int i = (int)SETT.Attosecond; i <= (int)SETT.Millennium; i++)
             {
-                if (HN.Numeral(Convert(Value, Input, (ETT)i), false, false, Clear: ECNT.Decimal) == "0")
+                if (SHN.Numeral(Convert(Value, Input, (SETT)i), false, false, Clear: SECNT.Decimal) == "0")
                 {
-                    if ((ETT)i - 1 <= 0)
+                    if ((SETT)i - 1 <= 0)
                     {
-                        Active = (ETT)i;
+                        Active = (SETT)i;
                     }
                     else
                     {
-                        Active = (ETT)i - 1;
+                        Active = (SETT)i - 1;
                     }
                     break;
                 }
                 else
                 {
-                    if ((ETT)i >= ETT.Millennium)
+                    if ((SETT)i >= SETT.Millennium)
                     {
-                        Active = (ETT)i;
+                        Active = (SETT)i;
                     }
                 }
             }

@@ -24,8 +24,8 @@ namespace Skylark.Standard.Extension.Json
         {
             try
             {
-                Json = HL.Text(Json, MJJM.Json);
-                Root = HL.Parameter(Root, MJJM.Root);
+                Json = SHL.Text(Json, MJJM.Json);
+                Root = SHL.Parameter(Root, MJJM.Root);
 
                 return JsonConvert.DeserializeXNode(Json, Root, Array, Special).ToString();
             }
@@ -60,10 +60,10 @@ namespace Skylark.Standard.Extension.Json
         {
             try
             {
-                Json = HL.Text(Json, MJJM.Json);
-                Token = HL.Parameter(Token, MJJM.Token);
-                Value = HL.Parameter(Value, MJJM.Value);
-                Separator = HL.Parameter(Separator, MJJM.Seperator);
+                Json = SHL.Text(Json, MJJM.Json);
+                Token = SHL.Parameter(Token, MJJM.Token);
+                Value = SHL.Parameter(Value, MJJM.Value);
+                Separator = SHL.Parameter(Separator, MJJM.Seperator);
 
                 StringBuilder Builder = new();
 
@@ -111,7 +111,7 @@ namespace Skylark.Standard.Extension.Json
         {
             try
             {
-                Json = HL.Text(Json, MJJM.Json);
+                Json = SHL.Text(Json, MJJM.Json);
 
                 return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(Json), Formatting.Indented);
             }
@@ -140,7 +140,7 @@ namespace Skylark.Standard.Extension.Json
         {
             try
             {
-                Json = HL.Text(Json, MJJM.Json);
+                Json = SHL.Text(Json, MJJM.Json);
 
                 return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(Json), Formatting.None);
             }

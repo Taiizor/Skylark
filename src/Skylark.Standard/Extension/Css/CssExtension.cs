@@ -21,7 +21,7 @@ namespace Skylark.Standard.Extension.Css
         {
             try
             {
-                Css = HL.Text(Css, MCCM.Css);
+                Css = SHL.Text(Css, MCCM.Css);
 
                 KristensenCssMinifier Minifier = new();
 
@@ -62,7 +62,7 @@ namespace Skylark.Standard.Extension.Css
         {
             try
             {
-                Css = HL.Text(Css, MCCM.Css);
+                Css = SHL.Text(Css, MCCM.Css);
 
                 UglifyResult Beautified = Uglify.Css(Css, CssSettings.Pretty());
 

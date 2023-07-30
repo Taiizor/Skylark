@@ -19,7 +19,7 @@ namespace Skylark.Standard.Extension.Browser
         {
             try
             {
-                Css = HL.Text(Css, MBBM.Css);
+                Css = SHL.Text(Css, MBBM.Css);
 
                 KristensenCssMinifier Minifier = new();
 

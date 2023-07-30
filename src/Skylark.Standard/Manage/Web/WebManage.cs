@@ -1,5 +1,5 @@
-﻿using ECWT = Skylark.Enum.CompressWebType;
-using EHWT = Skylark.Enum.HttpWebType;
+﻿using SECWT = Skylark.Enum.CompressWebType;
+using SEHWT = Skylark.Enum.HttpWebType;
 
 namespace Skylark.Standard.Manage.Web
 {
@@ -36,7 +36,7 @@ namespace Skylark.Standard.Manage.Web
         /// <summary>
         /// 
         /// </summary>
-        public const EHWT HttpType = EHWT.POST;
+        public const SEHWT HttpType = SEHWT.POST;
 
         /// <summary>
         /// 
@@ -46,7 +46,7 @@ namespace Skylark.Standard.Manage.Web
         /// <summary>
         /// 
         /// </summary>
-        public const ECWT CompressType = ECWT.None;
+        public const SECWT CompressType = SECWT.None;
 
         /// <summary>
         /// 

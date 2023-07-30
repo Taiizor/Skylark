@@ -13,9 +13,9 @@ namespace Skylark.Standard.Manage.Unicode
         public const char Split = ',';
 
         /// <summary>
-        /// EET.ASCII
+        /// SEET.ASCII
         /// </summary>
-        public const EET Encode = EET.UTF8;
+        public const SEET Encode = SEET.UTF8;
 
         /// <summary>
         /// 

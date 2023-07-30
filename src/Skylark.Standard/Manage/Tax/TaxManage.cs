@@ -1,4 +1,4 @@
-﻿using ETT = Skylark.Enum.TaxType;
+﻿using SETT = Skylark.Enum.TaxType;
 
 namespace Skylark.Standard.Manage.Tax
 {
@@ -30,7 +30,7 @@ namespace Skylark.Standard.Manage.Tax
         /// <summary>
         /// 
         /// </summary>
-        public const ETT TaxType = ETT.Amount;
+        public const SETT TaxType = SETT.Amount;
 
         /// <summary>
         /// 
