@@ -12,12 +12,13 @@ namespace Skylark.Standard.ThirdParty.Xml
         /// 
         /// </summary>
         /// <param name="Xml"></param>
+        /// <param name="Encoding"></param>
         /// <returns></returns>
-        public static string Beautifier(string Xml)
+        public static string Beautifier(string Xml, Encoding Encoding)
         {
             MemoryStream Stream = new();
             XmlDocument Document = new();
-            XmlTextWriter Writer = new(Stream, Encoding.Unicode)
+            XmlTextWriter Writer = new(Stream, Encoding)
             {
                 Formatting = Formatting.Indented
             };

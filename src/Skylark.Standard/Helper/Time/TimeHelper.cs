@@ -1,4 +1,4 @@
-﻿using ETT = Skylark.Enum.TimeType;
+﻿using SETT = Skylark.Enum.TimeType;
 using MTTM = Skylark.Standard.Manage.Time.TimeManage;
 
 namespace Skylark.Standard.Helper.Time

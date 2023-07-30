@@ -1,8 +1,8 @@
 ﻿using System.Text;
-using E = Skylark.Exception;
-using ETT = Skylark.Enum.TextType;
-using HL = Skylark.Helper.Length;
-using MTTM = Skylark.Standard.Manage.Text.TextManage;
+using SE = Skylark.Exception;
+using SETT = Skylark.Enum.TextType;
+using SHL = Skylark.Helper.Length;
+using SSMTTM = Skylark.Standard.Manage.Text.TextManage;
 
 namespace Skylark.Standard.Extension.Text
 {
@@ -19,7 +19,7 @@ namespace Skylark.Standard.Extension.Text
         /// <param name="Symbol"></param>
         /// <param name="Method"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string Cut(string Text = MTTM.Text, int Length = MTTM.Length, string Symbol = MTTM.CutSymbol, ETT Method = MTTM.CutMethod)
         {
             try
@@ -42,13 +42,13 @@ namespace Skylark.Standard.Extension.Text
                         ETT.End => Text.Substring(0, Length) + Symbol,
                         ETT.Mid => new string(Text.Where((Char, Number) => Number < LeftPart || Number >= LeftPart + Difference).ToArray()).Insert(LeftPart, Symbol),
                         ETT.Start => Symbol + Text.Substring(Difference),
-                        _ => throw new E(MTTM.Error),
+                        _ => throw new SE(MTTM.Error),
                     };
                 }
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -70,16 +70,16 @@ namespace Skylark.Standard.Extension.Text
         /// </summary>
         /// <param name="Word"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string Text(int Word = MTTM.Word)
         {
             try
             {
                 return Generate(Word, MTTM.Pass);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -100,7 +100,7 @@ namespace Skylark.Standard.Extension.Text
         /// <param name="Symbol"></param>
         /// <param name="Word"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string List(int List = MTTM.List, char Symbol = MTTM.ListSymbol, int Word = MTTM.Word)
         {
             try
@@ -118,9 +118,9 @@ namespace Skylark.Standard.Extension.Text
 
                 return Builder.ToString();
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -141,7 +141,7 @@ namespace Skylark.Standard.Extension.Text
         /// </summary>
         /// <param name="Text"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string Reverse(string Text = MTTM.Text)
         {
             try
@@ -150,9 +150,9 @@ namespace Skylark.Standard.Extension.Text
 
                 return new string(Text.Reverse().ToArray());
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -172,7 +172,7 @@ namespace Skylark.Standard.Extension.Text
         /// <param name="Paragraph"></param>
         /// <param name="Word"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string Paragraph(int Paragraph = MTTM.Paragraph, int Word = MTTM.Word)
         {
             try
@@ -195,9 +195,9 @@ namespace Skylark.Standard.Extension.Text
 
                 return Builder.ToString();
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -218,7 +218,7 @@ namespace Skylark.Standard.Extension.Text
         /// <param name="Word"></param>
         /// <param name="Pass"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         private static string Generate(int Word = MTTM.Word, int Pass = MTTM.Pass)
         {
             try
@@ -249,9 +249,9 @@ namespace Skylark.Standard.Extension.Text
                     return MTTM.Unknown;
                 }
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
     }

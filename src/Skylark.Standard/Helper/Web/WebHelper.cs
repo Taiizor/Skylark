@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using HD = Skylark.Helper.Detect;
-using HF = Skylark.Helper.Format;
+using SHF = Skylark.Helper.Format;
 
 namespace Skylark.Standard.Helper.Web
 {

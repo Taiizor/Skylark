@@ -1,7 +1,7 @@
 ﻿using WebMarkupMin.Core;
-using E = Skylark.Exception;
-using HL = Skylark.Helper.Length;
-using MBBM = Skylark.Standard.Manage.Browser.BrowserManage;
+using SE = Skylark.Exception;
+using SHL = Skylark.Helper.Length;
+using SMBBM = Skylark.Standard.Manage.Browser.BrowserManage;
 
 namespace Skylark.Standard.Extension.Browser
 {
@@ -32,12 +32,12 @@ namespace Skylark.Standard.Extension.Browser
                 else
                 {
                     // TODO: Handle null reference
-                    throw new E(Minified.Errors.FirstOrDefault().Message);
+                    throw new SE(Minified.Errors.FirstOrDefault().Message);
                 }
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 

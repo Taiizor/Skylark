@@ -1,6 +1,6 @@
 ﻿using System.Text;
-using ME = Skylark.Standard.Manage.External;
-using MI = Skylark.Manage.Internal;
+using SSME = Skylark.Standard.Manage.External;
+using SMI = Skylark.Manage.Internal;
 using MWWM = Skylark.Standard.Manage.Word.WordManage;
 using SWWCS = Skylark.Struct.Word.WordCombineStruct;
 

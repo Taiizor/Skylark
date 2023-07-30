@@ -1,8 +1,8 @@
 ﻿using System.Security.Cryptography;
-using E = Skylark.Exception;
-using HF = Skylark.Helper.Format;
-using HHHH = Skylark.Standard.Helper.Hash.HashHelper;
-using HL = Skylark.Helper.Length;
+using SE = Skylark.Exception;
+using SHF = Skylark.Helper.Format;
+using SHHHH = Skylark.Standard.Helper.Hash.HashHelper;
+using SHL = Skylark.Helper.Length;
 using MHHM = Skylark.Standard.Manage.Hash.HashManage;
 
 namespace Skylark.Standard.Extension.Hash
@@ -20,7 +20,7 @@ namespace Skylark.Standard.Extension.Hash
         /// <param name="Upper"></param>
         /// <param name="Invariant"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string FileToMD5(string Path = MHHM.Path, string Split = MHHM.Split, bool Upper = MHHM.Upper, bool Invariant = MHHM.Invariant)
         {
             try
@@ -34,9 +34,9 @@ namespace Skylark.Standard.Extension.Hash
 
                 return HF.Formatter(HHHH.ToString(MD5.ComputeHash(HHHH.OpenRead(Path)), Split), Upper, Invariant);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -61,7 +61,7 @@ namespace Skylark.Standard.Extension.Hash
         /// <param name="Upper"></param>
         /// <param name="Invariant"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string FileToSHA1(string Path = MHHM.Path, string Split = MHHM.Split, bool Upper = MHHM.Upper, bool Invariant = MHHM.Invariant)
         {
             try
@@ -75,9 +75,9 @@ namespace Skylark.Standard.Extension.Hash
 
                 return HF.Formatter(HHHH.ToString(SHA1.ComputeHash(HHHH.OpenRead(Path)), Split), Upper, Invariant);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -102,7 +102,7 @@ namespace Skylark.Standard.Extension.Hash
         /// <param name="Upper"></param>
         /// <param name="Invariant"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string FileToSHA256(string Path = MHHM.Path, string Split = MHHM.Split, bool Upper = MHHM.Upper, bool Invariant = MHHM.Invariant)
         {
             try
@@ -116,9 +116,9 @@ namespace Skylark.Standard.Extension.Hash
 
                 return HF.Formatter(HHHH.ToString(SHA256.ComputeHash(HHHH.OpenRead(Path)), Split), Upper, Invariant);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -143,7 +143,7 @@ namespace Skylark.Standard.Extension.Hash
         /// <param name="Upper"></param>
         /// <param name="Invariant"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string FileToSHA384(string Path = MHHM.Path, string Split = MHHM.Split, bool Upper = MHHM.Upper, bool Invariant = MHHM.Invariant)
         {
             try
@@ -157,9 +157,9 @@ namespace Skylark.Standard.Extension.Hash
 
                 return HF.Formatter(HHHH.ToString(SHA384.ComputeHash(HHHH.OpenRead(Path)), Split), Upper, Invariant);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -184,7 +184,7 @@ namespace Skylark.Standard.Extension.Hash
         /// <param name="Upper"></param>
         /// <param name="Invariant"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string FileToSHA512(string Path = MHHM.Path, string Split = MHHM.Split, bool Upper = MHHM.Upper, bool Invariant = MHHM.Invariant)
         {
             try
@@ -198,9 +198,9 @@ namespace Skylark.Standard.Extension.Hash
 
                 return HF.Formatter(HHHH.ToString(SHA512.ComputeHash(HHHH.OpenRead(Path)), Split), Upper, Invariant);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 

@@ -4,9 +4,9 @@ using EAPT = Skylark.Enum.AlphabeticPasswordType;
 using EMPT = Skylark.Enum.MeterPasswordType;
 using ESLPT = Skylark.Enum.SpecialPasswordType;
 using ESRPT = Skylark.Enum.SimilarPasswordType;
-using HF = Skylark.Helper.Format;
+using SHF = Skylark.Helper.Format;
 using HS = Skylark.Helper.Skymath;
-using MPPM = Skylark.Standard.Manage.Password.PasswordManage;
+using SMPPM = Skylark.Standard.Manage.Password.PasswordManage;
 
 namespace Skylark.Standard.Helper.Password
 {

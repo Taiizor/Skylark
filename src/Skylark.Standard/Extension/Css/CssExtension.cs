@@ -1,9 +1,9 @@
 ﻿using NUglify;
 using NUglify.Css;
 using WebMarkupMin.Core;
-using E = Skylark.Exception;
-using HL = Skylark.Helper.Length;
-using MCCM = Skylark.Standard.Manage.Css.CssManage;
+using SE = Skylark.Exception;
+using SHL = Skylark.Helper.Length;
+using SMCCM = Skylark.Standard.Manage.Css.CssManage;
 
 namespace Skylark.Standard.Extension.Css
 {
@@ -34,12 +34,12 @@ namespace Skylark.Standard.Extension.Css
                 else
                 {
                     // TODO: Handle null reference
-                    throw new E(Minified.Errors.FirstOrDefault().Message);
+                    throw new SE(Minified.Errors.FirstOrDefault().Message);
                 }
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -73,12 +73,12 @@ namespace Skylark.Standard.Extension.Css
                 else
                 {
                     // TODO: Handle null ref
-                    throw new E(Beautified.Errors.FirstOrDefault().Message);
+                    throw new SE(Beautified.Errors.FirstOrDefault().Message);
                 }
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 

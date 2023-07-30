@@ -1,11 +1,11 @@
 ﻿using System.Globalization;
-using E = Skylark.Exception;
-using ETT = Skylark.Enum.TaxType;
-using HC = Skylark.Helper.Converter;
-using HL = Skylark.Helper.Length;
-using HTTH = Skylark.Standard.Helper.Tax.TaxHelper;
-using MTTM = Skylark.Standard.Manage.Tax.TaxManage;
-using STTCS = Skylark.Struct.Tax.TaxCalcStruct;
+using SE = Skylark.Exception;
+using SETT = Skylark.Enum.TaxType;
+using SHC = Skylark.Helper.Converter;
+using SHL = Skylark.Helper.Length;
+using SSHTTH = Skylark.Standard.Helper.Tax.TaxHelper;
+using SSMTTM = Skylark.Standard.Manage.Tax.TaxManage;
+using SSTTCS = Skylark.Struct.Tax.TaxCalcStruct;
 
 namespace Skylark.Standard.Extension.Tax
 {
@@ -86,9 +86,9 @@ namespace Skylark.Standard.Extension.Tax
                     TotalPrice = $"{HTTH.GetPlaces(Math.Round(decimal.Parse(TotalPrice), 2), Decimal)}",
                 };
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 

@@ -1,6 +1,6 @@
-﻿using ME = Skylark.Standard.Manage.External;
-using MI = Skylark.Manage.Internal;
-using MLLM = Skylark.Standard.Manage.Lottery.LotteryManage;
+﻿using SSME = Skylark.Standard.Manage.External;
+using SMI = Skylark.Manage.Internal;
+using SMLLM = Skylark.Standard.Manage.Lottery.LotteryManage;
 
 namespace Skylark.Standard.Helper.Lottery
 {

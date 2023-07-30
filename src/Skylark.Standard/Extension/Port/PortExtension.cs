@@ -1,8 +1,8 @@
 ﻿using Skylark.Enum;
 using System.Net.Sockets;
-using E = Skylark.Exception;
-using HL = Skylark.Helper.Length;
-using MPPM = Skylark.Standard.Manage.Port.PortManage;
+using SE = Skylark.Exception;
+using SHL = Skylark.Helper.Length;
+using SSMPPM = Skylark.Standard.Manage.Port.PortManage;
 
 namespace Skylark.Standard.Extension.Port
 {
@@ -31,9 +31,9 @@ namespace Skylark.Standard.Extension.Port
 
                 return Result;
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -60,7 +60,7 @@ namespace Skylark.Standard.Extension.Port
 
                 if (Ports.Length > MPPM.Count)
                 {
-                    throw new E(MPPM.Error);
+                    throw new SE(MPPM.Error);
                 }
 
                 Dictionary<int, string> Result = new();
@@ -77,9 +77,9 @@ namespace Skylark.Standard.Extension.Port
 
                 return Result;
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -158,7 +158,7 @@ namespace Skylark.Standard.Extension.Port
 
                 if (Ports.Length > MPPM.Count)
                 {
-                    throw new E(MPPM.Error);
+                    throw new SE(MPPM.Error);
                 }
 
                 Dictionary<int, PortType> Result = new();
@@ -175,9 +175,9 @@ namespace Skylark.Standard.Extension.Port
 
                 return Result;
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 

@@ -1,9 +1,9 @@
 ﻿using NUglify;
 using NUglify.Html;
 using WebMarkupMin.Core;
-using E = Skylark.Exception;
-using HL = Skylark.Helper.Length;
-using MXXM = Skylark.Standard.Manage.Xhtml.XhtmlManage;
+using SE = Skylark.Exception;
+using SHL = Skylark.Helper.Length;
+using SSMXXM = Skylark.Standard.Manage.Xhtml.XhtmlManage;
 
 namespace Skylark.Standard.Extension.Xhtml
 {
@@ -17,11 +17,12 @@ namespace Skylark.Standard.Extension.Xhtml
         /// </summary>
         /// <param name="Xhtml"></param>
         /// <returns></returns>
-        public static string ToMinify(string Xhtml = MXXM.Xhtml)
+        /// <exception cref="SE"></exception>
+        public static string ToMinify(string Xhtml = SSMXXM.Xhtml)
         {
             try
             {
-                Xhtml = HL.Text(Xhtml, MXXM.Xhtml);
+                Xhtml = SHL.Text(Xhtml, SSMXXM.Xhtml);
 
                 XhtmlMinifier Minifier = new();
 
@@ -34,12 +35,12 @@ namespace Skylark.Standard.Extension.Xhtml
                 else
                 {
                     // TODO: Fix null ref
-                    throw new E(Minified.Errors.FirstOrDefault().Message);
+                    throw new SE(Minified.Errors.FirstOrDefault().Message);
                 }
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -48,7 +49,7 @@ namespace Skylark.Standard.Extension.Xhtml
         /// </summary>
         /// <param name="Xhtml"></param>
         /// <returns></returns>
-        public static async Task<string> ToMinifyAsync(string Xhtml = MXXM.Xhtml)
+        public static async Task<string> ToMinifyAsync(string Xhtml = SSMXXM.Xhtml)
         {
             return await Task.Run(() => ToMinify(Xhtml));
         }
@@ -58,11 +59,12 @@ namespace Skylark.Standard.Extension.Xhtml
         /// </summary>
         /// <param name="Xhtml"></param>
         /// <returns></returns>
-        public static string ToBeauty(string Xhtml = MXXM.Xhtml)
+        /// <exception cref="SE"></exception>
+        public static string ToBeauty(string Xhtml = SSMXXM.Xhtml)
         {
             try
             {
-                Xhtml = HL.Text(Xhtml, MXXM.Xhtml);
+                Xhtml = SHL.Text(Xhtml, SSMXXM.Xhtml);
 
                 UglifyResult Beautified = Uglify.Html(Xhtml, HtmlSettings.Pretty());
 
@@ -73,12 +75,12 @@ namespace Skylark.Standard.Extension.Xhtml
                 else
                 {
                     // TODO: Fix null ref
-                    throw new E(Beautified.Errors.FirstOrDefault().Message);
+                    throw new SE(Beautified.Errors.FirstOrDefault().Message);
                 }
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -87,7 +89,7 @@ namespace Skylark.Standard.Extension.Xhtml
         /// </summary>
         /// <param name="Xhtml"></param>
         /// <returns></returns>
-        public static async Task<string> ToBeautyAsync(string Xhtml = MXXM.Xhtml)
+        public static async Task<string> ToBeautyAsync(string Xhtml = SSMXXM.Xhtml)
         {
             return await Task.Run(() => ToBeauty(Xhtml));
         }

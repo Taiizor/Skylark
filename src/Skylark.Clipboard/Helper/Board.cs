@@ -2,7 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using E = Skylark.Exception;
+using SE = Skylark.Exception;
 using SCSSC = System.Collections.Specialized.StringCollection;
 using SWFC = System.Windows.Forms.Clipboard;
 
@@ -16,16 +16,16 @@ namespace Skylark.Clipboard.Helper
         /// <summary>
         /// 
         /// </summary>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static void Clear()
         {
             try
             {
                 SWFC.Clear();
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -43,16 +43,16 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Format"></param>
         /// <param name="Data"></param>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static void SetData(string Format, object Data)
         {
             try
             {
                 SWFC.SetData(Format, Data);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -72,16 +72,16 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Format"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static object GetData(string Format)
         {
             try
             {
                 return SWFC.GetData(Format);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -100,16 +100,16 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Format"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static bool ContainsData(string Format)
         {
             try
             {
                 return SWFC.ContainsData(Format);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -127,16 +127,16 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <param name="Bytes"></param>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static void SetAudio(byte[] Bytes)
         {
             try
             {
                 SWFC.SetAudio(Bytes);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -154,16 +154,16 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <param name="Stream"></param>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static void SetAudio(Stream Stream)
         {
             try
             {
                 SWFC.SetAudio(Stream);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -181,16 +181,16 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static Stream GetAudio()
         {
             try
             {
                 return SWFC.GetAudioStream();
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -207,16 +207,16 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static bool ContainsAudio()
         {
             try
             {
                 return SWFC.ContainsAudio();
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -233,16 +233,16 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <param name="Image"></param>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static void SetImage(Image Image)
         {
             try
             {
                 SWFC.SetImage(Image);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -260,16 +260,16 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static Image GetImage()
         {
             try
             {
                 return SWFC.GetImage();
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -286,16 +286,16 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static bool ContainsImage()
         {
             try
             {
                 return SWFC.ContainsImage();
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -313,16 +313,16 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Data"></param>
         /// <param name="Copy"></param>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static void SetDataObject(object Data, bool Copy)
         {
             try
             {
                 SWFC.SetDataObject(Data, Copy);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -341,16 +341,16 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static IDataObject GetDataObject()
         {
             try
             {
                 return SWFC.GetDataObject();
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -367,16 +367,16 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <param name="Paths"></param>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static void SetFileDropList(SCSSC Paths)
         {
             try
             {
                 SWFC.SetFileDropList(Paths);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -394,16 +394,16 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static SCSSC GetFileDropList()
         {
             try
             {
                 return SWFC.GetFileDropList();
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -420,16 +420,16 @@ namespace Skylark.Clipboard.Helper
         /// 
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static bool ContainsFileDropList()
         {
             try
             {
                 return SWFC.ContainsFileDropList();
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -447,16 +447,16 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Text"></param>
         /// <param name="Format"></param>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static void SetText(string Text, TextDataFormat Format = TextDataFormat.Text)
         {
             try
             {
                 SWFC.SetText(Text, Format);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -476,16 +476,16 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Format"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string GetText(TextDataFormat Format = TextDataFormat.Text)
         {
             try
             {
                 return SWFC.GetText(Format);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -504,16 +504,16 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Format"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static bool ContainsText(TextDataFormat Format = TextDataFormat.Text)
         {
             try
             {
                 return SWFC.ContainsText(Format);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 

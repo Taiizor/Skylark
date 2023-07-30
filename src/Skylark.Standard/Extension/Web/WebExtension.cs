@@ -1,16 +1,16 @@
 ﻿using Newtonsoft.Json;
 using System.Text;
 using System.Text.RegularExpressions;
-using E = Skylark.Exception;
-using ECWT = Skylark.Enum.CompressWebType;
-using EHWT = Skylark.Enum.HttpWebType;
-using HC = Skylark.Helper.Converter;
-using HL = Skylark.Helper.Length;
-using HWWH = Skylark.Standard.Helper.Web.WebHelper;
-using MI = Skylark.Standard.Manage.Internal;
-using MWWM = Skylark.Standard.Manage.Web.WebManage;
-using SWWHS = Skylark.Struct.Web.WebHeaderStruct;
-using SWWRS = Skylark.Struct.Web.WebRatioStruct;
+using SE = Skylark.Exception;
+using SECWT = Skylark.Enum.CompressWebType;
+using SEHWT = Skylark.Enum.HttpWebType;
+using SHC = Skylark.Helper.Converter;
+using SHL = Skylark.Helper.Length;
+using SSHWWH = Skylark.Standard.Helper.Web.WebHelper;
+using SSMI = Skylark.Standard.Manage.Internal;
+using SSMWWM = Skylark.Standard.Manage.Web.WebManage;
+using SSWWHS = Skylark.Struct.Web.WebHeaderStruct;
+using SSWWRS = Skylark.Struct.Web.WebRatioStruct;
 
 namespace Skylark.Standard.Extension.Web
 {
@@ -34,9 +34,9 @@ namespace Skylark.Standard.Extension.Web
 
                 return Client.GetStringAsync(Url).Result;
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -82,9 +82,9 @@ namespace Skylark.Standard.Extension.Web
                     Code = HWWH.GetPlaces(Code, Separator)
                 };
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -173,9 +173,9 @@ namespace Skylark.Standard.Extension.Web
 
                 return Result;
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -220,7 +220,7 @@ namespace Skylark.Standard.Extension.Web
         /// <param name="Parameter"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string Request(string Url = MWWM.Url, Dictionary<string, object> Parameter = null, EHWT Type = MWWM.HttpType)
         {
             try
@@ -291,12 +291,12 @@ namespace Skylark.Standard.Extension.Web
                         Response = Client.SendAsync(Request);
                         return Response.Result.Content.ReadAsStringAsync().Result;
                     default:
-                        throw new E(MWWM.Error);
+                        throw new SE(MWWM.Error);
                 }
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -382,9 +382,9 @@ namespace Skylark.Standard.Extension.Web
 
                 return HWWH.GetPlaces(Math.Round(decimal.Parse($"{Percent}"), 2), Separator);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 

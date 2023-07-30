@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System.Dynamic;
 using System.Text;
-using E = Skylark.Exception;
-using HL = Skylark.Helper.Length;
-using MJJM = Skylark.Standard.Manage.Json.JsonManage;
+using SE = Skylark.Exception;
+using SHL = Skylark.Helper.Length;
+using SMJJM = Skylark.Standard.Manage.Json.JsonManage;
 
 namespace Skylark.Standard.Extension.Json
 {
@@ -29,9 +29,9 @@ namespace Skylark.Standard.Extension.Json
 
                 return JsonConvert.DeserializeXNode(Json, Root, Array, Special).ToString();
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -83,9 +83,9 @@ namespace Skylark.Standard.Extension.Json
 
                 return Builder.ToString();
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -115,9 +115,9 @@ namespace Skylark.Standard.Extension.Json
 
                 return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(Json), Formatting.Indented);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -144,9 +144,9 @@ namespace Skylark.Standard.Extension.Json
 
                 return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(Json), Formatting.None);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 

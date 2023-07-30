@@ -1,8 +1,8 @@
-﻿using E = Skylark.Exception;
-using HWWH = Skylark.Standard.Helper.Word.WordHelper;
-using MWWM = Skylark.Standard.Manage.Word.WordManage;
-using SWWCS = Skylark.Struct.Word.WordCombineStruct;
-using SWWDS = Skylark.Struct.Word.WordDataStruct;
+﻿using SE = Skylark.Exception;
+using SSHWWH = Skylark.Standard.Helper.Word.WordHelper;
+using SSMWWM = Skylark.Standard.Manage.Word.WordManage;
+using SSWWCS = Skylark.Struct.Word.WordCombineStruct;
+using SSWWDS = Skylark.Struct.Word.WordDataStruct;
 
 namespace Skylark.Standard.Extension.Word
 {
@@ -16,15 +16,15 @@ namespace Skylark.Standard.Extension.Word
         /// </summary>
         /// <param name="List"></param>
         /// <returns></returns>
-        public static SWWDS Data(string List = MWWM.List)
+        public static SSWWDS Data(string List = SSMWWM.List)
         {
             try
             {
-                string[] Array = HWWH.GetSplit(List);
+                string[] Array = SSHWWH.GetSplit(List);
 
                 if (!Array.Any())
                 {
-                    throw new E(MWWM.ListEmpty);
+                    throw new SE(SSMWWM.ListEmpty);
                 }
 
                 return new()
@@ -33,9 +33,9 @@ namespace Skylark.Standard.Extension.Word
                     Char = Array.Sum(Char => Char.Length) + Array.Length - 1
                 };
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -44,7 +44,7 @@ namespace Skylark.Standard.Extension.Word
         /// </summary>
         /// <param name="List"></param>
         /// <returns></returns>
-        public static async Task<SWWDS> DataAsync(string List = MWWM.List)
+        public static async Task<SSWWDS> DataAsync(string List = SSMWWM.List)
         {
             return await Task.Run(() => Data(List));
         }
@@ -56,23 +56,23 @@ namespace Skylark.Standard.Extension.Word
         /// <param name="Space"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
-        public static SWWCS Combine(string List = MWWM.List, char Space = MWWM.Space, char Separator = MWWM.Separator)
+        /// <exception cref="SE"></exception>
+        public static SSWWCS Combine(string List = SSMWWM.List, char Space = SSMWWM.Space, char Separator = SSMWWM.Separator)
         {
             try
             {
-                string[] Array = HWWH.GetSplits(List);
+                string[] Array = SSHWWH.GetSplits(List);
 
                 if (!Array.Any())
                 {
-                    throw new E(MWWM.ListEmpty);
+                    throw new SE(SSMWWM.ListEmpty);
                 }
 
-                return HWWH.GetCombine(Array, Space, Separator);
+                return SSHWWH.GetCombine(Array, Space, Separator);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -83,7 +83,7 @@ namespace Skylark.Standard.Extension.Word
         /// <param name="Space"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static async Task<SWWCS> CombineAsync(string List = MWWM.List, char Space = MWWM.Space, char Separator = MWWM.Separator)
+        public static async Task<SSWWCS> CombineAsync(string List = SSMWWM.List, char Space = SSMWWM.Space, char Separator = SSMWWM.Separator)
         {
             return await Task.Run(() => Combine(List, Space, Separator));
         }

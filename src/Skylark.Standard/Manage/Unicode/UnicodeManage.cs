@@ -1,4 +1,4 @@
-﻿using EET = Skylark.Enum.EncodeType;
+﻿using SEET = Skylark.Enum.EncodeType;
 
 namespace Skylark.Standard.Manage.Unicode
 {

@@ -1,6 +1,6 @@
-﻿using E = Skylark.Exception;
+﻿using SE = Skylark.Exception;
 using MHHM = Skylark.Standard.Manage.Hash.HashManage;
-using MI = Skylark.Manage.Internal;
+using SMI = Skylark.Manage.Internal;
 
 namespace Skylark.Standard.Helper.Hash
 {
@@ -24,7 +24,7 @@ namespace Skylark.Standard.Helper.Hash
         /// </summary>
         /// <param name="Path"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static void FileControl(string Path)
         {
             if (File.Exists(Path))
@@ -33,12 +33,12 @@ namespace Skylark.Standard.Helper.Hash
 
                 if (Byte > MI.FileLength)
                 {
-                    throw new E(MHHM.Length);
+                    throw new SE(MHHM.Length);
                 }
             }
             else
             {
-                throw new E(MHHM.Error);
+                throw new SE(MHHM.Error);
             }
         }
 

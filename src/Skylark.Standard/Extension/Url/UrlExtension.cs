@@ -1,7 +1,7 @@
 ﻿using System.Web;
-using E = Skylark.Exception;
-using HL = Skylark.Helper.Length;
-using MUUM = Skylark.Standard.Manage.Url.UrlManage;
+using SE = Skylark.Exception;
+using SHL = Skylark.Helper.Length;
+using SSMUUM = Skylark.Standard.Manage.Url.UrlManage;
 
 namespace Skylark.Standard.Extension.Url
 {
@@ -23,9 +23,9 @@ namespace Skylark.Standard.Extension.Url
 
                 return HttpUtility.UrlEncode(Url);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -52,9 +52,9 @@ namespace Skylark.Standard.Extension.Url
 
                 return HttpUtility.UrlDecode(Url);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 

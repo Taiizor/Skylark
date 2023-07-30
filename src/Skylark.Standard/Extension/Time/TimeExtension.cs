@@ -1,11 +1,11 @@
-﻿using E = Skylark.Exception;
-using ECNT = Skylark.Enum.ClearNumericType;
-using ETT = Skylark.Enum.TimeType;
-using HC = Skylark.Helper.Converter;
-using HN = Skylark.Helper.Numeric;
-using HTTH = Skylark.Standard.Helper.Time.TimeHelper;
-using MTTM = Skylark.Standard.Manage.Time.TimeManage;
-using STTS = Skylark.Struct.Time.TimeStruct;
+﻿using SE = Skylark.Exception;
+using SECNT = Skylark.Enum.ClearNumericType;
+using SETT = Skylark.Enum.TimeType;
+using SHC = Skylark.Helper.Converter;
+using SHN = Skylark.Helper.Numeric;
+using SSHTTH = Skylark.Standard.Helper.Time.TimeHelper;
+using SSMTTM = Skylark.Standard.Manage.Time.TimeManage;
+using SSTTS = Skylark.Struct.Time.TimeStruct;
 
 namespace Skylark.Standard.Extension.Time
 {
@@ -45,7 +45,7 @@ namespace Skylark.Standard.Extension.Time
         /// <param name="Input"></param>
         /// <param name="Output"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static double Convert(double Value = MTTM.Value, ETT Input = MTTM.InputType, ETT Output = MTTM.OutputType)
         {
             try
@@ -53,12 +53,12 @@ namespace Skylark.Standard.Extension.Time
                 return Input switch
                 {
                     ETT.Attosecond or ETT.Femtosecond or ETT.Picosecond or ETT.Nanosecond or ETT.Microsecond or ETT.Millisecond or ETT.Second or ETT.Minute or ETT.Hour or ETT.Day or ETT.Week or ETT.Year or ETT.Decade or ETT.Century or ETT.Millennium => HTTH.GetCalc(Value, HTTH.GetValue(Input, Output)),
-                    _ => throw new E(MTTM.Error),
+                    _ => throw new SE(MTTM.Error),
                 };
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -102,7 +102,7 @@ namespace Skylark.Standard.Extension.Time
         /// <param name="Value"></param>
         /// <param name="Input"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static STTS AutoConvert(double Value = MTTM.Value, ETT Input = MTTM.InputType)
         {
             try
@@ -110,12 +110,12 @@ namespace Skylark.Standard.Extension.Time
                 return Input switch
                 {
                     ETT.Attosecond or ETT.Femtosecond or ETT.Picosecond or ETT.Nanosecond or ETT.Microsecond or ETT.Millisecond or ETT.Second or ETT.Minute or ETT.Hour or ETT.Day or ETT.Week or ETT.Year or ETT.Decade or ETT.Century or ETT.Millennium => AutoDetect(Value, Input),
-                    _ => throw new E(MTTM.Error),
+                    _ => throw new SE(MTTM.Error),
                 };
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 

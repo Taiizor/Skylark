@@ -1,12 +1,12 @@
-﻿using E = Skylark.Exception;
-using ECNT = Skylark.Enum.ClearNumericType;
-using EMST = Skylark.Enum.ModeStorageType;
-using EST = Skylark.Enum.StorageType;
-using HC = Skylark.Helper.Converter;
-using HN = Skylark.Helper.Numeric;
-using HSSH = Skylark.Standard.Helper.Storage.StorageHelper;
-using MSSM = Skylark.Standard.Manage.Storage.StorageManage;
-using SSSS = Skylark.Struct.Storage.StorageStruct;
+﻿using SE = Skylark.Exception;
+using SECNT = Skylark.Enum.ClearNumericType;
+using SEMST = Skylark.Enum.ModeStorageType;
+using SEST = Skylark.Enum.StorageType;
+using SHC = Skylark.Helper.Converter;
+using SHN = Skylark.Helper.Numeric;
+using SSHSSH = Skylark.Standard.Helper.Storage.StorageHelper;
+using SSMSSM = Skylark.Standard.Manage.Storage.StorageManage;
+using SSSSS = Skylark.Struct.Storage.StorageStruct;
 
 namespace Skylark.Standard.Extension.Storage
 {
@@ -49,7 +49,7 @@ namespace Skylark.Standard.Extension.Storage
         /// <param name="Output"></param>
         /// <param name="Mode"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static double Convert(double Value = MSSM.Value, EST Input = MSSM.InputType, EST Output = MSSM.OutputType, EMST Mode = MSSM.ModeType)
         {
             try
@@ -57,12 +57,12 @@ namespace Skylark.Standard.Extension.Storage
                 return Input switch
                 {
                     EST.Bit or EST.Byte or EST.Kilobyte or EST.Megabyte or EST.Gigabyte or EST.Terabyte or EST.Petabyte or EST.Exabyte or EST.Zetabyte or EST.Yottabyte => HSSH.GetCalc(Value, HSSH.GetValue(Input, Output, Mode)),
-                    _ => throw new E(MSSM.Error),
+                    _ => throw new SE(MSSM.Error),
                 };
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -110,7 +110,7 @@ namespace Skylark.Standard.Extension.Storage
         /// <param name="Input"></param>
         /// <param name="Mode"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static SSSS AutoConvert(double Value = MSSM.Value, EST Input = MSSM.InputType, EMST Mode = MSSM.ModeType)
         {
             try
@@ -118,12 +118,12 @@ namespace Skylark.Standard.Extension.Storage
                 return Input switch
                 {
                     EST.Bit or EST.Byte or EST.Kilobyte or EST.Megabyte or EST.Gigabyte or EST.Terabyte or EST.Petabyte or EST.Exabyte or EST.Zetabyte or EST.Yottabyte => AutoDetect(Value, Input, Mode),
-                    _ => throw new E(MSSM.Error),
+                    _ => throw new SE(MSSM.Error),
                 };
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 

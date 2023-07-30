@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
+using System.Text;
 using System.Xml;
 using WebMarkupMin.Core;
-using E = Skylark.Exception;
-using HL = Skylark.Helper.Length;
-using MXXM = Skylark.Standard.Manage.Xml.XmlManage;
-using TPXB = Skylark.Standard.ThirdParty.Xml.Beauty;
+using SE = Skylark.Exception;
+using SHL = Skylark.Helper.Length;
+using SSMXXM = Skylark.Standard.Manage.Xml.XmlManage;
+using SSTPXB = Skylark.Standard.ThirdParty.Xml.Beauty;
 
 namespace Skylark.Standard.Extension.Xml
 {
@@ -20,11 +21,12 @@ namespace Skylark.Standard.Extension.Xml
         /// <param name="Format"></param>
         /// <param name="Root"></param>
         /// <returns></returns>
-        public static string ToJson(string Xml = MXXM.Xml, bool Format = MXXM.Format, bool Root = MXXM.Root)
+        /// <exception cref="SE"></exception>
+        public static string ToJson(string Xml = SSMXXM.Xml, bool Format = SSMXXM.Format, bool Root = SSMXXM.Root)
         {
             try
             {
-                Xml = HL.Text(Xml, MXXM.Xml);
+                Xml = SHL.Text(Xml, SSMXXM.Xml);
 
                 XmlDocument Document = new();
 
@@ -38,9 +40,9 @@ namespace Skylark.Standard.Extension.Xml
 
                 return JsonConvert.SerializeXmlNode(Document, Formatting, Root);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -51,7 +53,7 @@ namespace Skylark.Standard.Extension.Xml
         /// <param name="Format"></param>
         /// <param name="Root"></param>
         /// <returns></returns>
-        public static async Task<string> ToJsonAsync(string Xml = MXXM.Xml, bool Format = MXXM.Format, bool Root = MXXM.Root)
+        public static async Task<string> ToJsonAsync(string Xml = SSMXXM.Xml, bool Format = SSMXXM.Format, bool Root = SSMXXM.Root)
         {
             return await Task.Run(() => ToJson(Xml, Format, Root));
         }
@@ -61,17 +63,18 @@ namespace Skylark.Standard.Extension.Xml
         /// </summary>
         /// <param name="Xml"></param>
         /// <returns></returns>
-        public static string ToBeauty(string Xml = MXXM.Xml)
+        /// <exception cref="SE"></exception>
+        public static string ToBeauty(string Xml = SSMXXM.Xml)
         {
             try
             {
-                Xml = HL.Text(Xml, MXXM.Xml);
+                Xml = SHL.Text(Xml, SSMXXM.Xml);
 
-                return TPXB.Beautifier(Xml);
+                return SSTPXB.Beautifier(Xml, Encoding.Unicode);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -80,7 +83,7 @@ namespace Skylark.Standard.Extension.Xml
         /// </summary>
         /// <param name="Xml"></param>
         /// <returns></returns>
-        public static async Task<string> ToBeautyAsync(string Xml = MXXM.Xml)
+        public static async Task<string> ToBeautyAsync(string Xml = SSMXXM.Xml)
         {
             return await Task.Run(() => ToBeauty(Xml));
         }
@@ -90,11 +93,12 @@ namespace Skylark.Standard.Extension.Xml
         /// </summary>
         /// <param name="Xml"></param>
         /// <returns></returns>
-        public static string ToMinify(string Xml = MXXM.Xml)
+        /// <exception cref="SE"></exception>
+        public static string ToMinify(string Xml = SSMXXM.Xml)
         {
             try
             {
-                Xml = HL.Text(Xml, MXXM.Xml);
+                Xml = SHL.Text(Xml, SSMXXM.Xml);
 
                 XmlMinifier Minifier = new();
 
@@ -107,12 +111,12 @@ namespace Skylark.Standard.Extension.Xml
                 else
                 {
                     // TODO: Fix null ref
-                    throw new E(Minified.Errors.FirstOrDefault().Message);
+                    throw new SE(Minified.Errors.FirstOrDefault().Message);
                 }
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -121,7 +125,7 @@ namespace Skylark.Standard.Extension.Xml
         /// </summary>
         /// <param name="Xml"></param>
         /// <returns></returns>
-        public static async Task<string> ToMinifyAsync(string Xml = MXXM.Xml)
+        public static async Task<string> ToMinifyAsync(string Xml = SSMXXM.Xml)
         {
             return await Task.Run(() => ToMinify(Xml));
         }

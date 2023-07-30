@@ -1,8 +1,8 @@
 ﻿using System.Net.NetworkInformation;
-using E = Skylark.Exception;
-using HL = Skylark.Helper.Length;
-using ME = Skylark.Standard.Manage.External;
-using MPM = Skylark.Standard.Manage.Ping.PingManage;
+using SE = Skylark.Exception;
+using SHL = Skylark.Helper.Length;
+using SSME = Skylark.Standard.Manage.External;
+using SSMPPM = Skylark.Standard.Manage.Ping.PingManage;
 using SPPSS = Skylark.Struct.Ping.PingSendStruct;
 
 namespace Skylark.Standard.Extension.Ping
@@ -49,9 +49,9 @@ namespace Skylark.Standard.Extension.Ping
 
                 return Result;
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 

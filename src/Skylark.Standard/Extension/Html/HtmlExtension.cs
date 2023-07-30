@@ -2,10 +2,10 @@
 using System.Globalization;
 using System.Text;
 using WebMarkupMin.Core;
-using E = Skylark.Exception;
-using HF = Skylark.Helper.Format;
-using HL = Skylark.Helper.Length;
-using MHHM = Skylark.Standard.Manage.Html.HtmlManage;
+using SE = Skylark.Exception;
+using SHF = Skylark.Helper.Format;
+using SHL = Skylark.Helper.Length;
+using SMHHM = Skylark.Standard.Manage.Html.HtmlManage;
 
 namespace Skylark.Standard.Extension.Html
 {
@@ -42,9 +42,9 @@ namespace Skylark.Standard.Extension.Html
 
                 return Builder.ToString();
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -89,9 +89,9 @@ namespace Skylark.Standard.Extension.Html
 
                 return Decrypted;
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -127,12 +127,12 @@ namespace Skylark.Standard.Extension.Html
                 else
                 {
                     // TODO: Handle null ref
-                    throw new E(Minified.Errors.FirstOrDefault().Message);
+                    throw new SE(Minified.Errors.FirstOrDefault().Message);
                 }
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -166,12 +166,12 @@ namespace Skylark.Standard.Extension.Html
                 else
                 {
                     // TODO: Handle null ref
-                    throw new E(Beautified.Errors.FirstOrDefault().Message);
+                    throw new SE(Beautified.Errors.FirstOrDefault().Message);
                 }
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 

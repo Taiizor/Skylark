@@ -1,8 +1,8 @@
 ﻿using System.Globalization;
-using E = Skylark.Exception;
-using HA = Skylark.Helper.Adaptation;
-using HCCH = Skylark.Standard.Helper.Color.ColorHelper;
-using MCCM = Skylark.Standard.Manage.Color.ColorManage;
+using SE = Skylark.Exception;
+using SHA = Skylark.Helper.Adaptation;
+using SHCCH = Skylark.Standard.Helper.Color.ColorHelper;
+using SMCCM = Skylark.Standard.Manage.Color.ColorManage;
 using SDC = System.Drawing.Color;
 
 namespace Skylark.Standard.Extension.Color
@@ -19,16 +19,16 @@ namespace Skylark.Standard.Extension.Color
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string ToHex(SDC Color, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
         {
             try
             {
                 return $"hex({HCCH.ConvertToHex(Color.R, Color.G, Color.B, Upper, Sharp)})";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -64,9 +64,9 @@ namespace Skylark.Standard.Extension.Color
 
                 return $"hexi({Result})";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -87,16 +87,16 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string ToRGB(SDC Color)
         {
             try
             {
                 return $"rgb({Color.R}, {Color.G}, {Color.B})";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -115,16 +115,16 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string ToARGB(SDC Color)
         {
             try
             {
                 return $"argb({Color.A}, {Color.R}, {Color.G}, {Color.B})";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -143,7 +143,7 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string ToHSB(SDC Color)
         {
             try
@@ -156,9 +156,9 @@ namespace Skylark.Standard.Extension.Color
 
                 return $"hsb({Hue}, {Saturation}%, {Brightness}%)";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -177,7 +177,7 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string ToHSI(SDC Color)
         {
             try
@@ -190,9 +190,9 @@ namespace Skylark.Standard.Extension.Color
 
                 return $"hsi({Hue}, {Saturation}%, {Intensity}%)";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -211,7 +211,7 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string ToHSL(SDC Color)
         {
             try
@@ -224,9 +224,9 @@ namespace Skylark.Standard.Extension.Color
 
                 return $"hsl({Hue}, {Saturation}%, {Lightness}%)";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -245,7 +245,7 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string ToHSV(SDC Color)
         {
             try
@@ -258,9 +258,9 @@ namespace Skylark.Standard.Extension.Color
 
                 return $"hsv({Hue}, {Saturation}%, {Value}%)";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -279,7 +279,7 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string ToHWB(SDC Color)
         {
             try
@@ -292,9 +292,9 @@ namespace Skylark.Standard.Extension.Color
 
                 return $"hwb({Hue}, {Whiteness}%, {Blackness}%)";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -313,7 +313,7 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string ToCMYK(SDC Color)
         {
             try
@@ -327,9 +327,9 @@ namespace Skylark.Standard.Extension.Color
 
                 return $"cmyk({Cyan}%, {Magenta}%, {Yellow}%, {BlackKey}%)";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -348,7 +348,7 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string ToCIELAB(SDC Color)
         {
             try
@@ -361,9 +361,9 @@ namespace Skylark.Standard.Extension.Color
 
                 return $"CIELab({Lightness}, {ChromaticityA}, {ChromaticityB})";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -382,7 +382,7 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string ToCIEXYZ(SDC Color)
         {
             try
@@ -395,9 +395,9 @@ namespace Skylark.Standard.Extension.Color
 
                 return $"CIEXYZ({X}, {Y}, {Z})";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -416,7 +416,7 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string ToFloat(SDC Color)
         {
             try
@@ -428,9 +428,9 @@ namespace Skylark.Standard.Extension.Color
 
                 return $"float({Math.Round(Red, Precision).ToString(FloatFormat)}f, {Math.Round(Green, Precision).ToString(FloatFormat)}f, {Math.Round(Blue, Precision).ToString(FloatFormat)}f, 1f)";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -449,16 +449,16 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string ToDecimal(SDC Color)
         {
             try
             {
                 return $"decimal({(Color.R * 65536) + (Color.G * 256) + Color.B})";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -477,7 +477,7 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Color"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string ToNatural(SDC Color)
         {
             try
@@ -489,9 +489,9 @@ namespace Skylark.Standard.Extension.Color
 
                 return $"ncol({Hue}, {Whiteness}%, {Blackness}%)";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -514,16 +514,16 @@ namespace Skylark.Standard.Extension.Color
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string RGBToHex(int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
         {
             try
             {
                 return $"hex({HCCH.ConvertToHex(R, G, B, Upper, Sharp)})";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -551,16 +551,16 @@ namespace Skylark.Standard.Extension.Color
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string ARGBToHex(int A = MCCM.Value, int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
         {
             try
             {
                 return $"hex({HCCH.ConvertToHex(A, R, G, B, Upper, Sharp)})";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -586,16 +586,16 @@ namespace Skylark.Standard.Extension.Color
         /// <param name="G"></param>
         /// <param name="B"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static SDC RGBToColor(int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value)
         {
             try
             {
                 return HCCH.ConvertToColor(R, G, B);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -619,16 +619,16 @@ namespace Skylark.Standard.Extension.Color
         /// <param name="G"></param>
         /// <param name="B"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static SDC ARGBToColor(int A = MCCM.Value, int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value)
         {
             try
             {
                 return HCCH.ConvertToColor(A, R, G, B);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -650,7 +650,7 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Hex"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string HexToRGB(string Hex = MCCM.Hex)
         {
             try
@@ -670,9 +670,9 @@ namespace Skylark.Standard.Extension.Color
 
                 return $"rgb({Red}, {Green}, {Blue})";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -691,7 +691,7 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Hex"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string HexToARGB(string Hex = MCCM.HexAlpha)
         {
             try
@@ -709,9 +709,9 @@ namespace Skylark.Standard.Extension.Color
 
                 return $"argb({Color.A}, {Color.R}, {Color.G}, {Color.B})";
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -730,7 +730,7 @@ namespace Skylark.Standard.Extension.Color
         /// </summary>
         /// <param name="Hex"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static SDC HexToColor(string Hex = MCCM.Hex)
         {
             try
@@ -759,9 +759,9 @@ namespace Skylark.Standard.Extension.Color
                     return SDC.FromArgb(Value);
                 }
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 

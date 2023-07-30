@@ -1,4 +1,4 @@
-﻿using ETT = Skylark.Enum.TextType;
+﻿using SETT = Skylark.Enum.TextType;
 
 namespace Skylark.Standard.Manage.Text
 {

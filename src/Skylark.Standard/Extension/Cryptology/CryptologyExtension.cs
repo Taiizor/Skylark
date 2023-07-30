@@ -1,12 +1,12 @@
 ﻿using System.Security.Cryptography;
-using E = Skylark.Exception;
-using EET = Skylark.Enum.EncodeType;
-using HA = Skylark.Helper.Adaptation;
-using HCCH = Skylark.Standard.Helper.Cryptology.CryptologyHelper;
-using HE = Skylark.Helper.Encode;
-using HF = Skylark.Helper.Format;
-using HL = Skylark.Helper.Length;
-using MCCM = Skylark.Standard.Manage.Cryptology.CryptologyManage;
+using SE = Skylark.Exception;
+using SEET = Skylark.Enum.EncodeType;
+using SHA = Skylark.Helper.Adaptation;
+using SHCCH = Skylark.Standard.Helper.Cryptology.CryptologyHelper;
+using SHE = Skylark.Helper.Encode;
+using SHF = Skylark.Helper.Format;
+using SHL = Skylark.Helper.Length;
+using SMCCM = Skylark.Standard.Manage.Cryptology.CryptologyManage;
 
 namespace Skylark.Standard.Extension.Cryptology
 {
@@ -21,7 +21,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Text"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string TextToBase(string Text = MCCM.Text, EET Encode = MCCM.Encode)
         {
             try
@@ -30,9 +30,9 @@ namespace Skylark.Standard.Extension.Cryptology
 
                 return HCCH.ToBase64String(HE.GetBytes(Text, Encode));
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -56,7 +56,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Mode"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string TextToAes(string Text = MCCM.Text, string IV = MCCM.IV, string Key = MCCM.Key, CipherMode Mode = MCCM.Cipher, EET Encode = MCCM.Encode)
         {
             try
@@ -95,9 +95,9 @@ namespace Skylark.Standard.Extension.Cryptology
 
                 return Result;
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -123,7 +123,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string TextToMD5(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
         {
             try
@@ -134,9 +134,9 @@ namespace Skylark.Standard.Extension.Cryptology
 
                 return HF.Formatter(HCCH.GetBuild(MD5.ComputeHash(HE.GetBytes(Text, Encode))), Upper, Invariant);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -161,7 +161,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string TextToSHA1(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
         {
             try
@@ -172,9 +172,9 @@ namespace Skylark.Standard.Extension.Cryptology
 
                 return HF.Formatter(HCCH.GetBuild(SHA1.ComputeHash(HE.GetBytes(Text, Encode))), Upper, Invariant);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -199,7 +199,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string TextToSHA256(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
         {
             try
@@ -210,9 +210,9 @@ namespace Skylark.Standard.Extension.Cryptology
 
                 return HF.Formatter(HCCH.GetBuild(SHA256.ComputeHash(HE.GetBytes(Text, Encode))), Upper, Invariant);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -237,7 +237,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string TextToSHA384(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
         {
             try
@@ -248,9 +248,9 @@ namespace Skylark.Standard.Extension.Cryptology
 
                 return HF.Formatter(HCCH.GetBuild(SHA384.ComputeHash(HE.GetBytes(Text, Encode))), Upper, Invariant);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -275,7 +275,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string TextToSHA512(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
         {
             try
@@ -286,9 +286,9 @@ namespace Skylark.Standard.Extension.Cryptology
 
                 return HF.Formatter(HCCH.GetBuild(SHA512.ComputeHash(HE.GetBytes(Text, Encode))), Upper, Invariant);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -311,7 +311,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Base"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string BaseToText(string Base = MCCM.Base, EET Encode = MCCM.Encode)
         {
             try
@@ -320,9 +320,9 @@ namespace Skylark.Standard.Extension.Cryptology
 
                 return HE.GetString(HCCH.FromBase64String(Base), Encode);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -346,7 +346,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Mode"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string AesToText(string Aes = MCCM.Aes, string IV = MCCM.IV, string Key = MCCM.Key, CipherMode Mode = MCCM.Cipher, EET Encode = MCCM.Encode)
         {
             try
@@ -386,9 +386,9 @@ namespace Skylark.Standard.Extension.Cryptology
 
                 return Result;
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 

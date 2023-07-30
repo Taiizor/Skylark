@@ -1,13 +1,13 @@
-﻿using E = Skylark.Exception;
+﻿using SE = Skylark.Exception;
 using EAPT = Skylark.Enum.AlphabeticPasswordType;
 using EMPT = Skylark.Enum.MeterPasswordType;
 using ESLPT = Skylark.Enum.SpecialPasswordType;
 using ESRPT = Skylark.Enum.SimilarPasswordType;
-using HC = Skylark.Helper.Converter;
-using HL = Skylark.Helper.Length;
-using HPPH = Skylark.Standard.Helper.Password.PasswordHelper;
-using ME = Skylark.Standard.Manage.External;
-using MPPM = Skylark.Standard.Manage.Password.PasswordManage;
+using SHC = Skylark.Helper.Converter;
+using SHL = Skylark.Helper.Length;
+using SHPPH = Skylark.Standard.Helper.Password.PasswordHelper;
+using SSME = Skylark.Standard.Manage.External;
+using SMPPM = Skylark.Standard.Manage.Password.PasswordManage;
 
 namespace Skylark.Standard.Extension.Password
 {
@@ -22,9 +22,9 @@ namespace Skylark.Standard.Extension.Password
             {
                 return HPPH.GetMeter(HL.Parameter(Password, MPPM.Password));
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -86,7 +86,7 @@ namespace Skylark.Standard.Extension.Password
 
                 if (Chars.Length <= 0)
                 {
-                    throw new E(MPPM.Error);
+                    throw new SE(MPPM.Error);
                 }
 
                 string Secret = new(Enumerable.Repeat(Chars, HL.Clamp(Length, MPPM.MinLength, MPPM.MaxLength))
@@ -94,9 +94,9 @@ namespace Skylark.Standard.Extension.Password
 
                 return Prefix + Secret + Suffix;
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -145,7 +145,7 @@ namespace Skylark.Standard.Extension.Password
         /// <param name="Password2"></param>
         /// <param name="Similar"></param>
         /// <returns></returns>
-        /// <exception cref="E"></exception>
+        /// <exception cref="SE"></exception>
         public static string Similarity(string Password1 = MPPM.Password, string Password2 = MPPM.Password, ESRPT Similar = MPPM.SimilarType)
         {
             try
@@ -155,9 +155,9 @@ namespace Skylark.Standard.Extension.Password
 
                 return HPPH.GetPlaces(Math.Round(decimal.Parse($"{HPPH.GetSimilarity(Password1, Password2, Similar):P}".Replace("%", "")), 2), true);
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 

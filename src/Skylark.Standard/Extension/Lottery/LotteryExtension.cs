@@ -1,8 +1,8 @@
-﻿using E = Skylark.Exception;
-using HLLH = Skylark.Standard.Helper.Lottery.LotteryHelper;
-using ME = Skylark.Standard.Manage.External;
-using MLLM = Skylark.Standard.Manage.Lottery.LotteryManage;
-using SLLDS = Skylark.Struct.Lottery.LotteryDrawStruct;
+﻿using SE = Skylark.Exception;
+using SHLLH = Skylark.Standard.Helper.Lottery.LotteryHelper;
+using SSME = Skylark.Standard.Manage.External;
+using SMLLM = Skylark.Standard.Manage.Lottery.LotteryManage;
+using SSLLDS = Skylark.Struct.Lottery.LotteryDrawStruct;
 
 namespace Skylark.Standard.Extension.Lottery
 {
@@ -31,11 +31,11 @@ namespace Skylark.Standard.Extension.Lottery
                 {
                     if (Array.Length < Total)
                     {
-                        throw new E(MLLM.ListSmall);
+                        throw new SE(MLLM.ListSmall);
                     }
                     else
                     {
-                        throw new E(MLLM.ListEmpty);
+                        throw new SE(MLLM.ListEmpty);
                     }
                 }
 
@@ -68,9 +68,9 @@ namespace Skylark.Standard.Extension.Lottery
                     Reserve = Res
                 };
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
@@ -106,9 +106,9 @@ namespace Skylark.Standard.Extension.Lottery
 
                 return string.Join(Environment.NewLine, Array.OrderBy(_ => ME.Randomise.Next()));
             }
-            catch (E Ex)
+            catch (SE Ex)
             {
-                throw new E(Ex.Message, Ex);
+                throw new SE(Ex.Message, Ex);
             }
         }
 
