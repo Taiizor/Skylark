@@ -1,8 +1,8 @@
 ﻿using SE = Skylark.Exception;
 using SSHLLH = Skylark.Standard.Helper.Lottery.LotteryHelper;
+using SSLLDS = Skylark.Struct.Lottery.LotteryDrawStruct;
 using SSME = Skylark.Standard.Manage.External;
 using SSMLLM = Skylark.Standard.Manage.Lottery.LotteryManage;
-using SSLLDS = Skylark.Struct.Lottery.LotteryDrawStruct;
 
 namespace Skylark.Standard.Extension.Lottery
 {

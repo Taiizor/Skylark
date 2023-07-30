@@ -1,6 +1,6 @@
-﻿using SHL = Skylark.Helper.Length;
+﻿using SDC = System.Drawing.Color;
+using SHL = Skylark.Helper.Length;
 using SSMCCM = Skylark.Standard.Manage.Color.ColorManage;
-using SDC = System.Drawing.Color;
 
 namespace Skylark.Standard.Helper.Color
 {

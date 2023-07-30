@@ -1,9 +1,9 @@
 ﻿using System.Globalization;
+using SDC = System.Drawing.Color;
 using SE = Skylark.Exception;
 using SHA = Skylark.Helper.Adaptation;
 using SSHCCH = Skylark.Standard.Helper.Color.ColorHelper;
 using SSMCCM = Skylark.Standard.Manage.Color.ColorManage;
-using SDC = System.Drawing.Color;
 
 namespace Skylark.Standard.Extension.Color
 {

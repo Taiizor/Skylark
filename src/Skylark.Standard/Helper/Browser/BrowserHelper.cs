@@ -1,6 +1,6 @@
 ﻿using SE = Skylark.Exception;
-using SSMBBM = Skylark.Standard.Manage.Browser.BrowserManage;
 using SMI = Skylark.Manage.Internal;
+using SSMBBM = Skylark.Standard.Manage.Browser.BrowserManage;
 
 namespace Skylark.Standard.Helper.Browser
 {

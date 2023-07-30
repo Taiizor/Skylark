@@ -1,5 +1,5 @@
-﻿using SSME = Skylark.Standard.Manage.External;
-using SMI = Skylark.Manage.Internal;
+﻿using SMI = Skylark.Manage.Internal;
+using SSME = Skylark.Standard.Manage.External;
 using SSMLLM = Skylark.Standard.Manage.Lottery.LotteryManage;
 
 namespace Skylark.Standard.Helper.Lottery
