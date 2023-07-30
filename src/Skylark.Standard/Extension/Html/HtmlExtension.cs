@@ -5,7 +5,7 @@ using WebMarkupMin.Core;
 using SE = Skylark.Exception;
 using SHF = Skylark.Helper.Format;
 using SHL = Skylark.Helper.Length;
-using SMHHM = Skylark.Standard.Manage.Html.HtmlManage;
+using SSMHHM = Skylark.Standard.Manage.Html.HtmlManage;
 
 namespace Skylark.Standard.Extension.Html
 {
@@ -19,11 +19,12 @@ namespace Skylark.Standard.Extension.Html
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
-        public static string Encode(string Html = MHHM.Html)
+        /// <exception cref="SE"></exception>
+        public static string Encode(string Html = SSMHHM.Html)
         {
             try
             {
-                Html = SHL.Text(Html, MHHM.Html);
+                Html = SHL.Text(Html, SSMHHM.Html);
 
                 StringBuilder Builder = new();
 
@@ -33,7 +34,7 @@ namespace Skylark.Standard.Extension.Html
 
                 foreach (char Char in Html)
                 {
-                    Encrypted += "%" + HF.Formatter("{0:X2}", Convert.ToInt32(Char));
+                    Encrypted += "%" + SHF.Formatter("{0:X2}", Convert.ToInt32(Char));
                 }
 
                 Builder.AppendLine($"\tdocument.write(unescape('{Encrypted}'));");
@@ -53,7 +54,7 @@ namespace Skylark.Standard.Extension.Html
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
-        public static async Task<string> EncodeAsync(string Html = MHHM.Html)
+        public static async Task<string> EncodeAsync(string Html = SSMHHM.Html)
         {
             return await Task.Run(() => Encode(Html));
         }
@@ -63,11 +64,12 @@ namespace Skylark.Standard.Extension.Html
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
-        public static string Decode(string Html = MHHM.Html)
+        /// <exception cref="SE"></exception>
+        public static string Decode(string Html = SSMHHM.Html)
         {
             try
             {
-                Html = SHL.Text(Html, MHHM.Html);
+                Html = SHL.Text(Html, SSMHHM.Html);
 
                 Html = Html.Replace("<script type=\"text/javascript\">", string.Empty);
                 Html = Html.Replace("</script>", string.Empty);
@@ -100,7 +102,7 @@ namespace Skylark.Standard.Extension.Html
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
-        public static async Task<string> DecodeAsync(string Html = MHHM.Html)
+        public static async Task<string> DecodeAsync(string Html = SSMHHM.Html)
         {
             return await Task.Run(() => Decode(Html));
         }
@@ -110,11 +112,12 @@ namespace Skylark.Standard.Extension.Html
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
-        public static string ToMinify(string Html = MHHM.Html)
+        /// <exception cref="SE"></exception>
+        public static string ToMinify(string Html = SSMHHM.Html)
         {
             try
             {
-                Html = SHL.Text(Html, MHHM.Html);
+                Html = SHL.Text(Html, SSMHHM.Html);
 
                 HtmlMinifier Minifier = new();
 
@@ -141,7 +144,7 @@ namespace Skylark.Standard.Extension.Html
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
-        public static async Task<string> ToMinifyAsync(string Html = MHHM.Html)
+        public static async Task<string> ToMinifyAsync(string Html = SSMHHM.Html)
         {
             return await Task.Run(() => ToMinify(Html));
         }
@@ -151,11 +154,12 @@ namespace Skylark.Standard.Extension.Html
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
-        public static string ToBeauty(string Html = MHHM.Html)
+        /// <exception cref="SE"></exception>
+        public static string ToBeauty(string Html = SSMHHM.Html)
         {
             try
             {
-                Html = SHL.Text(Html, MHHM.Html);
+                Html = SHL.Text(Html, SSMHHM.Html);
 
                 UglifyResult Beautified = Uglify.Html(Html, NUglify.Html.HtmlSettings.Pretty());
 
@@ -180,7 +184,7 @@ namespace Skylark.Standard.Extension.Html
         /// </summary>
         /// <param name="Html"></param>
         /// <returns></returns>
-        public static async Task<string> ToBeautyAsync(string Html = MHHM.Html)
+        public static async Task<string> ToBeautyAsync(string Html = SSMHHM.Html)
         {
             return await Task.Run(() => ToBeauty(Html));
         }

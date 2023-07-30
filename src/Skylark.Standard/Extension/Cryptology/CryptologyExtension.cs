@@ -2,11 +2,11 @@
 using SE = Skylark.Exception;
 using SEET = Skylark.Enum.EncodeType;
 using SHA = Skylark.Helper.Adaptation;
-using SHCCH = Skylark.Standard.Helper.Cryptology.CryptologyHelper;
+using SSHCCH = Skylark.Standard.Helper.Cryptology.CryptologyHelper;
 using SHE = Skylark.Helper.Encode;
 using SHF = Skylark.Helper.Format;
 using SHL = Skylark.Helper.Length;
-using SMCCM = Skylark.Standard.Manage.Cryptology.CryptologyManage;
+using SSMCCM = Skylark.Standard.Manage.Cryptology.CryptologyManage;
 
 namespace Skylark.Standard.Extension.Cryptology
 {
@@ -22,13 +22,13 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string TextToBase(string Text = MCCM.Text, EET Encode = MCCM.Encode)
+        public static string TextToBase(string Text = SSMCCM.Text, SEET Encode = SSMCCM.Encode)
         {
             try
             {
-                Text = SHL.Text(Text, MCCM.Text);
+                Text = SHL.Text(Text, SSMCCM.Text);
 
-                return HCCH.ToBase64String(HE.GetBytes(Text, Encode));
+                return SSHCCH.ToBase64String(SHE.GetBytes(Text, Encode));
             }
             catch (SE Ex)
             {
@@ -42,7 +42,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Text"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static async Task<string> TextToBaseAsync(string Text = MCCM.Text, EET Encode = MCCM.Encode)
+        public static async Task<string> TextToBaseAsync(string Text = SSMCCM.Text, SEET Encode = SSMCCM.Encode)
         {
             return await Task.Run(() => TextToBase(Text, Encode));
         }
@@ -57,19 +57,19 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string TextToAes(string Text = MCCM.Text, string IV = MCCM.IV, string Key = MCCM.Key, CipherMode Mode = MCCM.Cipher, EET Encode = MCCM.Encode)
+        public static string TextToAes(string Text = SSMCCM.Text, string IV = SSMCCM.IV, string Key = SSMCCM.Key, CipherMode Mode = SSMCCM.Cipher, SEET Encode = SSMCCM.Encode)
         {
             try
             {
-                IV = HA.Pin(IV, MCCM.IV, 16);
-                Key = HA.Pin(Key, MCCM.Key, 32);
-                Text = SHL.Text(Text, MCCM.Text);
+                IV = SHA.Pin(IV, SSMCCM.IV, 16);
+                Key = SHA.Pin(Key, SSMCCM.Key, 32);
+                Text = SHL.Text(Text, SSMCCM.Text);
 
                 Aes Encryptor = Aes.Create();
 
                 Encryptor.Mode = Mode;
-                Encryptor.IV = HE.GetBytes(IV, Encode);
-                Encryptor.Key = HE.GetBytes(Key, Encode);
+                Encryptor.IV = SHE.GetBytes(IV, Encode);
+                Encryptor.Key = SHE.GetBytes(Key, Encode);
 
                 ICryptoTransform CEncryptor = Encryptor.CreateEncryptor();
 
@@ -80,12 +80,12 @@ namespace Skylark.Standard.Extension.Cryptology
 
                 try
                 {
-                    byte[] Bytes = HE.GetBytes(Text, Encode);
+                    byte[] Bytes = SHE.GetBytes(Text, Encode);
 
                     CStream.Write(Bytes, 0, Bytes.Length);
                     CStream.FlushFinalBlock();
 
-                    Result = HCCH.ToBase64String(MStream.ToArray());
+                    Result = SSHCCH.ToBase64String(MStream.ToArray());
                 }
                 finally
                 {
@@ -110,7 +110,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Mode"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static async Task<string> TextToAesAsync(string Text = MCCM.Text, string IV = MCCM.IV, string Key = MCCM.Key, CipherMode Mode = MCCM.Cipher, EET Encode = MCCM.Encode)
+        public static async Task<string> TextToAesAsync(string Text = SSMCCM.Text, string IV = SSMCCM.IV, string Key = SSMCCM.Key, CipherMode Mode = SSMCCM.Cipher, SEET Encode = SSMCCM.Encode)
         {
             return await Task.Run(() => TextToAes(Text, IV, Key, Mode, Encode));
         }
@@ -124,15 +124,15 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string TextToMD5(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
+        public static string TextToMD5(string Text = SSMCCM.Text, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant, SEET Encode = SSMCCM.Mode)
         {
             try
             {
-                Text = SHL.Text(Text, MCCM.Text);
+                Text = SHL.Text(Text, SSMCCM.Text);
 
                 using MD5 MD5 = MD5.Create();
 
-                return HF.Formatter(HCCH.GetBuild(MD5.ComputeHash(HE.GetBytes(Text, Encode))), Upper, Invariant);
+                return SHF.Formatter(SSHCCH.GetBuild(MD5.ComputeHash(SHE.GetBytes(Text, Encode))), Upper, Invariant);
             }
             catch (SE Ex)
             {
@@ -148,7 +148,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static async Task<string> TextToMD5Async(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
+        public static async Task<string> TextToMD5Async(string Text = SSMCCM.Text, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant, SEET Encode = SSMCCM.Mode)
         {
             return await Task.Run(() => TextToMD5(Text, Upper, Invariant, Encode));
         }
@@ -162,15 +162,15 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string TextToSHA1(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
+        public static string TextToSHA1(string Text = SSMCCM.Text, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant, SEET Encode = SSMCCM.Mode)
         {
             try
             {
-                Text = SHL.Text(Text, MCCM.Text);
+                Text = SHL.Text(Text, SSMCCM.Text);
 
                 using SHA1 SHA1 = SHA1.Create();
 
-                return HF.Formatter(HCCH.GetBuild(SHA1.ComputeHash(HE.GetBytes(Text, Encode))), Upper, Invariant);
+                return SHF.Formatter(SSHCCH.GetBuild(SHA1.ComputeHash(SHE.GetBytes(Text, Encode))), Upper, Invariant);
             }
             catch (SE Ex)
             {
@@ -186,7 +186,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static async Task<string> TextToSHA1Async(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
+        public static async Task<string> TextToSHA1Async(string Text = SSMCCM.Text, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant, SEET Encode = SSMCCM.Mode)
         {
             return await Task.Run(() => TextToSHA1(Text, Upper, Invariant, Encode));
         }
@@ -200,15 +200,15 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string TextToSHA256(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
+        public static string TextToSHA256(string Text = SSMCCM.Text, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant, SEET Encode = SSMCCM.Mode)
         {
             try
             {
-                Text = SHL.Text(Text, MCCM.Text);
+                Text = SHL.Text(Text, SSMCCM.Text);
 
                 using SHA256 SHA256 = SHA256.Create();
 
-                return HF.Formatter(HCCH.GetBuild(SHA256.ComputeHash(HE.GetBytes(Text, Encode))), Upper, Invariant);
+                return SHF.Formatter(SSHCCH.GetBuild(SHA256.ComputeHash(SHE.GetBytes(Text, Encode))), Upper, Invariant);
             }
             catch (SE Ex)
             {
@@ -224,7 +224,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static async Task<string> TextToSHA256Async(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
+        public static async Task<string> TextToSHA256Async(string Text = SSMCCM.Text, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant, SEET Encode = SSMCCM.Mode)
         {
             return await Task.Run(() => TextToSHA256(Text, Upper, Invariant, Encode));
         }
@@ -238,15 +238,15 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string TextToSHA384(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
+        public static string TextToSHA384(string Text = SSMCCM.Text, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant, SEET Encode = SSMCCM.Mode)
         {
             try
             {
-                Text = SHL.Text(Text, MCCM.Text);
+                Text = SHL.Text(Text, SSMCCM.Text);
 
                 using SHA384 SHA384 = SHA384.Create();
 
-                return HF.Formatter(HCCH.GetBuild(SHA384.ComputeHash(HE.GetBytes(Text, Encode))), Upper, Invariant);
+                return SHF.Formatter(SSHCCH.GetBuild(SHA384.ComputeHash(SHE.GetBytes(Text, Encode))), Upper, Invariant);
             }
             catch (SE Ex)
             {
@@ -262,7 +262,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static async Task<string> TextToSHA384Async(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
+        public static async Task<string> TextToSHA384Async(string Text = SSMCCM.Text, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant, SEET Encode = SSMCCM.Mode)
         {
             return await Task.Run(() => TextToSHA384(Text, Upper, Invariant, Encode));
         }
@@ -276,15 +276,15 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string TextToSHA512(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
+        public static string TextToSHA512(string Text = SSMCCM.Text, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant, SEET Encode = SSMCCM.Mode)
         {
             try
             {
-                Text = SHL.Text(Text, MCCM.Text);
+                Text = SHL.Text(Text, SSMCCM.Text);
 
                 using SHA512 SHA512 = SHA512.Create();
 
-                return HF.Formatter(HCCH.GetBuild(SHA512.ComputeHash(HE.GetBytes(Text, Encode))), Upper, Invariant);
+                return SHF.Formatter(SSHCCH.GetBuild(SHA512.ComputeHash(SHE.GetBytes(Text, Encode))), Upper, Invariant);
             }
             catch (SE Ex)
             {
@@ -300,7 +300,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Invariant"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static async Task<string> TextToSHA512Async(string Text = MCCM.Text, bool Upper = MCCM.Upper, bool Invariant = MCCM.Invariant, EET Encode = MCCM.Mode)
+        public static async Task<string> TextToSHA512Async(string Text = SSMCCM.Text, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant, SEET Encode = SSMCCM.Mode)
         {
             return await Task.Run(() => TextToSHA512(Text, Upper, Invariant, Encode));
         }
@@ -312,13 +312,13 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string BaseToText(string Base = MCCM.Base, EET Encode = MCCM.Encode)
+        public static string BaseToText(string Base = SSMCCM.Base, SEET Encode = SSMCCM.Encode)
         {
             try
             {
-                Base = SHL.Text(Base, MCCM.Base);
+                Base = SHL.Text(Base, SSMCCM.Base);
 
-                return HE.GetString(HCCH.FromBase64String(Base), Encode);
+                return SHE.GetString(SSHCCH.FromBase64String(Base), Encode);
             }
             catch (SE Ex)
             {
@@ -332,7 +332,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Base"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static async Task<string> BaseToTextAsync(string Base = MCCM.Base, EET Encode = MCCM.Encode)
+        public static async Task<string> BaseToTextAsync(string Base = SSMCCM.Base, SEET Encode = SSMCCM.Encode)
         {
             return await Task.Run(() => BaseToText(Base, Encode));
         }
@@ -347,19 +347,19 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string AesToText(string Aes = MCCM.Aes, string IV = MCCM.IV, string Key = MCCM.Key, CipherMode Mode = MCCM.Cipher, EET Encode = MCCM.Encode)
+        public static string AesToText(string Aes = SSMCCM.Aes, string IV = SSMCCM.IV, string Key = SSMCCM.Key, CipherMode Mode = SSMCCM.Cipher, SEET Encode = SSMCCM.Encode)
         {
             try
             {
-                IV = HA.Pin(IV, MCCM.IV, 16);
-                Aes = SHL.Text(Aes, MCCM.Aes);
-                Key = HA.Pin(Key, MCCM.Key, 32);
+                IV = SHA.Pin(IV, SSMCCM.IV, 16);
+                Aes = SHL.Text(Aes, SSMCCM.Aes);
+                Key = SHA.Pin(Key, SSMCCM.Key, 32);
 
                 Aes Decryptor = System.Security.Cryptography.Aes.Create();
 
                 Decryptor.Mode = Mode;
-                Decryptor.IV = HE.GetBytes(IV, Encode);
-                Decryptor.Key = HE.GetBytes(Key, Encode);
+                Decryptor.IV = SHE.GetBytes(IV, Encode);
+                Decryptor.Key = SHE.GetBytes(Key, Encode);
 
                 MemoryStream MStream = new();
 
@@ -371,12 +371,12 @@ namespace Skylark.Standard.Extension.Cryptology
 
                 try
                 {
-                    byte[] Bytes = HCCH.FromBase64String(Aes);
+                    byte[] Bytes = SSHCCH.FromBase64String(Aes);
 
                     CStream.Write(Bytes, 0, Bytes.Length);
                     CStream.FlushFinalBlock();
 
-                    Result = HE.GetString(MStream.ToArray(), Encode);
+                    Result = SHE.GetString(MStream.ToArray(), Encode);
                 }
                 finally
                 {
@@ -401,7 +401,7 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <param name="Mode"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
-        public static async Task<string> AesToTextAsync(string Aes = MCCM.Aes, string IV = MCCM.IV, string Key = MCCM.Key, CipherMode Mode = MCCM.Cipher, EET Encode = MCCM.Encode)
+        public static async Task<string> AesToTextAsync(string Aes = SSMCCM.Aes, string IV = SSMCCM.IV, string Key = SSMCCM.Key, CipherMode Mode = SSMCCM.Cipher, SEET Encode = SSMCCM.Encode)
         {
             return await Task.Run(() => AesToText(Aes, IV, Key, Mode, Encode));
         }

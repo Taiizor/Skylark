@@ -3,7 +3,7 @@ using NUglify.Css;
 using WebMarkupMin.Core;
 using SE = Skylark.Exception;
 using SHL = Skylark.Helper.Length;
-using SMCCM = Skylark.Standard.Manage.Css.CssManage;
+using SSMCCM = Skylark.Standard.Manage.Css.CssManage;
 
 namespace Skylark.Standard.Extension.Css
 {
@@ -17,11 +17,12 @@ namespace Skylark.Standard.Extension.Css
         /// </summary>
         /// <param name="Css"></param>
         /// <returns></returns>
-        public static string ToMinify(string Css = MCCM.Css)
+        /// <exception cref="SE"></exception>
+        public static string ToMinify(string Css = SSMCCM.Css)
         {
             try
             {
-                Css = SHL.Text(Css, MCCM.Css);
+                Css = SHL.Text(Css, SSMCCM.Css);
 
                 KristensenCssMinifier Minifier = new();
 
@@ -48,7 +49,7 @@ namespace Skylark.Standard.Extension.Css
         /// </summary>
         /// <param name="Css"></param>
         /// <returns></returns>
-        public static async Task<string> ToMinifyAsync(string Css = MCCM.Css)
+        public static async Task<string> ToMinifyAsync(string Css = SSMCCM.Css)
         {
             return await Task.Run(() => ToMinify(Css));
         }
@@ -58,11 +59,12 @@ namespace Skylark.Standard.Extension.Css
         /// </summary>
         /// <param name="Css"></param>
         /// <returns></returns>
-        public static string ToBeauty(string Css = MCCM.Css)
+        /// <exception cref="SE"></exception>
+        public static string ToBeauty(string Css = SSMCCM.Css)
         {
             try
             {
-                Css = SHL.Text(Css, MCCM.Css);
+                Css = SHL.Text(Css, SSMCCM.Css);
 
                 UglifyResult Beautified = Uglify.Css(Css, CssSettings.Pretty());
 
@@ -87,7 +89,7 @@ namespace Skylark.Standard.Extension.Css
         /// </summary>
         /// <param name="Css"></param>
         /// <returns></returns>
-        public static async Task<string> ToBeautyAsync(string Css = MCCM.Css)
+        public static async Task<string> ToBeautyAsync(string Css = SSMCCM.Css)
         {
             return await Task.Run(() => ToBeauty(Css));
         }

@@ -1,6 +1,6 @@
 ﻿using SSME = Skylark.Standard.Manage.External;
 using SMI = Skylark.Manage.Internal;
-using SMLLM = Skylark.Standard.Manage.Lottery.LotteryManage;
+using SSMLLM = Skylark.Standard.Manage.Lottery.LotteryManage;
 
 namespace Skylark.Standard.Helper.Lottery
 {
@@ -17,9 +17,9 @@ namespace Skylark.Standard.Helper.Lottery
         /// <returns></returns>
         public static string[] GetSplit(string List, bool Repeated)
         {
-            List = List.Length > MI.TextLength ? MLLM.List : List;
+            List = List.Length > SMI.TextLength ? SSMLLM.List : List;
 
-            string[] Result = List.Split(MI.SplitNewLine, ME.SplitOption);
+            string[] Result = List.Split(SMI.SplitNewLine, SSME.SplitOption);
 
             return Repeated ? Result : Result.Distinct().ToArray();
         }

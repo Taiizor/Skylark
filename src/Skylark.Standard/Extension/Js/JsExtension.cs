@@ -3,7 +3,7 @@ using NUglify.JavaScript;
 using WebMarkupMin.Core;
 using SE = Skylark.Exception;
 using SHL = Skylark.Helper.Length;
-using SMJJM = Skylark.Standard.Manage.Js.JsManage;
+using SSMJJM = Skylark.Standard.Manage.Js.JsManage;
 
 namespace Skylark.Standard.Extension.Js
 {
@@ -17,11 +17,12 @@ namespace Skylark.Standard.Extension.Js
         /// </summary>
         /// <param name="Js"></param>
         /// <returns></returns>
-        public static string ToMinify(string Js = MJJM.Js)
+        /// <exception cref="SE"></exception>
+        public static string ToMinify(string Js = SSMJJM.Js)
         {
             try
             {
-                Js = SHL.Text(Js, MJJM.Js);
+                Js = SHL.Text(Js, SSMJJM.Js);
 
                 CrockfordJsMinifier Minifier = new();
 
@@ -48,7 +49,7 @@ namespace Skylark.Standard.Extension.Js
         /// </summary>
         /// <param name="Js"></param>
         /// <returns></returns>
-        public static async Task<string> ToMinifyAsync(string Js = MJJM.Js)
+        public static async Task<string> ToMinifyAsync(string Js = SSMJJM.Js)
         {
             return await Task.Run(() => ToMinify(Js));
         }
@@ -58,11 +59,12 @@ namespace Skylark.Standard.Extension.Js
         /// </summary>
         /// <param name="Js"></param>
         /// <returns></returns>
-        public static string ToBeauty(string Js = MJJM.Js)
+        /// <exception cref="SE"></exception>
+        public static string ToBeauty(string Js = SSMJJM.Js)
         {
             try
             {
-                Js = SHL.Text(Js, MJJM.Js);
+                Js = SHL.Text(Js, SSMJJM.Js);
 
                 UglifyResult Beautified = Uglify.Js(Js, CodeSettings.Pretty());
 
@@ -87,7 +89,7 @@ namespace Skylark.Standard.Extension.Js
         /// </summary>
         /// <param name="Js"></param>
         /// <returns></returns>
-        public static async Task<string> ToBeautyAsync(string Js = MJJM.Js)
+        public static async Task<string> ToBeautyAsync(string Js = SSMJJM.Js)
         {
             return await Task.Run(() => ToBeauty(Js));
         }

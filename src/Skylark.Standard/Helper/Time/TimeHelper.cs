@@ -1,5 +1,5 @@
 ﻿using SETT = Skylark.Enum.TimeType;
-using MTTM = Skylark.Standard.Manage.Time.TimeManage;
+using SSMTTM = Skylark.Standard.Manage.Time.TimeManage;
 
 namespace Skylark.Standard.Helper.Time
 {
@@ -14,9 +14,9 @@ namespace Skylark.Standard.Helper.Time
         /// <param name="Input"></param>
         /// <param name="Output"></param>
         /// <returns></returns>
-        public static double GetValue(ETT Input, ETT Output)
+        public static double GetValue(SETT Input, SETT Output)
         {
-            return MTTM.Converter[Input][Output];
+            return SSMTTM.Converter[Input][Output];
         }
 
         /// <summary>

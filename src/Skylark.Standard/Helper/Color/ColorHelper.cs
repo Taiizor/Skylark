@@ -1,5 +1,5 @@
 ﻿using SHL = Skylark.Helper.Length;
-using SMCCM = Skylark.Standard.Manage.Color.ColorManage;
+using SSMCCM = Skylark.Standard.Manage.Color.ColorManage;
 using SDC = System.Drawing.Color;
 
 namespace Skylark.Standard.Helper.Color
@@ -16,11 +16,11 @@ namespace Skylark.Standard.Helper.Color
         /// <param name="G"></param>
         /// <param name="B"></param>
         /// <returns></returns>
-        public static SDC ConvertToColor(int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value)
+        public static SDC ConvertToColor(int R = SSMCCM.Value, int G = SSMCCM.Value, int B = SSMCCM.Value)
         {
-            R = SHL.Clamp(R, MCCM.ValueMin, MCCM.ValueMax);
-            G = SHL.Clamp(G, MCCM.ValueMin, MCCM.ValueMax);
-            B = SHL.Clamp(B, MCCM.ValueMin, MCCM.ValueMax);
+            R = SHL.Clamp(R, SSMCCM.ValueMin, SSMCCM.ValueMax);
+            G = SHL.Clamp(G, SSMCCM.ValueMin, SSMCCM.ValueMax);
+            B = SHL.Clamp(B, SSMCCM.ValueMin, SSMCCM.ValueMax);
 
             return SDC.FromArgb(R, G, B);
         }
@@ -36,12 +36,12 @@ namespace Skylark.Standard.Helper.Color
         // TODO: Fix overlapping method signatures
         // Can't use other RGB ConvertToColor method because
         // all parameters have defaults
-        public static SDC ConvertToColor(int A = MCCM.Value, int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value)
+        public static SDC ConvertToColor(int A = SSMCCM.Value, int R = SSMCCM.Value, int G = SSMCCM.Value, int B = SSMCCM.Value)
         {
-            A = SHL.Clamp(A, MCCM.ValueMin, MCCM.ValueMax);
-            R = SHL.Clamp(R, MCCM.ValueMin, MCCM.ValueMax);
-            G = SHL.Clamp(G, MCCM.ValueMin, MCCM.ValueMax);
-            B = SHL.Clamp(B, MCCM.ValueMin, MCCM.ValueMax);
+            A = SHL.Clamp(A, SSMCCM.ValueMin, SSMCCM.ValueMax);
+            R = SHL.Clamp(R, SSMCCM.ValueMin, SSMCCM.ValueMax);
+            G = SHL.Clamp(G, SSMCCM.ValueMin, SSMCCM.ValueMax);
+            B = SHL.Clamp(B, SSMCCM.ValueMin, SSMCCM.ValueMax);
 
             return SDC.FromArgb(A, R, G, B);
         }
@@ -55,7 +55,7 @@ namespace Skylark.Standard.Helper.Color
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        public static string ConvertToHex(int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
+        public static string ConvertToHex(int R = SSMCCM.Value, int G = SSMCCM.Value, int B = SSMCCM.Value, bool Upper = SSMCCM.Upper, bool Sharp = SSMCCM.Sharp)
         {
             SDC Color = ConvertToColor(R, G, B);
 
@@ -88,7 +88,7 @@ namespace Skylark.Standard.Helper.Color
         /// <param name="Upper"></param>
         /// <param name="Sharp"></param>
         /// <returns></returns>
-        public static string ConvertToHex(int A = MCCM.Value, int R = MCCM.Value, int G = MCCM.Value, int B = MCCM.Value, bool Upper = MCCM.Upper, bool Sharp = MCCM.Sharp)
+        public static string ConvertToHex(int A = SSMCCM.Value, int R = SSMCCM.Value, int G = SSMCCM.Value, int B = SSMCCM.Value, bool Upper = SSMCCM.Upper, bool Sharp = SSMCCM.Sharp)
         {
             SDC Color = ConvertToColor(A, R, G, B);
 

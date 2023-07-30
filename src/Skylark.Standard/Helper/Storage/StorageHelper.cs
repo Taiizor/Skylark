@@ -1,6 +1,6 @@
-﻿using EMST = Skylark.Enum.ModeStorageType;
-using EST = Skylark.Enum.StorageType;
-using MSSM = Skylark.Standard.Manage.Storage.StorageManage;
+﻿using SEMST = Skylark.Enum.ModeStorageType;
+using SEST = Skylark.Enum.StorageType;
+using SSMSSM = Skylark.Standard.Manage.Storage.StorageManage;
 
 namespace Skylark.Standard.Helper.Storage
 {
@@ -16,9 +16,9 @@ namespace Skylark.Standard.Helper.Storage
         /// <param name="Output"></param>
         /// <param name="Mode"></param>
         /// <returns></returns>
-        public static double GetValue(EST Input, EST Output, EMST Mode)
+        public static double GetValue(SEST Input, SEST Output, SEMST Mode)
         {
-            return MSSM.Converter[Mode][Input][Output];
+            return SSMSSM.Converter[Mode][Input][Output];
         }
 
         /// <summary>

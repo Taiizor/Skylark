@@ -28,11 +28,11 @@ namespace Skylark.Standard.Helper.Tax
         {
             if (Decimal)
             {
-                return HF.Formatter("{0:N2}", Value);
+                return SHF.Formatter("{0:N2}", Value);
             }
             else
             {
-                return HF.Formatter("{0:0.00}", Value);
+                return SHF.Formatter("{0:0.00}", Value);
             }
         }
     }

@@ -1,12 +1,12 @@
 ﻿using System.Diagnostics;
 using System.Text.RegularExpressions;
-using EAPT = Skylark.Enum.AlphabeticPasswordType;
-using EMPT = Skylark.Enum.MeterPasswordType;
-using ESLPT = Skylark.Enum.SpecialPasswordType;
-using ESRPT = Skylark.Enum.SimilarPasswordType;
+using SEAPT = Skylark.Enum.AlphabeticPasswordType;
+using SEMPT = Skylark.Enum.MeterPasswordType;
+using SESLPT = Skylark.Enum.SpecialPasswordType;
+using SESRPT = Skylark.Enum.SimilarPasswordType;
 using SHF = Skylark.Helper.Format;
-using HS = Skylark.Helper.Skymath;
-using SMPPM = Skylark.Standard.Manage.Password.PasswordManage;
+using SHS = Skylark.Helper.Skymath;
+using SSMPPM = Skylark.Standard.Manage.Password.PasswordManage;
 
 namespace Skylark.Standard.Helper.Password
 {
@@ -25,11 +25,11 @@ namespace Skylark.Standard.Helper.Password
         {
             if (Separator)
             {
-                return HF.Formatter("{0:N2}", Value);
+                return SHF.Formatter("{0:N2}", Value);
             }
             else
             {
-                return HF.Formatter("{0:0.00}", Value);
+                return SHF.Formatter("{0:0.00}", Value);
             }
         }
 
@@ -38,31 +38,31 @@ namespace Skylark.Standard.Helper.Password
         /// </summary>
         /// <param name="Password"></param>
         /// <returns></returns>
-        public static EMPT GetMeter(string Password)
+        public static SEMPT GetMeter(string Password)
         {
-            EMPT Point = 0;
+            SEMPT Point = 0;
 
-            if (Password.Length >= (int)MPPM.MeterOptions["MinLength"])
+            if (Password.Length >= (int)SSMPPM.MeterOptions["MinLength"])
             {
                 Point = Point.UpgradeMeterLevel();
             }
 
-            if (Regex.IsMatch(Password, MPPM.MeterOptions["RegexDigit"] as string))
+            if (Regex.IsMatch(Password, SSMPPM.MeterOptions["RegexDigit"] as string))
             {
                 Point = Point.UpgradeMeterLevel();
             }
 
-            if (Regex.IsMatch(Password, MPPM.MeterOptions["RegexSymbol"] as string))
+            if (Regex.IsMatch(Password, SSMPPM.MeterOptions["RegexSymbol"] as string))
             {
                 Point = Point.UpgradeMeterLevel();
             }
 
-            if (Regex.IsMatch(Password, MPPM.MeterOptions["RegexLowercase"] as string))
+            if (Regex.IsMatch(Password, SSMPPM.MeterOptions["RegexLowercase"] as string))
             {
                 Point = Point.UpgradeMeterLevel();
             }
 
-            if (Regex.IsMatch(Password, MPPM.MeterOptions["RegexUppercase"] as string))
+            if (Regex.IsMatch(Password, SSMPPM.MeterOptions["RegexUppercase"] as string))
             {
                 Point = Point.UpgradeMeterLevel();
             }
@@ -77,11 +77,11 @@ namespace Skylark.Standard.Helper.Password
         /// <param name="Password2"></param>
         /// <param name="Similar"></param>
         /// <returns></returns>
-        public static double GetSimilarity(string Password1, string Password2, ESRPT Similar)
+        public static double GetSimilarity(string Password1, string Password2, SESRPT Similar)
         {
             switch (Similar)
             {
-                case ESRPT.Cosine:
+                case SESRPT.Cosine:
                     Dictionary<string, int> Dict1 = new();
                     Dictionary<string, int> Dict2 = new();
 
@@ -128,7 +128,7 @@ namespace Skylark.Standard.Helper.Password
                     double Magnitude = Math.Sqrt(Magnitude1) * Math.Sqrt(Magnitude2);
 
                     return DotProduct / Magnitude;
-                case ESRPT.Jaccard:
+                case SESRPT.Jaccard:
                     HashSet<char> Set1 = new(Password1);
                     HashSet<char> Set2 = new(Password2);
 
@@ -145,7 +145,7 @@ namespace Skylark.Standard.Helper.Password
                     int union = Set1.Count + Set2.Count - Intersection;
 
                     return (double)Intersection / union;
-                case ESRPT.Jaccardy:
+                case SESRPT.Jaccardy:
                     HashSet<string> Set3 = new(Password1.Split());
                     HashSet<string> Set4 = new(Password2.Split());
 
@@ -198,14 +198,14 @@ namespace Skylark.Standard.Helper.Password
         /// </summary>
         /// <param name="Mode"></param>
         /// <returns></returns>
-        public static string GetSpecial(ESLPT Mode)
+        public static string GetSpecial(SESLPT Mode)
         {
             return Mode switch
             {
-                ESLPT.None => string.Empty,
-                ESLPT.Number => MPPM.Number,
-                ESLPT.Symbol => MPPM.Symbol,
-                _ => MPPM.Number + MPPM.Symbol,
+                SESLPT.None => string.Empty,
+                SESLPT.Number => SSMPPM.Number,
+                SESLPT.Symbol => SSMPPM.Symbol,
+                _ => SSMPPM.Number + SSMPPM.Symbol,
             };
         }
 
@@ -214,21 +214,21 @@ namespace Skylark.Standard.Helper.Password
         /// </summary>
         /// <param name="Mode"></param>
         /// <returns></returns>
-        public static string GetAlphabetic(EAPT Mode)
+        public static string GetAlphabetic(SEAPT Mode)
         {
             return Mode switch
             {
-                EAPT.Big => MPPM.Big,
-                EAPT.None => string.Empty,
-                EAPT.Small => MPPM.Small,
-                _ => MPPM.Big + MPPM.Small,
+                SEAPT.Big => SSMPPM.Big,
+                SEAPT.None => string.Empty,
+                SEAPT.Small => SSMPPM.Small,
+                _ => SSMPPM.Big + SSMPPM.Small,
             };
         }
 
         /// <summary>
         /// If more password strengths are removed, this will compute it automatically
         /// </summary>
-        private static readonly int LowestPasswordStrength = typeof(EMPT)
+        private static readonly int LowestPasswordStrength = typeof(SEMPT)
             .GetEnumValues()
             .Cast<int>()
             .Min();
@@ -236,7 +236,7 @@ namespace Skylark.Standard.Helper.Password
         /// <summary>
         /// If more password strengths are added, this will compute it automatically
         /// </summary>
-        private static readonly int HighestPasswordStrength = typeof(EMPT)
+        private static readonly int HighestPasswordStrength = typeof(SEMPT)
             .GetEnumValues()
             .Cast<int>()
             .Max();
@@ -246,13 +246,13 @@ namespace Skylark.Standard.Helper.Password
         /// </summary>
         /// <param name="MeterPasswordType"></param>
         /// <returns></returns>
-        private static EMPT UpgradeMeterLevel(this EMPT MeterPasswordType)
+        private static SEMPT UpgradeMeterLevel(this SEMPT MeterPasswordType)
         {
             int Result = (int)MeterPasswordType + 20;
 
-            HS.Clamp(Result, LowestPasswordStrength, HighestPasswordStrength);
+            SHS.Clamp(Result, LowestPasswordStrength, HighestPasswordStrength);
             Debug.Assert(Result % 20 == 0);
-            return (EMPT)Result;
+            return (SEMPT)Result;
         }
 
         /// <summary>
@@ -260,13 +260,13 @@ namespace Skylark.Standard.Helper.Password
         /// </summary>
         /// <param name="MeterPasswordType"></param>
         /// <returns></returns>
-        private static EMPT DowngradeMeterLevel(this EMPT MeterPasswordType)
+        private static SEMPT DowngradeMeterLevel(this SEMPT MeterPasswordType)
         {
             int Result = (int)MeterPasswordType - 20;
 
-            HS.Clamp(Result, LowestPasswordStrength, HighestPasswordStrength);
+            SHS.Clamp(Result, LowestPasswordStrength, HighestPasswordStrength);
             Debug.Assert(Result % 20 == 0);
-            return (EMPT)Result;
+            return (SEMPT)Result;
         }
     }
 }

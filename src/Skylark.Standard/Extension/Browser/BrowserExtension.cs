@@ -1,7 +1,7 @@
 ﻿using WebMarkupMin.Core;
 using SE = Skylark.Exception;
 using SHL = Skylark.Helper.Length;
-using SMBBM = Skylark.Standard.Manage.Browser.BrowserManage;
+using SSMBBM = Skylark.Standard.Manage.Browser.BrowserManage;
 
 namespace Skylark.Standard.Extension.Browser
 {
@@ -15,11 +15,11 @@ namespace Skylark.Standard.Extension.Browser
         /// </summary>
         /// <param name="Css"></param>
         /// <returns></returns>
-        public static string ToMinify(string Css = MBBM.Css)
+        public static string ToMinify(string Css = SSMBBM.Css)
         {
             try
             {
-                Css = SHL.Text(Css, MBBM.Css);
+                Css = SHL.Text(Css, SSMBBM.Css);
 
                 KristensenCssMinifier Minifier = new();
 
@@ -46,7 +46,7 @@ namespace Skylark.Standard.Extension.Browser
         /// </summary>
         /// <param name="Css"></param>
         /// <returns></returns>
-        public static async Task<string> ToMinifyAsync(string Css = MBBM.Css)
+        public static async Task<string> ToMinifyAsync(string Css = SSMBBM.Css)
         {
             return await Task.Run(() => ToMinify(Css));
         }
