@@ -18,7 +18,7 @@ using SUMI = Skylark.Uptime.Manage.Internal;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 27.Feb.2023
-//     Changed: 23.Jul.2023
+//     Changed: 31.Jul.2023
 //     Version: 3.0.2.1
 //
 // |---------DO-NOT-REMOVE---------|
@@ -39,11 +39,19 @@ namespace Skylark.Uptime
         /// </summary>
         private readonly string Address = Address;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public SSPPSS Ping()
         {
             return SSEPPGE.Send(Address);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task<SSCCS> Certificate()
         {
             try
@@ -51,22 +59,26 @@ namespace Skylark.Uptime
                 using TcpClient Client = new();
                 await Client.ConnectAsync(Address, 443);
 
-                using NetworkStream Stream = Client.GetStream();
-                using SslStream sslStream = new(Stream);
-                await sslStream.AuthenticateAsClientAsync(Address);
+                using NetworkStream Network = Client.GetStream();
+                using SslStream Ssl = new(Network);
 
-                X509Certificate certificate = sslStream.RemoteCertificate;
-                if (certificate != null)
+                await Ssl.AuthenticateAsClientAsync(Address);
+
+                X509Certificate Certificate = Ssl.RemoteCertificate;
+
+                if (Certificate != null)
                 {
-                    string expirationDateString = certificate.GetExpirationDateString();
-                    if (DateTime.TryParse(expirationDateString, out DateTime expirationDateTime))
+                    string ExpirationDateString = Certificate.GetExpirationDateString();
+
+                    if (DateTime.TryParse(ExpirationDateString, out DateTime ExpirationDateTime))
                     {
-                        int remainingDays = (int)(expirationDateTime - DateTime.Now).TotalDays;
+                        int RemainingDays = (int)(ExpirationDateTime - DateTime.Now).TotalDays; //DateTime.UtcNow
+
                         return new()
                         {
                             State = true,
-                            RemainingDays = remainingDays,
-                            ExpirationDateTime = expirationDateTime
+                            RemainingDays = RemainingDays,
+                            ExpirationDateTime = ExpirationDateTime
                         };
                     }
                     else
@@ -85,6 +97,11 @@ namespace Skylark.Uptime
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <returns></returns>
         public SEPT Service(SEST Type)
         {
             return SSEPPTE.Scan(Address, (int)Type);
