@@ -16,7 +16,7 @@ namespace Skylark.Wing.Interface
         /// <param name="monitorID"></param>
         /// <param name="wallpaper"></param>
         void SetWallpaper([MarshalAs(UnmanagedType.LPWStr)] string monitorID, [MarshalAs(UnmanagedType.LPWStr)] string wallpaper);
-        
+
         /// <summary>
         /// 
         /// </summary>
