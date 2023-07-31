@@ -5,30 +5,48 @@ using System.Threading;
 
 namespace Skylark.Wing.Utility
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class SingleInstance
     {
-        public static bool IsAppMutexRunning(string mutexName)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <returns></returns>
+        public static bool IsAppMutexRunning(string Name)
         {
-            Mutex mutex = null;
+            Mutex Mutex = null;
 
             try
             {
-                return Mutex.TryOpenExisting(mutexName, out mutex);
+                return Mutex.TryOpenExisting(Name, out Mutex);
             }
             finally
             {
-                mutex?.Dispose();
+                Mutex?.Dispose();
             }
         }
 
-        public static bool IsAppProcessRunning(string processName)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <returns></returns>
+        public static bool IsAppProcessRunning(string Name)
         {
-            return Process.GetProcessesByName(processName).Count() != 0;
+            return Process.GetProcessesByName(Name).Any();
         }
 
-        public static bool IsNamedPipeExists(string pipeName)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <returns></returns>
+        public static bool IsNamedPipeExists(string Name)
         {
-            return Directory.GetFiles("\\\\.\\pipe\\").Any(f => f.Equals("\\\\.\\pipe\\" + pipeName));
+            return Directory.GetFiles("\\\\.\\pipe\\").Any(File => File.Equals("\\\\.\\pipe\\" + Name));
         }
     }
 }

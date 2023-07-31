@@ -4,15 +4,28 @@ using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Skylark.Wing.Utility
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Desktop
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public static bool DesktopIconVisibilityDefault { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         static Desktop()
         {
             DesktopIconVisibilityDefault = GetDesktopIconVisibility();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static bool GetDesktopIconVisibility()
         {
             SWNM.SHELLSTATE state = new();
@@ -20,6 +33,10 @@ namespace Skylark.Wing.Utility
             return !state.fHideIcons;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="isVisible"></param>
         //ref: https://stackoverflow.com/questions/6402834/how-to-hide-desktop-icons-programmatically/
         public static void SetDesktopIconVisibility(bool isVisible)
         {
@@ -32,6 +49,10 @@ namespace Skylark.Wing.Utility
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private static IntPtr GetDesktopSHELLDLL_DefView()
         {
             IntPtr hShellViewWin = IntPtr.Zero;

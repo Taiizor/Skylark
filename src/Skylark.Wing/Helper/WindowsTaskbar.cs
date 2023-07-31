@@ -7,8 +7,15 @@ using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Skylark.Wing.Helper
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class WindowsTaskbar
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static AnchorStyles GetAnchorStyle()
         {
             Rectangle coordonates = GetCoordonates();
@@ -37,36 +44,46 @@ namespace Skylark.Wing.Helper
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Win32Exception"></exception>
         public static Rectangle GetPosition()
         {
-            SWNM.APPBARDATA data = new();
+            SWNM.APPBARDATA Data = new();
 
-            data.cbSize = Marshal.SizeOf(data);
+            Data.cbSize = Marshal.SizeOf(Data);
 
-            IntPtr retval = SWNM.SHAppBarMessage(SWNM.ABM_GETTASKBARPOS, ref data);
+            IntPtr RetVal = SWNM.SHAppBarMessage(SWNM.ABM_GETTASKBARPOS, ref Data);
 
-            if (retval == IntPtr.Zero)
+            if (RetVal == IntPtr.Zero)
             {
                 throw new Win32Exception("Please re-install Windows");
             }
 
-            return new Rectangle(data.rc.Left, data.rc.Top, data.rc.Right - data.rc.Left, data.rc.Bottom - data.rc.Top);
+            return new Rectangle(Data.rc.Left, Data.rc.Top, Data.rc.Right - Data.rc.Left, Data.rc.Bottom - Data.rc.Top);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Win32Exception"></exception>
         public static Rectangle GetCoordonates()
         {
-            SWNM.APPBARDATA data = new();
+            SWNM.APPBARDATA Data = new();
 
-            data.cbSize = Marshal.SizeOf(data);
+            Data.cbSize = Marshal.SizeOf(Data);
 
-            IntPtr retval = SWNM.SHAppBarMessage(SWNM.ABM_GETTASKBARPOS, ref data);
+            IntPtr RetVal = SWNM.SHAppBarMessage(SWNM.ABM_GETTASKBARPOS, ref Data);
 
-            if (retval == IntPtr.Zero)
+            if (RetVal == IntPtr.Zero)
             {
                 throw new Win32Exception("Windows Taskbar Error in " + nameof(GetCoordonates));
             }
 
-            return new Rectangle(data.rc.Left, data.rc.Top, data.rc.Right - data.rc.Left, data.rc.Bottom - data.rc.Top);
+            return new Rectangle(Data.rc.Left, Data.rc.Top, Data.rc.Right - Data.rc.Left, Data.rc.Bottom - Data.rc.Top);
         }
     }
 }

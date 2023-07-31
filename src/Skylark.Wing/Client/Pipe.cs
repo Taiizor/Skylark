@@ -3,25 +3,35 @@ using System.IO.Pipes;
 
 namespace Skylark.Wing.Client
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Pipe
     {
-        public static void SendMessage(string ChannelName, string Message)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Server"></param>
+        /// <param name="Pipe"></param>
+        /// <param name="Message"></param>
+        /// <param name="Direction"></param>
+        public static void SendMessage(string Server, string Pipe, string Message, PipeDirection Direction)
         {
-            using NamedPipeClientStream PipeClient = new(".", ChannelName, PipeDirection.Out);
+            using NamedPipeClientStream Client = new(Server, Pipe, Direction);
 
-            PipeClient.Connect(0);
+            Client.Connect(0);
 
-            StreamWriter writer = new(PipeClient)
+            StreamWriter Writer = new(Client)
             {
                 AutoFlush = true
             };
 
-            writer.Write(Message);
+            Writer.Write(Message);
 
-            writer.Flush();
-            writer.Close();
+            Writer.Flush();
+            Writer.Close();
 
-            PipeClient.Dispose();
+            Client.Dispose();
         }
     }
 }

@@ -3,8 +3,15 @@ using SEWTT = Skylark.Enum.WindowsThemeType;
 
 namespace Skylark.Wing.Helper
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class WindowsTheme
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static SEWTT GetTheme()
         {
             try
@@ -28,6 +35,11 @@ namespace Skylark.Wing.Helper
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Writable"></param>
+        /// <returns></returns>
         private static RegistryKey GetRegistryKey(bool Writable = false)
         {
             return Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", Writable);

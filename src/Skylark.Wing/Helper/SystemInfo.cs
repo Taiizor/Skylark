@@ -12,11 +12,15 @@ namespace Skylark.Wing.Helper
     /// </summary>
     public static class SystemInfo
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static string GetGpuInfo()
         {
             try
             {
-                using ManagementObjectSearcher myVideoObject = new("SELECT * from Win32_VideoController");
+                using ManagementObjectSearcher myVideoObject = new("SELECT * FROM Win32_VideoController");
 
                 StringBuilder sb = new();
 
@@ -33,6 +37,10 @@ namespace Skylark.Wing.Helper
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static List<string> GetGpu()
         {
             List<string> result = new();
@@ -51,6 +59,10 @@ namespace Skylark.Wing.Helper
             return result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static string GetCpuInfo()
         {
             try
@@ -72,6 +84,10 @@ namespace Skylark.Wing.Helper
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static List<string> GetCpu()
         {
             List<string> result = new();
@@ -90,6 +106,10 @@ namespace Skylark.Wing.Helper
             return result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static string GetOSInfo()
         {
             try
@@ -111,6 +131,10 @@ namespace Skylark.Wing.Helper
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static bool CheckWindowsNorKN()
         {
             bool result = false;
@@ -134,6 +158,11 @@ namespace Skylark.Wing.Helper
             return result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="TotalMemoryInKilobytes"></param>
+        /// <returns></returns>
         [DllImport("kernel32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool GetPhysicallyInstalledSystemMemory(out long TotalMemoryInKilobytes);

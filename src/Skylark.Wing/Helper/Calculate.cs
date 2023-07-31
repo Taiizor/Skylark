@@ -6,8 +6,17 @@ using SWMI = Skylark.Wing.Manage.Internal;
 
 namespace Skylark.Wing.Helper
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Calculate
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mouse"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
         public static SSMMPS MousePosition(SSMMEHS Mouse, SEMST Type)
         {
             if (SWMI.DisplayManager.IsMultiScreen())
