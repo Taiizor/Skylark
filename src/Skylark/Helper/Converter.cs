@@ -5,6 +5,7 @@ using ECNT = Skylark.Enum.ClearNumericType;
 using ECWT = Skylark.Enum.CompressWebType;
 using EHWT = Skylark.Enum.HttpWebType;
 using EMST = Skylark.Enum.ModeStorageType;
+using EOST = Skylark.Enum.OperatingSystemType;
 using EQDT = Skylark.Enum.QueryDomainType;
 using ESLPT = Skylark.Enum.SpecialPasswordType;
 using ESRPT = Skylark.Enum.SimilarPasswordType;
@@ -31,6 +32,25 @@ namespace Skylark.Helper
         public static EST Convert(string Type, EST Back = EST.Bit)
         {
             foreach (EST Types in (EST[])System.Enum.GetValues(typeof(EST)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static EOST Convert(string Type, EOST Back = EOST.Unknown)
+        {
+            foreach (EOST Types in (EOST[])System.Enum.GetValues(typeof(EOST)))
             {
                 if (Check(Type, Types))
                 {
