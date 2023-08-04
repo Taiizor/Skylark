@@ -22,14 +22,14 @@ namespace Skylark.Wing.Helper
             {
                 using ManagementObjectSearcher myVideoObject = new("SELECT * FROM Win32_VideoController");
 
-                StringBuilder sb = new();
+                StringBuilder Builder = new();
 
                 foreach (ManagementObject obj in myVideoObject.Get().Cast<ManagementObject>())
                 {
-                    sb.AppendLine("GPU: " + obj["Name"]);
+                    Builder.AppendLine("GPU: " + obj["Name"]);
                 }
 
-                return sb.ToString().TrimEnd();
+                return Builder.ToString().TrimEnd();
             }
             catch (SE e)
             {
@@ -69,14 +69,14 @@ namespace Skylark.Wing.Helper
             {
                 using ManagementObjectSearcher myProcessorObject = new("SELECT * FROM Win32_Processor");
 
-                StringBuilder sb = new();
+                StringBuilder Builder = new();
 
                 foreach (ManagementObject obj in myProcessorObject.Get().Cast<ManagementObject>())
                 {
-                    sb.AppendLine("CPU: " + obj["Name"]);
+                    Builder.AppendLine("CPU: " + obj["Name"]);
                 }
 
-                return sb.ToString().TrimEnd();
+                return Builder.ToString().TrimEnd();
             }
             catch (SE e)
             {
@@ -116,14 +116,14 @@ namespace Skylark.Wing.Helper
             {
                 using ManagementObjectSearcher myOperativeSystemObject = new("SELECT * FROM Win32_OperatingSystem");
 
-                StringBuilder sb = new();
+                StringBuilder Builder = new();
 
                 foreach (ManagementObject obj in myOperativeSystemObject.Get().Cast<ManagementObject>())
                 {
-                    sb.AppendLine("OS: " + obj["Caption"] + " " + obj["Version"]);
+                    Builder.AppendLine("OS: " + obj["Caption"] + " " + obj["Version"]);
                 }
 
-                return sb.ToString().TrimEnd();
+                return Builder.ToString().TrimEnd();
             }
             catch (SE e)
             {

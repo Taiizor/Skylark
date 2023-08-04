@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Text.RegularExpressions;
 using SE = Skylark.Exception;
+using SSIIC = Skylark.Standard.Interface.IContents;
 using SSIIR = Skylark.Standard.Interface.IReleases;
 
 namespace Skylark.Standard.Helper
@@ -14,7 +14,12 @@ namespace Skylark.Standard.Helper
         /// <summary>
         /// 
         /// </summary>
-        private const string Value = "0";
+        private const string Path = null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private const string Branch = null;
 
         /// <summary>
         /// 
@@ -24,7 +29,7 @@ namespace Skylark.Standard.Helper
         /// <summary>
         /// 
         /// </summary>
-        private const string Branch = "develop";
+        private const string Error = "API Error:";
 
         /// <summary>
         /// 
@@ -60,7 +65,7 @@ namespace Skylark.Standard.Helper
             }
             else
             {
-                throw new SE("API Error: " + Response.ReasonPhrase);
+                throw new SE($"{Error} {Response.ReasonPhrase}");
             }
         }
 
@@ -73,6 +78,28 @@ namespace Skylark.Standard.Helper
         public static async Task<string> ReleasesAsync(string Owner = Owner, string Repository = Repository)
         {
             return await Task.Run(() => Releases(Owner, Repository));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Owner"></param>
+        /// <param name="Repository"></param>
+        /// <returns></returns>
+        public static object ReleasesObject(string Owner = Owner, string Repository = Repository)
+        {
+            return JsonConvert.DeserializeObject(Releases(Owner, Repository));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Owner"></param>
+        /// <param name="Repository"></param>
+        /// <returns></returns>
+        public static async Task<object> ReleasesObjectAsync(string Owner = Owner, string Repository = Repository)
+        {
+            return await Task.Run(() => ReleasesObject(Owner, Repository));
         }
 
         /// <summary>
@@ -117,6 +144,134 @@ namespace Skylark.Standard.Helper
         public static async Task<List<SSIIR>> ReleasesListAsync(string Owner = Owner, string Repository = Repository)
         {
             return await Task.Run(() => ReleasesList(Owner, Repository));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Owner"></param>
+        /// <param name="Repository"></param>
+        /// <param name="Path"></param>
+        /// <param name="Branch"></param>
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
+        public static string Contents(string Owner = Owner, string Repository = Repository, string Path = Path, string Branch = Branch)
+        {
+            Client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0");
+
+            string BaseUri = $"{Uri}/repos/{Owner}/{Repository}/contents";
+
+            if (!string.IsNullOrEmpty(Path))
+            {
+                BaseUri += $"/{Path}";
+            }
+
+            if (!string.IsNullOrEmpty(Branch))
+            {
+                BaseUri += $"?ref={Branch}";
+            }
+
+            HttpResponseMessage Response = Client.GetAsync(BaseUri).Result;
+
+            if (Response.IsSuccessStatusCode)
+            {
+                return Response.Content.ReadAsStringAsync().Result;
+            }
+            else
+            {
+                throw new SE($"{Error} {Response.ReasonPhrase}");
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Owner"></param>
+        /// <param name="Repository"></param>
+        /// <param name="Path"></param>
+        /// <param name="Branch"></param>
+        /// <returns></returns>
+        public static async Task<string> ContentsAsync(string Owner = Owner, string Repository = Repository, string Path = Path, string Branch = Branch)
+        {
+            return await Task.Run(() => Contents(Owner, Repository, Path, Branch));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Owner"></param>
+        /// <param name="Repository"></param>
+        /// <param name="Path"></param>
+        /// <param name="Branch"></param>
+        /// <returns></returns>
+        public static object ContentsObject(string Owner = Owner, string Repository = Repository, string Path = Path, string Branch = Branch)
+        {
+            return JsonConvert.DeserializeObject(Contents(Owner, Repository, Path, Branch));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Owner"></param>
+        /// <param name="Repository"></param>
+        /// <param name="Path"></param>
+        /// <param name="Branch"></param>
+        /// <returns></returns>
+        public static async Task<object> ContentsObjectAsync(string Owner = Owner, string Repository = Repository, string Path = Path, string Branch = Branch)
+        {
+            return await Task.Run(() => ContentsObject(Owner, Repository, Path, Branch));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Owner"></param>
+        /// <param name="Repository"></param>
+        /// <param name="Path"></param>
+        /// <param name="Branch"></param>
+        /// <returns></returns>
+        public static JArray ContentsJArray(string Owner = Owner, string Repository = Repository, string Path = Path, string Branch = Branch)
+        {
+            return JArray.Parse(Contents(Owner, Repository, Path, Branch));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Owner"></param>
+        /// <param name="Repository"></param>
+        /// <param name="Path"></param>
+        /// <param name="Branch"></param>
+        /// <returns></returns>
+        public static async Task<JArray> ContentsJArrayAsync(string Owner = Owner, string Repository = Repository, string Path = Path, string Branch = Branch)
+        {
+            return await Task.Run(() => ContentsJArray(Owner, Repository, Path, Branch));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Owner"></param>
+        /// <param name="Repository"></param>
+        /// <param name="Path"></param>
+        /// <param name="Branch"></param>
+        /// <returns></returns>
+        public static List<SSIIC> ContentsList(string Owner = Owner, string Repository = Repository, string Path = Path, string Branch = Branch)
+        {
+            return JsonConvert.DeserializeObject<List<SSIIC>>(Contents(Owner, Repository, Path, Branch));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Owner"></param>
+        /// <param name="Repository"></param>
+        /// <param name="Path"></param>
+        /// <param name="Branch"></param>
+        /// <returns></returns>
+        public static async Task<List<SSIIC>> ContentsListAsync(string Owner = Owner, string Repository = Repository, string Path = Path, string Branch = Branch)
+        {
+            return await Task.Run(() => ContentsList(Owner, Repository, Path, Branch));
         }
     }
 }
