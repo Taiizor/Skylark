@@ -13,6 +13,7 @@ using EST = Skylark.Enum.StorageType;
 using ETET = Skylark.Enum.TimeType;
 using ETFT = Skylark.Enum.TimeoutFlagsType;
 using ETXT = Skylark.Enum.TaxType;
+using EVT = Skylark.Enum.VersionType;
 using EWPFT = Skylark.Enum.WindowPosFlagsType;
 using HN = Skylark.Helper.Numeric;
 
@@ -32,6 +33,25 @@ namespace Skylark.Helper
         public static EST Convert(string Type, EST Back = EST.Bit)
         {
             foreach (EST Types in (EST[])System.Enum.GetValues(typeof(EST)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static EVT Convert(string Type, EVT Back = EVT.Equal)
+        {
+            foreach (EVT Types in (EVT[])System.Enum.GetValues(typeof(EVT)))
             {
                 if (Check(Type, Types))
                 {
