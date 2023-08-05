@@ -54,6 +54,16 @@ namespace Skylark.Standard.Helper
         /// <summary>
         /// 
         /// </summary>
+        private static readonly TimeSpan Time = TimeSpan.FromMinutes(5);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static readonly Dictionary<string, CachedData> Cache = new();
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Owner"></param>
         /// <param name="Repository"></param>
         /// <param name="UserAgent"></param>
@@ -62,11 +72,31 @@ namespace Skylark.Standard.Helper
         /// <exception cref="SE"></exception>
         public static string Releases(string Owner = Owner, string Repository = Repository, string UserAgent = Agent, string Authorization = Token)
         {
+            string[] Keys = { Owner, Repository, UserAgent, Authorization };
+            string Key = string.Join(",", Keys);
+
+            if (Cache.TryGetValue(Key, out CachedData Data))
+            {
+                if (DateTime.Now - Data.Timestamp < Time)
+                {
+                    if (Data.Status)
+                    {
+                        return Data.Content;
+                    }
+                    else
+                    {
+                        throw new SE(Data.Content);
+                    }
+                }
+            }
+
             InitializeClient(UserAgent, Authorization);
 
             HttpResponseMessage Response = Client.GetAsync($"{Uri}/repos/{Owner}/{Repository}/releases").Result;
 
             string Result = Response.Content.ReadAsStringAsync().Result;
+
+            Cache[Key] = new CachedData(Response.IsSuccessStatusCode, Result, DateTime.Now);
 
             if (Response.IsSuccessStatusCode)
             {
@@ -182,6 +212,24 @@ namespace Skylark.Standard.Helper
         /// <exception cref="SE"></exception>
         public static string Contents(string Owner = Owner, string Repository = Repository, string Path = Path, string Branch = Branch, string UserAgent = Agent, string Authorization = Token)
         {
+            string[] Keys = { Owner, Repository, Path, Branch, UserAgent, Authorization };
+            string Key = string.Join(",", Keys);
+
+            if (Cache.TryGetValue(Key, out CachedData Data))
+            {
+                if (DateTime.Now - Data.Timestamp < Time)
+                {
+                    if (Data.Status)
+                    {
+                        return Data.Content;
+                    }
+                    else
+                    {
+                        throw new SE(Data.Content);
+                    }
+                }
+            }
+
             InitializeClient(UserAgent, Authorization);
 
             string BaseUri = $"{Uri}/repos/{Owner}/{Repository}/contents";
@@ -199,6 +247,8 @@ namespace Skylark.Standard.Helper
             HttpResponseMessage Response = Client.GetAsync(BaseUri).Result;
 
             string Result = Response.Content.ReadAsStringAsync().Result;
+
+            Cache[Key] = new CachedData(Response.IsSuccessStatusCode, Result, DateTime.Now);
 
             if (Response.IsSuccessStatusCode)
             {
@@ -322,20 +372,28 @@ namespace Skylark.Standard.Helper
         /// <param name="Authorization"></param>
         private static void InitializeClient(string UserAgent = Agent, string Authorization = Token)
         {
-            if (!Client.DefaultRequestHeaders.Contains("User-Agent"))
-            {
-                if (string.IsNullOrEmpty(UserAgent))
-                {
-                    UserAgent = Agent;
-                }
+            Client.DefaultRequestHeaders.Clear();
 
-                Client.DefaultRequestHeaders.Add("User-Agent", UserAgent);
+            if (string.IsNullOrEmpty(UserAgent))
+            {
+                UserAgent = Agent;
             }
 
-            if (!Client.DefaultRequestHeaders.Contains("Authorization") && !string.IsNullOrEmpty(Authorization))
+            Client.DefaultRequestHeaders.Add("User-Agent", UserAgent);
+
+            if (!string.IsNullOrEmpty(Authorization))
             {
                 Client.DefaultRequestHeaders.Add("Authorization", $"Bearer {Authorization}");
             }
+        }
+
+        public class CachedData(bool status, string content, DateTime timestamp)
+        {
+            public bool Status { get; } = status;
+
+            public string Content { get; } = content;
+
+            public DateTime Timestamp { get; } = timestamp;
         }
     }
 }
