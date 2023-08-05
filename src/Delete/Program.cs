@@ -8,31 +8,35 @@ namespace Delete
     {
         static void Main()
         {
-            //Console.WriteLine(GitHub.Contents("Taiizor", "Sucrose"));
+            string Owner = "Taiizor";
+            string Repository = "Sucrose";
+            string Token = string.Empty;
+
+            //Console.WriteLine(GitHub.Contents(Owner, Repository, null, null, null, Token));
 
 
-            //Console.WriteLine(GitHub.ContentsObject("Taiizor", "Sucrose"));
+            //Console.WriteLine(GitHub.ContentsObject(Owner, Repository, null, null, null, Token));
 
 
-            //Console.WriteLine(GitHub.ContentsJArray("Taiizor", "Sucrose"));
+            //Console.WriteLine(GitHub.ContentsJArray(Owner, Repository, null, null, null, Token));
 
 
-            foreach (IContents Contents in GitHub.ContentsList("Taiizor", "Sucrose"))
+            foreach (IContents Contents in GitHub.ContentsList(Owner, Repository, null, null, null, Token))
             {
                 Console.WriteLine(Contents.Name);
             }
 
 
-            //Console.WriteLine(GitHub.Releases("Taiizor", "Sucrose"));
+            //Console.WriteLine(GitHub.Releases(Owner, Repository, null, Token));
 
 
-            //Console.WriteLine(GitHub.ReleasesObject("Taiizor", "Sucrose"));
+            //Console.WriteLine(GitHub.ReleasesObject(Owner, Repository, null, Token));
 
 
-            //Console.WriteLine(GitHub.ReleasesJArray("Taiizor", "Sucrose"));
+            //Console.WriteLine(GitHub.ReleasesJArray(Owner, Repository, null, Token));
 
 
-            //foreach (IReleases Releases in GitHub.ReleasesList("Taiizor", "Skylark"))
+            //foreach (IReleases Releases in GitHub.ReleasesList(Owner, "Skylark", null, Token))
             //{
             //    foreach (IAssets Asset in Releases.Assets)
             //    {
@@ -43,7 +47,7 @@ namespace Delete
 
 
             Version currentVersion = Versionly.Clear("1.0.0.5");
-            Version latestVersion = Versionly.Clear(GitHub.ReleasesList("Taiizor", "Sucrose").FirstOrDefault().TagName);
+            Version latestVersion = Versionly.Clear(GitHub.ReleasesList(Owner, Repository, null, Token).FirstOrDefault().TagName);
 
             Console.WriteLine(currentVersion);
             Console.WriteLine(latestVersion);
