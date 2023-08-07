@@ -1,6 +1,7 @@
 ﻿using SE = Skylark.Exception;
 using SECNT = Skylark.Enum.ClearNumericType;
 using SEMST = Skylark.Enum.ModeStorageType;
+using SESST = Skylark.Enum.ShortStorageType;
 using SEST = Skylark.Enum.StorageType;
 using SHC = Skylark.Helper.Converter;
 using SHN = Skylark.Helper.Numeric;
@@ -177,6 +178,7 @@ namespace Skylark.Standard.Extension.Storage
 
             Result.Type = Active;
             Result.Text = $"{Active}";
+            Result.Short = (SESST)Active;
             Result.Value = Convert(Value, Input, Active, Mode);
 
             return Result;

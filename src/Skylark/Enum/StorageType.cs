@@ -48,7 +48,7 @@
     }
 
     /// <summary>
-    /// 
+    /// Mode data storage type enum
     /// </summary>
     public enum ModeStorageType
     {
@@ -60,5 +60,52 @@
         /// 
         /// </summary>
         Palila
+    }
+
+    /// <summary>
+    /// Short data storage type enum
+    /// </summary>
+    public enum ShortStorageType
+    {
+        /// <summary>
+        /// b
+        /// </summary>
+        b,
+        /// <summary>
+        /// B
+        /// </summary>
+        B,
+        /// <summary>
+        /// KB
+        /// </summary>
+        KB,
+        /// <summary>
+        /// MB
+        /// </summary>
+        MB,
+        /// <summary>
+        /// GB
+        /// </summary>
+        GB,
+        /// <summary>
+        /// TB
+        /// </summary>
+        TB,
+        /// <summary>
+        /// PB
+        /// </summary>
+        PB,
+        /// <summary>
+        /// EB
+        /// </summary>
+        EB,
+        /// <summary>
+        /// ZB
+        /// </summary>
+        ZB,
+        /// <summary>
+        /// YB
+        /// </summary>
+        YB
     }
 }

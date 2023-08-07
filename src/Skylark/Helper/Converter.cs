@@ -9,6 +9,7 @@ using EOST = Skylark.Enum.OperatingSystemType;
 using EQDT = Skylark.Enum.QueryDomainType;
 using ESLPT = Skylark.Enum.SpecialPasswordType;
 using ESRPT = Skylark.Enum.SimilarPasswordType;
+using ESST = Skylark.Enum.ShortStorageType;
 using EST = Skylark.Enum.StorageType;
 using ETET = Skylark.Enum.TimeType;
 using ETFT = Skylark.Enum.TimeoutFlagsType;
@@ -166,6 +167,25 @@ namespace Skylark.Helper
         public static ECNT Convert(string Type, ECNT Back = HN.ClearType)
         {
             foreach (ECNT Types in (ECNT[])System.Enum.GetValues(typeof(ECNT)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static ESST Convert(string Type, ESST Back = ESST.b)
+        {
+            foreach (ESST Types in (ESST[])System.Enum.GetValues(typeof(ESST)))
             {
                 if (Check(Type, Types))
                 {
