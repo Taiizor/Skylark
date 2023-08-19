@@ -74,4 +74,79 @@
         /// </summary>
         Millennium
     }
+
+    /// <summary>
+    /// Short time type enum
+    /// </summary>
+    public enum ShortTimeType
+    {
+        /// <summary>
+        /// aѕ
+        /// </summary>
+        aѕ,
+        /// <summary>
+        /// fs
+        /// </summary>
+        fs,
+        /// <summary>
+        /// ps
+        /// </summary>
+        ps,
+        /// <summary>
+        /// ns
+        /// </summary>
+        ns,
+        /// <summary>
+        /// µs
+        /// </summary>
+        µs,
+        /// <summary>
+        /// ms
+        /// </summary>
+        ms,
+        ///// <summary>
+        ///// cs
+        ///// </summary>
+        //cs,
+        //// <summary>
+        //// ds
+        //// </summary>
+        //ds,
+        /// <summary>
+        /// s
+        /// </summary>
+        s,
+        /// <summary>
+        /// min
+        /// </summary>
+        min,
+        /// <summary>
+        /// hr
+        /// </summary>
+        hr,
+        /// <summary>
+        /// day
+        /// </summary>
+        day,
+        /// <summary>
+        /// wk
+        /// </summary>
+        wk,
+        /// <summary>
+        /// yr
+        /// </summary>
+        yr,
+        /// <summary>
+        /// decade
+        /// </summary>
+        decade,
+        /// <summary>
+        /// cent
+        /// </summary>
+        cent,
+        /// <summary>
+        /// mil
+        /// </summary>
+        mil
+    }
 }

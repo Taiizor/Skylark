@@ -1,5 +1,6 @@
 ﻿using SE = Skylark.Exception;
 using SECNT = Skylark.Enum.ClearNumericType;
+using SESTT = Skylark.Enum.ShortTimeType;
 using SETT = Skylark.Enum.TimeType;
 using SHC = Skylark.Helper.Converter;
 using SHN = Skylark.Helper.Numeric;
@@ -167,6 +168,7 @@ namespace Skylark.Standard.Extension.Time
 
             Result.Type = Active;
             Result.Text = $"{Active}";
+            Result.Short = (SESTT)Active;
             Result.Value = Convert(Value, Input, Active);
 
             return Result;

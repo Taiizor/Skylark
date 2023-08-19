@@ -11,6 +11,7 @@ using ESLPT = Skylark.Enum.SpecialPasswordType;
 using ESRPT = Skylark.Enum.SimilarPasswordType;
 using ESST = Skylark.Enum.ShortStorageType;
 using EST = Skylark.Enum.StorageType;
+using ESTT = Skylark.Enum.ShortTimeType;
 using ETET = Skylark.Enum.TimeType;
 using ETFT = Skylark.Enum.TimeoutFlagsType;
 using ETXT = Skylark.Enum.TaxType;
@@ -186,6 +187,25 @@ namespace Skylark.Helper
         public static ESST Convert(string Type, ESST Back = ESST.b)
         {
             foreach (ESST Types in (ESST[])System.Enum.GetValues(typeof(ESST)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static ESTT Convert(string Type, ESTT Back = ESTT.aѕ)
+        {
+            foreach (ESTT Types in (ESST[])System.Enum.GetValues(typeof(ESTT)))
             {
                 if (Check(Type, Types))
                 {

@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using ESTT = Skylark.Enum.ShortTimeType;
 using ETT = Skylark.Enum.TimeType;
 
 namespace Skylark.Struct.Time
@@ -17,6 +18,10 @@ namespace Skylark.Struct.Time
         /// 
         /// </summary>
         public string Text;
+        /// <summary>
+        /// 
+        /// </summary>
+        public ESTT Short;
         /// <summary>
         /// 
         /// </summary>

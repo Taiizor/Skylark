@@ -11,7 +11,7 @@
 
     <PropertyGroup>
         <ApplicationIcon>Resources\Skylark.Clipboard.ico</ApplicationIcon>
-        <Version>3.1.1.1</Version>
+        <Version>3.1.1.2</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>Skylark.Clipboard</Title>
@@ -57,7 +57,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.1.1.4" />
+        <PackageReference Include="Skylark" Version="3.1.1.6" />
     </ItemGroup>
 
     <ItemGroup>
