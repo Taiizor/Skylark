@@ -7,9 +7,11 @@ namespace Jessica
 {
     internal class Program
     {
-        static void Main()
+        public static async Task Main()
         {
-            string Address = "www.bing.com";
+            Console.Write("Enter Address: ");
+
+            string Address = Console.ReadLine();
 
             Uptimer Uptiming = new(Address);
 
@@ -21,7 +23,7 @@ namespace Jessica
 
             Console.WriteLine();
 
-            CertificateStruct Certificate = Uptiming.Certificate().Result;
+            CertificateStruct Certificate = await Uptiming.Certificate();
 
             Console.WriteLine($"Certificate State: {Certificate.State}");
             Console.WriteLine($"Certificate Remaining Days: {Certificate.RemainingDays}");
@@ -44,6 +46,8 @@ namespace Jessica
             Console.WriteLine($"DNS Service: {Uptiming.Service(ServiceType.DNS)}");
 
             Console.ReadKey();
+
+            await Task.CompletedTask;
         }
     }
 }
