@@ -2,8 +2,8 @@
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SE = Skylark.Exception;
 using SCSSC = System.Collections.Specialized.StringCollection;
+using SE = Skylark.Exception;
 using SWFC = System.Windows.Forms.Clipboard;
 
 namespace Skylark.Clipboard.Helper
@@ -448,7 +448,7 @@ namespace Skylark.Clipboard.Helper
         /// <param name="Text"></param>
         /// <param name="Format"></param>
         /// <exception cref="SE"></exception>
-        public static void SetText(string Text, TextDataFormat Format = TextDataFormat.Text)
+        public static void SetText(string Text, TextDataFormat Format = TextDataFormat.UnicodeText)
         {
             try
             {
@@ -466,7 +466,7 @@ namespace Skylark.Clipboard.Helper
         /// <param name="Text"></param>
         /// <param name="Format"></param>
         /// <returns></returns>
-        public static async Task SetTextAsync(string Text, TextDataFormat Format = TextDataFormat.Text)
+        public static async Task SetTextAsync(string Text, TextDataFormat Format = TextDataFormat.UnicodeText)
         {
             await Task.Run(() => SetText(Text, Format));
         }
@@ -477,7 +477,7 @@ namespace Skylark.Clipboard.Helper
         /// <param name="Format"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string GetText(TextDataFormat Format = TextDataFormat.Text)
+        public static string GetText(TextDataFormat Format = TextDataFormat.UnicodeText)
         {
             try
             {
@@ -494,7 +494,7 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Format"></param>
         /// <returns></returns>
-        public static async Task<string> GetTextAsync(TextDataFormat Format = TextDataFormat.Text)
+        public static async Task<string> GetTextAsync(TextDataFormat Format = TextDataFormat.UnicodeText)
         {
             return await Task.Run(() => GetText(Format));
         }
@@ -505,7 +505,7 @@ namespace Skylark.Clipboard.Helper
         /// <param name="Format"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static bool ContainsText(TextDataFormat Format = TextDataFormat.Text)
+        public static bool ContainsText(TextDataFormat Format = TextDataFormat.UnicodeText)
         {
             try
             {
@@ -522,7 +522,7 @@ namespace Skylark.Clipboard.Helper
         /// </summary>
         /// <param name="Format"></param>
         /// <returns></returns>
-        public static async Task<bool> ContainsTextAsync(TextDataFormat Format = TextDataFormat.Text)
+        public static async Task<bool> ContainsTextAsync(TextDataFormat Format = TextDataFormat.UnicodeText)
         {
             return await Task.Run(() => ContainsText(Format));
         }

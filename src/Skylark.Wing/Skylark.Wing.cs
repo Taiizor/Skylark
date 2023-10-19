@@ -21,7 +21,7 @@ using SWUS = Skylark.Wing.Utility.Screene;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 17.Jun.2023
-//     Changed: 11.Oct.2023
+//     Changed: 20.Oct.2023
 //     Version: 3.1.1.6
 //
 // |---------DO-NOT-REMOVE---------|
@@ -119,6 +119,7 @@ namespace Skylark.Wing
 
                             Clone.Show();
                         }
+
                         break;
                 }
             }
@@ -197,6 +198,7 @@ namespace Skylark.Wing
 
                             Clone.Show();
                         }
+
                         break;
                 }
             }
