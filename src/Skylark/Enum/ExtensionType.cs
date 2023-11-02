@@ -75,13 +75,6 @@
         /// </summary>
         MKV,
         /// <summary>
-        /// An OGG file is an audio file, similar to an .MP3 file, that typically stores music.
-        /// It contains audio data saved in the Ogg container format and compressed with Vorbis
-        /// audio compression. OGG files may also include song metadata, such as artist information
-        /// and track data.
-        /// </summary>
-        OGG,
-        /// <summary>
         /// An OGV file is a video file saved in the Xiph.Org open-source Ogg container format.
         /// It contains video streams encoded with one or more codecs, such as Theora, Dirac, or Daala,
         /// and may or may not store audio streams. Users often utilize OGV files to save video content
