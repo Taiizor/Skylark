@@ -52,6 +52,11 @@ namespace Skylark.Manage
         /// <summary>
         /// 
         /// </summary>
+        public static readonly Random Randomise = new();
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly string[] SplitSpace = new string[] { " " };
 
         /// <summary>

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
-using EST = Skylark.Enum.StorageType;
 using ESST = Skylark.Enum.ShortStorageType;
+using EST = Skylark.Enum.StorageType;
 
 namespace Skylark.Struct.Storage
 {
