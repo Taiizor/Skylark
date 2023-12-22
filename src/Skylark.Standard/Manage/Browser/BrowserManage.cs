@@ -310,10 +310,10 @@ namespace Skylark.Standard.Manage.Browser
             { "SeaMonkey", "SeaMonkey" },
             { "Avant Browser", "Avant Browser" },
             { "Mobile Safari", "Mobile Safari" },
-            { "Safari", "Safari" },
             { "Chrome", "Chrome" },
             { "MSIE", "Internet Explorer" },
             { "Internet Explorer", "Internet Explorer" },
+            { "Safari", "Safari" },
             { "Vivaldi", "Vivaldi" },
             { "Yandex", "Yandex" },
             { "DMBrowser", "DM Browser" },
@@ -327,6 +327,9 @@ namespace Skylark.Standard.Manage.Browser
         /// </summary>
         public static readonly Dictionary<string, string> Platforms = new()
         {
+            { "Windows NT 15.0", "Windows 15" },
+            { "Windows NT 14.0", "Windows 14" },
+            { "Windows NT 13.0", "Windows 13" },
             { "Windows NT 12.0", "Windows 12" },
             { "Windows NT 11.0", "Windows 11" },
             { "Windows NT 10.0", "Windows 10" },
