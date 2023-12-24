@@ -143,7 +143,7 @@ namespace Skylark.Standard.Extension.Time
 
             SETT Active = Input;
 
-            for (int i = (int)SETT.Attosecond; i <= (int)SETT.Millennium; i++)
+            for (int i = (int)Input; i <= (int)SETT.Millennium; i++)
             {
                 if (SHN.Numeral(Convert(Value, Input, (SETT)i), false, false, Clear: SECNT.Decimal) == "0")
                 {

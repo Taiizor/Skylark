@@ -18,8 +18,8 @@ using SUMI = Skylark.Uptime.Manage.Internal;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 27.Feb.2023
-//     Changed: 22.Dec.2023
-//     Version: 3.1.1.8
+//     Changed: 24.Dec.2023
+//     Version: 3.1.1.9
 //
 // |---------DO-NOT-REMOVE---------|
 

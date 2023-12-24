@@ -153,7 +153,7 @@ namespace Skylark.Standard.Extension.Storage
 
             SEST Active = Input;
 
-            for (int i = (int)SEST.Bit; i <= (int)SEST.Yottabyte; i++)
+            for (int i = (int)Input; i <= (int)SEST.Yottabyte; i++)
             {
                 if (SHN.Numeral(Convert(Value, Input, (SEST)i, Mode), false, false, Clear: SECNT.Decimal) == "0")
                 {
