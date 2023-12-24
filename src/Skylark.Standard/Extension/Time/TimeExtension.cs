@@ -143,25 +143,29 @@ namespace Skylark.Standard.Extension.Time
 
             SETT Active = Input;
 
-            for (int i = (int)Input; i <= (int)SETT.Millennium; i++)
+            if (Value > 0)
             {
-                if (SHN.Numeral(Convert(Value, Input, (SETT)i), false, false, Clear: SECNT.Decimal) == "0")
+                for (int i = (int)SETT.Attosecond; i <= (int)SETT.Millennium; i++)
                 {
-                    if ((SETT)i - 1 <= 0)
+                    if (SHN.Numeral(Convert(Value, Input, (SETT)i), false, false, Clear: SECNT.Decimal) == "0")
                     {
-                        Active = (SETT)i;
+                        if ((SETT)i - 1 <= 0)
+                        {
+                            Active = (SETT)i;
+                        }
+                        else
+                        {
+                            Active = (SETT)i - 1;
+                        }
+
+                        break;
                     }
                     else
                     {
-                        Active = (SETT)i - 1;
-                    }
-                    break;
-                }
-                else
-                {
-                    if ((SETT)i >= SETT.Millennium)
-                    {
-                        Active = (SETT)i;
+                        if ((SETT)i >= SETT.Millennium)
+                        {
+                            Active = (SETT)i;
+                        }
                     }
                 }
             }

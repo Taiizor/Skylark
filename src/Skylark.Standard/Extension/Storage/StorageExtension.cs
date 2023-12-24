@@ -153,25 +153,29 @@ namespace Skylark.Standard.Extension.Storage
 
             SEST Active = Input;
 
-            for (int i = (int)Input; i <= (int)SEST.Yottabyte; i++)
+            if (Value > 0)
             {
-                if (SHN.Numeral(Convert(Value, Input, (SEST)i, Mode), false, false, Clear: SECNT.Decimal) == "0")
+                for (int i = (int)SEST.Bit; i <= (int)SEST.Yottabyte; i++)
                 {
-                    if ((SEST)i - 1 <= 0)
+                    if (SHN.Numeral(Convert(Value, Input, (SEST)i, Mode), false, false, Clear: SECNT.Decimal) == "0")
                     {
-                        Active = (SEST)i;
+                        if ((SEST)i - 1 <= 0)
+                        {
+                            Active = (SEST)i;
+                        }
+                        else
+                        {
+                            Active = (SEST)i - 1;
+                        }
+
+                        break;
                     }
                     else
                     {
-                        Active = (SEST)i - 1;
-                    }
-                    break;
-                }
-                else
-                {
-                    if ((SEST)i >= SEST.Yottabyte)
-                    {
-                        Active = (SEST)i;
+                        if ((SEST)i >= SEST.Yottabyte)
+                        {
+                            Active = (SEST)i;
+                        }
                     }
                 }
             }
