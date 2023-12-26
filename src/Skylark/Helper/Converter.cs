@@ -2,11 +2,13 @@
 using EAPT = Skylark.Enum.AlphabeticPasswordType;
 using ECAT = Skylark.Enum.CompositionActionsType;
 using ECNT = Skylark.Enum.ClearNumericType;
+using ECT = Skylark.Enum.CountryType;
 using ECWT = Skylark.Enum.CompressWebType;
 using EHWT = Skylark.Enum.HttpWebType;
 using EMST = Skylark.Enum.ModeStorageType;
 using EOST = Skylark.Enum.OperatingSystemType;
 using EQDT = Skylark.Enum.QueryDomainType;
+using ESCT = Skylark.Enum.SortedCountryType;
 using ESLPT = Skylark.Enum.SpecialPasswordType;
 using ESRPT = Skylark.Enum.SimilarPasswordType;
 using ESST = Skylark.Enum.ShortStorageType;
@@ -51,6 +53,25 @@ namespace Skylark.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
+        public static ECT Convert(string Type, ECT Back = ECT.AF)
+        {
+            foreach (ECT Types in (ECT[])System.Enum.GetValues(typeof(ECT)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
         public static EVT Convert(string Type, EVT Back = EVT.Equal)
         {
             foreach (EVT Types in (EVT[])System.Enum.GetValues(typeof(EVT)))
@@ -73,6 +94,25 @@ namespace Skylark.Helper
         public static EOST Convert(string Type, EOST Back = EOST.Unknown)
         {
             foreach (EOST Types in (EOST[])System.Enum.GetValues(typeof(EOST)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static ESCT Convert(string Type, ESCT Back = ESCT.AD)
+        {
+            foreach (ESCT Types in (ESCT[])System.Enum.GetValues(typeof(ESCT)))
             {
                 if (Check(Type, Types))
                 {
