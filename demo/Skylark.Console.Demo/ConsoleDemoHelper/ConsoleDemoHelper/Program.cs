@@ -2,6 +2,7 @@
 using Skylark.Helper;
 using Skylark.Standard.Helper;
 using System.Globalization;
+using Currency = Skylark.Standard.Helper.Currency;
 
 namespace ConsoleDemoHelper
 {

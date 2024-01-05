@@ -2,7 +2,8 @@
 using EAPT = Skylark.Enum.AlphabeticPasswordType;
 using ECAT = Skylark.Enum.CompositionActionsType;
 using ECNT = Skylark.Enum.ClearNumericType;
-using ECT = Skylark.Enum.CountryType;
+using ECOT = Skylark.Enum.CountryType;
+using ECUT = Skylark.Enum.CurrencyType;
 using ECWT = Skylark.Enum.CompressWebType;
 using EHWT = Skylark.Enum.HttpWebType;
 using ELT = Skylark.Enum.LanguageType;
@@ -74,25 +75,6 @@ namespace Skylark.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
-        public static ECT Convert(string Type, ECT Back = ECT.AF)
-        {
-            foreach (ECT Types in (ECT[])System.Enum.GetValues(typeof(ECT)))
-            {
-                if (Check(Type, Types))
-                {
-                    return Types;
-                }
-            }
-
-            return Back;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Type"></param>
-        /// <param name="Back"></param>
-        /// <returns></returns>
         public static EVT Convert(string Type, EVT Back = EVT.Equal)
         {
             foreach (EVT Types in (EVT[])System.Enum.GetValues(typeof(EVT)))
@@ -115,6 +97,44 @@ namespace Skylark.Helper
         public static EOST Convert(string Type, EOST Back = EOST.Unknown)
         {
             foreach (EOST Types in (EOST[])System.Enum.GetValues(typeof(EOST)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static ECOT Convert(string Type, ECOT Back = ECOT.AF)
+        {
+            foreach (ECOT Types in (ECOT[])System.Enum.GetValues(typeof(ECOT)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static ECUT Convert(string Type, ECUT Back = ECUT.AED)
+        {
+            foreach (ECUT Types in (ECUT[])System.Enum.GetValues(typeof(ECUT)))
             {
                 if (Check(Type, Types))
                 {

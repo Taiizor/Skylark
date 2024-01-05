@@ -12,8 +12,8 @@ using SE = System.Exception;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 03.Jan.2023
-//     Changed: 05.Jan.2024
-//     Version: 3.1.2.6
+//     Changed: 06.Jan.2024
+//     Version: 3.1.2.7
 //
 // |---------DO-NOT-REMOVE---------|
 
