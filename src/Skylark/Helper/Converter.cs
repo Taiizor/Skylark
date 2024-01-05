@@ -5,6 +5,7 @@ using ECNT = Skylark.Enum.ClearNumericType;
 using ECT = Skylark.Enum.CountryType;
 using ECWT = Skylark.Enum.CompressWebType;
 using EHWT = Skylark.Enum.HttpWebType;
+using ELT = Skylark.Enum.LanguageType;
 using EMST = Skylark.Enum.ModeStorageType;
 using EOST = Skylark.Enum.OperatingSystemType;
 using EQDT = Skylark.Enum.QueryDomainType;
@@ -29,6 +30,25 @@ namespace Skylark.Helper
     /// </summary>
     public static class Converter
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static ELT Convert(string Type, ELT Back = ELT.af)
+        {
+            foreach (ELT Types in (ELT[])System.Enum.GetValues(typeof(ELT)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
         /// <summary>
         /// 
         /// </summary>
