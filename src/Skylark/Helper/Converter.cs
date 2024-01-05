@@ -17,6 +17,7 @@ using ESTT = Skylark.Enum.ShortTimeType;
 using ETET = Skylark.Enum.TimeType;
 using ETFT = Skylark.Enum.TimeoutFlagsType;
 using ETXT = Skylark.Enum.TaxType;
+using ETZT = Skylark.Enum.TimeZoneType;
 using EVT = Skylark.Enum.VersionType;
 using EWPFT = Skylark.Enum.WindowPosFlagsType;
 using HN = Skylark.Helper.Numeric;
@@ -284,6 +285,25 @@ namespace Skylark.Helper
         public static ETET Convert(string Type, ETET Back = ETET.Attosecond)
         {
             foreach (ETET Types in (ETET[])System.Enum.GetValues(typeof(ETET)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static ETZT Convert(string Type, ETZT Back = ETZT.GMT_Minus_12_00_International_Date_Line_West)
+        {
+            foreach (ETZT Types in (ETZT[])System.Enum.GetValues(typeof(ETZT)))
             {
                 if (Check(Type, Types))
                 {
