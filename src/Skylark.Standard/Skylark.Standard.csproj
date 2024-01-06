@@ -10,7 +10,7 @@
 
     <PropertyGroup>
         <ApplicationIcon>Resources\Skylark.Standard.ico</ApplicationIcon>
-        <Version>3.1.3.3</Version>
+        <Version>3.1.3.5</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>Skylark.Standard</Title>
