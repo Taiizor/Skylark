@@ -3,8 +3,10 @@ using EAPT = Skylark.Enum.AlphabeticPasswordType;
 using ECAT = Skylark.Enum.CompositionActionsType;
 using ECNT = Skylark.Enum.ClearNumericType;
 using ECOT = Skylark.Enum.CountryType;
+using ECT = Skylark.Enum.CompressionType;
 using ECUT = Skylark.Enum.CurrencyType;
 using ECWT = Skylark.Enum.CompressWebType;
+using EDT = Skylark.Enum.DecompressionType;
 using EHWT = Skylark.Enum.HttpWebType;
 using ELT = Skylark.Enum.LanguageType;
 using EMST = Skylark.Enum.ModeStorageType;
@@ -31,6 +33,43 @@ namespace Skylark.Helper
     /// </summary>
     public static class Converter
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static ECT Convert(string Type, ECT Back = ECT.GZip)
+        {
+            foreach (ECT Types in (ECT[])System.Enum.GetValues(typeof(ECT)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static EDT Convert(string Type, EDT Back = EDT.GZip)
+        {
+            foreach (EDT Types in (EDT[])System.Enum.GetValues(typeof(EDT)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
         /// <summary>
         /// 
         /// </summary>
