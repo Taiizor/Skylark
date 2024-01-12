@@ -1,4 +1,5 @@
 ﻿using Skylark.Standard.Extension.Json;
+using System.Text;
 
 namespace ConsoleDemoJson
 {
@@ -8,6 +9,9 @@ namespace ConsoleDemoJson
 
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             string Xml = JsonExtension.ToXml(Json);
             Console.WriteLine(Xml);
 

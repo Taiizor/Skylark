@@ -1,4 +1,5 @@
 ﻿using Skylark.Standard.Extension.Css;
+using System.Text;
 
 namespace ConsoleDemoCss
 {
@@ -8,6 +9,9 @@ namespace ConsoleDemoCss
 
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             string Minify = CssExtension.ToMinify(Css);
             Console.WriteLine(Minify);
 

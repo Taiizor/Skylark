@@ -19,7 +19,7 @@ using SUMI = Skylark.Uptime.Manage.Internal;
 //     Website: www.Vegalya.com
 //     Created: 27.Feb.2023
 //     Changed: 12.Jan.2024
-//     Version: 3.1.2.6
+//     Version: 3.1.2.7
 //
 // |---------DO-NOT-REMOVE---------|
 

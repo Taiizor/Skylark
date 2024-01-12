@@ -46,7 +46,7 @@ namespace Skylark.Standard.Extension.Compression
                         Result.DecompressedData = Reader.ReadToEnd();
                     }
 #endif
-                    else if (Type == SEDT.Deflate)
+                    else
                     {
                         using DeflateStream DStream = new(MStream, CompressionMode.Decompress);
                         using StreamReader Reader = new(DStream);

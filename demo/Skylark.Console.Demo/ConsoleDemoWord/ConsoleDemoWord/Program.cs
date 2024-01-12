@@ -1,5 +1,6 @@
 ﻿using Skylark.Standard.Extension.Word;
 using Skylark.Struct.Word;
+using System.Text;
 
 namespace ConsoleDemoWord
 {
@@ -10,6 +11,9 @@ namespace ConsoleDemoWord
 
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             WordDataStruct Data = WordExtension.Data(List);
             Console.WriteLine($"Word Count: {Data.Word}");
             Console.WriteLine($"Char Count: {Data.Char}");

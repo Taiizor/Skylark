@@ -1,4 +1,5 @@
 ﻿using Skylark.Standard.Extension.Js;
+using System.Text;
 
 namespace ConsoleDemoJs
 {
@@ -8,6 +9,9 @@ namespace ConsoleDemoJs
 
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             string Minify = JsExtension.ToMinify(Js);
             Console.WriteLine(Minify);
 

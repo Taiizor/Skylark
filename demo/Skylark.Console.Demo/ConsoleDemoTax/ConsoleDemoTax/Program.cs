@@ -2,6 +2,7 @@
 using Skylark.Standard.Extension.Tax;
 using Skylark.Standard.Helper;
 using Skylark.Struct.Tax;
+using System.Text;
 
 namespace ConsoleDemoTax
 {
@@ -9,6 +10,9 @@ namespace ConsoleDemoTax
     {
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             TaxCalcStruct Calc1 = TaxExtension.Calc("100.00", "1.00", TaxType.Amount, true);
             Console.WriteLine($"Price: {Calc1.Price} {Currency.SymbolName}");
             Console.WriteLine($"Vat Price: {Calc1.VatPrice} {Currency.SymbolName}");

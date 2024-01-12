@@ -1,6 +1,7 @@
 ﻿using Skylark.Enum;
 using Skylark.Standard.Extension.Web;
 using Skylark.Struct.Web;
+using System.Text;
 
 namespace ConsoleDemoWeb
 {
@@ -15,6 +16,9 @@ namespace ConsoleDemoWeb
 
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             string Source = WebExtension.Source("https://www.bing.com");
             Console.WriteLine($"Source (Cut): {Source[..512]}...");
 

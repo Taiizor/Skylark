@@ -1,4 +1,5 @@
 ﻿using Skylark.Standard.Extension.Xhtml;
+using System.Text;
 
 namespace ConsoleDemoXhtml
 {
@@ -8,6 +9,9 @@ namespace ConsoleDemoXhtml
 
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             string Minify = XhtmlExtension.ToMinify(Xhtml);
             Console.WriteLine(Minify);
 

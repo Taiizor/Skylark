@@ -1,6 +1,7 @@
 ﻿using Skylark.Enum;
 using Skylark.Standard.Extension.Storage;
 using Skylark.Struct.Storage;
+using System.Text;
 
 namespace ConsoleDemoStorage
 {
@@ -13,6 +14,9 @@ namespace ConsoleDemoStorage
 
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             StorageStruct AutoBit = StorageExtension.AutoConvert(Value2, StorageType.Bit, Mode);
             Console.WriteLine($"{Value2} Bit -> Auto: {AutoBit.Value} {AutoBit.Text}");
 

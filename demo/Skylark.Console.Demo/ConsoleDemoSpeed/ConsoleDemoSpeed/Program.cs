@@ -1,4 +1,5 @@
 ﻿using Skylark.Standard.Extension.Speed;
+using System.Text;
 
 namespace ConsoleDemoSpeed
 {
@@ -8,6 +9,9 @@ namespace ConsoleDemoSpeed
 
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             decimal CmsMps = SpeedExtension.CmsToMps(Value);
             Console.WriteLine($"{Value} Cms -> Mps: {CmsMps}");
 

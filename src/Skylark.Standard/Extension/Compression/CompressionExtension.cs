@@ -46,7 +46,7 @@ namespace Skylark.Standard.Extension.Compression
                         Writer.Write(Data);
                     }
 #endif
-                    else if (Type == SECT.Deflate)
+                    else
                     {
                         using DeflateStream DStream = new(MStream, Level);
                         using StreamWriter Writer = new(DStream);

@@ -1,5 +1,6 @@
 ﻿using Skylark.Standard.Extension.Lottery;
 using Skylark.Struct.Lottery;
+using System.Text;
 
 namespace ConsoleDemoLottery
 {
@@ -9,6 +10,9 @@ namespace ConsoleDemoLottery
 
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             LotteryDrawStruct Draw = LotteryExtension.Draw(List, 2, 3, false);
             foreach (string Winner in Draw.Winners)
             {

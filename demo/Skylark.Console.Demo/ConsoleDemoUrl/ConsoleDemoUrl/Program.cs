@@ -1,4 +1,5 @@
 ﻿using Skylark.Standard.Extension.Url;
+using System.Text;
 
 namespace ConsoleDemoUrl
 {
@@ -8,6 +9,9 @@ namespace ConsoleDemoUrl
 
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             string Encode = UrlExtension.Encode(Url);
             Console.WriteLine(Encode);
 

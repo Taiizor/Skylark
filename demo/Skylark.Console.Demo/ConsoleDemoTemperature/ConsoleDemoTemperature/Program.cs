@@ -1,4 +1,5 @@
 ﻿using Skylark.Standard.Extension.Temperature;
+using System.Text;
 
 namespace ConsoleDemoTemperature
 {
@@ -8,6 +9,9 @@ namespace ConsoleDemoTemperature
 
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             Console.WriteLine($"Kelvin Symbol {TemperatureExtension.SymbolKelvin}");
             Console.WriteLine($"Rankine Symbol {TemperatureExtension.SymbolRankine}");
             Console.WriteLine($"Reaumur Symbol {TemperatureExtension.SymbolReaumur}");

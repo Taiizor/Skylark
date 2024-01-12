@@ -1,5 +1,6 @@
 ﻿using Skylark.Standard.Extension.Ping;
 using Skylark.Struct.Ping;
+using System.Text;
 
 namespace ConsoleDemoPing
 {
@@ -7,6 +8,9 @@ namespace ConsoleDemoPing
     {
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             PingSendStruct Send1 = PingExtension.Send("www.google.com");
             Console.WriteLine($"Ttl: {Send1.Ttl}");
             Console.WriteLine($"Buffer: {Send1.Buffer}");

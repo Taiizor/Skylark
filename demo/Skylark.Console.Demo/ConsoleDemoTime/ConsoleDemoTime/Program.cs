@@ -1,6 +1,7 @@
 ﻿using Skylark.Enum;
 using Skylark.Standard.Extension.Time;
 using Skylark.Struct.Time;
+using System.Text;
 
 namespace ConsoleDemoTime
 {
@@ -11,6 +12,9 @@ namespace ConsoleDemoTime
 
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             TimeStruct AutoAttosecond = TimeExtension.AutoConvert(Value2, TimeType.Attosecond);
             Console.WriteLine($"{Value2} Attosecond -> Auto: {AutoAttosecond.Value} {AutoAttosecond.Text}");
 

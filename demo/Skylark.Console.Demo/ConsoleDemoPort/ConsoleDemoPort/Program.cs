@@ -1,5 +1,6 @@
 ﻿using Skylark.Enum;
 using Skylark.Standard.Extension.Port;
+using System.Text;
 
 namespace ConsoleDemoPort
 {
@@ -7,6 +8,9 @@ namespace ConsoleDemoPort
     {
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             string Info1 = PortExtension.Info(443);
             Console.WriteLine(Info1);
 

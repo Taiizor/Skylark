@@ -1,5 +1,6 @@
 ﻿using Skylark.Enum;
 using Skylark.Standard.Extension.Text;
+using System.Text;
 
 namespace ConsoleDemoText
 {
@@ -7,6 +8,9 @@ namespace ConsoleDemoText
     {
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             string Text = TextExtension.Text(11);
             Console.WriteLine(Text);
 

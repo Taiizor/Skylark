@@ -81,15 +81,39 @@ namespace Skylark.Standard.Helper.Password
         {
             switch (Similar)
             {
+                case SESRPT.Flat:
+                    int ShortLength = Math.Min(Password1.Length, Password2.Length);
+
+                    int SimilarCharLength = 0;
+
+                    for (int C = 0; C < ShortLength; C++)
+                    {
+                        if (Password1[C] == Password2[C])
+                        {
+                            SimilarCharLength++;
+                        }
+                    }
+
+                    return (double)SimilarCharLength / ShortLength;
+                case SESRPT.NGram:
+                    Password1 = Password1.ToLower();
+                    Password2 = Password2.ToLower();
+
+                    List<string> nGrams1 = CreateNGram(Password1, SSMPPM.NGramLength);
+                    List<string> nGrams2 = CreateNGram(Password2, SSMPPM.NGramLength);
+
+                    int ortakNGramSayisi = nGrams1.Intersect(nGrams2).Count();
+
+                    return (double)ortakNGramSayisi / Math.Max(nGrams1.Count, nGrams2.Count);
                 case SESRPT.Cosine:
                     Dictionary<string, int> Dict1 = new();
                     Dictionary<string, int> Dict2 = new();
 
                     foreach (string Word in Password1.Split())
                     {
-                        if (Dict1.ContainsKey(Word))
+                        if (Dict1.TryGetValue(Word, out int Value))
                         {
-                            Dict1[Word]++;
+                            Dict1[Word] = ++Value;
                         }
                         else
                         {
@@ -99,9 +123,9 @@ namespace Skylark.Standard.Helper.Password
 
                     foreach (string Word in Password2.Split())
                     {
-                        if (Dict2.ContainsKey(Word))
+                        if (Dict2.TryGetValue(Word, out int Value))
                         {
-                            Dict2[Word]++;
+                            Dict2[Word] = ++Value;
                         }
                         else
                         {
@@ -117,8 +141,8 @@ namespace Skylark.Standard.Helper.Password
 
                     foreach (string Key in Keys)
                     {
-                        int Count1 = Dict1.ContainsKey(Key) ? Dict1[Key] : 0;
-                        int Count2 = Dict2.ContainsKey(Key) ? Dict2[Key] : 0;
+                        int Count1 = Dict1.TryGetValue(Key, out int Value1) ? Value1 : 0;
+                        int Count2 = Dict2.TryGetValue(Key, out int Value2) ? Value2 : 0;
 
                         DotProduct += Count1 * Count2;
                         Magnitude1 += Count1 * Count1;
@@ -134,17 +158,17 @@ namespace Skylark.Standard.Helper.Password
 
                     int Intersection = 0;
 
-                    foreach (char c in Set1)
+                    foreach (char C in Set1)
                     {
-                        if (Set2.Contains(c))
+                        if (Set2.Contains(C))
                         {
                             Intersection++;
                         }
                     }
 
-                    int union = Set1.Count + Set2.Count - Intersection;
+                    int Union = Set1.Count + Set2.Count - Intersection;
 
-                    return (double)Intersection / union;
+                    return (double)Intersection / Union;
                 case SESRPT.Jaccardy:
                     HashSet<string> Set3 = new(Password1.Split());
                     HashSet<string> Set4 = new(Password2.Split());
@@ -153,13 +177,13 @@ namespace Skylark.Standard.Helper.Password
                     int UnionCount = Set3.Union(Set4).Count();
 
                     return (double)IntersectionCount / UnionCount;
-                default:
+                case SESRPT.Levenshtein:
                     int P1 = Password1.Length;
                     int P2 = Password2.Length;
 
                     int[,] D = new int[P1 + 1, P2 + 1];
 
-                    double Similarity = 0;
+                    double Similarity;
 
                     if (P1 == 0)
                     {
@@ -190,6 +214,11 @@ namespace Skylark.Standard.Helper.Password
                     Similarity = 1 - ((double)Distance / Math.Max(Password1.Length, Password2.Length));
 
                     return Similarity;
+                default:
+                    Password1 = Password1.ToLower();
+                    Password2 = Password2.ToLower();
+
+                    return JaroWinkler(Password1, Password2);
             }
         }
 
@@ -244,6 +273,47 @@ namespace Skylark.Standard.Helper.Password
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Password1"></param>
+        /// <param name="Password2"></param>
+        /// <returns></returns>
+        private static int TranspositionsNumber(string Password1, string Password2)
+        {
+            int Length = 0;
+            int ShortLength = Math.Min(Password1.Length, Password2.Length);
+
+            for (int C = 0; C < ShortLength; C++)
+            {
+                if (Password1[C] != Password2[C])
+                {
+                    Length++;
+                }
+            }
+
+            return Length / 2;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Password"></param>
+        /// <param name="Length"></param>
+        /// <returns></returns>
+        private static List<string> CreateNGram(string Password, int Length)
+        {
+            List<string> nGrams = new();
+
+            for (int C = 0; C <= Password.Length - Length; C++)
+            {
+                string nGram = Password.Substring(C, Length);
+                nGrams.Add(nGram);
+            }
+
+            return nGrams;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="MeterPasswordType"></param>
         /// <returns></returns>
         private static SEMPT UpgradeMeterLevel(this SEMPT MeterPasswordType)
@@ -258,6 +328,32 @@ namespace Skylark.Standard.Helper.Password
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Password1"></param>
+        /// <param name="Password2"></param>
+        /// <returns></returns>
+        private static double JaroWinkler(string Password1, string Password2)
+        {
+            int MaxLength = (Math.Max(Password1.Length, Password2.Length) / 2) - 1;
+
+            int CommonLength = CommonCharacter(Password1, Password2, MaxLength);
+
+            if (CommonLength == 0)
+            {
+                return 0.0;
+            }
+
+            int TranspositionsLength = TranspositionsNumber(Password1, Password2);
+
+            double Jaro = (((double)CommonLength / Password1.Length) + ((double)CommonLength / Password2.Length) + ((double)(CommonLength - TranspositionsLength) / CommonLength)) / 3.0;
+
+            double JaroWinkler = Jaro + Math.Min(0.1, 1.0 / Math.Max(Password1.Length, Password2.Length) * TranspositionsLength);
+
+            return JaroWinkler;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="MeterPasswordType"></param>
         /// <returns></returns>
         private static SEMPT DowngradeMeterLevel(this SEMPT MeterPasswordType)
@@ -267,6 +363,30 @@ namespace Skylark.Standard.Helper.Password
             SHS.Clamp(Result, LowestPasswordStrength, HighestPasswordStrength);
             Debug.Assert(Result % 20 == 0);
             return (SEMPT)Result;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Password1"></param>
+        /// <param name="Password2"></param>
+        /// <param name="MaxLength"></param>
+        /// <returns></returns>
+        private static int CommonCharacter(string Password1, string Password2, int MaxLength)
+        {
+            int CommonLength = 0;
+
+            int ShortLength = Math.Min(Password1.Length, Password2.Length);
+
+            for (int C = 0; C < ShortLength; C++)
+            {
+                if (Math.Abs(Password1.IndexOf(Password2[C]) - C) <= MaxLength)
+                {
+                    CommonLength++;
+                }
+            }
+
+            return CommonLength;
         }
     }
 }

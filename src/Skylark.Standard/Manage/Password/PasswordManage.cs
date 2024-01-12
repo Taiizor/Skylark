@@ -36,6 +36,11 @@ namespace Skylark.Standard.Manage.Password
         /// <summary>
         /// 
         /// </summary>
+        public const int NGramLength = 2;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const int Length = 8;
         /// <summary>
         /// 

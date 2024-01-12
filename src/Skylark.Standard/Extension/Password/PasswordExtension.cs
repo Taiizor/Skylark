@@ -96,8 +96,7 @@ namespace Skylark.Standard.Extension.Password
                     throw new SE(SSMPPM.Error);
                 }
 
-                string Secret = new(Enumerable.Repeat(Chars, SHL.Clamp(Length, SSMPPM.MinLength, SSMPPM.MaxLength))
-                    .Select(Char => Char[SSME.Randomise.Next(Char.Length)]).ToArray());
+                string Secret = new(Enumerable.Repeat(Chars, SHL.Clamp(Length, SSMPPM.MinLength, SSMPPM.MaxLength)).Select(Char => Char[SSME.Randomise.Next(Char.Length)]).ToArray());
 
                 return Prefix + Secret + Suffix;
             }

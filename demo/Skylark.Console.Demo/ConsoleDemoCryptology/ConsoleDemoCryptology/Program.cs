@@ -1,4 +1,5 @@
 ﻿using Skylark.Standard.Extension.Cryptology;
+using System.Text;
 
 namespace ConsoleDemoCryptology
 {
@@ -8,6 +9,9 @@ namespace ConsoleDemoCryptology
 
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             string Base64 = CryptologyExtension.TextToBase(Text);
             Console.WriteLine($"Base64: {Base64}");
             Console.WriteLine($"Base64 -> Text: {CryptologyExtension.BaseToText(Base64)}");

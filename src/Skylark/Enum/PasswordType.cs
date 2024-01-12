@@ -39,6 +39,14 @@
         /// <summary>
         /// 
         /// </summary>
+        Flat,
+        /// <summary>
+        /// 
+        /// </summary>
+        NGram,
+        /// <summary>
+        /// 
+        /// </summary>
         Cosine,
         /// <summary>
         /// 
@@ -51,7 +59,11 @@
         /// <summary>
         /// 
         /// </summary>
-        Levenshtein
+        Levenshtein,
+        /// <summary>
+        /// 
+        /// </summary>
+        JaroWinkler
     }
 
     /// <summary>

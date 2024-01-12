@@ -1,4 +1,5 @@
 ﻿using Skylark.Standard.Extension.Typography;
+using System.Text;
 
 namespace ConsoleDemoTypography
 {
@@ -8,6 +9,9 @@ namespace ConsoleDemoTypography
 
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             decimal PI = TypographyExtension.PixelToInch(Value);
             Console.WriteLine($"{Value} Pixel -> Inch: {PI}");
 

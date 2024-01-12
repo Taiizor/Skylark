@@ -2,6 +2,7 @@
 using Skylark.Standard.Helper;
 using Skylark.Struct.Colorise;
 using System.Drawing;
+using System.Text;
 
 namespace ConsoleDemoColor
 {
@@ -11,6 +12,9 @@ namespace ConsoleDemoColor
 
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             Console.WriteLine(Color.ToString());
 
             Console.WriteLine();

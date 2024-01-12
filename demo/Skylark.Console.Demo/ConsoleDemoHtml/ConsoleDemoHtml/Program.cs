@@ -1,4 +1,5 @@
 ﻿using Skylark.Standard.Extension.Html;
+using System.Text;
 
 namespace ConsoleDemoHtml
 {
@@ -8,6 +9,9 @@ namespace ConsoleDemoHtml
 
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             string Encode = HtmlExtension.Encode(Html);
             Console.WriteLine(Encode);
 

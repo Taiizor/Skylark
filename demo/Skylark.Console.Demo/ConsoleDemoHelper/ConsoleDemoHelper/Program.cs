@@ -2,7 +2,10 @@
 using Skylark.Helper;
 using Skylark.Standard.Helper;
 using System.Globalization;
-using Currency = Skylark.Standard.Helper.Currency;
+using System.Text;
+using Currency1 = Skylark.Helper.Currency;
+using Currency2 = Skylark.Standard.Helper.Currency;
+using TimeZone = Skylark.Helper.TimeZone;
 
 namespace ConsoleDemoHelper
 {
@@ -10,6 +13,9 @@ namespace ConsoleDemoHelper
     {
         static void Main()
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             Culture.All = new CultureInfo("en-GB"); //tr-TR
 
             Console.WriteLine(Culture.CurrentName);
@@ -55,11 +61,31 @@ namespace ConsoleDemoHelper
 
             Console.WriteLine();
 
-            Console.WriteLine(Currency.Name);
-            Console.WriteLine(Currency.Symbol);
-            Console.WriteLine(Currency.SymbolName);
-            Console.WriteLine(Currency.NativeName);
-            Console.WriteLine(Currency.EnglishName);
+            Console.WriteLine(Currency1.Symbol(CurrencyType.EUR));
+            Console.WriteLine(Currency1.Symbol(CurrencyType.USD));
+            Console.WriteLine(Currency1.Symbol(CurrencyType.TRY));
+            Console.WriteLine(Currency1.Symbol(CurrencyType.RUB));
+            Console.WriteLine(Currency1.Symbol(CurrencyType.AFN));
+            Console.WriteLine(Currency1.Symbol(CurrencyType.CHF));
+
+            Console.WriteLine();
+
+            Console.WriteLine(Currency2.Name);
+            Console.WriteLine(Currency2.Symbol);
+            Console.WriteLine(Currency2.SymbolName);
+            Console.WriteLine(Currency2.NativeName);
+            Console.WriteLine(Currency2.EnglishName);
+
+            Console.WriteLine();
+
+            Console.WriteLine(TimeZone.Name(TimeZoneType.GMT_Plus_00_00_UTC));
+            Console.WriteLine(TimeZone.Name(TimeZoneType.GMT_Plus_03_00_Istanbul));
+            Console.WriteLine(TimeZone.Name(TimeZoneType.GMT_Plus_10_00_Melbourne));
+            Console.WriteLine(TimeZone.Name(TimeZoneType.GMT_Minus_02_00_Greenland));
+
+            Console.WriteLine(TimeZone.Name(TimeZoneType.GMT_Minus_01_00_Cape_Verde_Island));
+            Console.WriteLine(TimeZone.ShortName(TimeZoneType.GMT_Minus_01_00_Cape_Verde_Island));
+            Console.WriteLine(TimeZone.CleanShortName(TimeZoneType.GMT_Minus_01_00_Cape_Verde_Island));
 
             Console.WriteLine();
 
