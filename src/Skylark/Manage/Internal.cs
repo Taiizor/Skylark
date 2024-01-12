@@ -36,6 +36,15 @@ namespace Skylark.Manage
         /// 4 GB = 4294967296 Byte
         /// 5 GB = 5368709120 Byte
         /// </summary>
+        public const long ByteLength = 5368709120;
+
+        /// <summary>
+        /// 1 GB = 1073741824 Byte
+        /// 2 GB = 2147483648 Byte
+        /// 3 GB = 3221225472 Byte
+        /// 4 GB = 4294967296 Byte
+        /// 5 GB = 5368709120 Byte
+        /// </summary>
         public const long FileLength = 5368709120;
 
         /// <summary>

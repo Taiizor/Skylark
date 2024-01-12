@@ -9,10 +9,12 @@
         /// 
         /// </summary>
         GZip,
+#if NETSTANDARD2_1
         /// <summary>
         /// 
         /// </summary>
         Brotli,
+#endif
         /// <summary>
         /// 
         /// </summary>
