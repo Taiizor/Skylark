@@ -14,12 +14,16 @@ namespace ConsoleDemoBrowser
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
 
+            Console.WriteLine($"User Agent: {UserAgent}");
+
+            Console.WriteLine();
+
             BrowserStruct Result = BrowserExtension.Parse(UserAgent);
             Console.WriteLine(JsonConvert.SerializeObject(Result, Formatting.Indented));
 
             Console.WriteLine();
 
-            Console.WriteLine($"Browser: {BrowserExtension.Robot(UserAgent)}");
+            Console.WriteLine($"Robot: {BrowserExtension.Robot(UserAgent)}");
             Console.WriteLine($"Mobile: {BrowserExtension.Mobile(UserAgent)}");
             Console.WriteLine($"RobotIs: {BrowserExtension.RobotIs(UserAgent)}");
             Console.WriteLine($"Browser: {BrowserExtension.Browser(UserAgent)}");

@@ -16,7 +16,7 @@ namespace Skylark.Standard.Manage.Decompression
         /// <summary>
         /// 
         /// </summary>
-        public const CompressionLevel Level = CompressionLevel.Optimal;
+        public const CompressionMode Mode = CompressionMode.Decompress;
 
         /// <summary>
         /// 

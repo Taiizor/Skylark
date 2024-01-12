@@ -5,7 +5,7 @@ using SSDDS = Skylark.Struct.Decompression.DecompressionStruct;
 using SSHDDH = Skylark.Standard.Helper.Decompression.DecompressionHelper;
 using SSMDDM = Skylark.Standard.Manage.Decompression.DecompressionManage;
 
-namespace Skylark.Standard.Extension.Compression
+namespace Skylark.Standard.Extension.Decompression
 {
     /// <summary>
     /// 
@@ -17,10 +17,10 @@ namespace Skylark.Standard.Extension.Compression
         /// </summary>
         /// <param name="Data"></param>
         /// <param name="Type"></param>
-        /// <param name="Level"></param>
+        /// <param name="Mode"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static SSDDS Decompress(byte[] Data, SEDT Type = SSMDDM.Type, CompressionLevel Level = SSMDDM.Level)
+        public static SSDDS Decompress(byte[] Data, SEDT Type = SSMDDM.Type, CompressionMode Mode = SSMDDM.Mode)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace Skylark.Standard.Extension.Compression
                 {
                     if (Type == SEDT.GZip)
                     {
-                        using GZipStream GStream = new(MStream, CompressionMode.Decompress);
+                        using GZipStream GStream = new(MStream, Mode);
                         using StreamReader Reader = new(GStream);
 
                         Result.DecompressedData = Reader.ReadToEnd();
@@ -40,7 +40,7 @@ namespace Skylark.Standard.Extension.Compression
 #if NETSTANDARD2_1
                     else if (Type == SEDT.Brotli)
                     {
-                        using BrotliStream BStream = new(MStream, CompressionMode.Decompress);
+                        using BrotliStream BStream = new(MStream, Mode);
                         using StreamReader Reader = new(BStream);
 
                         Result.DecompressedData = Reader.ReadToEnd();
@@ -48,7 +48,7 @@ namespace Skylark.Standard.Extension.Compression
 #endif
                     else
                     {
-                        using DeflateStream DStream = new(MStream, CompressionMode.Decompress);
+                        using DeflateStream DStream = new(MStream, Mode);
                         using StreamReader Reader = new(DStream);
 
                         Result.DecompressedData = Reader.ReadToEnd();
@@ -74,11 +74,11 @@ namespace Skylark.Standard.Extension.Compression
         /// </summary>
         /// <param name="Data"></param>
         /// <param name="Type"></param>
-        /// <param name="Level"></param>
+        /// <param name="Mode"></param>
         /// <returns></returns>
-        public static async Task<SSDDS> DecompressAsync(byte[] Data, SEDT Type = SSMDDM.Type, CompressionLevel Level = SSMDDM.Level)
+        public static async Task<SSDDS> DecompressAsync(byte[] Data, SEDT Type = SSMDDM.Type, CompressionMode Mode = SSMDDM.Mode)
         {
-            return await Task.Run(() => Decompress(Data, Type, Level));
+            return await Task.Run(() => Decompress(Data, Type, Mode));
         }
     }
 }
