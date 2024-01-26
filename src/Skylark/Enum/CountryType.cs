@@ -110,7 +110,7 @@
         /// </summary>
         BT,
         /// <summary>
-        /// Bolivia, Plurinational State of
+        /// Plurinational State of Bolivia
         /// </summary>
         BO,
         /// <summary>
@@ -422,7 +422,7 @@
         /// </summary>
         ID,
         /// <summary>
-        /// Iran, Islamic Republic of
+        /// Islamic Republic of Iran
         /// </summary>
         IR,
         /// <summary>
@@ -474,11 +474,11 @@
         /// </summary>
         KI,
         /// <summary>
-        /// Korea, Democratic People's Republic of
+        /// Democratic People's Republic of Korea
         /// </summary>
         KP,
         /// <summary>
-        /// Korea, Republic of
+        /// Republic of Korea
         /// </summary>
         KR,
         /// <summary>
@@ -534,7 +534,7 @@
         /// </summary>
         MO,
         /// <summary>
-        /// Macedonia, the Former Yugoslav Republic of
+        /// The Former Yugoslav Republic of Macedonia
         /// </summary>
         MK,
         /// <summary>
@@ -586,11 +586,11 @@
         /// </summary>
         MX,
         /// <summary>
-        /// Micronesia, Federated States of
+        /// Federated States of Micronesia
         /// </summary>
         FM,
         /// <summary>
-        /// Moldova, Republic of
+        /// Republic of Moldova
         /// </summary>
         MD,
         /// <summary>
@@ -886,7 +886,7 @@
         /// </summary>
         TJ,
         /// <summary>
-        /// Tanzania, United Republic of
+        /// United Republic of Tanzania
         /// </summary>
         TZ,
         /// <summary>
@@ -970,7 +970,7 @@
         /// </summary>
         VU,
         /// <summary>
-        /// Venezuela, Bolivarian Republic of
+        /// Bolivarian Republic of Venezuela
         /// </summary>
         VE,
         /// <summary>
@@ -1125,7 +1125,7 @@
         /// </summary>
         BN,
         /// <summary>
-        /// Bolivia, Plurinational State of
+        /// Plurinational State of Bolivia
         /// </summary>
         BO,
         /// <summary>
@@ -1301,7 +1301,7 @@
         /// </summary>
         FK,
         /// <summary>
-        /// Micronesia, Federated States of
+        /// Federated States of Micronesia
         /// </summary>
         FM,
         /// <summary>
@@ -1441,7 +1441,7 @@
         /// </summary>
         IQ,
         /// <summary>
-        /// Iran, Islamic Republic of
+        /// Islamic Republic of Iran
         /// </summary>
         IR,
         /// <summary>
@@ -1493,11 +1493,11 @@
         /// </summary>
         KN,
         /// <summary>
-        /// Korea, Democratic People's Republic of
+        /// Democratic People's Republic of Korea
         /// </summary>
         KP,
         /// <summary>
-        /// Korea, Republic of
+        /// Republic of Korea
         /// </summary>
         KR,
         /// <summary>
@@ -1565,7 +1565,7 @@
         /// </summary>
         MC,
         /// <summary>
-        /// Moldova, Republic of
+        /// Republic of Moldova
         /// </summary>
         MD,
         /// <summary>
@@ -1585,7 +1585,7 @@
         /// </summary>
         MH,
         /// <summary>
-        /// Macedonia, the Former Yugoslav Republic of
+        /// The Former Yugoslav Republic of Macedonia
         /// </summary>
         MK,
         /// <summary>
@@ -1925,7 +1925,7 @@
         /// </summary>
         TW,
         /// <summary>
-        /// Tanzania, United Republic of
+        /// United Republic of Tanzania
         /// </summary>
         TZ,
         /// <summary>
@@ -1961,7 +1961,7 @@
         /// </summary>
         VC,
         /// <summary>
-        /// Venezuela, Bolivarian Republic of
+        /// Bolivarian Republic of Venezuela
         /// </summary>
         VE,
         /// <summary>
