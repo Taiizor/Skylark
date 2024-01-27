@@ -48,6 +48,53 @@
     }
 
     /// <summary>
+    /// Long data storage type enum
+    /// </summary>
+    public enum LongStorageType
+    {
+        /// <summary>
+        /// Bits
+        /// </summary>
+        Bits,
+        /// <summary>
+        /// Bytes
+        /// </summary>
+        Bytes,
+        /// <summary>
+        /// Kilobytes
+        /// </summary>
+        Kilobytes,
+        /// <summary>
+        /// Megabytes
+        /// </summary>
+        Megabytes,
+        /// <summary>
+        /// Gigabytes
+        /// </summary>
+        Gigabytes,
+        /// <summary>
+        /// Terabytes
+        /// </summary>
+        Terabytes,
+        /// <summary>
+        /// Petabytes
+        /// </summary>
+        Petabytes,
+        /// <summary>
+        /// Exabytes
+        /// </summary>
+        Exabytes,
+        /// <summary>
+        /// Zetabytes
+        /// </summary>
+        Zetabytes,
+        /// <summary>
+        /// Yottabytes
+        /// </summary>
+        Yottabytes
+    }
+
+    /// <summary>
     /// Mode data storage type enum
     /// </summary>
     public enum ModeStorageType

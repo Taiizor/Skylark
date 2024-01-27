@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using ELST = Skylark.Enum.LongStorageType;
 using ESST = Skylark.Enum.ShortStorageType;
 using EST = Skylark.Enum.StorageType;
 
@@ -22,6 +23,14 @@ namespace Skylark.Struct.Storage
         /// 
         /// </summary>
         public ESST Short;
+        /// <summary>
+        /// 
+        /// </summary>
+        public ELST Long;
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool More;
         /// <summary>
         /// 
         /// </summary>

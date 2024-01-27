@@ -8,7 +8,9 @@ using ECUT = Skylark.Enum.CurrencyType;
 using ECWT = Skylark.Enum.CompressWebType;
 using EDT = Skylark.Enum.DecompressionType;
 using EHWT = Skylark.Enum.HttpWebType;
+using ELST = Skylark.Enum.LongStorageType;
 using ELT = Skylark.Enum.LanguageType;
+using ELTT = Skylark.Enum.LongTimeType;
 using EMST = Skylark.Enum.ModeStorageType;
 using EOST = Skylark.Enum.OperatingSystemType;
 using EQDT = Skylark.Enum.QueryDomainType;
@@ -323,9 +325,47 @@ namespace Skylark.Helper
         /// <param name="Type"></param>
         /// <param name="Back"></param>
         /// <returns></returns>
+        public static ELST Convert(string Type, ELST Back = ELST.Bytes)
+        {
+            foreach (ELST Types in (ELST[])System.Enum.GetValues(typeof(ELST)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
         public static ESTT Convert(string Type, ESTT Back = ESTT.aѕ)
         {
-            foreach (ESTT Types in (ESST[])System.Enum.GetValues(typeof(ESTT)))
+            foreach (ESTT Types in (ESTT[])System.Enum.GetValues(typeof(ESTT)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static ELTT Convert(string Type, ELTT Back = ELTT.Attoseconds)
+        {
+            foreach (ELTT Types in (ELTT[])System.Enum.GetValues(typeof(ELTT)))
             {
                 if (Check(Type, Types))
                 {

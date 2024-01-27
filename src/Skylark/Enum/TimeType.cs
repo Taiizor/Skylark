@@ -76,6 +76,81 @@
     }
 
     /// <summary>
+    /// Long time type enum
+    /// </summary>
+    public enum LongTimeType
+    {
+        /// <summary>
+        /// Attoseconds
+        /// </summary>
+        Attoseconds,
+        /// <summary>
+        /// Femtosecond
+        /// </summary>
+        Femtoseconds,
+        /// <summary>
+        /// Picoseconds
+        /// </summary>
+        Picoseconds,
+        /// <summary>
+        /// Nanoseconds
+        /// </summary>
+        Nanoseconds,
+        /// <summary>
+        /// Microseconds
+        /// </summary>
+        Microseconds,
+        /// <summary>
+        /// Milliseconds
+        /// </summary>
+        Milliseconds,
+        ///// <summary>
+        ///// Centiseconds
+        ///// </summary>
+        //Centiseconds,
+        //// <summary>
+        //// Deciseconds
+        //// </summary>
+        //Deciseconds,
+        /// <summary>
+        /// Seconds
+        /// </summary>
+        Seconds,
+        /// <summary>
+        /// Minutes
+        /// </summary>
+        Minutes,
+        /// <summary>
+        /// Hours
+        /// </summary>
+        Hours,
+        /// <summary>
+        /// Days
+        /// </summary>
+        Days,
+        /// <summary>
+        /// Weeks
+        /// </summary>
+        Weeks,
+        /// <summary>
+        /// Years
+        /// </summary>
+        Years,
+        /// <summary>
+        /// Decades
+        /// </summary>
+        Decades,
+        /// <summary>
+        /// Centurys
+        /// </summary>
+        Centurys,
+        /// <summary>
+        /// Millenniums
+        /// </summary>
+        Millenniums
+    }
+
+    /// <summary>
     /// Short time type enum
     /// </summary>
     public enum ShortTimeType
