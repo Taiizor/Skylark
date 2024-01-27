@@ -182,11 +182,11 @@ namespace Skylark.Standard.Extension.Storage
             }
 
             Result.Type = Active;
-            Result.More = Value > 1;
             Result.Text = $"{Active}";
             Result.Long = (SELST)Active;
             Result.Short = (SESST)Active;
             Result.Value = Convert(Value, Input, Active, Mode);
+            Result.More = SHN.Numeral(Result.Value, false, false, 0, Clear: SECNT.Decimal) != "1";
 
             return Result;
         }
