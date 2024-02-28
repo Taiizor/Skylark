@@ -15,7 +15,7 @@ namespace Skylark.UI
         {
             Culture.All = new CultureInfo("en-GB");
             Application.EnableVisualStyles();
-#if NETCOREAPP3_1 || NET6_0 || NET7_0
+#if NET6_0 || NET7_0 || NET8_0 || NET9_0
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
 #endif
             Application.SetCompatibleTextRenderingDefault(false);

@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows</TargetFrameworks>
+    <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows</TargetFrameworks>
     <OutputType>WinExe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
@@ -15,8 +15,8 @@
     <StartupObject>Skylark.UI.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Skylark" Version="3.1.3.3" />
-    <PackageReference Include="Skylark.Standard" Version="3.1.4.5" />
-    <PackageReference Include="Skylark.Clipboard" Version="3.1.2.6" />
+    <PackageReference Include="Skylark" Version="3.1.3.4" />
+    <PackageReference Include="Skylark.Standard" Version="3.1.4.7" />
+    <PackageReference Include="Skylark.Clipboard" Version="3.1.2.7" />
   </ItemGroup>
 </Project>
