@@ -9,6 +9,7 @@ using SWHFI = Skylark.Wing.Helper.FormInterop;
 using SWHPI = Skylark.Wing.Helper.ProcessInterop;
 using SWHWAPI = Skylark.Wing.Helper.WinAPI;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Skylark.Wing.Helper
 {
@@ -111,21 +112,9 @@ namespace Skylark.Wing.Helper
                         return true;
                     }), IntPtr.Zero);
 
-                    // Some Windows 11 builds have a different Progman window layout.
-                    // If the above code failed to find WorkerW, we should try this.
-                    // Spy++ output
-                    // 0x000100EC "Program Manager" Progman
-                    //   0x000100EE "" SHELLDLL_DefView
-                    //     0x000100F0 "FolderView" SysListView32
-                    //   0x00100B8A "" WorkerW       <-- This is the WorkerW instance we are after!
                     if (WorkerW == IntPtr.Zero)
                     {
-                        WorkerW = SWHWAPI.FindWindowEx(Progman, IntPtr.Zero, "WorkerW", IntPtr.Zero);
-                    }
-
-                    if (WorkerW == IntPtr.Zero)
-                    {
-                        Thread.Sleep(1000);
+                        Thread.Sleep(250);
                     }
                     else
                     {
@@ -133,20 +122,63 @@ namespace Skylark.Wing.Helper
                     }
                 }
 
+                // Some Windows 11 builds have a different Progman window layout.
+                // If the above code failed to find WorkerW, we should try this.
+                // Spy++ output
+                // 0x000100EC "Program Manager" Progman
+                //   0x000100EE "" SHELLDLL_DefView
+                //     0x000100F0 "FolderView" SysListView32
+                //   0x00100B8A "" WorkerW       <-- This is the WorkerW instance we are after!
+                if (WorkerW == IntPtr.Zero)
+                {
+                    WorkerW = SWHWAPI.FindWindowEx(Progman, IntPtr.Zero, "WorkerW", IntPtr.Zero);
+                }
+
                 if (WorkerW == IntPtr.Zero)
                 {
                     return false;
                 }
 
-                SWHWAPI.ShowWindow(WorkerW, 0); /*HIDE*/
-                SWHWAPI.SetParent(Handle, Progman);
-
-                return true;
+                return SetParent(Handle, Progman, WorkerW);
             }
             catch (SE Ex)
             {
                 throw new SE(Ex.Message, Ex);
             }
+        }
+
+        private static bool SetParent(IntPtr Handle, IntPtr Progman, IntPtr WorkerW)
+        {
+            //Win7
+            if (Environment.OSVersion.Version.Major == 6 && Environment.OSVersion.Version.Minor == 1)
+            {
+                if (!WorkerW.Equals(Progman)) //this should fix the win7 wallpaper disappearing issue.
+                {
+                    SWNM.ShowWindow(WorkerW, (uint)0);
+                }
+
+                IntPtr ret = SWNM.SetParent(Handle, Progman);
+                if (ret.Equals(IntPtr.Zero))
+                {
+                    return false;
+                }
+
+                WorkerW = Progman;
+            }
+            else
+            {
+                IntPtr ret = SWNM.SetParent(Handle, WorkerW);
+
+                if (ret.Equals(IntPtr.Zero))
+                {
+                    return false;
+                }
+            }
+
+            //SWHWAPI.ShowWindow(WorkerW, 0); /*HIDE*/
+            //SWHWAPI.SetParent(Handle, Progman);
+
+            return true;
         }
     }
 }
