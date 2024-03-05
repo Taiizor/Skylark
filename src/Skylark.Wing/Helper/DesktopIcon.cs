@@ -106,7 +106,7 @@ namespace Skylark.Wing.Helper
 
                         if (IntPtr != IntPtr.Zero)
                         {
-                            WorkerW = SWHWAPI.FindWindowEx(IntPtr.Zero, TopHandle, "WorkerW", IntPtr.Zero);
+                            //WorkerW = SWHWAPI.FindWindowEx(IntPtr.Zero, TopHandle, "WorkerW", IntPtr.Zero);
                         }
 
                         return true;
@@ -152,13 +152,13 @@ namespace Skylark.Wing.Helper
             //Win7
             if (Environment.OSVersion.Version.Major == 6 && Environment.OSVersion.Version.Minor == 1)
             {
-                if (!WorkerW.Equals(Progman)) //this should fix the win7 wallpaper disappearing issue.
+                if (!WorkerW.Equals(Progman))
                 {
-                    SWNM.ShowWindow(WorkerW, (uint)0);
+                    SWNM.ShowWindow(WorkerW, 0);
                 }
 
-                IntPtr ret = SWNM.SetParent(Handle, Progman);
-                if (ret.Equals(IntPtr.Zero))
+                IntPtr Return = SWNM.SetParent(Handle, Progman);
+                if (Return.Equals(IntPtr.Zero))
                 {
                     return false;
                 }
@@ -167,9 +167,9 @@ namespace Skylark.Wing.Helper
             }
             else
             {
-                IntPtr ret = SWNM.SetParent(Handle, WorkerW);
+                IntPtr Return = SWNM.SetParent(Handle, WorkerW);
 
-                if (ret.Equals(IntPtr.Zero))
+                if (Return.Equals(IntPtr.Zero))
                 {
                     return false;
                 }

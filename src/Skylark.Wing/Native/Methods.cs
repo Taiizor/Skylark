@@ -1890,6 +1890,7 @@ namespace Skylark.Wing.Native
 
         // size of a device name string
         public const int CCHDEVICENAME = 32;
+
         /// <summary>
         /// The MONITORINFOEX structure contains information about a display monitor.
         /// The GetMonitorInfo function stores information into a MONITORINFOEX structure or a MONITORINFO structure.
@@ -1940,6 +1941,7 @@ namespace Skylark.Wing.Native
                 this.DeviceName = string.Empty;
             }
         }
+
         /// <summary>
         /// The RECT structure defines the coordinates of the upper-left and lower-right corners of a rectangle.
         /// </summary>
