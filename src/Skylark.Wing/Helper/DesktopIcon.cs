@@ -96,7 +96,7 @@ namespace Skylark.Wing.Helper
                     if (Count % 2 == 0)
                     {
                         IntPtr Result = IntPtr.Zero;
-                        SWHWAPI.SendMessageTimeout(Progman, 0x052C, new IntPtr(0), IntPtr.Zero, SETFT.SMTO_NORMAL, 10000, out Result);
+                        SWHWAPI.SendMessageTimeout(Progman, 0x052C, new IntPtr(0xD), new IntPtr(0x1), SETFT.SMTO_NORMAL, 10000, out Result);
                     }
 
                     SWHWAPI.EnumWindows(new SWHWAPI.EnumWindowsProc((TopHandle, TopParamHandle) =>
@@ -111,6 +111,17 @@ namespace Skylark.Wing.Helper
                         return true;
                     }), IntPtr.Zero);
 
+                    // Some Windows 11 builds have a different Progman window layout.
+                    // If the above code failed to find WorkerW, we should try this.
+                    // Spy++ output
+                    // 0x000100EC "Program Manager" Progman
+                    //   0x000100EE "" SHELLDLL_DefView
+                    //     0x000100F0 "FolderView" SysListView32
+                    //   0x00100B8A "" WorkerW       <-- This is the WorkerW instance we are after!
+                    if (WorkerW == IntPtr.Zero)
+                    {
+                        WorkerW = SWHWAPI.FindWindowEx(Progman, IntPtr.Zero, "WorkerW", IntPtr.Zero);
+                    }
 
                     if (WorkerW == IntPtr.Zero)
                     {
