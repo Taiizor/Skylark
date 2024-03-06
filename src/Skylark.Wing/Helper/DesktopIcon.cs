@@ -106,7 +106,7 @@ namespace Skylark.Wing.Helper
 
                         if (IntPtr != IntPtr.Zero)
                         {
-                            //WorkerW = SWHWAPI.FindWindowEx(IntPtr.Zero, TopHandle, "WorkerW", IntPtr.Zero);
+                            WorkerW = SWHWAPI.FindWindowEx(IntPtr.Zero, TopHandle, "WorkerW", IntPtr.Zero);
                         }
 
                         return true;
@@ -158,6 +158,7 @@ namespace Skylark.Wing.Helper
                 }
 
                 IntPtr Return = SWNM.SetParent(Handle, Progman);
+
                 if (Return.Equals(IntPtr.Zero))
                 {
                     return false;
