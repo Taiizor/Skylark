@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Management;
-using System.Runtime.InteropServices;
 using System.Text;
 using SE = Skylark.Exception;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Skylark.Wing.Helper
 {
@@ -159,22 +159,55 @@ namespace Skylark.Wing.Helper
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="TotalMemoryInKilobytes"></param>
-        /// <returns></returns>
-        [DllImport("kernel32.dll")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool GetPhysicallyInstalledSystemMemory(out long TotalMemoryInKilobytes);
-
-        /// <summary>
         /// Total installed memory in Megabyte
         /// </summary>
         /// <returns></returns>
         public static long GetTotalInstalledMemory()
         {
-            GetPhysicallyInstalledSystemMemory(out long memKb);
+            SWNM.GetPhysicallyInstalledSystemMemory(out long memKb);
+
             return memKb / 1024;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static SWNM.SYSTEM_INFO GetSystemInfo()
+        {
+            SWNM.SYSTEM_INFO SystemInfo = new();
+
+            SWNM.GetNativeSystemInfo(ref SystemInfo);
+
+            return SystemInfo;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static string GetSystemInfoArchitecture()
+        {
+            SWNM.SYSTEM_INFO SystemInfo = GetSystemInfo();
+
+            return SystemInfo.processorArchitecture switch
+            {
+                0 => "x86",
+                5 => "ARM",
+                6 => "IA64",
+                7 => "Alpha",
+                9 => "x64",
+                10 => "PPC",
+                12 => "ARM64",
+                13 => "SHX",
+                14 => "IA32_ON_WIN64",
+                15 => "AMD64_ON_WIN64",
+                16 => "WOW64",
+                17 => "IA64_ON_WIN64",
+                18 => "WOW64_IA64",
+                19 => "WOW64_ARM64",
+                _ => "Unknown",
+            };
         }
     }
 }

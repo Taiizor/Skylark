@@ -93,8 +93,7 @@ namespace Skylark.Wing.Native
         public const int DWMWA_USE_IMMERSIVE_DARK_MODE = 20;
 
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-        public static extern IntPtr LoadImage(IntPtr hinst, string lpszName, uint uType,
-            int cxDesired, int cyDesired, uint fuLoad);
+        public static extern IntPtr LoadImage(IntPtr hinst, string lpszName, uint uType, int cxDesired, int cyDesired, uint fuLoad);
 
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         public static extern int MessageBox(IntPtr hWnd, string text, string caption, uint type);
@@ -323,6 +322,22 @@ namespace Skylark.Wing.Native
 
         [DllImport("user32.dll")]
         public static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct SYSTEM_INFO
+        {
+            public ushort processorArchitecture;
+            ushort reserved;
+            public uint pageSize;
+            public IntPtr minimumApplicationAddress;
+            public IntPtr maximumApplicationAddress;
+            public IntPtr activeProcessorMask;
+            public uint numberOfProcessors;
+            public uint processorType;
+            public uint allocationGranularity;
+            public ushort processorLevel;
+            public ushort processorRevision;
+        }
 
         [StructLayout(LayoutKind.Sequential)]
         public struct LASTINPUTINFO
@@ -1344,6 +1359,13 @@ namespace Skylark.Wing.Native
 
         #endregion
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="lpSystemInfo"></param>
+        [DllImport("kernel32.dll")]
+        public static extern void GetNativeSystemInfo(ref SYSTEM_INFO lpSystemInfo);
+
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         public static extern int GetClassName(IntPtr hWnd, StringBuilder lpClassName, int nMaxCount);
 
@@ -1359,6 +1381,10 @@ namespace Skylark.Wing.Native
 
         [DllImport("kernel32.dll")]
         public static extern bool SetProcessWorkingSetSize(IntPtr hProcess, int dwMinimumWorkingSetSize, int dwMaximumWorkingSetSize);
+
+        [DllImport("kernel32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GetPhysicallyInstalledSystemMemory(out long TotalMemoryInKilobytes);
 
         #region Window_Style
         [DllImport("user32.dll")]

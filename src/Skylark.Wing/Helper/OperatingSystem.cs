@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using SEOST = Skylark.Enum.OperatingSystemType;
 
 namespace Skylark.Wing.Helper
@@ -83,6 +84,24 @@ namespace Skylark.Wing.Helper
         public static Version GetVersion()
         {
             return Environment.OSVersion.Version;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static string GetProcessorArchitecture()
+        {
+            return $"{Environment.GetEnvironmentVariable("PROCESSOR_ARCHITECTURE")}";
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Architecture GetProcessArchitecture()
+        {
+            return RuntimeInformation.ProcessArchitecture;
         }
 
         /// <summary>
