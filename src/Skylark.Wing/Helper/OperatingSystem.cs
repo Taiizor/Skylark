@@ -12,9 +12,27 @@ namespace Skylark.Wing.Helper
         /// 
         /// </summary>
         /// <returns></returns>
+        public static bool Is32Bit()
+        {
+            return !Is64Bit();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static bool Is64Bit()
+        {
+            return Environment.Is64BitOperatingSystem;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static SEOST GetSystem()
         {
-            Version WindowsVersion = Environment.OSVersion.Version;
+            Version WindowsVersion = GetVersion();
 
             if (IsInRange(WindowsVersion, "10.0.22000.0", "10.0.30000.0"))
             {
@@ -56,6 +74,15 @@ namespace Skylark.Wing.Helper
             {
                 return SEOST.Unknown;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Version GetVersion()
+        {
+            return Environment.OSVersion.Version;
         }
 
         /// <summary>
