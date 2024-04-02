@@ -2,6 +2,8 @@
 using SEMST = Skylark.Enum.MouseScreenType;
 using SSMMEHS = Skylark.Struct.Mouse.MouseExtraHookStruct;
 using SSMMPS = Skylark.Struct.Mouse.MousePointStruct;
+using SWHDM = Skylark.Wing.Helper.DisplayManager;
+using SWIIDM = Skylark.Wing.Interface.IDisplayManager;
 using SWMI = Skylark.Wing.Manage.Internal;
 
 namespace Skylark.Wing.Helper
@@ -11,6 +13,37 @@ namespace Skylark.Wing.Helper
     /// </summary>
     public static class Calculate
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="X"></param>
+        /// <param name="Y"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static Point MousePosition(int X, int Y, SEMST Type)
+        {
+            if (SWMI.DisplayManager.IsMultiScreen())
+            {
+                switch (Type)
+                {
+                    case SEMST.SpanAcross:
+                        Rectangle ScreenArea = SWMI.DisplayManager.VirtualScreenBounds;
+
+                        X -= ScreenArea.Location.X;
+                        Y -= ScreenArea.Location.Y;
+                        break;
+                    default: //PerDisplay or SameDuplicate mode.
+                        DisplayMonitor DisplayMonitor = SWMI.DisplayManager.GetDisplayMonitorFromPoint(new Point(X, Y));
+
+                        X += -1 * DisplayMonitor.Bounds.X;
+                        Y += -1 * DisplayMonitor.Bounds.Y;
+                        break;
+                }
+            }
+
+            return new(X, Y);
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -43,6 +76,70 @@ namespace Skylark.Wing.Helper
                 X = Mouse.Point.X,
                 Y = Mouse.Point.Y
             };
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="X"></param>
+        /// <param name="Y"></param>
+        /// <param name="Display"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static Point MousePosition(int X, int Y, SWHDM Display, SEMST Type)
+        {
+            if (Display.IsMultiScreen())
+            {
+                switch (Type)
+                {
+                    case SEMST.SpanAcross:
+                        Rectangle ScreenArea = Display.VirtualScreenBounds;
+
+                        X -= ScreenArea.Location.X;
+                        Y -= ScreenArea.Location.Y;
+                        break;
+                    default: //PerDisplay or SameDuplicate mode.
+                        DisplayMonitor DisplayMonitor = Display.GetDisplayMonitorFromPoint(new Point(X, Y));
+
+                        X += -1 * DisplayMonitor.Bounds.X;
+                        Y += -1 * DisplayMonitor.Bounds.Y;
+                        break;
+                }
+            }
+
+            return new(X, Y);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="X"></param>
+        /// <param name="Y"></param>
+        /// <param name="Display"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static Point MousePosition(int X, int Y, SWIIDM Display, SEMST Type)
+        {
+            if (Display.IsMultiScreen())
+            {
+                switch (Type)
+                {
+                    case SEMST.SpanAcross:
+                        Rectangle ScreenArea = Display.VirtualScreenBounds;
+
+                        X -= ScreenArea.Location.X;
+                        Y -= ScreenArea.Location.Y;
+                        break;
+                    default: //PerDisplay or SameDuplicate mode.
+                        DisplayMonitor DisplayMonitor = Display.GetDisplayMonitorFromPoint(new Point(X, Y));
+
+                        X += -1 * DisplayMonitor.Bounds.X;
+                        Y += -1 * DisplayMonitor.Bounds.Y;
+                        break;
+                }
+            }
+
+            return new(X, Y);
         }
     }
 }
