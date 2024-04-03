@@ -392,6 +392,19 @@ namespace Skylark.Wing.Native
         [DllImport("User32.dll", EntryPoint = "PostMessageW", CallingConvention = CallingConvention.Winapi, CharSet = CharSet.Unicode)]
         public extern static IntPtr PostMessageW(IntPtr hWnd, int Msg, IntPtr wParam, UIntPtr lParam);
 
+        [Flags]
+        public enum WinMsgMouseKey : int
+        {
+            MK_NONE = 0x0000,
+            MK_LBUTTON = 0x0001,
+            MK_RBUTTON = 0x0002,
+            MK_SHIFT = 0x0004,
+            MK_CONTROL = 0x0008,
+            MK_MBUTTON = 0x0010,
+            MK_XBUTTON1 = 0x0020,
+            MK_XBUTTON2 = 0x0040
+        }
+
         /// <summary>
         /// Windows Messages
         /// Defined in winuser.h from Windows SDK v6.1
