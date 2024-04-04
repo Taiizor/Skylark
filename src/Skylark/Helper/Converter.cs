@@ -8,6 +8,7 @@ using ECUT = Skylark.Enum.CurrencyType;
 using ECWT = Skylark.Enum.CompressWebType;
 using EDT = Skylark.Enum.DecompressionType;
 using EHWT = Skylark.Enum.HttpWebType;
+using EHIT = Skylark.Enum.InputType;
 using ELST = Skylark.Enum.LongStorageType;
 using ELT = Skylark.Enum.LanguageType;
 using ELTT = Skylark.Enum.LongTimeType;
@@ -138,6 +139,25 @@ namespace Skylark.Helper
         public static EOST Convert(string Type, EOST Back = EOST.Unknown)
         {
             foreach (EOST Types in (EOST[])System.Enum.GetValues(typeof(EOST)))
+            {
+                if (Check(Type, Types))
+                {
+                    return Types;
+                }
+            }
+
+            return Back;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Back"></param>
+        /// <returns></returns>
+        public static EHIT Convert(string Type, EHIT Back = EHIT.Close)
+        {
+            foreach (EHIT Types in (EHIT[])System.Enum.GetValues(typeof(EHIT)))
             {
                 if (Check(Type, Types))
                 {
