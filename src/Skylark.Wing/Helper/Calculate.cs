@@ -1,5 +1,5 @@
 ﻿using System.Drawing;
-using SEMST = Skylark.Enum.MouseScreenType;
+using SEDST = Skylark.Enum.DisplayScreenType;
 using SSMMEHS = Skylark.Struct.Mouse.MouseExtraHookStruct;
 using SSMMPS = Skylark.Struct.Mouse.MousePointStruct;
 using SWHDM = Skylark.Wing.Helper.DisplayManager;
@@ -20,13 +20,13 @@ namespace Skylark.Wing.Helper
         /// <param name="Y"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static Point MousePosition(int X, int Y, SEMST Type)
+        public static Point MousePosition(int X, int Y, SEDST Type)
         {
             if (SWMI.DisplayManager.IsMultiScreen())
             {
                 switch (Type)
                 {
-                    case SEMST.SpanAcross:
+                    case SEDST.SpanAcross:
                         Rectangle ScreenArea = SWMI.DisplayManager.VirtualScreenBounds;
 
                         X -= ScreenArea.Location.X;
@@ -50,13 +50,13 @@ namespace Skylark.Wing.Helper
         /// <param name="Mouse"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static SSMMPS MousePosition(SSMMEHS Mouse, SEMST Type)
+        public static SSMMPS MousePosition(SSMMEHS Mouse, SEDST Type)
         {
             if (SWMI.DisplayManager.IsMultiScreen())
             {
                 switch (Type)
                 {
-                    case SEMST.SpanAcross:
+                    case SEDST.SpanAcross:
                         Rectangle ScreenArea = SWMI.DisplayManager.VirtualScreenBounds;
 
                         Mouse.Point.X -= ScreenArea.Location.X;
@@ -86,13 +86,13 @@ namespace Skylark.Wing.Helper
         /// <param name="Display"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static Point MousePosition(int X, int Y, SWHDM Display, SEMST Type)
+        public static Point MousePosition(int X, int Y, SWHDM Display, SEDST Type)
         {
             if (Display.IsMultiScreen())
             {
                 switch (Type)
                 {
-                    case SEMST.SpanAcross:
+                    case SEDST.SpanAcross:
                         Rectangle ScreenArea = Display.VirtualScreenBounds;
 
                         X -= ScreenArea.Location.X;
@@ -118,13 +118,13 @@ namespace Skylark.Wing.Helper
         /// <param name="Display"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static Point MousePosition(int X, int Y, SWIIDM Display, SEMST Type)
+        public static Point MousePosition(int X, int Y, SWIIDM Display, SEDST Type)
         {
             if (Display.IsMultiScreen())
             {
                 switch (Type)
                 {
-                    case SEMST.SpanAcross:
+                    case SEDST.SpanAcross:
                         Rectangle ScreenArea = Display.VirtualScreenBounds;
 
                         X -= ScreenArea.Location.X;

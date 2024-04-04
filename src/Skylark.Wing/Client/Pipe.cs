@@ -14,12 +14,13 @@ namespace Skylark.Wing.Client
         /// <param name="Server"></param>
         /// <param name="Pipe"></param>
         /// <param name="Message"></param>
+        /// <param name="Timeout"></param>
         /// <param name="Direction"></param>
-        public static void SendMessage(string Server, string Pipe, string Message, PipeDirection Direction)
+        public static void SendMessage(string Server, string Pipe, string Message, int Timeout, PipeDirection Direction)
         {
             using NamedPipeClientStream Client = new(Server, Pipe, Direction);
 
-            Client.Connect(0);
+            Client.Connect(Timeout);
 
             StreamWriter Writer = new(Client)
             {
@@ -32,6 +33,29 @@ namespace Skylark.Wing.Client
             Writer.Close();
 
             Client.Dispose();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Server"></param>
+        /// <param name="Pipe"></param>
+        /// <param name="Timeout"></param>
+        /// <param name="Direction"></param>
+        /// <returns></returns>
+        public static string ReceiveMessage(string Server, string Pipe, int Timeout, PipeDirection Direction)
+        {
+            using NamedPipeClientStream Client = new(Server, Pipe, Direction);
+
+            Client.Connect(Timeout);
+
+            StreamReader Reader = new(Client);
+
+            string Message = Reader.ReadToEnd();
+
+            Reader.Close();
+
+            return Message;
         }
     }
 }

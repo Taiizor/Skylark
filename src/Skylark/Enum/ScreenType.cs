@@ -18,7 +18,18 @@
     /// <summary>
     /// 
     /// </summary>
-    public enum MouseScreenType
+    public enum ExpandScreenType
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        Default
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public enum DisplayScreenType
     {
         /// <summary>
         /// Per Display
@@ -29,20 +40,9 @@
         /// </summary>
         SpanAcross,
         /// <summary>
-        /// Same wp for all Display(s)
+        /// Same WP for All Display(s)
         /// </summary>
         SameDuplicate
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public enum ExpandScreenType
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        Default
     }
 
     /// <summary>
