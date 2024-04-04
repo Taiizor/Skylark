@@ -23,7 +23,11 @@
         /// <summary>
         /// 
         /// </summary>
-        Default
+        Default,
+        /// <summary>
+        /// 
+        /// </summary>
+        Advanced
     }
 
     /// <summary>
@@ -53,6 +57,10 @@
         /// <summary>
         /// 
         /// </summary>
-        Default
+        Default,
+        /// <summary>
+        /// 
+        /// </summary>
+        Advanced
     }
 }
