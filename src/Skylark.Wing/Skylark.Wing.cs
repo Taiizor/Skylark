@@ -21,8 +21,8 @@ using SWUS = Skylark.Wing.Utility.Screene;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 17.Jun.2023
-//     Changed: 04.Apr.2024
-//     Version: 3.1.4.2
+//     Changed: 05.Apr.2024
+//     Version: 3.1.4.3
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -164,6 +164,19 @@ namespace Skylark.Wing
 
             return IsFixed;
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Handle"></param>
+        /// <param name="Method"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        [Obsolete("This method is currently unavailable.")]
+        public static bool WallpaperHandle(IntPtr Handle, SEDST Method, SEST Type)
+        {
+            return false;
+        }
 
         /// <summary>
         /// 
@@ -210,6 +223,7 @@ namespace Skylark.Wing
         /// <param name="Method"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
+        [Obsolete("This method is currently unavailable.")]
         public static bool WallpaperWindow(Window Window, SEDST Method, SEST Type)
         {
             bool IsFixed = WallpaperWindow(Window, 0, Type);
@@ -280,6 +294,19 @@ namespace Skylark.Wing
             }
 
             return IsFixed;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Process"></param>
+        /// <param name="Method"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        [Obsolete("This method is currently unavailable.")]
+        public static bool WallpaperProcess(Process Process, SEDST Method, SEST Type)
+        {
+            return false;
         }
     }
 
