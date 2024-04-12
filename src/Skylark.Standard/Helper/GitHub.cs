@@ -44,7 +44,7 @@ namespace Skylark.Standard.Helper
         /// <summary>
         /// 
         /// </summary>
-        private const string Uri = "https://api.github.com";
+        private static string Uri = "https://api.github.com";
 
         /// <summary>
         /// 
@@ -60,6 +60,15 @@ namespace Skylark.Standard.Helper
         /// 
         /// </summary>
         private static readonly Dictionary<string, CachedData> Cache = new();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="BaseUri"></param>
+        public static void SetUri(string BaseUri)
+        {
+            Uri = BaseUri;
+        }
 
         /// <summary>
         /// 
