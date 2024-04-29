@@ -16,7 +16,7 @@ namespace Skylark.Wing.Helper
     /// <summary>
     /// 
     /// </summary>
-    public static class DesktopIcon
+    public static class DesktopCore
     {
         /// <summary>
         /// 
@@ -134,10 +134,10 @@ namespace Skylark.Wing.Helper
                     WorkerW = SWHWAPI.FindWindowEx(Progman, IntPtr.Zero, "WorkerW", IntPtr.Zero);
                 }
 
-                if (WorkerW == IntPtr.Zero)
-                {
-                    return false;
-                }
+                //if (WorkerW == IntPtr.Zero)
+                //{
+                //    return false;
+                //}
 
                 return SetParent(Handle, Progman, WorkerW);
             }
@@ -165,6 +165,13 @@ namespace Skylark.Wing.Helper
                 }
 
                 WorkerW = Progman;
+
+                Return = SWNM.SetParent(Handle, WorkerW);
+
+                if (Return.Equals(IntPtr.Zero))
+                {
+                    return false;
+                }
             }
             else
             {

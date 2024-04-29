@@ -10,7 +10,7 @@ using System.Windows.Media;
 using SEDST = Skylark.Enum.DuplicateScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
-using SWHDI = Skylark.Wing.Helper.DesktopIcon;
+using SWHDC = Skylark.Wing.Helper.DesktopCore;
 using SWHSM = Skylark.Wing.Helper.ScreenManage;
 using SWUS = Skylark.Wing.Utility.Screene;
 
@@ -21,8 +21,8 @@ using SWUS = Skylark.Wing.Utility.Screene;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 17.Jun.2023
-//     Changed: 12.Apr.2024
-//     Version: 3.1.4.3
+//     Changed: 29.Apr.2024
+//     Version: 3.1.4.5
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -46,7 +46,7 @@ namespace Skylark.Wing
         /// <returns></returns>
         public static bool WallpaperForm(Form Form, int Index, SEST Type)
         {
-            bool IsFixed = SWHDI.FixForm(Form);
+            bool IsFixed = SWHDC.FixForm(Form);
 
             if (IsFixed)
             {
@@ -65,7 +65,7 @@ namespace Skylark.Wing
         /// <returns></returns>
         public static bool WallpaperForm(Form Form, SEEST Method, SEST Type)
         {
-            bool IsFixed = SWHDI.FixForm(Form);
+            bool IsFixed = SWHDC.FixForm(Form);
 
             if (IsFixed)
             {
@@ -136,7 +136,7 @@ namespace Skylark.Wing
         /// <returns></returns>
         public static bool WallpaperHandle(IntPtr Handle, int Index, SEST Type)
         {
-            bool IsFixed = SWHDI.FixHandle(Handle);
+            bool IsFixed = SWHDC.FixHandle(Handle);
 
             if (IsFixed)
             {
@@ -155,7 +155,7 @@ namespace Skylark.Wing
         /// <returns></returns>
         public static bool WallpaperHandle(IntPtr Handle, SEEST Method, SEST Type)
         {
-            bool IsFixed = SWHDI.FixHandle(Handle);
+            bool IsFixed = SWHDC.FixHandle(Handle);
 
             if (IsFixed)
             {
@@ -164,7 +164,7 @@ namespace Skylark.Wing
 
             return IsFixed;
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -187,7 +187,7 @@ namespace Skylark.Wing
         /// <returns></returns>
         public static bool WallpaperWindow(Window Window, int Index, SEST Type)
         {
-            bool IsFixed = SWHDI.FixWindow(Window);
+            bool IsFixed = SWHDC.FixWindow(Window);
 
             if (IsFixed)
             {
@@ -206,7 +206,7 @@ namespace Skylark.Wing
         /// <returns></returns>
         public static bool WallpaperWindow(Window Window, SEEST Method, SEST Type)
         {
-            bool IsFixed = SWHDI.FixWindow(Window);
+            bool IsFixed = SWHDC.FixWindow(Window);
 
             if (IsFixed)
             {
@@ -267,7 +267,7 @@ namespace Skylark.Wing
         /// <returns></returns>
         public static bool WallpaperProcess(Process Process, int Index, SEST Type)
         {
-            bool IsFixed = SWHDI.FixProcess(Process);
+            bool IsFixed = SWHDC.FixProcess(Process);
 
             if (IsFixed)
             {
@@ -286,7 +286,7 @@ namespace Skylark.Wing
         /// <returns></returns>
         public static bool WallpaperProcess(Process Process, SEEST Method, SEST Type)
         {
-            bool IsFixed = SWHDI.FixProcess(Process);
+            bool IsFixed = SWHDC.FixProcess(Process);
 
             if (IsFixed)
             {
