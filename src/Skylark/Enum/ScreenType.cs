@@ -27,7 +27,7 @@
         /// <summary>
         /// 
         /// </summary>
-        Advanced
+        //Advanced
     }
 
     /// <summary>
@@ -61,6 +61,6 @@
         /// <summary>
         /// 
         /// </summary>
-        Advanced
+        //Advanced
     }
 }
