@@ -8,11 +8,65 @@
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Base"></param>
+        /// <returns></returns>
+        public static Guid BaseToGuid(string Base)
+        {
+            Base = Base.Replace("_", "/").Replace("-", "+");
+
+            switch (Base.Length % 4)
+            {
+                case 2:
+                    Base += "==";
+                    break;
+                case 3:
+                    Base += "=";
+                    break;
+            }
+
+            byte[] Bytes = Convert.FromBase64String(Base);
+
+            return ByteToGuid(Bytes);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Base"></param>
+        /// <returns></returns>
+        public static async Task<Guid> BaseToGuidAsync(string Base)
+        {
+            return await Task.Run(() => BaseToGuid(Base));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Byte"></param>
+        /// <returns></returns>
+        public static Guid ByteToGuid(byte[] Byte)
+        {
+            return new Guid(Byte);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Byte"></param>
+        /// <returns></returns>
+        public static async Task<Guid> ByteToGuidAsync(byte[] Byte)
+        {
+            return await Task.Run(() => ByteToGuid(Byte));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Guid"></param>
         /// <returns></returns>
         public static string GuidToBase(Guid Guid)
         {
-            byte[] Bytes = Guid.ToByteArray();
+            byte[] Bytes = GuidToByte(Guid);
 
             string Base64 = Convert.ToBase64String(Bytes);
 
@@ -32,35 +86,21 @@
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Base"></param>
+        /// <param name="Guid"></param>
         /// <returns></returns>
-        public static Guid BaseToGuid(string Base)
+        public static byte[] GuidToByte(Guid Guid)
         {
-            Base = Base.Replace("_", "/").Replace("-", "+");
-
-            switch (Base.Length % 4)
-            {
-                case 2:
-                    Base += "==";
-                    break;
-                case 3:
-                    Base += "=";
-                    break;
-            }
-
-            byte[] Bytes = Convert.FromBase64String(Base);
-
-            return new Guid(Bytes);
+            return Guid.ToByteArray();
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Base"></param>
+        /// <param name="Guid"></param>
         /// <returns></returns>
-        public static async Task<Guid> BaseToGuidAsync(string Base)
+        public static async Task<byte[]> GuidToByteAsync(Guid Guid)
         {
-            return await Task.Run(() => BaseToGuid(Base));
+            return await Task.Run(() => GuidToByte(Guid));
         }
 
         /// <summary>
