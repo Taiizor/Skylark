@@ -340,6 +340,176 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Byte"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
+        public static string ByteToMD5(byte[] Byte = SSMCCM.Byte, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant)
+        {
+            try
+            {
+                using MD5 MD5 = MD5.Create();
+
+                return SHF.Formatter(SSHCCH.GetBuild(MD5.ComputeHash(Byte)), Upper, Invariant);
+            }
+            catch (SE Ex)
+            {
+                throw new SE(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Byte"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
+        /// <returns></returns>
+        public static async Task<string> ByteToMD5Async(byte[] Byte = SSMCCM.Byte, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant)
+        {
+            return await Task.Run(() => ByteToMD5(Byte, Upper, Invariant));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Byte"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
+        public static string ByteToSHA1(byte[] Byte = SSMCCM.Byte, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant)
+        {
+            try
+            {
+                using SHA1 SHA1 = SHA1.Create();
+
+                return SHF.Formatter(SSHCCH.GetBuild(SHA1.ComputeHash(Byte)), Upper, Invariant);
+            }
+            catch (SE Ex)
+            {
+                throw new SE(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Byte"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
+        /// <returns></returns>
+        public static async Task<string> ByteToSHA1Async(byte[] Byte = SSMCCM.Byte, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant)
+        {
+            return await Task.Run(() => ByteToSHA1(Byte, Upper, Invariant));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Byte"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
+        public static string ByteToSHA256(byte[] Byte = SSMCCM.Byte, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant)
+        {
+            try
+            {
+                using SHA256 SHA256 = SHA256.Create();
+
+                return SHF.Formatter(SSHCCH.GetBuild(SHA256.ComputeHash(Byte)), Upper, Invariant);
+            }
+            catch (SE Ex)
+            {
+                throw new SE(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Byte"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
+        /// <returns></returns>
+        public static async Task<string> ByteToSHA256Async(byte[] Byte = SSMCCM.Byte, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant)
+        {
+            return await Task.Run(() => ByteToSHA256(Byte, Upper, Invariant));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Byte"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
+        public static string ByteToSHA384(byte[] Byte = SSMCCM.Byte, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant)
+        {
+            try
+            {
+                using SHA384 SHA384 = SHA384.Create();
+
+                return SHF.Formatter(SSHCCH.GetBuild(SHA384.ComputeHash(Byte)), Upper, Invariant);
+            }
+            catch (SE Ex)
+            {
+                throw new SE(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Byte"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
+        /// <returns></returns>
+        public static async Task<string> ByteToSHA384Async(byte[] Byte = SSMCCM.Byte, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant)
+        {
+            return await Task.Run(() => ByteToSHA384(Byte, Upper, Invariant));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Byte"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
+        public static string ByteToSHA512(byte[] Byte = SSMCCM.Byte, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant)
+        {
+            try
+            {
+                using SHA512 SHA512 = SHA512.Create();
+
+                return SHF.Formatter(SSHCCH.GetBuild(SHA512.ComputeHash(Byte)), Upper, Invariant);
+            }
+            catch (SE Ex)
+            {
+                throw new SE(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Byte"></param>
+        /// <param name="Upper"></param>
+        /// <param name="Invariant"></param>
+        /// <returns></returns>
+        public static async Task<string> ByteToSHA512Async(byte[] Byte = SSMCCM.Byte, bool Upper = SSMCCM.Upper, bool Invariant = SSMCCM.Invariant)
+        {
+            return await Task.Run(() => ByteToSHA512(Byte, Upper, Invariant));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Aes"></param>
         /// <param name="IV"></param>
         /// <param name="Key"></param>
