@@ -41,7 +41,6 @@ namespace Skylark.Standard.Manage.Cryptology
         /// </summary>
         public const CipherMode Cipher = CipherMode.CBC;
 
-
         /// <summary>
         /// 
         /// </summary>
