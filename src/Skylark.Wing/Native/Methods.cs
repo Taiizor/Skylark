@@ -12,6 +12,9 @@ namespace Skylark.Wing.Native
     /// </summary>
     public static class Methods
     {
+        [DllImport("kernel32.dll")]
+        public static extern ushort GetUserDefaultUILanguage();
+
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern bool QueryFullProcessImageName([In] IntPtr hProcess, [In] int dwFlags, [Out] StringBuilder lpExeName, ref int lpdwSize);
 
