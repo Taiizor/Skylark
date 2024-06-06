@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
+using System.Linq;
+using System.Management;
 using System.Runtime.InteropServices;
 using SEOST = Skylark.Enum.OperatingSystemType;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Skylark.Wing.Helper
 {
@@ -31,10 +35,82 @@ namespace Skylark.Wing.Helper
         /// 
         /// </summary>
         /// <returns></returns>
-        public static SEOST GetSystem()
+        public static int GetRevisionNumber()
         {
-            Version WindowsVersion = GetVersion();
+            RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
 
+            return Convert.ToInt32(registryKey.GetValue("UBR").ToString());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Version GetRTLVersion()
+        {
+            SWNM.OSVERSIONINFOEX versionInfo = new()
+            {
+                OSVersionInfoSize = Marshal.SizeOf<SWNM.OSVERSIONINFOEX>()
+            };
+
+            SWNM.RtlGetVersion(ref versionInfo);
+
+            return new Version(versionInfo.MajorVersion, versionInfo.MinorVersion, versionInfo.BuildNumber);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Version GetRTLRVersion()
+        {
+            Version versionInfo = GetRTLVersion();
+
+            return new Version(versionInfo.Major, versionInfo.Minor, versionInfo.Build, GetRevisionNumber());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Version GetRegistryVersion()
+        {
+            RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
+
+            return Version.Parse(registryKey.GetValue("LCUVer").ToString());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Version GetManagementVersion()
+        {
+            using ManagementObjectSearcher myOperativeSystemObject = new("SELECT * FROM Win32_OperatingSystem");
+
+            foreach (ManagementObject obj in myOperativeSystemObject.Get().Cast<ManagementObject>())
+            {
+                return Version.Parse(obj["Version"].ToString());
+            }
+
+            return new Version(0, 0, 0, 0);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Version GetEnvironmentVersion()
+        {
+            return Environment.OSVersion.Version;
+        }
+
+        /// <summary>
+        /// https://en.wikipedia.org/wiki/List_of_Microsoft_Windows_versions
+        /// </summary>
+        /// <returns></returns>
+        public static SEOST GetSystem(Version WindowsVersion)
+        {
             if (IsInRange(WindowsVersion, "10.0.22000.0", "10.0.30000.0"))
             {
                 return SEOST.Windows11;
@@ -63,11 +139,11 @@ namespace Skylark.Wing.Helper
             {
                 return SEOST.Windows8;
             }
-            else if (IsInRange(WindowsVersion, "6.1.7601.0", "6.2.0.0"))
+            else if (IsInRange(WindowsVersion, "6.1.7600.0", "6.2.0.0"))
             {
                 return SEOST.Windows7;
             }
-            else if (IsInRange(WindowsVersion, "6.0.6002.0", "6.1.0.0"))
+            else if (IsInRange(WindowsVersion, "6.0.6000.0", "6.1.0.0"))
             {
                 return SEOST.WindowsVista;
             }
@@ -75,15 +151,6 @@ namespace Skylark.Wing.Helper
             {
                 return SEOST.Unknown;
             }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public static Version GetVersion()
-        {
-            return Environment.OSVersion.Version;
         }
 
         /// <summary>
@@ -113,10 +180,19 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         private static bool IsInRange(Version WindowsVersion, string MinVersion, string MaxVersion)
         {
-            Version Min = new(MinVersion);
-            Version Max = new(MaxVersion);
+            return IsInRange(WindowsVersion, new Version(MinVersion), new Version(MaxVersion));
+        }
 
-            return WindowsVersion >= Min && WindowsVersion < Max;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="WindowsVersion"></param>
+        /// <param name="MinVersion"></param>
+        /// <param name="MaxVersion"></param>
+        /// <returns></returns>
+        private static bool IsInRange(Version WindowsVersion, Version MinVersion, Version MaxVersion)
+        {
+            return WindowsVersion >= MinVersion && WindowsVersion < MaxVersion;
         }
     }
 }

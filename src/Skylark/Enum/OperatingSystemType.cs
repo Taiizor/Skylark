@@ -28,11 +28,39 @@
         /// <summary>
         /// 
         /// </summary>
+        WindowsXP,
+        /// <summary>
+        /// 
+        /// </summary>
         Windows8_1,
         /// <summary>
         /// 
         /// </summary>
+        Windows2000,
+        /// <summary>
+        /// 
+        /// </summary>
         WindowsVista,
+        /// <summary>
+        /// 
+        /// </summary>
+        WindowsXPProx64,
+        /// <summary>
+        /// 
+        /// </summary>
+        WindowsHomeServer,
+        /// <summary>
+        /// 
+        /// </summary>
+        WindowsServer2003,
+        /// <summary>
+        /// 
+        /// </summary>
+        WindowsServer2008,
+        /// <summary>
+        /// 
+        /// </summary>
+        WindowsServer2012,
         /// <summary>
         /// 
         /// </summary>
@@ -44,6 +72,18 @@
         /// <summary>
         /// 
         /// </summary>
-        WindowsServer2022
+        WindowsServer2022,
+        /// <summary>
+        /// 
+        /// </summary>
+        WindowsServer2003R2,
+        /// <summary>
+        /// 
+        /// </summary>
+        WindowsServer2008R2,
+        /// <summary>
+        /// 
+        /// </summary>
+        WindowsServer2012R2
     }
 }

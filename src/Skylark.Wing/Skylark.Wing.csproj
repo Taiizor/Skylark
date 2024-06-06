@@ -12,7 +12,7 @@
 
     <PropertyGroup>
         <ApplicationIcon>Resources\Skylark.Wing.ico</ApplicationIcon>
-        <Version>3.1.4.9</Version>
+        <Version>3.1.5.2</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>Skylark.Wing</Title>
@@ -25,8 +25,7 @@
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageLicenseExpression></PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-        <PackageReleaseNotes>All changes are detailed at https://github.com/Taiizor/Skylark/wiki/Changelog.
-        </PackageReleaseNotes>
+        <PackageReleaseNotes>All changes are detailed at https://github.com/Taiizor/Skylark/wiki/Changelog.</PackageReleaseNotes>
         <PackageTags>ReaL Taiizor Soferity Vegalya Skylark Wing Wallpaper C# CSharp VBC VB VisualBasic DotNET .NET NET Multi Purpose Multipurpose Cross App Web Box Tool Tools Unit Thing Things Product Productivity Convert Converter Minify Beauty Lightweight Library</PackageTags>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <!--<DocumentationFile>..\$(Title)\bin$(OutputPath)\$(Configuration)\$(TargetFramework)\$(Title).xml</DocumentationFile>-->
@@ -58,7 +57,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.1.4.1" />
+        <PackageReference Include="Skylark" Version="3.1.4.2" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
