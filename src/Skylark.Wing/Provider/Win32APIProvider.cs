@@ -11,17 +11,13 @@ namespace Skylark.Wing.Provider
     /// <remarks>CLR wrapper https://github.com/microsoft/referencesource/blob/master/mscorlib/microsoft/win32/win32native.cs </remarks>
     public class Win32APIProvider : SWIIW32API
     {
-        private const string NTDLL = "ntdll.dll";
-
-        private const string USER32 = "user32.dll";
-
         /// <summary>
         /// 
         /// </summary>
         /// <param name="versionInfo"></param>
         /// <returns></returns>
         [SecurityCritical]
-        [DllImport(NTDLL, EntryPoint = "RtlGetVersion", SetLastError = true, CharSet = CharSet.Unicode)]
+        [DllImport("ntdll.dll", EntryPoint = "RtlGetVersion", SetLastError = true, CharSet = CharSet.Unicode)]
         internal static extern SWNM.NTSTATUS ntdll_RtlGetVersion(ref SWNM.OSVERSIONINFOEX versionInfo);
 
         /// <summary>
@@ -29,7 +25,7 @@ namespace Skylark.Wing.Provider
         /// </summary>
         /// <param name="smIndex"></param>
         /// <returns></returns>
-        [DllImport(USER32, EntryPoint = "GetSystemMetrics")]
+        [DllImport("user32.dll", EntryPoint = "GetSystemMetrics")]
         internal static extern int ntdll_GetSystemMetrics(SWNM.SystemMetric smIndex);
 
         /// <summary>

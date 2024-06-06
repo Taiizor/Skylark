@@ -245,7 +245,10 @@ namespace Skylark.Wing.Extension
 
         private static SWNM.OSVERSIONINFOEX DetectWindowsVersion(SWIIW32API win32ApiProvider)
         {
-            SWNM.OSVERSIONINFOEX osVersionInfo = new() { OSVersionInfoSize = Marshal.SizeOf(typeof(SWNM.OSVERSIONINFOEX)) };
+            SWNM.OSVERSIONINFOEX osVersionInfo = new()
+            {
+                OSVersionInfoSize = Marshal.SizeOf<SWNM.OSVERSIONINFOEX>()
+            };
 
             if (win32ApiProvider.RtlGetVersion(ref osVersionInfo) != SWNM.NTSTATUS.STATUS_SUCCESS)
             {

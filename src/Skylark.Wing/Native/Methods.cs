@@ -421,6 +421,9 @@ namespace Skylark.Wing.Native
             //VER_SUITE_MULTIUSERTS = 0x00020000
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public enum NTSTATUS : uint
         {
             /// <summary>
@@ -429,7 +432,17 @@ namespace Skylark.Wing.Native
             STATUS_SUCCESS = 0x00000000
         }
 
-        [StructLayout(LayoutKind.Sequential)]
+        /// <summary>
+        /// Contains operating system version information. The information includes major and 
+        /// minor version numbers, a build number, a platform identifier, and information about 
+        /// product suites and the latest Service Pack installed on the system.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// var osVersionInfo = new OSVERSIONINFOEX { OSVersionInfoSize = Marshal.SizeOf(typeof(OSVERSIONINFOEX)) };
+        /// </code>
+        /// </example>
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
         public struct OSVERSIONINFOEX
         {
             // The OSVersionInfoSize field must be set to Marshal.SizeOf(typeof(OSVERSIONINFOEX))
@@ -480,7 +493,7 @@ namespace Skylark.Wing.Native
         /// <param name="fullPathToKey"></param>
         /// <param name="valueName"></param>
         /// <param name="defaultValue"></param>
-        public struct RegistryEntry(string fullPathToKey, string valueName, string defaultValue)
+        public readonly struct RegistryEntry(string fullPathToKey, string valueName, string defaultValue)
         {
             /// <summary>
             /// The name of the name/value pair.
