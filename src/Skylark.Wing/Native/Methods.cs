@@ -460,6 +460,9 @@ namespace Skylark.Wing.Native
             public byte Reserved;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [StructLayout(LayoutKind.Sequential)]
         public struct SYSTEM_INFO
         {
@@ -476,6 +479,9 @@ namespace Skylark.Wing.Native
             public ushort processorRevision;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [StructLayout(LayoutKind.Sequential)]
         public struct LASTINPUTINFO
         {
@@ -485,6 +491,25 @@ namespace Skylark.Wing.Native
             public uint cbSize;
             [MarshalAs(UnmanagedType.U4)]
             public uint dwTime;
+        }
+
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        public class MEMORYSTATUSEX
+        {
+            public uint dwLength;
+            public uint dwMemoryLoad;
+            public ulong ullTotalPhys;
+            public ulong ullAvailPhys;
+            public ulong ullTotalPageFile;
+            public ulong ullAvailPageFile;
+            public ulong ullTotalVirtual;
+            public ulong ullAvailVirtual;
+            public ulong ullAvailExtendedVirtual;
+
+            public MEMORYSTATUSEX()
+            {
+                dwLength = (uint)Marshal.SizeOf<MEMORYSTATUSEX>();
+            }
         }
 
         /// <remarks>
@@ -1550,6 +1575,10 @@ namespace Skylark.Wing.Native
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         public static extern int GetWindowTextLength(IntPtr hWnd);
 
+        [return: MarshalAs(UnmanagedType.Bool)]
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern bool GlobalMemoryStatusEx([In, Out] MEMORYSTATUSEX lpBuffer);
+
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
 
@@ -1561,6 +1590,7 @@ namespace Skylark.Wing.Native
         public static extern bool GetPhysicallyInstalledSystemMemory(out long TotalMemoryInKilobytes);
 
         #region Window_Style
+
         [DllImport("user32.dll")]
         public static extern IntPtr GetMenu(IntPtr hWnd);
 
@@ -1617,6 +1647,7 @@ namespace Skylark.Wing.Native
             SMTO_NOTIMEOUTIFNOTHUNG = 0x8,
             SMTO_ERRORONEXIT = 0x20
         }
+
         public enum AnimateWindowFlags : uint
         {
             AW_HOR_POSITIVE = 0x00000001,

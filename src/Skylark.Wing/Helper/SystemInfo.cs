@@ -166,7 +166,7 @@ namespace Skylark.Wing.Helper
         {
             SWNM.GetPhysicallyInstalledSystemMemory(out long memKb);
 
-            return memKb / 1024;
+            return memKb;
         }
 
         /// <summary>
