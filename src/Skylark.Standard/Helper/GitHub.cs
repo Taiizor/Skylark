@@ -39,11 +39,6 @@ namespace Skylark.Standard.Helper
         /// <summary>
         /// 
         /// </summary>
-        private static readonly HttpClient Client = new();
-
-        /// <summary>
-        /// 
-        /// </summary>
         private static string Uri = "https://api.github.com";
 
         /// <summary>
@@ -99,7 +94,7 @@ namespace Skylark.Standard.Helper
                 }
             }
 
-            InitializeClient(UserAgent, Authorization);
+            HttpClient Client = InitializeClient(UserAgent, Authorization);
 
             HttpResponseMessage Response = Client.GetAsync($"{Uri}/repos/{Owner}/{Repository}/releases").Result;
 
@@ -239,7 +234,7 @@ namespace Skylark.Standard.Helper
                 }
             }
 
-            InitializeClient(UserAgent, Authorization);
+            HttpClient Client = InitializeClient(UserAgent, Authorization);
 
             string BaseUri = $"{Uri}/repos/{Owner}/{Repository}/contents";
 
@@ -374,13 +369,24 @@ namespace Skylark.Standard.Helper
             return await Task.Run(() => ContentsList(Owner, Repository, Path, Branch, UserAgent, Authorization));
         }
 
+        public class CachedData(bool status, string content, DateTime timestamp)
+        {
+            public bool Status { get; } = status;
+
+            public string Content { get; } = content;
+
+            public DateTime Timestamp { get; } = timestamp;
+        }
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="UserAgent"></param>
         /// <param name="Authorization"></param>
-        private static void InitializeClient(string UserAgent = Agent, string Authorization = Token)
+        private static HttpClient InitializeClient(string UserAgent = Agent, string Authorization = Token)
         {
+            HttpClient Client = new();
+
             Client.DefaultRequestHeaders.Clear();
 
             if (string.IsNullOrEmpty(UserAgent))
@@ -394,15 +400,8 @@ namespace Skylark.Standard.Helper
             {
                 Client.DefaultRequestHeaders.Add("Authorization", $"Bearer {Authorization}");
             }
-        }
 
-        public class CachedData(bool status, string content, DateTime timestamp)
-        {
-            public bool Status { get; } = status;
-
-            public string Content { get; } = content;
-
-            public DateTime Timestamp { get; } = timestamp;
+            return Client;
         }
     }
 }

@@ -38,6 +38,31 @@ namespace Skylark.Helper
         /// </summary>
         /// <param name="Zone"></param>
         /// <returns></returns>
+        public static string TextName(ETZT Zone)
+        {
+            if (MI.TimeZoneTextNames.TryGetValue(Zone, out string Name))
+            {
+                return Name;
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Zone"></param>
+        /// <returns></returns>
+        public static async Task<string> TextNameAsync(ETZT Zone)
+        {
+            return await Task.Run(() => TextName(Zone));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Zone"></param>
+        /// <returns></returns>
         public static string ShortName(ETZT Zone)
         {
             if (MI.TimeZoneShortNames.TryGetValue(Zone, out string Name))

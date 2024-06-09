@@ -29,11 +29,11 @@ namespace Skylark.Standard.Manage.Ping
         /// <summary>
         /// 
         /// </summary>
-        public const int MinTimeout = 300;
+        public const int MinTimeout = 100;
         /// <summary>
         /// 
         /// </summary>
-        public const int MaxTimeout = 6000;
+        public const int MaxTimeout = 9000;
 
         /// <summary>
         /// 

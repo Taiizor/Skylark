@@ -62,7 +62,7 @@ namespace ConsoleDemoWeb
 
             Console.WriteLine();
 
-            string Request = WebExtension.Request("https://www.google.com/search", Parameter, HttpWebType.GET);
+            string Request = WebExtension.Request("https://www.google.com/search", HttpWebType.GET, 3000, Parameter);
             Console.WriteLine($"Request (Cut): {Request[..512]}...");
 
             Console.ReadKey();

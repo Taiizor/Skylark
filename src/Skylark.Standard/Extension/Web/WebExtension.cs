@@ -23,15 +23,19 @@ namespace Skylark.Standard.Extension.Web
         /// 
         /// </summary>
         /// <param name="Url"></param>
+        /// <param name="Timeout"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string Source(string Url = SSMWWM.Url)
+        public static string Source(string Url = SSMWWM.Url, int Timeout = SSMWWM.Timeout)
         {
             try
             {
                 Url = SHL.Parameter(Url, SSMWWM.Url);
 
-                HttpClient Client = new();
+                HttpClient Client = new()
+                {
+                    Timeout = TimeSpan.FromMilliseconds(SHL.Clamp(Timeout, SSMWWM.MinTimeout, SSMWWM.MaxTimeout))
+                };
 
                 return Client.GetStringAsync(Url).Result;
             }
@@ -45,20 +49,22 @@ namespace Skylark.Standard.Extension.Web
         /// 
         /// </summary>
         /// <param name="Url"></param>
+        /// <param name="Timeout"></param>
         /// <returns></returns>
-        public static async Task<string> SourceAsync(string Url = SSMWWM.Url)
+        public static async Task<string> SourceAsync(string Url = SSMWWM.Url, int Timeout = SSMWWM.Timeout)
         {
-            return await Task.Run(() => Source(Url));
+            return await Task.Run(() => Source(Url, Timeout));
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="Url"></param>
+        /// <param name="Timeout"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static SSWWRS Ratio(string Url = SSMWWM.Url, bool Separator = SSMWWM.Separator)
+        public static SSWWRS Ratio(string Url = SSMWWM.Url, int Timeout = SSMWWM.Timeout, bool Separator = SSMWWM.Separator)
         {
             try
             {
@@ -66,7 +72,7 @@ namespace Skylark.Standard.Extension.Web
 
                 string Rate, Code, Text, Total;
 
-                string Content = Source(Url);
+                string Content = Source(Url, Timeout);
 
                 int CodeCount = Regex.Matches(Content, @"<[^>]*>").Count;
                 int TextCount = Regex.Matches(Content, @"[^\s]").Count;
@@ -94,20 +100,22 @@ namespace Skylark.Standard.Extension.Web
         /// 
         /// </summary>
         /// <param name="Url"></param>
+        /// <param name="Timeout"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static async Task<SSWWRS> RatioAsync(string Url = SSMWWM.Url, bool Separator = SSMWWM.Separator)
+        public static async Task<SSWWRS> RatioAsync(string Url = SSMWWM.Url, int Timeout = SSMWWM.Timeout, bool Separator = SSMWWM.Separator)
         {
-            return await Task.Run(() => Ratio(Url, Separator));
+            return await Task.Run(() => Ratio(Url, Timeout, Separator));
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="Url"></param>
+        /// <param name="Timeout"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static SSWWHS Header(string Url = SSMWWM.Url)
+        public static SSWWHS Header(string Url = SSMWWM.Url, int Timeout = SSMWWM.Timeout)
         {
             try
             {
@@ -115,7 +123,10 @@ namespace Skylark.Standard.Extension.Web
 
                 SSWWHS Result = new();
 
-                HttpClient Client = new();
+                HttpClient Client = new()
+                {
+                    Timeout = TimeSpan.FromMilliseconds(SHL.Clamp(Timeout, SSMWWM.MinTimeout, SSMWWM.MaxTimeout))
+                };
 
                 HttpResponseMessage Response = Client.GetAsync(Url).Result;
 
@@ -186,45 +197,49 @@ namespace Skylark.Standard.Extension.Web
         /// 
         /// </summary>
         /// <param name="Url"></param>
+        /// <param name="Timeout"></param>
         /// <returns></returns>
-        public static async Task<SSWWHS> HeaderAsync(string Url = SSMWWM.Url)
+        public static async Task<SSWWHS> HeaderAsync(string Url = SSMWWM.Url, int Timeout = SSMWWM.Timeout)
         {
-            return await Task.Run(() => Header(Url));
+            return await Task.Run(() => Header(Url, Timeout));
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="Url"></param>
-        /// <param name="Parameter"></param>
         /// <param name="Type"></param>
+        /// <param name="Timeout"></param>
+        /// <param name="Parameter"></param>
         /// <returns></returns>
-        public static string Request(string Url = SSMWWM.Url, Dictionary<string, object> Parameter = null, string Type = SSMWWM.DefaultType)
+        public static string Request(string Url = SSMWWM.Url, string Type = SSMWWM.DefaultType, int Timeout = SSMWWM.Timeout, Dictionary<string, object> Parameter = null)
         {
-            return Request(Url, Parameter, SHC.Convert(Type, SSMWWM.HttpType));
+            return Request(Url, SHC.Convert(Type, SSMWWM.HttpType), Timeout, Parameter);
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="Url"></param>
-        /// <param name="Parameter"></param>
         /// <param name="Type"></param>
+        /// <param name="Timeout"></param>
+        /// <param name="Parameter"></param>
         /// <returns></returns>
-        public static async Task<string> RequestAsync(string Url = SSMWWM.Url, Dictionary<string, object> Parameter = null, string Type = SSMWWM.DefaultType)
+        public static async Task<string> RequestAsync(string Url = SSMWWM.Url, string Type = SSMWWM.DefaultType, int Timeout = SSMWWM.Timeout, Dictionary<string, object> Parameter = null)
         {
-            return await Task.Run(() => Request(Url, Parameter, Type));
+            return await Task.Run(() => Request(Url, Type, Timeout, Parameter));
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="Url"></param>
-        /// <param name="Parameter"></param>
         /// <param name="Type"></param>
+        /// <param name="Timeout"></param>
+        /// <param name="Parameter"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string Request(string Url = SSMWWM.Url, Dictionary<string, object> Parameter = null, SEHWT Type = SSMWWM.HttpType)
+        public static string Request(string Url = SSMWWM.Url, SEHWT Type = SSMWWM.HttpType, int Timeout = SSMWWM.Timeout, Dictionary<string, object> Parameter = null)
         {
             try
             {
@@ -232,7 +247,10 @@ namespace Skylark.Standard.Extension.Web
 
                 Parameter ??= SSMI.HttpParameter;
 
-                HttpClient Client = new();
+                HttpClient Client = new()
+                {
+                    Timeout = TimeSpan.FromMilliseconds(SHL.Clamp(Timeout, SSMWWM.MinTimeout, SSMWWM.MaxTimeout))
+                };
 
                 Task<string> Result = null;
                 StringContent Content = null;
@@ -244,15 +262,21 @@ namespace Skylark.Standard.Extension.Web
                 {
                     case SEHWT.GET:
                         Response = Client.GetAsync(Url + "?" + Parameters.ReadAsStringAsync().Result);
+
                         Result = Response.Result.Content.ReadAsStringAsync();
+
                         return Result.Result;
                     case SEHWT.PUT:
                         Response = Client.PutAsync(Url, Parameters);
+
                         Result = Response.Result.Content.ReadAsStringAsync();
+
                         return Result.Result;
                     case SEHWT.POST:
                         Response = Client.PostAsync(Url, Parameters);
+
                         Result = Response.Result.Content.ReadAsStringAsync();
+
                         return Result.Result;
                     case SEHWT.HEAD:
                         Request = new()
@@ -262,6 +286,7 @@ namespace Skylark.Standard.Extension.Web
                         };
 
                         Response = Client.SendAsync(Request);
+
                         return Response.Result.StatusCode.ToString();
                     case SEHWT.DELETE:
                         Request = new()
@@ -271,6 +296,7 @@ namespace Skylark.Standard.Extension.Web
                         };
 
                         Response = Client.SendAsync(Request);
+
                         return Response.Result.StatusCode.ToString();
                     case SEHWT.PATCH:
                         Content = new(JsonConvert.SerializeObject(Parameter), Encoding.UTF8, "application/json");
@@ -283,6 +309,7 @@ namespace Skylark.Standard.Extension.Web
                         };
 
                         Response = Client.SendAsync(Request);
+
                         return Response.Result.Content.ReadAsStringAsync().Result;
                     case SEHWT.OPTIONS:
                         Request = new()
@@ -292,6 +319,7 @@ namespace Skylark.Standard.Extension.Web
                         };
 
                         Response = Client.SendAsync(Request);
+
                         return Response.Result.Content.ReadAsStringAsync().Result;
                     default:
                         throw new SE(SSMWWM.Error);
@@ -307,26 +335,31 @@ namespace Skylark.Standard.Extension.Web
         /// 
         /// </summary>
         /// <param name="Url"></param>
-        /// <param name="Parameter"></param>
         /// <param name="Type"></param>
+        /// <param name="Timeout"></param>
+        /// <param name="Parameter"></param>
         /// <returns></returns>
-        public static async Task<string> RequestAsync(string Url = SSMWWM.Url, Dictionary<string, object> Parameter = null, SEHWT Type = SSMWWM.HttpType)
+        public static async Task<string> RequestAsync(string Url = SSMWWM.Url, SEHWT Type = SSMWWM.HttpType, int Timeout = SSMWWM.Timeout, Dictionary<string, object> Parameter = null)
         {
-            return await Task.Run(() => Request(Url, Parameter, Type));
+            return await Task.Run(() => Request(Url, Type, Timeout, Parameter));
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="Url"></param>
+        /// <param name="Timeout"></param>
         /// <returns></returns>
-        public static SECWT Compress(string Url = SSMWWM.Url)
+        public static SECWT Compress(string Url = SSMWWM.Url, int Timeout = SSMWWM.Timeout)
         {
             try
             {
                 Url = SHL.Parameter(Url, SSMWWM.Url);
 
-                HttpClient Client = new();
+                HttpClient Client = new()
+                {
+                    Timeout = TimeSpan.FromMilliseconds(SHL.Clamp(Timeout, SSMWWM.MinTimeout, SSMWWM.MaxTimeout))
+                };
 
                 Client.DefaultRequestHeaders.Add(SSMWWM.Header, SSMWWM.Types);
 
@@ -350,10 +383,11 @@ namespace Skylark.Standard.Extension.Web
         /// 
         /// </summary>
         /// <param name="Url"></param>
+        /// <param name="Timeout"></param>
         /// <returns></returns>
-        public static async Task<SECWT> CompressAsync(string Url = SSMWWM.Url)
+        public static async Task<SECWT> CompressAsync(string Url = SSMWWM.Url, int Timeout = SSMWWM.Timeout)
         {
-            return await Task.Run(() => Compress(Url));
+            return await Task.Run(() => Compress(Url, Timeout));
         }
 
         /// <summary>
@@ -361,10 +395,11 @@ namespace Skylark.Standard.Extension.Web
         /// </summary>
         /// <param name="Url1"></param>
         /// <param name="Url2"></param>
+        /// <param name="Timeout"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
-        public static string Similarity(string Url1 = SSMWWM.Url, string Url2 = SSMWWM.Url, bool Separator = SSMWWM.Separator)
+        public static string Similarity(string Url1 = SSMWWM.Url, string Url2 = SSMWWM.Url, int Timeout = SSMWWM.Timeout, bool Separator = SSMWWM.Separator)
         {
             try
             {
@@ -373,8 +408,8 @@ namespace Skylark.Standard.Extension.Web
 
                 double Percent = 0;
 
-                string Content1 = Source(Url1).ToLower();
-                string Content2 = Source(Url2).ToLower();
+                string Content1 = Source(Url1, Timeout).ToLower();
+                string Content2 = Source(Url2, Timeout).ToLower();
 
                 string[] Words1 = SSHWWH.GetTags(Content1);
                 string[] Words2 = SSHWWH.GetTags(Content2);
@@ -382,6 +417,7 @@ namespace Skylark.Standard.Extension.Web
                 int Common = Words1.Count(Tag1 => Words2.Any(Tag2 => Tag2 == Tag1));
 
                 int Total = Words1.Length + Words2.Length - Common;
+
                 Percent = (double)Common / Total * 100;
 
                 return SSHWWH.GetPlaces(Math.Round(decimal.Parse($"{Percent}"), 2), Separator);
@@ -397,11 +433,12 @@ namespace Skylark.Standard.Extension.Web
         /// </summary>
         /// <param name="Url1"></param>
         /// <param name="Url2"></param>
+        /// <param name="Timeout"></param>
         /// <param name="Separator"></param>
         /// <returns></returns>
-        public static async Task<string> SimilarityAsync(string Url1 = SSMWWM.Url, string Url2 = SSMWWM.Url, bool Separator = SSMWWM.Separator)
+        public static async Task<string> SimilarityAsync(string Url1 = SSMWWM.Url, string Url2 = SSMWWM.Url, int Timeout = SSMWWM.Timeout, bool Separator = SSMWWM.Separator)
         {
-            return await Task.Run(() => Similarity(Url1, Url2, Separator));
+            return await Task.Run(() => Similarity(Url1, Url2, Timeout, Separator));
         }
     }
 }

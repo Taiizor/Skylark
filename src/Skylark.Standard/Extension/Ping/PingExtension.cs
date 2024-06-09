@@ -1,9 +1,11 @@
 ﻿using System.Net.NetworkInformation;
 using SE = Skylark.Exception;
 using SHL = Skylark.Helper.Length;
-using SSME = Skylark.Standard.Manage.External;
 using SSMPPM = Skylark.Standard.Manage.Ping.PingManage;
 using SSPPSS = Skylark.Struct.Ping.PingSendStruct;
+using SNNIP = System.Net.NetworkInformation.Ping;
+using SNNIPO = System.Net.NetworkInformation.PingOptions;
+using SSHPPH = Skylark.Standard.Helper.Ping.PingHelper;
 
 namespace Skylark.Standard.Extension.Ping
 {
@@ -25,13 +27,15 @@ namespace Skylark.Standard.Extension.Ping
         {
             try
             {
+                Address = SSHPPH.GetAddress(Address);
                 Address = SHL.Parameter(Address, SSMPPM.Address);
 
+                SNNIP Ping = new();
                 SSPPSS Result = SSMPPM.Result;
 
-                SSME.PingOptions = new(SHL.Clamp(Ttl, SSMPPM.MinTtl, SSMPPM.MaxTtl), Fragment);
+                SNNIPO PingOptions = new(SHL.Clamp(Ttl, SSMPPM.MinTtl, SSMPPM.MaxTtl), Fragment);
 
-                PingReply Reply = SSME.Ping.Send(Address, SHL.Clamp(Timeout, SSMPPM.MinTimeout, SSMPPM.MaxTimeout), SSMPPM.Buffer, SSME.PingOptions);
+                PingReply Reply = Ping.Send(Address, SHL.Clamp(Timeout, SSMPPM.MinTimeout, SSMPPM.MaxTimeout), SSMPPM.Buffer, PingOptions);
 
                 if (Reply.Status == IPStatus.Success)
                 {

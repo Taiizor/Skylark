@@ -116,9 +116,10 @@ namespace Skylark.Standard.Extension.Port
 
                 using (Result.AsyncWaitHandle)
                 {
-                    if (Result.AsyncWaitHandle.WaitOne(SSMPPM.Timeout, false))
+                    if (Result.AsyncWaitHandle.WaitOne(Timeout, false))
                     {
                         Client.EndConnect(Result);
+
                         return SEPT.Open;
                     }
                     else

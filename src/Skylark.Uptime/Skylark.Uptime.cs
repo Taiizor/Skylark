@@ -18,8 +18,8 @@ using SUMI = Skylark.Uptime.Manage.Internal;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 27.Feb.2023
-//     Changed: 06.Jun.2024
-//     Version: 3.1.4.4
+//     Changed: 10.Jun.2024
+//     Version: 3.1.4.5
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -32,20 +32,15 @@ namespace Skylark.Uptime
     /// <summary>
     /// Skylark uptimer class. 
     /// </summary>
-    public class Uptimer(string Address)
+    public class Uptimer(string Address, int Timeout = 3000)
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        private readonly string Address = Address;
-
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         public SSPPSS Ping()
         {
-            return SSEPPGE.Send(Address);
+            return SSEPPGE.Send(Address, Timeout);
         }
 
         /// <summary>
@@ -56,10 +51,16 @@ namespace Skylark.Uptime
         {
             try
             {
-                using TcpClient Client = new();
+                using TcpClient Client = new()
+                {
+                    SendTimeout = Timeout,
+                    ReceiveTimeout = Timeout,
+                };
+
                 await Client.ConnectAsync(Address, 443);
 
                 using NetworkStream Network = Client.GetStream();
+
                 using SslStream Ssl = new(Network);
 
                 await Ssl.AuthenticateAsClientAsync(Address);
@@ -72,7 +73,7 @@ namespace Skylark.Uptime
 
                     if (DateTime.TryParse(ExpirationDateString, out DateTime ExpirationDateTime))
                     {
-                        int RemainingDays = (int)(ExpirationDateTime - DateTime.Now).TotalDays; //DateTime.UtcNow
+                        int RemainingDays = (int)(ExpirationDateTime - DateTime.UtcNow).TotalDays; //DateTime.Now
 
                         return new()
                         {
@@ -100,11 +101,21 @@ namespace Skylark.Uptime
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Port"></param>
+        /// <returns></returns>
+        public SEPT Service(int Port)
+        {
+            return SSEPPTE.Scan(Address, Port, Timeout);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Type"></param>
         /// <returns></returns>
         public SEPT Service(SEST Type)
         {
-            return SSEPPTE.Scan(Address, (int)Type);
+            return SSEPPTE.Scan(Address, (int)Type, Timeout);
         }
     }
 

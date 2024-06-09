@@ -16,6 +16,19 @@ namespace Skylark.Standard.Manage.Web
         /// <summary>
         /// 
         /// </summary>
+        public const int Timeout = 3000;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int MinTimeout = 100;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int MaxTimeout = 9000;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const string Total = "0";
 
         /// <summary>
