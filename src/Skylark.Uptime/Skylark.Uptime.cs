@@ -19,7 +19,7 @@ using SUMI = Skylark.Uptime.Manage.Internal;
 //     Website: www.Vegalya.com
 //     Created: 27.Feb.2023
 //     Changed: 10.Jun.2024
-//     Version: 3.1.4.5
+//     Version: 3.1.4.6
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -56,6 +56,16 @@ namespace Skylark.Uptime
                     SendTimeout = Timeout,
                     ReceiveTimeout = Timeout,
                 };
+
+                if (Address.Contains("https://"))
+                {
+                    Address = Address.Replace("https://", "");
+                }
+
+                if (Address.Contains("http://"))
+                {
+                    Address = Address.Replace("http://", "");
+                }
 
                 await Client.ConnectAsync(Address, 443);
 

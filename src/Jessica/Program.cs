@@ -11,7 +11,7 @@ namespace Jessica
         {
             Console.Write("Enter Address: ");
 
-            string Address = Console.ReadLine();
+            string Address = Console.ReadLine() ?? string.Empty;
 
             Uptimer Uptiming = new(Address);
 

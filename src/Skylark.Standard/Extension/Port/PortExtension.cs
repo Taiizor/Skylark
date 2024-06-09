@@ -2,6 +2,7 @@
 using SE = Skylark.Exception;
 using SEPT = Skylark.Enum.PortType;
 using SHL = Skylark.Helper.Length;
+using SSHPPH = Skylark.Standard.Helper.Port.PortHelper;
 using SSMPPM = Skylark.Standard.Manage.Port.PortManage;
 
 namespace Skylark.Standard.Extension.Port
@@ -106,6 +107,7 @@ namespace Skylark.Standard.Extension.Port
         {
             try
             {
+                Address = SSHPPH.GetAddress(Address);
                 Address = SHL.Parameter(Address, SSMPPM.Address);
                 Port = SHL.Clamp(Port, SSMPPM.MinPort, SSMPPM.MaxPort);
                 Timeout = SHL.Clamp(Timeout, SSMPPM.MinTimeout, SSMPPM.MaxTimeout);

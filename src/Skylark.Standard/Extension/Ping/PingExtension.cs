@@ -1,11 +1,11 @@
 ﻿using System.Net.NetworkInformation;
 using SE = Skylark.Exception;
 using SHL = Skylark.Helper.Length;
-using SSMPPM = Skylark.Standard.Manage.Ping.PingManage;
-using SSPPSS = Skylark.Struct.Ping.PingSendStruct;
 using SNNIP = System.Net.NetworkInformation.Ping;
 using SNNIPO = System.Net.NetworkInformation.PingOptions;
 using SSHPPH = Skylark.Standard.Helper.Ping.PingHelper;
+using SSMPPM = Skylark.Standard.Manage.Ping.PingManage;
+using SSPPSS = Skylark.Struct.Ping.PingSendStruct;
 
 namespace Skylark.Standard.Extension.Ping
 {
