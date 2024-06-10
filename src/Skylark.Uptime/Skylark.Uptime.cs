@@ -1,15 +1,12 @@
 ﻿#region Imports
 
-using System.Net.Security;
-using System.Net.Sockets;
-using System.Security.Cryptography.X509Certificates;
 using SEPT = Skylark.Enum.PortType;
 using SEST = Skylark.Enum.ServiceType;
 using SSCCS = Skylark.Struct.Certificate.CertificateStruct;
+using SSECCE = Skylark.Standard.Extension.Certificate.CertificateExtension;
 using SSEPPGE = Skylark.Standard.Extension.Ping.PingExtension;
 using SSEPPTE = Skylark.Standard.Extension.Port.PortExtension;
 using SSPPSS = Skylark.Struct.Ping.PingSendStruct;
-using SUMI = Skylark.Uptime.Manage.Internal;
 
 #endregion
 
@@ -19,7 +16,7 @@ using SUMI = Skylark.Uptime.Manage.Internal;
 //     Website: www.Vegalya.com
 //     Created: 27.Feb.2023
 //     Changed: 10.Jun.2024
-//     Version: 3.1.4.6
+//     Version: 3.1.4.7
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -32,13 +29,14 @@ namespace Skylark.Uptime
     /// <summary>
     /// Skylark uptimer class. 
     /// </summary>
-    public class Uptimer(string Address, int Timeout = 3000)
+    public class Uptimer(string Address)
     {
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Timeout"></param>
         /// <returns></returns>
-        public SSPPSS Ping()
+        public SSPPSS Ping(int Timeout = 3000)
         {
             return SSEPPGE.Send(Address, Timeout);
         }
@@ -46,74 +44,20 @@ namespace Skylark.Uptime
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Timeout"></param>
         /// <returns></returns>
-        public async Task<SSCCS> Certificate()
+        public async Task<SSCCS> Certificate(int Timeout = 3000)
         {
-            try
-            {
-                using TcpClient Client = new()
-                {
-                    SendTimeout = Timeout,
-                    ReceiveTimeout = Timeout,
-                };
-
-                if (Address.Contains("https://"))
-                {
-                    Address = Address.Replace("https://", "");
-                }
-
-                if (Address.Contains("http://"))
-                {
-                    Address = Address.Replace("http://", "");
-                }
-
-                await Client.ConnectAsync(Address, 443);
-
-                using NetworkStream Network = Client.GetStream();
-
-                using SslStream Ssl = new(Network);
-
-                await Ssl.AuthenticateAsClientAsync(Address);
-
-                X509Certificate Certificate = Ssl.RemoteCertificate;
-
-                if (Certificate != null)
-                {
-                    string ExpirationDateString = Certificate.GetExpirationDateString();
-
-                    if (DateTime.TryParse(ExpirationDateString, out DateTime ExpirationDateTime))
-                    {
-                        int RemainingDays = (int)(ExpirationDateTime - DateTime.UtcNow).TotalDays; //DateTime.Now
-
-                        return new()
-                        {
-                            State = true,
-                            RemainingDays = RemainingDays,
-                            ExpirationDateTime = ExpirationDateTime
-                        };
-                    }
-                    else
-                    {
-                        return SUMI.CertificateStruct;
-                    }
-                }
-                else
-                {
-                    return SUMI.CertificateStruct;
-                }
-            }
-            catch
-            {
-                return SUMI.CertificateStruct;
-            }
+            return await SSECCE.GetCertificateAsync(Address, Timeout);
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="Port"></param>
+        /// <param name="Timeout"></param>
         /// <returns></returns>
-        public SEPT Service(int Port)
+        public SEPT Service(int Port, int Timeout = 3000)
         {
             return SSEPPTE.Scan(Address, Port, Timeout);
         }
@@ -122,10 +66,11 @@ namespace Skylark.Uptime
         /// 
         /// </summary>
         /// <param name="Type"></param>
+        /// <param name="Timeout"></param>
         /// <returns></returns>
-        public SEPT Service(SEST Type)
+        public SEPT Service(SEST Type, int Timeout = 3000)
         {
-            return SSEPPTE.Scan(Address, (int)Type, Timeout);
+            return Service((int)Type, Timeout);
         }
     }
 

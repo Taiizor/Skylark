@@ -15,7 +15,7 @@ namespace Jessica
 
             Uptimer Uptiming = new(Address);
 
-            PingSendStruct Pong = Uptiming.Ping();
+            PingSendStruct Pong = Uptiming.Ping(3000);
 
             Console.WriteLine($"Address: {Pong.Address} ({Address})");
             Console.WriteLine($"Status: {Pong.Result}");
@@ -23,7 +23,7 @@ namespace Jessica
 
             Console.WriteLine();
 
-            CertificateStruct Certificate = await Uptiming.Certificate();
+            CertificateStruct Certificate = await Uptiming.Certificate(3000);
 
             Console.WriteLine($"Certificate State: {Certificate.State}");
             Console.WriteLine($"Certificate Remaining Days: {Certificate.RemainingDays}");
@@ -31,19 +31,20 @@ namespace Jessica
 
             Console.WriteLine();
 
-            Console.WriteLine($"Oracle Service: {Uptiming.Service(ServiceType.Oracle)}");
-            Console.WriteLine($"MSSQL Service: {Uptiming.Service(ServiceType.MSSQL)}");
-            Console.WriteLine($"MySQL Service: {Uptiming.Service(ServiceType.MySQL)}");
-            Console.WriteLine($"HTTPS Service: {Uptiming.Service(ServiceType.HTTPS)}");
-            Console.WriteLine($"HTTP Service: {Uptiming.Service(ServiceType.HTTP)}");
-            Console.WriteLine($"SMTP Service: {Uptiming.Service(ServiceType.SMTP)}");
-            Console.WriteLine($"POP3 Service: {Uptiming.Service(ServiceType.POP3)}");
-            Console.WriteLine($"IMAP Service: {Uptiming.Service(ServiceType.IMAP)}");
-            Console.WriteLine($"RDP Service: {Uptiming.Service(ServiceType.RDP)}");
-            Console.WriteLine($"NTP Service: {Uptiming.Service(ServiceType.NTP)}");
-            Console.WriteLine($"FTP Service: {Uptiming.Service(ServiceType.FTP)}");
-            Console.WriteLine($"SSH Service: {Uptiming.Service(ServiceType.SSH)}");
-            Console.WriteLine($"DNS Service: {Uptiming.Service(ServiceType.DNS)}");
+            Console.WriteLine($"MongoDB Service: {Uptiming.Service(ServiceType.MongoDB, 500)}");
+            Console.WriteLine($"Oracle Service: {Uptiming.Service(ServiceType.Oracle, 500)}");
+            Console.WriteLine($"MSSQL Service: {Uptiming.Service(ServiceType.MSSQL, 500)}");
+            Console.WriteLine($"MySQL Service: {Uptiming.Service(ServiceType.MySQL, 500)}");
+            Console.WriteLine($"HTTPS Service: {Uptiming.Service(ServiceType.HTTPS, 500)}");
+            Console.WriteLine($"HTTP Service: {Uptiming.Service(ServiceType.HTTP, 500)}");
+            Console.WriteLine($"SMTP Service: {Uptiming.Service(ServiceType.SMTP, 500)}");
+            Console.WriteLine($"POP3 Service: {Uptiming.Service(ServiceType.POP3, 500)}");
+            Console.WriteLine($"IMAP Service: {Uptiming.Service(ServiceType.IMAP, 500)}");
+            Console.WriteLine($"RDP Service: {Uptiming.Service(ServiceType.RDP, 500)}");
+            Console.WriteLine($"NTP Service: {Uptiming.Service(ServiceType.NTP, 500)}");
+            Console.WriteLine($"FTP Service: {Uptiming.Service(ServiceType.FTP, 500)}");
+            Console.WriteLine($"SSH Service: {Uptiming.Service(ServiceType.SSH, 500)}");
+            Console.WriteLine($"DNS Service: {Uptiming.Service(ServiceType.DNS, 500)}");
 
             Console.ReadKey();
 
