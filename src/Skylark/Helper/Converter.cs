@@ -605,14 +605,7 @@ namespace Skylark.Helper
         /// <returns></returns>
         private static bool Check(string Text, string Type)
         {
-            if (Text == Type || Text.ToUpper() == Type || Text.ToUpperInvariant() == Type || Text == Type.ToLower() || Text == Type.ToLowerInvariant())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return Text.Equals(Type, StringComparison.Ordinal) || Text.Equals(Type, StringComparison.OrdinalIgnoreCase) || Text.Equals(Type, StringComparison.CurrentCulture) || Text.Equals(Type, StringComparison.CurrentCultureIgnoreCase) || Text.Equals(Type, StringComparison.InvariantCulture) || Text.Equals(Type, StringComparison.InvariantCultureIgnoreCase);
         }
     }
 }
