@@ -10,7 +10,7 @@
 
     <PropertyGroup>
         <ApplicationIcon>Resources\Skylark.Standard.ico</ApplicationIcon>
-        <Version>3.1.6.2</Version>
+        <Version>3.1.6.3</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>Skylark.Standard</Title>
@@ -55,9 +55,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.1.4.3" />
+        <PackageReference Include="Skylark" Version="3.1.4.4" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-        <PackageReference Include="WebMarkupMin.NUglify" Version="2.16.0" />
+        <PackageReference Include="WebMarkupMin.NUglify" Version="2.16.1" />
     </ItemGroup>
 
     <ItemGroup>

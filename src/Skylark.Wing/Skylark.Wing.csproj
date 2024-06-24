@@ -12,7 +12,7 @@
 
     <PropertyGroup>
         <ApplicationIcon>Resources\Skylark.Wing.ico</ApplicationIcon>
-        <Version>3.1.5.5</Version>
+        <Version>3.1.5.7</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>Skylark.Wing</Title>
@@ -57,7 +57,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.1.4.3" />
+        <PackageReference Include="Skylark" Version="3.1.4.4" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
@@ -65,7 +65,10 @@
     </ItemGroup>
 
     <ItemGroup Condition="!$(TargetFramework.StartsWith('net48'))">
-        <PackageReference Include="System.Management" Version="8.0.0" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net6'))" Include="System.Management" Version="6.0.2" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net7'))" Include="System.Management" Version="7.0.2" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net8'))" Include="System.Management" Version="8.0.0" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net9'))" Include="System.Management" Version="9.0.0-preview.6.24324.3" />
     </ItemGroup>
 
     <ItemGroup>
