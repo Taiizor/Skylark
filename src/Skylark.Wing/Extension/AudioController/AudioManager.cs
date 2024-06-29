@@ -306,6 +306,163 @@ namespace Skylark.Wing.Extension.AudioController
         }
 
         /// <summary>
+        /// Method to get the audio peak meter level for a specific application
+        /// </summary>
+        /// <param name="pid"></param>
+        /// <returns></returns>
+        public static float? GetApplicationPeakLevel(int pid)
+        {
+            IMMDeviceEnumerator deviceEnumerator = null;
+            IAudioSessionEnumerator sessionEnumerator = null;
+            IAudioSessionManager2 mgr = null;
+            IMMDevice speakers = null;
+
+            try
+            {
+                deviceEnumerator = (IMMDeviceEnumerator)new MMDeviceEnumerator();
+                deviceEnumerator.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia, out speakers);
+
+                Guid IID_IAudioSessionManager2 = typeof(IAudioSessionManager2).GUID;
+                speakers.Activate(ref IID_IAudioSessionManager2, 0, IntPtr.Zero, out object o);
+                mgr = (IAudioSessionManager2)o;
+
+                mgr.GetSessionEnumerator(out sessionEnumerator);
+                sessionEnumerator.GetCount(out int count);
+
+                for (int i = 0; i < count; ++i)
+                {
+                    IAudioSessionControl2 ctl = null;
+                    try
+                    {
+                        sessionEnumerator.GetSession(i, out ctl);
+                        ctl.GetProcessId(out int cpid);
+
+                        if (cpid == pid)
+                        {
+                            IAudioMeterInformation meter = ctl as IAudioMeterInformation;
+                            meter.GetPeakValue(out float peakValue);
+                            return peakValue * 100;
+                        }
+                    }
+                    finally
+                    {
+                        if (ctl != null)
+                        {
+                            Marshal.ReleaseComObject(ctl);
+                        }
+                    }
+                }
+                return null;
+            }
+            finally
+            {
+                if (speakers != null)
+                {
+                    Marshal.ReleaseComObject(speakers);
+                }
+
+                if (mgr != null)
+                {
+                    Marshal.ReleaseComObject(mgr);
+                }
+
+                if (sessionEnumerator != null)
+                {
+                    Marshal.ReleaseComObject(sessionEnumerator);
+                }
+
+                if (deviceEnumerator != null)
+                {
+                    Marshal.ReleaseComObject(deviceEnumerator);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Method to check if the audio is active for a specific application
+        /// </summary>
+        /// <param name="pid"></param>
+        /// <returns></returns>
+        public static bool? IsApplicationAudioActive(int pid)
+        {
+            IMMDeviceEnumerator deviceEnumerator = null;
+            IAudioSessionEnumerator sessionEnumerator = null;
+            IAudioSessionManager2 mgr = null;
+            IMMDevice speakers = null;
+            try
+            {
+                // get the speakers (1st render + multimedia) device
+                deviceEnumerator = (IMMDeviceEnumerator)new MMDeviceEnumerator();
+                deviceEnumerator.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia, out speakers);
+
+                // activate the session manager. we need the enumerator
+                Guid IID_IAudioSessionManager2 = typeof(IAudioSessionManager2).GUID;
+                speakers.Activate(ref IID_IAudioSessionManager2, 0, IntPtr.Zero, out object o);
+                mgr = (IAudioSessionManager2)o;
+
+                // enumerate sessions for on this device
+                mgr.GetSessionEnumerator(out sessionEnumerator);
+                sessionEnumerator.GetCount(out int count);
+
+                // search for an audio session with the required process-id
+                for (int i = 0; i < count; ++i)
+                {
+                    IAudioSessionControl2 ctl = null;
+                    IAudioMeterInformation meterInfo = null;
+                    try
+                    {
+                        sessionEnumerator.GetSession(i, out ctl);
+                        ctl.GetProcessId(out int cpid);
+
+                        if (cpid == pid)
+                        {
+                            meterInfo = ctl as IAudioMeterInformation;
+                            if (meterInfo != null)
+                            {
+                                meterInfo.GetPeakValue(out float peakValue);
+                                return peakValue > 0;
+                            }
+                        }
+                    }
+                    finally
+                    {
+                        if (ctl != null)
+                        {
+                            Marshal.ReleaseComObject(ctl);
+                        }
+                        if (meterInfo != null)
+                        {
+                            Marshal.ReleaseComObject(meterInfo);
+                        }
+                    }
+                }
+                return null;
+            }
+            finally
+            {
+                if (speakers != null)
+                {
+                    Marshal.ReleaseComObject(speakers);
+                }
+
+                if (mgr != null)
+                {
+                    Marshal.ReleaseComObject(mgr);
+                }
+
+                if (sessionEnumerator != null)
+                {
+                    Marshal.ReleaseComObject(sessionEnumerator);
+                }
+
+                if (deviceEnumerator != null)
+                {
+                    Marshal.ReleaseComObject(deviceEnumerator);
+                }
+            }
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="pid"></param>
@@ -623,6 +780,22 @@ namespace Skylark.Wing.Extension.AudioController
 
         [PreserveSig]
         int GetSession(int SessionCount, out IAudioSessionControl2 Session);
+    }
+
+    [Guid("C02216F6-8C67-4B5B-9D00-D008E73E0064"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    public interface IAudioMeterInformation
+    {
+        [PreserveSig]
+        int GetPeakValue(out float pfPeak);
+
+        [PreserveSig]
+        int GetMeteringChannelCount(out int pnChannelCount);
+
+        [PreserveSig]
+        int GetChannelsPeakValues(int u32ChannelCount, [Out] float[] afPeakValues);
+
+        [PreserveSig]
+        int QueryHardwareSupport(out uint pdwHardwareSupportMask);
     }
 
     [Guid("87CE5498-68D6-44E5-9215-6DA47EF883D8"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
