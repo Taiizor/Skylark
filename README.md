@@ -4,7 +4,6 @@
 ![C-Sharp-Version](https://img.shields.io/badge/C%23-Preview-blue.svg)
 [![IDE-Version](https://img.shields.io/badge/IDE-VS2022-blue.svg)](https://visualstudio.microsoft.com/downloads)
 [![NuGet-Version](https://img.shields.io/nuget/v/Skylark.svg?label=NuGet)](https://www.nuget.org/packages/Skylark)
-[![FuGet-Version](https://www.fuget.org/packages/Skylark/badge.svg?label=FuGet)](https://www.fuget.org/packages/Skylark)
 [![NuGet-Download](https://img.shields.io/nuget/dt/Skylark?label=Download)](https://www.nuget.org/api/v2/package/Skylark)
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-Skylark-orange.svg)](https://stackoverflow.com/questions/tagged/skylark)
 
