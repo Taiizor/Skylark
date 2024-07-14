@@ -18,6 +18,34 @@ namespace Skylark.Standard.Extension.Cryptology
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Byte"></param>
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
+        public static string ByteToBase(byte[] Byte = SSMCCM.Byte)
+        {
+            try
+            {
+                return SSHCCH.ToBase64String(Byte);
+            }
+            catch (SE Ex)
+            {
+                throw new SE(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Byte"></param>
+        /// <returns></returns>
+        public static async Task<string> ByteToBaseAsync(byte[] Byte = SSMCCM.Byte)
+        {
+            return await Task.Run(() => ByteToBase(Byte));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Text"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
@@ -45,6 +73,38 @@ namespace Skylark.Standard.Extension.Cryptology
         public static async Task<string> TextToBaseAsync(string Text = SSMCCM.Text, SEET Encode = SSMCCM.Encode)
         {
             return await Task.Run(() => TextToBase(Text, Encode));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Encode"></param>
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
+        public static byte[] TextToByte(string Text = SSMCCM.Text, SEET Encode = SSMCCM.Encode)
+        {
+            try
+            {
+                Text = SHL.Text(Text, SSMCCM.Text);
+
+                return SHE.GetBytes(Text, Encode);
+            }
+            catch (SE Ex)
+            {
+                throw new SE(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Encode"></param>
+        /// <returns></returns>
+        public static async Task<byte[]> TextToByteAsync(string Text = SSMCCM.Text, SEET Encode = SSMCCM.Encode)
+        {
+            return await Task.Run(() => TextToByte(Text, Encode));
         }
 
         /// <summary>
@@ -309,6 +369,36 @@ namespace Skylark.Standard.Extension.Cryptology
         /// 
         /// </summary>
         /// <param name="Base"></param>
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
+        public static byte[] BaseToByte(string Base = SSMCCM.Base)
+        {
+            try
+            {
+                Base = SHL.Text(Base, SSMCCM.Base);
+
+                return SSHCCH.FromBase64String(Base);
+            }
+            catch (SE Ex)
+            {
+                throw new SE(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Base"></param>
+        /// <returns></returns>
+        public static async Task<byte[]> BaseToByteAsync(string Base = SSMCCM.Base)
+        {
+            return await Task.Run(() => BaseToByte(Base));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Base"></param>
         /// <param name="Encode"></param>
         /// <returns></returns>
         /// <exception cref="SE"></exception>
@@ -335,6 +425,36 @@ namespace Skylark.Standard.Extension.Cryptology
         public static async Task<string> BaseToTextAsync(string Base = SSMCCM.Base, SEET Encode = SSMCCM.Encode)
         {
             return await Task.Run(() => BaseToText(Base, Encode));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Byte"></param>
+        /// <param name="Encode"></param>
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
+        public static string ByteToText(byte[] Byte = SSMCCM.Byte, SEET Encode = SSMCCM.Encode)
+        {
+            try
+            {
+                return SHE.GetString(Byte, Encode);
+            }
+            catch (SE Ex)
+            {
+                throw new SE(Ex.Message, Ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Byte"></param>
+        /// <param name="Encode"></param>
+        /// <returns></returns>
+        public static async Task<string> ByteToTextAsync(byte[] Byte = SSMCCM.Byte, SEET Encode = SSMCCM.Encode)
+        {
+            return await Task.Run(() => ByteToText(Byte, Encode));
         }
 
         /// <summary>
