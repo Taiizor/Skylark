@@ -15,7 +15,7 @@ using SSPPSS = Skylark.Struct.Ping.PingSendStruct;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 27.Feb.2023
-//     Changed: 14.Jul.2024
+//     Changed: 06.Aug.2024
 //     Version: 3.1.5.1
 //
 // |---------DO-NOT-REMOVE---------|
