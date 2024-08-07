@@ -61,7 +61,7 @@ jobs:
         dotnet-quality: preview
 
     - name: Restore the Skylark
-      run: dotnet restore ${{ matrix.solution }} -p:Configuration=${{ matrix.configuration }}
+      run: dotnet restore ${{ matrix.solution }} -p:Configuration=${{ matrix.configuration }} --configfile NuGet.Config
       env:
         NUGET_CONFIG_PATH: ./NuGet.Config
 
