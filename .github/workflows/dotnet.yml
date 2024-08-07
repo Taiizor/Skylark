@@ -61,14 +61,10 @@ jobs:
         dotnet-quality: preview
 
     - name: Restore the Skylark
-      run: dotnet restore ${{ matrix.solution }} -p:Configuration=${{ matrix.configuration }} --configfile NuGet.Config
-      env:
-        NUGET_CONFIG_PATH: ./NuGet.Config
+      run: dotnet restore ${{ matrix.solution }} -p:Configuration=${{ matrix.configuration }} --configfile ./NuGet.Config
 
     - name: Build the Skylark
       run: dotnet build ${{ matrix.solution }} -c ${{ matrix.configuration }} --no-restore /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
 
     - name: Test the Skylark
       run: dotnet test ${{ matrix.solution }} -c ${{ matrix.configuration }} --no-build --verbosity normal
-      env:
-        NUGET_CONFIG_PATH: ./NuGet.Config
