@@ -76,4 +76,5 @@ jobs:
     - name: Restore the Skylark
       run: msbuild ${{ matrix.solution }} /t:Restore /p:Configuration=$env:Configuration
       env:
+        NUGET_CONFIG_PATH: ./NuGet.Config
         Configuration: ${{ matrix.configuration }}
