@@ -70,13 +70,10 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Execute Unit Tests
-      run: dotnet test ${{ matrix.solution }} -c ${{ matrix.configuration }} /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
-      env:
-        NUGET_CONFIG_PATH: ./NuGet.Config
+      run: dotnet test ${{ matrix.solution }} -c ${{ matrix.configuration }} --configfile ./NuGet.Config /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the Skylark
       run: msbuild ${{ matrix.solution }} /t:Restore /p:Configuration=$env:Configuration
       env:
-        NUGET_CONFIG_PATH: ./NuGet.Config
         Configuration: ${{ matrix.configuration }}
