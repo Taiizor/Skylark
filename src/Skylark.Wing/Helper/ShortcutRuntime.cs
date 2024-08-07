@@ -30,8 +30,12 @@ namespace Skylark.Wing.Helper
             IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutAddress);
 
             shortcut.Description = description;
-            shortcut.Hotkey = hotkey;
             shortcut.TargetPath = targetPath;
+
+            if (hotkey != null)
+            {
+                shortcut.Hotkey = hotkey;
+            }
 
             if (iconLocation != null)
             {

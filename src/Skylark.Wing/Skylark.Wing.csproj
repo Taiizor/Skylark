@@ -12,7 +12,7 @@
 
     <PropertyGroup>
         <ApplicationIcon>Resources\Skylark.Wing.ico</ApplicationIcon>
-        <Version>3.1.6.4</Version>
+        <Version>3.1.6.5</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>Skylark.Wing</Title>
@@ -51,7 +51,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.SourceLink.GitHub">
-            <Version>9.0.0-beta.24406.3</Version>
+            <Version>9.0.0-beta.24407.1</Version>
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
     </ItemGroup>
