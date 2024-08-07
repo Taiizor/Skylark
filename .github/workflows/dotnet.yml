@@ -70,3 +70,5 @@ jobs:
 
     - name: Test the Skylark
       run: dotnet test ${{ matrix.solution }} -c ${{ matrix.configuration }} --no-build --verbosity normal
+      env:
+        NUGET_CONFIG_PATH: ./NuGet.Config
