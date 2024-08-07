@@ -19,6 +19,16 @@ namespace Skylark.Wing.Manage
         public const int WS_EX_TOOLWINDOW = 0x00000080;
 
         /// <summary>
+        /// Default shortcut extension
+        /// </summary>
+        public const string DEFAULT_SHORTCUT_EXTENSION = ".lnk";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string WSCRIPT_SHELL_NAME = "WScript.Shell";
+
+        /// <summary>
         /// 
         /// </summary>
         public static readonly SWIIDM DisplayManager = new SWHDM();
@@ -30,7 +40,7 @@ namespace Skylark.Wing.Manage
         /// <summary>
         /// 
         /// </summary>
-        public static Type M_TYPE => Type.GetTypeFromProgID("WScript.Shell");
+        public static Type M_TYPE => Type.GetTypeFromProgID(WSCRIPT_SHELL_NAME);
 
         /// <summary>
         /// 

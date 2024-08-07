@@ -7,7 +7,7 @@ namespace Skylark.Wing.Helper
     /// <summary>
     /// 
     /// </summary>
-    public static class Shortcut
+    public static class ShortcutDefault
     {
         /// <summary>
         /// 

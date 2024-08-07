@@ -334,6 +334,37 @@ namespace Skylark.Wing.Native
         public static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
 
         /// <summary>
+        /// windows styles
+        /// </summary>
+        public enum ShortcutWindowStyles
+        {
+            /// <summary>
+            /// Hide
+            /// </summary>
+            WshHide = 0,
+            /// <summary>
+            /// NormalFocus
+            /// </summary>
+            WshNormalFocus = 1,
+            /// <summary>
+            /// MinimizedFocus
+            /// </summary>
+            WshMinimizedFocus = 2,
+            /// <summary>
+            /// MaximizedFocus
+            /// </summary>
+            WshMaximizedFocus = 3,
+            /// <summary>
+            /// NormalNoFocus
+            /// </summary>
+            WshNormalNoFocus = 4,
+            /// <summary>
+            /// MinimizedNoFocus
+            /// </summary>
+            WshMinimizedNoFocus = 6,
+        }
+
+        /// <summary>
         /// Holds information, whether the Windows is a server, workstation or domain controller.
         /// </summary>
         public enum ProductType : byte
@@ -1743,6 +1774,14 @@ namespace Skylark.Wing.Native
             GWL_EXSTYLE = -20,
             GWL_USERDATA = -21,
             GWL_ID = -12
+        }
+
+        public enum WindowStyle
+        {
+            Hidden = 0,
+            Normal = 1,
+            Maximized = 3,
+            Minimized = 7
         }
 
         public abstract class WindowStyles
