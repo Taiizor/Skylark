@@ -1815,18 +1815,9 @@ namespace Skylark.Wing.Native
 
             // Common Window Styles
 
-            public const uint WS_OVERLAPPEDWINDOW =
-                WS_OVERLAPPED |
-                  WS_CAPTION |
-                  WS_SYSMENU |
-                  WS_THICKFRAME |
-                  WS_MINIMIZEBOX |
-                  WS_MAXIMIZEBOX;
+            public const uint WS_OVERLAPPEDWINDOW = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX;
 
-            public const uint WS_POPUPWINDOW =
-                WS_POPUP |
-                  WS_BORDER |
-                  WS_SYSMENU;
+            public const uint WS_POPUPWINDOW = WS_POPUP | WS_BORDER | WS_SYSMENU;
 
             public const uint WS_CHILDWINDOW = WS_CHILD;
 
@@ -1892,14 +1883,10 @@ namespace Skylark.Wing.Native
 
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern bool SystemParametersInfo(
-           int uAction, int uParam, [MarshalAs(UnmanagedType.I1)] bool lpvParam,
-           int flags);
+        public static extern bool SystemParametersInfo(int uAction, int uParam, [MarshalAs(UnmanagedType.I1)] bool lpvParam, int flags);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern bool SystemParametersInfo(
-     int uAction, int uParam, ref int lpvParam,
-     int flags);
+        public static extern bool SystemParametersInfo(int uAction, int uParam, ref int lpvParam, int flags);
 
 
         public static uint SPIF_SENDWININICHANGE = 0x02;
@@ -2373,7 +2360,7 @@ namespace Skylark.Wing.Native
 
         #region shell
 
-        [DllImport("shell32.dll")]
+        [DllImport("shell32.dll", SetLastError = true)]
         public static extern IntPtr SHAppBarMessage(int msg, ref APPBARDATA data);
 
         [DllImport("shell32.dll")]
@@ -2513,6 +2500,7 @@ namespace Skylark.Wing.Native
                 set { if (value) { flags_2 |= 0x00000040u; } else { flags_2 &= ~0x00000040u; } }
             }
         }
+
         [Flags]
         public enum SSF : uint
         {

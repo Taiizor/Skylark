@@ -7,7 +7,7 @@ namespace WinFormsDemoWallpaper
 {
     public partial class Controller : Form
     {
-        public bool State { get; set; } = true;
+        private bool State { get; set; } = true;
 
         public Controller()
         {

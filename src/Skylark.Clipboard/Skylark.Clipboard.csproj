@@ -11,7 +11,7 @@
 
     <PropertyGroup>
         <ApplicationIcon>Resources\Skylark.Clipboard.ico</ApplicationIcon>
-        <Version>3.1.4.1</Version>
+        <Version>3.1.4.2</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>Skylark.Clipboard</Title>
@@ -50,13 +50,13 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.SourceLink.GitHub">
-            <Version>9.0.0-beta.24426.1</Version>
+            <Version>9.0.0-beta.24468.2</Version>
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.1.4.6" />
+        <PackageReference Include="Skylark" Version="3.1.4.7" />
     </ItemGroup>
 
     <ItemGroup>

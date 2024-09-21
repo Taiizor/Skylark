@@ -16,9 +16,9 @@ namespace Skylark.Wing.Helper
         /// 
         /// </summary>
         /// <returns></returns>
-        public static AnchorStyles GetAnchorStyle()
+        public static AnchorStyles GetAnchorStyle(bool Exception = true)
         {
-            Rectangle coordonates = GetCoordonates();
+            Rectangle coordonates = Exception ? GetPosition() : GetCoordonates();
 
             if (coordonates.Left == 0 && coordonates.Top == 0)
             {
@@ -59,7 +59,9 @@ namespace Skylark.Wing.Helper
 
             if (RetVal == IntPtr.Zero)
             {
-                throw new Win32Exception("Please re-install Windows");
+                int errorCode = Marshal.GetLastWin32Error();
+
+                throw new Win32Exception(errorCode, $"Windows Taskbar Error in {nameof(GetPosition)}. Error code: {errorCode}");
             }
 
             return new Rectangle(Data.rc.Left, Data.rc.Top, Data.rc.Right - Data.rc.Left, Data.rc.Bottom - Data.rc.Top);
@@ -80,7 +82,21 @@ namespace Skylark.Wing.Helper
 
             if (RetVal == IntPtr.Zero)
             {
-                throw new Win32Exception("Windows Taskbar Error in " + nameof(GetCoordonates));
+                Rectangle screenBounds = Screen.PrimaryScreen.Bounds;
+                Rectangle workingArea = Screen.PrimaryScreen.WorkingArea;
+
+                int taskbarHeight = screenBounds.Height - workingArea.Height;
+
+                if (taskbarHeight > 0)
+                {
+                    return new Rectangle(0, screenBounds.Height - taskbarHeight, screenBounds.Width, taskbarHeight);
+                }
+                else
+                {
+                    int taskbarWidth = screenBounds.Width - workingArea.Width;
+
+                    return new Rectangle(screenBounds.Width - taskbarWidth, 0, taskbarWidth, screenBounds.Height);
+                }
             }
 
             return new Rectangle(Data.rc.Left, Data.rc.Top, Data.rc.Right - Data.rc.Left, Data.rc.Bottom - Data.rc.Top);
