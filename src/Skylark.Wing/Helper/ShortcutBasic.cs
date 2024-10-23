@@ -44,32 +44,33 @@ namespace Skylark.Wing.Helper
             string iconLocation = string.Format("{0},{1}", targetPath, iconNumber);
 
 #if NET6_0_OR_GREATER
-            Type shellType = SWMI.M_TYPE;
             dynamic shell = SWMI.M_SHELL;
             dynamic shortcut = shell.CreateShortcut(linkFileName);
 
-            shortcut.TargetPath = targetPath;
-            shortcut.WorkingDirectory = workingDirectory;
-            shortcut.Arguments = arguments;
             shortcut.Hotkey = hotkey;
-            shortcut.WindowStyle = shortcutWindowStyle;
+            shortcut.Arguments = arguments;
+            shortcut.TargetPath = targetPath;
             shortcut.Description = description;
             shortcut.IconLocation = iconLocation;
+            shortcut.WindowStyle = shortcutWindowStyle;
+            shortcut.WorkingDirectory = workingDirectory;
 
             shortcut.Save();
 #else
             Type shellType = SWMI.M_TYPE;
+
             object shell = SWMI.M_SHELL;
             object shortcut = shellType.InvokeMethod("CreateShortcut", shell, linkFileName);
+
             Type shortcutType = shortcut.GetType();
 
-            shortcutType.InvokeSetMember("TargetPath", shortcut, targetPath);
-            shortcutType.InvokeSetMember("WorkingDirectory", shortcut, workingDirectory);
-            shortcutType.InvokeSetMember("Arguments", shortcut, arguments);
             shortcutType.InvokeSetMember("Hotkey", shortcut, hotkey);
-            shortcutType.InvokeSetMember("WindowStyle", shortcut, shortcutWindowStyle);
+            shortcutType.InvokeSetMember("Arguments", shortcut, arguments);
+            shortcutType.InvokeSetMember("TargetPath", shortcut, targetPath);
             shortcutType.InvokeSetMember("Description", shortcut, description);
             shortcutType.InvokeSetMember("IconLocation", shortcut, iconLocation);
+            shortcutType.InvokeSetMember("WindowStyle", shortcut, shortcutWindowStyle);
+            shortcutType.InvokeSetMember("WorkingDirectory", shortcut, workingDirectory);
 
             shortcutType.InvokeMethod("Save", shortcut);
 #endif

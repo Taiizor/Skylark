@@ -26,15 +26,16 @@ namespace Skylark.Wing.Helper
         public static void Create(string shortcutLocation, string shortcutName, string description, string hotkey, string targetPath, string iconLocation = null, string workingDirectory = null, string arguments = null, SWNM.WindowStyle windowStyle = SWNM.WindowStyle.Normal)
         {
             WshShell shell = new();
+
             string shortcutAddress = Path.Combine(shortcutLocation, shortcutName);
             IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutAddress);
 
             shortcut.Description = description;
             shortcut.TargetPath = targetPath;
 
-            if (hotkey != null)
+            if (workingDirectory != null)
             {
-                shortcut.Hotkey = hotkey;
+                shortcut.WorkingDirectory = workingDirectory;
             }
 
             if (iconLocation != null)
@@ -42,17 +43,18 @@ namespace Skylark.Wing.Helper
                 shortcut.IconLocation = iconLocation;
             }
 
-            if (workingDirectory != null)
-            {
-                shortcut.WorkingDirectory = workingDirectory;
-            }
-
             if (arguments != null)
             {
                 shortcut.Arguments = arguments;
             }
 
+            if (hotkey != null)
+            {
+                shortcut.Hotkey = hotkey;
+            }
+
             shortcut.WindowStyle = (int)windowStyle;
+
             shortcut.Save();
         }
     }
