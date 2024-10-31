@@ -9,7 +9,7 @@ namespace Skylark.Wing.Helper
     /// <summary>
     /// 
     /// </summary>
-    public static class Fullscreen
+    public static class FullScreen
     {
         /// <summary>
         /// 
@@ -17,7 +17,7 @@ namespace Skylark.Wing.Helper
         /// <param name="wndHandle"></param>
         /// <param name="screeneRectangles"></param>
         /// <returns></returns>
-        public static bool IsFullscreen(IntPtr wndHandle, SSRRS screeneRectangles)
+        public static bool IsFullScreen(IntPtr wndHandle, SSRRS screeneRectangles)
         {
             SWNM.GetWindowRect(wndHandle, out SWNM.RECT Rectangle);
 
@@ -29,7 +29,7 @@ namespace Skylark.Wing.Helper
         /// </summary>
         /// <param name="hWnd"></param>
         /// <returns></returns>
-        public static bool IsFullscreen2(IntPtr hWnd)
+        public static bool IsFullScreen2(IntPtr hWnd)
         {
             int exStyle = SWNM.GetWindowLong(hWnd, -20);
 
