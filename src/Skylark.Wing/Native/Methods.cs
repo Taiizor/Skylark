@@ -466,6 +466,18 @@ namespace Skylark.Wing.Native
         }
 
         /// <summary>
+        /// COM HRESULT Enum
+        /// </summary>
+        public enum HRESULT : int
+        {
+            S_OK = 0,
+            S_FALSE = 1,
+            E_FAIL = unchecked((int)0x80004005),
+            E_NOTIMPL = unchecked((int)0x80004001),
+            E_NOINTERFACE = unchecked((int)0x80004002)
+        }
+
+        /// <summary>
         /// Contains operating system version information. The information includes major and 
         /// minor version numbers, a build number, a platform identifier, and information about 
         /// product suites and the latest Service Pack installed on the system.
