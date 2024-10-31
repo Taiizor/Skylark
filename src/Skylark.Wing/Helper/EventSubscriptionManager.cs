@@ -2,10 +2,10 @@
 using System.Runtime.InteropServices;
 using DISPPARAMS = System.Runtime.InteropServices.ComTypes.DISPPARAMS;
 using EXCEPINFO = System.Runtime.InteropServices.ComTypes.EXCEPINFO;
+using HRESULT = Skylark.Wing.Native.Methods.HRESULT;
 using SWIIEL = Skylark.Wing.Interface.IEventListener;
 using SWIIESM = Skylark.Wing.Interface.IEventSystem;
 using SWIIESN = Skylark.Wing.Interface.IEventSubscription;
-using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Skylark.Wing.Helper
 {
@@ -22,9 +22,9 @@ namespace Skylark.Wing.Helper
             _eventListener = eventListener;
         }
 
-        public SWNM.HRESULT Initialize()
+        public HRESULT Initialize()
         {
-            SWNM.HRESULT hr = SWNM.HRESULT.E_FAIL;
+            HRESULT hr = HRESULT.E_FAIL;
 
             Guid CLSID_CEventSubscription = new("7542e960-79c7-11d1-88f9-0080c7d771bf");
 
@@ -38,15 +38,15 @@ namespace Skylark.Wing.Helper
             {
                 hr = pEventSubscription.put_EventClassID("{D5978630-5B9F-11D1-8DD2-00AA004ABD5E}");
 
-                if (hr == SWNM.HRESULT.S_OK)
+                if (hr == HRESULT.S_OK)
                 {
                     hr = pEventSubscription.put_SubscriptionName("SkylarkEventSubscriptionManager");
 
-                    if (hr == SWNM.HRESULT.S_OK)
+                    if (hr == HRESULT.S_OK)
                     {
                         hr = pEventSubscription.put_PerUser(true);
 
-                        if (hr == SWNM.HRESULT.S_OK)
+                        if (hr == HRESULT.S_OK)
                         {
                             IntPtr pSubscriberInterface = Marshal.GetIUnknownForObject(this);
 
@@ -73,9 +73,9 @@ namespace Skylark.Wing.Helper
             return hr;
         }
 
-        public SWNM.HRESULT Uninitialize()
+        public HRESULT Uninitialize()
         {
-            SWNM.HRESULT hr = SWNM.HRESULT.E_FAIL;
+            HRESULT hr = HRESULT.E_FAIL;
 
             if (_eventSystem != null)
             {
@@ -101,47 +101,47 @@ namespace Skylark.Wing.Helper
             throw new NotImplementedException();
         }
 
-        public SWNM.HRESULT GetIDsOfNames(ref Guid riid, string[] rgszNames, int cNames, int lcid, int[] rgDispId)
+        public HRESULT GetIDsOfNames(ref Guid riid, string[] rgszNames, int cNames, int lcid, int[] rgDispId)
         {
             throw new NotImplementedException();
         }
 
-        public SWNM.HRESULT Invoke(int dispIdMember, ref Guid riid, int lcid, int dwFlags, DISPPARAMS pDispParams, out object pVarResult, EXCEPINFO pExcepInfo, IntPtr[] pArgErr)
+        public HRESULT Invoke(int dispIdMember, ref Guid riid, int lcid, int dwFlags, DISPPARAMS pDispParams, out object pVarResult, EXCEPINFO pExcepInfo, IntPtr[] pArgErr)
         {
             throw new NotImplementedException();
         }
 
-        public SWNM.HRESULT Logon(string userName)
+        public HRESULT Logon(string userName)
         {
             return _eventListener.OnLogon(userName);
         }
 
-        public SWNM.HRESULT Logoff(string userName)
+        public HRESULT Logoff(string userName)
         {
             return _eventListener.OnLogoff(userName);
         }
 
-        public SWNM.HRESULT StartShell(string userName)
+        public HRESULT StartShell(string userName)
         {
             return _eventListener.OnStartShell(userName);
         }
 
-        public SWNM.HRESULT DisplayLock(string userName)
+        public HRESULT DisplayLock(string userName)
         {
             return _eventListener.OnDisplayLock(userName);
         }
 
-        public SWNM.HRESULT DisplayUnlock(string userName)
+        public HRESULT DisplayUnlock(string userName)
         {
             return _eventListener.OnDisplayUnlock(userName);
         }
 
-        public SWNM.HRESULT StartScreenSaver(string userName)
+        public HRESULT StartScreenSaver(string userName)
         {
             return _eventListener.OnStartScreenSaver(userName);
         }
 
-        public SWNM.HRESULT StopScreenSaver(string userName)
+        public HRESULT StopScreenSaver(string userName)
         {
             return _eventListener.OnStopScreenSaver(userName);
         }

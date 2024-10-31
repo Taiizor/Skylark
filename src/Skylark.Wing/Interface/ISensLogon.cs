@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using DISPPARAMS = System.Runtime.InteropServices.ComTypes.DISPPARAMS;
 using EXCEPINFO = System.Runtime.InteropServices.ComTypes.EXCEPINFO;
-using SWNM = Skylark.Wing.Native.Methods;
+using HRESULT = Skylark.Wing.Native.Methods.HRESULT;
 
 namespace Skylark.Wing.Interface
 {
@@ -41,7 +41,7 @@ namespace Skylark.Wing.Interface
         /// <param name="rgDispId"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT GetIDsOfNames([In] ref Guid riid, [In, MarshalAs(UnmanagedType.LPArray)] string[] rgszNames, [In, MarshalAs(UnmanagedType.U4)] int cNames, [In, MarshalAs(UnmanagedType.U4)] int lcid, [Out, MarshalAs(UnmanagedType.LPArray)] int[] rgDispId);
+        HRESULT GetIDsOfNames([In] ref Guid riid, [In, MarshalAs(UnmanagedType.LPArray)] string[] rgszNames, [In, MarshalAs(UnmanagedType.U4)] int cNames, [In, MarshalAs(UnmanagedType.U4)] int lcid, [Out, MarshalAs(UnmanagedType.LPArray)] int[] rgDispId);
 
         /// <summary>
         /// 
@@ -56,7 +56,7 @@ namespace Skylark.Wing.Interface
         /// <param name="pArgErr"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT Invoke(int dispIdMember, [In] ref Guid riid, [In, MarshalAs(UnmanagedType.U4)] int lcid, [In, MarshalAs(UnmanagedType.U4)] int dwFlags, [Out, In] DISPPARAMS pDispParams, [Out] out object pVarResult, [Out, In] EXCEPINFO pExcepInfo, [Out, MarshalAs(UnmanagedType.LPArray)] IntPtr[] pArgErr);
+        HRESULT Invoke(int dispIdMember, [In] ref Guid riid, [In, MarshalAs(UnmanagedType.U4)] int lcid, [In, MarshalAs(UnmanagedType.U4)] int dwFlags, [Out, In] DISPPARAMS pDispParams, [Out] out object pVarResult, [Out, In] EXCEPINFO pExcepInfo, [Out, MarshalAs(UnmanagedType.LPArray)] IntPtr[] pArgErr);
 
         #endregion
 
@@ -66,7 +66,7 @@ namespace Skylark.Wing.Interface
         /// <param name="stringUserName"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT Logon(string stringUserName);
+        HRESULT Logon(string stringUserName);
 
         /// <summary>
         /// 
@@ -74,7 +74,7 @@ namespace Skylark.Wing.Interface
         /// <param name="stringUserName"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT Logoff(string stringUserName);
+        HRESULT Logoff(string stringUserName);
 
         /// <summary>
         /// 
@@ -82,7 +82,7 @@ namespace Skylark.Wing.Interface
         /// <param name="stringUserName"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT StartShell(string stringUserName);
+        HRESULT StartShell(string stringUserName);
 
         /// <summary>
         /// 
@@ -90,7 +90,7 @@ namespace Skylark.Wing.Interface
         /// <param name="stringUserName"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT DisplayLock(string stringUserName);
+        HRESULT DisplayLock(string stringUserName);
 
         /// <summary>
         /// 
@@ -98,7 +98,7 @@ namespace Skylark.Wing.Interface
         /// <param name="stringUserName"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT DisplayUnlock(string stringUserName);
+        HRESULT DisplayUnlock(string stringUserName);
 
         /// <summary>
         /// 
@@ -106,7 +106,7 @@ namespace Skylark.Wing.Interface
         /// <param name="stringUserName"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT StartScreenSaver(string stringUserName);
+        HRESULT StartScreenSaver(string stringUserName);
 
         /// <summary>
         /// 
@@ -114,6 +114,6 @@ namespace Skylark.Wing.Interface
         /// <param name="stringUserName"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT StopScreenSaver(string stringUserName);
+        HRESULT StopScreenSaver(string stringUserName);
     }
 }

@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using DISPPARAMS = System.Runtime.InteropServices.ComTypes.DISPPARAMS;
 using EXCEPINFO = System.Runtime.InteropServices.ComTypes.EXCEPINFO;
-using SWNM = Skylark.Wing.Native.Methods;
+using HRESULT = Skylark.Wing.Native.Methods.HRESULT;
 
 namespace Skylark.Wing.Interface
 {
@@ -41,7 +41,7 @@ namespace Skylark.Wing.Interface
         /// <param name="rgDispId"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT GetIDsOfNames([In] ref Guid riid, [In, MarshalAs(UnmanagedType.LPArray)] string[] rgszNames, [In, MarshalAs(UnmanagedType.U4)] int cNames, [In, MarshalAs(UnmanagedType.U4)] int lcid, [Out, MarshalAs(UnmanagedType.LPArray)] int[] rgDispId);
+        HRESULT GetIDsOfNames([In] ref Guid riid, [In, MarshalAs(UnmanagedType.LPArray)] string[] rgszNames, [In, MarshalAs(UnmanagedType.U4)] int cNames, [In, MarshalAs(UnmanagedType.U4)] int lcid, [Out, MarshalAs(UnmanagedType.LPArray)] int[] rgDispId);
 
         /// <summary>
         /// 
@@ -56,7 +56,7 @@ namespace Skylark.Wing.Interface
         /// <param name="pArgErr"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT Invoke(int dispIdMember, [In] ref Guid riid, [In, MarshalAs(UnmanagedType.U4)] int lcid, [In, MarshalAs(UnmanagedType.U4)] int dwFlags, [Out, In] DISPPARAMS pDispParams, [Out] out object pVarResult, [Out, In] EXCEPINFO pExcepInfo, [Out, MarshalAs(UnmanagedType.LPArray)] IntPtr[] pArgErr);
+        HRESULT Invoke(int dispIdMember, [In] ref Guid riid, [In, MarshalAs(UnmanagedType.U4)] int lcid, [In, MarshalAs(UnmanagedType.U4)] int dwFlags, [Out, In] DISPPARAMS pDispParams, [Out] out object pVarResult, [Out, In] EXCEPINFO pExcepInfo, [Out, MarshalAs(UnmanagedType.LPArray)] IntPtr[] pArgErr);
 
         #endregion
 
@@ -65,168 +65,168 @@ namespace Skylark.Wing.Interface
         /// </summary>
         /// <param name="pstringSubscriptionID"></param>
         /// <returns></returns>
-        SWNM.HRESULT get_SubscriptionID(out string pstringSubscriptionID);
+        HRESULT get_SubscriptionID(out string pstringSubscriptionID);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="stringSubscriptionID"></param>
         /// <returns></returns>
-        SWNM.HRESULT put_SubscriptionID(string stringSubscriptionID);
+        HRESULT put_SubscriptionID(string stringSubscriptionID);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="pstringSubscriptionName"></param>
         /// <returns></returns>
-        SWNM.HRESULT get_SubscriptionName(out string pstringSubscriptionName);
+        HRESULT get_SubscriptionName(out string pstringSubscriptionName);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="stringSubscriptionName"></param>
         /// <returns></returns>
-        SWNM.HRESULT put_SubscriptionName(string stringSubscriptionName);
+        HRESULT put_SubscriptionName(string stringSubscriptionName);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="pstringPublisherID"></param>
         /// <returns></returns>
-        SWNM.HRESULT get_PublisherID(out string pstringPublisherID);
+        HRESULT get_PublisherID(out string pstringPublisherID);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="stringPublisherID"></param>
         /// <returns></returns>
-        SWNM.HRESULT put_PublisherID(string stringPublisherID);
+        HRESULT put_PublisherID(string stringPublisherID);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="pstringEventClassID"></param>
         /// <returns></returns>
-        SWNM.HRESULT get_EventClassID(out string pstringEventClassID);
+        HRESULT get_EventClassID(out string pstringEventClassID);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="stringEventClassID"></param>
         /// <returns></returns>
-        SWNM.HRESULT put_EventClassID(string stringEventClassID);
+        HRESULT put_EventClassID(string stringEventClassID);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="pstringMethodName"></param>
         /// <returns></returns>
-        SWNM.HRESULT get_MethodName(out string pstringMethodName);
+        HRESULT get_MethodName(out string pstringMethodName);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="stringMethodName"></param>
         /// <returns></returns>
-        SWNM.HRESULT put_MethodName(string stringMethodName);
+        HRESULT put_MethodName(string stringMethodName);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="pstringSubscriberCLSID"></param>
         /// <returns></returns>
-        SWNM.HRESULT get_SubscriberCLSID(out string pstringSubscriberCLSID);
+        HRESULT get_SubscriberCLSID(out string pstringSubscriberCLSID);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="stringSubscriberCLSID"></param>
         /// <returns></returns>
-        SWNM.HRESULT put_SubscriberCLSID(string stringSubscriberCLSID);
+        HRESULT put_SubscriberCLSID(string stringSubscriberCLSID);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="ppSubscriberInterface"></param>
         /// <returns></returns>
-        SWNM.HRESULT get_SubscriberInterface(out IntPtr ppSubscriberInterface);
+        HRESULT get_SubscriberInterface(out IntPtr ppSubscriberInterface);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="pSubscriberInterface"></param>
         /// <returns></returns>
-        SWNM.HRESULT put_SubscriberInterface(IntPtr pSubscriberInterface);
+        HRESULT put_SubscriberInterface(IntPtr pSubscriberInterface);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="pfPerUser"></param>
         /// <returns></returns>
-        SWNM.HRESULT get_PerUser(out bool pfPerUser);
+        HRESULT get_PerUser(out bool pfPerUser);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="fPerUser"></param>
         /// <returns></returns>
-        SWNM.HRESULT put_PerUser(bool fPerUser);
+        HRESULT put_PerUser(bool fPerUser);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="pstringOwnerSID"></param>
         /// <returns></returns>
-        SWNM.HRESULT get_OwnerSID(out string pstringOwnerSID);
+        HRESULT get_OwnerSID(out string pstringOwnerSID);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="stringOwnerSID"></param>
         /// <returns></returns>
-        SWNM.HRESULT put_OwnerSID(string stringOwnerSID);
+        HRESULT put_OwnerSID(string stringOwnerSID);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="pfEnabled"></param>
         /// <returns></returns>
-        SWNM.HRESULT get_Enabled(out bool pfEnabled);
+        HRESULT get_Enabled(out bool pfEnabled);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="fEnabled"></param>
         /// <returns></returns>
-        SWNM.HRESULT put_Enabled(bool fEnabled);
+        HRESULT put_Enabled(bool fEnabled);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="pstringDescription"></param>
         /// <returns></returns>
-        SWNM.HRESULT get_Description(out string pstringDescription);
+        HRESULT get_Description(out string pstringDescription);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="stringDescription"></param>
         /// <returns></returns>
-        SWNM.HRESULT put_Description(string stringDescription);
+        HRESULT put_Description(string stringDescription);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="pstringMachineName"></param>
         /// <returns></returns>
-        SWNM.HRESULT get_MachineName(out string pstringMachineName);
+        HRESULT get_MachineName(out string pstringMachineName);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="stringMachineName"></param>
         /// <returns></returns>
-        SWNM.HRESULT put_MachineName(string stringMachineName);
+        HRESULT put_MachineName(string stringMachineName);
 
         /// <summary>
         /// 
@@ -234,7 +234,7 @@ namespace Skylark.Wing.Interface
         /// <param name="stringPropertyName"></param>
         /// <param name="propertyValue"></param>
         /// <returns></returns>
-        //SWNM.HRESULT GetPublisherProperty(string stringPropertyName, out VARIANT propertyValue);
+        //HRESULT GetPublisherProperty(string stringPropertyName, out VARIANT propertyValue);
 
         /// <summary>
         /// 
@@ -242,7 +242,7 @@ namespace Skylark.Wing.Interface
         /// <param name="stringPropertyName"></param>
         /// <param name="propertyValue"></param>
         /// <returns></returns>
-        SWNM.HRESULT GetPublisherProperty(string stringPropertyName, out object propertyValue);
+        HRESULT GetPublisherProperty(string stringPropertyName, out object propertyValue);
 
         /// <summary>
         /// 
@@ -250,7 +250,7 @@ namespace Skylark.Wing.Interface
         /// <param name="stringPropertyName"></param>
         /// <param name="propertyValue"></param>
         /// <returns></returns>
-        //SWNM.HRESULT PutPublisherProperty(string stringPropertyName, VARIANT propertyValue);
+        //HRESULT PutPublisherProperty(string stringPropertyName, VARIANT propertyValue);
 
         /// <summary>
         /// 
@@ -258,28 +258,28 @@ namespace Skylark.Wing.Interface
         /// <param name="stringPropertyName"></param>
         /// <param name="propertyValue"></param>
         /// <returns></returns>
-        SWNM.HRESULT PutPublisherProperty(string stringPropertyName, object propertyValue);
+        HRESULT PutPublisherProperty(string stringPropertyName, object propertyValue);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="stringPropertyName"></param>
         /// <returns></returns>
-        SWNM.HRESULT RemovePublisherProperty(string stringPropertyName);
+        HRESULT RemovePublisherProperty(string stringPropertyName);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="collection"></param>
         /// <returns></returns>
-        //SWNM.HRESULT GetPublisherPropertyCollection(out IEventObjectCollection collection);
+        //HRESULT GetPublisherPropertyCollection(out IEventObjectCollection collection);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="collection"></param>
         /// <returns></returns>
-        SWNM.HRESULT GetPublisherPropertyCollection(out IntPtr collection);
+        HRESULT GetPublisherPropertyCollection(out IntPtr collection);
 
         /// <summary>
         /// 
@@ -287,7 +287,7 @@ namespace Skylark.Wing.Interface
         /// <param name="stringPropertyName"></param>
         /// <param name="propertyValue"></param>
         /// <returns></returns>
-        //SWNM.HRESULT GetSubscriberProperty(string stringPropertyName, out VARIANT propertyValue);
+        //HRESULT GetSubscriberProperty(string stringPropertyName, out VARIANT propertyValue);
 
         /// <summary>
         /// 
@@ -295,7 +295,7 @@ namespace Skylark.Wing.Interface
         /// <param name="stringPropertyName"></param>
         /// <param name="propertyValue"></param>
         /// <returns></returns>
-        SWNM.HRESULT GetSubscriberProperty(string stringPropertyName, out object propertyValue);
+        HRESULT GetSubscriberProperty(string stringPropertyName, out object propertyValue);
 
         /// <summary>
         /// 
@@ -303,7 +303,7 @@ namespace Skylark.Wing.Interface
         /// <param name="stringPropertyName"></param>
         /// <param name="propertyValue"></param>
         /// <returns></returns>
-        //SWNM.HRESULT PutSubscriberProperty(string stringPropertyName, VARIANT propertyValue);
+        //HRESULT PutSubscriberProperty(string stringPropertyName, VARIANT propertyValue);
 
         /// <summary>
         /// 
@@ -311,41 +311,41 @@ namespace Skylark.Wing.Interface
         /// <param name="stringPropertyName"></param>
         /// <param name="propertyValue"></param>
         /// <returns></returns>
-        SWNM.HRESULT PutSubscriberProperty(string stringPropertyName, object propertyValue);
+        HRESULT PutSubscriberProperty(string stringPropertyName, object propertyValue);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="stringPropertyName"></param>
         /// <returns></returns>
-        SWNM.HRESULT RemoveSubscriberProperty(string stringPropertyName);
+        HRESULT RemoveSubscriberProperty(string stringPropertyName);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="collection"></param>
         /// <returns></returns>
-        //SWNM.HRESULT GetSubscriberPropertyCollection(out IEventObjectCollection collection);
+        //HRESULT GetSubscriberPropertyCollection(out IEventObjectCollection collection);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="collection"></param>
         /// <returns></returns>
-        SWNM.HRESULT GetSubscriberPropertyCollection(out IntPtr collection);
+        HRESULT GetSubscriberPropertyCollection(out IntPtr collection);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="pstringInterfaceID"></param>
         /// <returns></returns>
-        SWNM.HRESULT get_InterfaceID(out string pstringInterfaceID);
+        HRESULT get_InterfaceID(out string pstringInterfaceID);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="stringInterfaceID"></param>
         /// <returns></returns>
-        SWNM.HRESULT put_InterfaceID(string stringInterfaceID);
+        HRESULT put_InterfaceID(string stringInterfaceID);
     }
 }

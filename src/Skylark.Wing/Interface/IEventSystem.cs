@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using DISPPARAMS = System.Runtime.InteropServices.ComTypes.DISPPARAMS;
 using EXCEPINFO = System.Runtime.InteropServices.ComTypes.EXCEPINFO;
-using SWNM = Skylark.Wing.Native.Methods;
+using HRESULT = Skylark.Wing.Native.Methods.HRESULT;
 
 namespace Skylark.Wing.Interface
 {
@@ -41,7 +41,7 @@ namespace Skylark.Wing.Interface
         /// <param name="rgDispId"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT GetIDsOfNames([In] ref Guid riid, [In, MarshalAs(UnmanagedType.LPArray)] string[] rgszNames, [In, MarshalAs(UnmanagedType.U4)] int cNames, [In, MarshalAs(UnmanagedType.U4)] int lcid, [Out, MarshalAs(UnmanagedType.LPArray)] int[] rgDispId);
+        HRESULT GetIDsOfNames([In] ref Guid riid, [In, MarshalAs(UnmanagedType.LPArray)] string[] rgszNames, [In, MarshalAs(UnmanagedType.U4)] int cNames, [In, MarshalAs(UnmanagedType.U4)] int lcid, [Out, MarshalAs(UnmanagedType.LPArray)] int[] rgDispId);
 
         /// <summary>
         /// 
@@ -56,7 +56,7 @@ namespace Skylark.Wing.Interface
         /// <param name="pArgErr"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT Invoke(int dispIdMember, [In] ref Guid riid, [In, MarshalAs(UnmanagedType.U4)] int lcid, [In, MarshalAs(UnmanagedType.U4)] int dwFlags, [Out, In] DISPPARAMS pDispParams, [Out] out object pVarResult, [Out, In] EXCEPINFO pExcepInfo, [Out, MarshalAs(UnmanagedType.LPArray)] IntPtr[] pArgErr);
+        HRESULT Invoke(int dispIdMember, [In] ref Guid riid, [In, MarshalAs(UnmanagedType.U4)] int lcid, [In, MarshalAs(UnmanagedType.U4)] int dwFlags, [Out, In] DISPPARAMS pDispParams, [Out] out object pVarResult, [Out, In] EXCEPINFO pExcepInfo, [Out, MarshalAs(UnmanagedType.LPArray)] IntPtr[] pArgErr);
 
         #endregion
 
@@ -69,7 +69,7 @@ namespace Skylark.Wing.Interface
         /// <param name="ppInterface"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT Query(string progID, string queryCriteria, out int errorIndex, out IntPtr ppInterface);
+        HRESULT Query(string progID, string queryCriteria, out int errorIndex, out IntPtr ppInterface);
 
         /// <summary>
         /// 
@@ -78,7 +78,7 @@ namespace Skylark.Wing.Interface
         /// <param name="pInterface"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT Store(string ProgID, IntPtr pInterface);
+        HRESULT Store(string ProgID, IntPtr pInterface);
 
         /// <summary>
         /// 
@@ -88,7 +88,7 @@ namespace Skylark.Wing.Interface
         /// <param name="errorIndex"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT Remove(string progID, string queryCriteria, out int errorIndex);
+        HRESULT Remove(string progID, string queryCriteria, out int errorIndex);
 
         /// <summary>
         /// 
@@ -96,7 +96,7 @@ namespace Skylark.Wing.Interface
         /// <param name="pbstrEventClassID"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT get_EventObjectChangeEventClassID(out string pbstrEventClassID);
+        HRESULT get_EventObjectChangeEventClassID(out string pbstrEventClassID);
 
         /// <summary>
         /// 
@@ -106,7 +106,7 @@ namespace Skylark.Wing.Interface
         /// <param name="ppInterface"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT QueryS(string progID, string queryCriteria, out IntPtr ppInterface);
+        HRESULT QueryS(string progID, string queryCriteria, out IntPtr ppInterface);
 
         /// <summary>
         /// 
@@ -115,6 +115,6 @@ namespace Skylark.Wing.Interface
         /// <param name="queryCriteria"></param>
         /// <returns></returns>
         [PreserveSig]
-        SWNM.HRESULT RemoveS(string progID, string queryCriteria);
+        HRESULT RemoveS(string progID, string queryCriteria);
     }
 }
