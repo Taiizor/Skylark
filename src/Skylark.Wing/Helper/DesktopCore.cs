@@ -4,7 +4,9 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
 using SE = Skylark.Exception;
+using SEOST = Skylark.Enum.OperatingSystemType;
 using SETFT = Skylark.Enum.TimeoutFlagsType;
+using SWEOS = Skylark.Wing.Extension.OperatingSystem;
 using SWHFI = Skylark.Wing.Helper.FormInterop;
 using SWHPI = Skylark.Wing.Helper.ProcessInterop;
 using SWHWAPI = Skylark.Wing.Helper.WinAPI;
@@ -96,15 +98,14 @@ namespace Skylark.Wing.Helper
                     // Skip once.
                     if (Count % 2 == 0)
                     {
-                        IntPtr Result = IntPtr.Zero;
-                        SWHWAPI.SendMessageTimeout(Progman, 0x052C, new IntPtr(0xD), new IntPtr(0x1), SETFT.SMTO_NORMAL, 10000, out Result);
+                        SWHWAPI.SendMessageTimeout(Progman, 0x052C, new IntPtr(0xD), new IntPtr(0x1), SETFT.SMTO_NORMAL, 10000, out IntPtr Result);
                     }
 
                     SWHWAPI.EnumWindows(new SWHWAPI.EnumWindowsProc((TopHandle, TopParamHandle) =>
                     {
-                        IntPtr IntPtr = SWHWAPI.FindWindowEx(TopHandle, IntPtr.Zero, "SHELLDLL_DefView", IntPtr.Zero);
+                        IntPtr DefView = SWHWAPI.FindWindowEx(TopHandle, IntPtr.Zero, "SHELLDLL_DefView", IntPtr.Zero);
 
-                        if (IntPtr != IntPtr.Zero)
+                        if (DefView != IntPtr.Zero)
                         {
                             WorkerW = SWHWAPI.FindWindowEx(IntPtr.Zero, TopHandle, "WorkerW", IntPtr.Zero);
                         }
@@ -149,11 +150,12 @@ namespace Skylark.Wing.Helper
 
         private static bool SetParent(IntPtr Handle, IntPtr Progman, IntPtr WorkerW)
         {
-            //Win7
-            if (Environment.OSVersion.Version.Major == 6 && Environment.OSVersion.Version.Minor == 1)
+            //To determine if system is running on Windows 7
+            if (SWEOS.GetOperatingSystem() == SEOST.Windows7)
             {
                 if (!WorkerW.Equals(Progman))
                 {
+                    // Hide WorkerW to make it act as the wallpaper background
                     SWNM.ShowWindow(WorkerW, 0);
                 }
 

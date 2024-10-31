@@ -278,6 +278,8 @@ namespace Skylark.Wing.Native
 
         #region life cycle
 
+        public const int HWND_BOTTOM = 1;
+
         public const int HWND_BROADCAST = 0xffff;
 
         [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
@@ -573,6 +575,8 @@ namespace Skylark.Wing.Native
         [DllImport("user32.dll")]
         public static extern bool SetLayeredWindowAttributes(IntPtr hwnd, uint crKey, byte bAlpha, uint dwFlags);
 
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        public static extern IntPtr CreateWindowEx(uint dwExStyle, string lpClassName, string lpWindowName, uint dwStyle, int x, int y, int nWidth, int nHeight, IntPtr hWndParent, IntPtr hMenu, IntPtr hInstance, IntPtr lpParam);
 
         [DllImport("user32.dll")]
         public static extern int GetClassName(int hWnd, StringBuilder lpClassName, int nMaxCount);
@@ -1864,6 +1868,8 @@ namespace Skylark.Wing.Native
             public const uint WS_EX_COMPOSITED = 0x02000000;
             public const uint WS_EX_NOACTIVATE = 0x08000000;
             //#endif /* _WIN32_WINNT >= 0x0500 */
+
+            public const int WS_EX_NOREDIRECTIONBITMAP = 0x00200000;
         }
 
 

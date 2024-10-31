@@ -34,37 +34,28 @@ namespace Skylark.Wing.Native
         [DllImport("User32.dll")]
         public static extern int FindWindowEx(int hwndParent, int hwndChildAfter, string strClassName, string strWindowName);
 
-
         /// <summary>
         /// The SendMessage function sends the specified message to a window or windows. 
         /// It calls the window procedure for the specified window and does not return
         /// until the window procedure has processed the message. 
         /// </summary>
-        /// <param name="hWnd"></param>
-        /// <param name="Msg"></param>
-        /// <param name="wParam"></param>
-        /// <param name="lParam"></param>
+        /// <param name="hWnd">handle to destination window</param>
+        /// <param name="Msg">message</param>
+        /// <param name="wParam">first message parameter</param>
+        /// <param name="lParam">second message parameter</param>
         /// <returns></returns>
         [DllImport("User32.dll")]
-        public static extern int SendMessage(
-            int hWnd,               // handle to destination window
-            int Msg,                // message
-            int wParam,             // first message parameter
-            [MarshalAs(UnmanagedType.LPStr)] string lParam); // second message parameter
+        public static extern int SendMessage(int hWnd, int Msg, int wParam, [MarshalAs(UnmanagedType.LPStr)] string lParam);
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="hWnd"></param>
-        /// <param name="Msg"></param>
-        /// <param name="wParam"></param>
-        /// <param name="lParam"></param>
+        /// <param name="hWnd">handle to destination window</param>
+        /// <param name="Msg">message</param>
+        /// <param name="wParam">first message parameter</param>
+        /// <param name="lParam">second message parameter</param>
         /// <returns></returns>
         [DllImport("User32.dll")]
-        public static extern int SendMessage(
-            int hWnd,               // handle to destination window
-            int Msg,                // message
-            int wParam,             // first message parameter
-            int lParam);            // second message parameter
+        public static extern int SendMessage(int hWnd, int Msg, int wParam, int lParam);
     }
 }
