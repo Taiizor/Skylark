@@ -80,6 +80,8 @@ namespace Skylark.Wing.Helper
                 hr = _eventSystem.Remove("EventSystem.EventSubscription", "EventClassID={D5978630-5B9F-11D1-8DD2-00AA004ABD5E}", out _);
 
                 Marshal.ReleaseComObject(_eventSystem);
+
+                _eventSystem = null;
             }
 
             return hr;
