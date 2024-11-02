@@ -12,15 +12,9 @@ namespace Skylark.Wing.Helper
     /// <summary>
     /// EventSubscriptionManager Class - Handles event subscription logic
     /// </summary>
-    public class EventSubscriptionManager
+    public class EventSubscriptionManager(SWIIEL eventListener)
     {
-        private readonly SWIIEL _eventListener;
         private SWIIESM _eventSystem;
-
-        public EventSubscriptionManager(SWIIEL eventListener)
-        {
-            _eventListener = eventListener;
-        }
 
         public HRESULT Initialize()
         {
@@ -83,7 +77,7 @@ namespace Skylark.Wing.Helper
                 // HResult = 0x80070005
                 // Message = Accès refusé. (Exception de HRESULT: 0x80070005(E_ACCESSDENIED))
 
-                hr = _eventSystem.Remove("EventSystem.EventSubscription", "EventClassID={D5978630-5B9F-11D1-8DD2-00AA004ABD5E}", out int errorIndex);
+                hr = _eventSystem.Remove("EventSystem.EventSubscription", "EventClassID={D5978630-5B9F-11D1-8DD2-00AA004ABD5E}", out _);
 
                 Marshal.ReleaseComObject(_eventSystem);
             }
@@ -113,37 +107,37 @@ namespace Skylark.Wing.Helper
 
         public HRESULT Logon(string userName)
         {
-            return _eventListener.OnLogon(userName);
+            return eventListener.OnLogon(userName);
         }
 
         public HRESULT Logoff(string userName)
         {
-            return _eventListener.OnLogoff(userName);
+            return eventListener.OnLogoff(userName);
         }
 
         public HRESULT StartShell(string userName)
         {
-            return _eventListener.OnStartShell(userName);
+            return eventListener.OnStartShell(userName);
         }
 
         public HRESULT DisplayLock(string userName)
         {
-            return _eventListener.OnDisplayLock(userName);
+            return eventListener.OnDisplayLock(userName);
         }
 
         public HRESULT DisplayUnlock(string userName)
         {
-            return _eventListener.OnDisplayUnlock(userName);
+            return eventListener.OnDisplayUnlock(userName);
         }
 
         public HRESULT StartScreenSaver(string userName)
         {
-            return _eventListener.OnStartScreenSaver(userName);
+            return eventListener.OnStartScreenSaver(userName);
         }
 
         public HRESULT StopScreenSaver(string userName)
         {
-            return _eventListener.OnStopScreenSaver(userName);
+            return eventListener.OnStopScreenSaver(userName);
         }
     }
 }
