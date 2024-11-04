@@ -87,7 +87,17 @@ namespace Skylark.Wing.Helper
 
                 if (Progman == IntPtr.Zero)
                 {
-                    return false;
+                    // If Progman is not found, create a new instance.
+                    Process.Start("explorer.exe");
+
+                    Thread.Sleep(1000);
+
+                    Progman = SWHWAPI.FindWindow("Progman", "Program Manager");
+
+                    if (Progman == IntPtr.Zero)
+                    {
+                        return false;
+                    }
                 }
 
                 IntPtr WorkerW = IntPtr.Zero;
@@ -153,6 +163,11 @@ namespace Skylark.Wing.Helper
             //To determine if system is running on Windows 7
             if (SWEOS.GetOperatingSystem() == SEOST.Windows7)
             {
+                if (Progman.Equals(IntPtr.Zero))
+                {
+                    Progman = SWHWAPI.FindWindow("Progman", "Program Manager");
+                }
+
                 if (!WorkerW.Equals(Progman))
                 {
                     // Hide WorkerW to make it act as the wallpaper background
@@ -165,8 +180,6 @@ namespace Skylark.Wing.Helper
                 {
                     return false;
                 }
-
-                WorkerW = Progman;
 
                 Return = SWNM.SetParent(Handle, WorkerW);
 
