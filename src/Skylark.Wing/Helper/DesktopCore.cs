@@ -101,6 +101,7 @@ namespace Skylark.Wing.Helper
                 }
 
                 IntPtr WorkerW = IntPtr.Zero;
+                SEOST OperatingSystem = SWEOS.GetOperatingSystem();
 
                 // Tried several times.
                 for (int Count = 0; Count < 8; ++Count)
@@ -108,7 +109,14 @@ namespace Skylark.Wing.Helper
                     // Skip once.
                     if (Count % 2 == 0)
                     {
-                        SWHWAPI.SendMessageTimeout(Progman, 0x052C, new IntPtr(0xD), new IntPtr(0x1), SETFT.SMTO_NORMAL, 10000, out IntPtr Result);
+                        if (OperatingSystem == SEOST.Windows7)
+                        {
+                            SWHWAPI.SendMessageTimeout(Progman, 0x052C, new IntPtr(0), IntPtr.Zero, SETFT.SMTO_NORMAL, 10000, out _);
+                        }
+                        else
+                        {
+                            SWHWAPI.SendMessageTimeout(Progman, 0x052C, new IntPtr(0xD), new IntPtr(0x1), SETFT.SMTO_NORMAL, 10000, out _);
+                        }
                     }
 
                     SWHWAPI.EnumWindows(new SWHWAPI.EnumWindowsProc((TopHandle, TopParamHandle) =>
@@ -150,7 +158,7 @@ namespace Skylark.Wing.Helper
                 //    return false;
                 //}
 
-                return SetParent(Handle, Progman, WorkerW);
+                return SetParent(Handle, Progman, WorkerW, OperatingSystem);
             }
             catch (SE Ex)
             {
@@ -158,10 +166,10 @@ namespace Skylark.Wing.Helper
             }
         }
 
-        private static bool SetParent(IntPtr Handle, IntPtr Progman, IntPtr WorkerW)
+        private static bool SetParent(IntPtr Handle, IntPtr Progman, IntPtr WorkerW, SEOST OperatingSystem)
         {
             //To determine if system is running on Windows 7
-            if (SWEOS.GetOperatingSystem() == SEOST.Windows7)
+            if (OperatingSystem == SEOST.Windows7)
             {
                 if (Progman.Equals(IntPtr.Zero))
                 {
@@ -175,13 +183,6 @@ namespace Skylark.Wing.Helper
                 }
 
                 IntPtr Return = SWNM.SetParent(Handle, Progman);
-
-                if (Return.Equals(IntPtr.Zero))
-                {
-                    return false;
-                }
-
-                Return = SWNM.SetParent(Handle, WorkerW);
 
                 if (Return.Equals(IntPtr.Zero))
                 {
