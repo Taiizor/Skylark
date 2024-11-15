@@ -82,10 +82,18 @@ jobs:
       env:
         NUGET_CONFIG_PATH: ./NuGet.Config
 
-    # Restore and Build using MSBuild (Framework version)
-    - name: Restore and Build the Skylark
+    # Restore the Skylark project
+    - name: Restore Skylark
       run: |
-        & "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "${{ matrix.solution }}" /t:Restore;Build /p:Configuration=$env:Configuration
+        & "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "${{ matrix.solution }}" /t:Restore /p:Configuration=$env:Configuration
+      env:
+        NUGET_CONFIG_PATH: ./NuGet.Config
+        Configuration: ${{ matrix.configuration }}
+
+    # Build the Skylark project
+    - name: Build Skylark
+      run: |
+        & "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "${{ matrix.solution }}" /t:Build /p:Configuration=$env:Configuration
       env:
         NUGET_CONFIG_PATH: ./NuGet.Config
         Configuration: ${{ matrix.configuration }}
