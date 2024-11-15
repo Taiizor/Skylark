@@ -20,7 +20,7 @@ jobs:
         solution: [
             src/Skylark.sln,
             src/Skylark.DNS.sln,
-            # src/Skylark.Wing.sln,
+            src/Skylark.Wing.sln,
             src/Skylark.Uptime.sln,
             src/Skylark.Standard.sln,
             src/Skylark.Clipboard.sln,
@@ -76,7 +76,7 @@ jobs:
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the Skylark
-      run: msbuild ${{ matrix.solution }} /t:Restore /p:Configuration=$env:Configuration
+      run: '"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" ${{ matrix.solution }} /t:Restore /p:Configuration=$env:Configuration'
       env:
         NUGET_CONFIG_PATH: ./NuGet.Config
         Configuration: ${{ matrix.configuration }}
