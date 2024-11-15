@@ -70,7 +70,7 @@ jobs:
         dotnet-version: 9.0.x
         dotnet-quality: preview
 
-    # Set up MSBuild with the installed Build Tools
+    # Set up MSBuild from Visual Studio
     - name: Setup MSBuild.exe
       run: |
         echo "Adding MSBuild to path"
@@ -85,7 +85,7 @@ jobs:
     # Restore and Build using MSBuild (Framework version)
     - name: Restore and Build the Skylark
       run: |
-        '"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe"' ${{ matrix.solution }} /t:Restore;Build /p:Configuration=$env:Configuration
+        & "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "${{ matrix.solution }}" /t:Restore;Build /p:Configuration=$env:Configuration
       env:
         NUGET_CONFIG_PATH: ./NuGet.Config
         Configuration: ${{ matrix.configuration }}
