@@ -61,7 +61,7 @@ jobs:
     - name: Install Visual Studio Build Tools
       run: |
         choco install visualstudio2019buildtools --ignore-checksums -y
-        choco install visualstudio2019-workload-netbuildtools --ignore-checksums -y
+        choco install visualstudio2019-workload-vctools --ignore-checksums -y
 
     # Install .NET Core SDK
     - name: Install .NET Core
