@@ -49,6 +49,14 @@
         <NoWarn>1587,1591</NoWarn>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(TargetFramework)' == 'net48'">
+        <ResolveComReferences>true</ResolveComReferences>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)' != 'net48'">
+        <ResolveComReferences>false</ResolveComReferences>
+    </PropertyGroup>
+        
     <ItemGroup>
         <PackageReference Include="Microsoft.SourceLink.GitHub">
             <Version>9.0.0-beta.24562.2</Version>
