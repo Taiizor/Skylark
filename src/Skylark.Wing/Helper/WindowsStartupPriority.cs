@@ -12,6 +12,15 @@ namespace Skylark.Wing.Helper
         /// 
         /// </summary>
         /// <param name="AppPath"></param>
+        public static void ChangeStartup(string AppPath)
+        {
+            SetStartupRegistry(AppPath, !GetStartupRegistry(AppPath));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="AppPath"></param>
         /// <param name="Startup"></param>
         public static void SetStartup(string AppPath, bool Startup)
         {
@@ -22,20 +31,29 @@ namespace Skylark.Wing.Helper
         /// 
         /// </summary>
         /// <param name="AppPath"></param>
-        public static void ChangeStartup(string AppPath)
+        /// <returns></returns>
+        private static bool GetStartupRegistry(string AppPath)
         {
-            SetStartupRegistry(AppPath, !GetStartupRegistry(AppPath));
+            RegistryKey Key = GetRegistryKey();
+
+            try
+            {
+                return Key.GetValue("Userinit").ToString().Contains(AppPath);
+            }
+            finally
+            {
+                Key.Close();
+            }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Location"></param>
-        /// <param name="Extension"></param>
+        /// <param name="Writable"></param>
         /// <returns></returns>
-        private static string ChangeExtension(string Location, string Extension = ".exe")
+        private static RegistryKey GetRegistryKey(bool Writable = false)
         {
-            return Path.ChangeExtension(Location, Extension);
+            return Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Winlogon", Writable);
         }
 
         /// <summary>
@@ -83,30 +101,12 @@ namespace Skylark.Wing.Helper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="AppPath"></param>
+        /// <param name="Location"></param>
+        /// <param name="Extension"></param>
         /// <returns></returns>
-        private static bool GetStartupRegistry(string AppPath)
+        private static string ChangeExtension(string Location, string Extension = ".exe")
         {
-            RegistryKey Key = GetRegistryKey();
-
-            try
-            {
-                return Key.GetValue("Userinit").ToString().Contains(AppPath);
-            }
-            finally
-            {
-                Key.Close();
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Writable"></param>
-        /// <returns></returns>
-        private static RegistryKey GetRegistryKey(bool Writable = false)
-        {
-            return Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Winlogon", Writable);
+            return Path.ChangeExtension(Location, Extension);
         }
     }
 }

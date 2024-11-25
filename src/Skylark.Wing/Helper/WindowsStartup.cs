@@ -13,6 +13,16 @@ namespace Skylark.Wing.Helper
         /// </summary>
         /// <param name="AppName"></param>
         /// <param name="AppPath"></param>
+        public static void ChangeStartup(string AppName, string AppPath)
+        {
+            SetStartupRegistry(AppName, AppPath, !GetStartupRegistry(AppName));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="AppName"></param>
+        /// <param name="AppPath"></param>
         /// <param name="Startup"></param>
         public static void SetStartup(string AppName, string AppPath, bool Startup)
         {
@@ -23,10 +33,29 @@ namespace Skylark.Wing.Helper
         /// 
         /// </summary>
         /// <param name="AppName"></param>
-        /// <param name="AppPath"></param>
-        public static void ChangeStartup(string AppName, string AppPath)
+        /// <returns></returns>
+        private static bool GetStartupRegistry(string AppName)
         {
-            SetStartupRegistry(AppName, AppPath, !GetStartupRegistry(AppName));
+            RegistryKey Key = GetRegistryKey();
+
+            try
+            {
+                return Key.GetValue(AppName) != null;
+            }
+            finally
+            {
+                Key.Close();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Writable"></param>
+        /// <returns></returns>
+        private static RegistryKey GetRegistryKey(bool Writable = false)
+        {
+            return Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", Writable);
         }
 
         /// <summary>
@@ -65,35 +94,6 @@ namespace Skylark.Wing.Helper
             {
                 Key.Close();
             }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="AppName"></param>
-        /// <returns></returns>
-        private static bool GetStartupRegistry(string AppName)
-        {
-            RegistryKey Key = GetRegistryKey();
-
-            try
-            {
-                return Key.GetValue(AppName) != null;
-            }
-            finally
-            {
-                Key.Close();
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Writable"></param>
-        /// <returns></returns>
-        private static RegistryKey GetRegistryKey(bool Writable = false)
-        {
-            return Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", Writable);
         }
     }
 }

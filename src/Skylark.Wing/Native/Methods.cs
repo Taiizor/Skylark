@@ -1884,7 +1884,6 @@ namespace Skylark.Wing.Native
             public const int WS_EX_NOREDIRECTIONBITMAP = 0x00200000;
         }
 
-
         [DllImport("user32.dll", EntryPoint = "SetWindowPos", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool SetWindowPos(IntPtr hwnd, int hWndInsertAfter, int x, int Y, int cx, int cy, int wFlags);
@@ -1896,16 +1895,20 @@ namespace Skylark.Wing.Native
         public static extern int SHChangeNotify(int eventId, int flags, IntPtr item1, IntPtr item2);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern bool SystemParametersInfo(int uAction, int uParam, ref int lpvParam, int flags);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern bool SystemParametersInfo(int uAction, int uParam, string lpvParam, uint fuWinIni);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
         [return: MarshalAs(UnmanagedType.I4)]
         public static extern int SystemParametersInfo(uint uiAction, uint uiParam, string pvParam, uint fWinIni);
 
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern bool SystemParametersInfo(uint uiAction, uint uiParam, StringBuilder pvParam, uint fWinIni);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern bool SystemParametersInfo(int uAction, int uParam, [MarshalAs(UnmanagedType.I1)] bool lpvParam, int flags);
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern bool SystemParametersInfo(int uAction, int uParam, ref int lpvParam, int flags);
-
 
         public static uint SPIF_SENDWININICHANGE = 0x02;
         public static uint SPI_SETDESKWALLPAPER = 20;

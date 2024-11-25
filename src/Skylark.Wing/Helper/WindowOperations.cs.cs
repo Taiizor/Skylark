@@ -28,8 +28,8 @@ namespace Skylark.Wing.Helper
             IntPtr styleCurrentWindowExtended = SWNM.GetWindowLongPtr(handle, (int)SWNM.GWL.GWL_EXSTYLE);
 
             long styleNewWindowExtended = styleCurrentWindowExtended.ToInt64() |
-                   (long)SWNM.WindowStyles.WS_EX_NOACTIVATE |
-                   (long)SWNM.WindowStyles.WS_EX_TOOLWINDOW;
+                (long)SWNM.WindowStyles.WS_EX_NOACTIVATE |
+                (long)SWNM.WindowStyles.WS_EX_TOOLWINDOW;
 
             //update window styles
             //https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowlongptra

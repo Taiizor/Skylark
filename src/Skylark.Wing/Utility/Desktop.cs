@@ -29,7 +29,8 @@ namespace Skylark.Wing.Utility
         public static bool GetDesktopIconVisibility()
         {
             SWNM.SHELLSTATE state = new();
-            SWNM.SHGetSetSettings(ref state, SWNM.SSF.SSF_HIDEICONS, false); //get state
+            SWNM.SHGetSetSettings(ref state, SWNM.SSF.SSF_HIDEICONS, false); //Get state
+
             return !state.fHideIcons;
         }
 
@@ -37,10 +38,11 @@ namespace Skylark.Wing.Utility
         /// 
         /// </summary>
         /// <param name="isVisible"></param>
-        //ref: https://stackoverflow.com/questions/6402834/how-to-hide-desktop-icons-programmatically/
+        //ref: https://stackoverflow.com/questions/6402834/how-to-hide-desktop-icons-programmatically
         public static void SetDesktopIconVisibility(bool isVisible)
         {
             //Does not work in Win10
+            //SWNM.SHELLSTATE state = new();
             //SWNM.SHGetSetSettings(ref state, SWNM.SSF.SSF_HIDEICONS, true);
 
             if (GetDesktopIconVisibility() ^ isVisible) //XOR!!!
@@ -89,7 +91,7 @@ namespace Skylark.Wing.Utility
         public static void RefreshDesktop()
         {
             //todo: Find a better way to do this?
-            SWNM.SystemParametersInfo(SWNM.SPI_SETDESKWALLPAPER, 0, null, SWNM.SPIF_UPDATEINIFILE);
+            SWNM.SystemParametersInfo(SWNM.SPI_SETDESKWALLPAPER, 0, null as string, SWNM.SPIF_UPDATEINIFILE);
         }
 
         /// <summary>
