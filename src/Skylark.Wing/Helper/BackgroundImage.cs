@@ -14,33 +14,6 @@ namespace Skylark.Wing.Helper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Path"></param>
-        /// <returns></returns>
-        public static bool SetPathSystemParameters(string Path = "")
-        {
-            try
-            {
-
-                if (SWNM.SystemParametersInfo((int)SWNM.SPI.SPI_SETDESKWALLPAPER, 0, Path, SWNM.SPIF_UPDATEINIFILE | SWNM.SPIF_SENDWININICHANGE))
-                {
-                    SWUD.RefreshDesktop();
-
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="MaxChars"></param>
         /// <returns></returns>
         public static string GetPathSystemParameters(int MaxChars = 256)
@@ -70,6 +43,37 @@ namespace Skylark.Wing.Helper
             catch
             {
                 return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Path"></param>
+        /// <param name="Refresh"></param>
+        /// <returns></returns>
+        public static bool SetPathSystemParameters(string Path = "", bool Refresh = true)
+        {
+            try
+            {
+
+                if (SWNM.SystemParametersInfo((int)SWNM.SPI.SPI_SETDESKWALLPAPER, 0, Path, SWNM.SPIF_UPDATEINIFILE | SWNM.SPIF_SENDWININICHANGE))
+                {
+                    if (Refresh)
+                    {
+                        SWUD.RefreshDesktop();
+                    }
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
             }
         }
 
@@ -166,8 +170,9 @@ namespace Skylark.Wing.Helper
         /// <param name="SubKey"></param>
         /// <param name="SubValue"></param>
         /// <param name="Path"></param>
+        /// <param name="Refresh"></param>
         /// <returns></returns>
-        public static bool SetPathRegistry(string SubKey = @"Control Panel\Desktop", string SubValue = "Wallpaper", string Path = "")
+        public static bool SetPathRegistry(string SubKey = @"Control Panel\Desktop", string SubValue = "Wallpaper", string Path = "", bool Refresh = true)
         {
             RegistryKey Key = GetRegistryKey(SubKey, true);
 
@@ -175,7 +180,10 @@ namespace Skylark.Wing.Helper
             {
                 Key.SetValue(SubValue, Path);
 
-                SWUD.RefreshDesktop();
+                if (Refresh)
+                {
+                    SWUD.RefreshDesktop();
+                }
 
                 return true;
             }
@@ -191,8 +199,9 @@ namespace Skylark.Wing.Helper
         /// <param name="SubKey"></param>
         /// <param name="SubValue"></param>
         /// <param name="Tile"></param>
+        /// <param name="Refresh"></param>
         /// <returns></returns>
-        public static bool SetTileRegistry(string SubKey = @"Control Panel\Desktop", string SubValue = "TileWallpaper", string Tile = "0")
+        public static bool SetTileRegistry(string SubKey = @"Control Panel\Desktop", string SubValue = "TileWallpaper", string Tile = "0", bool Refresh = true)
         {
             RegistryKey Key = GetRegistryKey(SubKey, true);
 
@@ -200,7 +209,10 @@ namespace Skylark.Wing.Helper
             {
                 Key.SetValue(SubValue, Tile);
 
-                SWUD.RefreshDesktop();
+                if (Refresh)
+                {
+                    SWUD.RefreshDesktop();
+                }
 
                 return true;
             }
@@ -216,8 +228,9 @@ namespace Skylark.Wing.Helper
         /// <param name="SubKey"></param>
         /// <param name="SubValue"></param>
         /// <param name="Style"></param>
+        /// <param name="Refresh"></param>
         /// <returns></returns>
-        public static bool SetStyleRegistry(string SubKey = @"Control Panel\Desktop", string SubValue = "WallpaperStyle", string Style = "10")
+        public static bool SetStyleRegistry(string SubKey = @"Control Panel\Desktop", string SubValue = "WallpaperStyle", string Style = "10", bool Refresh = true)
         {
             RegistryKey Key = GetRegistryKey(SubKey, true);
 
@@ -225,45 +238,16 @@ namespace Skylark.Wing.Helper
             {
                 Key.SetValue(SubValue, Style);
 
-                SWUD.RefreshDesktop();
+                if (Refresh)
+                {
+                    SWUD.RefreshDesktop();
+                }
 
                 return true;
             }
             finally
             {
                 Key.Close();
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="FileName"></param>
-        /// <param name="Command"></param>
-        /// <param name="Path"></param>
-        /// <returns></returns>
-        public static bool SetPathPowerShell(string FileName = "powershell", string Command = "Set-ItemProperty -Path 'HKCU:\\Control Panel\\Desktop' -Name Wallpaper '{0}'", string Path = "")
-        {
-            try
-            {
-                using Process Process = new();
-
-                Process.StartInfo.FileName = FileName;
-                Process.StartInfo.CreateNoWindow = true;
-                Process.StartInfo.UseShellExecute = false;
-                Process.StartInfo.Arguments = string.Format(Command, Path);
-
-                Process.Start();
-
-                Process.WaitForExit();
-
-                SWUD.RefreshDesktop();
-
-                return true;
-            }
-            catch
-            {
-                return false;
             }
         }
 
@@ -303,70 +287,6 @@ namespace Skylark.Wing.Helper
             catch
             {
                 return string.Empty;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="FileName"></param>
-        /// <param name="Command"></param>
-        /// <param name="Tile"></param>
-        /// <returns></returns>
-        public static bool SetTilePowerShell(string FileName = "powershell", string Command = "Set-ItemProperty -Path 'HKCU:\\Control Panel\\Desktop' -Name TileWallpaper '{0}'", string Tile = "0")
-        {
-            try
-            {
-                using Process Process = new();
-
-                Process.StartInfo.FileName = FileName;
-                Process.StartInfo.CreateNoWindow = true;
-                Process.StartInfo.UseShellExecute = false;
-                Process.StartInfo.Arguments = string.Format(Command, Tile);
-
-                Process.Start();
-
-                Process.WaitForExit();
-
-                SWUD.RefreshDesktop();
-
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="FileName"></param>
-        /// <param name="Command"></param>
-        /// <param name="Style"></param>
-        /// <returns></returns>
-        public static bool SetStylePowerShell(string FileName = "powershell", string Command = "Set-ItemProperty -Path 'HKCU:\\Control Panel\\Desktop' -Name WallpaperStyle '{0}'", string Style = "10")
-        {
-            try
-            {
-                using Process Process = new();
-
-                Process.StartInfo.FileName = FileName;
-                Process.StartInfo.CreateNoWindow = true;
-                Process.StartInfo.UseShellExecute = false;
-                Process.StartInfo.Arguments = string.Format(Command, Style);
-
-                Process.Start();
-
-                Process.WaitForExit();
-
-                SWUD.RefreshDesktop();
-
-                return true;
-            }
-            catch
-            {
-                return false;
             }
         }
 
@@ -445,6 +365,114 @@ namespace Skylark.Wing.Helper
             catch
             {
                 return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FileName"></param>
+        /// <param name="Command"></param>
+        /// <param name="Path"></param>
+        /// <param name="Refresh"></param>
+        /// <returns></returns>
+        public static bool SetPathPowerShell(string FileName = "powershell", string Command = "Set-ItemProperty -Path 'HKCU:\\Control Panel\\Desktop' -Name Wallpaper '{0}'", string Path = "", bool Refresh = true)
+        {
+            try
+            {
+                using Process Process = new();
+
+                Process.StartInfo.FileName = FileName;
+                Process.StartInfo.CreateNoWindow = true;
+                Process.StartInfo.UseShellExecute = false;
+                Process.StartInfo.Arguments = string.Format(Command, Path);
+
+                Process.Start();
+
+                Process.WaitForExit();
+
+                if (Refresh)
+                {
+                    SWUD.RefreshDesktop();
+                }
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FileName"></param>
+        /// <param name="Command"></param>
+        /// <param name="Tile"></param>
+        /// <param name="Refresh"></param>
+        /// <returns></returns>
+        public static bool SetTilePowerShell(string FileName = "powershell", string Command = "Set-ItemProperty -Path 'HKCU:\\Control Panel\\Desktop' -Name TileWallpaper '{0}'", string Tile = "0", bool Refresh = true)
+        {
+            try
+            {
+                using Process Process = new();
+
+                Process.StartInfo.FileName = FileName;
+                Process.StartInfo.CreateNoWindow = true;
+                Process.StartInfo.UseShellExecute = false;
+                Process.StartInfo.Arguments = string.Format(Command, Tile);
+
+                Process.Start();
+
+                Process.WaitForExit();
+
+                if (Refresh)
+                {
+                    SWUD.RefreshDesktop();
+                }
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FileName"></param>
+        /// <param name="Command"></param>
+        /// <param name="Style"></param>
+        /// <param name="Refresh"></param>
+        /// <returns></returns>
+        public static bool SetStylePowerShell(string FileName = "powershell", string Command = "Set-ItemProperty -Path 'HKCU:\\Control Panel\\Desktop' -Name WallpaperStyle '{0}'", string Style = "10", bool Refresh = true)
+        {
+            try
+            {
+                using Process Process = new();
+
+                Process.StartInfo.FileName = FileName;
+                Process.StartInfo.CreateNoWindow = true;
+                Process.StartInfo.UseShellExecute = false;
+                Process.StartInfo.Arguments = string.Format(Command, Style);
+
+                Process.Start();
+
+                Process.WaitForExit();
+
+                if (Refresh)
+                {
+                    SWUD.RefreshDesktop();
+                }
+
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
 
