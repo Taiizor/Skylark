@@ -56,7 +56,6 @@ namespace Skylark.Wing.Helper
         {
             try
             {
-
                 if (SWNM.SystemParametersInfo((int)SWNM.SPI.SPI_SETDESKWALLPAPER, 0, Path, SWNM.SPIF_UPDATEINIFILE | SWNM.SPIF_SENDWININICHANGE))
                 {
                     if (Refresh)

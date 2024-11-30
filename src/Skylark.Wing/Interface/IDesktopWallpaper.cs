@@ -46,72 +46,21 @@ namespace Skylark.Wing.Interface
         [return: MarshalAs(UnmanagedType.U4)]
         uint GetBackgroundColor();
 
-        void SetPosition([MarshalAs(UnmanagedType.I4)] DesktopWallpaperPosition position);
+        void SetPosition([MarshalAs(UnmanagedType.I4)] SWNM.DesktopWallpaperPosition position);
         [return: MarshalAs(UnmanagedType.I4)]
-        DesktopWallpaperPosition GetPosition();
+        SWNM.DesktopWallpaperPosition GetPosition();
 
         void SetSlideshow(IntPtr items);
         IntPtr GetSlideshow();
 
-        void SetSlideshowOptions(DesktopSlideshowDirection options, uint slideshowTick);
+        void SetSlideshowOptions(SWNM.DesktopSlideshowDirection options, uint slideshowTick);
         [PreserveSig]
-        uint GetSlideshowOptions(out DesktopSlideshowDirection options, out uint slideshowTick);
+        uint GetSlideshowOptions(out SWNM.DesktopSlideshowDirection options, out uint slideshowTick);
 
-        void AdvanceSlideshow([MarshalAs(UnmanagedType.LPWStr)] string monitorID, [MarshalAs(UnmanagedType.I4)] DesktopSlideshowDirection direction);
+        void AdvanceSlideshow([MarshalAs(UnmanagedType.LPWStr)] string monitorID, [MarshalAs(UnmanagedType.I4)] SWNM.DesktopSlideshowDirection direction);
 
-        DesktopSlideshowDirection GetStatus();
+        SWNM.DesktopSlideshowDirection GetStatus();
 
         bool Enable();
-    }
-
-    /// <summary>
-    /// This enumeration is used to set and get slideshow options.
-    /// </summary> 
-    public enum DesktopSlideshowOptions
-    {
-        ShuffleImages = 0x01,     // When set, indicates that the order in which images in the slideshow are displayed can be randomized.
-    }
-
-
-    /// <summary>
-    /// This enumeration is used by GetStatus to indicate the current status of the slideshow.
-    /// </summary>
-    public enum DesktopSlideshowState
-    {
-        Enabled = 0x01,
-        Slideshow = 0x02,
-        DisabledByRemoteSession = 0x04,
-    }
-
-
-    /// <summary>
-    /// This enumeration is used by the AdvanceSlideshow method to indicate whether to advance the slideshow forward or backward.
-    /// </summary>
-    public enum DesktopSlideshowDirection
-    {
-        Forward = 0,
-        Backward = 1,
-    }
-
-    /// <summary>
-    /// This enumeration indicates the wallpaper position for all monitors. (This includes when slideshows are running.)
-    /// The wallpaper position specifies how the image that is assigned to a monitor should be displayed.
-    /// </summary>
-    public enum DesktopWallpaperPosition
-    {
-        Center = 0,
-        Tile = 1,
-        Stretch = 2,
-        Fit = 3,
-        Fill = 4,
-        Span = 5,
-    }
-
-    /// <summary>
-    /// CoClass DesktopWallpaper
-    /// </summary>
-    [ComImport, Guid("C2CF3110-460E-4fc1-B9D0-8A1C0C9CC4BD")]
-    public class DesktopWallpaperClass
-    {
     }
 }

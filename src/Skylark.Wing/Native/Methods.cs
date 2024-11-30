@@ -96,11 +96,23 @@ namespace Skylark.Wing.Native
             DWMWCP_ROUNDSMALL = 3
         }
 
+        public enum ES_FLAGS : uint
+        {
+            ES_CONTINUOUS = 0x80000000,
+            ES_USER_PRESENT = 0x00000004,
+            ES_SYSTEM_REQUIRED = 0x00000001,
+            ES_DISPLAY_REQUIRED = 0x00000002,
+            ES_AWAYMODE_REQUIRED = 0x00000040
+        }
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern uint SetThreadExecutionState(ES_FLAGS esFlags);
+
         [DllImport("dwmapi.dll")]
         public static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
 
-        public const int DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1 = 19;
         public const int DWMWA_USE_IMMERSIVE_DARK_MODE = 20;
+        public const int DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1 = 19;
 
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         public static extern IntPtr LoadImage(IntPtr hinst, string lpszName, uint uType, int cxDesired, int cyDesired, uint fuLoad);
@@ -334,6 +346,53 @@ namespace Skylark.Wing.Native
 
         [DllImport("user32.dll")]
         public static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
+
+        #region Desktop Wallpaper
+
+        /// <summary>
+        /// This enumeration is used to set and get slideshow options.
+        /// </summary> 
+        public enum DesktopSlideshowOptions
+        {
+            ShuffleImages = 0x01,     // When set, indicates that the order in which images in the slideshow are displayed can be randomized.
+        }
+
+
+        /// <summary>
+        /// This enumeration is used by GetStatus to indicate the current status of the slideshow.
+        /// </summary>
+        public enum DesktopSlideshowState
+        {
+            Enabled = 0x01,
+            Slideshow = 0x02,
+            DisabledByRemoteSession = 0x04,
+        }
+
+
+        /// <summary>
+        /// This enumeration is used by the AdvanceSlideshow method to indicate whether to advance the slideshow forward or backward.
+        /// </summary>
+        public enum DesktopSlideshowDirection
+        {
+            Forward = 0,
+            Backward = 1,
+        }
+
+        /// <summary>
+        /// This enumeration indicates the wallpaper position for all monitors. (This includes when slideshows are running.)
+        /// The wallpaper position specifies how the image that is assigned to a monitor should be displayed.
+        /// </summary>
+        public enum DesktopWallpaperPosition
+        {
+            Center = 0,
+            Tile = 1,
+            Stretch = 2,
+            Fit = 3,
+            Fill = 4,
+            Span = 5,
+        }
+
+        #endregion
 
         /// <summary>
         /// windows styles
