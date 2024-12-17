@@ -162,4 +162,4 @@ Would you like to help make Skylark even better? We keep a list of issues that a
 
 When contributing please keep in mind our [Code of Conduct](CODE_OF_CONDUCT.md).
 
-_Skylark is copyright &copy; 2022-2023 Skylark Contributors - Provided under the [Apache License, Version 2.0](https://apache.org/licenses/LICENSE-2.0.html)._
+_Skylark is copyright &copy; 2022-2024 Skylark Contributors - Provided under the [Apache License, Version 2.0](https://apache.org/licenses/LICENSE-2.0.html)._
