@@ -57,7 +57,7 @@
     <ItemGroup>
         <PackageReference Include="Skylark" Version="3.1.4.9" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-        <PackageReference Include="WebMarkupMin.NUglify" Version="2.18.0" />
+        <PackageReference Include="WebMarkupMin.NUglify" Version="2.18.1" />
     </ItemGroup>
 
     <ItemGroup>
