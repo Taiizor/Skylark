@@ -80,7 +80,7 @@
         <PackageReference Condition="$(TargetFramework.StartsWith('net6'))" Include="System.Management" Version="6.0.2" />
         <PackageReference Condition="$(TargetFramework.StartsWith('net7'))" Include="System.Management" Version="7.0.2" />
         <PackageReference Condition="$(TargetFramework.StartsWith('net8'))" Include="System.Management" Version="8.0.0" />
-        <PackageReference Condition="$(TargetFramework.StartsWith('net9'))" Include="System.Management" Version="9.0.1" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net9'))" Include="System.Management" Version="9.0.3" />
     </ItemGroup>
 
     <ItemGroup>
