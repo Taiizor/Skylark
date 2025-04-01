@@ -10,7 +10,7 @@
 
     <PropertyGroup>
         <ApplicationIcon>Resources\Skylark.DNS.ico</ApplicationIcon>
-        <Version>3.1.4.3</Version>
+        <Version>3.1.4.4</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>Skylark.DNS</Title>
@@ -56,7 +56,7 @@
 
     <ItemGroup>
         <PackageReference Include="DnsClient" Version="1.8.0" />
-        <PackageReference Include="Skylark" Version="3.1.4.9" />
+        <PackageReference Include="Skylark" Version="3.1.5.1" />
     </ItemGroup>
 
     <ItemGroup>

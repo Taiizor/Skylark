@@ -22,7 +22,7 @@ using SWUS = Skylark.Wing.Utility.Screene;
 //     Website: www.vegalya.com
 //     Created: 17.Jun.2023
 //     Changed: 01.Apr.2025
-//     Version: 3.1.8.4
+//     Version: 3.1.8.5
 //
 // |---------DO-NOT-REMOVE---------|
 
