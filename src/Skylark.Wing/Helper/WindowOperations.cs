@@ -9,6 +9,11 @@ namespace Skylark.Wing.Helper
     /// </summary>
     public static class WindowOperations
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="child"></param>
+        /// <param name="parent"></param>
         public static void SetParentSafe(IntPtr child, IntPtr parent)
         {
             IntPtr ret = SWNM.SetParent(child, parent);
@@ -119,6 +124,31 @@ namespace Skylark.Wing.Helper
 
             SWNM.SetWindowLongPtr(new HandleRef(null, Handle), (int)SWNM.GWL.GWL_EXSTYLE, (IntPtr)styleNewWindowExtended);
             SWNM.SetLayeredWindowAttributes(Handle, 0, 128, LWA_ALPHA);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="handle"></param>
+        public static void EnsureWallpaperVisibility(IntPtr handle)
+        {
+            IntPtr styleCurrentWindowStandard = SWNM.GetWindowLongPtr(handle, (int)SWNM.GWL.GWL_STYLE);
+            long styleNewWindowStandard = styleCurrentWindowStandard.ToInt64() |
+                (long)SWNM.WindowStyles.WS_VISIBLE;
+
+            IntPtr styleCurrentWindowExtended = SWNM.GetWindowLongPtr(handle, (int)SWNM.GWL.GWL_EXSTYLE);
+            long styleNewWindowExtended = styleCurrentWindowExtended.ToInt64() &
+                ~(long)SWNM.WindowStyles.WS_EX_TOOLWINDOW;
+
+            SWNM.SetWindowLongPtr(new HandleRef(null, handle), (int)SWNM.GWL.GWL_STYLE, (IntPtr)styleNewWindowStandard);
+            SWNM.SetWindowLongPtr(new HandleRef(null, handle), (int)SWNM.GWL.GWL_EXSTYLE, (IntPtr)styleNewWindowExtended);
+
+            SWNM.ShowWindow(handle, (int)SWNM.SHOWWINDOW.SW_SHOW);
+
+            SWNM.SetWindowPos(handle, 0, 0, 0, 0, 0,
+                0x0001 | // SWP_NOSIZE
+                0x0002 | // SWP_NOMOVE
+                0x0400); // SWP_SHOWWINDOW
         }
     }
 }
