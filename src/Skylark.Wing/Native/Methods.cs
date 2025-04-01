@@ -123,6 +123,31 @@ namespace Skylark.Wing.Native
         [DllImport("User32")]
         public static extern int GetDpiForWindow(IntPtr hwnd);
 
+        /// <summary>
+        /// The RedrawWindow function updates the specified rectangle or region in a window's client area.
+        /// </summary>
+        /// <param name="hWnd">Handle to the window to redraw</param>
+        /// <param name="lprcUpdate">Pointer to the update rectangle in client coordinates</param>
+        /// <param name="hrgnUpdate">Handle to the update region</param>
+        /// <param name="flags">Redraw flags</param>
+        /// <returns>If the function succeeds, the return value is nonzero. If the function fails, the return value is zero.</returns>
+        [DllImport("user32.dll")]
+        public static extern bool RedrawWindow(IntPtr hWnd, IntPtr lprcUpdate, IntPtr hrgnUpdate, uint flags);
+
+        // RedrawWindow flags
+        public const uint RDW_INVALIDATE = 0x0001;
+        public const uint RDW_INTERNALPAINT = 0x0002;
+        public const uint RDW_ERASE = 0x0004;
+        public const uint RDW_VALIDATE = 0x0008;
+        public const uint RDW_NOINTERNALPAINT = 0x0010;
+        public const uint RDW_NOERASE = 0x0020;
+        public const uint RDW_NOCHILDREN = 0x0040;
+        public const uint RDW_ALLCHILDREN = 0x0080;
+        public const uint RDW_UPDATENOW = 0x0100;
+        public const uint RDW_ERASENOW = 0x0200;
+        public const uint RDW_FRAME = 0x0400;
+        public const uint RDW_NOFRAME = 0x0800;
+
         #region screensaver
 
         [DllImport("user32.dll", SetLastError = true)]
