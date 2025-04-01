@@ -2406,7 +2406,13 @@ namespace Skylark.Wing.Native
         #endregion //parent process
 
         [DllImport("user32.dll")]
+        public static extern bool UpdateWindow(IntPtr hWnd);
+
+        [DllImport("user32.dll")]
         public static extern IntPtr GetTopWindow(IntPtr hWnd);
+
+        [DllImport("user32.dll")]
+        public static extern bool BringWindowToTop(IntPtr hWnd);
 
         [DllImport("user32.dll", SetLastError = true)]
         public static extern IntPtr GetWindow(IntPtr hWnd, GetWindowType uCmd);
