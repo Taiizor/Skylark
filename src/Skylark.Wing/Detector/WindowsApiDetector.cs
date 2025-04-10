@@ -1,5 +1,4 @@
 using Microsoft.Win32.SafeHandles;
-using Skylark.Wing.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +6,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using SWDDB = Skylark.Wing.Detector.DetectorBase;
+using SWMPI = Skylark.Wing.Model.ProcessInfo;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Skylark.Wing.Detector
 {
@@ -17,88 +18,6 @@ namespace Skylark.Wing.Detector
     /// </summary>
     public class WindowsApiDetector : SWDDB
     {
-        #region Windows API Declarations
-
-        // CreateFile API for checking file locks
-        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        private static extern SafeFileHandle CreateFile(
-            string fileName,
-            uint desiredAccess,
-            uint shareMode,
-            IntPtr securityAttributes,
-            uint creationDisposition,
-            uint flagsAndAttributes,
-            IntPtr templateFile);
-
-        // Win32 constants
-        private const uint GENERIC_READ = 0x80000000;
-        private const uint GENERIC_WRITE = 0x40000000;
-        private const uint OPEN_EXISTING = 3;
-        private const uint FILE_ATTRIBUTE_NORMAL = 0x80;
-        private const uint FILE_SHARE_READ = 0x00000001;
-        private const uint FILE_SHARE_WRITE = 0x00000002;
-        private const uint FILE_SHARE_DELETE = 0x00000004;
-
-        // RestartManager API for finding processes locking a file
-        [DllImport("rstrtmgr.dll", CharSet = CharSet.Unicode)]
-        private static extern int RmStartSession(out uint pSessionHandle, int dwSessionFlags, string strSessionKey);
-
-        [DllImport("rstrtmgr.dll")]
-        private static extern int RmEndSession(uint pSessionHandle);
-
-        [DllImport("rstrtmgr.dll", CharSet = CharSet.Unicode)]
-        private static extern int RmRegisterResources(
-            uint pSessionHandle,
-            uint nFiles,
-            string[] rgsFilenames,
-            uint nApplications,
-            [In] RM_UNIQUE_PROCESS[]? rgApplications,
-            uint nServices,
-            string[]? rgsServiceNames);
-
-        [DllImport("rstrtmgr.dll")]
-        private static extern int RmGetList(
-            uint dwSessionHandle,
-            out uint pnProcInfoNeeded,
-            ref uint pnProcInfo,
-            [In, Out] RM_PROCESS_INFO[]? rgAffectedApps,
-            ref uint lpdwRebootReasons);
-
-        [StructLayout(LayoutKind.Sequential)]
-        private struct RM_UNIQUE_PROCESS
-        {
-            public int dwProcessId;
-            public System.Runtime.InteropServices.ComTypes.FILETIME ProcessStartTime;
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-        private struct RM_PROCESS_INFO
-        {
-            public RM_UNIQUE_PROCESS Process;
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
-            public string strAppName;
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
-            public string strServiceShortName;
-            public RM_APP_TYPE ApplicationType;
-            public uint AppStatus;
-            public uint TSSessionId;
-            [MarshalAs(UnmanagedType.Bool)]
-            public bool bRestartable;
-        }
-
-        private enum RM_APP_TYPE
-        {
-            RmUnknownApp = 0,
-            RmMainWindow = 1,
-            RmOtherWindow = 2,
-            RmService = 3,
-            RmExplorer = 4,
-            RmConsole = 5,
-            RmCritical = 1000
-        }
-
-        #endregion
-
         /// <summary>
         /// Gets the name of the detector implementation
         /// </summary>
@@ -123,13 +42,13 @@ namespace Skylark.Wing.Detector
             }
 
             // Try to open the file with no sharing
-            SafeFileHandle fileHandle = CreateFile(
+            SafeFileHandle fileHandle = SWNM.CreateFile(
                 filePath,
-                GENERIC_READ | GENERIC_WRITE,
+                SWNM.GENERIC_READ | SWNM.GENERIC_WRITE,
                 0, // No sharing
                 IntPtr.Zero,
-                OPEN_EXISTING,
-                FILE_ATTRIBUTE_NORMAL,
+                SWNM.OPEN_EXISTING,
+                SWNM.FILE_ATTRIBUTE_NORMAL,
                 IntPtr.Zero);
 
             // Check if the file could be opened
@@ -158,9 +77,9 @@ namespace Skylark.Wing.Detector
         /// </summary>
         /// <param name="filePath">The path to the file to check</param>
         /// <returns>A collection of ProcessInfo objects representing the processes locking the file</returns>
-        public override IEnumerable<ProcessInfo> GetLockingProcesses(string filePath)
+        public override IEnumerable<SWMPI> GetLockingProcesses(string filePath)
         {
-            List<ProcessInfo> lockingProcesses = new();
+            List<SWMPI> lockingProcesses = new();
 
             // Check if we're running on Windows
             if (Environment.OSVersion.Platform != PlatformID.Win32NT)
@@ -180,7 +99,7 @@ namespace Skylark.Wing.Detector
             try
             {
                 // Start a restart manager session
-                int result = RmStartSession(out sessionHandle, 0, sessionKey);
+                int result = SWNM.RmStartSession(out sessionHandle, 0, sessionKey);
                 if (result != 0)
                 {
                     throw new Win32Exception(result, "Failed to start restart manager session.");
@@ -188,7 +107,7 @@ namespace Skylark.Wing.Detector
 
                 // Register the file as a resource
                 string[] resources = new string[] { Path.GetFullPath(filePath) };
-                result = RmRegisterResources(sessionHandle, 1, resources, 0, null, 0, null);
+                result = SWNM.RmRegisterResources(sessionHandle, 1, resources, 0, null, 0, null);
                 if (result != 0)
                 {
                     throw new Win32Exception(result, "Failed to register resource.");
@@ -199,7 +118,7 @@ namespace Skylark.Wing.Detector
                 uint rebootReason = 0;
 
                 // First, get the count of process infos needed
-                result = RmGetList(sessionHandle, out uint processInfoNeeded, ref processInfoCount, null, ref rebootReason);
+                result = SWNM.RmGetList(sessionHandle, out uint processInfoNeeded, ref processInfoCount, null, ref rebootReason);
                 if (result is not 0 and not 234) // 234 = more data is available
                 {
                     throw new Win32Exception(result, "Failed to get process list.");
@@ -208,10 +127,10 @@ namespace Skylark.Wing.Detector
                 if (processInfoNeeded > 0)
                 {
                     // Allocate the array and get the process infos
-                    RM_PROCESS_INFO[] processInfos = new RM_PROCESS_INFO[processInfoNeeded];
+                    SWNM.RM_PROCESS_INFO[] processInfos = new SWNM.RM_PROCESS_INFO[processInfoNeeded];
                     processInfoCount = processInfoNeeded;
 
-                    result = RmGetList(sessionHandle, out processInfoNeeded, ref processInfoCount, processInfos, ref rebootReason);
+                    result = SWNM.RmGetList(sessionHandle, out processInfoNeeded, ref processInfoCount, processInfos, ref rebootReason);
                     if (result != 0)
                     {
                         throw new Win32Exception(result, "Failed to get process list.");
@@ -223,7 +142,7 @@ namespace Skylark.Wing.Detector
                         try
                         {
                             Process process = Process.GetProcessById(processInfos[i].Process.dwProcessId);
-                            ProcessInfo processInfo = new(process.Id, process.ProcessName)
+                            SWMPI processInfo = new(process.Id, process.ProcessName)
                             {
                                 StartTime = process.StartTime,
                                 WindowTitle = process.MainWindowTitle,
@@ -233,11 +152,23 @@ namespace Skylark.Wing.Detector
 
                             lockingProcesses.Add(processInfo);
                         }
-                        catch (Exception ex) when (ex is ArgumentException or InvalidOperationException)
+                        catch (ArgumentException)
                         {
                             // The process might have exited before we could get its details
                             // or we might not have permission to access it
-                            ProcessInfo processInfo = new(processInfos[i].Process.dwProcessId, processInfos[i].strAppName)
+                            SWMPI processInfo = new(processInfos[i].Process.dwProcessId, processInfos[i].strAppName)
+                            {
+                                IsRestartable = processInfos[i].bRestartable,
+                                ApplicationType = processInfos[i].ApplicationType.ToString()
+                            };
+
+                            lockingProcesses.Add(processInfo);
+                        }
+                        catch (InvalidOperationException)
+                        {
+                            // The process might have exited before we could get its details
+                            // or we might not have permission to access it
+                            SWMPI processInfo = new(processInfos[i].Process.dwProcessId, processInfos[i].strAppName)
                             {
                                 IsRestartable = processInfos[i].bRestartable,
                                 ApplicationType = processInfos[i].ApplicationType.ToString()
@@ -258,7 +189,7 @@ namespace Skylark.Wing.Detector
                 // End the restart manager session
                 if (sessionHandle != 0)
                 {
-                    RmEndSession(sessionHandle);
+                    SWNM.RmEndSession(sessionHandle);
                 }
             }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32.SafeHandles;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -371,6 +372,88 @@ namespace Skylark.Wing.Native
 
         [DllImport("user32.dll")]
         public static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
+
+        #region Windows API Declarations
+
+        // CreateFile API for checking file locks
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern SafeFileHandle CreateFile(
+            string fileName,
+            uint desiredAccess,
+            uint shareMode,
+            IntPtr securityAttributes,
+            uint creationDisposition,
+            uint flagsAndAttributes,
+            IntPtr templateFile);
+
+        // Win32 constants
+        public const uint GENERIC_READ = 0x80000000;
+        public const uint GENERIC_WRITE = 0x40000000;
+        public const uint OPEN_EXISTING = 3;
+        public const uint FILE_ATTRIBUTE_NORMAL = 0x80;
+        public const uint FILE_SHARE_READ = 0x00000001;
+        public const uint FILE_SHARE_WRITE = 0x00000002;
+        public const uint FILE_SHARE_DELETE = 0x00000004;
+
+        // RestartManager API for finding processes locking a file
+        [DllImport("rstrtmgr.dll", CharSet = CharSet.Unicode)]
+        public static extern int RmStartSession(out uint pSessionHandle, int dwSessionFlags, string strSessionKey);
+
+        [DllImport("rstrtmgr.dll")]
+        public static extern int RmEndSession(uint pSessionHandle);
+
+        [DllImport("rstrtmgr.dll", CharSet = CharSet.Unicode)]
+        public static extern int RmRegisterResources(
+            uint pSessionHandle,
+            uint nFiles,
+            string[] rgsFilenames,
+            uint nApplications,
+            [In] RM_UNIQUE_PROCESS[]? rgApplications,
+            uint nServices,
+            string[]? rgsServiceNames);
+
+        [DllImport("rstrtmgr.dll")]
+        public static extern int RmGetList(
+            uint dwSessionHandle,
+            out uint pnProcInfoNeeded,
+            ref uint pnProcInfo,
+            [In, Out] RM_PROCESS_INFO[]? rgAffectedApps,
+            ref uint lpdwRebootReasons);
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct RM_UNIQUE_PROCESS
+        {
+            public int dwProcessId;
+            public System.Runtime.InteropServices.ComTypes.FILETIME ProcessStartTime;
+        }
+
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+        public struct RM_PROCESS_INFO
+        {
+            public RM_UNIQUE_PROCESS Process;
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
+            public string strAppName;
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
+            public string strServiceShortName;
+            public RM_APP_TYPE ApplicationType;
+            public uint AppStatus;
+            public uint TSSessionId;
+            [MarshalAs(UnmanagedType.Bool)]
+            public bool bRestartable;
+        }
+
+        public enum RM_APP_TYPE
+        {
+            RmUnknownApp = 0,
+            RmMainWindow = 1,
+            RmOtherWindow = 2,
+            RmService = 3,
+            RmExplorer = 4,
+            RmConsole = 5,
+            RmCritical = 1000
+        }
+
+        #endregion
 
         #region Desktop Wallpaper
 

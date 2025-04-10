@@ -14,8 +14,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2C5AFEBD-ED44-4C65-91CD-C455EE67917E}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
-		NuGet.Config = NuGet.Config
 		global.json = global.json
+		NuGet.Config = NuGet.Config
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "create-project", "tutorial\C#\#001 create-project\create-project\create-project.csproj", "{9B5739D8-A77F-413A-9753-7A02D620B78B}"
@@ -97,6 +97,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDemoCompression", "demo\Skylark.Console.Demo\ConsoleDemoCompression\ConsoleDemoCompression\ConsoleDemoCompression.csproj", "{52C41C5D-2BDC-43F9-9934-8EF1C9BF6139}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDemoDecompression", "demo\Skylark.Console.Demo\ConsoleDemoDecompression\ConsoleDemoDecompression\ConsoleDemoDecompression.csproj", "{5164B53E-133D-44B6-81EF-82C9362BF0D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleDemoFileLocksmith", "demo\Skylark.Console.Demo\ConsoleDemoFileLocksmith\ConsoleDemoFileLocksmith\ConsoleDemoFileLocksmith.csproj", "{C1CF7C89-B5F4-7889-F4B0-C497F3007B38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -333,6 +335,12 @@ Global
 		{5164B53E-133D-44B6-81EF-82C9362BF0D4}.GitHub|Any CPU.Build.0 = Debug|Any CPU
 		{5164B53E-133D-44B6-81EF-82C9362BF0D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5164B53E-133D-44B6-81EF-82C9362BF0D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1CF7C89-B5F4-7889-F4B0-C497F3007B38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1CF7C89-B5F4-7889-F4B0-C497F3007B38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1CF7C89-B5F4-7889-F4B0-C497F3007B38}.GitHub|Any CPU.ActiveCfg = Release|Any CPU
+		{C1CF7C89-B5F4-7889-F4B0-C497F3007B38}.GitHub|Any CPU.Build.0 = Release|Any CPU
+		{C1CF7C89-B5F4-7889-F4B0-C497F3007B38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1CF7C89-B5F4-7889-F4B0-C497F3007B38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -379,6 +387,7 @@ Global
 		{A5228311-5753-4513-A754-4DF1027D345B} = {E786A13D-D7DA-4E3A-B303-6033E7723AE1}
 		{52C41C5D-2BDC-43F9-9934-8EF1C9BF6139} = {E786A13D-D7DA-4E3A-B303-6033E7723AE1}
 		{5164B53E-133D-44B6-81EF-82C9362BF0D4} = {E786A13D-D7DA-4E3A-B303-6033E7723AE1}
+		{C1CF7C89-B5F4-7889-F4B0-C497F3007B38} = {E786A13D-D7DA-4E3A-B303-6033E7723AE1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2293DDBB-92BC-444A-A771-C4275A09FB4E}
