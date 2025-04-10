@@ -1,5 +1,4 @@
-﻿using System;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Security;
 using SEOST = Skylark.Enum.OperatingSystemType;
 using SWHVI = Skylark.Wing.Helper.VersionInfo;

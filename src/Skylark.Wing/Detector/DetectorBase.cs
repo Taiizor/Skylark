@@ -1,8 +1,8 @@
-using SWMPI = Skylark.Wing.Model.ProcessInfo;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using SWIIFLD = Skylark.Wing.Interface.IFileLockDetector;
+using SWMPI = Skylark.Wing.Model.ProcessInfo;
 
 namespace Skylark.Wing.Detector
 {
