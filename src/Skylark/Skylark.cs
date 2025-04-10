@@ -1,9 +1,11 @@
 ﻿#region Imports
 
+using System.Runtime.Serialization;
 using SAE = System.ArgumentException;
 using SANE = System.ArgumentNullException;
 using SAOORE = System.ArgumentOutOfRangeException;
 using SE = System.Exception;
+using SIOE = System.InvalidOperationException;
 
 #endregion
 
@@ -12,7 +14,7 @@ using SE = System.Exception;
 //     Creator: Taiizor
 //     Website: www.vegalya.com
 //     Created: 03.Jan.2023
-//     Changed: 01.Apr.2025
+//     Changed: 10.Apr.2025
 //     Version: 3.1.5.2
 //
 // |---------DO-NOT-REMOVE---------|
@@ -49,6 +51,15 @@ namespace Skylark
         /// <param name="message"></param>
         /// <param name="innerException"></param>
         public Exception(string message, SE innerException) : base(message, innerException)
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        protected Exception(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }
@@ -104,6 +115,15 @@ namespace Skylark
         public ArgumentException(string message, string paramName, SE innerException) : base(message, paramName, innerException)
         {
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        protected ArgumentException(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+        }
     }
 
     #endregion
@@ -145,6 +165,53 @@ namespace Skylark
         /// <param name="paramName"></param>
         /// <param name="message"></param>
         public ArgumentNullException(string paramName, string message) : base(paramName, message)
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        protected ArgumentNullException(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+        }
+    }
+
+    #endregion
+
+    #region InvalidOperationException
+
+    public class InvalidOperationException : SIOE
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public InvalidOperationException() : base()
+        {
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        public InvalidOperationException(string message) : base(message)
+        {
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="innerException"></param>
+        public InvalidOperationException(string message, SE innerException) : base(message, innerException)
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        protected InvalidOperationException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }
@@ -198,6 +265,15 @@ namespace Skylark
         /// <param name="actualValue"></param>
         /// <param name="message"></param>
         public ArgumentOutOfRangeException(string paramName, object actualValue, string message) : base(paramName, actualValue, message)
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        protected ArgumentOutOfRangeException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }
