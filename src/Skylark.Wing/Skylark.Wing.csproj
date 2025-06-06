@@ -12,7 +12,7 @@
 
     <PropertyGroup>
         <ApplicationIcon>Resources\Skylark.Wing.ico</ApplicationIcon>
-        <Version>3.1.8.6</Version>
+        <Version>3.1.8.7</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>Skylark.Wing</Title>
@@ -51,13 +51,13 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.SourceLink.GitHub">
-            <Version>10.0.0-beta.25208.102</Version>
+            <Version>10.0.0-beta.25304.106</Version>
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.1.5.2" />
+        <PackageReference Include="Skylark" Version="3.1.5.3" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
@@ -80,8 +80,8 @@
         <PackageReference Condition="$(TargetFramework.StartsWith('net6'))" Include="System.Management" Version="6.0.2" />
         <PackageReference Condition="$(TargetFramework.StartsWith('net7'))" Include="System.Management" Version="7.0.2" />
         <PackageReference Condition="$(TargetFramework.StartsWith('net8'))" Include="System.Management" Version="8.0.0" />
-        <PackageReference Condition="$(TargetFramework.StartsWith('net9'))" Include="System.Management" Version="9.0.4" />
-        <PackageReference Condition="$(TargetFramework.StartsWith('net10'))" Include="System.Management" Version="10.0.0-preview.4.25210.3" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net9'))" Include="System.Management" Version="9.0.5" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net10'))" Include="System.Management" Version="10.0.0-preview.6.25304.106" />
     </ItemGroup>
 
     <ItemGroup>
