@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System.Diagnostics;
 using System.Text;
+using SEDBT = Skylark.Enum.DesktopBackgroundType;
 using SWNM = Skylark.Wing.Native.Methods;
 using SWUD = Skylark.Wing.Utility.Desktop;
 
@@ -214,6 +215,42 @@ namespace Skylark.Wing.Helper
                 }
 
                 return true;
+            }
+            finally
+            {
+                Key.Close();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="SubKey"></param>
+        /// <param name="SubValue"></param>
+        /// <returns></returns>
+        public static SEDBT GetModeRegistry(string SubKey = @"Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers", string SubValue = "BackgroundType")
+        {
+            RegistryKey Key = GetRegistryKey(SubKey);
+
+            try
+            {
+                string Value = Key.GetValue(SubValue).ToString();
+
+                if (string.IsNullOrWhiteSpace(Value))
+                {
+                    return SEDBT.Unknown;
+                }
+                else
+                {
+                    return Value switch
+                    {
+                        "0" => SEDBT.Picture,
+                        "1" => SEDBT.SolidColor,
+                        "2" => SEDBT.Slideshow,
+                        "3" => SEDBT.WindowsSpotlight,
+                        _ => SEDBT.Unknown,
+                    };
+                }
             }
             finally
             {

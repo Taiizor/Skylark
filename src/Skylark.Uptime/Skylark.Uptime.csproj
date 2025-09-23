@@ -55,7 +55,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark.Standard" Version="3.1.7.2" />
+        <ProjectReference Include="..\Skylark.Standard\Skylark.Standard.csproj" />
     </ItemGroup>
 
     <ItemGroup>

@@ -90,7 +90,7 @@ namespace Skylark.Wing.Utility
         /// </summary>
         public static void RefreshDesktop()
         {
-            //todo: Find a better way to do this?
+            //ToDo: Find a better way to do this?
             SWNM.SystemParametersInfo(SWNM.SPI_SETDESKWALLPAPER, 0, null as string, SWNM.SPIF_UPDATEINIFILE);
         }
 
