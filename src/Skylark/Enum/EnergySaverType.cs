@@ -1,17 +1,21 @@
-﻿namespace Skylark.Wing.Manage
+﻿namespace Skylark.Enum
 {
     /// <summary>
     /// 
     /// </summary>
-    public static class External
+    public enum EnergySaverType
     {
         /// <summary>
         /// 
         /// </summary>
-        public const int WINEVENT_OUTOFCONTEXT = 0;
+        On = 2,
         /// <summary>
         /// 
         /// </summary>
-        public const int EVENT_SYSTEM_FOREGROUND = 3;
+        Off = 1,
+        /// <summary>
+        /// 
+        /// </summary>
+        Disabled = 0
     }
 }

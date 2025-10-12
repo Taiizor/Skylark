@@ -1,4 +1,6 @@
-﻿using System.Runtime.InteropServices;
+﻿using Microsoft.Win32;
+using System.Runtime.InteropServices;
+using SEEST = Skylark.Enum.EnergySaverType;
 
 namespace Skylark.Wing.Utility
 {
@@ -84,6 +86,64 @@ namespace Skylark.Wing.Utility
         /// 
         /// </summary>
         public static bool IsBatterySavingMode => GetBatterySaverStatus() == SystemStatusFlag.On;
+
+        /// <summary>
+        /// Retrieves the current energy saver state from the system registry.
+        /// </summary>
+        /// <remarks>This method reads the energy saver state from the Windows registry. If the specified
+        /// registry value  does not exist, is empty, or contains an invalid value, the method returns <see
+        /// cref="SEEST.Disabled"/>.</remarks>
+        /// <param name="SubKey">The registry subkey path where the energy saver state is stored. The default value is 
+        /// SYSTEM\CurrentControlSet\Control\Power.</param>
+        /// <param name="SubValue">The name of the registry value that contains the energy saver state. The default value is  EnergySaverState.</param>
+        /// <returns>A <see cref="SEEST"/> value representing the energy saver state. Possible values are: <list type="bullet">
+        /// <item><description><see cref="SEEST.On"/> if the energy saver is enabled.</description></item>
+        /// <item><description><see cref="SEEST.Off"/> if the energy saver is disabled.</description></item>
+        /// <item><description><see cref="SEEST.Disabled"/> if the state is unavailable or invalid.</description></item>
+        /// </list></returns>
+        public static SEEST GetEnergySaverState(string SubKey = @"SYSTEM\CurrentControlSet\Control\Power", string SubValue = "EnergySaverState")
+        {
+            RegistryKey Key = GetRegistryKey(SubKey);
+
+            try
+            {
+                string Value = Key.GetValue(SubValue).ToString();
+
+                if (string.IsNullOrWhiteSpace(Value))
+                {
+                    return SEEST.Disabled;
+                }
+                else
+                {
+                    if (int.TryParse(Value.ToString(), out int State))
+                    {
+                        return State switch
+                        {
+                            1 => SEEST.On,
+                            2 => SEEST.Off,
+                            _ => SEEST.Disabled
+                        };
+                    }
+
+                    return SEEST.Disabled;
+                }
+            }
+            finally
+            {
+                Key.Close();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Key"></param>
+        /// <param name="Writable"></param>
+        /// <returns></returns>
+        private static RegistryKey GetRegistryKey(string Key, bool Writable = false)
+        {
+            return Registry.LocalMachine.OpenSubKey(Key, Writable);
+        }
 
         #region pinvoke
 
