@@ -45,6 +45,23 @@ namespace Skylark.Wing.Manage
         /// <summary>
         /// 
         /// </summary>
+        public static readonly Guid PlanBalanced = Guid.Parse("381b4222-f694-41f0-9685-ff5bb260df2e");
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly Guid PlanPowerSaver = Guid.Parse("a1841308-3541-4fab-bc81-f71556f20b4a");
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly Guid PlanHighPerformance = Guid.Parse("8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c");
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly Guid PlanUltimatePerformance = Guid.Parse("e9a42b02-d5df-448d-aa00-03f14749eb61");
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly string[] ClassWhiteList = new string[]
         {
             //StartMeu, TaskView (Win10), action center etc

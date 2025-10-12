@@ -14,7 +14,7 @@ using SIOE = System.InvalidOperationException;
 //     Creator: Taiizor
 //     Website: www.vegalya.com
 //     Created: 03.Jan.2023
-//     Changed: 23.Sep.2025
+//     Changed: 12.Oct.2025
 //     Version: 3.1.5.4
 //
 // |---------DO-NOT-REMOVE---------|

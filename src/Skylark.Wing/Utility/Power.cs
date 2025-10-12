@@ -41,6 +41,19 @@ namespace Skylark.Wing.Utility
         }
 
         /// <summary>
+        /// Retrieves the current battery status flag, indicating the battery's state.
+        /// </summary>
+        /// <remarks>The returned value provides information about the battery's state, such as whether it
+        /// is charging,  critically low, or fully charged. Use this method to monitor the battery status in
+        /// applications  that require power state awareness.</remarks>
+        /// <returns>A <see cref="BatteryFlag"/> value representing the current battery status.  Returns <see
+        /// cref="BatteryFlag.Unknown"/> if the battery status cannot be determined.</returns>
+        public static BatteryFlag GetBatteryFlag()
+        {
+            return GetSystemPowerStatus(sps) ? sps._BatteryFlag : BatteryFlag.Unknown;
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         public static bool IsBatterySavingMode => GetBatterySaverStatus() == SystemStatusFlag.On;
