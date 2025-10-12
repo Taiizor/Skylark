@@ -35,6 +35,33 @@ namespace Skylark.Wing.Utility
         /// 
         /// </summary>
         /// <returns></returns>
+        public static byte GetBatteryLifePercent()
+        {
+            return GetSystemPowerStatus(sps) ? sps._BatteryLifePercent : byte.MaxValue;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static int GetBatteryLifeTime()
+        {
+            return GetSystemPowerStatus(sps) ? sps._BatteryLifeTime : -1;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static int GetBatteryFullLifeTime()
+        {
+            return GetSystemPowerStatus(sps) ? sps._BatteryFullLifeTime : -1;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static ACLineStatus GetACPowerStatus()
         {
             return GetSystemPowerStatus(sps) ? sps._ACLineStatus : ACLineStatus.Online;
