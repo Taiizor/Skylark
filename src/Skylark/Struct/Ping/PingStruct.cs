@@ -12,6 +12,10 @@ namespace Skylark.Struct.Ping
         /// <summary>
         /// 
         /// </summary>
+        public string ResultText;
+        /// <summary>
+        /// 
+        /// </summary>
         public IPStatus Result;
         /// <summary>
         /// 

@@ -48,7 +48,7 @@ namespace Skylark.Standard.Manage.Time
         {
             Value = Value,
             Type = InputType,
-            Text = DefaultInput
+            TypeText = DefaultInput
         };
 
         /// <summary>

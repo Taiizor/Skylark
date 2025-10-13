@@ -14,11 +14,19 @@ namespace Skylark.Struct.Time
         /// <summary>
         /// 
         /// </summary>
-        public double Value;
+        public string ShortText;
         /// <summary>
         /// 
         /// </summary>
-        public string Text;
+        public string TypeText;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string LongText;
+        /// <summary>
+        /// 
+        /// </summary>
+        public double Value;
         /// <summary>
         /// 
         /// </summary>

@@ -178,6 +178,7 @@ namespace Skylark.Standard.Extension.Web
                     }
                 }
 
+                Result.StatusText = $"{(int)Response.StatusCode}";
                 Result.Success = Response.IsSuccessStatusCode;
                 Result.Server = $"{Response.Headers.Server}";
                 Result.Reason = Response.ReasonPhrase;

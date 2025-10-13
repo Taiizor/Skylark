@@ -42,6 +42,7 @@ namespace Skylark.Standard.Extension.Ping
                     Result.Result = Reply.Status;
                     Result.Ttl = Reply.Options.Ttl;
                     Result.Buffer = Reply.Buffer.Length;
+                    Result.ResultText = $"{Result.Result}";
                     Result.RoundTrip = Reply.RoundtripTime;
                     Result.Address = Reply.Address.ToString();
                     Result.Fragment = Reply.Options.DontFragment;
@@ -50,6 +51,7 @@ namespace Skylark.Standard.Extension.Ping
                 {
                     Result.Address = Address;
                     Result.Result = Reply.Status;
+                    Result.ResultText = $"{Result.Result}";
                 }
 
                 return Result;

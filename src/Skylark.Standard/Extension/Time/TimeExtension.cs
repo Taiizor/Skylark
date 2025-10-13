@@ -172,9 +172,11 @@ namespace Skylark.Standard.Extension.Time
             }
 
             Result.Type = Active;
-            Result.Text = $"{Active}";
             Result.Long = (SELTT)Active;
             Result.Short = (SESTT)Active;
+            Result.TypeText = $"{Active}";
+            Result.LongText = $"{Result.Long}";
+            Result.ShortText = $"{Result.Short}";
             Result.Value = Convert(Value, Input, Active);
             Result.More = SHN.Numeral(Result.Value, false, false, 0, Clear: SECNT.Decimal) != "1";
 

@@ -60,6 +60,7 @@ namespace Skylark.Standard.Manage.Ping
         /// </summary>
         public static readonly SSPPSS Result = new()
         {
+            ResultText = $"{IPStatus.Unknown}",
             Result = IPStatus.Unknown,
             Fragment = Fragment,
             Address = Address,

@@ -59,7 +59,7 @@ namespace Skylark.Standard.Manage.Storage
         {
             Value = Value,
             Type = InputType,
-            Text = DefaultInput
+            TypeText = DefaultInput
         };
 
         /// <summary>

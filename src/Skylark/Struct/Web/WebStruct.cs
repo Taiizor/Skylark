@@ -40,6 +40,10 @@ namespace Skylark.Struct.Web
         /// <summary>
         /// 
         /// </summary>
+        public string StatusText;
+        /// <summary>
+        /// 
+        /// </summary>
         public Version Version;
         /// <summary>
         /// 
