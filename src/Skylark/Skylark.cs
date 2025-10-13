@@ -14,7 +14,7 @@ using SIOE = System.InvalidOperationException;
 //     Creator: Taiizor
 //     Website: www.vegalya.com
 //     Created: 03.Jan.2023
-//     Changed: 13.Oct.2025
+//     Changed: 14.Oct.2025
 //     Version: 3.1.5.6
 //
 // |---------DO-NOT-REMOVE---------|
@@ -60,6 +60,39 @@ namespace Skylark
         /// <param name="info"></param>
         /// <param name="context"></param>
         protected Exception(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+        }
+    }
+
+    #endregion
+
+    #region DxgiException
+
+    /// <summary>
+    /// Exception thrown when DXGI operations fail.
+    /// </summary>
+    public class DxgiException : Exception
+    {
+        /// <summary>
+        /// Gets the HRESULT error code.
+        /// </summary>
+        public new int HResult { get; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DxgiException"/> class.
+        /// </summary>
+        /// <param name="message">The error message.</param>
+        /// <param name="hresult">The HRESULT error code.</param>
+        public DxgiException(string message, int hresult) : base(message)
+        {
+            HResult = hresult;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DxgiException"/> class.
+        /// </summary>
+        /// <param name="message">The error message.</param>
+        public DxgiException(string message) : base(message)
         {
         }
     }

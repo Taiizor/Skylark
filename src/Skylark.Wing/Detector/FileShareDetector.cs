@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using SE = Skylark.Exception;
 using SWDDB = Skylark.Wing.Detector.DetectorBase;
 
 namespace Skylark.Wing.Detector
@@ -53,7 +54,7 @@ namespace Skylark.Wing.Detector
                 // The file might be read-only or protected
                 return true;
             }
-            catch (Exception ex)
+            catch (SE ex)
             {
                 // Log the exception if necessary
                 Debug.WriteLine($"Error checking if file is locked: {ex.Message}");

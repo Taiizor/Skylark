@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using SE = Skylark.Exception;
 using SWIIFLD = Skylark.Wing.Interface.IFileLockDetector;
 using SWMFLI = Skylark.Wing.Model.FileLockInfo;
 using SWMPI = Skylark.Wing.Model.ProcessInfo;
@@ -124,7 +125,7 @@ namespace Skylark.Wing.Helper
                     info.LockingProcesses.AddRange(processes);
                 }
             }
-            catch (Exception ex)
+            catch (SE ex)
             {
                 info.IsLocked = true; // Assume locked if there was an error
                 info.ErrorMessage = ex.Message;

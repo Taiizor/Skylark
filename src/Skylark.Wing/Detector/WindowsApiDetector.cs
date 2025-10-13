@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
+using SE = Skylark.Exception;
 using SWDDB = Skylark.Wing.Detector.DetectorBase;
 using SWMPI = Skylark.Wing.Model.ProcessInfo;
 using SWNM = Skylark.Wing.Native.Methods;
@@ -179,7 +180,7 @@ namespace Skylark.Wing.Detector
                     }
                 }
             }
-            catch (Exception ex)
+            catch (SE ex)
             {
                 // Log the exception
                 Debug.WriteLine($"Error getting locking processes: {ex.Message}");

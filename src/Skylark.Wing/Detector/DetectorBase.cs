@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using SE = Skylark.Exception;
 using SWIIFLD = Skylark.Wing.Interface.IFileLockDetector;
 using SWMPI = Skylark.Wing.Model.ProcessInfo;
 
@@ -45,7 +46,7 @@ namespace Skylark.Wing.Detector
                 // Implement the file lock check in derived classes
                 return CheckIfFileLocked(filePath);
             }
-            catch (Exception ex)
+            catch (SE ex)
             {
                 // Log the exception if necessary
                 Debug.WriteLine($"Error checking if file is locked: {ex.Message}");
