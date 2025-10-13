@@ -1,8 +1,8 @@
-﻿using SE = Skylark.Exception;
+using SE = Skylark.Exception;
 using SECNT = Skylark.Enum.ClearNumericType;
+using SELST = Skylark.Enum.LongStorageType;
 using SEMST = Skylark.Enum.ModeStorageType;
 using SESST = Skylark.Enum.ShortStorageType;
-using SELST = Skylark.Enum.LongStorageType;
 using SEST = Skylark.Enum.StorageType;
 using SHC = Skylark.Helper.Converter;
 using SHN = Skylark.Helper.Numeric;
@@ -58,7 +58,7 @@ namespace Skylark.Standard.Extension.Storage
             {
                 return Input switch
                 {
-                    SEST.Bit or SEST.Byte or SEST.Kilobyte or SEST.Megabyte or SEST.Gigabyte or SEST.Terabyte or SEST.Petabyte or SEST.Exabyte or SEST.Zetabyte or SEST.Yottabyte => SSHSSH.GetCalc(Value, SSHSSH.GetValue(Input, Output, Mode)),
+                    SEST.Bit or SEST.Byte or SEST.Kilobyte or SEST.Megabyte or SEST.Gigabyte or SEST.Terabyte or SEST.Petabyte or SEST.Exabyte or SEST.Zetabyte or SEST.Yottabyte => SSHSSH.Convert(Value, Input, Output, Mode),
                     _ => throw new SE(SSMSSM.Error),
                 };
             }
