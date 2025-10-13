@@ -187,7 +187,7 @@
     <value>4</value>
   </data>
   <data name="textBox4.Text" xml:space="preserve">
-    <value>1,000</value>
+    <value>1,024</value>
   </data>
   <data name="textBox4.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>

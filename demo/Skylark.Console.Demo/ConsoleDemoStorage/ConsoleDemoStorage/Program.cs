@@ -18,34 +18,34 @@ namespace ConsoleDemoStorage
             Console.OutputEncoding = Encoding.UTF8;
 
             StorageStruct AutoBit = StorageExtension.AutoConvert(Value2, StorageType.Bit, Mode);
-            Console.WriteLine($"{Value2} Bit -> Auto: {AutoBit.Value} {AutoBit.Text}");
+            Console.WriteLine($"{Value2} Bit -> Auto: {AutoBit.Value} {AutoBit.TypeText}");
 
             StorageStruct AutoByte = StorageExtension.AutoConvert(Value2, StorageType.Byte, Mode);
-            Console.WriteLine($"{Value2} Byte -> Auto: {AutoByte.Value} {AutoByte.Text}");
+            Console.WriteLine($"{Value2} Byte -> Auto: {AutoByte.Value} {AutoByte.TypeText}");
 
             StorageStruct AutoKilobyte = StorageExtension.AutoConvert(Value2, StorageType.Kilobyte, Mode);
-            Console.WriteLine($"{Value2} Kilobyte -> Auto: {AutoKilobyte.Value} {AutoKilobyte.Text}");
+            Console.WriteLine($"{Value2} Kilobyte -> Auto: {AutoKilobyte.Value} {AutoKilobyte.TypeText}");
 
             StorageStruct AutoMegabyte = StorageExtension.AutoConvert(Value2, StorageType.Megabyte, Mode);
-            Console.WriteLine($"{Value2} Megabyte -> Auto: {AutoMegabyte.Value} {AutoMegabyte.Text}");
+            Console.WriteLine($"{Value2} Megabyte -> Auto: {AutoMegabyte.Value} {AutoMegabyte.TypeText}");
 
             StorageStruct AutoGigabyte = StorageExtension.AutoConvert(Value2, StorageType.Gigabyte, Mode);
-            Console.WriteLine($"{Value2} Gigabyte -> Auto: {AutoGigabyte.Value} {AutoGigabyte.Text}");
+            Console.WriteLine($"{Value2} Gigabyte -> Auto: {AutoGigabyte.Value} {AutoGigabyte.TypeText}");
 
             StorageStruct AutoTerabyte = StorageExtension.AutoConvert(Value2, StorageType.Terabyte, Mode);
-            Console.WriteLine($"{Value2} Terabyte -> Auto: {AutoTerabyte.Value} {AutoTerabyte.Text}");
+            Console.WriteLine($"{Value2} Terabyte -> Auto: {AutoTerabyte.Value} {AutoTerabyte.TypeText}");
 
             StorageStruct AutoPetabyte = StorageExtension.AutoConvert(Value2, StorageType.Petabyte, Mode);
-            Console.WriteLine($"{Value2} Petabyte -> Auto: {AutoPetabyte.Value} {AutoPetabyte.Text}");
+            Console.WriteLine($"{Value2} Petabyte -> Auto: {AutoPetabyte.Value} {AutoPetabyte.TypeText}");
 
             StorageStruct AutoExabyte = StorageExtension.AutoConvert(Value2, StorageType.Exabyte, Mode);
-            Console.WriteLine($"{Value2} Exabyte -> Auto: {AutoExabyte.Value} {AutoExabyte.Text}");
+            Console.WriteLine($"{Value2} Exabyte -> Auto: {AutoExabyte.Value} {AutoExabyte.TypeText}");
 
             StorageStruct AutoZetabyte = StorageExtension.AutoConvert(Value2, StorageType.Zetabyte, Mode);
-            Console.WriteLine($"{Value2} Zetabyte -> Auto: {AutoZetabyte.Value} {AutoZetabyte.Text}");
+            Console.WriteLine($"{Value2} Zetabyte -> Auto: {AutoZetabyte.Value} {AutoZetabyte.TypeText}");
 
             StorageStruct AutoYottabyte = StorageExtension.AutoConvert(Value2, StorageType.Yottabyte, Mode);
-            Console.WriteLine($"{Value2} Yottabyte -> Auto: {AutoYottabyte.Value} {AutoYottabyte.Text}");
+            Console.WriteLine($"{Value2} Yottabyte -> Auto: {AutoYottabyte.Value} {AutoYottabyte.TypeText}");
 
             Console.WriteLine();
 

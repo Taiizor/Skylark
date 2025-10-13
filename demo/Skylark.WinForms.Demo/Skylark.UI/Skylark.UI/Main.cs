@@ -565,7 +565,7 @@ namespace Skylark.UI
                     textBox7.Text = "1";
                 }
 
-                textBox4.Text = Numeric.Numeral(StorageExtension.Convert(Convert.ToDouble(textBox3.Text), Selection1, Selection2), Selection3, Selection4, Convert.ToInt32(textBox7.Text), '0', ClearNumericType.Decimal);
+                textBox4.Text = Numeric.Numeral(StorageExtension.Convert(Convert.ToDouble(textBox3.Text), Selection1, Selection2, ModeStorageType.Palila), Selection3, Selection4, Convert.ToInt32(textBox7.Text), '0', ClearNumericType.Decimal);
                 button4.Cursor = Cursors.Hand;
             }
             catch (Exception Ex)
@@ -584,11 +584,11 @@ namespace Skylark.UI
                     textBox7.Text = "1";
                 }
 
-                StorageStruct Result = StorageExtension.AutoConvert(Convert.ToDouble(textBox3.Text), Selection1);
+                StorageStruct Result = StorageExtension.AutoConvert(Convert.ToDouble(textBox3.Text), Selection1, ModeStorageType.Palila);
 
                 if (Selection5)
                 {
-                    textBox4.Text = Numeric.Numeral(Result.Value, Selection3, Selection4, Convert.ToInt32(textBox7.Text), '0', ClearNumericType.Decimal) + " " + Result.Text;
+                    textBox4.Text = Numeric.Numeral(Result.Value, Selection3, Selection4, Convert.ToInt32(textBox7.Text), '0', ClearNumericType.Decimal) + " " + Result.TypeText;
                 }
                 else
                 {
@@ -777,7 +777,7 @@ namespace Skylark.UI
 
                 if (Selection22)
                 {
-                    textBox22.Text = Numeric.Numeral(Result.Value, Selection20, Selection21, Convert.ToInt32(textBox21.Text), '0', ClearNumericType.Decimal) + " " + Result.Text;
+                    textBox22.Text = Numeric.Numeral(Result.Value, Selection20, Selection21, Convert.ToInt32(textBox21.Text), '0', ClearNumericType.Decimal) + " " + Result.TypeText;
                 }
                 else
                 {

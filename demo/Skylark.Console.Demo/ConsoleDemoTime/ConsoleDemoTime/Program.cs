@@ -16,49 +16,49 @@ namespace ConsoleDemoTime
             Console.OutputEncoding = Encoding.UTF8;
 
             TimeStruct AutoAttosecond = TimeExtension.AutoConvert(Value2, TimeType.Attosecond);
-            Console.WriteLine($"{Value2} Attosecond -> Auto: {AutoAttosecond.Value} {AutoAttosecond.Text}");
+            Console.WriteLine($"{Value2} Attosecond -> Auto: {AutoAttosecond.Value} {AutoAttosecond.TypeText}");
 
             TimeStruct AutoFemtosecond = TimeExtension.AutoConvert(Value2, TimeType.Femtosecond);
-            Console.WriteLine($"{Value2} Femtosecond -> Auto: {AutoFemtosecond.Value} {AutoFemtosecond.Text}");
+            Console.WriteLine($"{Value2} Femtosecond -> Auto: {AutoFemtosecond.Value} {AutoFemtosecond.TypeText}");
 
             TimeStruct AutoPicosecond = TimeExtension.AutoConvert(Value2, TimeType.Picosecond);
-            Console.WriteLine($"{Value2} Picosecond -> Auto: {AutoPicosecond.Value} {AutoPicosecond.Text}");
+            Console.WriteLine($"{Value2} Picosecond -> Auto: {AutoPicosecond.Value} {AutoPicosecond.TypeText}");
 
             TimeStruct AutoNanosecond = TimeExtension.AutoConvert(Value2, TimeType.Nanosecond);
-            Console.WriteLine($"{Value2} Nanosecond -> Auto: {AutoNanosecond.Value} {AutoNanosecond.Text}");
+            Console.WriteLine($"{Value2} Nanosecond -> Auto: {AutoNanosecond.Value} {AutoNanosecond.TypeText}");
 
             TimeStruct AutoMicrosecond = TimeExtension.AutoConvert(Value2, TimeType.Microsecond);
-            Console.WriteLine($"{Value2} Microsecond -> Auto: {AutoMicrosecond.Value} {AutoMicrosecond.Text}");
+            Console.WriteLine($"{Value2} Microsecond -> Auto: {AutoMicrosecond.Value} {AutoMicrosecond.TypeText}");
 
             TimeStruct AutoMillisecond = TimeExtension.AutoConvert(Value2, TimeType.Millisecond);
-            Console.WriteLine($"{Value2} Millisecond -> Auto: {AutoMillisecond.Value} {AutoMillisecond.Text}");
+            Console.WriteLine($"{Value2} Millisecond -> Auto: {AutoMillisecond.Value} {AutoMillisecond.TypeText}");
 
             TimeStruct AutoSecond = TimeExtension.AutoConvert(Value2, TimeType.Second);
-            Console.WriteLine($"{Value2} Second -> Auto: {AutoSecond.Value} {AutoSecond.Text}");
+            Console.WriteLine($"{Value2} Second -> Auto: {AutoSecond.Value} {AutoSecond.TypeText}");
 
             TimeStruct AutoMinute = TimeExtension.AutoConvert(Value2, TimeType.Minute);
-            Console.WriteLine($"{Value2} Minute -> Auto: {AutoMinute.Value} {AutoMinute.Text}");
+            Console.WriteLine($"{Value2} Minute -> Auto: {AutoMinute.Value} {AutoMinute.TypeText}");
 
             TimeStruct AutoHour = TimeExtension.AutoConvert(Value2, TimeType.Hour);
-            Console.WriteLine($"{Value2} Hour -> Auto: {AutoHour.Value} {AutoHour.Text}");
+            Console.WriteLine($"{Value2} Hour -> Auto: {AutoHour.Value} {AutoHour.TypeText}");
 
             TimeStruct AutoDay = TimeExtension.AutoConvert(Value2, TimeType.Day);
-            Console.WriteLine($"{Value2} Day -> Auto: {AutoDay.Value} {AutoDay.Text}");
+            Console.WriteLine($"{Value2} Day -> Auto: {AutoDay.Value} {AutoDay.TypeText}");
 
             TimeStruct AutoWeek = TimeExtension.AutoConvert(Value2, TimeType.Week);
-            Console.WriteLine($"{Value2} Week -> Auto: {AutoWeek.Value} {AutoWeek.Text}");
+            Console.WriteLine($"{Value2} Week -> Auto: {AutoWeek.Value} {AutoWeek.TypeText}");
 
             TimeStruct AutoYear = TimeExtension.AutoConvert(Value2, TimeType.Year);
-            Console.WriteLine($"{Value2} Year -> Auto: {AutoYear.Value} {AutoYear.Text}");
+            Console.WriteLine($"{Value2} Year -> Auto: {AutoYear.Value} {AutoYear.TypeText}");
 
             TimeStruct AutoDecade = TimeExtension.AutoConvert(Value2, TimeType.Decade);
-            Console.WriteLine($"{Value2} Decade -> Auto: {AutoDecade.Value} {AutoDecade.Text}");
+            Console.WriteLine($"{Value2} Decade -> Auto: {AutoDecade.Value} {AutoDecade.TypeText}");
 
             TimeStruct AutoCentury = TimeExtension.AutoConvert(Value2, TimeType.Century);
-            Console.WriteLine($"{Value2} Century -> Auto: {AutoCentury.Value} {AutoCentury.Text}");
+            Console.WriteLine($"{Value2} Century -> Auto: {AutoCentury.Value} {AutoCentury.TypeText}");
 
             TimeStruct AutoMillennium = TimeExtension.AutoConvert(Value2, TimeType.Millennium);
-            Console.WriteLine($"{Value2} Millennium -> Auto: {AutoMillennium.Value} {AutoMillennium.Text}");
+            Console.WriteLine($"{Value2} Millennium -> Auto: {AutoMillennium.Value} {AutoMillennium.TypeText}");
 
             Console.WriteLine();
 
