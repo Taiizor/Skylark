@@ -130,7 +130,7 @@ namespace Skylark.Wing.Utility
             }
             finally
             {
-                Key.Close();
+                Key?.Close();
             }
         }
 

@@ -102,7 +102,7 @@ namespace Skylark.Wing.Helper
             }
             finally
             {
-                Key.Close();
+                Key?.Close();
             }
         }
 
@@ -131,7 +131,7 @@ namespace Skylark.Wing.Helper
             }
             finally
             {
-                Key.Close();
+                Key?.Close();
             }
         }
 
@@ -160,7 +160,7 @@ namespace Skylark.Wing.Helper
             }
             finally
             {
-                Key.Close();
+                Key?.Close();
             }
         }
 
@@ -189,7 +189,7 @@ namespace Skylark.Wing.Helper
             }
             finally
             {
-                Key.Close();
+                Key?.Close();
             }
         }
 
@@ -218,7 +218,7 @@ namespace Skylark.Wing.Helper
             }
             finally
             {
-                Key.Close();
+                Key?.Close();
             }
         }
 
@@ -254,7 +254,7 @@ namespace Skylark.Wing.Helper
             }
             finally
             {
-                Key.Close();
+                Key?.Close();
             }
         }
 
@@ -283,7 +283,7 @@ namespace Skylark.Wing.Helper
             }
             finally
             {
-                Key.Close();
+                Key?.Close();
             }
         }
 
