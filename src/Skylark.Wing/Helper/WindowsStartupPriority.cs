@@ -34,15 +34,15 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         private static bool GetStartupRegistry(string AppPath)
         {
-            RegistryKey Key = GetRegistryKey();
-
             try
             {
+                RegistryKey Key = GetRegistryKey();
+
                 return Key.GetValue("Userinit").ToString().Contains(AppPath);
             }
-            finally
+            catch
             {
-                Key?.Close();
+                return false;
             }
         }
 
@@ -63,10 +63,11 @@ namespace Skylark.Wing.Helper
         /// <param name="Startup"></param>
         private static void SetStartupRegistry(string AppPath, bool Startup)
         {
-            RegistryKey Key = GetRegistryKey(true);
 
             try
             {
+                RegistryKey Key = GetRegistryKey(true);
+
                 string Value = Key.GetValue("Userinit").ToString();
 
                 if (Startup && !GetStartupRegistry(AppPath))
@@ -92,10 +93,7 @@ namespace Skylark.Wing.Helper
                     Key.SetValue("Userinit", Value);
                 }
             }
-            finally
-            {
-                Key?.Close();
-            }
+            catch { }
         }
 
         /// <summary>

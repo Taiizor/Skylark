@@ -85,10 +85,10 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         public static string GetPathRegistry(string SubKey = @"Control Panel\Desktop", string SubValue = "Wallpaper")
         {
-            RegistryKey Key = GetRegistryKey(SubKey);
-
             try
             {
+                RegistryKey Key = GetRegistryKey(SubKey);
+
                 string Value = Key.GetValue(SubValue).ToString();
 
                 if (string.IsNullOrWhiteSpace(Value))
@@ -100,9 +100,9 @@ namespace Skylark.Wing.Helper
                     return Value;
                 }
             }
-            finally
+            catch
             {
-                Key?.Close();
+                return string.Empty;
             }
         }
 
@@ -114,10 +114,10 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         public static string GetTileRegistry(string SubKey = @"Control Panel\Desktop", string SubValue = "TileWallpaper")
         {
-            RegistryKey Key = GetRegistryKey(SubKey);
-
             try
             {
+                RegistryKey Key = GetRegistryKey(SubKey);
+
                 string Value = Key.GetValue(SubValue).ToString();
 
                 if (string.IsNullOrWhiteSpace(Value))
@@ -129,9 +129,9 @@ namespace Skylark.Wing.Helper
                     return Value;
                 }
             }
-            finally
+            catch
             {
-                Key?.Close();
+                return string.Empty;
             }
         }
 
@@ -143,10 +143,10 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         public static string GetStyleRegistry(string SubKey = @"Control Panel\Desktop", string SubValue = "WallpaperStyle")
         {
-            RegistryKey Key = GetRegistryKey(SubKey);
-
             try
             {
+                RegistryKey Key = GetRegistryKey(SubKey);
+
                 string Value = Key.GetValue(SubValue).ToString();
 
                 if (string.IsNullOrWhiteSpace(Value))
@@ -158,9 +158,9 @@ namespace Skylark.Wing.Helper
                     return Value;
                 }
             }
-            finally
+            catch
             {
-                Key?.Close();
+                return string.Empty;
             }
         }
 
@@ -174,10 +174,10 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         public static bool SetPathRegistry(string SubKey = @"Control Panel\Desktop", string SubValue = "Wallpaper", string Path = "", bool Refresh = true)
         {
-            RegistryKey Key = GetRegistryKey(SubKey, true);
-
             try
             {
+                RegistryKey Key = GetRegistryKey(SubKey, true);
+
                 Key.SetValue(SubValue, Path);
 
                 if (Refresh)
@@ -187,9 +187,9 @@ namespace Skylark.Wing.Helper
 
                 return true;
             }
-            finally
+            catch
             {
-                Key?.Close();
+                return false;
             }
         }
 
@@ -203,10 +203,10 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         public static bool SetTileRegistry(string SubKey = @"Control Panel\Desktop", string SubValue = "TileWallpaper", string Tile = "0", bool Refresh = true)
         {
-            RegistryKey Key = GetRegistryKey(SubKey, true);
-
             try
             {
+                RegistryKey Key = GetRegistryKey(SubKey, true);
+
                 Key.SetValue(SubValue, Tile);
 
                 if (Refresh)
@@ -216,9 +216,9 @@ namespace Skylark.Wing.Helper
 
                 return true;
             }
-            finally
+            catch
             {
-                Key?.Close();
+                return false;
             }
         }
 
@@ -230,10 +230,10 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         public static SEDBT GetModeRegistry(string SubKey = @"Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers", string SubValue = "BackgroundType")
         {
-            RegistryKey Key = GetRegistryKey(SubKey);
-
             try
             {
+                RegistryKey Key = GetRegistryKey(SubKey);
+
                 string Value = Key.GetValue(SubValue).ToString();
 
                 if (string.IsNullOrWhiteSpace(Value))
@@ -252,9 +252,9 @@ namespace Skylark.Wing.Helper
                     };
                 }
             }
-            finally
+            catch
             {
-                Key?.Close();
+                return SEDBT.Unknown;
             }
         }
 
@@ -268,10 +268,10 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         public static bool SetStyleRegistry(string SubKey = @"Control Panel\Desktop", string SubValue = "WallpaperStyle", string Style = "10", bool Refresh = true)
         {
-            RegistryKey Key = GetRegistryKey(SubKey, true);
-
             try
             {
+                RegistryKey Key = GetRegistryKey(SubKey, true);
+
                 Key.SetValue(SubValue, Style);
 
                 if (Refresh)
@@ -281,9 +281,9 @@ namespace Skylark.Wing.Helper
 
                 return true;
             }
-            finally
+            catch
             {
-                Key?.Close();
+                return false;
             }
         }
 

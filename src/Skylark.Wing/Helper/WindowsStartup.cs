@@ -36,15 +36,15 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         private static bool GetStartupRegistry(string AppName)
         {
-            RegistryKey Key = GetRegistryKey();
-
             try
             {
+                RegistryKey Key = GetRegistryKey();
+
                 return Key.GetValue(AppName) != null;
             }
-            finally
+            catch
             {
-                Key?.Close();
+                return false;
             }
         }
 
@@ -77,10 +77,10 @@ namespace Skylark.Wing.Helper
         /// <param name="Startup"></param>
         private static void SetStartupRegistry(string AppName, string AppPath, bool Startup)
         {
-            RegistryKey Key = GetRegistryKey(true);
-
             try
             {
+                RegistryKey Key = GetRegistryKey(true);
+
                 if (Startup)
                 {
                     Key.SetValue(AppName, "\"" + ChangeExtension(AppPath, ".exe") + "\"");
@@ -90,10 +90,7 @@ namespace Skylark.Wing.Helper
                     Key.DeleteValue(AppName, false);
                 }
             }
-            finally
-            {
-                Key?.Close();
-            }
+            catch { }
         }
     }
 }

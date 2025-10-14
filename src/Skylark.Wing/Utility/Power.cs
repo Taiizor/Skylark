@@ -103,10 +103,10 @@ namespace Skylark.Wing.Utility
         /// </list></returns>
         public static SEEST GetEnergySaverState(string SubKey = @"SYSTEM\CurrentControlSet\Control\Power", string SubValue = "EnergySaverState")
         {
-            RegistryKey Key = GetRegistryKey(SubKey);
-
             try
             {
+                RegistryKey Key = GetRegistryKey(SubKey);
+
                 string Value = Key.GetValue(SubValue).ToString();
 
                 if (string.IsNullOrWhiteSpace(Value))
@@ -128,9 +128,9 @@ namespace Skylark.Wing.Utility
                     return SEEST.Disabled;
                 }
             }
-            finally
+            catch
             {
-                Key?.Close();
+                return SEEST.Disabled;
             }
         }
 
