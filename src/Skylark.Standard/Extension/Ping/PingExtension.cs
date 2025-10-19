@@ -37,20 +37,50 @@ namespace Skylark.Standard.Extension.Ping
 
                 PingReply Reply = Ping.Send(Address, SHL.Clamp(Timeout, SSMPPM.MinTimeout, SSMPPM.MaxTimeout), SSMPPM.Buffer, PingOptions);
 
-                if (Reply.Status == IPStatus.Success)
+                if (Reply != null)
                 {
-                    Result.Result = Reply.Status;
-                    Result.Ttl = Reply.Options.Ttl;
-                    Result.Buffer = Reply.Buffer.Length;
-                    Result.ResultText = $"{Result.Result}";
-                    Result.RoundTrip = Reply.RoundtripTime;
-                    Result.Address = Reply.Address.ToString();
-                    Result.Fragment = Reply.Options.DontFragment;
+                    if (Reply.Status == IPStatus.Success)
+                    {
+                        Result.Result = Reply.Status;
+                        Result.Ttl = Reply.Options.Ttl;
+                        Result.Buffer = Reply.Buffer.Length;
+                        Result.ResultText = $"{Result.Result}";
+                        Result.RoundTrip = Reply.RoundtripTime;
+                        Result.Address = Reply.Address.ToString();
+                        Result.Fragment = Reply.Options.DontFragment;
+                    }
+                    else if (Reply.Status == IPStatus.TimedOut)
+                    {
+                        (bool Success, long Elapsed) = SSHPPH.TcpPing(Address, 80, Timeout);
+
+                        if (Success)
+                        {
+                            Result.Ttl = Ttl;
+                            Result.Address = Address;
+                            Result.Fragment = Fragment;
+                            Result.RoundTrip = Elapsed;
+                            Result.Result = IPStatus.Success;
+                            Result.Buffer = SSMPPM.Buffer.Length;
+                            Result.ResultText = $"{Result.Result}";
+                        }
+                        else
+                        {
+                            Result.Address = Address;
+                            Result.Result = IPStatus.TimedOut;
+                            Result.ResultText = $"{Result.Result}";
+                        }
+                    }
+                    else
+                    {
+                        Result.Address = Address;
+                        Result.Result = Reply.Status;
+                        Result.ResultText = $"{Result.Result}";
+                    }
                 }
                 else
                 {
                     Result.Address = Address;
-                    Result.Result = Reply.Status;
+                    Result.Result = IPStatus.Unknown;
                     Result.ResultText = $"{Result.Result}";
                 }
 

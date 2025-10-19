@@ -18,6 +18,7 @@ namespace ConsoleDemoPing
             Console.WriteLine($"Address: {Send1.Address}");
             Console.WriteLine($"Fragment: {Send1.Fragment}");
             Console.WriteLine($"RoundTrip: {Send1.RoundTrip}");
+            Console.WriteLine($"ResultText: {Send1.ResultText}");
 
             Console.WriteLine();
 
@@ -28,6 +29,7 @@ namespace ConsoleDemoPing
             Console.WriteLine($"Address: {Send2.Address}");
             Console.WriteLine($"Fragment: {Send2.Fragment}");
             Console.WriteLine($"RoundTrip: {Send2.RoundTrip}");
+            Console.WriteLine($"ResultText: {Send2.ResultText}");
 
             Console.WriteLine();
 
@@ -38,6 +40,7 @@ namespace ConsoleDemoPing
             Console.WriteLine($"Address: {Send3.Address}");
             Console.WriteLine($"Fragment: {Send3.Fragment}");
             Console.WriteLine($"RoundTrip: {Send3.RoundTrip}");
+            Console.WriteLine($"ResultText: {Send3.ResultText}");
 
             Console.WriteLine();
 
@@ -48,6 +51,7 @@ namespace ConsoleDemoPing
             Console.WriteLine($"Address: {Send4.Address}");
             Console.WriteLine($"Fragment: {Send4.Fragment}");
             Console.WriteLine($"RoundTrip: {Send4.RoundTrip}");
+            Console.WriteLine($"ResultText: {Send4.ResultText}");
 
             Console.ReadKey();
         }
