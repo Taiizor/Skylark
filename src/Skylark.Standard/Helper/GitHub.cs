@@ -54,7 +54,7 @@ namespace Skylark.Standard.Helper
         /// <summary>
         /// 
         /// </summary>
-        private static readonly Dictionary<string, CachedData> Cache = new();
+        private static readonly Dictionary<string, CachedData> Cache = [];
 
         /// <summary>
         /// 

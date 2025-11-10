@@ -66,7 +66,7 @@ namespace Skylark.Standard.Extension.Port
                     throw new SE(SSMPPM.Error);
                 }
 
-                Dictionary<int, string> Result = new();
+                Dictionary<int, string> Result = [];
 
                 foreach (int Port in Ports)
                 {
@@ -167,7 +167,7 @@ namespace Skylark.Standard.Extension.Port
                     throw new SE(SSMPPM.Error);
                 }
 
-                Dictionary<int, SEPT> Result = new();
+                Dictionary<int, SEPT> Result = [];
 
                 foreach (int Port in Ports)
                 {

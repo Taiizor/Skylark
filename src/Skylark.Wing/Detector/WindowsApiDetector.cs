@@ -80,7 +80,7 @@ namespace Skylark.Wing.Detector
         /// <returns>A collection of ProcessInfo objects representing the processes locking the file</returns>
         public override IEnumerable<SWMPI> GetLockingProcesses(string filePath)
         {
-            List<SWMPI> lockingProcesses = new();
+            List<SWMPI> lockingProcesses = [];
 
             // Check if we're running on Windows
             if (Environment.OSVersion.Platform != PlatformID.Win32NT)

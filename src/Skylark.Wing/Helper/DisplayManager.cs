@@ -27,7 +27,7 @@ namespace Skylark.Wing.Helper
 
         public event EventHandler DisplayUpdated;
 
-        public ObservableCollection<DisplayMonitor> DisplayMonitors { get; } = new ObservableCollection<DisplayMonitor>();
+        public ObservableCollection<DisplayMonitor> DisplayMonitors { get; } = [];
 
         private Rectangle virtualScreenBounds = Rectangle.Empty;
 
@@ -215,7 +215,7 @@ namespace Skylark.Wing.Helper
         {
             if (multiMonitorSupport)
             {
-                List<IntPtr> hMonitors = new();
+                List<IntPtr> hMonitors = [];
 
                 bool callback(IntPtr monitor, IntPtr hdc, IntPtr lprcMonitor, IntPtr lParam)
                 {

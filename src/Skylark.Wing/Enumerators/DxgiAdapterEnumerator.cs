@@ -180,7 +180,7 @@ namespace Skylark.Wing.Enumerators
         /// </example>
         public static List<AdapterInfo> EnumerateAdapters()
         {
-            List<AdapterInfo> adapters = new();
+            List<AdapterInfo> adapters = [];
 
             IntPtr factoryPtr = IntPtr.Zero;
             try
@@ -271,7 +271,7 @@ namespace Skylark.Wing.Enumerators
         /// </example>
         public static Dictionary<string, string> GetLuidToNameMapping()
         {
-            Dictionary<string, string> mapping = new();
+            Dictionary<string, string> mapping = [];
 
             try
             {

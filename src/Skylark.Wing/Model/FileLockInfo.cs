@@ -36,7 +36,7 @@ namespace Skylark.Wing.Model
         /// <summary>
         /// Gets or sets the list of processes that are locking the file
         /// </summary>
-        public List<ProcessInfo> LockingProcesses { get; set; } = new List<ProcessInfo>();
+        public List<ProcessInfo> LockingProcesses { get; set; } = [];
 
         /// <summary>
         /// Gets or sets the timestamp when the check was performed

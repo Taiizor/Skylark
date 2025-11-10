@@ -73,7 +73,7 @@ namespace Skylark.Wing.Detector
             // By default, detector implementations might not support process detection
             // and will return an empty list. Override this method in derived classes
             // to implement specific process detection logic.
-            return new List<SWMPI>();
+            return [];
         }
     }
 }

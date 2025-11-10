@@ -43,7 +43,7 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         public static List<string> GetGpu()
         {
-            List<string> result = new();
+            List<string> result = [];
 
             try
             {
@@ -90,7 +90,7 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         public static List<string> GetCpu()
         {
-            List<string> result = new();
+            List<string> result = [];
 
             try
             {

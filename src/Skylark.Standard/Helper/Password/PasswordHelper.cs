@@ -106,8 +106,8 @@ namespace Skylark.Standard.Helper.Password
 
                     return (double)ortakNGramSayisi / Math.Max(nGrams1.Count, nGrams2.Count);
                 case SESRPT.Cosine:
-                    Dictionary<string, int> Dict1 = new();
-                    Dictionary<string, int> Dict2 = new();
+                    Dictionary<string, int> Dict1 = [];
+                    Dictionary<string, int> Dict2 = [];
 
                     foreach (string Word in Password1.Split())
                     {
@@ -133,7 +133,7 @@ namespace Skylark.Standard.Helper.Password
                         }
                     }
 
-                    HashSet<string> Keys = new(Dict1.Keys.Concat(Dict2.Keys));
+                    HashSet<string> Keys = [.. Dict1.Keys.Concat(Dict2.Keys)];
 
                     double DotProduct = 0;
                     double Magnitude1 = 0;
@@ -153,8 +153,8 @@ namespace Skylark.Standard.Helper.Password
 
                     return DotProduct / Magnitude;
                 case SESRPT.Jaccard:
-                    HashSet<char> Set1 = new(Password1);
-                    HashSet<char> Set2 = new(Password2);
+                    HashSet<char> Set1 = [.. Password1];
+                    HashSet<char> Set2 = [.. Password2];
 
                     int Intersection = 0;
 
@@ -170,8 +170,8 @@ namespace Skylark.Standard.Helper.Password
 
                     return (double)Intersection / Union;
                 case SESRPT.Jaccardy:
-                    HashSet<string> Set3 = new(Password1.Split());
-                    HashSet<string> Set4 = new(Password2.Split());
+                    HashSet<string> Set3 = [.. Password1.Split()];
+                    HashSet<string> Set4 = [.. Password2.Split()];
 
                     int IntersectionCount = Set3.Intersect(Set4).Count();
                     int UnionCount = Set3.Union(Set4).Count();
@@ -300,7 +300,7 @@ namespace Skylark.Standard.Helper.Password
         /// <returns></returns>
         private static List<string> CreateNGram(string Password, int Length)
         {
-            List<string> nGrams = new();
+            List<string> nGrams = [];
 
             for (int C = 0; C <= Password.Length - Length; C++)
             {

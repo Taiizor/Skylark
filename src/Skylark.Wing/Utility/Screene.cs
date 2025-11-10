@@ -41,7 +41,7 @@ namespace Skylark.Wing.Utility
         {
             MI.CombinedRectangles = new SSRRS(0, 0, 0, 0);
 
-            List<SMMS> Screenes = new();
+            List<SMMS> Screenes = [];
 
             bool CallBack(IntPtr hDesktop, IntPtr hdc, ref SSRRS pRect, int d)
             {

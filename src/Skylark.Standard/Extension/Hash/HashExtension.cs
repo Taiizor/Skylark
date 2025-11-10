@@ -1,4 +1,4 @@
-﻿using System.Security.Cryptography;
+using System.Security.Cryptography;
 using SE = Skylark.Exception;
 using SHF = Skylark.Helper.Format;
 using SHL = Skylark.Helper.Length;
@@ -31,8 +31,9 @@ namespace Skylark.Standard.Extension.Hash
                 SSHHHH.FileControl(Path);
 
                 using MD5 MD5 = new MD5CryptoServiceProvider();
+                using FileStream Stream = SSHHHH.OpenRead(Path);
 
-                return SHF.Formatter(SSHHHH.ToString(MD5.ComputeHash(SSHHHH.OpenRead(Path)), Split), Upper, Invariant);
+                return SHF.Formatter(SSHHHH.ToString(MD5.ComputeHash(Stream), Split), Upper, Invariant);
             }
             catch (SE Ex)
             {
@@ -72,8 +73,9 @@ namespace Skylark.Standard.Extension.Hash
                 SSHHHH.FileControl(Path);
 
                 using SHA1 SHA1 = new SHA1CryptoServiceProvider();
+                using FileStream Stream = SSHHHH.OpenRead(Path);
 
-                return SHF.Formatter(SSHHHH.ToString(SHA1.ComputeHash(SSHHHH.OpenRead(Path)), Split), Upper, Invariant);
+                return SHF.Formatter(SSHHHH.ToString(SHA1.ComputeHash(Stream), Split), Upper, Invariant);
             }
             catch (SE Ex)
             {
@@ -113,8 +115,9 @@ namespace Skylark.Standard.Extension.Hash
                 SSHHHH.FileControl(Path);
 
                 using SHA256 SHA256 = new SHA256CryptoServiceProvider();
+                using FileStream Stream = SSHHHH.OpenRead(Path);
 
-                return SHF.Formatter(SSHHHH.ToString(SHA256.ComputeHash(SSHHHH.OpenRead(Path)), Split), Upper, Invariant);
+                return SHF.Formatter(SSHHHH.ToString(SHA256.ComputeHash(Stream), Split), Upper, Invariant);
             }
             catch (SE Ex)
             {
@@ -154,8 +157,9 @@ namespace Skylark.Standard.Extension.Hash
                 SSHHHH.FileControl(Path);
 
                 using SHA384 SHA384 = new SHA384CryptoServiceProvider();
+                using FileStream Stream = SSHHHH.OpenRead(Path);
 
-                return SHF.Formatter(SSHHHH.ToString(SHA384.ComputeHash(SSHHHH.OpenRead(Path)), Split), Upper, Invariant);
+                return SHF.Formatter(SSHHHH.ToString(SHA384.ComputeHash(Stream), Split), Upper, Invariant);
             }
             catch (SE Ex)
             {
@@ -195,8 +199,9 @@ namespace Skylark.Standard.Extension.Hash
                 SSHHHH.FileControl(Path);
 
                 using SHA512 SHA512 = new SHA512CryptoServiceProvider();
+                using FileStream Stream = SSHHHH.OpenRead(Path);
 
-                return SHF.Formatter(SSHHHH.ToString(SHA512.ComputeHash(SSHHHH.OpenRead(Path)), Split), Upper, Invariant);
+                return SHF.Formatter(SSHHHH.ToString(SHA512.ComputeHash(Stream), Split), Upper, Invariant);
             }
             catch (SE Ex)
             {

@@ -63,7 +63,7 @@ namespace Skylark.Wing.Helper
             SWIIFLD? detector = FileLocksmithFactory.CreateDetector(detectorName);
             if (detector == null)
             {
-                return new List<SWMPI>();
+                return [];
             }
 
             return detector.GetLockingProcesses(filePath);

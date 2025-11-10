@@ -41,8 +41,8 @@ namespace Skylark.Standard.Extension.Lottery
                 }
 
                 int Count = 0;
-                List<string> Win = new();
-                List<string> Res = new();
+                List<string> Win = [];
+                List<string> Res = [];
 
                 while (Count < Total)
                 {
