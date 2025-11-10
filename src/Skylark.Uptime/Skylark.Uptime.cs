@@ -16,7 +16,7 @@ using SSPPSS = Skylark.Struct.Ping.PingSendStruct;
 //     Website: www.vegalya.com
 //     Created: 27.Feb.2023
 //     Changed: 11.Nov.2025
-//     Version: 3.1.6.3
+//     Version: 3.1.6.4
 //
 // |---------DO-NOT-REMOVE---------|
 
