@@ -20,11 +20,11 @@ namespace Skylark.Wing.Helper
         {
             try
             {
-                using ManagementObjectSearcher myVideoObject = new("SELECT * FROM Win32_VideoController");
-
                 StringBuilder Builder = new();
 
-                foreach (ManagementObject obj in myVideoObject.Get().Cast<ManagementObject>())
+                ManagementClass myVideoClass = new("Win32_VideoController");
+
+                foreach (ManagementObject obj in myVideoClass.GetInstances().Cast<ManagementObject>())
                 {
                     Builder.AppendLine("GPU: " + obj["Name"]);
                 }
@@ -47,9 +47,9 @@ namespace Skylark.Wing.Helper
 
             try
             {
-                using ManagementObjectSearcher myVideoObject = new("SELECT * FROM Win32_VideoController");
+                ManagementClass myVideoClass = new("Win32_VideoController");
 
-                foreach (ManagementObject obj in myVideoObject.Get().Cast<ManagementObject>())
+                foreach (ManagementObject obj in myVideoClass.GetInstances().Cast<ManagementObject>())
                 {
                     result.Add(obj["Name"].ToString());
                 }
@@ -67,11 +67,11 @@ namespace Skylark.Wing.Helper
         {
             try
             {
-                using ManagementObjectSearcher myProcessorObject = new("SELECT * FROM Win32_Processor");
-
                 StringBuilder Builder = new();
 
-                foreach (ManagementObject obj in myProcessorObject.Get().Cast<ManagementObject>())
+                ManagementClass myProcessorClass = new("Win32_Processor");
+
+                foreach (ManagementObject obj in myProcessorClass.GetInstances().Cast<ManagementObject>())
                 {
                     Builder.AppendLine("CPU: " + obj["Name"]);
                 }
@@ -94,9 +94,9 @@ namespace Skylark.Wing.Helper
 
             try
             {
-                using ManagementObjectSearcher myProcessorObject = new("SELECT * FROM Win32_Processor");
+                ManagementClass myProcessorClass = new("Win32_Processor");
 
-                foreach (ManagementObject obj in myProcessorObject.Get().Cast<ManagementObject>())
+                foreach (ManagementObject obj in myProcessorClass.GetInstances().Cast<ManagementObject>())
                 {
                     result.Add(obj["Name"].ToString());
                 }
@@ -114,11 +114,11 @@ namespace Skylark.Wing.Helper
         {
             try
             {
-                using ManagementObjectSearcher myOperativeSystemObject = new("SELECT * FROM Win32_OperatingSystem");
-
                 StringBuilder Builder = new();
 
-                foreach (ManagementObject obj in myOperativeSystemObject.Get().Cast<ManagementObject>())
+                ManagementClass myOperativeSystemClass = new("Win32_OperatingSystem");
+
+                foreach (ManagementObject obj in myOperativeSystemClass.GetInstances().Cast<ManagementObject>())
                 {
                     Builder.AppendLine("OS: " + obj["Caption"] + " " + obj["Version"]);
                 }
@@ -142,9 +142,10 @@ namespace Skylark.Wing.Helper
             try
             {
                 int sku = 0;
-                using ManagementObjectSearcher myOperativeSystemObject = new("SELECT * FROM Win32_OperatingSystem");
 
-                foreach (ManagementObject obj in myOperativeSystemObject.Get().Cast<ManagementObject>())
+                ManagementClass myOperativeSystemClass = new("Win32_OperatingSystem");
+
+                foreach (ManagementObject obj in myOperativeSystemClass.GetInstances().Cast<ManagementObject>())
                 {
                     sku = int.Parse(obj["OperatingSystemSKU"].ToString());
                     break;

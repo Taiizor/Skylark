@@ -86,9 +86,9 @@ namespace Skylark.Wing.Helper
         /// <returns></returns>
         public static Version GetManagementVersion()
         {
-            using ManagementObjectSearcher myOperativeSystemObject = new("SELECT * FROM Win32_OperatingSystem");
+            ManagementClass myOperativeSystemClass = new("Win32_OperatingSystem");
 
-            foreach (ManagementObject obj in myOperativeSystemObject.Get().Cast<ManagementObject>())
+            foreach (ManagementObject obj in myOperativeSystemClass.GetInstances().Cast<ManagementObject>())
             {
                 return Version.Parse(obj["Version"].ToString());
             }
