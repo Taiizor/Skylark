@@ -15,7 +15,7 @@ using SIOE = System.InvalidOperationException;
 //     Website: www.vegalya.com
 //     Created: 03.Jan.2023
 //     Changed: 05.Feb.2026
-//     Version: 3.1.5.8
+//     Version: 3.1.5.9
 //
 // |---------DO-NOT-REMOVE---------|
 
