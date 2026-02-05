@@ -1,0 +1,139 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="GitHub" />
+    <BuildType Name="Release" />
+  </Configurations>
+  <Folder Name="/demo/" />
+  <Folder Name="/demo/Skylark.Console.Demo/">
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoBrowser/ConsoleDemoBrowser/ConsoleDemoBrowser.csproj">
+      <BuildType Solution="GitHub|*" Project="Debug" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoColor/ConsoleDemoColor/ConsoleDemoColor.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoCompression/ConsoleDemoCompression/ConsoleDemoCompression.csproj">
+      <BuildType Solution="GitHub|*" Project="Debug" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoCryptology/ConsoleDemoCryptology/ConsoleDemoCryptology.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoCss/ConsoleDemoCss/ConsoleDemoCss.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoDecompression/ConsoleDemoDecompression/ConsoleDemoDecompression.csproj">
+      <BuildType Solution="GitHub|*" Project="Debug" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoFileLocksmith/ConsoleDemoFileLocksmith/ConsoleDemoFileLocksmith.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoHash/ConsoleDemoHash/ConsoleDemoHash.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoHelper/ConsoleDemoHelper/ConsoleDemoHelper.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoHtml/ConsoleDemoHtml/ConsoleDemoHtml.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoJs/ConsoleDemoJs/ConsoleDemoJs.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoJson/ConsoleDemoJson/ConsoleDemoJson.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoLottery/ConsoleDemoLottery/ConsoleDemoLottery.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoPassword/ConsoleDemoPassword/ConsoleDemoPassword.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoPing/ConsoleDemoPing/ConsoleDemoPing.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoPort/ConsoleDemoPort/ConsoleDemoPort.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoSpeed/ConsoleDemoSpeed/ConsoleDemoSpeed.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoStorage/ConsoleDemoStorage/ConsoleDemoStorage.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoTax/ConsoleDemoTax/ConsoleDemoTax.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoTemperature/ConsoleDemoTemperature/ConsoleDemoTemperature.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoText/ConsoleDemoText/ConsoleDemoText.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoTime/ConsoleDemoTime/ConsoleDemoTime.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoTypography/ConsoleDemoTypography/ConsoleDemoTypography.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoUnicode/ConsoleDemoUnicode/ConsoleDemoUnicode.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoUrl/ConsoleDemoUrl/ConsoleDemoUrl.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoWeb/ConsoleDemoWeb/ConsoleDemoWeb.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoWord/ConsoleDemoWord/ConsoleDemoWord.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoXhtml/ConsoleDemoXhtml/ConsoleDemoXhtml.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.Console.Demo/ConsoleDemoXml/ConsoleDemoXml/ConsoleDemoXml.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+  </Folder>
+  <Folder Name="/demo/Skylark.WinForms.Demo/">
+    <Project Path="demo/Skylark.WinForms.Demo/Skylark.UI/Skylark.UI/Skylark.UI.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="demo/Skylark.WinForms.Demo/WinFormsDemoWallpaper/WinFormsDemoWallpaper/WinFormsDemoWallpaper.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="global.json" />
+    <File Path="NuGet.Config" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Skylark.Clipboard/Skylark.Clipboard.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="src/Skylark.DNS/Skylark.DNS.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="src/Skylark.Standard/Skylark.Standard.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="src/Skylark.Uptime/Skylark.Uptime.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="src/Skylark.Wing/Skylark.Wing.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="src/Skylark/Skylark.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+  </Folder>
+  <Folder Name="/tutorial/" />
+  <Folder Name="/tutorial/CS/">
+    <Project Path="tutorial/C#/#001 create-project/create-project/create-project.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+    <Project Path="tutorial/C#/#002 install-from-nuget/install-from-nuget/install-from-nuget.csproj">
+      <BuildType Solution="GitHub|*" Project="Release" />
+    </Project>
+  </Folder>
+</Solution>

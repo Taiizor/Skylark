@@ -39,12 +39,12 @@ jobs:
             Release
         ]
         solution: [
-            src/Skylark.sln,
-            src/Skylark.DNS.sln,
-            # src/Skylark.Wing.sln,
-            src/Skylark.Uptime.sln,
-            src/Skylark.Standard.sln,
-            src/Skylark.Clipboard.sln
+            src/Skylark.slnx,
+            src/Skylark.DNS.slnx,
+            # src/Skylark.Wing.slnx,
+            src/Skylark.Uptime.slnx,
+            src/Skylark.Standard.slnx,
+            src/Skylark.Clipboard.slnx
         ]
 
     steps:
