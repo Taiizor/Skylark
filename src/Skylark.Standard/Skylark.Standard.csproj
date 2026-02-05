@@ -60,7 +60,7 @@
 
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-        <PackageReference Include="WebMarkupMin.NUglify" Version="2.19.1" />
+        <PackageReference Include="WebMarkupMin.NUglify" Version="2.20.0" />
     </ItemGroup>
 
     <ItemGroup>
