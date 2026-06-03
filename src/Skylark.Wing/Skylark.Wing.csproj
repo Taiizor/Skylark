@@ -77,10 +77,10 @@
     </ItemGroup>
 
     <ItemGroup Condition="!$(TargetFramework.StartsWith('net48'))">
-        <PackageReference Condition="$(TargetFramework.StartsWith('net6'))" Include="System.Management" Version="6.0.2" />
-        <PackageReference Condition="$(TargetFramework.StartsWith('net7'))" Include="System.Management" Version="7.0.2" />
-        <PackageReference Condition="$(TargetFramework.StartsWith('net8'))" Include="System.Management" Version="8.0.0" />
-        <PackageReference Condition="$(TargetFramework.StartsWith('net9'))" Include="System.Management" Version="9.0.16" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net6'))" Include="System.Management" Version="10.0.8" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net7'))" Include="System.Management" Version="10.0.8" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net8'))" Include="System.Management" Version="10.0.8" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net9'))" Include="System.Management" Version="10.0.8" />
         <PackageReference Condition="$(TargetFramework.StartsWith('net10'))" Include="System.Management" Version="10.0.8" />
     </ItemGroup>
 
