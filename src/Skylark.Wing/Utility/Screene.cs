@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Media;
 using HFI = Skylark.Wing.Helper.FormInterop;
 using HPI = Skylark.Wing.Helper.ProcessInterop;
 using HWAPI = Skylark.Wing.Helper.WinAPI;
@@ -13,6 +14,7 @@ using SEAFT = Skylark.Enum.AncestorFlagsType;
 using SEST = Skylark.Enum.ScreenType;
 using SMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SSRRS = Skylark.Struct.Rectangles.RectanglesStruct;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Skylark.Wing.Utility
 {
@@ -69,12 +71,12 @@ namespace Skylark.Wing.Utility
 
                 if (Rectangle.Right > MI.CombinedRectangles.Right)
                 {
-                    Rectangle.Right = MI.CombinedRectangles.Right;
+                    MI.CombinedRectangles.Right = Rectangle.Right;
                 }
 
                 if (Rectangle.Bottom > MI.CombinedRectangles.Bottom)
                 {
-                    Rectangle.Bottom = MI.CombinedRectangles.Bottom;
+                    MI.CombinedRectangles.Bottom = Rectangle.Bottom;
                 }
 
                 Screenes.Add(Info);
@@ -164,11 +166,33 @@ namespace Skylark.Wing.Utility
             //int exStyle = Methods.GetWindowLong(hwnd, (int)Methods.GWL.GWL_EXSTYLE);
             //Methods.SetWindowLong(hwnd, (int)Methods.GWL.GWL_EXSTYLE, exStyle | (int)Methods.WindowStyles.WS_EX_NOACTIVATE);
 
-            HWAPI.MoveWindow(HWI.EnsureHandle(Window), X, Y, Rectangle.Width, Rectangle.Height, false);
+            IntPtr Handle = HWI.EnsureHandle(Window);
+
+            HWAPI.MoveWindow(Handle, X, Y, Rectangle.Width, Rectangle.Height, false);
+
+            // The wallpaper window is re-parented to the desktop WorkerW, so it stops
+            // receiving WM_DPICHANGED and keeps rendering its content at its creation-time
+            // DPI. On scaled (2K/4K) monitors this makes the content oversized and cropped,
+            // so compensate the content scale by the target monitor DPI. No-op at 96 DPI.
+            if (Window.Content is FrameworkElement Element)
+            {
+                int DPI = SWNM.GetDpiForWindow(Handle);
+
+                if (DPI is > 0 and not 96)
+                {
+                    double Scale = 96.0 / DPI;
+
+                    Element.LayoutTransform = new ScaleTransform(Scale, Scale);
+                }
+                else
+                {
+                    Element.LayoutTransform = Transform.Identity;
+                }
+            }
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="Process"></param>
         /// <param name="Screen"></param>
