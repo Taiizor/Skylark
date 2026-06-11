@@ -40,7 +40,7 @@ namespace ConsoleDemoPassword
             Console.WriteLine($"{Password6} Meter: {PasswordExtension.Meter(Password6)}");
 
             Console.WriteLine();
-            
+
             string Password7 = "Password7";
             string Password8 = "Password8";
 
