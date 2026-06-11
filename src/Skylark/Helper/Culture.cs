@@ -190,6 +190,36 @@ namespace Skylark.Helper
         /// <summary>
         /// 
         /// </summary>
+        public static bool CurrentIsRightToLeft => CultureInfo.CurrentCulture.TextInfo.IsRightToLeft;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool CurrentUIIsRightToLeft => CultureInfo.CurrentUICulture.TextInfo.IsRightToLeft;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool InvariantIsRightToLeft => CultureInfo.InvariantCulture.TextInfo.IsRightToLeft;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool InstalledUIIsRightToLeft => CultureInfo.InstalledUICulture.TextInfo.IsRightToLeft;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool ThreadCurrentIsRightToLeft => CultureInfo.DefaultThreadCurrentCulture.TextInfo.IsRightToLeft;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool ThreadCurrentUIIsRightToLeft => CultureInfo.DefaultThreadCurrentUICulture.TextInfo.IsRightToLeft;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static string CurrentTwoLetterISOLanguageName => CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
 
         /// <summary>
