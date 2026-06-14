@@ -21,8 +21,8 @@ using SWUS = Skylark.Wing.Utility.Screene;
 //     Creator: Taiizor
 //     Website: www.vegalya.com
 //     Created: 17.Jun.2023
-//     Changed: 12.Jun.2026
-//     Version: 3.2.1.2
+//     Changed: 14.Jun.2026
+//     Version: 3.2.1.3
 //
 // |---------DO-NOT-REMOVE---------|
 
