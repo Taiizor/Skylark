@@ -1,4 +1,4 @@
-﻿#region Imports
+#region Imports
 
 using System;
 using System.Diagnostics;
@@ -21,8 +21,8 @@ using SWUS = Skylark.Wing.Utility.Screene;
 //     Creator: Taiizor
 //     Website: www.vegalya.com
 //     Created: 17.Jun.2023
-//     Changed: 21.Jul.2026
-//     Version: 3.2.1.4
+//     Changed: 10.Aug.2026
+//     Version: 3.2.1.5
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -130,6 +130,25 @@ namespace Skylark.Wing
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Form"></param>
+        /// <param name="DeviceName"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static bool WallpaperForm(Form Form, string DeviceName, SEST Type)
+        {
+            bool IsFixed = SWHDC.FixForm(Form);
+
+            if (IsFixed)
+            {
+                SWUS.FillScreenForm(Form, SWHSM.OwnerScreen(DeviceName), Type);
+            }
+
+            return IsFixed;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Handle"></param>
         /// <param name="Index"></param>
         /// <param name="Type"></param>
@@ -176,6 +195,25 @@ namespace Skylark.Wing
         public static bool WallpaperHandle(IntPtr Handle, SEDST Method, SEST Type)
         {
             return false;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Handle"></param>
+        /// <param name="DeviceName"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static bool WallpaperHandle(IntPtr Handle, string DeviceName, SEST Type)
+        {
+            bool IsFixed = SWHDC.FixHandle(Handle);
+
+            if (IsFixed)
+            {
+                SWUS.FillScreenHandle(Handle, SWHSM.OwnerScreen(DeviceName), Type);
+            }
+
+            return IsFixed;
         }
 
         /// <summary>
@@ -261,6 +299,25 @@ namespace Skylark.Wing
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Window"></param>
+        /// <param name="DeviceName"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static bool WallpaperWindow(Window Window, string DeviceName, SEST Type)
+        {
+            bool IsFixed = SWHDC.FixWindow(Window);
+
+            if (IsFixed)
+            {
+                SWUS.FillScreenWindow(Window, SWHSM.OwnerScreen(DeviceName), Type);
+            }
+
+            return IsFixed;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Process"></param>
         /// <param name="Index"></param>
         /// <param name="Type"></param>
@@ -307,6 +364,25 @@ namespace Skylark.Wing
         public static bool WallpaperProcess(Process Process, SEDST Method, SEST Type)
         {
             return false;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Process"></param>
+        /// <param name="DeviceName"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static bool WallpaperProcess(Process Process, string DeviceName, SEST Type)
+        {
+            bool IsFixed = SWHDC.FixProcess(Process);
+
+            if (IsFixed)
+            {
+                SWUS.FillScreenProcess(Process, SWHSM.OwnerScreen(DeviceName), Type);
+            }
+
+            return IsFixed;
         }
     }
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using Rectangle = System.Drawing.Rectangle;
 using SEEST = Skylark.Enum.ExpandScreenType;
@@ -12,29 +12,6 @@ namespace Skylark.Wing.Helper
     /// </summary>
     public static class ScreenManage
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Index"></param>
-        /// <returns></returns>
-        public static SSMMS OwnerScreen(int Index = 0)
-        {
-            Index = OwnerScreenIndex(Index);
-
-            //SWUS.Initialize(); // Initialize the screens.
-
-            if (Index < SWUS.Screens.Length)
-            {
-                return SWUS.Screens[Index];
-            }
-
-            return new SSMMS()
-            {
-                rcMonitor = Screen.PrimaryScreen.Bounds,
-                rcWork = Screen.PrimaryScreen.WorkingArea
-            };
-        }
-
         /// <summary>
         /// 
         /// </summary>
@@ -75,6 +52,51 @@ namespace Skylark.Wing.Helper
                         };
                 }
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Index"></param>
+        /// <returns></returns>
+        public static SSMMS OwnerScreen(int Index = 0)
+        {
+            Index = OwnerScreenIndex(Index);
+
+            //SWUS.Initialize(); // Initialize the screens.
+
+            if (Index < SWUS.Screens.Length)
+            {
+                return SWUS.Screens[Index];
+            }
+
+            return new SSMMS()
+            {
+                rcMonitor = Screen.PrimaryScreen.Bounds,
+                rcWork = Screen.PrimaryScreen.WorkingArea,
+                szDevice = Screen.PrimaryScreen.DeviceName
+            };
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="DeviceName"></param>
+        /// <returns></returns>
+        public static SSMMS OwnerScreen(string DeviceName)
+        {
+            if (!string.IsNullOrEmpty(DeviceName))
+            {
+                foreach (SSMMS Screen in SWUS.Screens)
+                {
+                    if (string.Equals(Screen.szDevice, DeviceName, StringComparison.OrdinalIgnoreCase))
+                    {
+                        return Screen;
+                    }
+                }
+            }
+
+            return OwnerScreen(0);
         }
 
         /// <summary>

@@ -1,4 +1,4 @@
-﻿using System.Runtime.InteropServices;
+using System.Runtime.InteropServices;
 using SRRS = Skylark.Struct.Rectangles.RectanglesStruct;
 
 namespace Skylark.Struct.Monitor
@@ -6,7 +6,7 @@ namespace Skylark.Struct.Monitor
     /// <summary>
     /// 
     /// </summary>
-    [StructLayout(LayoutKind.Sequential)]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     public struct MonitorStruct
     {
         /// <summary>
@@ -25,5 +25,10 @@ namespace Skylark.Struct.Monitor
         /// 
         /// </summary>
         public uint dwFlags;
+        /// <summary>
+        /// 
+        /// </summary>
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
+        public string szDevice;
     }
 }

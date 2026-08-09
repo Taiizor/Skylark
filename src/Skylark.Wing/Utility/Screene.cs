@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
@@ -49,7 +50,7 @@ namespace Skylark.Wing.Utility
             {
                 SMMS Info = new()
                 {
-                    cbSize = (sizeof(int) * 4 * 2) + (sizeof(int) * 2)
+                    cbSize = Marshal.SizeOf<SMMS>()
                 };
 
                 if (HWAPI.GetMonitorInfo(hDesktop, ref Info) == false)
@@ -94,8 +95,10 @@ namespace Skylark.Wing.Utility
                 {
                     new SMMS()
                     {
+                        cbSize = Marshal.SizeOf<SMMS>(),
                         rcMonitor = Screen.PrimaryScreen.Bounds,
                         rcWork = Screen.PrimaryScreen.WorkingArea,
+                        szDevice = Screen.PrimaryScreen.DeviceName,
                     }
                 };
             }
