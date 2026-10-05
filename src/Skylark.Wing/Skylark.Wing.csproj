@@ -51,7 +51,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.SourceLink.GitHub">
-            <Version>11.0.100-preview.7.26381.103</Version>
+            <Version>11.0.100-rc.1.26425.128</Version>
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
     </ItemGroup>
@@ -80,9 +80,9 @@
         <PackageReference Condition="$(TargetFramework.StartsWith('net6'))" Include="System.Management" Version="6.0.2" />
         <PackageReference Condition="$(TargetFramework.StartsWith('net7'))" Include="System.Management" Version="7.0.2" />
         <PackageReference Condition="$(TargetFramework.StartsWith('net8'))" Include="System.Management" Version="8.0.0" />
-        <PackageReference Condition="$(TargetFramework.StartsWith('net9'))" Include="System.Management" Version="9.0.18" />
-        <PackageReference Condition="$(TargetFramework.StartsWith('net10'))" Include="System.Management" Version="10.0.10" />
-        <PackageReference Condition="$(TargetFramework.StartsWith('net11'))" Include="System.Management" Version="11.0.0-preview.6.26359.118" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net9'))" Include="System.Management" Version="9.0.20" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net10'))" Include="System.Management" Version="10.0.12" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net11'))" Include="System.Management" Version="11.0.0-rc.1.26425.128" />
     </ItemGroup>
 
     <ItemGroup>

@@ -49,7 +49,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.SourceLink.GitHub">
-            <Version>11.0.100-preview.7.26381.103</Version>
+            <Version>11.0.100-rc.1.26425.128</Version>
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
     </ItemGroup>
@@ -59,8 +59,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="WebMarkupMin.NUglify" Version="2.22.2" />
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.5-beta1" />
+        <PackageReference Include="WebMarkupMin.NUglify" Version="2.22.5" />
+        <PackageReference Include="Newtonsoft.Json" Version="14.0.1-beta2" />
     </ItemGroup>
 
     <ItemGroup>

@@ -89,10 +89,8 @@ namespace Skylark.Wing.Helper
         public static SWMFLI GetFileLockInfo(string filePath, string detectorName)
         {
             SWIIFLD? detector = FileLocksmithFactory.CreateDetector(detectorName);
-            if (detector == null)
-            {
-                detector = FileLocksmithFactory.CreateRecommendedDetector();
-            }
+
+            detector ??= FileLocksmithFactory.CreateRecommendedDetector();
 
             return GetFileLockInfoInternal(filePath, detector);
         }
