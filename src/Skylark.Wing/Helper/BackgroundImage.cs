@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.Text;
 using SEDBT = Skylark.Enum.DesktopBackgroundType;
+using SWEDW = Skylark.Wing.Extension.DesktopWallpaper;
+using SWIIDW = Skylark.Wing.Interface.IDesktopWallpaper;
 using SWNM = Skylark.Wing.Native.Methods;
 using SWUD = Skylark.Wing.Utility.Desktop;
 
@@ -12,6 +14,50 @@ namespace Skylark.Wing.Helper
     /// </summary>
     public static class BackgroundImage
     {
+        /// <summary>
+        /// Disables the Windows slideshow by re-applying the current wallpaper of each monitor as a static picture. Returns true when slideshow is not active anymore.
+        /// </summary>
+        /// <returns></returns>
+        public static bool DisableSlideshow()
+        {
+            try
+            {
+                if (GetModeRegistry() != SEDBT.Slideshow)
+                {
+                    return true;
+                }
+
+                SWIIDW Desktop = (SWIIDW)new SWEDW();
+
+                uint Count = Desktop.GetMonitorDevicePathCount();
+
+                for (uint Index = 0; Index < Count; Index++)
+                {
+                    string MonitorID = Desktop.GetMonitorDevicePathAt(Index);
+
+                    if (string.IsNullOrWhiteSpace(MonitorID))
+                    {
+                        continue;
+                    }
+
+                    string Current = Desktop.GetWallpaper(MonitorID);
+
+                    if (string.IsNullOrWhiteSpace(Current))
+                    {
+                        continue;
+                    }
+
+                    Desktop.SetWallpaper(MonitorID, Current);
+                }
+
+                return GetModeRegistry() != SEDBT.Slideshow;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>
