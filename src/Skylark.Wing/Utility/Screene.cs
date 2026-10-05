@@ -340,7 +340,7 @@ namespace Skylark.Wing.Utility
             {
                 SMMS Info = new()
                 {
-                    cbSize = (sizeof(int) * 4 * 2) + (sizeof(int) * 2)
+                    cbSize = Marshal.SizeOf<SMMS>()
                 };
 
                 if (HWAPI.GetMonitorInfo(Monitor, ref Info) == false)

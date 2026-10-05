@@ -345,7 +345,7 @@ namespace Skylark.Wing.Helper
         /// <param name="hMonitor"></param>
         /// <param name="lpmi"></param>
         /// <returns></returns>
-        [DllImport("user32.dll")]
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern bool GetMonitorInfo(IntPtr hMonitor, ref SSMMS lpmi); // Get monitor information.
 
         /// <summary>
